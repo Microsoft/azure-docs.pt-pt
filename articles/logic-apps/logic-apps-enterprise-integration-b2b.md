@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090387"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542381"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receba e confirme as mensagens B2B AS2 utilizando apps Azure Logic e Pacote de Integração Empresarial
 
@@ -111,7 +111,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
    Agora a forma da condição aparece, incluindo os caminhos para se a condição é cumprida ou não.
 
-   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![A imagem mostra a forma da condição com caminhos vazios.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Agora especifique a condição para avaliar. Na caixa **de valor Escolha,** introduza esta expressão:
 
@@ -119,7 +119,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
    Na caixa média, certifique-se de que a operação de comparação está definida para `is equal to` . Na caixa do lado direito, insira o valor `Expected` . Para obter a expressão para resolver como este símbolo, altere entre o designer e a visão de código.
 
-   ![Forma de condição com caminhos de decisão](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![A screenshot mostra a forma da condição com uma condição adicionada.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Agora especifique as respostas para devolver se a ação **de Decode AS2** tem sucesso ou não.
 
@@ -178,7 +178,7 @@ Já acabou de configurar a sua aplicação lógica B2B. Numa aplicação do mund
 
 Para ligar as suas próprias aplicações LOB e utilizar estas APIs na sua aplicação lógica, pode adicionar mais ações ou [escrever APIs personalizados.](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Receber e responder às chamadas HTTPS recebidas](../connectors/connectors-native-reqres.md)
 * [Trocar mensagens AS2 para integração empresarial B2B](../logic-apps/logic-apps-enterprise-integration-as2.md)

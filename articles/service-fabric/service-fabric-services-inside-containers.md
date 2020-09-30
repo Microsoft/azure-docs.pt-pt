@@ -3,14 +3,13 @@ title: Contentorize os seus serviços de tecido de serviço Azure no Windows
 description: Saiba como contentorizar os seus serviços de serviços fiáveis e de atores fiáveis no Windows.
 ms.topic: conceptual
 ms.date: 5/23/2018
-ms.author: anmola
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16840eb397dad697d4f3b9f361225e98442ae39e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e0c5f3ecf0334ad2190d8542e54388a2a25d30fb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016211"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537417"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar o Service Fabric Reliable Services e o Reliable Actors em contentores no Windows
 
@@ -138,6 +137,6 @@ Este documento fornece orientações para que o seu serviço seja funcionado den
 
 Deverá agora ter uma aplicação de tecido de serviço contentorizada a executar o seu cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-get-started-containers.md).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

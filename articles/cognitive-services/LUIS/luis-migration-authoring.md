@@ -3,20 +3,18 @@ title: Migrar para uma chave de autoria de recursos Azure
 titleSuffix: Azure Cognitive Services
 description: Este artigo descreve como migrar a autenticação linguística (LUIS) autoria de uma conta de e-mail para um recurso Azure.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.author: diberry
-ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536053"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -245,7 +243,7 @@ Se vir o seguinte erro, verifique os [passos recomendados se é colaborador numa
 ![Erro que mostra que a migração falhou para os colaboradores](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md).

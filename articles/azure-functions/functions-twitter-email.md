@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208549"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537757"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -182,7 +182,7 @@ A sua aplicação está agora ligada ao Twitter. Em seguida, vai ligar à análi
 
 2. Em **Escolher uma ação**, escreva **Análise de Texto** e clique na ação **Detetar sentimento**.
     
-    ![Novo passo e Adicionar uma ação](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Screenshot que mostra a secção "Escolha uma ação" com "Text Analytics" na caixa de pesquisa e a ação "Detetar sentimento" selecionada. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Escreva um nome de ligação, como `MyCognitiveServicesConnection`, cole a chave da API dos Serviços Cognitivos e o ponto final dos Serviços Cognitivos que definir à parte num editor de texto, e clique em **Criar**.
 
@@ -202,7 +202,7 @@ Agora que a deteção de sentimentos está configurada, pode adicionar uma liga�
   
 4. Selecione a aplicação de funções que criou anteriormente.
 
-    ![Selecionar função](media/functions-twitter-email/15-select-function.png)
+    ![Screenshot que mostra a secção "Escolha uma ação" com uma aplicação de função selecionada.](media/functions-twitter-email/15-select-function.png)
 
 5. Selecione a função que criou para este tutorial.
 
@@ -210,7 +210,7 @@ Agora que a deteção de sentimentos está configurada, pode adicionar uma liga�
 
 4. No **corpo do Pedido**, clique em **Classificação** e em **Guardar**.
 
-    ![Classificação](media/functions-twitter-email/17-function-input-score.png)
+    ![Resultado](media/functions-twitter-email/17-function-input-score.png)
 
 Agora, a função é acionada quando é enviada uma classificação de sentimento a partir da aplicação lógica. A função devolve uma categoria codificada com cores à aplicação lógica. Em seguida, adicione uma notificação de e-mail que é enviada quando a função devolver o valor de sentimento **RED** (vermelho). 
 
@@ -228,7 +228,7 @@ A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é
 
 3. Em **IF TRUE**, clique em **Adicionar uma ação**, procure por `outlook.com`, clique em **Send an email** (Enviar e-mail) e inicie sessão na sua conta do Outlook.com.
 
-    ![Configure o e-mail para a ação “send an email”.](media/functions-twitter-email/20-add-outlook.png)
+    ![Screenshot que mostra a secção "IF TRUE" com "outlook.com" inserida na caixa de pesquisa e a ação "Enviar um e-mail" selecionada.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Se não tiver uma conta do Outlook.com, pode escolher outro conector, como o Gmail ou Outlook do Office 365
@@ -243,7 +243,7 @@ A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é
 | **Assunto** | Sentimento negativo de tweet detetado  | A linha de assunto da notificação de e-mail.  |
 | **Corpo** | Texto do tweet, Localização | Clique nos parâmetros **Tweet text** (Texto do tweet) e **Location** (Localização). |
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 Agora que o fluxo de trabalho está concluído, pode ativar a aplicação lógica e ver a função em funcionamento.
 

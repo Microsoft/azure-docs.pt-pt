@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 094efad84b79095db324260dfa46bd0167e219ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252923"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541837"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
 
@@ -821,11 +821,11 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 4. Na página da **fábrica de dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
 
 5. Na página **Let's get start,** selecione **Monitor** no lado esquerdo. 
-![Cursos de Gasoduto](media/doc-common-process/get-started-page-monitor-button.png)    
+![A screenshot mostra a página Let's get start for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
 
-    ![Instâncias de Pipeline](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![A screenshot mostra que o gasoduto funciona para uma fábrica de dados, incluindo o seu oleoduto.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Quando selecionar o link na coluna **Ações,** vê toda a atividade a correr para o oleoduto. 
 
 8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs**. 
@@ -974,7 +974,7 @@ project_table   2017-10-01 00:00:00.000
 
 Tenha em atenção que os valores de limite de tamanho de ambas as tabelas foram atualizados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

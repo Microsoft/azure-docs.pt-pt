@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77019405"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533422"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Questões de conectividade e networking para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -99,7 +99,7 @@ Como esta ligação do cabeçalho do anfitrião é aplicada através do ficheiro
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Como posso garantir que o endereço IP virado para o público de um serviço de nuvem nunca muda?
 
-Para garantir que o endereço IP virado para o público do seu serviço na nuvem (também conhecido como VIP) nunca muda para que possa ser habitualmente whitelistado por alguns clientes específicos, recomendamos que tenha um IP reservado associado a ele. Caso contrário, o IP virtual fornecido pela Azure é transabilitado a partir da sua subscrição se eliminar a implementação. Para uma operação de troca VIP bem sucedida, precisa de IPs reservados individuais para slots de produção e de paragem. Sem eles, a operação de troca falha. Para reservar um endereço IP e associá-lo ao seu serviço na nuvem, consulte estes artigos:
+Para garantir que o endereço IP virado para o público do seu serviço na nuvem (também conhecido como VIP) nunca muda para que possa ser habitualmente aprovado por alguns clientes específicos, recomendamos que tenha um IP reservado associado ao mesmo. Caso contrário, o IP virtual fornecido pela Azure é transabilitado a partir da sua subscrição se eliminar a implementação. Para uma operação de troca VIP bem sucedida, precisa de IPs reservados individuais para slots de produção e de paragem. Sem eles, a operação de troca falha. Para reservar um endereço IP e associá-lo ao seu serviço na nuvem, consulte estes artigos:
 
 - [Reserve o endereço IP de um serviço de nuvem existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associar um IP reservado a um serviço de nuvem utilizando um ficheiro de configuração de serviço](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

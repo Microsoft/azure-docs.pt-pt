@@ -1,21 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.date: 05/18/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: diberry
-ms.openlocfilehash: 9e82c1b18bcd2edbe0fb4ed4846823acbb398eca
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 1f2b14bf2d41a56f8af4e7262f3d5e462b875788
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378417"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534645"
 ---
 As declarações de exemplo seguem um formato específico.
 

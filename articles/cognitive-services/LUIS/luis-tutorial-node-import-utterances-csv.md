@@ -3,20 +3,18 @@ title: Expressões de importação usando Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: Saiba como construir uma aplicação LUIS programáticamente a partir de dados pré-existentes em formato CSV utilizando a API de Autoria LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
-ms.author: diberry
-ms.openlocfilehash: 13e18e024c2200459e58474f53bed2431e3375a7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298236"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541051"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente utilizando Node.js
 
@@ -186,7 +184,7 @@ Assim que o script estiver concluído, pode iniciar sôms no [LUIS](luis-referen
 ![Intenção turnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Teste e treine a sua app no site da LUIS](luis-interactive-test.md)

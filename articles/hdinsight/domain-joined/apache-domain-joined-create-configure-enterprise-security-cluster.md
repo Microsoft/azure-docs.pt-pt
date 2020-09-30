@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536074"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
 
@@ -46,7 +46,7 @@ Nesta secção, você usará um modelo de implementação Azure Quickstart para 
     |Propriedade | Valor |
     |---|---|
     |Subscrição|Selecione a subscrição onde pretende implementar os recursos.|
-    |Grupo de recursos|Selecione **Criar novo,** e insira o nome`OnPremADVRG`|
+    |Grupo de recursos|Selecione **Criar novo,** e insira o nome `OnPremADVRG`|
     |Localização|Selecione uma localização.|
     |Nome de utilizador Admin|`HDIFabrikamAdmin`|
     |Palavra-passe de Administrador|Introduza uma senha.|
@@ -82,7 +82,7 @@ Nesta secção irá criar os utilizadores que terão acesso ao cluster HDInsight
 
         ![Criar um novo utilizador de Ative Directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. Na página New **Object - User,** introduza `HDIUser` o nome do primeiro **nome** e o nome de logotipo **do utilizador.** Os outros campos autopovoam. Em seguida, selecione **Seguinte**.
+    1. Na página New **Object - User,** introduza `HDIUser` o nome do primeiro **nome** e o nome de logotipo **do utilizador.** Os outros campos autopovoam. e selecione **Seguinte**.
 
         ![Crie o primeiro objeto de utilizador administrativo](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -129,7 +129,7 @@ Os utilizadores serão sincronizados com Azure AD.
 ### <a name="create-a-custom-domain"></a>Criar um domínio personalizado
 
 1. A partir do seu novo **Diretório Ativo Azure**, em **Manage**, selecione **nomes de domínio personalizados**.
-1. **Selecione + Adicione o domínio personalizado**.
+1. Selecione **+ Adicionar domínio personalizado**.
 1. Em **nome de domínio personalizado,** `HDIFabrikam.com` insira e, em seguida, **selecione Adicionar domínio**.
 1. Em seguida, preencha [as informações de DNS ao registo de domínio](../../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar).
 
@@ -158,7 +158,7 @@ Criar um administrador de inquilino do Ative Directory.
 
     |Propriedade |Descrição |
     |---|---|
-    |Nome de utilizador|`fabrikamazureadmin`Insira na caixa de texto. A partir da lista de drop-down de nome de domínio, selecione`hdifabrikam.com`|
+    |Nome de utilizador|`fabrikamazureadmin`Insira na caixa de texto. A partir da lista de drop-down de nome de domínio, selecione `hdifabrikam.com`|
     |Name| Introduza `fabrikamazureadmin`.|
 
     **Palavra-passe**
@@ -186,17 +186,17 @@ Criar um administrador de inquilino do Ative Directory.
 
 1. A partir do controlador de domínio, baixe [o Microsoft Azure Ative Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-1. Abra o ficheiro executável que descarregou e concorde com os termos da licença. Selecione **Continuar**.
+1. Abra o ficheiro executável que descarregou e concorde com os termos da licença. **Selecione Continuar**.
 
 1. **Selecione Utilize as definições expressas**.
 
-1. Na página **Connect to Azure AD,** insira o nome de utilizador e a palavra-passe do administrador global para Azure AD. Use o nome de utilizador `fabrikamazureadmin@hdifabrikam.com` que criou quando configurar o seu inquilino Ative Directory. Em seguida, selecione **Seguinte**.
+1. Na página **Connect to Azure AD,** insira o nome de utilizador e a palavra-passe do administrador global para Azure AD. Use o nome de utilizador `fabrikamazureadmin@hdifabrikam.com` que criou quando configurar o seu inquilino Ative Directory. e selecione **Seguinte**.
 
-    ![A página "Connect to AZure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![A página "Ligar a Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. Na página **'Ligar aos Serviços de Domínio do Diretório Activo',** insira o nome de utilizador e a palavra-passe para uma conta administrada da empresa. Utilize o nome de utilizador `HDIFabrikam\HDIFabrikamAdmin` e a sua palavra-passe que criou anteriormente. Em seguida, selecione **Seguinte**.
+1. Na página **'Ligar aos Serviços de Domínio do Diretório Activo',** insira o nome de utilizador e a palavra-passe para uma conta administrada da empresa. Utilize o nome de utilizador `HDIFabrikam\HDIFabrikamAdmin` e a sua palavra-passe que criou anteriormente. e selecione **Seguinte**.
 
-   ![A página "Connect to AZure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![A página "Ligar a Um D D S".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Na página **de configuração de inscrição AD Azure,** selecione **Seguinte**.
    ![A página "Azure AD sign-in"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -333,7 +333,7 @@ Verifique se o certificado está instalado na loja **pessoal** do computador:
     ![A página chave privada de exportação do assistente de exportação de certificados](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. Na página **'Formato de Ficheiro de Exportação',** deixe as definições predefinidos e, em seguida, selecione **Seguinte**.
-1. Na página **Palavra-passe,** digite uma palavra-passe para a chave privada. Para **encriptação,** selecione **TripleDES-SHA1**. Em seguida, selecione **Seguinte**.
+1. Na página **Palavra-passe,** digite uma palavra-passe para a chave privada. Para **encriptação,** selecione **TripleDES-SHA1**. e selecione **Seguinte**.
 1. Na página **'Ficheiro para Exportação',** digite o caminho e o nome do ficheiro de certificado exportado e, em seguida, selecione **Seguinte**. O nome do ficheiro tem de ter uma extensão .pfx. Este ficheiro está configurado no portal Azure para estabelecer uma ligação segura.
 1. Ativar o LDAPS para um domínio gerido Azure AD DS.
     1. A partir do portal Azure, selecione o domínio `HDIFabrikam.com` .

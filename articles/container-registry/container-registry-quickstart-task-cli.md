@@ -3,12 +3,13 @@ title: Quickstart - Construa uma imagem de contentor a pedido em Azure
 description: Utilize comandos de registo de contentores Azure para construir, empurrar e executar rapidamente uma imagem de contentor Docker a pedido, na nuvem Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.openlocfilehash: 6c73eb8ec69014858299eb940036716eff646137
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.custom: contperfq1
+ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409838"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538233"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Quickstart: Construa e execute uma imagem de contentor usando tarefas de registo de contentores Azure
 
@@ -177,7 +178,7 @@ Quando já não for necessário, pode utilizar o comando de exclusão do [grupo 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, usou funcionalidades de Tarefas ACR para construir, empurrar e executar rapidamente uma imagem de contentor Docker nativamente dentro de Azure, sem uma instalação local do Docker. Continue para os tutoriais de Tarefas de Registo de Contentores Azure para aprender sobre a utilização de tarefas ACR para automatizar construções e atualizações de imagem.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399020"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534952"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registre-se serviço de peering usando o portal Azure
 
@@ -72,14 +72,14 @@ A partir de um browser, vá ao portal Azure e inscreva-se na sua conta Azure.
 1. **Selecione Criar novo prefixo** na parte inferior da secção **Prefixos** e aparecer caixas de texto. Agora, insira o nome do recurso prefixo e os prefixos que estão associados ao prestador de serviços.
 
 1. Selecione **a Chave Prefixo** e adicione a Chave prefixo que lhe foi dada pelo seu fornecedor (ISP ou IXP). Esta chave permite aos Ms validar o prefixo e o fornecedor que alocou o seu prefixo IP.
-   > ![Registar separador de configuração do Serviço de Pares](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![A screenshot mostra o separador Configuração da página de ligação de serviço de espreitar onde pode introduzir a tecla Prefix.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selecione o botão **'Rever +'** no lado inferior esquerdo da página. Aparece a página **Review + create** e o Azure valida a sua configuração.
     
 
 1. Quando vir a mensagem **de validação passada** como mostrado, selecione **Criar**.
 
-   > ![Registar separador de configuração do Serviço de Pares](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Screenshot mostra o separador Review + criar uma página de conexão de serviço de espreitar.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Depois de registar uma ligação de Serviço de Peering, é realizada uma validação adicional nos prefixos incluídos. Pode rever o estado de validação na secção **Prefixos** do nome do recurso. Se a validação falhar, é apresentada uma das seguintes mensagens de erro:
@@ -105,7 +105,7 @@ Na página **Todos os Recursos,** selecione a caixa de verificação no Serviço
 > Não se pode modificar um prefixo existente.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a ligação do Serviço de Peering, consulte [a ligação do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).

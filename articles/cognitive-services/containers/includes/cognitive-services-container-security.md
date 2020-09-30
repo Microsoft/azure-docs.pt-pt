@@ -1,7 +1,7 @@
 ---
 title: Segurança do contentor
 titleSuffix: Azure Cognitive Services
-description: Aprenda a proteger o seu recipiente
+description: Saiba como proteger o seu recipiente
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,44 +9,44 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876839"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545246"
 ---
-## <a name="azure-cognitive-services-container-security"></a>Segurança de contentores dos Serviços Cognitivos Azure
+## <a name="azure-cognitive-services-container-security"></a>Segurança do contentor Azure Cognitive Services
 
-A segurança deve ser um foco principal sempre que estiver a desenvolver aplicações. A importância da segurança é uma métrica para o sucesso. Quando se está a arquitetar uma solução de software que inclui recipientes de Serviços Cognitivos, é vital compreender as limitações e capacidades de que dispomos. Para obter mais informações sobre segurança da rede, consulte as redes virtuais do [Configure Azure Cognitive Services.][az-security]
+A segurança deve ser o principal foco sempre que estiver a desenvolver aplicações. A importância da segurança é uma métrica para o sucesso. Quando você está arquitetando uma solução de software que inclui recipientes de Serviços Cognitivos, é vital entender as limitações e capacidades disponíveis para você. Para obter mais informações sobre a segurança da rede, consulte [as redes virtuais Configure Azure Cognitive Services][az-security].
 
 > [!IMPORTANT]
-> Por *defeito, não* existe segurança no contentor dos Serviços Cognitivos API. A razão para isso é que, na maioria das vezes, o contentor funcionará como parte de uma cápsula que é protegida do exterior por uma ponte de rede. No entanto, é possível ativar a autenticação que funciona de forma idêntica à autenticação utilizada no acesso aos [Serviços Cognitivos baseados na nuvem.][request-authentication]
+> Por *defeito, não* existe segurança no contentor dos Serviços Cognitivos API. A razão para isso é que, na maioria das vezes, o contentor funciona como parte de uma cápsula que é protegida do exterior por uma ponte de rede. No entanto, é possível permitir a autenticação que funciona de forma idêntica à autenticação utilizada no acesso aos [Serviços Cognitivos baseados na nuvem.][request-authentication]
 
-O diagrama abaixo ilustra a abordagem predefinida e **não segura:**
+O diagrama abaixo ilustra a abordagem padrão e **não segura:**
 
 ![Segurança do contentor](../media/container-security.svg)
 
-Como uma abordagem alternativa e *segura,* os consumidores de recipientes de Serviços Cognitivos poderiam aumentar um recipiente com um componente frontal, mantendo o ponto final do recipiente privado. Vamos considerar um cenário em que usamos [istio][istio] como um portal de entrada. A Istio suporta https/TLS e autenticação de certificado de cliente. Neste cenário, o frontend istio expõe o acesso ao contentor, apresentando o certificado de cliente que é previamente listado com istio.
+Como uma abordagem alternativa e *segura,* os consumidores de recipientes de Serviços Cognitivos poderiam aumentar um recipiente com um componente frontal, mantendo o ponto final do contentor privado. Vamos considerar um cenário em que usamos [o Istio][istio] como porta de entrada. A Istio suporta HTTPS/TLS e autenticação de certificado de cliente. Neste cenário, o frontend istio expõe o acesso ao contentor, apresentando o certificado de cliente que é previamente aprovado com a Istio.
 
-[Nginx][nginx] é outra escolha popular na mesma categoria. Tanto istio como Nginx atuam como uma malha de serviço e oferecem funcionalidades adicionais, incluindo coisas como o equilíbrio de carga, encaminhamento e controlo de tarifas.
+[Nginx][nginx] é outra escolha popular na mesma categoria. Tanto a Istio como a Nginx funcionam como uma malha de serviço e oferecem funcionalidades adicionais, incluindo coisas como o equilíbrio de carga, encaminhamento e controlo de tarifas.
 
 ### <a name="container-networking"></a>Funcionamento em rede do contentor
 
-Os recipientes dos Serviços Cognitivos são obrigados a apresentar informações de medição para efeitos de faturação. A única exceção é os *contentores offline,* uma vez que seguem uma metodologia de faturação diferente. A não estão a permitir a lista de vários canais de rede em que os contentores dos Serviços Cognitivos dependem impedirão o funcionamento do contentor.
+Os recipientes dos Serviços Cognitivos são obrigados a submeter informações de medição para efeitos de faturação. A única exceção é *os contentores offline,* uma vez que seguem uma metodologia de faturação diferente. A não identificação de vários canais de rede em que os contentores dos Serviços Cognitivos dependem impedirá o funcionamento do contentor.
 
-#### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permitir lista de domínios e portas de Serviços Cognitivos
+#### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permitir listar domínios e portas de Serviços Cognitivos
 
-O anfitrião deve permitir a **porta 443** e os seguintes domínios:
+O anfitrião deve permitir a **lista da porta 443** e os seguintes domínios:
 
 * `*.cognitive.microsoft.com`
 * `*.cognitiveservices.azure.com`
 
 #### <a name="disable-deep-packet-inspection"></a>Desativar a inspeção de pacotes profundos
 
-> [A inspeção de pacotes profundos](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) é um tipo de processamento de dados que inspeciona detalhadamente os dados que são enviados através de uma rede informática, e geralmente toma medidas bloqueando, reencaminhando ou registando-os em conformidade.
+> [A inspeção de pacotes profundos](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) é um tipo de processamento de dados que inspeciona detalhadamente os dados enviados através de uma rede de computadores, e geralmente toma medidas bloqueando, reencaminhando ou registando-os em conformidade.
 
-Desative o DPI nos canais seguros que os recipientes dos Serviços Cognitivos criam para os servidores da Microsoft. Se não o fizer, impedirá o funcionamento correto do recipiente.
+Desative o DPI nos canais seguros que os contentores dos Serviços Cognitivos criam para servidores da Microsoft. Se não o fizer, o recipiente funcione corretamente.
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com

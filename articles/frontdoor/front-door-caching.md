@@ -9,28 +9,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398036"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535836"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
-O documento que se segue especifica o comportamento para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) e assim, juntamente com a aceleração dinâmica do site e o equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
+O documento que se segue especifica comportamentos para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) com aceleração dinâmica do site e equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
 
 ## <a name="delivery-of-large-files"></a>Entrega de grandes ficheiros
-A porta frontal Azure entrega ficheiros grandes sem uma tampa no tamanho do ficheiro. A Porta da Frente usa uma técnica chamada "pancada de objetos". Quando é pedido um ficheiro grande, o Front Door obtém pequenas partes do ficheiro a partir do back-end. Depois de receber um pedido de ficheiro completo ou de intervalo de bytes, um ambiente do Front Door pede o ficheiro ao back-end em segmentos de 8 MB.
+A porta frontal Azure entrega ficheiros grandes sem uma tampa no tamanho do ficheiro. A Porta da Frente usa uma técnica chamada "pancada de objetos". Quando é pedido um ficheiro grande, o Front Door obtém pequenas partes do ficheiro a partir do back-end. Depois de receber um pedido de ficheiro completo ou byte-range, o ambiente front door solicita o ficheiro a partir do backend em pedaços de 8 MB.
 
-</br>Depois de o pedaço chegar ao ambiente da porta da frente, é em cache e imediatamente servido ao utilizador. Porta da frente, em seguida, pré-buscar o próximo pedaço em paralelo. Esta pré-busca garante que o conteúdo permanece um pedaço à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro seja descarregado (se solicitado), todos os intervalos byte estão disponíveis (se solicitado), ou o cliente termina a ligação.
+</br>Depois de o pedaço chegar ao ambiente da Porta da Frente, é em cache e imediatamente servido ao utilizador. Porta da frente, em seguida, pré-buscar o próximo pedaço em paralelo. Esta pré-busca garante que o conteúdo permanece um pedaço à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro seja descarregado (se solicitado) ou o cliente fechar a ligação.
 
 </br>Para obter mais informações sobre o pedido byte-range, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
-A Porta da Frente caches quaisquer pedaços à medida que são recebidos e por isso todo o ficheiro não precisa de ser colocado na cache da porta da frente. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache. Se nem todos os pedaços estiverem em cache, é usado para solicitar pedaços do backend. Esta otimização baseia-se na capacidade do backend de suportar pedidos byte-range; se o backend não suporta pedidos de byte-range, esta otimização não é eficaz.
+A Porta da Frente caches quaisquer pedaços como eles são recebidos para que todo o arquivo não precise ser em cache na cache da porta da frente. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache. Se os pedaços não estiverem todos em cache, a pré-busca é usada para pedir pedaços do backend. Esta otimização baseia-se na capacidade do backend de suportar pedidos de alcance byte. Se o backend não suporta pedidos de byte-range, esta otimização não é eficaz.
 
 ## <a name="file-compression"></a>Compressão de ficheiros
-A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando numa resposta menor e mais rápida aos seus clientes. Todos os ficheiros são elegíveis para compressão. No entanto, um ficheiro deve ser de um tipo MIME que seja elegível para lista de compressão. Atualmente, a Porta frontal não permite que esta lista seja alterada. A lista atual é:</br>
+A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando num tempo de resposta cada vez menor e mais rápido para os seus clientes. Todos os ficheiros são elegíveis para compressão. No entanto, um ficheiro deve ser de tipo MIME para ser elegível para compressão. Atualmente, a Porta da Frente não permite que esta lista seja alterada. A lista atual é:</br>
 - "aplicação/eot"
 - "aplicação/fonte"
 - "aplicação/fonte-sfnt"
@@ -79,19 +79,19 @@ Estes perfis suportam as seguintes codificações de compressão:
 - [Rio Brotli](https://en.wikipedia.org/wiki/Brotli)
 
 Se um pedido suporta a compressão gzip e Brotli, a compressão Brotli tem precedência.</br>
-Quando um pedido de um ativo especifica a compressão e o pedido resulta numa falha de cache, a Porta Frontal executa a compressão do ativo diretamente no servidor POP. Depois, o ficheiro comprimido é servido a partir da cache. O item resultante é devolvido com uma codificação de transferência: em pedaços.
+Quando um pedido de um ativo especifica a compressão e o pedido resulta numa falha de cache, a Porta Frontal faz a compressão do ativo diretamente no servidor POP. Depois, o ficheiro comprimido é servido a partir da cache. O item resultante é devolvido com uma codificação de transferência: em pedaços.
 
 ## <a name="query-string-behavior"></a>Comportamento da corda de consulta
-Com a Porta Frontal, pode controlar como os ficheiros são cached para um pedido web que contém uma cadeia de consulta. Num pedido web com uma cadeia de consulta, a cadeia de consulta é essa parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor-chave, nos quais o nome do campo e o seu valor são separados por um sinal igual (=). Cada par de valores-chave é separado por um ampersand (&). Por exemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se houver mais de um par de valores-chave numa sequência de consulta de um pedido, a sua encomenda não importa.
+Com a Porta Frontal, pode controlar como os ficheiros são cached para um pedido web que contém uma cadeia de consulta. Num pedido web com uma cadeia de consulta, a cadeia de consulta é essa parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor-chave, nos quais o nome do campo e o seu valor são separados por um sinal igual (=). Cada par de valores-chave é separado por um ampersand (&). Por exemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se há mais de um par de valores-chave numa sequência de consulta de um pedido, então a encomenda deles não importa.
 - **Ignore as cordas de consulta**: Neste modo, a Porta Frontal passa as cordas de consulta do solicitador para o backend no primeiro pedido e caches o ativo. Todos os pedidos subsequentes para o ativo que são servidos a partir do ambiente da Porta frontal ignoram as cordas de consulta até que o ativo em cache expire.
 
 - **Cache cada URL único**: Neste modo, cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache. Por exemplo, a resposta do backend para um pedido `www.example.ashx?q=test1` de pedido é em cache no ambiente da porta da frente e devolvida para caches subsequentes com a mesma cadeia de consulta. Um pedido `www.example.ashx?q=test2` é em cache como um ativo separado com a sua própria definição de tempo-a-vida.
 
 ## <a name="cache-purge"></a>Purga de cache
 
-Porta frontal caches ativos até que o tempo de vida do ativo (TTL) expire. Após o TTL do ativo expirar, quando um cliente solicita o ativo, o ambiente Front Door recupera uma nova cópia atualizada do ativo para servir o pedido do cliente e armazenar a cache.
+Porta frontal caches ativos até que o tempo de vida do ativo (TTL) expire. Sempre que um cliente solicita um ativo com TTL caducado, o ambiente front door recupera uma nova cópia atualizada do ativo para servir o pedido e, em seguida, armazena a cache renovada.
 
-A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs. A Porta da Frente irá imediatamente recuperar os novos ativos para os próximos pedidos do cliente. Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados. Isto pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.
+A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs. A Porta da Frente irá imediatamente recuperar os novos ativos para os próximos pedidos do cliente. Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados. A razão pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.
 
 Selecione os ativos que pretende purgar dos nós de borda. Para limpar todos os ativos, **selecione Purgar todos**. Caso contrário, em **Caminho,** entre no caminho de cada ativo que pretende purgar.
 
@@ -113,21 +113,21 @@ As purgas de cache na porta da frente são insensíveis. Além disso, são agnó
 2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date>
 
-Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada.  Se não houver cache-control o comportamento padrão é que o AFD cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
+Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada.  Se não houver cache-control, o comportamento padrão é que a Porta Frontal cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
-Os seguintes cabeçalhos de pedido não serão encaminhados para um backend durante a utilização do caching.
+Os seguintes cabeçalhos de pedido não serão encaminhados para um backend quando utilizar o caching.
 - Comprimento do conteúdo
 - Codificação de transferências
 
 ## <a name="cache-duration"></a>Duração da cache
 
-A duração da cache pode ser configurada tanto no Front Door Designer como no Regimento. A duração da cache definida no designer Frontdoor é a duração mínima da cache. Esta sobreposição não funcionará se o cabeçalho de controlo de cache da origem tiver um TTL maior do que o valor de sobreposição. 
+A duração da cache pode ser configurada tanto no Front Door Designer como no Regimento. A duração da cache definida no designer da porta da frente é a duração mínima da cache. Esta sobreposição não funcionará se o cabeçalho de controlo de cache da origem tiver um TTL maior do que o valor de substituição. 
 
-A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do que é o cabeçalho de resposta de origem.
+A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do cabeçalho de resposta de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

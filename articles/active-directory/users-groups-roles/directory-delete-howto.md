@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056307"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541259"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory
 
@@ -123,19 +123,19 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
 2. Selecione **Licenças**e, em seguida, selecione **produtos de inscrição de self-service**. Pode ver todos os produtos de inscrição de self-service separadamente das subscrições baseadas em assentos. Escolha o produto que pretende eliminar permanentemente. Aqui está um exemplo no Microsoft Power BI:
 
-    ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/licenses-page.png)
+    ![Screenshot que mostra a página "Licenças - Produtos de inscrição de autosserviço".](./media/directory-delete-howto/licenses-page.png)
 
 3. **Selecione Eliminar** para eliminar o produto e aceitar os termos que os dados são eliminados imediatamente e irrevogavelmente. Esta ação de eliminação removerá todos os utilizadores e removerá o acesso da organização ao produto. Clique em Sim para avançar com a eliminação.  
 
-    ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/delete-product.png)
+    ![Screenshot que mostra a página "Licenças - Produtos de autosserviço de inscrição" com a janela "Eliminar o produto de inscrição de autosserviço" aberta.](./media/directory-delete-howto/delete-product.png)
 
 4. Quando selecionar **Sim,** iniciar-se-á a supressão do produto self-service. Há uma notificação que lhe dirá a supressão em curso.  
 
-    ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/progress-message.png)
+    ![Screenshot que mostra a página "Licenças - Produtos de autosserviço de inscrição" com a notificação de "eliminação em curso" exibida.](./media/directory-delete-howto/progress-message.png)
 
 5. Agora, o estado do produto de autosserviço mudou para **Deleted**. Quando refrescar a página, o produto deve ser removido da página de **produtos de inscrição self-service.**  
 
-    ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/product-deleted.png)
+    ![Screenshot que mostra a página "Licenças - Produtos de autosserviço de inscrição" com o painel "Produto de inscrição de autosserviço eliminado" no lado direito.](./media/directory-delete-howto/product-deleted.png)
 
 6. Uma vez eliminado todos os produtos, pode voltar a entrar no centro de administração Azure AD e não deverá haver nenhuma ação necessária e nenhum produto que bloqueie a sua eliminação da organização. Deverá ser capaz de eliminar com sucesso a sua organização Azure AD.
 

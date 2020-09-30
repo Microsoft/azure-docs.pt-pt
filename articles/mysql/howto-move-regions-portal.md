@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c9751a303afc947fd682558236751c69f107dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568944"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542517"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MySQL para outra região utilizando o portal Azure
 
@@ -33,16 +33,16 @@ Você pode usar uma [réplica de leitura de azure para a região transversal](co
 
 Para criar um servidor de réplica de leitura transversal na região alvo utilizando o portal Azure, utilize os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione **Adicionar Réplica**.
 1. Introduza um nome para o servidor de réplica.
-1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma do servidor principal. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
+1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma que a do servidor de origem. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação de réplicas, os dados são copiados do servidor de origem para a réplica. Criar tempo pode durar vários minutos ou mais, proporcionalmente ao tamanho do servidor de origem.
 
 >[!NOTE]
-> Quando se cria uma réplica, não herda os pontos finais de serviço VNet do servidor principal. Estas regras devem ser criadas de forma independente para a réplica.
+> Quando cria uma réplica, não herda os pontos finais de serviço VNet do servidor de origem. Estas regras devem ser criadas de forma independente para a réplica.
 
 ## <a name="move"></a>Mover
 
@@ -60,7 +60,7 @@ Parar a replicação no servidor de réplicas faz com que se torne um servidor a
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
-Pode querer eliminar a base de dados Azure de origem para o servidor MySQL. Para fazê-lo, siga os seguintes passos:
+Pode querer eliminar a base de dados Azure de origem para o servidor MySQL. Para isso, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a base de dados Azure para o servidor de origem MySQL.
 1. Na janela **'Vista Geral',** selecione **Delete**.

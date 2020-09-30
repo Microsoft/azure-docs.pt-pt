@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932768"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538792"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Esta abordagem é mais flexível do que o modelo de extração, pois pode carreg
 Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para um índice:
 
 + [Adicionar, Atualizar ou Eliminar Documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) ou [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
@@ -98,7 +98,7 @@ Uma forma rápida de realizar uma verificação preliminar no upload do document
 > [!TIP]
 > Numerosas amostras de código de [pesquisa cognitiva do Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executam o indexante pré-configurado na fonte de dados da amostra, um índice é criado e carregado com documentos que podem ser consultados no Explorador de Busca ou por código que escreve.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

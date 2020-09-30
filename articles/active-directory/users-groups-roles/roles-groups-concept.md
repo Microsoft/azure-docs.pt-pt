@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317417"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542313"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -58,7 +58,6 @@ Os seguintes cenários não são apoiados neste momento:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- Não é possível criar ou modificar um grupo dinâmico quando o papel é atribuído através de um grupo.
 - O lançamento encenado por Enable para funcionalidade **de inscrição de utilizador gerida** não suporta a atribuição através do grupo.
 - *Clientes licenciados Azure AD P2 apenas*: Não atribua um grupo como Ative a um papel através da Azure AD e da Gestão de Identidade Privilegiada (PIM). Especificamente, não atribua um papel a um grupo atribuível a papéis quando está a ser criado *e* atribua um papel ao grupo usando PIM mais tarde. Isto levará a problemas em que os utilizadores não podem ver as suas atribuições de papel ativa no PIM, bem como a incapacidade de remover essa atribuição pim. As atribuições elegíveis não são afetadas neste cenário. Se tentar fazer esta tarefa, poderá ver comportamentos inesperados como:
   - O fim do tempo para a atribuição da função pode ser apresentado incorretamente.
@@ -73,7 +72,7 @@ Estamos a resolver estas questões.
 
 A utilização desta funcionalidade requer que tenha uma licença Azure AD Premium P1 disponível na sua organização Azure AD. Para utilizar também a Gestão de Identidade Privilegiada para ativação de funções just-in-time requer que você tenha uma licença Azure AD Premium P2 disponível. Para encontrar a licença certa para os seus requisitos, consulte [Comparar as funcionalidades geralmente disponíveis dos planos Free and Premium.](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um grupo ao qual se pode atribuir funções](roles-groups-create-eligible.md)
 - [Atribuir um papel a um grupo atribuível a funções](roles-groups-assign-role.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 919eef113b1a44b84aacf306426ac4f82baa2423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321089"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542024"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento Azure Blob utilizando informações de rastreio de alterações utilizando o portal Azure
 
@@ -285,10 +285,10 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
 
 1. Clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Pipeline**.
 
-    ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![A screenshot mostra a opção Pipeline para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **FullCopyPipeline**.
 
-    ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![A screenshot mostra um oleoduto com um nome introduzido.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline e defina o nome ** FullCopyActivity**.
 
     ![Nome da atividade Full Copy](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
     ![Validar o pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar entidades (serviços ligados, conjuntos de dados e pipelines), clique em **Publicar**. Aguarde até que a publicação seja bem-sucedida.
 
-    ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![A screenshot mostra a fábrica de dados com o botão Publicar All chamado.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Aguarde até ver a mensagem **Publicação com êxito**.
 
     ![Publicação com êxito](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
 ### <a name="run-the-full-copy-pipeline"></a>Execute o pipeline da cópia completa
 Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
 
-![Menu Acionar Agora](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![A screenshot mostra a opção Trigger Now selecionada no menu Trigger.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorize o pipeline da cópia completa
 
 1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna Ações permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
-    ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![A screenshot mostra que o oleoduto funciona para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
-    ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![A screenshot mostra que a atividade funciona para uma fábrica de dados com a ligação Pipelines chamada.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Rever os resultados
 Vai ver um ficheiro chamado `incremental-<GUID>.txt` na pasta `incchgtracking` do contentor `adftutorial`.
@@ -362,19 +362,19 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
 
 1. Na UI da Fábrica de Dados, mude para o **separador Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
 
-    ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![A screenshot mostra como criar um oleoduto numa fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
 
     ![Nome do pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Expanda **Geral** na caixa de ferramentas **Atividades** e arraste e largue a atividade **Lookup** na superfície de desenho do pipeline. Defina o nome da atividade como **LookupLastChangeTrackingVersionActivity**. Esta atividade obtém a versão do controlo de alterações utilizada na última operação de cópia que está armazenada na tabela **table_store_ChangeTracking_version**.
 
-    ![Atividade Lookup - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![A screenshot mostra um oleoduto com uma atividade de procura.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Mude para **Definições**, na janela **Propriedades** e selecione **ChangeTrackingDataset** no campo **Conjunto de Dados de Origem**.
 
-    ![Atividade Lookup -definições](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![A screenshot mostra o separador Definições na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Arraste e largue a atividade **Lookup** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Defina o nome da atividade como **LookupCurrentChangeTrackingVersionActivity**. Esta atividade obtém a versão atual do controlo de alterações.
 
-    ![Atividade Lookup - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![A screenshot mostra um oleoduto com duas atividades de procura.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Mude para **Definições**, na janela **Propriedades**, e siga os passos abaixo:
 
    1. Selecione **SourceDataset** no campo **Conjunto de Dados de Origem**.
@@ -385,7 +385,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Atividade Lookup -definições](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![A screenshot mostra uma consulta adicionada ao separador Definições na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão do controlo de alterações e a atual para o arquivo de dados de destino.
 
     ![Atividade Copy - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -421,7 +421,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
         | Nome | Tipo | Valor |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | Cadeia | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Atividade Stored Procedure - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure.
@@ -432,21 +432,21 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
     ![Botão Validar](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Clique no botão **Publicar Tudo** para publicar entidades (serviços ligados, conjuntos de dados e pipelines) no serviço Data Factory. Aguarde até ver a mensagem **Publicação com êxito**.
 
-       ![Botão Publicar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![A screenshot mostra o botão Publicar Tudo para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline da cópia incremental
 1. Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
 
-    ![Menu Acionar Agora](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![O Screenshot mostra um pipeline com atividades e a opção Trigger Now selecionada a partir do menu Trigger.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. Na janela **Executar Pipeline**, selecione **Concluir**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorizar o pipeline da cópia incremental
 1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna **Ações** permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
-    ![Execuções de pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![A screenshot mostra que o gasoduto funciona para uma fábrica de dados, incluindo o seu oleoduto.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
-    ![Execuções de atividade](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![A screenshot mostra que o gasoduto corre para uma fábrica de dados com vários marcados como bem sucedidos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Rever os resultados
@@ -471,7 +471,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

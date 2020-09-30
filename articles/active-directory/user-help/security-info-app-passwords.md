@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799201"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537009"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Crie senhas de aplicação a partir da página de informações de Segurança (pré-visualização)
 
@@ -59,7 +59,7 @@ Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e
 
 4. Digite o nome da aplicação que requer a palavra-passe da aplicação e, em seguida, selecione **Next**.
 
-    ![Página de senha de aplicação, com nome de app](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Screenshot que mostra a página "App password", com o nome da aplicação inserida.](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. Copie o texto da caixa **palavra-passe,** cole a palavra-passe na área da palavra-passe da aplicação (neste exemplo, Outlook 2010) e, em seguida, selecione **Fazer**.
 

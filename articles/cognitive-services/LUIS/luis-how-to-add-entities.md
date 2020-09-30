@@ -2,20 +2,18 @@
 title: Adicionar entidades - LUIS
 description: Criar entidades para extrair dados-chave das palavras dos utilizadores nas aplicações de Compreensão de Línguas (LUIS). Os dados de entidades extraídas são utilizados pela aplicação do cliente para pedidos de clientes fullfil.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344480"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540970"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
 
@@ -118,9 +116,9 @@ A lista que se segue demonstra o nome canónico e os sinónimos.
 
 |Cor - nome do item da lista|Cor - sinónimos|
 |--|--|
-|Vermelho|carmesim, sangue, maçã, motor de incêndio|
-|Azul|céu, cobalto|
-|Verde|kelly, lima|
+|Red|carmesim, sangue, maçã, motor de incêndio|
+|Blue|céu, cobalto|
+|Green|kelly, lima|
 
 Utilize o procedimento para criar uma entidade de lista. Uma vez criada a entidade da lista, não é necessário rotular palavras de exemplo numa intenção. Os itens e sinónimos da lista são combinados com texto exato.
 1. Inscreva-se no [portal LUIS](https://www.luis.ai)e selecione o seu recurso **de Subscrição** e **Autoria** para ver as aplicações atribuídas a esse recurso de autoria.
@@ -179,14 +177,14 @@ Neste procedimento, adicione `origin` e `destination` funções a uma entidade d
 1. Para rotular com a função, selecione a etiqueta de entidade (linha sólida em texto) na expressão de exemplo e, em seguida, selecione Ver no painel de **entidades** da lista de suspensos.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Ver na paleta de entidades](media/add-entities/view-in-entity-pane.png)
+    > ![A screenshot mostra o artigo do menu do painel de cores da entidade selecionado.](media/add-entities/view-in-entity-pane.png)
 
     A paleta de entidades abre-se para a direita.
 
 1. Selecione a entidade e, em seguida, vá para a parte inferior da paleta e selecione a função.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de selecionar Ver na paleta de entidades](media/add-entities/select-role-in-entity-palette.png)
+    > ![A screenshot mostra onde selecionar o papel.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>
@@ -213,7 +211,7 @@ Saiba mais sobre:
 * Como [publicar](luis-how-to-publish-app.md)
 * Padrões:
     * [Conceitos](luis-concept-patterns.md)
-    * [Sintaxe](reference-pattern-syntax.md)
+    * [Syntax](reference-pattern-syntax.md)
 * [Entidades pré-construídas GitHub repositório](https://github.com/Microsoft/Recognizers-Text)
 * [Conceitos de extração de dados](luis-concept-data-extraction.md)
 

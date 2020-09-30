@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300219"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536227"
 ---
 # <a name="configure-network-access-control"></a>Configure o controlo de acesso à rede
 
@@ -48,7 +48,7 @@ Pode gerir o controlo de acesso à rede para o Serviço Azure SignalR através d
 1. Para editar a ação predefinitiva, alternar o botão **Permitir/Negar.**
 
     > [!TIP]
-    > A ação predefinitiva é a ação que tomamos quando não há regras ACL. Por exemplo, se a ação por defeito for **Deny,** então os tipos de pedido que não estejam explicitamente listados abaixo serão negados.
+    > A ação predefinitiva é a ação que tomamos quando não há regras ACL. Por exemplo, se a ação por defeito for **Deny,** então os tipos de pedido que não sejam explicitamente aprovados abaixo serão negados.
 
 1. Para editar a regra da rede pública, selecione tipos de pedidos permitidos na **rede Pública.**
 

@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516945"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539134"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
 
-Este artigo explica a diferença entre as métricas "tradicionais" de Insights de Aplicação que são baseadas em registos e métricas pré-agregadas que estão atualmente em pré-visualização pública. Ambos os tipos de métricas estão disponíveis para os utilizadores de Application Insights, e cada um traz um valor único na monitorização da saúde, diagnóstico e análise de aplicações. Os desenvolvedores que estão a instrumentar aplicações podem decidir qual o tipo de métrica mais adequado a um determinado cenário, dependendo do tamanho da aplicação, volume esperado de telemetria, e requisitos de negócio para precisão e alerta de métricas.
+Este artigo explica a diferença entre as métricas "tradicionais" de Insights de Aplicação que são baseadas em registos e métricas pré-agregadas. Ambos os tipos de métricas estão disponíveis para os utilizadores de Application Insights, e cada um traz um valor único na monitorização da saúde, diagnóstico e análise de aplicações. Os desenvolvedores que estão a instrumentar aplicações podem decidir qual o tipo de métrica mais adequado a um determinado cenário, dependendo do tamanho da aplicação, volume esperado de telemetria, e requisitos de negócio para precisão e alerta de métricas.
 
 ## <a name="log-based-metrics"></a>Métricas baseadas em registos
 
-Até recentemente, o modelo de dados de telemetria de monitorização da aplicação em Application Insights baseava-se exclusivamente num pequeno número de tipos de eventos predefinidos, tais como pedidos, exceções, chamadas de dependência, visualizações de páginas, etc. Os desenvolvedores podem usar o SDK para emitir estes eventos manualmente (escrevendo código que invoca explicitamente o SDK) ou podem confiar na recolha automática de eventos a partir de auto-instrumentação. Em qualquer dos casos, o backend Application Insights armazena todos os eventos recolhidos como registos, e as lâminas application Insights no portal Azure funcionam como uma ferramenta analítica e de diagnóstico para visualizar dados baseados em eventos a partir de registos.
+No passado, o modelo de dados de telemetria de monitorização da aplicação em Application Insights baseava-se unicamente num pequeno número de tipos de eventos predefinidos, tais como pedidos, exceções, chamadas de dependência, visualizações de páginas, etc. Os desenvolvedores podem usar o SDK para emitir estes eventos manualmente (escrevendo código que invoca explicitamente o SDK) ou podem confiar na recolha automática de eventos a partir de auto-instrumentação. Em qualquer dos casos, o backend Application Insights armazena todos os eventos recolhidos como registos, e as lâminas application Insights no portal Azure funcionam como uma ferramenta analítica e de diagnóstico para visualizar dados baseados em eventos a partir de registos.
 
 Usar registos para reter um conjunto completo de eventos pode trazer um grande valor analítico e de diagnóstico. Por exemplo, você pode obter uma contagem exata de pedidos para um URL particular com o número de utilizadores distintos que fizeram estas chamadas. Ou pode obter vestígios de diagnóstico detalhados, incluindo exceções e pedidos de dependência para qualquer sessão de utilizador. Ter este tipo de informação pode melhorar significativamente a visibilidade na saúde e utilização da aplicação, permitindo reduzir o tempo necessário para diagnosticar problemas com uma app.
 
@@ -35,7 +35,7 @@ Além das métricas baseadas em registos, no final de 2018, a equipa da Applicat
 > [!IMPORTANT]
 > Ambas as métricas baseadas em log e pré-agregadas coexistem em Insights de Aplicação. Para diferenciar os dois, no Application Insights UX as métricas pré-agregadas são agora chamadas de "métricas padrão (pré-visualização)", enquanto as métricas tradicionais dos eventos foram renomeadas para "métricas baseadas em log".
 
-Os novos SDKs[(Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK ou mais tarde para .NET) métricas pré-agregadas durante a recolha antes de as técnicas de redução do volume da telemetria arrancarem. Isto significa que a precisão das novas métricas não é afetada pela amostragem e filtragem quando se utilizam os mais recentes SDKs application insights.
+Os novos SDKs[(Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK ou mais tarde para .NET) métricas pré-agregadas durante a recolha. Isto aplica-se às  [métricas padrão enviadas por padrão para](../platform/metrics-supported.md#microsoftinsightscomponents) que a precisão não seja afetada pela amostragem ou filtragem. Aplica-se também às métricas personalizadas enviadas através da [GetMetric,](./api-custom-events-metrics.md#getmetric) resultando em menos ingestão de dados e menor custo.
 
 Para os SDKs que não implementam pré-agregação (isto é, versões mais antigas de SDKs application insights ou para instrumentação de navegador) o backend Application Insights ainda povoa as novas métricas agregando os eventos recebidos pelo ponto final de recolha de eventos Application Insights. Isto significa que, embora não beneficie do volume reduzido de dados transmitidos através do fio, ainda pode usar as métricas pré-agregadas e experimentar um melhor desempenho e suporte do alerta dimensional próximo em tempo real com SDKs que não pré-agregam métricas durante a recolha.
 
@@ -45,7 +45,7 @@ Vale a pena referir que o ponto final de recolha pré-agrega eventos antes da am
 
 Pode utilizar pré-agregação com métricas personalizadas. Os dois principais benefícios são a capacidade de configurar e alertar sobre uma dimensão de uma métrica personalizada e reduzir o volume de dados enviados do SDK para o ponto final de recolha de Insights de Aplicação.
 
-Existem várias [formas de enviar métricas personalizadas do Application Insights SDK](./api-custom-events-metrics.md). Se a sua versão do SDK oferece os métodos [GetMetric e TrackValue,](./api-custom-events-metrics.md#getmetric) esta é a forma preferida de enviar métricas personalizadas, uma vez que neste caso a pré-agregação acontece dentro do SDK, não só reduzindo o volume de dados armazenados em Azure, mas também o volume de dados transmitidos do SDK para a Application Insights. Caso contrário, utilize o método [trackMetric,](./api-custom-events-metrics.md#trackmetric) que irá pré-agregar eventos métricos durante a ingestão de dados.
+Existem várias [formas de enviar métricas personalizadas do Application Insights SDK](./api-custom-events-metrics.md). Se a sua versão do SDK oferece os métodos [GetMetric e TrackValue,](./api-custom-events-metrics.md#getmetric) esta é a forma preferida de enviar métricas personalizadas, uma vez que neste caso a pré-agregação acontece dentro do SDK, não só reduzindo o volume de dados armazenados em Azure, mas também o volume de dados transmitidos do SDK para a Application Insights. Caso contrário, utilize o método [trackMetric,](./api-custom-events-metrics.md#trackmetric)  que irá pré-agregar eventos métricos durante a ingestão de dados.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Dimensões de métricas personalizadas e pré-agregação
 

@@ -1,5 +1,5 @@
 ---
-title: Experimente uma solução de monitorização remota IoT baseada em nuvem - Azure [ Azure ] Microsoft Docs
+title: Experimente uma solução de monitorização remota IoT baseada na nuvem - Azure / Microsoft Docs
 description: Neste início rápido, vai implementar o acelerador de soluções de IoT de Monitorização Remota do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60890165"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540239"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitorização remota baseada na cloud
 
@@ -22,11 +22,11 @@ Este início rápido mostra como implementar o acelerador de soluções de Monit
 
 A implementação inicial configura o acelerador de soluções para uma empresa denominada Contoso. Enquanto operador na Contoso gere uma seleção de diferentes tipos de dispositivos, como chillers, implementados em ambientes físicos diferentes. Um dispositivo chiller envia telemetria de temperatura, humidade e pressão para o acelerador de soluções de Monitorização Remota.
 
-Este quickstart implementa uma versão **básica** do acelerador de soluções para fins de teste e demonstração que minimiza os custos. Para obter mais informações sobre as diferentes versões que pode implementar, consulte [implementações Básicas e standard](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
+Este quickstart implementa uma versão **Básica** do acelerador de solução para fins de teste e demonstração que minimiza os custos. Para obter mais informações sobre as diferentes versões que pode implementar, consulte [implementações básicas e padrão](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Para concluir este início rápido, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -34,16 +34,16 @@ Ao implementar o acelerador de soluções na sua subscrição do Azure, tem de d
 
 Inicie sessão em [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) com as credenciais da conta do Azure.
 
-Clique no azulejo de **monitorização remota.** Na página de **Monitorização Remota,** clique em **Tentar Agora:**
+Clique no **azulejo de monitorização** remota. Na página **de Monitorização Remota,** clique em **Tentar Agora:**
 
 ![Selecionar a Monitorização Remota](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Escolha **C# Microservices** como opções de **implantação**. As implementações de Java e C# têm as mesmas características.
+Escolha **C# Microserviços** como **opções de Implantação**. As implementações de Java e C# têm as mesmas funcionalidades.
 
-Introduza um **Nome da solução** exclusivo para o acelerador de soluções de Monitorização Remota. Para este início rápido, estamos chamando o nosso **contoso-rm.**
+Introduza um **Nome da solução** exclusivo para o acelerador de soluções de Monitorização Remota. Para este arranque rápido, estamos chamando o nosso **contoso-rm**.
 
-Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Para este arranque rápido, estamos a usar os **EUA Orientais.**
-Pode escolher **a Visual Studio Enterprise,** mas tem de ser um administrador ou utilizador [global](iot-accelerators-permissions.md) para o fazer.
+Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Para este arranque rápido, estamos a usar **os EUA orientais.**
+Pode escolher **visual Studio Enterprise,** mas deve ser um [administrador ou utilizador global](iot-accelerators-permissions.md) para o fazer.
 
 Para iniciar a sua implementação, clique em **Criar**. Este processo demora, pelo menos, cinco minutos a ser executado:
 
@@ -57,7 +57,7 @@ Na página **Soluções aprovisionadas**, clique no novo acelerador de soluçõe
 
 ![Escolher a nova solução](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Pode ver informações sobre o acelerador de soluções de Monitorização Remota no painel apresentado. Escolha **ir ao acelerador de soluções** para visualizar o seu acelerador de solução de monitorização remota:
+Pode ver informações sobre o acelerador de soluções de Monitorização Remota no painel apresentado. Escolha **Ir ao seu acelerador de solução** para ver o acelerador de solução de monitorização remota:
 
 ![Painel de soluções](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -107,13 +107,13 @@ O valor na coluna de estado muda para **Reconhecido**.
 
 Para agir sobre o chiller, desloque-se para baixo para **Informações relacionadas**, selecione o dispositivo chiller na lista **Dispositivos alertados** e, em seguida, selecione **Tarefas**:
 
-[![Selecione o dispositivo e marque uma ação](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
+[![Selecione o dispositivo e agende uma ação](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
 No painel **Trabalhos**, escolha **Executar método** e, em seguida, o método **EmergencyValveRelease**. Adicionar o nome do trabalho **ChillerPressureRelease**e clique em **Aplicar**. Estas definições criam uma tarefa para si executada imediatamente.
 
-Para ver o estado da tarefa, volte à página **Manutenção** e veja a lista de tarefas na vista **Tarefas**. Pode precisar esperar alguns segundos para ver que o trabalho está a decorrer:
+Para ver o estado da tarefa, volte à página **Manutenção** e veja a lista de tarefas na vista **Tarefas**. Pode ter de esperar alguns segundos para poder ver que o trabalho está a decorrer:
 
-[![O estatuto dos postos de trabalho na visão do Emprego](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
+[![O estatuto dos postos de trabalho na visão jobs](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 
 ### <a name="check-the-pressure-is-back-to-normal"></a>Verificar se a pressão voltou ao normal
 
@@ -127,18 +127,18 @@ Para fechar o incidente, navegue para a página **Manutenção**, selecione o al
 
 O valor na coluna de estado muda para **Fechado**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planear avançar para os tutoriais, deixe o acelerador de soluções de Monitorização Remota implementado.
 
 Se já não precisar do acelerador de soluções, elimine-o na página [Soluções aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) ao selecioná-lo e, em seguida, clique em **Eliminar Solução**:
 
-![Eliminar solução](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Screenshot que mostra a página "Soluções A provisionadas" com acelerador de solução em destaque.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Eliminar solução](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou o acelerador de soluções de Monitorização Remota e concluiu uma tarefa de monitorização com os dispositivos simulados na implementação predefinida da Contoso.
 

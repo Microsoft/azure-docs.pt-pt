@@ -1,30 +1,28 @@
 ---
 title: URL Entidades Pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidades pré-construídas em Compreensão linguística (LUIS).
+description: Este artigo contém informações de entidades pré-construídas url na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc33fd1b90306a016c419f227fb9e73e83e8ea83
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270350"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535258"
 ---
-# <a name="url-prebuilt-entity-for-a-luis-app"></a>URL entidade pré-construída para uma app LUIS
-A entidade URL extrai URLs com nomes de domínio ou endereços IP. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo URLs à aplicação. A entidade URL `en-us` é apoiada apenas na cultura.
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidade pré-incorporada URL para uma aplicação LUIS
+A entidade URL extrai URLs com nomes de domínio ou endereços IP. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham URLs à aplicação. A entidade URL é suportada apenas na `en-us` cultura.
 
 ## <a name="types-of-urls"></a>Tipos de URLs
-Url é gerido a partir do repositório GitHub [de texto reconheço](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
+A url é gerida a partir do repositório GitHub [de texto recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
 
-## <a name="resolution-for-prebuilt-url-entity"></a>Resolução para entidade URL pré-construída
+## <a name="resolution-for-prebuilt-url-entity"></a>Resolução para entidade URL pré-incorporada
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -32,7 +30,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -43,7 +41,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -69,7 +67,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo que se https://www.luis.ai segue mostra a resolução do é um grande exemplo de serviços cognitivos de inteligência artificial
+O exemplo a seguir mostra a resolução do https://www.luis.ai é um grande exemplo de serviços cognitivos de inteligência artificial
 
 ```json
 "entities": [
@@ -84,8 +82,8 @@ O exemplo que se https://www.luis.ai segue mostra a resolução do é um grande 
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça as entidades [de ordinal,](luis-reference-prebuilt-ordinal.md) [número](luis-reference-prebuilt-number.md)e [temperatura.](luis-reference-prebuilt-temperature.md)
+Conheça as [entidades ordinais,](luis-reference-prebuilt-ordinal.md) [número](luis-reference-prebuilt-number.md)e [temperatura.](luis-reference-prebuilt-temperature.md)

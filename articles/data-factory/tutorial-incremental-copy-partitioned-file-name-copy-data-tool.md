@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
-ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736577"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533762"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copie gradualmente novos ficheiros com base no nome do ficheiro dividido em tempo utilizando a ferramenta Dados de Cópia
 
@@ -122,13 +122,13 @@ Prepare o seu armazenamento Blob para o tutorial realizando estes passos.
 
     a. Pesquise e selecione o recipiente **de origem** e, em seguida, selecione **Escolha**.
 
-    ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![A screenshot mostra o ficheiro de entrada Escolha ou a caixa de diálogo de pasta.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. No **comportamento de carregamento de ficheiros,** selecione carga **incremental: pasta/ficheiro com divisórias de tempo**.
 
     c. Escreva o caminho da pasta dinâmica como **fonte/{ano}/{month}/{day}/{hour}/** e altere o formato como mostrado na imagem seguinte. Verifique **a cópia binária** e clique em **Seguinte**.
 
-    ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![A screenshot mostra o ficheiro de entrada escolha ou caixa de diálogo de pasta com uma pasta selecionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. Na página da **loja de dados destino,** selecione o **AzureBlobStorage**, que é a mesma conta de armazenamento que a data source store, e, em seguida, clique em **Seguinte**.
 
@@ -139,11 +139,11 @@ Prepare o seu armazenamento Blob para o tutorial realizando estes passos.
 
     b. Escreva o caminho da pasta dinâmica como **destino/{ano}/{month}/{day}/{hour}/** e altere o formato como seguintes:
 
-    ![Escolher ficheiro ou pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![A screenshot mostra o ficheiro de saída escolher ou a caixa de diálogo de pasta.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Clique em **Seguinte**.
 
-    ![Escolher ficheiro ou pasta de saída](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![A screenshot mostra o ficheiro de saída escolher ou a caixa de diálogo de pasta com o seguinte selecionado.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. Na página **Definições**, selecione **Seguinte**.
 
 8. Na página **Resumo**, reveja as definições e depois selecione **Seguinte**.
@@ -155,25 +155,25 @@ Prepare o seu armazenamento Blob para o tutorial realizando estes passos.
 
 10. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente.  É necessário aguardar o funcionaamento do gasoduto quando este for acionado automaticamente (cerca de uma hora depois). Quando funcionar, clique na ligação com o nome do pipeline **DeltaCopyFromBlobPipeline** para ver os detalhes da atividade ou refazer o pipeline. Selecione **Atualizar** para atualizar a lista.
 
-    ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
-11. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Ajuste a largura da coluna das colunas de **origem** e **destino** (se necessário) para apresentar mais detalhes, pode ver que o ficheiro de origem (file1.txt) foi copiado da *fonte/2020/03/17/03* para *destino/2020/03/17/03/* com o mesmo nome de ficheiro. 
+    ![A imagem mostra que o painel de conduta corre.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. Há apenas uma atividade (atividade copiar) no pipeline, pelo que só vai ver uma entrada. Ajuste a largura da coluna das colunas de **origem** e **destino** (se necessário) para apresentar mais detalhes, pode ver que o ficheiro de origem (file1.txt) foi copiado da  *fonte/2020/03/17/03* para *destino/2020/03/17/03/* com o mesmo nome de ficheiro. 
 
-    ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![A screenshot mostra detalhes de execução do gasoduto.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Também pode verificar o mesmo utilizando o Azure Storage Explorer https://storageexplorer.com/) (para digitalizar os ficheiros.
 
-    ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![A screenshot mostra detalhes de execução do gasoduto para o destino.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Crie outro ficheiro de texto vazio com o novo nome **comofile2.txt**. Faça o upload do ficheiro file2.txt para a fonte do caminho da **pasta/2020/03/17/04** na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
+12. Crie outro ficheiro de texto vazio com o novo nome ** comofile2.txt**. Faça o upload do ficheiro file2.txt para a fonte do caminho da **pasta/2020/03/17/04** na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
     > [!NOTE]
     > Deve estar ciente de que é necessário criar um novo caminho de pasta. Por favor, ajuste o nome da pasta com o seu tempo UTC.  Por exemplo, se o tempo atual utc for 4:20 AM em Mar. 17th, 2020, pode criar o caminho da pasta como **fonte/2020/03/17/04/** pela regra de **{Year}/{Month}/{Day}/{Hour}/**.
 
 13. Para voltar à vista **Pipeline Runs,** selecione **All Pipelines runs**, e aguarde que o mesmo gasoduto seja ativado automaticamente após mais uma hora.  
 
-    ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![A screenshot mostra que o gasoduto All executa o link para voltar a essa página.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Selecione a nova ligação **DeltaCopyFromBlobPipeline** para o segundo pipeline run quando chegar, e faça o mesmo para rever detalhes. Verá que o ficheiro de origem (file2.txt) foi copiado da **fonte/2020/03/17/04/** para **destino/2020/03/17/04/** com o mesmo nome de ficheiro. Também pode verificar o mesmo utilizando o Azure Storage Explorer https://storageexplorer.com/) (para digitalizar os ficheiros no recipiente **de destino.**
+14. Selecione a nova ligação **DeltaCopyFromBlobPipeline** para o segundo pipeline run quando chegar, e faça o mesmo para rever detalhes. Verá que o ficheiro de origem (file2.txt) foi copiado da  **fonte/2020/03/17/04/**  para **destino/2020/03/17/04/** com o mesmo nome de ficheiro. Também pode verificar o mesmo utilizando o Azure Storage Explorer https://storageexplorer.com/) (para digitalizar os ficheiros no recipiente **de destino.**
 
 
 ## <a name="next-steps"></a>Próximos passos

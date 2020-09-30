@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 1506ab7210f8b98614f51e5168555068cce0afbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325679"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533900"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS 
 
@@ -53,7 +53,7 @@ Para as etapas de registo utilizando o Portal, abra uma sessão cloud Shell como
 
 Este artigo requer o módulo Azure PowerShell versão 2.6.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão atual. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell). Se preferir, pode utilizar a consola Cloud Shell numa sessão PowerShell.
 
-1. Numa essão de comando PowerShell (ou sessão PowerShell Cloud Shell), especifique a subscrição que foi whitelist para ficheiros Azure NetApp:
+1. Numa essão de comando PowerShell (ou sessão PowerShell Cloud Shell), especifique a subscrição que foi aprovada para ficheiros Azure NetApp:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
@@ -460,7 +460,7 @@ Utilize o portal Azure, PowerShell ou o Azure CLI para eliminar o grupo de recur
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
 > [Hierarquia de armazenamento de ficheiros Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)   

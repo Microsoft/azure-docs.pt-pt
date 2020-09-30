@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005623"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542041"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop (clássico)
 
@@ -126,7 +126,7 @@ Para encontrar o seu ID de subscrição Azure:
 1. Na mesma sessão [do portal Azure,](https://portal.azure.com) procure e selecione **Subscrições.**
 
    > [!div class="mx-imgBorder"]
-   > ![Uma imagem dos resultados da pesquisa de "Azure Ative Directory" no portal Azure. Destaca-se o resultado da pesquisa em "Serviços".](../media/tenant-search-subscription.png)
+   > ![Uma imagem dos resultados da pesquisa de "Azure Ative Directory" no portal Azure. Destaca-se o resultado da pesquisa de "Serviços".](../media/tenant-search-subscription.png)
 
 2. Selecione a subscrição Azure que pretende utilizar para receber notificações de serviço de desktop virtual do Windows.
 3. Procure **o ID da subscrição**e, em seguida, sobre o valor até aparecer um ícone de área de transferência. Selecione o ícone da área de transferência e cole-o num local útil para que possa usá-lo mais tarde como o valor **AzureSubscriptionId.**
@@ -164,7 +164,7 @@ New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -A
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de criar o seu inquilino, terá de criar um diretor de serviço no Azure Ative Directory e atribuir-lhe um papel dentro do Windows Virtual Desktop. O diretor de serviço permitir-lhe-á implementar com sucesso a oferta do Windows Virtual Desktop Azure Marketplace para criar uma piscina de anfitriões. Para saber mais sobre as piscinas de anfitrião, continue o tutorial para criar uma piscina de anfitriões no Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.custom: dpalled
-ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4d4e7f4433171e593f5e61ab6f48afc640857d9b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489039"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536584"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionar suporte para um longo tipo de dados em Azure Time Series Insights Gen2
 
@@ -72,11 +72,11 @@ Se quiser consultar dados através destas duas colunas para a **propriedadeValue
 
 *Definição variável anterior:*
 
-[![Definição variável anterior](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue, numérica.](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *Nova definição variável:*
 
-[![Nova Definição Variável](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue com um valor personalizado, numérico.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
 
@@ -139,11 +139,11 @@ Se atualmente utilizar variáveis categóricas que mapeiam valores inteiros para
 
 *Definição variável anterior:*
 
-[![Definição variável anterior](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue, categórica.](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *Nova definição variável:*
 
-[![Nova Definição Variável](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue com um valor personalizado, categórico.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada .
 

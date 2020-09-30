@@ -3,20 +3,18 @@ title: Criar uma nova app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Crie e gere as suas aplicações na página web do Understanding language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144394"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541442"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
 Há algumas formas de criar uma aplicação LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através das [APIs](developer-reference-resource.md)de autoria do LUIS.
@@ -45,7 +43,7 @@ Pode criar uma nova aplicação com as APIs de autoria de algumas formas:
 
 ## <a name="create-new-app-in-luis"></a>Criar nova app no LUIS
 
-1. Na página **My Apps,** selecione a sua **Subscrição**e **o recurso de autoria** e, em **seguida, + Criar**. 
+1. Na página **My Apps,** selecione a sua **Subscrição**e  **o recurso de autoria** e, em **seguida, + Criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
@@ -69,12 +67,12 @@ Pode criar uma nova aplicação com as APIs de autoria de algumas formas:
 A barra de ferramentas de contexto fornece outras ações:
 
 * Aplicativo de renome
-* Importar a partir de ficheiros usando `.lu` ou`.json`
+* Importar a partir de ficheiros usando `.lu` ou `.json`
 * App de exportação como `.lu` (para [LUDown),](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) `.json` ou `.zip` (para [o recipiente LUIS)](luis-container-howto.md)
 * Registos de pontos finais de contentores de importação, para rever as expressões de ponto final
 * Registos de pontos finais de exportação, como um `.csv` , para análise offline
 * Excluir app
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](luis-how-to-add-example-utterances.md), e rotule as expressões de exemplo com essas entidades.

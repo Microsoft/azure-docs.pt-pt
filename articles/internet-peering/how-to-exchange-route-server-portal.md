@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700673"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537196"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Criar ou modificar um persco de troca com servidor de rota no portal Azure
 
@@ -74,7 +74,7 @@ Como Fornecedor de Troca de Internet, pode criar um pedido de permuta [através 
 1.  Em **Conexão De Pares Diretos,** preencha os seguintes detalhes da sessão de BGP:
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de espreitamento direto](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![A screenshot mostra o painel de ligação de pares direto com detalhes adicionados.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Instalação de observação, selecione a localização física adequada para o espreitamento
@@ -99,19 +99,19 @@ Como Fornecedor de Troca de Internet, pode criar um pedido de permuta [através 
 1. Selecione **ASNs registados** na secção Definições.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de espreitamento direto](./media/setup-exchange-registered-asn.png)
+    > ![A screenshot mostra o painel de peering com o item do menu A S Ns registado chamado.](./media/setup-exchange-registered-asn.png)
 
 1. **Selecione Adicionar ASN registado** para criar um novo cliente ASN sob a sua subscrição de troca.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de espreitamento direto](./media/setup-exchange-register-new-asn.png)
+    > ![A screenshot mostra o Registo de um painel A S N com nome e caixas de texto A S N.](./media/setup-exchange-register-new-asn.png)
 
 1. Em Registar uma ASN, selecione um Nome, povoe o cliente ASN e clique em Guardar.
 
 1. Sob as ASNs registadas, haverá uma Chave prefixo associada atribuída a cada ASN. Como fornecedor de trocas, terá de fornecer esta Chave prefixo ao seu cliente para que possa registar o Serviço de Permuta sob a sua subscrição.
 
     > [!div class="mx-imgBorder"]
-    > ![Configurar servidor de rota de espreitamento direto](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![A screenshot mostra o painel A S Ns registado com teclas de prefixo.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

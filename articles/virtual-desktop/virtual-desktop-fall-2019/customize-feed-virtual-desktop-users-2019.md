@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a8c1a5da4f4d46d98e01eeb0bf210567af19a95
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cd7496690ec88fbe4297386c32d1b8a2c3234577
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007238"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540766"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalize o feed para utilizadores do Windows Virtual Desktop (clássico)
 
@@ -37,7 +37,7 @@ Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/get-rdsremoteapp.png)
+> ![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Friendly Destaque para personalizar o nome do ecrã.](../media/get-rdsremoteapp.png)
 
 Para atribuir um nome amigável a um RemoteApp, execute o seguinte cmdlet PowerShell:
 
@@ -46,7 +46,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremoteapp.png)
+> ![Uma imagem do PowerShell cmdlet Set-RDSRemoteApp com nome e novo Nome Amigável destacado para personalizar o nome do ecrã.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalize o nome do visor para um ambiente de trabalho remoto
 
@@ -70,7 +70,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 > [!div class="mx-imgBorder"]
 > ![Uma imagem de PowerShell cmdlet Set-RDSRemoteApp com nome e novo nome amigável em destaque.](../media/set-rdsremotedesktop.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que personalizou o feed para os utilizadores, pode iniciar sedução num cliente do Windows Virtual Desktop para o testar. Para tal, continue a ligar ao Windows Virtual Desktop Como-tos:
 

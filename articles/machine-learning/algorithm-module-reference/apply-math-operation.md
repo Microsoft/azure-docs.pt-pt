@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898895"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536771"
 ---
 # <a name="apply-math-operation"></a>Aplicar Operação Matemática
 
@@ -22,11 +22,11 @@ Este artigo descreve um módulo de Azure Machine Learning designer.
 
 Utilize a Operação Matemática Aplicada para criar cálculos que são aplicados a colunas numéricas no conjunto de dados de entrada. 
 
-As operações matemáticas apoiadas incluem funções aritméticas comuns tais como multiplicação e divisão, funções trigonométricas, uma variedade de funções de arredondamento, e funções especiais usadas na ciência dos dados, tais como funções gama e erro.  
+As operações matemáticas incluem funções aritméticas, funções trigonométricas, funções de arredondamento e funções especiais usadas na ciência dos dados, tais como funções gama e erro.  
 
 Depois de definir uma operação e executar o pipeline, os valores são adicionados ao seu conjunto de dados. Dependendo da configuração do módulo, pode:
 
-+ Anexar os resultados ao seu conjunto de dados. Isto é particularmente útil quando está a verificar o resultado da operação.
++ Anexar os resultados ao seu conjunto de dados (útil ao verificar o resultado da operação).
 + Substitua os valores das colunas pelos novos valores calculados.
 + Gere uma nova coluna para obter resultados e não mostrar os dados originais. 
 
@@ -42,7 +42,7 @@ Procure a operação que precisa nestas categorias:
   
 -   [Operações](#arithmetic-operations)  
   
-     A categoria **Operações** inclui as funções matemáticas básicas: adição, subtração, multiplicação e divisão. Pode trabalhar com colunas ou constantes. Por exemplo, pode adicionar o valor da Coluna A ao valor da Coluna B. Ou, pode subtrair uma constante, como uma média previamente calculada, de cada valor na Coluna A.  
+     A categoria **Operações** inclui funções matemáticas básicas: adição, subtração, multiplicação e divisão. Pode trabalhar com colunas ou constantes. Por exemplo, pode adicionar o valor da Coluna A ao valor da Coluna B. Ou, pode subtrair uma constante, como uma média previamente calculada, de cada valor na Coluna A.  
   
 -   [Arredondamento](#rounding-operations)  
   
@@ -55,7 +55,7 @@ Procure a operação que precisa nestas categorias:
 -   [Trigonométrico](#trigonometric-functions)  
   
      A categoria **trigonométrica** inclui todas as funções trigonométricas padrão. Por exemplo, pode converter radians em graus, ou funções de cálculo como tangente em radiais ou graus.
-     Estas funções são insóplias, o que significa que tomam uma única coluna de valores como entrada, aplicam a função trigonométrica e devolvem uma coluna de valores como resultado.  Por isso, é necessário certificar-se de que a coluna de entrada é o tipo adequado e contém o tipo certo de valores para o funcionamento especificado.   
+     Estas funções são insóplias, o que significa que tomam uma única coluna de valores como entrada, aplicam a função trigonométrica e devolvem uma coluna de valores como resultado. Certifique-se de que a coluna de entrada é o tipo adequado e contém o tipo correto de valores para o funcionamento especificado.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Como configurar aplicar operação matemática  
 
@@ -74,7 +74,7 @@ Cada instância deste módulo pode efetuar apenas um tipo de operação de cada 
     - Qualquer coluna que escolha deve ser um tipo de dado numérico. 
     - O leque de dados deve ser válido para a operação matemática selecionada. Caso contrário, pode ocorrer um erro ou um resultado naN (não um número). Por exemplo, Ln(-1.0) é uma operação inválida e resulta num valor de `NaN` .
   
-1.  Clique **na categoria** para selecionar o **tipo** de operação matemática a realizar.
+1.  Selecione **Categoria** para selecionar o **tipo** de operação matemática a realizar.
     
 1. Escolha uma operação específica da lista desta categoria.
   
@@ -95,7 +95,7 @@ Se gerar os resultados utilizando as opções **Append** ou **ResultOnly,** as r
 -   **Igual (Col2_Col1)**, indicando que testou o Col2 contra o Col1.  
 -   **É igual (Col2_$10)**, indicando que comparou a coluna 2 com a constante 10.  
 
-Mesmo que utilize a opção **Inplace,** os dados de origem não são eliminados ou alterados; a coluna no conjunto de dados original ainda está disponível no designer. Para visualizar os dados originais, pode ligar o módulo [Add Columns](add-columns.md) e juni-os à saída da **Operação Matemática Aplicada.**  
+Mesmo que utilize a opção **In place,** os dados de origem não são apagados ou alterados; a coluna no conjunto de dados original ainda está disponível no designer. Para visualizar os dados originais, pode ligar o módulo [Add Columns](add-columns.md) e juni-os à saída da **Operação Matemática Aplicada.**  
     
 ## <a name="basic-math-operations"></a>Operações matemáticas básicas 
 
@@ -113,7 +113,7 @@ Devolve uma tangente inversa de quatro quadrantes.
 
 Selecione as colunas que contêm as coordenadas de ponto. Para o segundo argumento, que corresponde à coordenada x, também pode especificar uma constante.  
 
-Corresponde à função ATAN2 no Matlab.  
+Corresponde à função ATAN2 no MATLAB.  
 
 ### <a name="conj"></a>Rio Conj
 
@@ -124,15 +124,15 @@ Devolve o conjugado para os valores na coluna selecionada.
 Calcula a raiz do cubo para os valores na coluna selecionada.  
 
 ### <a name="doublefactorial"></a>DuploFactorial  
- Calcula o duplo fatorial para valores na coluna selecionada. O fatorial duplo é uma extensão da função fatorial normal, e é denotado como x!!.  
+ Calcula o duplo fatorial para valores na coluna selecionada. O duplo fatorial é uma extensão da função fatorial normal, e é denotado como `x!!` .  
 
 ### <a name="eps"></a>Eps
 
-Devolve o tamanho da lacuna entre o valor atual e o próximo número de precisão dupla mais alto. Corresponde à função EPS no Matlab.  
+Devolve o tamanho da lacuna entre o valor atual e o próximo número de precisão dupla mais alto. Corresponde à função EPS no MATLAB.  
   
 ### <a name="exp"></a>Exp
 
-Devoluções e elevado ao poder do valor na coluna selecionada. Isto é o mesmo que a função Excel EXP.  
+Devoluções e elevado ao poder do valor na coluna selecionada. Esta função é a mesma da função Excel EXP.  
 
 ### <a name="exp2"></a>Exp2
 
@@ -170,11 +170,11 @@ Pode especificar a base (o segundo argumento) como constante ou selecionando out
 
 ### <a name="log10"></a>Log10
 
-Devolve os valores de logaritmo base 10 para a coluna selecionada.  
+Devolve os valores base 10 logaritm para a coluna selecionada.  
 
 ### <a name="log2"></a>Log2
 
-Devolve os valores de logaritmo base 2 para a coluna selecionada.  
+Devolve os valores base 2 logaritm para a coluna selecionada.  
 
 ### <a name="nthroot"></a>NthRoot
 Devolve a raiz nº do valor, utilizando um n que especifica.  
@@ -360,7 +360,7 @@ A função de erro (também chamada de função de erro de Gauss) é uma funçã
 
 Devolve o valor da função de erro complementar.  
 
-O Erfc é definido como 1 – erf(x).  
+`Erfc` é definido como 1 – erf(x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ A versão em escala da função de erro pode ser utilizada para evitar a subflux
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Devolve o valor da função ERF inversa.  
+Devolve o valor da `erf` função inversa.  
 
 ### <a name="exponentialintegralein"></a>Integraleina Exponencial
 
@@ -588,6 +588,6 @@ Em alternativa, utilize um dos seguintes módulos para fazer todos os cálculos 
 + [Executar Script do Python](execute-python-script.md)
 + [Aplicar Transformação SQL](apply-sql-transformation.md)   
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

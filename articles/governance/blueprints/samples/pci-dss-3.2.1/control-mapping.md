@@ -1,14 +1,14 @@
 ---
 title: PCI-DSS v3.2.1 controlos de amostras de plantas
-description: Controlo do mapeamento da norma de segurança de dados da indústria de cartões de pagamento v3.2.1 amostra de planta para Azure Policy e RBAC.
+description: Controlo do mapeamento da norma de segurança de dados da indústria de cartões de pagamento v3.2.1 amostra de planta para Azure Policy e Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649232"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541650"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controlo da amostra de planta PCI-DSS v3.2.1
 
@@ -63,21 +63,21 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a e 8.3.1.b Gestão de Direitos de Acesso Privilegiados
 
-Este projeto ajuda-o a restringir e a controlar os direitos de acesso privilegiados, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com o proprietário, escrever e/ou ler permissões e contas de funcionários com permissões de proprietário e/ou de escrever permissões que não têm autenticação de vários fatores ativadas. O Azure implementa o controlo de acesso baseado em funções (RBAC) para gerir quem tem acesso aos recursos da Azure. Compreender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do RBAC são propensas a erros. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL. A utilização da autenticação do Azure Ative Directory simplifica a gestão de permissões e centraliza a gestão de identidade dos utilizadores de bases de dados e de outros Microsoft  
+Este projeto ajuda-o a restringir e a controlar os direitos de acesso privilegiados, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com o proprietário, escrever e/ou ler permissões e contas de funcionários com permissões de proprietário e/ou de escrever permissões que não têm autenticação de vários fatores ativadas. O controlo de acesso baseado em funções Azure (Azure RBAC) ajuda a gerir quem tem acesso aos recursos Azure. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL. A utilização da autenticação do Azure Ative Directory simplifica a gestão de permissões e centraliza a gestão de identidade dos utilizadores de bases de dados e de outros Microsoft  
 services.
  
 - As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 - Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL
 - Auditar o uso das regras personalizadas do RBAC
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 e 8.1.5 Menor Privilégio e Revisão dos Direitos de Acesso ao Utilizador
 
-O Azure implementa o controlo de acesso baseado em funções (RBAC) para ajudá-lo a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto atribui definições [de Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas com permissões elevadas.
+O controlo de acesso baseado em funções (Azure RBAC) ajuda-o a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto atribui definições [de Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas com permissões elevadas.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
@@ -87,7 +87,7 @@ O Azure implementa o controlo de acesso baseado em funções (RBAC) para ajudá-
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Remoção ou Ajustamento dos Direitos de Acesso
 
-O Azure implementa o controlo de acesso baseado em funções (RBAC) para ajudá-lo a gerir quem tem acesso a recursos em Azure. Utilizando o Azure Ative Directory e o RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
+O controlo de acesso baseado em funções (Azure RBAC) ajuda-o a gerir quem tem acesso a recursos em Azure. Utilizando o Azure Ative Directory e o Azure RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
@@ -122,7 +122,7 @@ Este projeto ajuda-o a gerir e controlar a sua rede, atribuindo definições [da
 - Localizações permitidas
 - Locais permitidos para grupos de recursos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo do projeto PCI-DSS v3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e como implementar esta amostra:
 

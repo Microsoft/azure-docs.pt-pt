@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80082315"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541667"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações de email apache Ambari em Azure HDInsight
 
@@ -54,7 +54,7 @@ Neste tutorial, ficará a saber como:
 
 1. A partir da janela **'Notificações de Alerta' De Gestão,** selecione o **+** ícone.
 
-    ![Ambari cria notificação de alerta](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![A screenshot mostra a caixa de diálogo de notificações de alerta de gestão.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. A partir do diálogo **de Notificação de Alerta,** forneça as seguintes informações:
 
@@ -75,13 +75,13 @@ Neste tutorial, ficará a saber como:
     |Confirmação de senha|Reentre na senha.|
     |Iniciar TLS|Selecione esta caixa de verificação|
 
-    ![Ambari cria notificação de alerta](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![A screenshot mostra a caixa de diálogo de aviso de criar.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Selecione **Guardar**. Regressará à janela **de Notificações de Alerta de Gestão.**
 
 1. A partir da janela **'Notificações de Alerta de Gestão',** selecione **Fechar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a configurar notificações de e-mail apache Ambari usando a SendGrid. Use o seguinte para saber mais sobre Apache Ambari:
 

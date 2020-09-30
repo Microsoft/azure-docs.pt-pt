@@ -1,14 +1,14 @@
 ---
 title: Determinar as causas da não conformidade
 description: Quando um recurso não é conforme, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334179"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541276"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -40,7 +40,7 @@ Para ver os detalhes de conformidade, siga estes passos:
 
 1. O painel **de detalhes do Compliance** exibe informações da última avaliação do recurso à atribuição de políticas em curso. Neste exemplo, o campo **Microsoft.Sql/servidors/versão** é encontrado como _sendo 12.0,_ enquanto a definição de política esperava _14.0_. Se o recurso não for conforme por várias razões, cada um está listado neste painel.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot do painel de detalhes de conformidade e razões para o incumprimento que o valor atual é doze e o valor-alvo é de catorze." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
    Para uma **auditoriaIfNotExists** ou implementar a definição de **políticaifNotExists,** os detalhes incluem os **detalhes.digitar** propriedade e quaisquer propriedades opcionais. Para obter uma lista, consulte [as propriedades auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [implementar propriedadesIfNotExists](../concepts/effects.md#deployifnotexists-properties). **O último recurso avaliado** é um recurso relacionado a partir da secção de **detalhes** da definição.
 
@@ -69,7 +69,7 @@ Para ver os detalhes de conformidade, siga estes passos:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot of Compliance details pane for ifNotExists including evaluated resource count." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 > [!NOTE]
 > Para proteger os dados, quando um valor de propriedade é _um segredo,_ o valor atual exibe asteriscos.
@@ -104,17 +104,17 @@ A seguinte matriz mapeia cada _razão_ possível para a [condição](../concepts
 |O valor atual não deve corresponder ao valor-alvo por casos insensíveis. |notMatchInsensitively ou **não** corresponderInsensitively |
 |Nenhum dos recursos relacionados corresponde aos detalhes do efeito na definição de política. |Um recurso do tipo definido em **então.details.type** e relacionado com o recurso definido na **parte** da regra política não existe. |
 
+## <a name="component-details-for-resource-provider-modes"></a>Detalhes dos componentes para os modos fornecedores de recursos
+
+Para atribuições com [um modo Fornecedor de Recursos,](../concepts/definition-structure.md#resource-manager-modes)selecione o recurso não _conforme_ para abrir uma visão mais profunda. No separador Conformidade do **Componente** _encontra-se_ informações adicionais específicas do modo Fornecedor de Recursos na política atribuída que mostra o **Componente** e **O ID do Componente**Não Conforme.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade da Configuração de Convidado
 
 Para as políticas _de auditIfNotExists_ na categoria _Configuração_ de Convidados, pode haver várias configurações avaliadas dentro da máquina virtual e você precisará ver detalhes por definição. Por exemplo, se estiver a auditar uma lista de políticas de passwords e apenas uma delas tiver estatuto Não conforme, terá de saber quais as políticas específicas de _palavra-passe_que estão fora de conformidade e porquê.
 
 Também pode não ter acesso a iniciar sômedíssia diretamente na máquina virtual, mas precisa de informar por que razão a máquina virtual não _está em conformidade_.
-
-## <a name="compliance-details-for-resource-provider-modes"></a>Detalhes de conformidade para os modos fornecedores de recursos
-
-Para atribuições com [um modo Fornecedor de Recursos,](../concepts/definition-structure.md#resource-manager-modes)selecione o recurso não _conforme_ para abrir uma visão mais profunda. No separador Conformidade do **Componente** _encontra-se_ informações adicionais específicas do modo Fornecedor de Recursos na política atribuída que mostra o **Componente** e **O ID do Componente**Não Conforme.
-
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot do separador de conformidade de componentes e detalhes de conformidade para uma atribuição do modo fornecedor de recursos." border="false":::
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -122,11 +122,11 @@ Comece por seguir os mesmos passos na secção acima para visualizar detalhes de
 
 Na vista de detalhes da Conformidade, selecione o link **Último recurso avaliado.**
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot de visualização da auditoriaIfNotExists definiu detalhes de conformidade." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 A página **de Atribuição de Hóspedes** exibe todos os detalhes de conformidade disponíveis. Cada linha na vista representa uma avaliação que foi realizada dentro da máquina. Na coluna **Reason,** é mostrada uma frase que descreve por que a atribuição de hóspedes não _é compatível_. Por exemplo, se estiver a auditar políticas de palavra-passe, a coluna **Reason** apresentaria texto, incluindo o valor atual para cada definição.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot dos detalhes de conformidade da atribuição de hóspedes." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -205,17 +205,17 @@ Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de 
 
 1. Selecione o separador Alterar Histórico **(pré-visualização)** na página **'Conformidade com recursos'.** É apresentada uma lista de alterações detetadas, caso existam.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot do separador Alterar Histórico e detetado tempos de alteração na página de Conformidade de Recursos." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 1. Selecione uma das alterações detetadas. O _diff visual_ para o recurso é apresentado na página **de história da Mudança.**
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot do Diff Visual Change History do estado de propriedades antes e depois da página de história da Mudança." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 Os assessores _de difusão visual_ na identificação de alterações a um recurso. As alterações detetadas podem não estar relacionadas com o estado de conformidade atual do recurso.
 
 Os dados de histórico de alteração são fornecidos pelo [Azure Resource Graph](../../resource-graph/overview.md). Para consultar estas informações fora do portal Azure, consulte [Obter alterações de recursos](../../resource-graph/how-to/get-resource-changes.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

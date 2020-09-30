@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 09/25/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362219"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538387"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -171,7 +171,7 @@ Configure a sua firewall para controlar o acesso aos recursos do seu espaço de 
 
 Para obter mais informações sobre as definições de firewall, consulte [use espaço de trabalho por trás de uma firewall](how-to-access-azureml-behind-firewall.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

@@ -1,5 +1,5 @@
 ---
-title: Ligue o SQL a pedido ao Power BI Desktop & criar relatório
+title: 'Tutorial: Ligue o SQL a pedido ao Power BI Desktop & criar relatório'
 description: Neste tutorial, aprenda a ligar o SQL on-demand em Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5944f4d512914c956d8e6fbbdbd1b8c30e35417
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288040"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539559"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand com Power BI Desktop & criar um relatório
 
@@ -100,7 +100,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
-| Folder path                                                  | Description                                                  |
+| Folder path                                                  | Descrição                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
 | /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |
@@ -173,6 +173,6 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
    DROP DATABASE Demo;
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para os [ficheiros de armazenamento de consulta](develop-storage-files-overview.md) para aprender a consultar ficheiros de armazenamento usando o Synapse SQL.

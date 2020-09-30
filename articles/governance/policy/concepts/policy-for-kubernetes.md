@@ -1,14 +1,14 @@
 ---
 title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369999"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540256"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -56,7 +56,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 - Número máximo de registos não conformes por subscrição: **1 milhão**
 - As instalações do Gatekeeper fora do Azure Policy Add-on não são suportadas. Desinstale quaisquer componentes instalados por uma instalação anterior do Gatekeeper antes de ativar o Add-on de Política Azure.
 - [As razões para o incumprimento](../how-to/determine-non-compliance.md#compliance-reasons) não estão disponíveis para o `Microsoft.Kubernetes.Data` 
-   [modo fornecedor de recursos](./definition-structure.md#resource-provider-modes)
+   [modo Fornecedor de Recursos.](./definition-structure.md#resource-provider-modes) Utilizar [detalhes do Componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 
@@ -379,7 +379,7 @@ Como parte dos _detalhes.restriçõesTemplate_ e _details.restrição_ proprieda
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
-Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-lhe atribuídas as operações de atribuição de políticas adequadas de controlo de acesso baseado em funções (RBAC). As funções incorporadas Azure **Colaborador e** **Proprietário** têm estas operações. Para saber mais, consulte [as permissões do RBAC na Política Azure.](../overview.md#rbac-permissions-in-azure-policy)
+Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-lhe atribuídas as operações de atribuição de dados de acesso baseados em funções Azure (Azure RBAC). As funções incorporadas Azure **Colaborador e** **Proprietário** têm estas operações. Para saber mais, consulte [as permissões do Azure RBAC na Política Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Encontre as definições de política incorporadas para gerir o seu cluster utilizando o portal Azure com os seguintes passos:
 
@@ -430,7 +430,7 @@ Num cluster kubernetes, se um espaço de nome tiver uma das seguintes etiquetas,
 > [!NOTE]
 > Embora um administrador de cluster possa ter permissão para criar e atualizar modelos de restrições e restrições de recursos instalados pelo Azure Policy Add-on, estes não são cenários suportados à medida que as atualizações manuais são substituídas. Gatekeeper continua a avaliar políticas que existiam antes de instalar o addon e atribuir definições políticas da Política Azure.
 
-A cada 15 minutos, o complemento pede uma varredura completa do aglomerado. Depois de reunir detalhes da varredura completa e quaisquer avaliações em tempo real por Gatekeeper de tentativas de alterações ao cluster, o add-on relata os resultados de volta à Azure Policy para inclusão em [detalhes de conformidade](../how-to/get-compliance-data.md) como qualquer atribuição da Política Azure. Apenas os resultados para atribuições de políticas ativas são devolvidos durante o ciclo de auditoria. Os resultados da auditoria também podem ser vistos como [violações listadas](https://github.com/open-policy-agent/gatekeeper#audit) no campo de estado da restrição falhada. Para obter detalhes sobre recursos _não conformes,_ consulte [os detalhes de conformidade para os modos fornecedores de recursos](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+A cada 15 minutos, o complemento pede uma varredura completa do aglomerado. Depois de reunir detalhes da varredura completa e quaisquer avaliações em tempo real por Gatekeeper de tentativas de alterações ao cluster, o add-on relata os resultados de volta à Azure Policy para inclusão em [detalhes de conformidade](../how-to/get-compliance-data.md) como qualquer atribuição da Política Azure. Apenas os resultados para atribuições de políticas ativas são devolvidos durante o ciclo de auditoria. Os resultados da auditoria também podem ser vistos como [violações listadas](https://github.com/open-policy-agent/gatekeeper#audit) no campo de estado da restrição falhada. Para obter informações sobre recursos _não conformes,_ consulte [os detalhes do Componente para os modos de Fornecedor de Recursos.](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes)
 
 > [!NOTE]
 > Cada relatório de conformidade na Azure Policy para os seus clusters Kubernetes inclui todas as violações nos últimos 45 minutos. A hora indica quando ocorreu uma violação.
@@ -531,7 +531,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: f93b6ab43e1dbf9230c92d22f8fb22ca48eb720e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275766"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535098"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configure e submeta os treinos
 
@@ -128,7 +128,7 @@ Se tiver argumentos de linha de comando que pretende passar para o seu script de
 Se pretender anular o tempo máximo de execução por defeito, pode fazê-lo através do **`max_run_duration_seconds`** parâmetro. O sistema tentará cancelar automaticamente a execução se demorar mais tempo do que este valor.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Especificar uma configuração de trabalho distribuída
-Se quiser executar um trabalho de formação distribuído, forneça o config específico do trabalho distribuído ao **`distributed_job_config`** parâmetro. Os tipos de config suportados incluem [MpiConfiguration,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true). 
+Se quiser executar um trabalho de formação distribuído, forneça o config específico do trabalho distribuído ao **`distributed_job_config`** parâmetro. Os tipos de config suportados incluem [MpiConfiguration,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true)e [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
 
 Para obter mais informações e exemplos sobre a execução de trabalhos de Horovod, TensorFlow e PyTorch, consulte:
 
@@ -154,7 +154,7 @@ run.wait_for_completion(show_output=True)
 >
 > Para criar artefactos durante o treino (como ficheiros de modelos, pontos de verificação, ficheiros de dados ou imagens traçadas) escreva-os para a `./outputs` pasta.
 >
-> Da mesma forma, pode escrever quaisquer registos da sua corrida de treino para a `./logs` pasta. Para utilizar a integração do [TensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) da Azure Machine Learning certifique-se de que escreve os seus registos TensorBoard nesta pasta. Enquanto a sua execução estiver em andamento, poderá lançar o TensorBoard e transmitir estes registos.  Mais tarde, também poderá restaurar os registos de qualquer uma das suas execuções anteriores.
+> Da mesma forma, pode escrever quaisquer registos da sua corrida de treino para a `./logs` pasta. Para utilizar a integração do [TensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) da Azure Machine Learning certifique-se de que escreve os seus registos TensorBoard nesta pasta. Enquanto a sua execução estiver em andamento, poderá lançar o TensorBoard e transmitir estes registos.  Mais tarde, também poderá restaurar os registos de qualquer uma das suas execuções anteriores.
 >
 > Por exemplo, para descarregar um ficheiro escrito para a pasta *de saídas* para a sua máquina local após o seu treino remoto: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
@@ -165,13 +165,13 @@ Quando se inicia uma corrida de treinamento onde o diretório de origem é um re
 ## <a name="notebook-examples"></a>Exemplos de cadernos
 
 Consulte estes cadernos como exemplos de configurações para vários cenários de formação:
-* [como usar-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [como usar-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
+* [Formação em vários alvos de computação](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [Formação com quadros ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutoriais/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
 * Veja como formar modelos com estruturas ML específicas, tais como [Scikit-learn,](how-to-train-scikit-learn.md) [TensorFlow](how-to-train-tensorflow.md)e [PyTorch](how-to-train-pytorch.md).

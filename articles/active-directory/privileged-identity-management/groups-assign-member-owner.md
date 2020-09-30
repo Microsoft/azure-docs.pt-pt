@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869667"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534425"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Atribuir elegibilidade para um grupo privilegiado de acesso (pré-visualização) em Gestão de Identidade Privilegiada
 
@@ -48,7 +48,7 @@ Siga estes passos para tornar um utilizador elegível para ser membro ou proprie
 
 1. Selecione os membros ou proprietários que pretende tornar elegível para o grupo de acesso privilegiado.
 
-    ![Selecione um membro ou painel de grupo](./media/groups-assign-member-owner/add-assignments.png)
+    ![Screenshot que mostra a página "Adicionar atribuições" com o painel "Selecione um membro ou grupo" aberto e o botão "Selecione" realçado.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Selecione **Seguinte** para definir a duração da adesão ou da propriedade.
 
@@ -91,7 +91,7 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
     Para obter informações sobre o alargamento de uma atribuição de funções, consulte [alargar ou renovar funções de recurso Azure na Gestão de Identidade Privilegiada.](pim-resource-roles-renew-extend.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Alargar ou renovar funções de recursos do Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)

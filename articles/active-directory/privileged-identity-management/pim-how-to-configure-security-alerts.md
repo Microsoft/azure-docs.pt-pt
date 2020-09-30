@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331313"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533553"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada
 
@@ -38,7 +38,7 @@ Siga as etapas deste artigo para investigar alertas de segurança para as funç�
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
-![Funções AD AD - Alerta de alerta de alerta e a gravidade](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Screenshot que mostra a página "Alertas" com uma lista de alertas e sua gravidade.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -242,6 +242,6 @@ Pode personalizar alguns dos alertas de segurança na Gestão de Identidade Priv
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)

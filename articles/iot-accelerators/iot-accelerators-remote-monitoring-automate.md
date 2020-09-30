@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539406"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
 
@@ -58,7 +58,7 @@ Para criar uma regra que gera um aviso quando a pressão num dispositivo de arre
 | Grupo de dispositivos     | Grupo de dispositivos do **sistema de arrefecimento**             |
 | Cálculo      | Instantâneo                               |
 | Condição 1 Campo| pressão                              |
-| Condição 1 operador | Maior que                      |
+| Condição 1 operador | Maior do que                      |
 | Condição 1 valor    | 150                               |
 | Nível de gravidade  | Aviso                               |
 
@@ -82,7 +82,7 @@ Para criar uma regra com várias condições que gera um alerta crítico quando,
 | Cálculo      | Média                               |
 | Período de tempo      | 5                                     |
 | Condição 1 Campo| humidade                              |
-| Condição 1 operador | Maior que                      |
+| Condição 1 operador | Maior do que                      |
 | Condição 1 valor    | 80                                |
 | Nível de gravidade  | Crítico                              |
 
@@ -93,7 +93,7 @@ Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize 
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Condição 2 Campo| temperatura                           |
-| Condição 2 operador | Maior que                      |
+| Condição 2 operador | Maior do que                      |
 | Condição 2 valor    | 75                                |
 
 [![Criar a regra de várias condições parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
@@ -122,7 +122,7 @@ Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias reg
 
 Para eliminar permanentemente uma regra, pode eliminá-la na lista de regras. Selecione a regra a eliminar e, em seguida, escolha **Eliminar**.
 
-[![Eliminar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Screenshot que mostra a página "Regras" com a janela "Eliminar Regra" realçada.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Depois de confirmar que pretende eliminar a regra, é-lhe dada a oportunidade de eliminar todos os alertas associados à regra na página **Manutenção**.
 
@@ -132,7 +132,7 @@ Só é possível eliminar uma regra de cada vez.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este tutorial mostrou como utilizar a página **Regras** no acelerador de soluções de Monitorização Remota, para criar e gerir regras que acionam alertas na solução. Para saber como utilizar o acelerador de soluções para gerir e configurar os seus dispositivos ligados, avance para o próximo tutorial.
 

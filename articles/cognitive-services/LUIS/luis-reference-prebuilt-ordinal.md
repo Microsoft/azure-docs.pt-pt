@@ -1,28 +1,26 @@
 ---
-title: Entidade Ordinal Pré-construída - LUIS
+title: Entidade pré-construída ordinal - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidades pré-construídas em Compreensão linguística (LUIS).
+description: Este artigo contém informações de entidades pré-construídas ordinais na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: bb3bb27db48255f534e873ed4e93ac62f07016af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fa86c8960ea9f32163ebd7991260a19ef7a5d79
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273452"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535462"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade ordinal pré-construída para uma app LUIS
-O número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`. `third` Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo as intenções de aplicação. A entidade ordinal é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída ordinal para uma aplicação LUIS
+Número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first` . . . . . . . . . . `second` `third` . Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo contendo ordinal às intenções de aplicação. A entidade ordinal é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
-Ordinal é gerido a partir do repositório GitHub [de texto reconheço](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
+Ordinal é gerido a partir do repositório GitHub [de texto recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução para entidade ordinal pré-construída
 
@@ -32,7 +30,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -69,7 +67,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **incorporada.ordinal.**
+O exemplo a seguir mostra a resolução da entidade **construída.ordinal.**
 
 ```json
 "entities": [
@@ -86,8 +84,8 @@ O exemplo seguinte mostra a resolução da entidade **incorporada.ordinal.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça as entidades [OrdinalV2,](luis-reference-prebuilt-ordinal-v2.md)número de [telefone](luis-reference-prebuilt-phonenumber.md)e [temperatura.](luis-reference-prebuilt-temperature.md)
+Conheça as [entidades OrdinalV2,](luis-reference-prebuilt-ordinal-v2.md) [número de telefone](luis-reference-prebuilt-phonenumber.md)e [temperatura.](luis-reference-prebuilt-temperature.md)

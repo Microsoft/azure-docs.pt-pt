@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326529"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540596"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -58,7 +58,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte comando:
+Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [comando CLI Azure Digital Twins](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -90,7 +90,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Azure Digital Twins **EventRoutes APIs** permitem aos desenvolvedores ligar o fluxo de eventos, em todo o sistema e para serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
 
-As amostras desta secção utilizam o C# SDK.
+As amostras desta secção utilizam o [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Pré-requisito**: É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
 
@@ -101,7 +101,7 @@ As amostras desta secção utilizam o C# SDK.
 
 ### <a name="create-an-event-route"></a>Criar uma rota de eventos
 
-As rotas do evento são definidas usando APIs de plano de dados. 
+As rotas do evento são definidas usando [APIs de plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) 
 
 Uma definição de rota pode conter estes elementos:
 * O nome da rota que pretende usar
@@ -184,7 +184,7 @@ Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas D
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
 * [*Como fazer: Interpretar dados do evento*](how-to-interpret-event-data.md)
