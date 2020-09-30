@@ -1,14 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matrizes em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas de matriz, avalie o pseudónimo [*] e apedguia elementos com regras de definição de Política de Azure.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048487"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576902"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matrizes em recursos Azure
 
@@ -194,12 +194,24 @@ Os seguintes resultados são o resultado da combinação da condição e da regr
 |`{<field>,"Equals":"127.0.0.1"}` |Nenhumas |Todos os fósforos |Um elemento de matriz avalia como verdadeiro (127.0.0.1 == 127.0.0.1) e um como falso (127.0.0.1 == 192.168.1.1), pelo que a condição **equal é** _falsa_ e o efeito não é desencadeado. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nenhumas |Todos os fósforos |Ambos os elementos de matriz avaliam como falso (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1, pelo que a condição **de Iguais** é _falsa_ e o efeito não é acionado. |
 
-## <a name="the-append-effect-and-arrays"></a>O efeito de apêndice e matrizes
+## <a name="modifying-arrays"></a>Modificação de matrizes
 
-O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferente dependendo se os **detalhes.field** são ou **\[\*\]** não um pseudónimo.
+O [apêndice](../concepts/effects.md#append) e [modifica propriedades](../concepts/effects.md#modify) alterando um recurso durante a criação ou atualização. Ao trabalhar com propriedades de matriz, o comportamento destes efeitos depende se a operação está a tentar modificar o  **\[\*\]** pseudónimo ou não:
 
-- Quando não é **\[\*\]** um pseudónimo, o apêndice substitui toda a matriz pela propriedade **de valor**
-- Quando **\[\*\]** um pseudónimo, o apêndice adiciona a propriedade **de valor** à matriz existente ou cria a nova matriz
+> [!NOTE]
+> A utilização do `modify` efeito com pseudónimos encontra-se atualmente em **pré-visualização**.
+
+|Alias |Efeito | Resultado |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | A Política Azure anexa toda a matriz especificada nos detalhes do efeito, se faltar. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` com `add` operação | A Política Azure anexa toda a matriz especificada nos detalhes do efeito, se faltar. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` com `addOrReplace` operação | A Política Azure anexa toda a matriz especificada nos detalhes do efeito se faltar ou substituir a matriz existente. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | A política Azure anexa o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` com `add` operação | A política Azure anexa o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` com `addOrReplace` operação | A Política Azure remove todos os membros da matriz existentes e anexa o membro da matriz especificado nos detalhes do efeito. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | A Política Azure anexa um valor à `action` propriedade de cada membro da matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` com `add` operação | A Política Azure anexa um valor à `action` propriedade de cada membro da matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` com `addOrReplace` operação | A Azure Policy apende ou substitui a propriedade existente `action` de cada membro da matriz. |
 
 Para mais informações, consulte os exemplos do [apêndice.](../concepts/effects.md#append-examples)
 

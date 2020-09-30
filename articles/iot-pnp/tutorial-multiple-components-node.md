@@ -1,6 +1,6 @@
 ---
-title: Ligue a amostra de IoT Plug e Play Preview Node.js código do dispositivo componente ao IoT Hub [ Microsoft Docs
-description: Construa e execute a amostra de IoT Plug e Play Preview Node.js código do dispositivo que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Ligue o código do dispositivo Node.js de componentes IoT Plug e Play Microsoft Docs
+description: Construa e execute a amostra IoT Plug e Play Node.js código do dispositivo que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-js
-ms.openlocfilehash: 24bfbf4199671da497844444a57e566e66eb8c90
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ea7b1ba159aa5d11a20ff565390ce0b24e38c1d2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308236"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577191"
 ---
-# <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Conecte uma aplicação de dispositivo de componente ioT plug e play de amostra ao IoT Hub (Node.js)
+# <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Ligue uma amostra IoT Plug e jogue a aplicação de vários componentes do dispositivo ao IoT Hub (Node.js)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play com componentes e interface de raiz, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra está escrita para Node.js e está incluída no Azure IoT Hub Device SDK para Node.js. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play com componentes, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra está escrita para Node.js e está incluída no Azure IoT Hub Device SDK para Node.js. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Para completar este tutorial, precisa de Node.js na sua máquina de desenvolvimento. Pode descarregar a versão mais recente recomendada para várias plataformas a partir de [nodejs.org](https://nodejs.org).
 
@@ -33,32 +33,9 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 node --version
 ```
 
-### <a name="azure-iot-explorer"></a>Explorador de Azure IoT
-
-Para interagir com o dispositivo de amostra na segunda parte deste tutorial, utilize a ferramenta **exploradora Azure IoT.** [Descarregue e instale a mais recente versão do explorador Azure IoT](./howto-use-iot-explorer.md) para o seu sistema operativo.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Executar o seguinte comando para obter a _cadeia de ligação do hub IoT_ para o seu hub. Tome nota desta cadeia de ligação, use-a mais tarde neste tutorial:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Também pode utilizar a ferramenta exploradora Azure IoT para encontrar a cadeia de ligação do hub IoT.
-
-Executar o seguinte comando para obter a _cadeia de ligação_ do dispositivo para o dispositivo que adicionou ao hub. Tome nota desta cadeia de ligação, use-a mais tarde neste tutorial:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
 ## <a name="download-the-code"></a>Transferir o código
 
-Neste tutorial, você prepara um ambiente de desenvolvimento que você pode usar para clonar e construir o Azure IoT Hub Device SDK para Node.js.
+Se tiver concluído [o Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows to IoT Hub (Nó)](quickstart-connect-device-node.md), já clonou o repositório.
 
 Abra um pedido de comando no diretório à sua escolha. Execute o seguinte comando para clonar o [Microsoft Azure IoT SDK para Node.js](https://github.com/Azure/azure-iot-sdk-node) repositório GitHub neste local:
 
@@ -66,11 +43,9 @@ Abra um pedido de comando no diretório à sua escolha. Execute o seguinte coman
 git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
-Esta operação pode demorar vários minutos a ser concluída.
-
 ## <a name="install-required-libraries"></a>Instalar bibliotecas necessárias
 
-Utilize o dispositivo SDK para construir o código de amostra incluído. A aplicação que constrói simula um dispositivo Plug and Play com múltiplos componentes e interface de raiz que se conecta a um hub IoT. A aplicação envia telemetria e propriedades e recebe comandos.
+Utilize o dispositivo SDK para construir o código de amostra incluído. A aplicação que constrói simula um dispositivo Plug and Play com vários componentes que se conectam a um hub IoT. A aplicação envia telemetria e propriedades e recebe comandos.
 
 1. Numa janela de terminal local, vá à pasta do seu repositório clonado e navegue para a pasta */azure-iot-sdk-node/dispositivo/samples/pnp.* Em seguida, executar o seguinte comando para instalar as bibliotecas necessárias:
 
@@ -79,12 +54,6 @@ npm install
 ```
 
 Isto instalará os ficheiros npm relevantes necessários para executar as amostras na pasta.
-
-1. Configure a variável ambiente com a cadeia de ligação do dispositivo que fez uma nota anterior:
-
-```cmd/sh
-set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
-```
 
 ## <a name="review-the-code"></a>Rever o código
 
@@ -96,45 +65,51 @@ O código no ficheiro *pnpTemperatureController.js* implementa um dispositivo de
 
 Abra o ficheiro *pnpTemperatureController.js* num editor de código à sua escolha. O código de amostra mostra como:
 
-1. Defina o `modelId` que é o DTMI para o dispositivo que está a ser implementado. Este DTMI é definido pelo utilizador e deve coincidir com o DTMI do [modelo DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)do controlador de temperatura .
+- Defina o `modelId` que é o DTMI para o dispositivo que está a ser implementado. Este DTMI é definido pelo utilizador e deve coincidir com o DTMI do [modelo DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)do controlador de temperatura .
 
-2. Implementar os componentes definidos no modelo DTDL do controlador de temperatura. Os componentes de um controlador de temperatura real devem implementar estas duas interfaces. Estas duas interfaces já estão publicadas num repositório central. Nesta amostra, as duas interfaces são:
+- Implementar os componentes definidos no modelo DTDL do controlador de temperatura. Os componentes de um controlador de temperatura real devem implementar estas duas interfaces. Estas duas interfaces já estão publicadas num repositório central. Nesta amostra, as duas interfaces são:
+
   - Termóstato
   - Informação do dispositivo desenvolvida pela Azure
 
-3. Defina nomes de componentes. Esta amostra tem dois termostatos e um componente de informação do dispositivo.
+- Defina nomes de componentes. Esta amostra tem dois termostatos e um componente de informação do dispositivo.
 
-4. Defina o nome de comando. Estes são os comandos a que o dispositivo responde.
+- Defina o nome de comando. Estes são os comandos a que o dispositivo responde.
 
-5. Defina a `serialNumber` constante. O `serialNumber` dispositivo é fixado.
+- Defina a `serialNumber` constante. O `serialNumber` dispositivo é fixado.
 
-6. Defina os manipuladores de comando.
+- Defina os manipuladores de comando.
 
-7. Defina as funções para enviar respostas de comando.
+- Defina as funções para enviar respostas de comando.
 
-8. Defina funções de ajudante para registar pedidos de comando.
+- Defina funções de ajudante para registar pedidos de comando.
 
-9. Defina uma função de ajudante para criar as propriedades.
+- Defina uma função de ajudante para criar as propriedades.
 
-10. Defina um ouvinte para atualizações de propriedade.
+- Defina um ouvinte para atualizações de propriedade.
 
-11. Defina uma função para enviar telemetria a partir deste dispositivo. Tanto os termostatos como o componente da raiz enviam telemetria. Esta função recebe o nome do componente como parâmetro.
+- Defina uma função para enviar telemetria a partir deste dispositivo. Tanto os termostatos como o componente predefinido enviam telemetria. Esta função recebe o nome do componente como parâmetro.
 
-12. Definir uma `main` função que:
+- Definir uma `main` função que:
 
-    1. Utiliza o dispositivo SDK para criar um cliente do dispositivo e ligar-se ao seu hub IoT. O dispositivo fornece o `modelId` modo de IoT Hub identificar o dispositivo como um dispositivo IoT Plug and Play.
+  - Utiliza o dispositivo SDK para criar um cliente do dispositivo e ligar-se ao seu hub IoT. O dispositivo fornece o `modelId` modo de IoT Hub identificar o dispositivo como um dispositivo IoT Plug and Play.
 
-    1. Começa a ouvir pedidos de comando utilizando a `onDeviceMethod` função. A função configura um ouvinte para pedidos de comando do serviço:
-        - O dispositivo DTDL define os `reboot` comandos e `getMaxMinReport` comandos.
-        - A `commandHandler` função define como o dispositivo responde a um comando.
+  - Começa a ouvir pedidos de comando utilizando a `onDeviceMethod` função. A função configura um ouvinte para pedidos de comando do serviço:
 
-    1. Começa a enviar telemetria utilizando `setInterval` e `sendTelemetry` .
+    - O dispositivo DTDL define os `reboot` comandos e `getMaxMinReport` comandos.
+    - A `commandHandler` função define como o dispositivo responde a um comando.
 
-    1. Utiliza a `helperCreateReportedPropertiesPatch` função para criar as propriedades e `updateComponentReportedProperties` atualizar as propriedades.
+  - Começa a enviar telemetria utilizando `setInterval` e `sendTelemetry` .
 
-    1. Usa `desiredPropertyPatchListener` para ouvir atualizações de propriedade.
+  - Utiliza a `helperCreateReportedPropertiesPatch` função para criar as propriedades e `updateComponentReportedProperties` atualizar as propriedades.
 
-    1. Desativa todos os ouvintes e tarefas e sai do loop quando pressiona **Q** ou **q**.
+  - Usa `desiredPropertyPatchListener` para ouvir atualizações de propriedade.
+
+  - Desativa todos os ouvintes e tarefas e sai do loop quando pressiona **Q** ou **q**.
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Para saber mais sobre a configuração da amostra, consulte o [produto de leitura](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md)da amostra .
 
 Agora que viu o código, use o seguinte comando para executar a amostra:
 
@@ -161,4 +136,4 @@ Depois de iniciar a amostra do cliente do dispositivo, utilize a ferramenta expl
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com componentes a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Guia de modelação IoT Plug e Play Preview](concepts-developer-guide.md)
+> [Guia de desenvolvedores de modelação IoT Plug e Play](concepts-developer-guide-device-csharp.md)

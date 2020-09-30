@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372226"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578041"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -43,7 +45,7 @@ Se não ocorrerem eventos e execuções hoje no plano De Consumo, a sua aplicaç
 No plano Premium, pode ter a sua aplicação sempre pronta num determinado número de casos.  O número máximo de instâncias sempre prontas é de 20.  Quando os eventos começam a desencadear a aplicação, são encaminhados para as instâncias sempre prontas primeiro.  À medida que a função se torna ativa, casos adicionais serão aquecidos como um tampão.  Este tampão evita o arranque a frio para novas instâncias necessárias durante a escala.  Estes casos tamponados são chamados [de instâncias pré-aquecidas.](#pre-warmed-instances)  Com a combinação das instâncias sempre prontas e um tampão pré-aquecido, a sua aplicação pode efetivamente eliminar o arranque a frio.
 
 > [!NOTE]
-> Todos os planos premium terão, pelo menos, uma instância ativa e faturada em todos os momentos.
+> Todos os planos premium terão pelo menos uma instância ativa (faturada) em todos os momentos.
 
 Pode configurar o número de instâncias sempre prontas no portal Azure selecionando a sua **App de Função**, indo ao separador **Funcionalidades** da Plataforma e selecionando as opções **De Escala.** Na janela de edição de aplicações de função, as instâncias sempre prontas são específicas dessa aplicação.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Casos pré-aquecidos são o número de casos aquecidos como tampão durante eventos de escala e ativação.  As instâncias pré-aquecidas continuam a tampão até que o limite máximo de escala seja atingido.  A contagem de casos pré-aquecidos predefinidos é 1, e para a maioria dos cenários deve permanecer como 1.  Se uma aplicação tiver um longo aquecimento (como uma imagem personalizada do recipiente), pode desejar aumentar este tampão.  Um caso pré-aquecido só se tornará ativo depois de todas as instâncias ativas terem sido suficientemente utilizadas.
 
-Considere este exemplo de como sempre os casos prontos e os casos pré-aquecidos funcionam em conjunto.  Uma aplicação de função premium tem cinco instâncias sempre prontas configuradas, e o padrão de uma instância pré-escrita.  Quando a aplicação estiver inativa e não houver eventos, a aplicação será aprovisionada e em execução em cinco instâncias.  
+Considere este exemplo de como sempre os casos prontos e os casos pré-aquecidos funcionam em conjunto.  Uma aplicação de função premium tem cinco instâncias sempre prontas configuradas, e o padrão de um caso pré-aquecido.  Quando a aplicação estiver inativa e não houver eventos, a aplicação será aprovisionada e em execução em cinco instâncias.  Neste momento, você não será cobrado para um caso pré-aquecido, uma vez que as instâncias sempre prontas não são usadas, e nenhum caso pré-aquecido é sequer atribuído.
 
-Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas tornam-se ativas, e um caso adicional pré-aquecido é atribuído.  A aplicação está agora em execução com seis instâncias aprovisionadas: as cinco instâncias agora ativas sempre prontas, e o sexto tampão pré-aquecido e inativo.  Se a taxa de execuções continuar a aumentar, os cinco casos ativos serão eventualmente utilizados.  Quando a plataforma decidir escalar para além de cinco instâncias, irá escalar para o caso pré-aquecido.  Quando isso acontecer, haverá agora seis instâncias ativas, e uma sétima instância será imediatamente a provisionada e preencherá o tampão pré-aquecido.  Esta sequência de escala e pré-aquecimento continuará até que a contagem máxima de instância para a aplicação seja alcançada.  Nenhuma ocorrência será pré-aquecida ou ativada para além do máximo.
+Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas tornam-se ativas, e um caso pré-aquecido é atribuído.  A aplicação está agora em execução com seis instâncias aprovisionadas: as cinco instâncias agora ativas sempre prontas, e o sexto tampão pré-aquecido e inativo.  Se a taxa de execuções continuar a aumentar, os cinco casos ativos serão eventualmente utilizados.  Quando a plataforma decidir escalar para além de cinco instâncias, irá escalar para o caso pré-aquecido.  Quando isso acontecer, haverá agora seis instâncias ativas, e uma sétima instância será imediatamente a provisionada e preencherá o tampão pré-aquecido.  Esta sequência de escala e pré-aquecimento continuará até que a contagem máxima de instância para a aplicação seja alcançada.  Nenhuma ocorrência será pré-aquecida ou ativada para além do máximo.
 
 Pode modificar o número de casos pré-aquecidos para uma aplicação utilizando o Azure CLI.
 
@@ -95,7 +97,7 @@ As funções Azure num plano de consumo estão limitadas a 10 minutos para uma �
 
 Quando cria o plano, existem duas definições de tamanho do plano: o número mínimo de casos (ou tamanho do plano) e o limite máximo de explosão.
 
-Se a sua aplicação necessitar de casos para além das instâncias sempre prontas, pode continuar a escalar até que o número de casos atinja o limite máximo de explosão.  Você é cobrado por casos além do seu tamanho de plano apenas enquanto eles estão correndo e alugados para você.  Faremos o melhor esforço para reduzir a sua app até ao limite máximo definido.
+Se a sua aplicação necessitar de casos para além das instâncias sempre prontas, pode continuar a escalar até que o número de casos atinja o limite máximo de explosão.  É cobrado por casos além do tamanho do seu plano apenas enquanto eles estão a correr e alocados a si, numa base por segundo.  Faremos o melhor esforço para reduzir a sua app até ao limite máximo definido.
 
 Pode configurar o tamanho e os máximos do plano no portal Azure selecionando as opções **Scale out** no plano ou uma aplicação de função implementada nesse plano (em **Funcionalidades da Plataforma).**
 
@@ -120,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>SKUs de instância disponível
 
-Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado pelo número total de núcleos e memória consumidos por segundo.  A sua aplicação pode escalar automaticamente para várias instâncias, se necessário.  
+Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado o número total de núcleos e memória a provisionados, por segundo que cada instância lhe é atribuída.  A sua aplicação pode escalar automaticamente para várias instâncias, se necessário.  
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577650"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar os dispositivos IoT Plug e Play
 
@@ -42,18 +42,18 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 - Implementar telemetria, propriedades ou comandos seguindo a convenção IoT Plug and Play.
 - Descreva as interações do dispositivo com um modelo [DTDL v2.](https://aka.ms/dtdl)
 - Publique o modelo, e todas as interfaces necessárias, no [Repositório de Modelo Público Azure IoT](https://devicemodels.azureiotsolutions.com/)
-- Envie o ID do modelo durante o [registo DPS](concepts-developer-guide.md#dps-payload) na carga útil de provisionamento DPS.
-- Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide.md#model-id-announcement).
+- Envie o ID do modelo durante o [registo DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga útil de provisionamento DPS.
+- Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Teste com a extensão Azure IoT CLI
 
-A [extensão Azure IoT CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
+A [extensão Azure IoT CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
 
 Os seguintes passos mostram-lhe como preparar e executar os testes de certificação utilizando o CLI:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Instale a extensão Azure IoT para o Azure CLI
 
-Consulte as instruções de instalação para configurar o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) no seu ambiente.
+Consulte as instruções de instalação para configurar o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) no seu ambiente.
 
 Para instalar a Extensão Azure IoT, executar o seguinte comando:
 
@@ -61,7 +61,7 @@ Para instalar a Extensão Azure IoT, executar o seguinte comando:
 az extension add --name azure-iot
 ```
 
-Para saber mais, consulte [Azure CLI para Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest).
+Para saber mais, consulte [Azure CLI para Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
 
 ### <a name="create-a-new-product-test"></a>Criar um novo teste de produto
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Tem de [iniciar súmis na](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) sua subscrição quando utilizar o CLI.
+> Tem de [iniciar súmis na](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) sua subscrição quando utilizar o CLI.
 
 A saída JSON do comando contém `primaryKey` o , e para usar quando liga o seu `registrationId` `scopeID` dispositivo.
 
@@ -166,9 +166,6 @@ Saída de teste de exemplo
 
 Os passos seguintes mostram-lhe como utilizar o [portal Azure Certified Device](https://aka.ms/acdp) para embarcar, registar detalhes do produto, enviar um guia de arranque e executar os testes de certificação.
 
-> [!NOTE]
-> No momento da escrita, o portal não suporta a publicação do [catálogo de dispositivos Certified for Azure IoT](https://aka.ms/devicecatalog).
-
 ### <a name="onboarding"></a>Inclusão
 
 Para utilizar o portal de [certificação,](https://aka.ms/acdp)deve utilizar um Diretório Azure Ative do seu trabalho ou inquilino escolar.
@@ -203,6 +200,14 @@ Há três passos a serem concluídos:
 1. Conecte-se e descubra interfaces. O dispositivo deve ligar-se ao serviço de certificação Azure IoT através de DPS. Escolha o método de autenticação (certificado X.509, chaves simétricas ou módulo de plataforma fidedigna) para utilizar e atualizar a aplicação do dispositivo com as informações DPS.
 1. Rever interfaces. Reveja a interface e certifique-se de que cada um tem entradas de carga útil que fazem sentido para testes.
 1. O teste. O sistema testa cada modelo de dispositivo para verificar se a telemetria, propriedades e comandos descritos no modelo seguem as convenções IoT Plug and Play. Quando o teste estiver concluído, selecione a ligação **de registos** de visualização para ver a telemetria do dispositivo e os dados brutos enviados para as propriedades gémeas do dispositivo IoT Hub.
+
+### <a name="submit-and-publish"></a>Submeter e publicar
+
+A fase final exigida é submeter o projeto para revisão. Este passo notifica um membro da equipa de Dispositivos Certificados Azure para rever o seu projeto para a completude, incluindo os detalhes do dispositivo e marketing, e o guia get-start. Um membro da equipa pode contactá-lo no endereço de e-mail da empresa previamente fornecido com perguntas ou editar pedidos antes da aprovação.
+
+Se o seu dispositivo necessitar de mais validação manual como parte da certificação, receberá um aviso neste momento.
+
+Quando um dispositivo é certificado, pode optar por publicar os seus dados do produto no Catálogo de Dispositivos Certificados Azure utilizando a **Funcionalidade De Publicação para catalogar** funcionalidades na página de resumo do produto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595656"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578262"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure    
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
 > [!NOTE]
 > Este artigo descreve como compreender e controlar os seus custos para os Registos do Monitor Azure. Um artigo relacionado, [monitorização da utilização e custos estimados](usage-estimated-costs.md) descreve como visualizar a utilização e os custos estimados em várias funcionalidades de monitorização do Azure para diferentes modelos de preços. Todos os preços e custos apresentados neste artigo são apenas para fins. 
@@ -46,9 +46,9 @@ Além disso, note que algumas soluções, como [o Azure Security Center](https:/
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics Clusters Dedicados
 
-Log Analytics Clusters Dedicados são coleções de espaços de trabalho num único cluster Azure Data Explorer gerido para suportar cenários avançados como [chaves geridas pelo cliente.](customer-managed-keys.md)  Log Analytics Clusters Dedicados suportam apenas um modelo de preços de Reserva de Capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com os preços pay-as-you-go. Qualquer utilização acima do nível de reserva será faturada na tarifa Pay-As-You-Go. A Reserva de Capacidade do Cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre [a criação de um Log Analytics Clusters](customer-managed-keys.md#create-cluster-resource) e [associar-lhe espaços de trabalho.](customer-managed-keys.md#workspace-association-to-cluster-resource)  
+Log Analytics Clusters Dedicados são coleções de espaços de trabalho num único cluster Azure Data Explorer gerido para suportar cenários avançados como [chaves geridas pelo cliente.](customer-managed-keys.md)  Log Analytics Clusters Dedicados utilizam um modelo de preços de reserva de capacidade que deve ser configurado para pelo menos 1000 GB/dia. Este nível de capacidade tem um desconto de 25% em relação ao preço pay-as-you-go. Qualquer utilização acima do nível de reserva será faturada na tarifa Pay-As-You-Go. A Reserva de Capacidade do Cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Quando os espaços de trabalho estão associados a um cluster, a faturação de ingestão de dados para esses espaços de trabalho é feita ao nível do cluster usando o nível de reserva de capacidade configurado. Saiba mais sobre [a criação de um Log Analytics Clusters](customer-managed-keys.md#create-cluster-resource) e [associar-lhe espaços de trabalho.](customer-managed-keys.md#workspace-association-to-cluster-resource) A informação sobre preços da reserva de capacidade está disponível na página de preços do [Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-O nível de reserva de capacidade do cluster é configurado através de programaticamente com o Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia. Isto é detalhado na [chave gerida pelo cliente do Azure Monitor.](customer-managed-keys.md#create-cluster-resource) Se o seu cluster necessitar de uma reserva superior a 2000 GB/dia contacte-nos em [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
+O nível de reserva de capacidade do cluster é configurado programáticamente com o Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia. Isto é detalhado na [chave gerida pelo cliente do Azure Monitor.](customer-managed-keys.md#create-cluster-resource) Se o seu cluster necessitar de uma reserva superior a 2000 GB/dia contacte-nos em [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 Existem dois modos de faturação para uso num cluster. Estes podem ser especificados pelo `billingType` parâmetro ao [configurar o seu cluster](customer-managed-keys.md#cmk-management). Os dois modos são: 
 
@@ -56,7 +56,7 @@ Existem dois modos de faturação para uso num cluster. Estes podem ser especifi
 
 2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](https://docs.microsoft.com/azure/security-center/) para cada espaço de trabalho.) Se o volume total de dados ingerido num espaço de trabalho por um dia for inferior à Reserva de Capacidade, então cada espaço de trabalho é faturado para os seus dados ingeridos à taxa efetiva de reserva de capacidade por GB, cobrando-lhes uma fração da Reserva de Capacidade, e a parte não utilizada da Reserva de Capacidade é faturada para o recurso do cluster. Se o volume total de dados ingerido num espaço de trabalho por um dia for superior à Reserva de Capacidade, então cada espaço de trabalho é faturado por uma fração da Reserva de Capacidade com base na sua fração dos dados ingeridos nesse dia, e cada espaço de trabalho para uma fração dos dados ingeridos acima da Reserva de Capacidade. Não há nada faturado para o recurso do cluster se o volume total de dados ingerido num espaço de trabalho por um dia for sobre a Reserva de Capacidade.
 
-Nas opções de faturação de cluster, a retenção de dados é faturada ao nível do espaço de trabalho. Note que a faturação do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho terem sido associados ao cluster. Além disso, note que os espaços de trabalho associados a um cluster já não têm um nível de preços.
+Nas opções de faturação de cluster, a retenção de dados é faturada no espaço de trabalho. Note que a faturação do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho terem sido associados ao cluster. Além disso, note que os espaços de trabalho associados a um cluster já não têm um nível de preços.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerir o seu ambiente 
 
@@ -234,12 +234,12 @@ A tampa diária pode ser configurada via ARM definindo o parâmetro sob o `daily
 
 Embora apresentemos uma sugestão visual no portal Azure quando o limiar do limite de dados é cumprido, este comportamento não se alinha necessariamente com a forma como gere problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para saber mais, veja [como criar, ver e gerir alertas.](alerts-metric.md)
 
-Para começar, aqui estão as definições recomendadas para o alerta:
+Para começar, aqui estão as definições recomendadas para a consulta de alerta da `Operation` tabela utilizando a `_LogOperation` função. 
 
 - Destino: Selecione o seu recurso Log Analytics
 - Critérios: 
    - Nome do sinal: Pesquisa de registo personalizado
-   - Consulta de pesquisa: Operação / onde o detalhe tem 'OverQuota'
+   - Consulta de pesquisa: `_LogOperation | where Detail has 'OverQuota'`
    - Com base em: Número de resultados
    - Condição: Maior do que
    - Limiar: 0
@@ -441,7 +441,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 
 | Origem do volume de dados elevado | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
-| Insights de Contentores         | [Configure a Informação do Contentor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) para recolher apenas os dados necessários. |
+| Informações de Contentores         | [Configure a Informação do Contentor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) para recolher apenas os dados necessários. |
 | Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar o registo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditoria de armazenamento amovível |
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
 | Registos de eventos                 | Altere a [configuração do registo de eventos](data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
@@ -618,7 +618,7 @@ Para ser notificado quando a recolha de dados parar, utilize os passos descritos
 Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do nível de preços do Log Analytics. Estes estão documentados nos [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [as pesquisas de Registo em Registos monitores Azure](../log-query/log-query-overview.md) para aprender a usar o idioma de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 - Utilize os passos descritos em [create a new log alert](alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.

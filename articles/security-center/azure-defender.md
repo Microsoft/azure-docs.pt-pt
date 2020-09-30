@@ -1,31 +1,28 @@
 ---
 title: Visão geral do Azure Defender e dos planos disponíveis
-description: Conheça os planos, proteções e alertas do Azure Defender. Em seguida, proceda para ativar o Azure Defender nas suas subscrições.
+description: Conheça os planos, proteções e alertas do Azure Defender. Em seguida, ative o Azure Defender nas suas subscrições para uma segurança avançada.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448435"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576864"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
 As características do Azure Security Center cobrem os dois grandes pilares da segurança na nuvem:
 
-- **Gestão da postura de segurança na nuvem (CSPM)**
-- **Proteção da carga de trabalho em nuvem (CWP)**
+- **Gestão da postura de segurança na nuvem (CSPM)** - O Centro de Segurança está disponível **gratuitamente** para todos os utilizadores do Azure. A experiência gratuita inclui funcionalidades de CSPM, tais como pontuação segura, deteção de configurações de segurança nas suas máquinas Azure, inventário de ativos e muito mais. Use estas funcionalidades de CSPM para fortalecer a sua postura híbrida em nuvem e acompanhar o cumprimento das políticas incorporadas.
 
-As funcionalidades do CSPM do Security Center, tais como pontuação segura, deteção de erros de segurança nas suas máquinas Windows e Linux Azure, fazem parte da experiência gratuita do Security Center disponível para todos os utilizadores do Azure. Utilize estas funcionalidades CSPM para fortalecer a sua postura e garantir a conformidade regulamentar.
+- **Cloud workload protection (CWP)** - A plataforma integrada de proteção da carga de trabalho em nuvem (CWPP), **Azure Defender,** traz uma proteção avançada, inteligente, dos seus recursos e cargas híbridas e de carga de trabalho azures e híbridos. O Azure Defender traz uma gama de funcionalidades de segurança adicionais, conforme descrito nesta página. Além das políticas incorporadas, quando tiver ativado qualquer plano Azure Defender, pode adicionar políticas e iniciativas personalizadas. Pode adicionar normas regulamentares - como nist e Azure CIS - bem como o Azure Security Benchmark para uma visão verdadeiramente personalizada da sua conformidade.
 
-**O Azure Defender** é a plataforma de proteção da carga de trabalho em nuvem (CWPP) integrada no Security Center para uma proteção avançada, inteligente, das suas cargas de trabalho Azure e híbridas.
-
-Este é o painel Azure Defender no Centro de Segurança Azure:
+O painel Azure Defender no Security Center proporciona visibilidade e controlo das funcionalidades CWP para o seu ambiente:
 
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
@@ -55,11 +52,13 @@ Além de defender o seu ambiente Azure, pode adicionar as capacidades do Azure D
 - Proteja as suas máquinas virtuais noutras nuvens (como AWS e GCP)
 - Proteja os seus dispositivos IoT
 
-Você receberá inteligência de ameaça personalizada e alertas prioritários de acordo com o seu ambiente específico para que você possa se concentrar no que mais importa
+Você receberá inteligência de ameaça personalizada e alertas prioritários de acordo com o seu ambiente específico para que possa se concentrar no que mais importa.
 
-Implemente [o Azure Arc](https://azure.microsoft.com/services/azure-arc/) e permita ao Azure Defender alargar a proteção às máquinas virtuais e às bases de dados SQL. O Azure Arc para servidores é um serviço gratuito, mas os serviços que são utilizados em servidores ativados arc, por exemplo, Azure Defender, serão cobrados de acordo com os preços desse serviço.
+Para alargar a proteção a máquinas virtuais e bases de dados SQL que se encontram noutras nuvens ou no local, inserte [o Arco Azure](https://azure.microsoft.com/services/azure-arc/) e ativa o Azure Defender. O Azure Arc para servidores é um serviço gratuito, mas os serviços que são utilizados em servidores ativados arc, por exemplo, Azure Defender, serão cobrados de acordo com os preços desse serviço. Saiba mais em [Adicionar máquinas não-Azure com Arco Azure](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-[Saiba mais sobre o Arco Azure.](https://docs.microsoft.com/azure/azure-arc/overview)
+> [!TIP]
+> O conector nativo da AWS lida de forma transparente com a implantação do Arco Azure para si. Saiba mais em [Ligar as suas contas AWS ao Azure Security Center](quickstart-onboard-aws.md).
+
 
 
 ## <a name="azure-defender-alerts"></a>Alertas do Azure Defender 
@@ -93,7 +92,7 @@ Saiba mais nas seguintes páginas:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre os benefícios do Azure Defender. 
 

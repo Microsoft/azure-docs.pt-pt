@@ -3,12 +3,12 @@ title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 679887e1998a534001e72ddff7a1a184a84bd831
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254732"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576732"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -46,11 +46,11 @@ Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o
 
 2. Introduza o nome para a chave de autorização e selecione **Criar**. 
 
-   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Clique em Criar para criar uma nova chave de autorização. ":::
+   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
 
    Uma vez criada, a nova chave aparece na lista de chaves de autorização para a nuvem privada. 
 
-   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Confirme que a nova chave de autorização aparece na lista de chaves para a nuvem privada. ":::
+   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
 
 3. Tome nota da chave de autorização e do ID ExpressRoute, juntamente com o bloco de endereços /29. Vais usá-los no próximo passo para completar o olhar. 
 
@@ -64,7 +64,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
 
 1. A partir da nuvem privada **Overview**, under Manage, **selecione Conectividade > ExpressRoute Global Reach > Add**.
 
-   :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="A partir do menu, selecione Conectividade, o separador ExpressRoute Global Reach e, em seguida, Adicione.":::
+   :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
 
 1. Pode criar uma ligação em nuvem no local, fazendo uma das seguintes:
 
@@ -76,7 +76,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
 >[!TIP]
 >Pode eliminar ou desligar uma ligação da lista selecionando **Mais**.  
 >
-> :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Desligar ou apagar uma ligação no local":::
+> :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
 
 ### <a name="azure-cli-in-a-cloud-shell-method"></a>Azure CLI em um método Cloud Shell
 
@@ -88,13 +88,13 @@ Aumentámos os [comandos do CLI](../expressroute/expressroute-howto-set-global-r
 
 1. Inscreva-se no portal Azure usando a mesma subscrição que o circuito ExpressRoute no local e abra uma Cloud Shell. Deixe a concha como Bash.
  
-   :::image type="content" source="media/expressroute-global-reach/open-cloud-shell.png" alt-text="Inscreva-se no portal Azure e abra uma Cloud Shell.":::
+   :::image type="content" source="media/expressroute-global-reach/open-cloud-shell.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
  
 2. Na linha de comando, insira o comando Azure CLI para criar o estorte, utilizando o seu ID de informação e recursos específicos, a chave de autorização e o bloco de rede /29 CIDR. 
 
    Segue-se um exemplo do comando que irá utilizar e da saída que indica um olhar bem sucedido. O comando exemplo baseia-se no comando utilizado no [passo 3 de "Permitir a conectividade entre circuitos ExpressRoute em diferentes subscrições Azure".](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions)
 
-   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Crie o ExpressRoute Global Reach a espreitar com o comando Azure CLI numa Cloud Shell.":::
+   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Selecione Conectividade > ExpressRoute > Solicite uma chave de autorização para iniciar um novo pedido.":::
  
    Você deve agora ser capaz de conectar de ambientes no local para a sua nuvem privada sobre o ExpressRoute Global Reach espreitando.
 
@@ -109,7 +109,7 @@ Neste tutorial, aprendeu a criar uma segunda chave de autorização para o circu
 Continue até ao próximo tutorial para aprender a implementar e configurar a solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementar e configurar VMware HCX](hybrid-cloud-extension-installation.md)
+> [Implementar e configurar VMware HCX](tutorial-deploy-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

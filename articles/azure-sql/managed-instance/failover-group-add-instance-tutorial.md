@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325254"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578568"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Para completar o tutorial, certifique-se de que tem os seguintes itens:
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Criar um grupo de recursos e exemplo gerido primário
 
 Neste passo, irá criar o grupo de recursos e a primeira instância gerida para o seu grupo de failover utilizando o portal Azure ou PowerShell. 
+
+Implementar ambas as instâncias geridas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por razões de desempenho. Os casos geridos que residem em regiões geo-emparelhadas têm um desempenho muito melhor em comparação com as regiões não remuneradas. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
@@ -740,6 +742,8 @@ Para que dois casos geridos participem num grupo de failover, deve haver um Expr
 
 Este artigo fornece passos para criar os dois gateways VPN e conectá-los, mas você pode saltar antes para criar o grupo de failover se você tiver configurado ExpressRoute em vez disso. 
 
+> [!NOTE]
+> O SKU do gateway afeta o desempenho da produção. Este tutorial implementa uma porta de entrada com o SKU mais básico `HwGw1` (). Implemente um SKU mais alto (exemplo: `VpnGw3` ) para obter uma produção mais elevada. Para todas as opções disponíveis, consulte [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

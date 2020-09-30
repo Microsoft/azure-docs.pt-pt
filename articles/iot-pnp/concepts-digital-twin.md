@@ -1,18 +1,18 @@
 ---
 title: Compreenda ioT Plug e Jogue gémeos digitais
-description: Entenda como IoT Plug e Play Preview usam gémeos digitais
+description: Entenda como ioT Plug e Play usa gémeos digitais
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352415"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578058"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Compreenda ioT Plug e Jogue gémeos digitais
 
@@ -34,7 +34,7 @@ As APIs Digitais Twin operam em construções de alto nível na Linguagem de Def
 
 Em um dispositivo gémeo, o estado de uma propriedade writable é dividido através das secções desejadas e relatadas. Todas as propriedades apenas de leitura estão disponíveis dentro da secção relatada.
 
-Em um gémeo digital, há uma visão unificada do estado atual e desejado da propriedade. O estado de sincronização de uma determinada propriedade é armazenado na secção raiz ou componente `$metadata` correspondente.
+Em um gémeo digital, há uma visão unificada do estado atual e desejado da propriedade. O estado de sincronização de uma determinada propriedade é armazenado na secção de componente predefinido `$metadata` correspondente.
 
 ### <a name="digital-twin-json-format"></a>Formato JSON twin digital
 
@@ -51,9 +51,9 @@ Quando representado como um objeto JSON, um gémeo digital inclui os seguintes c
 | `$metadata.{propertyName}.ackCode` | [Obrigatório, apenas para propriedades writable] O `ack` código devolvido pela aplicação do dispositivo implementando o twin digital |
 | `$metadata.{propertyName}.ackDescription` | [Opcional, apenas para propriedades writable] A `ack` descrição devolvida pela aplicação do dispositivo implementando o twin digital |
 | `$metadata.{propertyName}.lastUpdateTime` | O IoT Hub mantém o tempo da última atualização da propriedade pelo dispositivo. Os cartões de tempo estão em UTC e codificados no formato ISO8601 YYYYY-MM-DDTHH:MM:SS.mmmZ |
-| `{componentName}` | Um objeto JSON contendo os valores de propriedade e metadados do componente, semelhante a um objeto raiz. |
+| `{componentName}` | Um objeto JSON contendo os valores de propriedade e metadados do componente. |
 | `{componentName}.{propertyName}` | O valor do imóvel do componente em JSON |
-| `{componentName}.$metadata` | A informação de metadados para o componente, semelhante ao nível de raiz`$metadata` |
+| `{componentName}.$metadata` | A informação dos metadados para o componente. |
 
 #### <a name="device-twin-sample"></a>Amostra de twin dispositivo
 
@@ -131,7 +131,7 @@ As propriedades são campos de dados que representam o estado de uma entidade (c
 
 #### <a name="read-only-property"></a>Propriedade só de leitura
 
-Schema:
+Esquema:
 
 ```json
 {
@@ -171,7 +171,7 @@ Os seguintes snippets mostram a representação JSON lado a lado da `serialNumbe
 
 #### <a name="writable-property"></a>Propriedade writable
 
-Digamos que o dispositivo também tinha a seguinte propriedade writable ao nível da raiz:
+Digamos que o dispositivo também tinha a seguinte propriedade writable no componente padrão:
 
 ```json
 {
@@ -228,7 +228,7 @@ Digamos que o dispositivo também tinha a seguinte propriedade writable ao níve
    :::column-end:::
 :::row-end:::
 
-Neste exemplo, `3.0` encontra-se o valor atual do `fanSpeed` imóvel reportado pelo dispositivo. `2.0`é o valor desejado definido pela solução. O estado de valor e sincronização desejado de uma propriedade de nível de raiz é definido dentro do nível de raiz `$metadata` para um gémeo digital. Quando o dispositivo estiver online, pode aplicar esta atualização e reportar o valor atualizado.
+Neste exemplo, `3.0` encontra-se o valor atual do `fanSpeed` imóvel reportado pelo dispositivo. `2.0` é o valor desejado definido pela solução. O estado de valor e sincronização desejado de uma propriedade de nível de raiz é definido dentro do nível de raiz `$metadata` para um gémeo digital. Quando o dispositivo estiver online, pode aplicar esta atualização e reportar o valor atualizado.
 
 ### <a name="components"></a>Componentes
 
@@ -240,8 +240,8 @@ Num duplo dispositivo, um componente é identificado pelo `{ "__t": "c"}` marcad
 
 Neste exemplo, `thermostat1` encontra-se um componente com duas propriedades:
 
-- `maxTempSinceLastReboot`é uma propriedade só de leitura.
-- `targetTemperature`é uma propriedade que foi sincronizada com sucesso pelo dispositivo. O estado de valor e sincronização pretendido destas propriedades está no `$metadata` componente.
+- `maxTempSinceLastReboot` é uma propriedade só de leitura.
+- `targetTemperature` é uma propriedade que foi sincronizada com sucesso pelo dispositivo. O estado de valor e sincronização pretendido destas propriedades está no `$metadata` componente.
 
 Os seguintes snippets mostram a representação JSON lado a lado do `thermostat1` componente:
 
@@ -374,11 +374,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> As mensagens de notificação de alterações gémeas são duplicadas quando ligadas tanto no dispositivo como na notificação digital de alteração de twin change.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 
 - [Como usar IoT Plug e Play APIs digitais twin](howto-manage-digital-twin.md)
-- [Interaja com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

@@ -1,24 +1,24 @@
 ---
 title: Como gerir as gémeas digitais IoT Plug e Play
-description: Como gerir o dispositivo IoT Plug e Play Preview utilizando APIs digitais de gémeos
+description: Como gerir o dispositivo IoT Plug and Play utilizando APIs digitais de gémeos
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352372"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577599"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerir ioT plug e jogar gémeos digitais
 
 IoT Plug and Play suporta **Obter twin digital** e atualizar operações digitais **twin** para gerir gémeos digitais. Pode utilizar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou um dos [SDKs](libraries-sdks.md)de serviço.
 
-No momento da escrita, a versão digital gémea da API para visualização pública é `2020-05-31-preview` .
+No momento da escrita, a versão digital gémea da API é `2020-09-30` .
 
 ## <a name="update-a-digital-twin"></a>Atualize um gémeo digital
 
@@ -72,7 +72,7 @@ Por exemplo, pode atualizar a `targetTemperature` propriedade da seguinte forma:
 ]
 ```
 
-A atualização anterior define o valor desejado de uma propriedade no nível de raiz ou componente `$metadata` correspondente, tal como mostrado no seguinte corte. IoT Hub atualiza a versão desejada da propriedade:
+A atualização anterior define o valor desejado de uma propriedade no nível de componente `$metadata` correspondente, tal como mostrado no seguinte corte. IoT Hub atualiza a versão desejada da propriedade:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ A seguinte amostra do Patch JSON mostra como adicionar, substituir ou remover um
 
 Uma operação de adição ou substituição define o valor desejado de um imóvel. O dispositivo pode sincronizar o estado e reportar uma atualização do valor juntamente com um `ack` código, versão e descrição.
 
-A remoção de uma propriedade limpa o valor desejado da propriedade se estiver definida. O dispositivo pode então parar de reportar esta propriedade e é removido do nível de raiz ou do componente. Se esta propriedade é a última no componente, então o componente também é removido.
+A remoção de uma propriedade limpa o valor desejado da propriedade se estiver definida. O dispositivo pode então parar de reportar esta propriedade e é removido do componente. Se esta propriedade é a última no componente, então o componente também é removido.
 
 A seguinte amostra do Patch JSON mostra como adicionar, substituir ou remover uma propriedade dentro de um componente:
 
@@ -189,10 +189,10 @@ Quando atualizar um componente, certifique-se de que o [objeto vazio $metadata m
 
 As atualizações podem falhar se os valores reportados de um dispositivo não estiverem em conformidade com as [convenções de plug-plug e play IoT](./concepts-convention.md#writable-properties).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 
-- [Interaja com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

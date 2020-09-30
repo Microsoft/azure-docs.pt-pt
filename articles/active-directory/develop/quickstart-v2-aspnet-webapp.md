@@ -1,6 +1,7 @@
 ---
-title: Adicione o s-in com a Microsoft a uma aplicação web ASP.NET [ Rio Azure
-description: Saiba como implementar o sôm-in da Microsoft numa aplicação web ASP.NET utilizando o OpenID Connect.
+title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web ASP.NET [ Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, aprenda a implementar o início de sôs-in da Microsoft numa aplicação web ASP.NET utilizando o OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,16 +12,22 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: ada6e36e03f326ab3161306b0f5da2e097e57e0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369676"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576970"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Pré-requisitos
+>
+> * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.Net Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
 > * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -69,7 +76,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET w
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para correr
-> Configuramos o seu projeto com valores das propriedades da sua aplicação. 
+> Configuramos o seu projeto com valores das propriedades da sua aplicação.
 
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Visual Studio
@@ -114,7 +121,7 @@ Pode configurar o pipeline de autenticação com a autenticação baseada em coo
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="owin-startup-class"></a>Classe de Arranque OWIN
@@ -156,7 +163,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
@@ -195,13 +202,11 @@ public void SignIn()
 
 Pode proteger um controlador ou as ações do controlador com o atributo `[Authorize]`. Este atributo restringe o acesso ao controlador ou às ações ao permitir que apenas os utilizadores autenticados acedam às ações no controlador, o que significa que o desafio de autenticação acontecerá automaticamente quando um utilizador *não autenticado* tentar aceder a uma das ações ou ao controlador decorado pelo atributo `[Authorize]`.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Experimente o tutorial para ASP.NET para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça os passos para criar a aplicação utilizada neste início rápido
-
 > [!div class="nextstepaction"]
-> [Tutorial de início de sessão](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Adicione o s-in a uma aplicação web ASP.NET](tutorial-v2-asp-webapp.md)

@@ -1,18 +1,21 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255048"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577225"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
 O agente Azure Arc ativado por máquinas conectadas permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem. Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede, bem como dos diferentes métodos de implantação.
+
+>[!NOTE]
+>Começando com o lançamento geral dos servidores Azure Arc ativados em setembro de 2020, todas as versões pré-lançamento do agente Azure Connected Machine (agentes com versões inferiores a 1.0) estão a ser **depreciadas** até **2 de fevereiro de 2021**.  Este prazo permite-lhe fazer upgrade para a versão 1.0 ou superior antes que os agentes pré-lançados deixem de poder comunicar com o serviço de servidores ativados Azure Arc.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -44,7 +47,7 @@ O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-As seguintes versões do sistema operativo Windows e Linux são oficialmente suportadas para o agente Azure Connected Machine: 
+As seguintes versões do sistema operativo Windows e Linux são oficialmente suportadas para o agente Azure Connected Machine:
 
 - Windows Server 2012 R2 e superior (incluindo o Núcleo do Servidor do Windows)
 - Ubuntu 16.04 e 18.04 LTS (x64)
@@ -85,7 +88,7 @@ Etiquetas de serviço:
 
 URLs:
 
-| Recursos do agente | Description |
+| Recursos do agente | Descrição |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -154,7 +157,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Description |
+    |Pasta |Descrição |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
@@ -166,21 +169,21 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Os seguintes serviços Windows são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |osds |Serviço de Metadados de Caso Híbrido Azure |himds.exe |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |DscService |Serviço de Configuração de Hóspedes |dsc_service.exe |A base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de Hóspedes.|
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Name |Valor predefinido |Description |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Description |
+    |Registar |Descrição |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -205,7 +208,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Description |
+    |Pasta |Descrição |
     |-------|------------|
     |/var/opt/azcmagent/ |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |/opt/azcmagent/ |
@@ -217,14 +220,14 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Os seguintes daemons são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Serviço de Metadados de Caso Híbrido Azure |/opt/azcmagent/bin/himds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |dscd.service |Serviço de Configuração de Hóspedes |/opt/DSC/dsc_linux_service |Esta é a base de código de configuração do estado desejada (DSC v2) usada dentro do Azure para implementar a Política de Hóspedes.|
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Description |
+    |Registar |Descrição |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -235,7 +238,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Valor predefinido |Description |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

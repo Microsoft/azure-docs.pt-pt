@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8b516180f09634dfa430275ef39370f0328a0927
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229230"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577905"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
 
@@ -49,7 +49,7 @@ Para criar um cluster HDInsight com uma conta Desarrumação gen1 de armazenamen
 2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o **tipo de armazenamento primário,** selecione **Azure Data Lake Storage Gen1**, e, em seguida, introduza as seguintes informações:
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da lâmina de armazenamento com a opção do tipo de armazenamento primário, selecione data lake store opção e opção de acesso data lake store chamado.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicione o principal do serviço ao cluster HDInsight")
 
     * **Selecione conta Data Lake Store**: Selecione uma conta gen1 de armazenamento de datas existente. É necessária uma conta Gen1 de armazenamento de dados existente.  Veja [Pré-requisitos](#prerequisites).
     * **Caminho da raiz**: Introduza um caminho onde os ficheiros específicos do cluster devem ser armazenados. Na imagem, é __/clusters/myhdiadlcluster/__, no qual a pasta __/clusters__ deve existir, e o Portal cria uma pasta *de myhdicluster.*  O *meu myhdicluster* é o nome do cluster.
@@ -68,7 +68,7 @@ Para criar um cluster HDInsight com uma conta Desarrumação gen1 de Armazenamen
 2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter informações gerais sobre a criação de clusters HDInsight.
 3. Na lâmina **de armazenamento,** sob o **tipo de armazenamento primário,** selecione **Azure Storage**, e, em seguida, introduza as seguintes informações:
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da lâmina de armazenamento com a opção de tipo de armazenamento primário e a opção de acesso data lake store chamada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicione o principal do serviço ao cluster HDInsight")
 
     * **Método de seleção** - Para especificar uma conta de armazenamento que faça parte da sua subscrição Azure, selecione **As Minhas subscrições**e, em seguida, selecione a conta de armazenamento. Para especificar uma conta de armazenamento que esteja fora da sua subscrição Azure, selecione **a chave de acesso**e, em seguida, forneça as informações para a conta de armazenamento exterior.
 
@@ -95,7 +95,7 @@ Para utilizar um principal de serviço existente a partir do portal Azure:
 1. Selecione **o diretor de serviço**e, em seguida, selecione um principal de serviço.
 1. Faça o upload do certificado (.pfx file) que está associado ao seu principal de serviço selecionado e, em seguida, introduza a senha de certificado.
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da lâmina de acesso Gen1 de armazenamento de data lake com a opção de utilização existente chamada e a lâmina Select a Service Principal com a opção h d insight s p e selecione a opção Select.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicione o principal do serviço ao cluster HDInsight")
 
 1. Selecione **Acesso** à configuração do acesso à pasta.  Consulte [permissões de ficheiros configurantes](#configure-file-permissions).
 
@@ -121,7 +121,7 @@ Para atribuir permissão no nível de raiz da conta de armazenamento de dados Da
 1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Access**. A lâmina **de permissões de ficheiro Select** é aberta. Ele lista todas as contas da Data Lake Storage Gen1 na sua subscrição.
 1. Hover (não clique) o rato sobre o nome da conta Desacosto De Armazenamento de Dados Gen1 para tornar a caixa de verificação visível e, em seguida, selecione a caixa de verificação.
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da lâmina de permissões de ficheiro Self mostrando a conta de Armazenamento de Dados Lake Gen 1 realçada e selecionada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicione o principal do serviço ao cluster HDInsight")
 
    Por predefinição, __LEIA,__ __ESCREVa__e __EXECUTE__ todos.
 
@@ -149,11 +149,11 @@ Depois de concluída a configuração do cluster, na lâmina do cluster, verifiq
 
 * Para verificar se o armazenamento associado ao cluster é a conta Dese de Armazenamento de Data Lake Gen1 que especificou, selecione **contas de Armazenamento** no painel esquerdo.
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da conta Data Lake Storage Gen 1 com a opção de Contas de Armazenamento realçada.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Adicione o principal do serviço ao cluster HDInsight")
 
 * Para verificar se o principal de serviço está corretamente associado ao cluster HDInsight, selecione o **acesso da Data Lake Storage Gen1** no painel esquerdo.
 
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Adicione o principal do serviço ao cluster HDInsight")
+    ![Screenshot da conta Desemarse De Armazenamento de Dados Gen 1 com a opção de acesso do Data Lake Storage Gen 1 em destaque.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Adicione o principal do serviço ao cluster HDInsight")
 
 ## <a name="examples"></a>Exemplos
 

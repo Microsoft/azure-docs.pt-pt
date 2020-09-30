@@ -3,12 +3,12 @@ title: Tutorial - Aceda à sua nuvem privada
 description: Saiba como aceder a uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 417c480c26711899949a3d9f2311cc1f128d9e5b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298507"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578428"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Aceda a uma nuvem privada Azure VMware Solution
 
@@ -24,7 +24,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Criar uma nova máquina virtual do Windows
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-avs-jump-box-steps.md)]
+[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>Ligue-se ao vCenter local da sua nuvem privada
 
@@ -44,13 +44,13 @@ Neste tutorial, ficará a saber como:
 
 1. No separador vCenter, introduza `cloudadmin@vmcp.local` as credenciais de utilizador do passo anterior.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Inscreva-se na nuvem privada vCenter." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="portal vCenter." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
 
 1. No segundo separador do navegador, inscreva-se no gestor NSX-T.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="No segundo separador do navegador, inscreva-se no gestor NSX-T." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
 
 
 

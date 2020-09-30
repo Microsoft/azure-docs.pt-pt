@@ -3,12 +3,12 @@ title: Tutorial - Configurar a rede para a sua nuvem privada VMware em Azure
 description: Aprenda a criar e configurar a rede necessária para implantar a sua nuvem privada em Azure
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 503043391b717753ab054197508483827565ef39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254788"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578360"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configurar a rede para a sua nuvem privada VMware em Azure
 
@@ -76,7 +76,7 @@ Agora que criou uma rede virtual, criará uma porta de entrada de rede virtual.
    | **Intervalo de endereço de sub-rede gateway** | Este valor é preenchido quando seleciona a rede virtual. Não altere o valor predefinido. |
    | **Endereço IP público** | Selecione **Criar novo**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Forneça valores para os campos e, em seguida, selecione Review + create." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Selecione 'Rever + criar'." border="true":::
 
 1. Verifique se os detalhes estão corretos e selecione **Criar** para iniciar a implementação do seu gateway de rede virtual. 
 1. Assim que a implementação estiver concluída, mova-se para a secção seguinte para ligar a sua ligação ExpressRoute ao gateway de rede virtual contendo a sua nuvem privada Azure VMware Solution.
@@ -85,7 +85,7 @@ Agora que criou uma rede virtual, criará uma porta de entrada de rede virtual.
 
 Agora que implementou um gateway de rede virtual, irá adicionar uma ligação entre ele e a sua nuvem privada Azure VMware Solution.
 
-[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-to-vnet.md)]
+[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
 ## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>Localize os URLs para vCenter e NSX Manager
@@ -94,7 +94,7 @@ Para iniciar sing para o gestor vCenter e NSX, você precisará dos URLs para o 
 
 Navegue para a sua nuvem privada Azure VMware Solution, em **Manage**, select **Identity**, aqui encontrará as informações necessárias.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Navegue para a sua nuvem privada Azure VMware Solution, em Gestão, selecione Identidade, aqui encontrará as informações necessárias." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Selecione 'Rever + criar'." border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

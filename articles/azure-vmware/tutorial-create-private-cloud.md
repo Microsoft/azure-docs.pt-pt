@@ -3,12 +3,12 @@ title: Tutorial - Implantar o cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure usando Azure VMWare Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 47ad5ca5e9d6b116ea48e1120b5ad3defaec7509
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254647"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578326"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
 
@@ -39,7 +39,7 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -53,8 +53,8 @@ Selecione **Experimente-o** no canto superior direito de um bloco de código. Ta
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
-```
-azurecli-interactive
+```azurecli-interactive
+
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -71,8 +71,7 @@ Forneça um nome para o grupo de recursos e a nuvem privada, uma localização e
 | **-bloco de rede**     | O bloco de rede de endereços IP CIDR para utilizar para a sua nuvem privada. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais que se encontram nas suas redes de subscrição e no local.        |
 | **--sku** | O valor SKU: AV36 |
 
-```
-azurecli-interactive
+```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 

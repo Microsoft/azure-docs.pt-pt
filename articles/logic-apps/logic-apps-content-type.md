@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269102"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578194"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Lidar com tipos de conteúdo em Azure Logic Apps
 
@@ -61,7 +61,7 @@ A Logic Apps fornece a capacidade para gerar fichas fáceis de usar que represen
   
   2. Em **Entrar ou colar uma amostra de carga JSON,** fornecer uma carga útil da amostra e, em seguida, escolher **Feito**. Por exemplo: 
 
-     ![Screenshot que mostra a janela "Quando um pedido HTTP é recebido" com uma carga útil JSON de amostra.](./media/logic-apps-content-type/request-trigger.png)
+     ![Screenshot que mostra a ação "Quando um pedido HTTP é recebido" com uma carga útil JSON de amostra.](./media/logic-apps-content-type/request-trigger.png)
 
      O esquema gerado aparece agora no seu gatilho.
 

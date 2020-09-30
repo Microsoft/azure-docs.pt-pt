@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515134"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578517"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados Azure
 Neste artigo, você vai aprender como integrar a Azure Data Lake Storage Gen1 com o Azure Data Catalog para tornar os seus dados detetáveis dentro de uma organização, integrando-os com o Catálogo de Dados. Para obter mais informações sobre a catalogação de dados, consulte [o Catálogo de Dados do Azure.](../data-catalog/data-catalog-what-is-data-catalog.md) Para entender os cenários em que pode utilizar o Catálogo de Dados, consulte [cenários comuns do Catálogo de Dados do Azure.](../data-catalog/data-catalog-common-scenarios.md)
@@ -52,12 +52,12 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
     c. A caixa **de Objetos a registar** lista os ficheiros e pastas que pretende registar no Catálogo de Dados do Azure.
 
-    ![Ver estrutura de dados](./media/data-lake-store-with-data-catalog/view-data-structure.png "Ver estrutura de dados")
+    ![Screenshot do Microsoft Azure Data Catalog - Caixa de diálogo de conta de loja.](./media/data-lake-store-with-data-catalog/view-data-structure.png "Ver estrutura de dados")
 1. Para este tutorial, deve registar todos os ficheiros no diretório. Para isso, clique no botão![(mover objetos)](./media/data-lake-store-with-data-catalog/move-objects.png "Mover objetos")para mover todos os ficheiros para **Objects para serem registados.**
 
     Como os dados serão registados num catálogo de dados a nível da organização, é uma abordagem recomendada para adicionar alguns metadados que pode usar mais tarde para localizar rapidamente os dados. Por exemplo, pode adicionar um endereço de e-mail para o titular dos dados (por exemplo, um que está a carregar os dados) ou adicionar uma etiqueta para identificar os dados. A captura do ecrã abaixo mostra uma etiqueta que adiciona aos dados.
 
-    ![Ver estrutura de dados](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Ver estrutura de dados")
+    ![Screenshot do Microsoft Azure Data Catalog - Store Account dialog box com a etiqueta que foi adicionada aos dados chamados.](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Ver estrutura de dados")
 
     Clique em **Registar**.
 1. A seguinte captura de ecrã indica que os dados estão registados com sucesso no Catálogo de Dados.
@@ -71,7 +71,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
     * [Fontes de dados do documento no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Fontes de dados do documento no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrar data lake storage Gen1 com outros serviços Azure](data-lake-store-integrate-with-other-services.md)

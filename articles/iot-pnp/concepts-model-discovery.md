@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032032"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577718"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
@@ -26,7 +26,7 @@ Existem duas grandes categorias de uma solução IoT:
 
 Para utilizar um modelo IoT Plug and Play, uma solução IoT:
 
-1. Identifica o modelo ID do modelo implementado pelo dispositivo IoT Plug e Play ligado à solução.
+1. Identifica o ID do modelo implementado pelo dispositivo IoT Plug and Play, módulo ou módulo IoT Edge ligado à solução.
 
 1. Utiliza o ID do modelo para recuperar a definição de modelo do dispositivo conectado a partir de um repositório de modelo ou loja personalizada.
 
@@ -40,7 +40,10 @@ Uma solução pode obter o ID do modelo do dispositivo IoT Plug and Play utiliza
 
 ### <a name="get-device-twin-api"></a>Obter Dispositivo Twin API
 
-A solução pode utilizar o [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
+A solução pode utilizar o [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
+
+> [!TIP]
+> Para módulos e módulos IoT Edge, utilize [MóduloClient.getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 No seguinte corte de resposta dupla do dispositivo, `modelId` contém o ID do modelo de um dispositivo IoT Plug and Play:
 
@@ -136,7 +139,7 @@ Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, sig
 
 1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a integrar os modelos IoT Plug e Play numa solução IoT, alguns dos próximos passos sugeridos são:
 

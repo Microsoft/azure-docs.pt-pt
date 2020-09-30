@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444377"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577514"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este tópico [ensina-lhe](auto-failover-group-overview.md) como configurar um grupo de falha automática para a Base de Dados Azure SQL e Azure SQL Managed Instance.
 
-## <a name="single-database-in-azure-sql-database"></a>Base de dados única na Base de Dados Azure SQL
+## <a name="single-database"></a>Base de dados individual
 
 Crie o grupo de failover e adicione-lhe uma única base de dados utilizando o portal Azure ou PowerShell.
 
@@ -192,7 +192,7 @@ Reverter o grupo de failover de volta ao servidor primário:
 > [!IMPORTANT]
 > Se precisar de eliminar a base de dados secundária, retire-a do grupo de failover antes de a eliminar. A eliminação de uma base de dados secundária antes de ser removida do grupo de failover pode causar comportamentos imprevisíveis.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Piscinas elásticas em Azure SQL Database
+## <a name="elastic-pool"></a>Conjunto elástico
 
 Crie o grupo failover e adicione-lhe uma piscina elástica utilizando o portal Azure, ou PowerShell.  
 
@@ -346,7 +346,9 @@ Falha no servidor secundário:
 
 Crie um grupo de failover entre duas instâncias geridas em Azure SQL Managed Instance utilizando o portal Azure ou PowerShell.
 
-Você precisará configurar [expressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um portal para a rede virtual de cada SQL Managed Instance, ligar os dois gateways e, em seguida, criar o grupo failover.
+Você precisará configurar [expressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um portal para a rede virtual de cada SQL Managed Instance, ligar os dois gateways e, em seguida, criar o grupo failover. 
+
+Implementar ambas as instâncias geridas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por razões de desempenho. Os casos geridos que residem em regiões geo-emparelhadas têm um desempenho muito melhor em comparação com as regiões não remuneradas. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -360,6 +362,9 @@ Considere os seguintes pré-requisitos:
 ### <a name="create-primary-virtual-network-gateway"></a>Criar porta de rede virtual primária
 
 Se não tiver configurado [o ExpressRoute,](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)pode criar o portal de rede virtual primário com o portal Azure ou PowerShell.
+
+> [!NOTE]
+> O SKU do gateway afeta o desempenho da produção. Este artigo implementa uma porta de entrada com o SKU mais básico `HwGw1` (). Implemente um SKU mais alto (exemplo: `VpnGw3` ) para obter uma produção mais elevada. Para todas as opções disponíveis, consulte [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -679,7 +684,7 @@ O ponto final do ouvinte é na forma `fog-name.database.windows.net` de, e é vi
 
 - A remoção de um grupo de failover para uma base de dados única ou agrupada não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma base de dados única ou agrupada a um grupo de failover depois de ter sido removida. Se não o fizer, pode resultar num erro semelhante ao `The operation cannot be performed due to multiple errors` de tentar adicionar a base de dados ao grupo de failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter etapas detalhadas que configuram um grupo de failover, consulte os seguintes tutoriais:
 

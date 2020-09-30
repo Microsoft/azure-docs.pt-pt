@@ -1,15 +1,15 @@
 ---
 title: Entenda como os alertas métricos funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595568"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578075"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -137,12 +137,13 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 
 | Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais<sup>1</sup>  | **Sim** | No | No |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | Não | Não |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
 | Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
 | NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |
 | Volumes de ficheiros NetApp | **Sim** | **Sim** | **Sim** |
 | Cofres de chaves | **Sim** | **Sim** | **Sim** |
+| Cache do Azure para Redis | **Sim** | **Sim** | **Sim** |
 | Dispositivos de borda de caixa de dados | **Sim** | **Sim** | **Sim** |
 
 <sup>1</sup> Não suportado para métricas de rede de máquinas virtuais (Rede No Total, Rede out Total, Fluxos de Entrada, Fluxos de Saída, Taxa máxima de criação de fluxos de entrada, taxa máxima de criação de fluxos de saída).
@@ -172,7 +173,7 @@ Para alertas métricos, normalmente será notificado em menos de 5 minutos se de
 Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como criar, ver e gerir alertas métricos em Azure](alerts-metric.md)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](./alerts-metric-create-templates.md)
