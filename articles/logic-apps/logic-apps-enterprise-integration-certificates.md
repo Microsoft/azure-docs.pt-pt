@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090336"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565264"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança das mensagens B2B com certificados
 
@@ -47,15 +47,15 @@ Para utilizar um *certificado público* em aplicações lógicas com capacidades
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | <*nome certificado*> | O nome do seu certificado, que é "publicCert" neste exemplo | 
-   | **Tipo de Certificado** | Públicos | O tipo do seu certificado |
+   | **Tipo de Certificado** | Público | O tipo do seu certificado |
    | **Certificado** | <*nome de certificado*> | Para encontrar e selecionar o ficheiro de certificado que pretende carregar, escolha o ícone da pasta ao lado da caixa **Certificate.** |
    ||||
 
-   ![Escolha "Adicionar", forneça detalhes do certificado](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![A screenshot mostra onde selecionar Adicionar para fornecer detalhes do certificado.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    Depois de a Azure validar a sua seleção, o Azure faz o upload do seu certificado.
 
-   ![Azure exibe novo certificado](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Screenshot que mostra onde a Azure exibe o novo certificado.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Faça upload de um certificado privado
 
@@ -86,7 +86,7 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | <*nome certificado*> | O nome do seu certificado, que é "privateCert" neste exemplo | 
-   | **Tipo de Certificado** | Privada | O tipo do seu certificado |
+   | **Tipo de Certificado** | Privado | O tipo do seu certificado |
    | **Certificado** | <*nome de certificado*> | Para encontrar e selecionar o ficheiro de certificado que pretende carregar, escolha o ícone da pasta ao lado da caixa **Certificate.** Ao utilizar um cofre chave para a chave privada, o ficheiro carregado será o certificado público. | 
    | **Grupo de Recursos** | <*integração-conta-grupo de recursos*> | O grupo de recursos da sua conta de integração, que é o "MyResourceGroup" neste exemplo | 
    | **Cofre de Chaves** | <*chave-abóbadas-nome*> | O nome do seu cofre de chaves Azure |

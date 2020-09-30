@@ -13,21 +13,21 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa6a9114635ddc7935f7923a1552ad1583625ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299112"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565144"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 +](automated-backup.md)
 
-Cópia de segurança automatizada v2 configura automaticamente [Cópia de Segurança Gerida para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas as bases de dados existentes e novas numa VM Azure que executa edições Standard, Enterprise ou Developer do Azure VM. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento de bolhas Azure duráveis. O backup automatizado v2 depende da [infraestrutura do SQL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
+Cópia de segurança automatizada v2 configura automaticamente [Cópia de Segurança Gerida para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas as bases de dados existentes e novas num Azure VM que executa edições SQL Server 2016 ou posteriormente Standard, Enterprise ou Developer. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento de bolhas Azure duráveis. O backup automatizado v2 depende da [infraestrutura do SQL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -42,17 +42,14 @@ Para utilizar o Backup Automatizado v2, reveja os seguintes pré-requisitos:
 
 - SQL Server 2016 ou superior: Developer, Standard ou Enterprise
 
-> [!IMPORTANT]
-> Cópia de segurança automática v2 funciona com SQL Server 2016 ou mais tarde. Se estiver a utilizar o SQL Server 2014, pode utilizar o Backup Automático v1 para fazer backup das suas bases de dados. Para obter mais informações, consulte [cópia de segurança automatizada para máquinas virtuais SQL Server 2014 Azure (VMs)](automated-backup-sql-2014.md).
+> [!NOTE]
+> Para o SQL Server 2014, consulte [backup automatizado para SQL Server 2014](automated-backup-sql-2014.md).
 
 **Configuração da base de dados:**
 
-- As bases de dados-alvo devem utilizar o modelo de recuperação total. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](https://technet.microsoft.com/library/ms190217.aspx).
-- As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo.
-- As bases de dados-alvo devem estar na instância padrão do SQL Server ou numa instância nomeada [devidamente instalada.](frequently-asked-questions-faq.md#administration) 
-
-> [!NOTE]
-> A Cópia de Segurança Automatizada baseia-se na extensão do **agente IAAS do SqL Server**. As imagens atuais da galeria de máquinas virtuais SQL adicionam esta extensão por predefinição. Para mais informações, consulte [a extensão do agente IAAS do SqL Server](sql-server-iaas-agent-extension-automate-management.md).
+- As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](https://technet.microsoft.com/library/ms190217.aspx). 
+- O SQL Server VM foi registado com o fornecedor de recursos SQL VM em [modo de gestão completa.](sql-vm-resource-provider-register.md#upgrade-to-full) 
+-  A cópia de segurança automatizada baseia-se na extensão completa do [agente iaaS do sql Server](sql-server-iaas-agent-extension-automate-management.md). Como tal, a cópia de segurança automatizada é suportada apenas em bases de dados-alvo a partir da instância padrão, ou numa única instância nomeada. Se não houver instância padrão e várias instâncias nomeadas, a extensão SQL IaaS falha e a cópia de segurança automatizada não funcionará. 
 
 ## <a name="settings"></a>Definições
 A tabela a seguir descreve as opções que podem ser configuradas para cópia de segurança automatizada v2. Os passos de configuração reais variam consoante utilize o portal Azure ou os comandos Azure Windows PowerShell.

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/21/2020
-ms.openlocfilehash: b8fe32a079358fda48c6f5ee0c7eec9894a543a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 9/29/2020
+ms.openlocfilehash: cadd384bc7d3222cbc5d1179271f7b4624c9224a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295911"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565892"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e aceder a registos de auditoria para Azure Database for MySQL - Servidor Flexível utilizando o portal Azure
 
@@ -35,40 +35,37 @@ Ativar e configurar a sessão de registo de auditoria.
 1. Selecione o seu servidor flexível.
 
 1. Na secção **Definições** na barra lateral, selecione **os parâmetros do Servidor**.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Server parameters":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/server-parameters.png" alt-text="Parâmetros do servidor":::
 
 1. Atualize o parâmetro **audit_log_enabled** para ON.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Enable audit logs":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Parâmetros do servidor":::
 
 1. Selecione os [tipos de eventos](concepts-audit-logs.md#configure-audit-logging) a registar atualizando o parâmetro **audit_log_events.**
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-events.png" alt-text="Parâmetros do servidor":::
 
-1. Adicione quaisquer utilizadores do MySQL a serem excluídos do registo, atualizando o parâmetro **audit_log_exclude_users.** Especifique os utilizadores fornecendo o seu nome de utilizador MySQL.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::-->
+1. Adicione quaisquer utilizadores do MySQL a serem incluídos ou excluídos do registo, atualizando os parâmetros **audit_log_exclude_users** e **audit_log_include_users.** Especifique os utilizadores fornecendo o seu nome de utilizador MySQL.
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Parâmetros do servidor":::
 
 1. Depois de alterar os parâmetros, pode clicar em **Guardar**. Ou pode **descartar as** suas alterações.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-parameters.png" alt-text="Parâmetros do servidor":::
 
 ## <a name="set-up-diagnostics"></a>Configurar diagnósticos
-
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
 
 Os registos de auditoria são integrados com as definições de diagnóstico do Azure Monitor para permitir que canaliza os seus registos para registos do Monitor Azure, Centros de Eventos ou Armazenamento Azure.
 
 1. Na secção **de monitorização** na barra lateral, selecione **definições de diagnóstico**.
 
-1. Clique em "+ Adicionar definição de diagnóstico"  <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::-->
+1. Clique em "+ Adicionar definição de diagnóstico"  :::image type="content" source="./media/how-to-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Parâmetros do servidor":::
 
 1. Forneça um nome de definição de diagnóstico.
 
 1. Especificar quais os destinos para enviar os registos de auditoria (conta de armazenamento, centro de eventos e/ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlAuditLogs** como o tipo de registo.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting"::: -->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Parâmetros do servidor":::
 
 1. Uma vez configurados os sumidouros de dados para canalizar os registos de auditoria, pode clicar em **Guardar**.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Parâmetros do servidor":::
 
 1. Aceda aos registos de auditoria explorando-os nos sumidouros de dados que configura. Pode levar até 10 minutos para os registos aparecerem.
 

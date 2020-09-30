@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529946"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565331"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (pré-visualização)
 
 Este artigo descreve como configurar e usar a funcionalidade HDInsight ID Broker (HIB) em Azure HDInsight. Pode utilizar esta funcionalidade para obter a autenticação moderna da OAuth para o Apache Ambari, ao mesmo tempo que tem a aplicação de autenticação multi-factor (MFA) sem precisar de hashes de senha legado nos Serviços de Domínio do Diretório Ativo (AAD-DS).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O HIB simplifica configurações complexas de autenticação nos seguintes cenários:
 
@@ -28,16 +28,6 @@ O HIB simplifica configurações complexas de autenticação nos seguintes cená
 
 A HIB fornece a infraestrutura de autenticação que permite a transição protocolar de OAuth (moderno) para Kerberos (legado) sem necessidade de sincronizar as hashes de palavra-passe para AAD-DS. Esta infraestrutura consiste em componentes em execução num VM do Servidor do Windows (nó de ID Broker), juntamente com nós de gateway de cluster.
 
-O seguinte diagrama mostra o fluxo moderno de autenticação baseada em OAuth para todos os utilizadores, incluindo utilizadores federados, após o ID Broker ser ativado:
-
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com corretor de ID":::
-
-Neste diagrama, o cliente (ou seja, navegador ou apps) precisa adquirir primeiro o token OAuth e, em seguida, apresentar o token para gateway num pedido HTTP. Se já assinou contrato com outros serviços Azure, como o portal Azure, pode iniciar sômposição no seu cluster HDInsight com uma única experiência de sso de assinatura.
-
-Ainda pode haver muitas aplicações antigas que apenas suportam a autenticação básica (isto é, nome de utilizador/senha). Para estes cenários, ainda pode utilizar a autenticação básica HTTP para ligar aos gateways de cluster. Nesta configuração, deve garantir a conectividade da rede desde os nós de gateway até ao ponto final da federação (ponto final ADFS) para garantir uma linha de visão direta a partir dos nós de gateway.
-
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com corretor de ID":::
-
 Utilize a seguinte tabela para determinar a melhor opção de autenticação com base nas necessidades da sua organização:
 
 |Opções de autenticação |Configuração HDInsight | Fatores a ter em conta |
@@ -45,6 +35,18 @@ Utilize a seguinte tabela para determinar a melhor opção de autenticação com
 | Totalmente OAuth | ESP + HIB | 1. Opção mais segura (MFA é suportado) 2.    Não é necessária sincronização de hash de passe. 3.  Sem acesso a ssh/kinit/keytab para contas on-prem, que não têm hash de senha em AAD-DS. 4.   As contas de nuvem só podem ser ssh/kinit/keytab. 5. Acesso à Ambari através da Oauth 6.  Requer a atualização de aplicações antigas (JDBC/ODBC, etc.) para apoiar o OAuth.|
 | OAuth + Auth Básico | ESP + HIB | 1. Acesso à Ambari através da Oauth 2. As aplicações antigas continuam a usar auth. 3 básico. O MFA deve ser desativado para o acesso básico. 4. Não é necessária sincronização de hash de passe. 5. Sem acesso a ssh/kinit/keytab para contas on-prem, que não têm hash de senha em AAD-DS. 6. As contas de nuvem só podem ser ssh/kinit. |
 | Auth totalmente básico | ESP | 1. Mais semelhante às configurações on-prem. 2. É necessária sincronização de haxixe de palavra-passe para AAD-DS. 3. As contas on-prem podem ser ssh/kinit ou usar keytab. 4. O MFA deve ser desativado se o armazenamento de suporte for ADLS Gen2 |
+
+O seguinte diagrama mostra o fluxo moderno de autenticação baseada em OAuth para todos os utilizadores, incluindo utilizadores federados, após o ID Broker ser ativado:
+
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com corretor de ID":::
+
+Neste diagrama, o cliente (ou seja, navegador ou apps) precisa adquirir primeiro o token OAuth e, em seguida, apresentar o token para gateway num pedido HTTP. Se já assinou contrato com outros serviços Azure, como o portal Azure, pode iniciar sômposição no seu cluster HDInsight com uma única experiência de sso de assinatura.
+
+Ainda pode haver muitas aplicações antigas que apenas suportam a autenticação básica (isto é, nome de utilizador/senha). Para estes cenários, ainda pode utilizar a autenticação básica HTTP para ligar aos gateways de cluster. Nesta configuração, deve garantir a conectividade da rede desde os nós de gateway até ao ponto final da federação (ponto final AD FS) para garantir uma linha de visão direta a partir dos nós de gateway. 
+
+O diagrama seguinte mostra o fluxo básico de autenticação para os utilizadores federados. Em primeiro lugar, o gateway tenta completar a autenticação utilizando o [fluxo ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) e no caso de não haver hashes de senha sincronizadas com Azure AD, depois volta a descobrir o ponto final AD FS e completar a autenticação acedendo ao ponto final AD FS.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com corretor de ID":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Ativar o corretor de ID HDInsight
@@ -131,7 +133,7 @@ Depois de adquirir o token OAuth, pode usá-lo no cabeçalho de autorização do
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

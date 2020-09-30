@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180291"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567439"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -22,7 +22,8 @@ Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do A
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA em VMs Azure, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Para a cópia de segurança do Azure File Share, os dados são apresentados para todos os registos criados em ou depois de 1 de junho de 2020.
+- Os relatórios de backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA em VMs Azure, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS) e System Center Data Protection Manager (DPM). Para a cópia de segurança da partilha do Ficheiro Azure, os dados são apresentados para todos os registos criados em ou depois de 1 de junho de 2020.
+- Para a cópia de segurança da partilha do Ficheiro Azure, os dados relativos a casos protegidos não são atualmente apresentados nos relatórios (padrão a zero para todos os itens de backup).
 - Para as cargas de trabalho de DPM, os relatórios de backup são suportados para a versão DPM 5.1.363.0 ou acima e a versão 2.0.9127.0 ou superior.
 - Para as cargas de trabalho do MABS, os relatórios de backup são suportados para a versão MABS 13.0.415.0 e acima do agente Versão 2.0.9170.0 ou superior.
 - Os relatórios de backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões, desde que os seus dados sejam enviados para um espaço de trabalho do Log Analytics a que o utilizador tenha acesso. Para visualizar relatórios de um conjunto de cofres, basta ter acesso ao espaço de trabalho do Log Analytics para onde os cofres estão a enviar os seus dados. Não precisas de ter acesso aos cofres individuais.

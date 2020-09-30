@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708007"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567592"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Utilize [métricas do Azure Monitor](how-to-choose-offer.md#measure-and-monitor-
 A cada hora, será cobrado para a maior produção `T` do sistema escalado dentro de uma hora. Se o seu recurso não tiver pedidos durante a hora ou não tiver escala `0.1 * Tmax` além, será cobrado pelo mínimo de `0.1 * Tmax` . Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) da Azure Cosmos DB para obter mais detalhes. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Como é que a autoescala aparece na minha conta?
-Em contas monoindisculinas, a taxa de autoescala por 100 RU/s é de 1,5x a taxa de produção normalizada (manual). Na sua conta, verá o medidor de produção padrão existente. A quantidade deste contador será multiplicada por 1,5. Por exemplo, se o maior RU/s do sistema escalado em uma hora fosse 6000 RU/s, você seria cobrado 60 * 1,5 = 90 unidades do medidor durante essa hora.
+Nas contas da região de escrita única, a taxa de autoescala por 100 RU/s é de 1,5x a taxa de produção normalizada (manual). Na sua conta, verá o medidor de produção padrão existente. A quantidade deste contador será multiplicada por 1,5. Por exemplo, se o maior RU/s do sistema escalado em uma hora fosse 6000 RU/s, você seria cobrado 60 * 1,5 = 90 unidades do medidor durante essa hora.
 
-Em contas multi-master, a taxa de autoescala por 100 RU/s é a mesma que a taxa para o rendimento multi-mestre normal (manual). Na sua conta, verá o medidor multi-mestre existente. Uma vez que as tarifas são as mesmas, se utilizar a autoescala, verá a mesma quantidade que com a produção padrão.
+Em contas com várias regiões de escrita, a taxa de autoescala por 100 RU/s é a mesma que a taxa para a produção de várias regiões de escrita padrão (manual). Na sua conta, verá o medidor de múltiplas regiões de escrita existente. Uma vez que as tarifas são as mesmas, se utilizar a autoescala, verá a mesma quantidade que com a produção padrão.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Funciona em autoescalação com capacidade reservada?
-Sim. Ao adquirir a capacidade reservada de um único mestre, o desconto de reserva para recursos de autoescala é aplicado à utilização do seu contador com um rácio de 1,5 * o [rácio da região específica](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Sim. Ao adquirir capacidade reservada para contas com múltiplas regiões de escrita, o desconto de reserva para recursos de autoescala é aplicado ao uso do seu contador com um rácio de 1,5 * o [rácio da região específica.](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region) 
 
-A capacidade reservada multi-master funciona da mesma forma para a produção de escala automática e padrão (manual) a produção. Ver capacidade reservada da [Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+A capacidade reservada da região multi-escrita funciona da mesma forma para a produção de escala automática e padrão (manual) a nível. Ver capacidade reservada da [Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>A autoescala funciona com o free tier?
 Sim. No nível livre, pode utilizar a produção de escala automática num recipiente. O suporte para bases de dados de produção partilhadas por escala automática com max RU/s personalizado ainda não está disponível. Veja como [funciona a faturação de nível livre com autoescala.](understand-your-bill.md#billing-examples-with-free-tier-accounts)
@@ -52,7 +52,7 @@ Sim. No nível livre, pode utilizar a produção de escala automática num recip
 ### <a name="is-autoscale-supported-for-all-apis"></a>A autoescala suportada para todas as APIs?
 Sim, a autoescala é suportada para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para o MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>O autoscale é suportado para contas multi-master?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>O autoscale é suportado para contas de escrita multi-região?
 Sim. Os RU/s max estão disponíveis em cada região que é adicionada à conta DB Azure Cosmos. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Como posso permitir a autoescala em novas bases de dados ou contentores?

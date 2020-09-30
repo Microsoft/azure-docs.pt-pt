@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b491c63e141389f1a53a884623f1c054ff2b8b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568536"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 
@@ -184,7 +184,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
    ![Arrastar e largar a atividade Copy](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Na janela **Propriedades** da atividade **Copy**, na parte inferior, mude para o separador **Origem** e clique em **+ Novo**. Neste passo, vai criar um conjunto de dados de origem para a atividade Copy.
 
-   ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Screenshot que mostra como criar um conjunto de dados de origem para a atividade da cópia.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e clique em **Concluir**.
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -198,7 +198,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
     2. Selecione a sua conta de Armazenamento do Azure em **Nome da conta de armazenamento**.
-    3. Clique em **Save** (Guardar).
+    3. Clique em **Guardar**.
 
    ![Novo serviço ligado do Armazenamento do Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Introduza `@pipeline().parameters.sourceBlobContainer` para a pasta e `emp.txt` para o nome do ficheiro. Utilize o parâmetro de pipeline sourceBlobContainer para definir o caminho da pasta do conjunto de dados.
@@ -273,7 +273,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
         ![Definições da segunda atividade Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selecione a atividade **Copy** no estruturador do pipeline, clique no botão **+->** e selecione **Erro**.  
 
-    ![Definições da segunda atividade Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Screenshot que mostra como selecionar Erro na atividade Copy no designer de gasodutos.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Arraste o botão **vermelho** junto à atividade Copy para a segunda atividade Web **SendFailureEmailActivity**. Pode mover as atividades de forma a que o aspeto do pipeline seja parecido com a imagem abaixo:
 
     ![Pipeline completo com todas as atividades](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
     ![Execução de pipeline bem-sucedida](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Para **ver as execuções de atividades** associadas a esta execução do pipeline, clique na primeira ligação na coluna **Ações**. Pode clicar em **Pipelines**, na parte superior, para regressar à vista anterior. Utilize o botão **Atualizar** para atualizar a lista.
 
-    ![Execuções de atividade](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Screenshot que mostra como ver a lista de atividades é executado.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Acionar uma execução de pipeline com falha
 1. Mude para o separador **Editar**, no lado esquerdo.
@@ -346,4 +346,4 @@ Neste tutorial, executou os passos seguintes:
 
 Agora, pode avançar para a secção Conceitos para obter mais informações sobre o Azure Data Factory.
 > [!div class="nextstepaction"]
->[Gasodutos e atividades](concepts-pipelines-activities.md)
+>[Pipelines e atividades](concepts-pipelines-activities.md)

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445341"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567207"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são níveis de consistência no Azure Cosmos DB?
 
@@ -52,10 +52,10 @@ A estagnação limitada oferece uma ordem global total fora da "janela velha". Q
 
 Dentro da janela de estagnação, a estagnação limitada fornece as seguintes garantias de consistência:
 
-- Consistência para clientes na mesma região para uma conta mono-master = Forte
-- Consistência para clientes em diferentes regiões para uma conta mono-master = Prefix consistente
-- Consistência para clientes que escrevem para uma única região para uma conta multi-master = Prefix consistente
-- Consistência para clientes que escrevem em diferentes regiões para uma conta multi-master = Eventual
+- Consistência para clientes na mesma região para uma conta com região de escrita única = Forte
+- Consistência para clientes em diferentes regiões para uma conta com região de escrita única = Prefix consistente
+- Consistência para clientes que escrevem para uma única região para uma conta com múltiplas regiões de escrita = Prefix consistente
+- Consistência para clientes que escrevem em diferentes regiões para uma conta com múltiplas regiões de escrita = Eventual
 
   A estagnação limitada é frequentemente escolhida por aplicações distribuídas globalmente que esperam baixas latências de escrita, mas requerem total garantia de ordem global. A estagnação limitada é ótima para aplicações com colaboração e partilha de grupos, ticker de stock, publicação-subscrever/fila, etc. O gráfico a seguir ilustra a consistência deslimícula com notas musicais. Após a escrita dos dados para a região "West US 2", as regiões "Leste DOS EUA 2" e "Austrália Oriental" lêem o valor escrito baseado no tempo de atraso máximo configurado ou nas operações máximas:
 
@@ -63,10 +63,10 @@ Dentro da janela de estagnação, a estagnação limitada fornece as seguintes g
 
 Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
-- Consistência para clientes na mesma região para uma conta mono-master = Prefix consistente
-- Consistência para clientes em diferentes regiões para uma conta mono-master = Prefix consistente
-- Consistência para clientes que escrevem para uma única região para uma conta multi-master = Prefix consistente
-- Consistência para clientes que escrevem em várias regiões para uma conta multi-master = Eventual
+- Consistência para clientes na mesma região para uma conta com região de escrita única = Prefix consistente
+- Consistência para clientes em diferentes regiões para uma conta com região de escrita única = Prefix consistente
+- Consistência para clientes que escrevem para uma única região para uma conta com múltiplas regiões de escrita = Prefix consistente
+- Consistência para clientes que escrevem em várias regiões para uma conta com múltiplas regiões de escrita = Eventual
 
   A consistência da sessão é o nível de consistência mais utilizado tanto para uma região como para aplicações distribuídas globalmente. Fornece latências escritas, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de consistência que se adequam às necessidades das aplicações escritas para operar no contexto de um utilizador. O gráfico que se segue ilustra a consistência da sessão com notas musicais. O "West US 2 writer" e o "West US 2 reader" estão a usar a mesma sessão (Sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "Australia East" está a usar a "Sessão B" por isso, recebe dados mais tarde, mas na mesma ordem que os escritos.
 
@@ -78,10 +78,10 @@ Se as gravações forem realizadas na `A, B, C` ordem, então um cliente vê ou 
 
 Abaixo estão as garantias de consistência para Prefix consistente:
 
-- Consistência para clientes na mesma região para uma conta mono-master = Prefix consistente
-- Consistência para clientes em diferentes regiões para uma conta mono-master = Prefix consistente
-- Consistência para clientes que escrevem para uma única região para uma conta multi-master = Prefix consistente
-- Consistência para clientes que escrevem em várias regiões para uma conta multi-master = Eventual
+- Consistência para clientes na mesma região para uma conta com região de escrita única = Prefix consistente
+- Consistência para clientes em diferentes regiões para uma conta com região de escrita única = Prefix consistente
+- Consistência para clientes que escrevem para uma única região para uma conta com região de escrita múltipla = Prefix consistente
+- Consistência para clientes que escrevem em várias regiões para uma conta com múltiplas regiões de escrita = Eventual
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca vêem fora de ordem escreve:
 
@@ -104,7 +104,7 @@ Para saber mais sobre conceitos de consistência, leia os seguintes artigos:
 - [Probabilistic Bounded Staleness (PBS) para Quórums Parciais Práticos](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente Consistente - Revisitado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os seguintes artigos:
 

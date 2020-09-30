@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a atualizar a configuração do cofre utiliza
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007116"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567830"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar configurações de cofre de serviços de recuperação de Azure usando REST API
 
@@ -30,20 +30,20 @@ Por predefinição, o estado de eliminação suave será ativado para qualquer c
 Para obter o estado atual de exclusão suave para um cofre, use a seguinte operação *GET*
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 O GET URI `{subscriptionId}` tem, `{vaultName}` `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Respostas
 
 A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -65,16 +65,16 @@ Uma vez apresentado o pedido 'GET', uma resposta de 200 (com sucesso) é devolvi
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Atualizar estado de exclusão suave usando REST API
 
-Para atualizar o estado de eliminação suave do cofre dos Serviços de Recuperação utilizando a API REST, utilize a seguinte operação *PATCH*
+Para atualizar o estado de eliminação suave do cofre dos Serviços de Recuperação utilizando a API REST, utilize a seguinte operação *PUT*
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-O PATCH URI `{subscriptionId}` tem, `{vaultName}` `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, então o URI será assim.
+O PUT URI `{subscriptionId}` tem, `{vaultName}` `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI pelos valores acima, então o URI será assim.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Criar o corpo de pedido
@@ -83,7 +83,7 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  ETag opcional       |
 |localização     |  true       |String         |   Localização de recursos      |
@@ -107,7 +107,7 @@ O exemplo a seguir é utilizado para atualizar o estado de eliminação suave pa
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

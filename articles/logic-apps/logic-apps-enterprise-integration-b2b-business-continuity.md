@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e006dd690e9c008afada8a490da6c3238bc0791
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536475"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565416"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Criar recuperação de desastres entre regiões para contas de integração em Azure Logic Apps
 
@@ -98,15 +98,15 @@ Para permitir a recuperação de desastres para mensagens de entrada, selecione 
 
 3. Introduza um nome de ligação, selecione a sua *conta de integração da região primária* na lista e escolha **Criar**.   
 
-   ![Nome da conta de integração da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Screenshot que mostra onde introduzir um nome de ligação e selecione a sua conta de integração da região primária. ](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
 4. A **definição de sincronização do número de controlo da Data** é opcional. A **Frequência** pode ser definida como **Dia,** **Hora,** **Minuto**ou **Segundo** com intervalo.   
 
-   ![Data e Frequência](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Screenshot que mostra o DateTime para iniciar a definição de sincronização do número de controlo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 5. Selecione **Novo passo** > **Adicionar uma ação**.
 
-   ![Novo passo, Adicione uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Screenshot que mostra o botão novo passo e a opção Adicionar uma opção de ação.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 6. Pesse no **X12**e selecione **X12 - Adicione ou atualize os números de controlo**.   
 
@@ -114,11 +114,11 @@ Para permitir a recuperação de desastres para mensagens de entrada, selecione 
 
 7. Para ligar uma ação a uma conta de integração da região secundária, selecione **Alterar a ligação**  >  **Adicione nova ligação** para uma lista das contas de integração disponíveis. Introduza um nome de ligação, selecione a sua conta de *integração da região secundária* na lista e escolha **Criar**. 
 
-   ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Screenshot que mostra onde adicionar um nome de conta de integração de região secundária.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 8. Mude para entradas brutas clicando no ícone no canto superior direito.
 
-   ![Mudar para entradas brutas](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Screenshot que mostra o ícone para selecionar para mudar para cru.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
 9. Selecione Body do selecionador de conteúdo dinâmico e guarde a aplicação lógica.
 
@@ -140,7 +140,7 @@ A continuidade do negócio dos documentos EDI EDIFACT baseia-se em números de c
 
 Para permitir a recuperação de desastres para mensagens de entrada, selecione as definições de verificação duplicadas nas Definições de Receção do seu acordo EDIFACT.
 
-![Selecione definições de verificação duplicadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Screenshot que mostra as definições de verificação duplicadas nas Definições de Receção do seu acordo EDIFACT.](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
 1. Crie uma [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) numa região secundária.    
 
@@ -157,27 +157,27 @@ Para permitir a recuperação de desastres para mensagens de entrada, selecione 
 
 4. A **definição de sincronização do número de controlo da Data** é opcional. A **Frequência** pode ser definida como **Dia,** **Hora,** **Minuto**ou **Segundo** com intervalo.    
 
-   ![Data e Frequência](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![Screenshot que mostra as definições de DataTime e Frequência.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
 6. Selecione **Novo passo** > **Adicionar uma ação**.    
 
-   ![Novo passo, Adicione uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Screenshot que mostra onde selecionar Adicionar uma ação.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
 7. Pesse no **EDIFACT**e selecione **EDIFACT - Adicione ou atualize os números de controlo**.   
 
-   ![Adicionar ou atualizar números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Screenshot que mostra onde adicionar ou atualizar números de controlo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Para ligar uma ação a uma conta de integração da região secundária, selecione **Alterar a ligação**  >  **Adicione nova ligação** para uma lista das contas de integração disponíveis. Introduza um nome de ligação, selecione a sua conta de *integração da região secundária* na lista e escolha **Criar**.
 
-   ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Criar um nome de conta de integração na região secundária.](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
 9. Mude para entradas brutas clicando no ícone no canto superior direito.
 
-   ![Mudar para entradas brutas](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Screenshot que realça o ícone para selecionar quando pretende mudar para entradas brutas.](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Selecione Body do selecionador de conteúdo dinâmico e guarde a aplicação lógica.   
 
-   ![Campos de conteúdo dinâmico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Screenshot que mostra o selecionador de conteúdo dinâmico de onde pode selecionar o Corpo.](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
    Com base no intervalo de tempo, as sondagens de gatilho da região primária receberam a tabela de números de controlo e puxam os novos registos.
    A ação atualiza os registos da conta de integração da região secundária. 
@@ -205,7 +205,7 @@ A continuidade do negócio para documentos que utilizam o protocolo AS2 baseia-s
    
 3. Introduza um nome de ligação, selecione a sua *conta de integração da região primária* na lista e escolha **Criar**.
 
-   ![Nome da conta de integração da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Screenshot que mostra onde introduzir um nome de ligação quando um valor MIC é criado.](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. A **definição de sincronização de valor MIC** para iniciar é opcional. A **Frequência** pode ser definida como **Dia,** **Hora,** **Minuto**ou **Segundo** com intervalo.   
 
@@ -238,6 +238,6 @@ A continuidade do negócio para documentos que utilizam o protocolo AS2 baseia-s
 
 Com base no intervalo de tempo, o estado de execução incremental replica-se da região primária para a região secundária. Durante um evento de catástrofe, quando a região primária não está disponível, o tráfego direto para a região secundária para a continuidade do negócio. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorizar mensagens B2B com os registos do Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

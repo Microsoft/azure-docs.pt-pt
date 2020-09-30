@@ -7,18 +7,18 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 2a44896ff7cabb9e44c02be9f3dba201298d4794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 51c194ca9b091bc685f293320750da55925ad49d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903941"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565620"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a Base de Dados do Azure para MySQL?
 
-Azure Database for MySQL é um serviço de base de dados relacional na nuvem da Microsoft com base no motor de base [de dados MySQL Community Edition](https://www.mysql.com/products/community/) (disponível sob a licença GPLv2), versões 5.6, 5.7 e 8.0. A azure Database for MySQL entrega:
+Azure Database for MySQL é um serviço de base de dados relacional na nuvem da Microsoft com base no motor de base [de dados MySQL Community Edition](https://www.mysql.com/products/community/) (disponível sob a licença GPLv2), versões 5.6, 5.7 e 8.0. A Base de Dados do Azure para MySQL fornece:
 
-- Alta disponibilidade incorporada.
+- Elevada disponibilidade incorporada.
 - Proteção de dados utilizando cópias de segurança automáticas e restauro pontual por um período máximo de 35 dias.
 - Manutenção automatizada para hardware subjacente, sistema operativo e motor de base de dados para manter o serviço seguro e atualizado.
 - Desempenho previsível, com preços pay as you go inclusivos.
@@ -42,7 +42,7 @@ A azure Database for MySQL alimentado pela edição comunitária MySQL está dis
 
 Azure Database for MySQL Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizações de bases de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para alta disponibilidade incorporada com 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária do MySQL 5.6, 5.7 e 8.0. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
-A opção de implementação do Servidor Único oferece três níveis de preços: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](concepts-pricing-tiers.md) para obter mais detalhes.
+A opção de implementação Servidor Único oferece três escalões de preço: Básico, Fins Geral e Otimizada para Memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](concepts-pricing-tiers.md) para obter mais detalhes.
 
 Os servidores individuais são mais adequados para aplicações nativas em nuvem concebidas para lidar com remendos automatizados sem a necessidade de controlo granular na programação de remendos e configurações personalizadas de configuração do MySQL. 
 
@@ -58,6 +58,15 @@ Servidores flexíveis são os mais adequados para
 - Janelas de manutenção geridas
 
 Para uma visão geral detalhada do modo de implementação flexível do servidor, consulte [a visão geral do servidor flexível](flexible-server/overview.md).
+
+## <a name="contacts"></a>Contactos
+Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para o MySQL, envie um e-mail para a Base de Dados Azure para a MySQL Team ([ @Ask Azure DB for MySQL).](mailto:AskAzureDBforMySQL@service.microsoft.com) Este endereço de e-mail não é um pseudónimo de suporte técnico.
+
+Além disso, considere os seguintes pontos de contacto, conforme adequado:
+
+- Para contactar o Suporte do Azure, [crie um pedido no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Passos seguintes
 

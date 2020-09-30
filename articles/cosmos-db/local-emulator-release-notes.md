@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ec034ac3cf6f4cbec2d373d9dade45a00f70ddbe
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988176"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566693"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - Lançar notas e descarregar informações
 
@@ -31,7 +31,7 @@ Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma list
 Esta versão adiciona duas novas opções de arranque emulador Cosmos: 
 
 * "/EnablePreview" - permite funcionalidades de pré-visualização para o emulador. As funcionalidades de pré-visualização que ainda estão em desenvolvimento e podem ser acedidas via CI e escrita por amostras.
-* "/EnableAadAuthentication" - permite ao emulador aceitar tokens personalizados do Azure Ative Directory como alternativa às chaves principais do Azure Cosmos. Esta funcionalidade ainda está em desenvolvimento; as atribuições específicas de funções e outras definições relacionadas com a permissão não são suportadas atualmente.
+* "/EnableAadAuthentication" - permite ao emulador aceitar tokens personalizados do Azure Ative Directory como alternativa às teclas primárias do Azure Cosmos. Esta funcionalidade ainda está em desenvolvimento; as atribuições específicas de funções e outras definições relacionadas com a permissão não são suportadas atualmente.
 
 ### <a name="2112-07-july-2020"></a>2.11.2 (07 julho 2020)
 

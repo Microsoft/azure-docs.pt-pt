@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c248755c1f32d41b6926d4492dcc3d0eea2869b8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432830"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566878"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir os recursos da Azure Cosmos utilizando o Azure CLI
 
@@ -87,10 +87,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### <a name="enable-multiple-write-regions"></a>Ativar várias regiões de escrita
 
-Ativar o multi-mestre para uma conta Cosmos
+Ativar as gravações de várias regiões para uma conta Cosmos
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -148,7 +148,7 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Listar todas as chaves da conta
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a> Listar todas as chaves da conta
 
 Arranja todas as chaves para uma conta cosmos.
 
@@ -484,7 +484,7 @@ lockid=$(az lock show --name $containerLockName \
 az lock delete --ids $lockid
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure CLI, consulte:
 

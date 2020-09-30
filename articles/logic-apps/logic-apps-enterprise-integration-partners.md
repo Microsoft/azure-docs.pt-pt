@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792437"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565076"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Adicionar parceiros comerciais às contas de integração do Azure Logic Apps
 
@@ -47,7 +47,7 @@ Num acordo, especifica os detalhes para lidar com mensagens recebidas e saídas 
 
 1. Escolha o azulejo dos **Parceiros.**
 
-   ![Escolha azulejo "Parceiros"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Screenshot que mostra o azulejo dos Parceiros.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. Em **Parceiros,** escolha **Adicionar**. Em **Add Partner**, forneça os detalhes do parceiro conforme descrito pela tabela abaixo.
 
@@ -55,9 +55,9 @@ Num acordo, especifica os detalhes para lidar com mensagens recebidas e saídas 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | O nome do parceiro |
-   | **Eliminatória** | Sim | O organismo autenticante que fornece identidades empresariais únicas a organizações, por exemplo, **D-U-N-S (Dun & Bradstreet)**. <p>Os parceiros podem optar por uma identidade de negócio mutuamente definida. Para estes cenários, selecione **Mutually Defined** for EDIFACT ou **Mutually Defined (X12)** para X12. <p>Para a RosettaNet, selecione **apenas DUNS,** que é o padrão. |
-   | **Valor** | Sim | Um valor que identifica os documentos que as suas aplicações lógicas recebem. <p>Para a RosettaNet, este valor deve ser um número de nove dígitos que corresponde ao número DUNS. |
+   | **Nome** | Yes | O nome do parceiro |
+   | **Eliminatória** | Yes | O organismo autenticante que fornece identidades empresariais únicas a organizações, por exemplo, **D-U-N-S (Dun & Bradstreet)**. <p>Os parceiros podem optar por uma identidade de negócio mutuamente definida. Para estes cenários, selecione **Mutually Defined** for EDIFACT ou **Mutually Defined (X12)** para X12. <p>Para a RosettaNet, selecione **apenas DUNS,** que é o padrão. |
+   | **Valor** | Yes | Um valor que identifica os documentos que as suas aplicações lógicas recebem. <p>Para a RosettaNet, este valor deve ser um número de nove dígitos que corresponde ao número DUNS. |
    ||||
 
    > [!NOTE]
@@ -86,12 +86,12 @@ Escolha o azulejo dos **Parceiros.**
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Classificação de Parceiros** | Não | Tipo de organização do parceiro |
-   | **Código da cadeia de abastecimento** | Não | O código da cadeia de fornecimento do parceiro, por exemplo, "Tecnologias de Informação" ou "Componentes Eletrónicos" |
-   | **Nome do Contacto** | Não | O nome de contacto do parceiro |
-   | **E-mail** | Não | O endereço de e-mail do parceiro |
-   | **Fax** | Não | O número do fax do parceiro |
-   | **Telefone** | Não | O número de telefone do parceiro |
+   | **Classificação de Parceiros** | No | Tipo de organização do parceiro |
+   | **Código da cadeia de abastecimento** | No | O código da cadeia de fornecimento do parceiro, por exemplo, "Tecnologias de Informação" ou "Componentes Eletrónicos" |
+   | **Nome de contato** | No | O nome de contacto do parceiro |
+   | **E-mail** | No | O endereço de e-mail do parceiro |
+   | **Fax** | No | O número do fax do parceiro |
+   | **Telefone** | No | O número de telefone do parceiro |
    ||||
 
 1. Quando terminar, escolha **OK** para guardar as suas alterações.
@@ -100,12 +100,12 @@ Escolha o azulejo dos **Parceiros.**
 
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua conta de integração. Escolha o azulejo dos **Parceiros.**
 
-   ![Escolha azulejo "Parceiros"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Screenshot que mostra o azulejo parceiro que seleciona quando pretende eliminar um parceiro.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. Em **Under Partners**, selecione o parceiro que pretende eliminar. Escolha **Eliminar**.
 
    ![Excluir parceiro](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [acordos](../logic-apps/logic-apps-enterprise-integration-agreements.md)

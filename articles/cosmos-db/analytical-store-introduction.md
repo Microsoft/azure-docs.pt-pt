@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253196"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567150"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -52,7 +52,7 @@ A loja analítica, que é uma loja de colunas, é mais adequada para tais consul
 
 A imagem a seguir mostra loja de linha transacional vs. loja de colunas analíticas em Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Loja de linha transacional Vs loja de colunas analíticas em Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Quadro operacional de exemplo" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Desempenho dissociado para cargas analíticas
 
@@ -91,7 +91,7 @@ Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure C
 
 ##### <a name="schema-representation"></a>Representação de Schema
 
-Existem dois modos de representação de esquemas na loja analítica. Estes modos têm trocas entre a simplicidade de uma representação colunar, manuseando os esquemas polimórficos e a simplicidade da experiência de consulta:
+Há dois modos de representação do esquema no arquivo analítico. Estes modos têm compromissos entre a simplicidade de uma representação em colunas, o processamento de esquemas polimórficos e a simplicidade da experiência de consulta:
 
 * Representação de esquemas bem definidos
 * Representação total do esquema de fidelidade
@@ -153,9 +153,9 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 |Int32  | ".int32"  |123|
 |Int64  | ".int64"  |255486129307|
 |Nulo   | ".nulo"   | nulo|
-|Cadeia|    ".string" | "ABC"|
+|String|    ".string" | "ABC"|
 |Timestamp |    ".timetamp" |  Tempo de carregamento (0,0)|
-|DateTime   |".data"    | ISODate ("2020-08-21T07:43:07.375Z")|
+|Data e Hora   |".data"    | ISODate ("2020-08-21T07:43:07.375Z")|
 |ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Documento   |".objeto" |    {"a": "a"}|
 
@@ -171,7 +171,7 @@ Se tiver uma conta DB Azure Cosmos distribuída globalmente, depois de ativar um
 
 ### <a name="security"></a>Segurança
 
-A autenticação com a loja analítica é a mesma que a loja transacional para uma determinada base de dados. Pode utilizar chaves master ou apenas de leitura para a autenticação. Você pode aproveitar o serviço ligado no Synapse Studio para evitar colar as chaves DB do Azure Cosmos nos cadernos Spark. O acesso a este Serviço Linked está disponível para qualquer pessoa que tenha acesso ao espaço de trabalho.
+A autenticação com a loja analítica é a mesma que a loja transacional para uma determinada base de dados. Pode utilizar as chaves primárias ou apenas de leitura para a autenticação. Você pode aproveitar o serviço ligado no Synapse Studio para evitar colar as chaves DB do Azure Cosmos nos cadernos Spark. O acesso a este Serviço Linked está disponível para qualquer pessoa que tenha acesso ao espaço de trabalho.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Suporte para vários tempos de análise Azure Synapse
 

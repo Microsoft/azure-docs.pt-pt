@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947544"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564787"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único da Base de Dados do Azure para MySQL
 
@@ -20,9 +20,9 @@ ms.locfileid: "90947544"
 - Servidor Único 
 - Servidor Flexível (Pré-visualização)
 
-Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo de implementação de servidor único. Para saber sobre o modo de implementação flexível do servidor, consulte a [visão geral flexível do servidor](flexible-server/index.yml)
+Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo de implementação de servidor único. Para saber mais sobre o modo de implementação flexível do servidor, consulte a [visão geral do servidor flexível](flexible-server/index.yml). Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizações da base de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para proporcionar 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária do MySQL 5.6, 5.7 e 8.0. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/) 
 

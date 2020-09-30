@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: fa3d044bbbce2a8c85f01517b918ffc57c10c759
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0792a885006cf3050002c0e275eff2850afb81c7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316210"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566810"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerir recursos Azure Cosmos DB SQL API utilizando PowerShell
 
@@ -109,7 +109,7 @@ Este comando permite-lhe atualizar as propriedades da sua conta de base de dados
 * Alterar a política de coerência padrão
 * Filtro de gama IP de mudança
 * Alterar configurações de Rede Virtual
-* Habilitação Multi-master
+* Habilitando várias regiões escreve
 
 > [!NOTE]
 > Não é possível simultaneamente adicionar ou remover regiões `locations` () e alterar outras propriedades para uma conta Azure Cosmos. As regiões modificadoras devem ser efetuadas como uma operação separada de qualquer outra alteração à conta.
@@ -166,7 +166,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a> Ativar várias regiões de escrita para uma conta Azure Cosmos
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-region-writes"></a> Ativar várias regiões de escrita para uma conta Azure Cosmos
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -175,13 +175,13 @@ $enableAutomaticFailover = $false
 $enableMultiMaster = $true
 
 # First disable automatic failover - cannot have both automatic
-# failover and multi-master on an account
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
     -EnableAutomaticFailover:$enableAutomaticFailover
 
-# Now enable multi-master
+# Now enable multi-region writes
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -219,7 +219,7 @@ Update-AzCosmosDBAccount `
 
 ### <a name="list-account-keys"></a><a id="list-keys"></a> Chaves de conta de lista
 
-Quando cria uma conta Azure Cosmos, o serviço gera duas chaves de acesso principal que podem ser usadas para autenticação quando a conta Azure Cosmos é acedida. São também geradas as chaves de leitura para autenticação de operações só de leitura.
+Quando cria uma conta Azure Cosmos, o serviço gera duas chaves de acesso primária que podem ser usadas para autenticação quando a conta Azure Cosmos é acedida. São também geradas as chaves de leitura para autenticação de operações só de leitura.
 Ao fornecer duas teclas de acesso, a Azure Cosmos DB permite-lhe regenerar e rodar uma chave de cada vez sem interrupção na sua conta Azure Cosmos.
 As contas do Cosmos DB têm duas teclas de leitura (primária e secundária) e duas teclas apenas de leitura (primária e secundária).
 
@@ -273,8 +273,8 @@ $accountName = "mycosmosaccount"
 $enableAutomaticFailover = $true
 $enableMultiMaster = $false
 
-# First disable multi-master - cannot have both automatic
-# failover and multi-master on an account
+# First disable multi-region writes - cannot have both automatic
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `

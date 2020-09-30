@@ -8,12 +8,12 @@ ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 28bb69dc21702a7c98755dc07389ea4147848f7a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e1e6f977d47d98e7c9f5300dc8165ee44a531499
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "82853019"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564872"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Dados de consulta de uma conta da API de Cassandra em Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Utilize os seguintes passos para consultar dados da sua conta de API para Cassan
 
 2. Agora, no portal do Azure, abra o **Data Explorer** e verifique se a tabela de utilizador foi eliminada.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 

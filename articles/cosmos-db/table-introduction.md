@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377000"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568442"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: Table API
 
@@ -36,7 +36,7 @@ Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantag
 | --- | --- | --- |
 | Latência | Rápida, mas sem limites superiores. | Latência milissegundo de um dígito para leituras e escritas, apoiada com <10 ms latência para leituras e escritos no percentil 99, em qualquer escala, em qualquer lugar do mundo. |
 | Débito | Modelo de débito variável. As tabelas têm um limite de escalabilidade de 20 000 operações/s. | Altamente dimensionável, com [débito reservado dedicado por tabela](request-units.md), com suporte dos SLAs. As contas não têm limite superior relativamente ao débito e suportam mais de dez milhões de operações/s por tabela. |
-| Distribuição global | Região única com uma região de leitura secundária opcional para elevada disponibilidade. | [Distribuição global](distribute-data-globally.md) chave na mão de uma para várias regiões. Suporte para [ativações pós-falha automáticas e manuais](high-availability.md) em qualquer altura e em qualquer parte do mundo. Capacidade multi-mestre para permitir que qualquer região aceite operações de escrita. |
+| Distribuição global | Região única com uma região de leitura secundária opcional para elevada disponibilidade. | [Distribuição global](distribute-data-globally.md) chave na mão de uma para várias regiões. Suporte para [ativações pós-falha automáticas e manuais](high-availability.md) em qualquer altura e em qualquer parte do mundo. Várias regiões de escrita para permitir que qualquer região aceite operações de escrita. |
 | Indexação | Apenas índice primário em PartitionKey e RowKey. Sem índices secundários. | Indexação automática e completa de todas as propriedades por padrão, sem gestão de índices. |
 | Consulta | A execução de consultas utiliza o índice para a chave primária e analisa, se for caso disso. | As consultas podem tirar partido da indexação automática nas propriedades para tempos de consulta rápidos. |
 | Consistência | Forte na região primária. Eventual na região secundária. | [Cinco níveis de consistência bem definidos](consistency-levels.md) para trocar disponibilidade, latência, produção e consistência com base nas necessidades da sua aplicação. |
@@ -51,7 +51,7 @@ Crie uma conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com)
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Eis alguns sítios por onde começar:
 * [Criar uma aplicação .NET com a API de Tabela](create-table-dotnet.md)

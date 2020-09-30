@@ -4,18 +4,19 @@ description: Este artigo mostra-lhe como criar um registo de esquemas num espaç
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 691279ea4fbadf5a905de4bab0304a1ad526146d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347647"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566368"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Criar um registo de esquemas Azure Event Hubs (pré-visualização)
 Este artigo mostra-lhe como criar um grupo de esquemas com esquemas num registo de esquemas hospedado pela Azure Event Hubs. Para uma visão geral da funcionalidade de Registo de Schema dos Hubs de Eventos Azure, consulte [o Registo Azure Schema em Centros de Eventos.](schema-registry-overview.md)
 
 > [!NOTE]
-> - A funcionalidade **de Registo de Schema** está atualmente em **pré-visualização** e está disponível apenas em níveis **standard** e **dedicados,** não no nível **básico.**
+> - A funcionalidade **de Registo de Schema** está atualmente em **pré-visualização,** e não é recomendada para cargas de trabalho de produção.
+> - A funcionalidade está disponível apenas em níveis **standard** e **dedicados,** não no nível **básico.**
 > - Esta pré-visualização está atualmente disponível apenas na região **centro-americana.** 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,10 +34,10 @@ Este artigo mostra-lhe como criar um grupo de esquemas com esquemas num registo 
     1. Em seguida, **selecione Criar** para criar o grupo de esquemas. 
 1. Selecione o nome do **grupo de esquemas** na lista de grupos de esquemas.
 
-    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Selecione o seu grupo de esquemas na lista":::    
+    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Página do Registo de Schema":::    
 1. Veja a página **do Grupo Schema** para o grupo.
 
-    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Página do Grupo Schema":::
+    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Página do Registo de Schema":::
     
 
 ## <a name="add-a-schema-to-the-schema-group"></a>Adicione um esquema ao grupo de esquemas
@@ -67,27 +68,27 @@ Nesta secção, adicione um esquema ao grupo de esquemas utilizando o portal Azu
     1. Selecione **Criar**. 
 1. Selecione o **esquema** na lista de esquemas. 
 
-    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Selecione esquema":::
+    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Página do Registo de Schema":::
 1. Vê a página do Esquema de **Schema.** 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Página geral do Schema":::    
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Página do Registo de Schema":::    
 1. Se houver várias versões de um esquema, vê-las na lista de lançamentos de **versões.** Selecione uma versão para mudar para o esquema de versão. 
 
 ## <a name="create-a-new-version-of-schema"></a>Criar uma nova versão do schema
 
 1. Atualize o esquema na caixa de texto e **selecione Validate**. No exemplo seguinte, foi adicionado um novo campo `id` ao esquema. 
 
-    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Esquema de atualização":::    
+    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Página do Registo de Schema":::    
     
 1. Reveja o estado de validação e as alterações e **selecione Guardar**. 
 
-    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Rever estado de validação, alterações e guardar":::     
+    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Página do Registo de Schema":::     
 1. Veja que `2` está selecionado para a **versão** na página **Desaveir do Esquema.** 
 
-    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Nova versão do esquema":::    
+    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Página do Registo de Schema":::    
 1. Selecione `1` para ver a versão 1 fo o esquema. 
 
-    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Versão selecionada":::    
+    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Página do Registo de Schema":::    
 
 
 ## <a name="next-steps"></a>Passos seguintes

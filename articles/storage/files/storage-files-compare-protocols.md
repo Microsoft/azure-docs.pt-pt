@@ -1,6 +1,6 @@
 ---
-title: Protocolos de Ficheiros Azure disponíveis
-description: Saiba mais sobre os protocolos disponíveis antes de criar uma partilha de ficheiros Azure.
+title: Protocolos de Ficheiros Azure disponíveis - NFS e SMB
+description: Saiba mais sobre os protocolos disponíveis antes de criar uma partilha de ficheiros Azure, incluindo o Bloco de Mensagens do Servidor (SMB) e o Sistema de Ficheiros de Rede (NFS).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708143"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568476"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de partilha de ficheiros Azure
 
@@ -25,8 +25,8 @@ A Azure Files oferece dois protocolos para ligar e montar as suas ações de fic
 |---------|---------|---------|
 |Protocolos de acesso     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |SoA apoiado     |Linux versão 4.3+         |Windows 2008 R2+, linux versão 4.11+         |
-|Escalões disponíveis     |Armazenamento Premium         |Armazenamento premium, armazenamento padrão, quente, fresco         |
-|Replicação     |LRS         |LRS, ZRS, GRS         |
+|[Escalões disponíveis](storage-files-planning.md#storage-tiers)     |Armazenamento Premium         |Armazenamento premium, transação otimizada, quente, fresco         |
+|[Redundância](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Autenticação     |Apenas autenticação baseada no anfitrião        |Autenticação baseada em identidade, autenticação baseada no utilizador         |
 |Permissões     |Permissões ao estilo UNIX         |Permissões ao estilo NTFS         |
 |Semântica do sistema de ficheiros     |Compatível com POSIX         |Não compatível com POSIX         |

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279570"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566958"
 ---
 Permitir discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados ativados estão sujeitos às seguintes limitações, organizadas por tipo de disco:
 
@@ -30,7 +30,6 @@ Os discos ultra partilhados estão disponíveis em todas as regiões que suporta
 
 ### <a name="premium-ssds"></a>Discos SSD Premium
 
-- Atualmente apenas suportado [num subconjunto de regiões.](#regional-availability)
 - Atualmente limitado ao Azure Resource Manager ou suporte SDK. 
 - Só pode ser ativado em discos de dados, não em discos de SO.
 - O caching do anfitrião **ReadOnly** não está disponível para SSDs premium com `maxShares>1` .
@@ -42,24 +41,4 @@ Os discos ultra partilhados estão disponíveis em todas as regiões que suporta
 
 #### <a name="regional-availability"></a>Disponibilidade regional
 
-Os SSDs premium partilhados só são suportados nas seguintes regiões:
-
-- E.U.A. Leste
-- E.U.A. Leste 2
-- E.U.A. Oeste
-- E.U.A. Oeste 2
-- E.U.A. Centro-Oeste
-- E.U.A. Centro-Sul
-- E.U.A. Centro-Norte
-- E.U.A. Central
-- Europa Ocidental
-- Europa do Norte
-- Coreia do Sul Central
-- Canadá Central
-- Leste do Canadá
-- Leste do Japão
-- Oeste do Japão
-- Ásia Sudeste
-- Ásia Leste
-- US Gov - Virginia
-- US Gov - Arizona
+Os SSDs premium partilhados estão disponíveis em todas as regiões que os discos geridos estão disponíveis.

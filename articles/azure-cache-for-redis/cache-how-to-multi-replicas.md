@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: a747cf8e1713eb905aee02af95c568a448b47f05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347023"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566793"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Adicione réplicas ao Cache Azure para Redis (Pré-visualização)
 Neste artigo, você vai aprender a configurar um exemplo de Cache Azure com réplicas adicionais usando o portal Azure.
@@ -38,28 +38,27 @@ Para criar uma cache, siga estes passos:
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selecione Azure Cache para Redis.":::
    
-1. Na página **New Redis Cache,** configufique as definições para o seu novo cache.
+1. Na página **Basics,** configufique as definições para o seu novo cache.
    
     | Definição      | Valor sugerido  | Descrição |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Subscrição** | Selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
+    | **Grupo de recursos** | Selecione um grupo de recursos ou selecione **Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
     | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
-    | **Subscrição** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
-    | **Grupo de recursos** | Desça e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
-    | **Localização** | Desça e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
-    | **Escalão de preço** | Desça e selecione uma cache [de nível Premium.](https://azure.microsoft.com/pricing/details/cache/) |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para ver visão geral do Redis](cache-overview.md). |
-    | **Contagem de réplicas** | Deslize para escolher o número de réplicas. | O padrão é 1. |
+    | **Localização** | Selecione uma localização. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
+    | **Tipo cache** | Selecione uma cache [de nível Premium.](https://azure.microsoft.com/pricing/details/cache/) |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para ver visão geral do Redis](cache-overview.md). |
    
-1. Depois de selecionar uma cache de nível Premium, perguntar-lhe-á se ativa ou não o agrupamento redis. Deixe **o Agrupamento** como *Desativado*. 
+1. Na página **Advanced,** escolha **a contagem de réplicas.**
    
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configurar o aglomerado Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selecione Azure Cache para Redis.":::
+
+1. Deixe outras opções nas suas definições predefinitivos. 
 
     > [!NOTE]
     > O suporte multi-réplica só funciona com caches não agrupados atualmente.
     >
 
-1. Clique em **Create** (Criar). 
-   
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Crie cache Azure para Redis.":::
+1. Clique em **Create** (Criar).
    
     Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.** Quando **o Estado** aparece como **Running,** a cache está pronta a ser utilizada.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606915"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567864"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 
@@ -102,11 +102,11 @@ Se aumentar a produção proviscizada para um contentor ou um conjunto de conten
 
 * Num mês de 720 horas, se durante 300 horas a produção prevista for forada for forada de 120-K RU/seg e para as restantes 420 horas provisidas foi 155-K RU/seg, sua conta mensal mostrará: 300 x $9,60/hora + 420 x $12,40/hora = $2.880 + $5.208 = $8.088/mês. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de conta de produção partilhada":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de conta de produção dedicada":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemplos de faturação com geo-replicação e multi-mestre  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemplos de faturação com geo-replicação e várias regiões escrevem  
 
-Pode adicionar/remover regiões do Azure em qualquer parte do mundo à sua conta de base de dados Azure Cosmos a qualquer momento. A produção que configuraste para várias bases de dados e contentores da Azure Cosmos será reservada em cada uma das regiões do Azure associadas à sua conta de base de dados Azure Cosmos. Se a soma de produção prevista (RU/sec) configurada em todas as bases de dados e contentores da sua conta de base de dados Azure Cosmos (a provisionada por hora) for T e o número de regiões Azure associadas à sua conta de base de dados for N, em seguida, a produção total provisida para uma hora, para a sua conta de base de dados Azure Cosmos, (a) configurada com uma única região de escrita é igual a T x N RU/sec e (b) configurada com todas as regiões capazes de processar escritas é igual a T x (N+1) RU/sec, respectivamente. O rendimento provisível (região de escrita única) custa $0.008/hora por 100 RU/seg e o rendimento previsto com várias regiões writable (multi-master config) custa $0,016/hora por 100 RU/sec (ver [página de preços).](https://azure.microsoft.com/pricing/details/cosmos-db/) Seja a sua região de escrita única, ou várias regiões de escrita, a Azure Cosmos DB permite-lhe ler dados de qualquer região.
+Pode adicionar/remover regiões do Azure em qualquer parte do mundo à sua conta de base de dados Azure Cosmos a qualquer momento. A produção que configuraste para várias bases de dados e contentores da Azure Cosmos será reservada em cada uma das regiões do Azure associadas à sua conta de base de dados Azure Cosmos. Se a soma de produção prevista (RU/sec) configurada em todas as bases de dados e contentores da sua conta de base de dados Azure Cosmos (a provisionada por hora) for T e o número de regiões Azure associadas à sua conta de base de dados for N, em seguida, a produção total provisida para uma hora, para a sua conta de base de dados Azure Cosmos, (a) configurada com uma única região de escrita é igual a T x N RU/sec e (b) configurada com todas as regiões capazes de processar escritas é igual a T x (N+1) RU/sec, respectivamente. O rendimento previsto (região de escrita única) custa $0.008/hora por 100 RU/seg e o rendimento previsto com várias regiões writable (multi-região escreve config) custa $0,016/hora por 100 RU/sec (ver [página de preços).](https://azure.microsoft.com/pricing/details/cosmos-db/) Seja a sua região de escrita única, ou várias regiões de escrita, a Azure Cosmos DB permite-lhe ler dados de qualquer região.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de faturação: conta Azure Cosmos multi-região, única região escreve
 
@@ -136,9 +136,9 @@ Vamos supor que crias um contentor Azure Cosmos no Oeste dos EUA. O contentor é
 
 *Vamos também assumir que você escava 100 GB de dados todos os meses do contentor no Oeste dos EUA para replicar dados em Leste dos EUA, Norte da Europa e Ásia Oriental. Está cobrado por saída de acordo com as taxas de transferência de dados.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemplo de faturação: Conta Azure Cosmos com produção multi-mestre, nível de base de dados, incluindo modo de produção dedicado para alguns contentores
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemplo de faturação: Conta Azure Cosmos com gravações multi-regiões, produção de nível de base de dados, incluindo modo de produção dedicado para alguns contentores
 
-Consideremos o exemplo seguinte, onde temos uma conta Azure Cosmos multi-região onde todas as regiões são writable (multi-master config). Para simplificar, assumimos que o tamanho do armazenamento permanece constante e não muda e omiti-lo aqui para manter o exemplo mais simples. A produção prevista durante o mês variou da seguinte forma (assumindo 30 dias ou 720 horas): 
+Consideremos o exemplo seguinte, onde temos uma conta Azure Cosmos multi-região onde todas as regiões são writable (várias regiões de escrita config). Para simplificar, assumimos que o tamanho do armazenamento permanece constante e não muda e omiti-lo aqui para manter o exemplo mais simples. A produção prevista durante o mês variou da seguinte forma (assumindo 30 dias ou 720 horas): 
 
 [0-100 horas]:  
 
@@ -192,7 +192,7 @@ Consideremos o exemplo seguinte, onde temos uma conta Azure Cosmos multi-região
 
 Visualmente, as alterações na produção total prevista durante 720 horas do mês são apresentadas na figura abaixo: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo da vida real":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo de conta de produção dedicada":::
 
 A fatura mensal total será (assumindo 30 dias/720 horas num mês) será calculada da seguinte forma:
 
@@ -215,7 +215,7 @@ A fatura mensal total será (assumindo 30 dias/720 horas num mês) será calcula
 || |**Custo Total Mensal**  | |**$38.688**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Exemplos de faturação com contas de nível livre
-Com o nível livre de DB Azure Cosmos, você receberá os primeiros 400 RU/s e 5 GB de armazenamento na sua conta gratuitamente, aplicados ao nível da conta. Qualquer RU/s e armazenamento para além de 400 RU/s e 5 GB serão cobrados às taxas de preços regulares por página de preços. Na conta, não verá um item de custo ou linha para os 400 Ru/s e 5 GB gratuitos, apenas o RU/s e o armazenamento além do que é coberto por nível livre. O 400 RU/s aplica-se a qualquer tipo de RU/s - produção provisida, autoescala e multi-master.  
+Com o nível livre de DB Azure Cosmos, você receberá os primeiros 400 RU/s e 5 GB de armazenamento na sua conta gratuitamente, aplicados ao nível da conta. Qualquer RU/s e armazenamento para além de 400 RU/s e 5 GB serão cobrados às taxas de preços regulares por página de preços. Na conta, não verá um item de custo ou linha para os 400 Ru/s e 5 GB gratuitos, apenas o RU/s e o armazenamento além do que é coberto por nível livre. O 400 RU/s aplica-se a qualquer tipo de RU/s - produção a provisionada, autoescala e várias regiões.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemplo de faturação - contentor ou base de dados com produção prevista
 - Suponhamos que criamos uma base de dados ou um contentor numa conta de nível livre com 400 RU/s e 5 GB de armazenamento.
@@ -231,16 +231,16 @@ Com o nível livre de DB Azure Cosmos, você receberá os primeiros 400 RU/s e 5
 - Qualquer armazenamento além dos primeiros 5 GB será cobrado a taxas normais de armazenamento. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Exemplo de faturação - conta multi-região, região de escrita única
-- Vamos supor que numa conta de nível livre, criamos uma base de dados ou contentor com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta em 3 regiões, e temos uma conta de um único mestre (única região de escrita).
+- Vamos supor que numa conta de nível livre, criamos uma base de dados ou contentor com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta em 3 regiões, e temos uma única conta de região escrita.
 - No total, sem nível livre, seríamos cobrados por 3 * 1200 RU/s = 3600 RU/s e 3 * 10 GB = 30 GB de armazenamento.
 - Com o desconto de nível livre, após a remoção de 400 RU/s e 5 GB de armazenamento, seremos cobrados para um efetivo 3200 RU/s (32 unidades) de produção provisitada à taxa única de escrita e 25 GB de armazenamento.
 - O custo mensal para RU/s seria: 32 unidades * $0,008 * 24 horas * 31 dias = $190,46. O custo mensal para armazenamento seria: 25 GB * 0,25 / GB = $6,25. O custo total seria $190.46 + $6.25 = $196.71.
 - Nota: se o preço unitário para RU/s ou armazenamento diferir nas regiões, o nível livre 400 RU/s e 5 GB refletirá as taxas da região em que a conta foi criada.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Exemplo de faturação - conta multi-região, multi-mestre (região de escrita múltipla)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Exemplo de faturação - multi-região, conta com múltiplas regiões de escrita
 
-Este exemplo reflete [o preço multi-mestre](https://azure.microsoft.com/pricing/details/cosmos-db/) para contas criadas após 1 de dezembro de 2019. 
-- Vamos supor que numa conta de nível livre, criamos uma base de dados ou contentor com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta em 3 regiões, e temos uma conta multi-mestre (múltipla região de escrita). 
+Este exemplo reflete [os preços das gravações multi-regiões](https://azure.microsoft.com/pricing/details/cosmos-db/) para as contas criadas após 1 de dezembro de 2019. 
+- Vamos supor que numa conta de nível livre, criamos uma base de dados ou contentor com 1200 RU/s e 10 GB de armazenamento. Replicamos a conta em 3 regiões, e temos uma conta de múltiplas regiões de escrita. 
 - No total, sem nível livre, seríamos cobrados por 3 * 1200 RU/s = 3600 RU/s e 3 * 10 GB = 30 GB de armazenamento.
 - Com o desconto de nível livre, após a remoção de 400 RU/s e 5 GB de armazenamento, seremos cobrados para um efetivo 3200 RU/s (32 unidades) de produção alocada à taxa de região de escrita múltipla e 25 GB de armazenamento.
 - O custo mensal para RU/s seria: 32 unidades * $0,016 * 24 horas * 31 dias = $380,93. O custo mensal para armazenamento seria: 25 GB * 0,25 / GB = $6,25. O custo total seria $380.93 + $6.25 = $387.18.

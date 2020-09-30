@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487305"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568641"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Gen1 Explorer
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Este artigo descreve as funcionalidades e opções para a [aplicação web](https://insights.timeseries.azure.com/)Azure Time Series Insights Gen1 Explorer . O Azure Time Series Insights Explorer demonstra as poderosas capacidades de visualização de dados fornecidas pelo serviço e pode ser acedido dentro do seu próprio ambiente.
 
@@ -108,7 +111,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 
 1. Utilize o **mapa térmico** para detetar rapidamente séries de dados únicas ou anómalas numa determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.
 
-    [![Gráfico de mapa de mapas de mapas de exploradores de séries de tempo ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Quando explora eventos selecionando ou clicando à direita, o painel **EVENTOS** é disponibilizado. Aqui, pode rever todos os seus eventos crus e exportar os seus eventos como ficheiros JSON ou CSV. A Azure Time Series Insights armazena todos os dados brutos.
 
@@ -123,7 +126,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 
 Agora que aprendeu sobre as principais funcionalidades, configurações e opções de exibição que estão disponíveis na aplicação web do explorador Azure Time Series Insights.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a [diagnosticar e a resolver problemas](time-series-insights-diagnose-and-solve-problems.md) no seu ambiente Azure Time Series Insights.
 

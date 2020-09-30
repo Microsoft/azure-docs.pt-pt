@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319241"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568051"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para Azure Cosmos DB: Casos de utilização de análise quase em tempo real
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo em nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
 
@@ -70,7 +70,7 @@ Seguem-se algumas orientações para a integração de dados para o lote & dados
 
 Os retalhistas de hoje devem construir soluções de e-commerce seguras e escaláveis que atendam às exigências tanto dos clientes como das empresas. Estas soluções de e-commerce precisam de envolver os clientes através de produtos e ofertas personalizadas, processar transações de forma rápida e segura, e focar-se na realização e no atendimento ao cliente. A Azure Cosmos DB juntamente com a mais recente Synapse Link para Azure Cosmos DB permite que os retalhistas gerem recomendações personalizadas para os clientes em tempo real. Utilizam configurações de baixa latência e consistência incapazes para insights imediatos, como mostra a seguinte arquitetura:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse Link para Azure Cosmos DB em personalização em tempo real" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false":::
 
 Link Synapse para Azure Cosmos DB caso de utilização:
 
@@ -82,7 +82,7 @@ As inovações industriais da IOT reduziram drasticamente os tempos de inativida
 
 Segue-se uma arquitetura que aproveita as capacidades nativas de HTAP em nuvem da Azure Synapse Link para Azure Cosmos DB na manutenção preditiva IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Ligação Azure Synapse para Azure Cosmos DB na manutenção preditiva IOT" border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false" :::
 
 Link Synapse para Azure Cosmos DB usar casos:
 
@@ -92,7 +92,7 @@ Link Synapse para Azure Cosmos DB usar casos:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>Cenário da amostra: HTAP para Azure Cosmos DB
 
-Durante quase uma década, a Azure Cosmos DB tem sido usada por milhares de clientes para aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação multi-master para baixa latência e alta disponibilidade de ambos & escreve nas suas cargas de trabalho transacionais.
+Durante quase uma década, a Azure Cosmos DB tem sido usada por milhares de clientes para aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação de escrita multi-região para baixa latência e alta disponibilidade de ambos & escreve nas suas cargas de trabalho transacionais.
  
 A lista a seguir mostra uma visão geral dos vários padrões de carga de trabalho que são suportados com dados operacionais utilizando a Azure Cosmos DB:
 
@@ -104,17 +104,17 @@ A lista a seguir mostra uma visão geral dos vários padrões de carga de trabal
 
 O Azure Synapse Link permite que a Azure Cosmos DB não só faça cargas de trabalho transacionais de energia, mas também realize cargas de trabalho analíticos em tempo real sobre dados operacionais históricos. Acontece sem requisitos etl e isolamento de desempenho garantido das cargas de trabalho transacionais.
 
-A imagem a seguir mostra padrões de carga de trabalho usando Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse Link para padrões de carga de trabalho DB Azure Cosmos" border="false":::
+A imagem a seguir mostra padrões de carga de trabalho usando Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false":::
 
 Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operações globais em 20 países/regiões para ilustrar os benefícios de escolher a Azure Cosmos DB como a única base de dados em tempo real que alimenta os requisitos transacionais e analíticos de uma plataforma de gestão de inventário.
 
 * O core business da CompanyXYZ depende do sistema de gestão de inventários – daí que a disponibilidade & fiabilidade sejam requisitos fundamentais do pilar. Benefícios da utilização do Azure Cosmos DB:
 
-  * Em virtude da profunda integração com a infraestrutura Azure e da replicação global multi-master transparente, a Azure Cosmos DB proporciona uma elevada disponibilidade de [99,999%](high-availability.md) contra as interrupções regionais.
+  * Em virtude da profunda integração com a infraestrutura Azure, e de várias regiões transparentes, a replicação global, a Azure Cosmos DB proporciona uma elevada disponibilidade de [99,999%](high-availability.md) contra as interrupções regionais.
 
 * Os parceiros da cadeia de fornecimento da CompanyXYZ podem estar em locais geográficos separados, mas podem ter de ver uma única visão do inventário de produtos em todo o mundo para apoiar as suas operações locais. Isto inclui a necessidade de ser capaz de ler atualizações feitas por outros parceiros da cadeia de fornecimento em tempo real. Além de poder fazer atualizações sem se preocupar com conflitos com outros parceiros em alta produção. Benefícios da utilização do Azure Cosmos DB:
 
-  * Com o seu único protocolo de replicação multi-mestre e loja transacional otimizada e sem fecho, a Azure Cosmos DB garante menos de 10 ms de latências para leituras indexadas e escritas no percentil 99 a nível global.
+  * Com o seu exclusivo protocolo de replicação multi-região e loja transacional sem fecho, otimizada por escrito, a Azure Cosmos DB garante menos de 10 latências para leituras indexadas e escritas no percentil 99 a nível global.
 
   * Ingestão de dados de alto rendimento de ambos os & feeds de dados de streaming com [indexação](index-policy.md) em tempo real na loja transacional.
 
@@ -128,7 +128,7 @@ Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operaç
 
   * Ao utilizar [a loja analítica Azure Cosmos DB](analytical-store-introduction.md), uma loja de colunas totalmente isolada, a Synapse Link não permite análises extract-Transform-Load (ETL) em [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) contra dados operacionais distribuídos globalmente à escala.  Analistas de negócios, engenheiros de dados e cientistas de dados podem agora usar o Synapse Spark ou Synapse SQL de forma interoperável para executar perto de inteligência empresarial em tempo real, analíticos e oleodutos de aprendizagem automática sem afetar o desempenho das suas cargas de trabalho transacionais na Azure Cosmos DB. Veja os [benefícios do Synapse Link em Azure Cosmos DB](synapse-link.md) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

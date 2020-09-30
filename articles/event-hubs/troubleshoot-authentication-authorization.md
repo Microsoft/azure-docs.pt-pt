@@ -3,12 +3,12 @@ title: Problemas de autenticação e autorização - Azure Event Hubs
 description: Este artigo fornece informações sobre problemas de autenticação e autorização com os Hubs de Eventos Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533891"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566232"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Problemas de autenticação e autorização - Azure Event Hubs
 O artigo [de conectividade Troubleshoot](troubleshooting-guide.md) fornece dicas para resolver problemas de conectividade com os Azure Event Hubs. Este artigo fornece dicas e recomendações para resolver problemas de problemas de autenticação e problemas de autorização com a Azure Event Hubs. 
@@ -20,6 +20,8 @@ Se estiver a utilizar o Azure Ative Directory (Azure AD) para autenticar e autor
 - [Azure Event Hubs Data proprietário](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) para acesso completo aos recursos do Event Hubs.
 - [Remetente de dados do Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) para o acesso ao envio.
 - Recetor de [dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) para o acesso ao acesso.
+
+Para funções incorporadas no Registo de Schema, consulte [as funções de Registo de Schema](schema-registry-overview.md#role-based-access-control).
 
 ### <a name="resource-scopes"></a>Âmbitos de recursos
 - **Grupo de consumidores**: Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 

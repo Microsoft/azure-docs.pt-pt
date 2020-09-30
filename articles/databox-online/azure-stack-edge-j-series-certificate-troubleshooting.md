@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891328"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568357"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Erros de certificado de resolução de problemas
 
@@ -26,11 +26,10 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 > [!NOTE]
 > Ocorrências de &#8220;{0} , ... ... {1} {n}&#8221; indicam parâmetros posicionais. Os parâmetros posicionais terão valores dependendo dos certificados que estiver a utilizar.
 
-| Código de Erro | Descrição |
+| Código de Erro | Description |
 |---|---|
 | CertificateManagement_UntrustedCertificate | O certificado com nome do sujeito {0} tem a cadeia de certificados quebrada. Faça o upload do certificado da cadeia de assinaturas antes de carregar este certificado.|
 | CertificateManagement_DeviceNotRegistered| O seu dispositivo não está ativado. Só pode carregar um certificado de suporte após a ativação.|
-| CertificateManagement_EmptySAN | O certificado com nome do sujeito {0} não tem um nome alternativo sujeito. Verifique as propriedades do certificado e traga um novo certificado.|
 | CertificateManagement_ExpiredCertificate | O certificado com o tipo {0} expirou ou expira em breve. Verifique a expiração do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_FormatMismatch | O formato do certificado não é suportado. Verifique o formato do certificado e, se necessário, traga um novo certificado.  {0}Esperado, {1} encontrado. |
 | CertificateManagement_GenericError | Não foi possível realizar a operação de gestão de certificados. Recandidutar esta operação em poucos minutos. Se o problema persistir, contacte o Microsoft Support. |
@@ -42,7 +41,6 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 | CertificateManagement_KeySizeNotSufficient | O certificado com nome do sujeito {0} tem um tamanho de chave {1} insuficiente. O tamanho mínimo da chave é 4096.|
 | CertificateManagement_MissingClientOid | O certificado com nome sujeito {0} não tem autenticação do cliente OID. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | O certificado com nome sujeito {0} não tem Assinatura Digital na Utilização de Chaves. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
-| CertificateManagement_MissingEntryInSAN | O certificado com nome do sujeito {0} não tem uma inscrição de nome de sujeito em nome alternativo sujeito. Verifique as propriedades do certificado e traga um novo certificado. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | O certificado com nome sujeito {0} não tem assinatura de certificado em utilização chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | O certificado com nome do sujeito {0} não tem Chave Encipherment em Utilização chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
 | CertificateManagement_MissingServerOid | O certificado com nome sujeito {0} não tem autenticação do servidor OID. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
@@ -55,6 +53,10 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 | CertificateManagement_SubjectNamesInvalid | O certificado com nome sujeito {0} não tem o nome de sujeito correto ou nomes alternativos sujeitos para {1} certificado. Verifique o certificado que carregou e, se necessário, traga um novo certificado. Também deve verificar o nome DNS para combinar com os nomes SANS.|
 | CertificateManagement_UnreadableCertificate | Certificado com tipo {0} não podia ser lido. Este erro ocorre quando o certificado é ilegível ou corrompido. Traga um novo certificado.|
 | CertificadoSubjectNotFound | O certificado com o nome do sujeito {0} não foi encontrado. Traga um novo certificado.|
+| CertificaRotationGenericFailure | Uma ou mais certidões de rotação falharam. Tentar novamente em alguns minutos. Se o problema persistir, contacte o Microsoft Support.|
+| CertificadoImportFailure | O certificado com impressão digital {0} não foi importado no {1} nó. Se o problema persistir, contacte o Microsoft Support. |
+| CertificadoApplyFailure | O certificado com impressão digital {0} não foi aplicado no {1} nó. Se o problema persistir, contacte o Microsoft Support.|
+| NodeNotReachable | Não foi possível validar o certificado em {0} . Verifique a saúde do hardware e software do sistema.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

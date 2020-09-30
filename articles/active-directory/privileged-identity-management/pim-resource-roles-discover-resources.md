@@ -11,21 +11,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743716"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568085"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra recursos da Azure para gerir em Gestão de Identidade Privilegiada
 
-Utilizando o Azure Ative Directory (Azure AD) Privileged Identity Management (PIM), pode melhorar a proteção dos seus recursos Azure. Isto é útil para organizações que já usam Gestão de Identidade Privilegiada para proteger as funções de AZure AD, e para os proprietários de grupos de gestão e subscrições que procuram garantir recursos de produção.
+Utilizando o Azure Ative Directory (Azure AD) Privileged Identity Management (PIM), pode melhorar a proteção dos seus recursos Azure. Isto é útil para:
 
-Quando cria pela primeira vez a Gestão de Identidade Privilegiada para recursos Azure, precisa de descobrir e selecionar os recursos para proteger com Gestão de Identidade Privilegiada. Não há limite para o número de recursos que pode gerir com a Gestão de Identidade Privilegiada. No entanto, recomendamos começar com os seus recursos mais críticos (produção).
+- Organizações que já utilizam Gestão de Identidade Privilegiada para proteger funções de AD AZure
+- Grupo de gestão e proprietários de subscrições que estão a tentar garantir recursos de produção
+
+Quando cria pela primeira vez a Gestão de Identidade Privilegiada para recursos Azure, precisa de descobrir e selecionar os recursos para proteger com Gestão de Identidade Privilegiada. Não há limite para o número de recursos que pode gerir com a Gestão de Identidade Privilegiada. No entanto, recomendamos começar com os seus recursos de produção mais críticos.
 
 ## <a name="discover-resources"></a>Detetar recursos
 
@@ -45,13 +48,16 @@ Quando cria pela primeira vez a Gestão de Identidade Privilegiada para recursos
 
 1. Selecione **Descubra recursos** para lançar a experiência de descoberta.
 
-    ![Discovery pane listando recursos que podem ser geridos, tais como subscrições e grupos de gestão](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![O painel de descobertas lista recursos que podem ser geridos, como subscrições e grupos de gestão](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. Na página **Discovery,** utilize o **filtro de estado de recurso** e **selecione** o tipo de recurso para filtrar os grupos de gestão ou subscrições a que tem permissão de escrita. É provavelmente mais fácil começar com **All** inicialmente.
 
-    Só é possível pesquisar e selecionar recursos de grupo de gestão ou de subscrição para gerir utilizando a Gestão de Identidade Privilegiada. Quando gere um grupo de gestão ou uma subscrição na Gestão de Identidade Privilegiada, também pode gerir os seus recursos para crianças.
+   Pode pesquisar e selecionar recursos de gestão ou de subscrição para gerir em Gestão de Identidade Privilegiada. Quando gere um grupo de gestão ou uma subscrição na Gestão de Identidade Privilegiada, também pode gerir os seus recursos para crianças.
 
-1. Selecione a caixa de verificação ao lado de quaisquer recursos não geridos que pretenda gerir.
+   > [!Note]
+   > Quando adicionar um novo recurso Azure a um grupo de gestão gerido pela PIM, pode colocar o recurso da criança sob gestão procurando-o em PIM.
+
+1. Selecione quaisquer recursos não geridos que queira gerir.
 
 1. **Selecione Gerir o recurso** para começar a gerir os recursos selecionados.
 
@@ -64,7 +70,7 @@ Quando cria pela primeira vez a Gestão de Identidade Privilegiada para recursos
 
     ![Mensagem confirmando a bordo os recursos selecionados para a gestão](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

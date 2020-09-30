@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398806"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568606"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
@@ -25,7 +25,7 @@ No comunicado de pré-visualização pública, a Synapse Link é suportada pela 
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>A Synapse Link é suportada para contas de Cosmos multi-regiões?
 
-Sim, para as contas Azure Cosmos de várias regiões, os dados armazenados na loja analítica também são distribuídos globalmente. Independentemente da região de escrita única (mestre único) ou de múltiplas regiões de escrita (também conhecidas como multi-mestres), as consultas analíticas realizadas a partir de Azure Synapse Analytics podem ser servidas a partir da região local mais próxima.
+Sim, para as contas Azure Cosmos de várias regiões, os dados armazenados na loja analítica também são distribuídos globalmente. Independentemente de ser uma única região de escrita ou várias regiões de escrita, as consultas analíticas executadas no Azure Synapse Analytics podem ser servidas a partir da região local mais próxima.
 
 Ao planear configurar uma conta Azure Cosmos multi-região com suporte analítico à loja, recomenda-se que todas as regiões necessárias tenham sido adicionadas no momento da criação de conta.
 
@@ -120,7 +120,7 @@ Todas as atualizações e eliminações transacionais são copiadas para a loja 
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Quais são as formas de autenticar com a loja de analítica?
 
-A autenticação com a loja analítica é a mesma que uma loja transacional. Para uma determinada base de dados, pode autenticar-se com a chave principal ou apenas para leitura. Você pode aproveitar o serviço ligado no Synapse Studio para evitar colar as chaves DB do Azure Cosmos nos cadernos Spark. O acesso a este Serviço Linked está disponível para todos os que tenham acesso ao espaço de trabalho.
+A autenticação com a loja analítica é a mesma que uma loja transacional. Para uma determinada base de dados, pode autenticar-se com a chave principal ou apenas de leitura. Você pode aproveitar o serviço ligado no Synapse Studio para evitar colar as chaves DB do Azure Cosmos nos cadernos Spark. O acesso a este Serviço Linked está disponível para todos os que tenham acesso ao espaço de trabalho.
 
 ## <a name="synapse-run-times"></a>Resumos
 
@@ -150,7 +150,7 @@ Um recipiente DB Azure Cosmos ativado com loja analítica tem o seguinte ícone:
 
 Um recipiente de loja transacional será representado com o seguinte ícone:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Recipiente DB Azure Cosmos habilitado com ícone de loja transacional":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Recipiente DB Azure Cosmos habilitado com ícone de loja analítica":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Como é que se passam as credenciais de Azure Cosmos dB do Synapse Studio?
 

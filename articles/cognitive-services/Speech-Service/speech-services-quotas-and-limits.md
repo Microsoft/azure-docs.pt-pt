@@ -1,5 +1,5 @@
 ---
-title: Quotas e Limites de Serviços de Fala
+title: Limites e Quotas dos Serviços de Voz
 titleSuffix: Azure Cognitive Services
 description: Referência rápida, descrição detalhada e boas práticas sobre quotas e limites de serviços de fala cognitiva Azure
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690141"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567167"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Quotas e Limites de Serviços de Fala
+# <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
 Este artigo contém uma referência rápida e a **descrição detalhada** das quotas e limites dos serviços de fala cognitiva Azure para todos os [níveis de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) Contém também algumas boas práticas para evitar o estrangulamento do pedido. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Quotas e Limites referência rápida
 Saltar para [quotas e limites de texto para discurso](#text-to-speech-quotas-and-limits-per-speech-resource)
-### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Quotas e limites de discurso para texto por recurso de fala
+### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Limites e Quotas da Conversão de Voz em Texto por recurso de Voz
 Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis para todos os níveis de preço.
 
 | Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
@@ -36,6 +36,7 @@ Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis
 | **Tamanho máximo da bolha de entrada para transcrição do lote** | N/D | 2,5 GB |
 | **Tamanho do recipiente de bolhas max para transcrição do lote** | N/D | 5 GB |
 | **Número máximo de bolhas por recipiente para transcrição de lote** | N/D | 10000 |
+| **Número máximo de ficheiros por pedido de transcrição de lote (quando utilizar urls de conteúdo múltiplo como entrada)** | N/D | 1000  |
 | **Número máximo de trabalhos em execução em simultâneo para a Transcrição do Lote** | N/D | 2000  |
 
 <sup>1</sup> O nível de preços **gratuito (F0)** veja também as licenças mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

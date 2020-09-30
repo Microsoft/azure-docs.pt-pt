@@ -1,14 +1,14 @@
 ---
-title: Referência de erro para verificações de saúde
+title: Referência de erro para verificações de saúde do registo
 description: Códigos de erro e possíveis soluções para problemas encontrados através da execução do comando de diagnóstico de verificação de saúde az acr no Registo do Contentor de Azure
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978319"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565603"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de saúde
 
@@ -90,7 +90,7 @@ Este erro significa que o servidor de login do registo não respondeu com um tok
 
 Este erro significa que o cliente não foi capaz de estabelecer uma ligação segura ao registo do contentor. Este erro ocorre geralmente se estiver a executar ou a utilizar um servidor proxy.
 
-*Soluções potenciais*: Mais informações sobre o trabalho por trás de um representante podem ser [encontradas aqui](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Soluções potenciais*: Mais informações sobre o trabalho por trás de um representante podem ser [encontradas aqui](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 
@@ -102,7 +102,7 @@ Este erro significa que o CLI não foi capaz de encontrar o servidor de login do
 
 Este erro significa que o CLI não é compatível com a versão atualmente instalada do Docker/Notário. Tente reduzir a sua versão notary.exe para uma versão anterior a 0.6.0 substituindo manualmente o cliente notário da sua instalação Docker para resolver este problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter opções para verificar a saúde de um registo, consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md).
 

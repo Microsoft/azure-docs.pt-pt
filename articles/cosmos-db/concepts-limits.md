@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400065"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567558"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -154,11 +154,11 @@ A Azure Cosmos DB suporta [a CRUD e opera operações de consulta](/rest/api/cos
 
 Uma vez que uma operação como a consulta atinge o prazo de execução ou o limite de tamanho de resposta, devolve uma página de resultados e um sinal de continuação ao cliente para retomar a execução. Não existe um limite prático na duração de uma única consulta que possa correr através de páginas/continuações.
 
-Cosmos DB usa HMAC para autorização. Você pode usar uma chave master, ou um tokens de recursos para controlo de acesso de [grãos finos](secure-access-to-data.md) a recursos como recipientes, chaves de partição ou itens. A tabela que se segue lista limites para fichas de autorização em Cosmos DB.
+Cosmos DB usa HMAC para autorização. Você pode usar uma chave primária, ou um tokens de recursos para controlo de acesso de [grãos finos](secure-access-to-data.md) a recursos como recipientes, chaves de partição ou itens. A tabela que se segue lista limites para fichas de autorização em Cosmos DB.
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| Prazo máximo de validade do token master | 15 min  |
+| Prazo máximo de validade do token primário | 15 min  |
 | Prazo mínimo de validade do recurso simbólico | 10 min  |
 | Prazo máximo de validade do recurso simbólico | 24 h por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](create-support-request-quota-increase.md)|
 | Distorção máxima do relógio para autorização simbólica| 15 min |
@@ -171,7 +171,7 @@ A Azure Cosmos DB mantém metadados do sistema para cada conta. Estes metadados 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-|A recolha máxima cria taxa rer minuto| 5|
+|A taxa máxima de recolha cria uma taxa por minuto| 5|
 |Base de dados máxima criar taxa por minuto|   5|
 |Taxa máxima de atualização de produção prevista por minuto| 5|
 

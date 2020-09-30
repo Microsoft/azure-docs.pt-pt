@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 5024b1091e84c0d1583ce3e455f29e0d9b9c2fc4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543270"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566453"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 
-| Entidade | Descrição |
+| Entidade | Description |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. |
 | Serviço ligado do HDInsight a pedido |Liga um cluster HDInsight a pedido à fábrica de dados. O cluster é automaticamente criado para que possa processar dados e é eliminado após o processamento estar concluído. |
@@ -343,7 +343,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM Parameters.json** que contém 
    ![Vista de Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. Na vista do diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Verá o setor que está atualmente a ser processado.
    
-    ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![Screenshot que mostra o conjunto de dados AzureBlobOut.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. Quando o processamento terminar, verá o setor no estado **Pronto**. A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto desemque **aproximadamente 30 minutos** para processar a fatia.
    
     ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
@@ -620,7 +620,7 @@ Este modelo cria uma fábrica de dados com o nome GatewayUsingArmDF com um gatew
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Azure Data Factory. |

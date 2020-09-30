@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483750"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566997"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,7 +43,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **As imagens da máquina virtual SQL Server podem ser removidas da galeria?**
 
-   Yes. O Azure mantém apenas uma imagem por grande versão e edição. Por exemplo, quando um novo pacote de serviços SQL Server é lançado, a Azure adiciona uma nova imagem à galeria para esse pacote de serviços. A imagem do SQL Server para o pacote de serviços anterior é imediatamente removida do portal Azure. No entanto, ainda está disponível para o fornecimento da PowerShell para os próximos três meses. Após três meses, a imagem do pacote de serviço anterior já não está disponível. Esta política de remoção também se aplicaria se uma versão SQL Server não for suportada quando chegar ao fim do seu ciclo de vida.
+   Sim. O Azure mantém apenas uma imagem por grande versão e edição. Por exemplo, quando um novo pacote de serviços SQL Server é lançado, a Azure adiciona uma nova imagem à galeria para esse pacote de serviços. A imagem do SQL Server para o pacote de serviços anterior é imediatamente removida do portal Azure. No entanto, ainda está disponível para o fornecimento da PowerShell para os próximos três meses. Após três meses, a imagem do pacote de serviço anterior já não está disponível. Esta política de remoção também se aplicaria se uma versão SQL Server não for suportada quando chegar ao fim do seu ciclo de vida.
 
 
 1. **É possível implantar uma imagem mais antiga do SQL Server que não seja visível no portal Azure?**
@@ -56,7 +56,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Como generalizo o SQL Server no Azure VM e uso-o para implantar novos VMs?**
 
-   Pode implementar um VM do Servidor do Windows (sem o SQL Server instalado nele) e utilizar o processo [sysprep SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar o SQL Server em Azure VM (Windows) com os meios de instalação do SQL Server. Os clientes que tenham [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter os seus meios de instalação a partir do [Centro de Licenciamento de Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a edição desejada.
+   Pode implementar um VM do Servidor do Windows (sem o SQL Server instalado nele) e utilizar o processo [sysprep SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep) para generalizar o SQL Server em Azure VM (Windows) com os meios de instalação do SQL Server. Os clientes que tenham [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter os seus meios de instalação a partir do [Centro de Licenciamento de Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a edição desejada.
 
    Em alternativa, utilize uma das imagens do SQL Server do Azure Marketplace para generalizar o SQL Server no Azure VM. Note que deve eliminar a seguinte chave de registo na imagem de origem antes de criar a sua própria imagem. Se não o fizer, pode resultar no inchaço da pasta de instalação do SQL Server e/ou extensão SQL IaaS em estado de falha.
 
@@ -85,7 +85,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
    Primeiro crie uma máquina virtual Azure com uma instância SQL Server. Em seguida, migrar as suas bases de dados no local para esse caso. Para estratégias de migração de dados, consulte [a migração de uma base de dados SQL Server para o SQL Server num VM Azure](migrate-to-vm-from-sql-server.md).
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 1. **Como posso instalar a minha cópia licenciada do SQL Server numa VM do Azure?**
 
@@ -155,14 +155,14 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **É possível registar VMs de servidor SQL auto-implantados com o fornecedor de recursos SQL Server VM?**
 
-    Yes. Se implementou o SQL Server a partir do seu próprio meio de comunicação e instalou a extensão SQL IaaS, pode registar o seu SQL Server VM com o fornecedor de recursos para obter os benefícios de gestão fornecidos pela extensão SQL IaaS.    
+    Sim. Se implementou o SQL Server a partir do seu próprio meio de comunicação e instalou a extensão SQL IaaS, pode registar o seu SQL Server VM com o fornecedor de recursos para obter os benefícios de gestão fornecidos pela extensão SQL IaaS.    
 
 
 ## <a name="administration"></a>Administração
 
 1. **Posso instalar uma segunda instância do SQL Server no mesmo VM? Posso alterar as funcionalidades instaladas da instância padrão?**
 
-   Yes. O meio de instalação do SQL Server está localizado numa pasta na unidade **C.** Executar **Setup.exe** a partir desse local para adicionar novas instâncias do SQL Server ou para alterar outras funcionalidades instaladas do SQL Server na máquina. Note que algumas funcionalidades, tais como cópia de segurança automatizada, patching automatizado e integração de cofre de chave Azure, apenas operam contra a instância padrão, ou um caso nomeado que foi configurado corretamente (Ver Pergunta 3). Os clientes que utilizam [a Software Assurance através do Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) ou do modelo de licenciamento **pay-as-you-go** podem instalar várias instâncias do SQL Server na máquina virtual sem incorrer em custos de licenciamento extra. Casos adicionais do SQL Server podem forçar os recursos do sistema a menos que configurados corretamente. 
+   Sim. O meio de instalação do SQL Server está localizado numa pasta na unidade **C.** Executar **Setup.exe** a partir desse local para adicionar novas instâncias do SQL Server ou para alterar outras funcionalidades instaladas do SQL Server na máquina. Note que algumas funcionalidades, tais como cópia de segurança automatizada, patching automatizado e integração de cofre de chave Azure, apenas operam contra a instância padrão, ou um caso nomeado que foi configurado corretamente (Ver Pergunta 3). Os clientes que utilizam [a Software Assurance através do Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) ou do modelo de licenciamento **pay-as-you-go** podem instalar várias instâncias do SQL Server na máquina virtual sem incorrer em custos de licenciamento extra. Casos adicionais do SQL Server podem forçar os recursos do sistema a menos que configurados corretamente. 
 
 1. **Qual é o número máximo de ocorrências num VM?**
    O SQL Server 2012 para o SQL Server 2019 pode suportar [50 instâncias](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) num servidor autónomo. Este é o mesmo limite, independentemente de em Azure no local. Consulte [as melhores práticas](performance-guidelines-best-practices.md#multiple-instances) para aprender a preparar melhor o seu ambiente. 
@@ -179,13 +179,21 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
    
    Sim, se a instância nomeada for a única instância no SQL Server, e se a instância por defeito original foi [desinstalada corretamente](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Se não houver uma instância padrão e existirem múltiplas instâncias nomeadas num único SQL Server VM, a extensão do agente IAAS do SQL Server não será instalada. 
 
-1. **Posso remover completamente o SQL Server de uma VM do SQL Server?**
+1. **Posso remover o SQL Server e a faturação de licença associada de um SQL Server VM?**
 
-   Sim, mas continuará a ser cobrado para o seu SQL Server VM, conforme descrito na [orientação de preços para VMs SQL Server Azure](pricing-guidance.md). Se já não precisar do SQL Server, pode implementar uma máquina virtual nova e migrar os dados e as aplicações para a mesma. Depois, pode remover a máquina virtual do SQL Server.
+   Sim, mas terá de tomar medidas adicionais para evitar ser cobrado pela sua instância sql Server, conforme descrito na [orientação de Preços.](pricing-guidance.md) Se pretender remover completamente a instância do SQL Server, pode migrar para outro VM Azure sem o SQL Server pré-instalado no VM e eliminar o VM do servidor SQL atual. Se quiser manter o VM mas parar a faturação do SQL Server, siga estes passos: 
+
+   1. Ressou todos os seus dados, incluindo bases de dados do sistema, se necessário. 
+   1. Desinstale completamente o SQL Server, incluindo a extensão SQL IaaS (se estiver presente).
+   1. Instale a [edição gratuita do SQL Express.](https://www.microsoft.com/sql-server/sql-server-downloads)
+   1. Registe-se com o fornecedor de recursos SQL VM em [modo leve.](sql-vm-resource-provider-register.md)
+   1. (opcional) Desative o serviço Express SQL Server desativando o arranque do serviço. 
 
 1. **Posso utilizar o portal do Azure para gerir várias instâncias na mesma VM?**
+
    Não. A gestão do portal é fornecida pelo fornecedor de recursos SQL VM, que se baseia na extensão do Agente IAAS do SQL Server. Como tal, aplicam-se as mesmas limitações ao fornecedor de recursos que a extensão. O portal pode gerir apenas uma instância padrão, ou uma instância nomeada, desde que seja configurada corretamente. Para mais informações, consulte [a extensão do Agente IAAS do SqL Server](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## <a name="updating-and-patching"></a>Atualização e remendação
 
 1. **Como posso mudar para uma versão/edição diferente do SQL Server num VM Azure?**
@@ -202,7 +210,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso atualizar a minha instância SQL Server 2008 / 2008 R2 depois de o registar com o fornecedor de recursos SQL Server VM?**
 
-   Yes. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) de _nenhum agente_ para _o máximo_. Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. 
+   Sim. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) de _nenhum agente_ para _o máximo_. Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. 
 
 1. **Como posso obter atualizações de segurança alargada gratuitas para o fim de suporte das instâncias do SQL Server 2008 e do SQL Server 2008 R2?**
 
@@ -214,7 +222,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **SqL Server falha casos de cluster (FCI) suportados em VMs Azure?**
 
-   Yes. Pode instalar uma instância de cluster de falha usando [ações de ficheiros premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) ou [espaços de armazenamento diretos (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) para o subsistema de armazenamento. As ações de ficheiros premium fornecem IOPS e capacidades de produção que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere a utilização de espaços de armazenamento diretamente baseados em prémios manged ou ultra-discos. Em alternativa, pode utilizar soluções de agrupamento ou armazenamento de terceiros, conforme descrito na [alta disponibilidade e recuperação de desastres para o SQL Server em Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
+   Sim. Pode instalar uma instância de cluster de falha usando [ações de ficheiros premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) ou [espaços de armazenamento diretos (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) para o subsistema de armazenamento. As ações de ficheiros premium fornecem IOPS e capacidades de produção que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere a utilização de espaços de armazenamento diretamente baseados em prémios manged ou ultra-discos. Em alternativa, pode utilizar soluções de agrupamento ou armazenamento de terceiros, conforme descrito na [alta disponibilidade e recuperação de desastres para o SQL Server em Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > Neste momento, a extensão _completa_ do [agente do SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md) não é suportada para o SQL Server FCI em Azure. Recomendamos que desinstale a extensão _completa_ dos VMs que participam no FCI e instale a extensão em modo _leve._ Esta extensão suporta funcionalidades, tais como Cópia de Segurança Automatizada e Patching e algumas funcionalidades do portal para o SQL Server. Estas funcionalidades não funcionarão para VMs do SQL Server depois de o agente _completo_ ser desinstalado.
@@ -229,7 +237,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **As transações distribuídas com MSDTC são suportadas em VMs do SQL Server?**
    
-    Yes. O DTC local é suportado para SQL Server 2016 SP2 e maior. No entanto, as aplicações devem ser testadas ao utilizar grupos de disponibilidade Always On, uma vez que as transações a bordo durante uma falha falharão e devem ser novamente julgadas. O Clustered DTC está disponível a partir do Windows Server 2019. 
+    Sim. O DTC local é suportado para SQL Server 2016 SP2 e maior. No entanto, as aplicações devem ser testadas ao utilizar grupos de disponibilidade Always On, uma vez que as transações a bordo durante uma falha falharão e devem ser novamente julgadas. O Clustered DTC está disponível a partir do Windows Server 2019. 
 
 ## <a name="resources"></a>Recursos
 

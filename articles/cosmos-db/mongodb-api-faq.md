@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: de75ea1bc0a1cf63c74be3f7d9e486e1fe38db6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05b0ff7d4f56a61c5c91848044a30cb9bf1d0f46
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614567"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565314"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Perguntas frequentes sobre a API da Azure Cosmos DB para a MongoDB
 
-A API da Azure Cosmos DB para a MongoDB é uma camada de compatibilidade de protocolos de fio que permite que as aplicações se comuniquem de forma fácil e transparente com o motor de base de dados Azure Cosmos nativo, utilizando SDKs e condutores existentes e suportados pela comunidade para o MongoDB. Os desenvolvedores podem agora usar as ferramentas e habilidades mongoDB existentes para construir aplicações que tirem partido do Azure Cosmos DB. Os desenvolvedores beneficiam das capacidades únicas da Azure Cosmos DB, que incluem distribuição global com replicação multi-mestre, auto-indexação, manutenção de backup, acordos de nível de serviço apoiados financeiramente (SLAs) etc.
+A API da Azure Cosmos DB para a MongoDB é uma camada de compatibilidade de protocolos de fio que permite que as aplicações se comuniquem de forma fácil e transparente com o motor de base de dados Azure Cosmos nativo, utilizando SDKs e condutores existentes e suportados pela comunidade para o MongoDB. Os desenvolvedores podem agora usar as ferramentas e habilidades mongoDB existentes para construir aplicações que tirem partido do Azure Cosmos DB. Os desenvolvedores beneficiam das capacidades únicas da Azure Cosmos DB, que incluem distribuição global com replicação de escrita multi-região, auto-indexação, manutenção de backup, acordos de nível de serviço apoiados financeiramente (SLAs) etc.
 
 ## <a name="how-do-i-connect-to-my-database"></a>Como posso ligar-me à minha base de dados?
 

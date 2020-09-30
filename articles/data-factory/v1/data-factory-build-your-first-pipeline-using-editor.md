@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85254978"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566606"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: criar a primeira fábrica de dados com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Modelo Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Modelo de gestor de recursos Azure](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
@@ -171,7 +171,7 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 
 1. Confirme se vê **AzureStorageLinkedService** e **HDInsightOnDemandLinkedService** na vista de árvore à esquerda.
 
-    ![Vista de árvore com serviços ligados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Screenshot que mostra que AzureStorageLinkedService e HDInsightOnDemandLinkedService estão ligados entre si.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Neste passo, irá criar conjuntos de dados para representar os dados de entrada e de saída do processamento do Hive. Estes conjuntos de dados referem-se ao AzureStorageLinkedService que criou anteriormente neste tutorial. O serviço ligado aponta para uma conta de armazenamento. Os conjuntos de dados especificam o contentor, a pasta e o nome do ficheiro no armazenamento que contém os dados de entrada e saída.   
@@ -208,7 +208,7 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
     ```
     A tabela seguinte fornece descrições das propriedades JSON utilizadas no fragmento.
 
-   | Propriedade | Aninhado sob | Descrição |
+   | Propriedade | Aninhado sob | Description |
    |:--- |:--- |:--- |
    | tipo | propriedades |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
    | linkedServiceName | formato |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
@@ -435,7 +435,7 @@ Neste tutorial, criou uma fábrica de dados para processar dados, ao executar o 
 Neste artigo, criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script do Hive num cluster do HDInsight a pedido. Para ver como utilizar uma atividade copy para copiar dados do armazenamento de bolhas para a Base de Dados Azure SQL, consulte [Tutorial: Copiar dados do armazenamento blob para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Ver também
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Data Factory. |
