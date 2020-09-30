@@ -1,17 +1,15 @@
 ---
 title: Crie o seu primeiro serviço de confiança em Java
 description: Introdução à criação de uma aplicação Microsoft Azure Service Fabric com serviços apátridas e imponentes em Java.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-javai
+ms.openlocfilehash: f67957d711958febdb01dfad0b3c44a92cb0bcfa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250101"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535241"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Começar com serviços fiáveis em Java
 > [!div class="op_single_selector"]
@@ -262,6 +260,6 @@ Após a implementação da aplicação, abra um browser e navegue até [Service 
 > Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Ao fazê-lo, os seus serviços Reliable Services comunicam com as APIs de execução do tecido de serviço subjacente. Para saber mais, consulte [configurar uma aplicação Reliable Services para executar em clusters Linux.](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)  
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

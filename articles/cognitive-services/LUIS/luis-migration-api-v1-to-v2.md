@@ -3,20 +3,18 @@ title: v1 para v2 Migração API
 titleSuffix: Azure Cognitive Services
 description: O ponto final da versão 1 e a autoria de APIs de compreensão linguística são depreciados. Utilize este guia para entender como migrar para a versão 2 e autorizar APIs.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344752"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541327"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para v2 Migração para apps LUIS
 O ponto [final da](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs [de autoria](https://aka.ms/v1-authoring-api-docs) são depreciadas. Utilize este guia para entender como migrar para a versão [2](https://go.microsoft.com/fwlink/?linkid=2092356) e [autorizar](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
@@ -28,7 +26,7 @@ A LUIS tem novas [regiões previstas](https://aka.ms/LUIS-regions) para as APIs 
 A rota da autoria da API passou de usar a rota **prog** para usar a rota **api.**
 
 
-| versão | rota |
+| versão | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -107,7 +105,7 @@ v2 resposta ao sucesso do ponto final:
 ## <a name="key-management-no-longer-in-api"></a>Gestão chave já não na API
 As APIs chave de ponto final de subscrição são depreciadas, devolvendo 410 GONE.
 
-| versão | rota |
+| versão | route |
 |--|--|
 |1|/luis/v1.0/prog/subscrições|
 |1|/luis/v1.0/prog/subscrições/{subscriçãoKey}|
@@ -117,7 +115,7 @@ As [teclas de ponto final](luis-how-to-azure-subscription.md) Azure são geradas
 ## <a name="new-versioning-route"></a>Nova rota de versão
 O modelo V2 está agora contido numa [versão](luis-how-to-manage-versions.md). Um nome de versão é de 10 caracteres na rota. A versão predefinida é "0.1".
 
-| versão | rota |
+| versão | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versões**/{versionId}/entities|
@@ -136,7 +134,7 @@ Várias APIs que devolvem metadados LUIS têm novos nomes.
 ## <a name="sample-renamed-to-suggest"></a>"Amostra" renomeada para "sugerir"
 LUIS sugere declarações de [frases](luis-how-to-review-endpoint-utterances.md) de ponta existentes que podem melhorar o modelo. Na versão anterior, esta foi nomeada **amostra.** Na nova versão, o nome é alterado de amostra para **sugestão**. Isto chama-se **[Rever as expressões](luis-how-to-review-endpoint-utterances.md)** de ponto final no site da LUIS.
 
-| versão | rota |
+| versão | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**amostra**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**amostra**|

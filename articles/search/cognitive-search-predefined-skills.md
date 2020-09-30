@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080041"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535530"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competências cognitivas incorporadas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva Azure)
 
@@ -38,7 +38,7 @@ Várias competências são flexíveis naquilo que consomem ou produzem. Em geral
 | [Microsoft.Skills.Text.LanguageDetectionskill](cognitive-search-skill-language-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para detetar qual a língua utilizada (um ID de idioma por documento). Quando várias línguas são usadas dentro dos mesmos segmentos de texto, a saída é o LCID da língua predominantemente usada.|
 | [Microsoft.Skills.text.mergeSkill](cognitive-search-skill-textmerger.md) | Consolida o texto de uma coleção de campos num único campo.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Esta habilidade utiliza um modelo pré-treinado para estabelecer entidades para um conjunto fixo de categorias: pessoas, localização, organização, e-mails, URLs, campos de datas. |
-| [Microsoft.Skills.Text.PIIDetectionskill](cognitive-search-skill-pii-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para extrair informações pessoalmente identificáveis a partir de um determinado texto. A habilidade também dá várias opções para mascarar as entidades de informação pessoalmente identificáveis detetadas no texto.  |
+| [Microsoft.Skills.Text.PIIDetectionskill](cognitive-search-skill-pii-detection.md)  | Esta habilidade utiliza um modelo pré-treinado para extrair informações pessoais de um determinado texto. A habilidade também dá várias opções para mascarar as entidades de informação pessoal detetadas no texto.  |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Esta habilidade usa um modelo pré-treinado para obter sentimentos positivos ou negativos numa base recorde. A pontuação é entre 0 e 1. As pontuações neutras ocorrem tanto para o caso nulo quando o sentimento não pode ser detetado, como para texto que é considerado neutro.  |
 | [Microsoft.Skills.text.splitSkill](cognitive-search-skill-textsplit.md) | Divide o texto em páginas para que possa enriquecer ou aumentar o conteúdo gradualmente. |
 | [Microsoft.Skills.text.translationskill](cognitive-search-skill-text-translation.md) | Esta habilidade utiliza um modelo pré-treinado para traduzir o texto de entrada numa variedade de idiomas para casos de normalização ou localização. |

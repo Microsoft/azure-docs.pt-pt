@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe22d25be7f98bfb1d9f867b2081cd0489ce17c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018554"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540834"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
- Gestão de Identidade Privilegiada (PIM) é um serviço no Azure Ative Directory (Azure AD) que lhe permite gerir, controlar e monitorizar o acesso a recursos importantes na sua organização. Estes recursos incluem recursos em Azure AD, Azure e outros serviços Microsoft Online, como o Microsoft 365 ou o Microsoft Intune.
+ Gestão de Identidade Privilegiada (PIM) é um serviço no Azure Ative Directory (Azure AD) que lhe permite gerir, controlar e monitorizar o acesso a recursos importantes na sua organização. Estes recursos incluem recursos em Azure AD, Azure e outros serviços Microsoft Online, como o Microsoft 365 ou o Microsoft Intune. O vídeo que se segue apresenta-o a importantes conceitos e funcionalidades pim.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## <a name="reasons-to-use"></a>Razões para usar
 
@@ -83,7 +86,7 @@ Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentaç
 | Termo ou conceito | Categoria de atribuição de funções | Descrição |
 | --- | --- | --- |
 | elegível | Tipo | Uma atribuição de funções que requer que um utilizador execute uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar o papel quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com uma função permanente contra uma função elegível. A única diferença é que algumas pessoas não precisam sempre desse acesso. |
-| ativo | Tipo | Uma tarefa que não requer que um utilizador execute qualquer ação para usar o papel. Os utilizadores atribuídos como ativos têm os privilégios atribuídos ao papel. |
+| active | Tipo | Uma tarefa que não requer que um utilizador execute qualquer ação para usar o papel. Os utilizadores atribuídos como ativos têm os privilégios atribuídos ao papel. |
 | ativar |  | O processo de realização de uma ou mais ações para usar um papel para o qual um utilizador é elegível. As ações podem incluir a realização de uma verificação de autenticação multi-factor (MFA), a justificação do negócio ou a solicitação de aprovação dos aprovadores designados. |
 | atribuído | Estado | Um utilizador que tem uma atribuição de função ativa. |
 | ativado | Estado | Um utilizador que tenha uma atribuição de papel elegível, executou as ações para ativar o papel, e está agora ativo.  Uma vez ativado, o utilizador pode utilizar a função para um período de tempo pré-configurado antes de necessitar de ser novamente ativado. |
@@ -100,7 +103,7 @@ Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentaç
 
 Para obter informações sobre licenças para utilizadores, consulte [os requisitos da Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Requisitos de licença para utilizar a Gestão de Identidade Privilegiada](subscription-requirements.md)
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

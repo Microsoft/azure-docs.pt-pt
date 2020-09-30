@@ -3,21 +3,18 @@ title: Criar alertas de saúde de recursos usando o Portal Azure
 description: Crie alerta utilizando o portal Azure que o notifica quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091577"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540681"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas de estado de funcionamento dos recursos com o portal Azure
 
 Este artigo mostra-lhe como configurar alertas de registo de atividade para notificações de saúde de recursos através do portal Azure.
 
 A Azure Resource Health mantém-no informado sobre o estado de saúde atual e histórico dos seus recursos Azure. Os alertas de Saúde do Recurso Azure podem notificá-lo em quase tempo real quando estes recursos têm uma mudança no seu estado de saúde. Criar alertas de Saúde de Recursos permite programaticamente que os utilizadores criem e personalizem alertas a granel.
-
-> [!NOTE]
-> Os alertas de saúde de recursos estão atualmente em pré-visualização.
 
 As notificações de saúde dos recursos são armazenadas no registo de [atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) Dado o eventual grande volume de informação armazenada no registo de atividades, existe uma interface de utilizador separada para facilitar a visualização e configuração de alertas nas notificações de saúde dos recursos.
 Pode receber um alerta quando o recurso Azure enviar notificações de saúde de recursos para a sua subscrição do Azure. Pode configurar o alerta com base em:
@@ -66,7 +63,7 @@ Alerta de saúde de recursos usando portal Azure
 A nova regra de alerta para o registo de atividade é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
 Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre [como gerir as regras de registo de atividades.](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a Saúde dos Recursos:
 

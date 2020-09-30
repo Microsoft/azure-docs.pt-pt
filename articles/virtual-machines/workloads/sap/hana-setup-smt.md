@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541157"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para SUSE Linux
 Grandes casos de SAP HANA não têm conectividade direta com a internet. Não é um processo simples para registar tal unidade com o fornecedor do sistema operativo, e para descarregar e aplicar atualizações. Uma solução para o SUSE Linux é instalar um servidor SMT numa máquina virtual Azure. Hospedar a máquina virtual numa rede virtual Azure, que está ligada à Grande Instância HANA. Com um servidor SMT deste tipo, a unidade HANA Large Instance poderia registar e descarregar atualizações. 
@@ -44,7 +44,7 @@ A máquina virtual implantada é menor e obteve o endereço IP interno na rede v
 
 Adicione um disco à máquina virtual. Usa este disco para conter as atualizações e o disco de arranque em si pode ser demasiado pequeno. Aqui, o disco foi montado para /srv/www/htdocs, como mostrado na imagem seguinte. Um disco de 100 GB deve ser suficiente.
 
-![Screenshot da implementação de máquina virtual para servidor SMT](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![A screenshot mostra o disco adicionado na janela PuTTy.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 Inscreva-se na unidade ou unidades HANA Large Instance, mantenha /etc/anfitriões e verifique se pode chegar à máquina virtual Azure que supostamente executou o servidor SMT pela rede.
 

@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 605fba03e65d4200d0f1e18219e892ec6d207bc4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: af3c8713b70911399b2382184dc9fd78d585e03a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019322"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540290"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -34,7 +34,7 @@ Em seguida, selecione a organização em que pretende instalar a extensão.
 > [!NOTE]
 > Para instalar uma extensão a uma organização do Azure DevOps, tem de ser proprietário de uma conta ou administrador de cobrança de projetos. Se não tiver permissões mas for membro de uma conta, terá a opção de pedir extensões. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Escolha uma organização Azure DevOps na qual instalar uma extensão":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 ## <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
@@ -42,11 +42,11 @@ Agora que a extensão está instalada, inscreva-se na sua organização Azure De
 
 1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+Novo.** \> **Novo pipeline de compilação**
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Criar um novo pipeline de compilação":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 2. Selecione a **origem** desejada, o **Projeto de equipa**, o **Repositório** e o **Ramo predefinido para compilações manuais e programadas**. Depois de escolher as opções exigidas, selecione **Continuar**
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Selecione o projeto de equipa, o repositório e o ramo para o pipeline de compilação":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. Agora tem um oleoduto de construção que pode configurar para usar a tarefa de construção do emulador Azure Cosmos DB. 
 
@@ -66,7 +66,7 @@ Start-CosmosDbEmulator
 
 1. Em seguida, selecione o símbolo ao lado do trabalho do agente para adicionar a tarefa de **+** construção do emulador. Procure **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o à tarefa do agente. A tarefa de compilação irá iniciar um contentor com uma instância do emulador do Cosmos DB já em execução no mesmo. A tarefa de Emulador do Azure Cosmos DB deve ser colocada antes de quaisquer outras tarefas que esperam que o emulador esteja em execução.
 
-   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Adicionar a tarefa de compilação do Emulador à definição de compilação":::
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 Neste tutorial, irá adicionar a tarefa ao início para garantir que o emulador está disponível antes de executar os nossos testes.
 
@@ -159,23 +159,23 @@ namespace todo.Tests
 
 Navegue até Execution Options (Opções de Execução) na tarefa do Visual Studio Test. Na opção **Settings file** (ficheiro de Definições), especifique que os testes são configurados com o ficheiro **.runsettings**. Na opção **Override test run parameters** (Substituir parâmetros de execução de testes), adicione `-endpoint $(CosmosDbEmulator.Endpoint)`. Este procedimento irá configurar a tarefa Test para se referir ao ponto final da tarefa de compilação do emulador, em vez do ponto final definido no ficheiro **.runsettings**.  
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Substituir uma variável de ponto final pelo ponto final da tarefa de compilação do Emulador":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 ## <a name="run-the-build"></a>Executar a compilação
 
 Agora, **Guarde a compilação e coloque-a em fila**. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Guardar e executar a compilação":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 Assim que a compilação iniciar, verá que a tarefa do emulador do Cosmos DB irá começar a puxar para baixo a imagem Docker com o emulador instalado. 
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Guardar e executar a compilação":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
 Após a conclusão da compilação, poderá observar os seus testes a passarem, com todos a serem executados no emulador do Cosmos DB a partir da tarefa de compilação.
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Guardar e executar a compilação":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Procure e instale a tarefa de compilação do Emulador do Azure Cosmos DB no Marketplace do DevOps do Azure":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a utilização do emulador para desenvolvimento e testes locais, veja [Utilizar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 

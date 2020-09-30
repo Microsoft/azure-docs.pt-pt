@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539899"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
 
@@ -35,7 +35,7 @@ Este artigo descreve como pode atribuir um papel de Azure Ative Directory (Azure
 
 1. Selecione uma função e, em seguida, selecione um grupo. Apenas são apresentados grupos elegíveis para a atribuição de funções (grupos atribuíveis por funções) e não todos os grupos.
 
-    ![selecione o utilizador a quem está a atribuir a função](./media/roles-groups-pim-eligible/select-member.png)
+    ![Screenshot que mostra a página "Adicionar atribuições" com as secções "Selecione função" e "Selecione membro(s)" realçadas.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Selecione a definição de adesão desejada. Para funções que exijam ativação, escolha **elegível**. Por predefinição, o utilizador seria permanentemente elegível, mas também poderia definir um tempo de início e fim para a elegibilidade do utilizador. Assim que estiver concluído, bata em Save e Add para completar a tarefa de função.
 
@@ -101,7 +101,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

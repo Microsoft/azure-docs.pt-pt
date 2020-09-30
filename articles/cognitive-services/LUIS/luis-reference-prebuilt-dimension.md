@@ -1,29 +1,27 @@
 ---
-title: Dimensão Entidades Pré-construídas - LUIS
+title: Entidades pré-construídas dimensionárias - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informação da entidade pré-construída de dimensão na Compreensão da Linguagem (LUIS).
+description: Este artigo contém informação de entidade pré-construída de dimensão na Compreensão de Línguas (LUIS).
 services: cognitive-services
 ms.custom: seodec18
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b5f081dc8c0bc203ccafde4a513371d11e36879
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270639"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538352"
 ---
-# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída dimensão para uma app LUIS
-A entidade de dimensão pré-construída deteta vários tipos de dimensões, independentemente da cultura da app LUIS. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo dimensões às intenções da aplicação. A entidade dimensão é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída de dimensão para uma app LUIS
+A entidade de dimensão pré-construída deteta vários tipos de dimensões, independentemente da cultura da app LUIS. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham dimensões às intenções da aplicação. A entidade de dimensão é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-A dimensão é gerida a partir do repositório GitHub [de texto reconheço.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
+A dimensão é gerida a partir do repositório GitHub [de texto Recognisers.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
 
 ## <a name="resolution-for-dimension-entity"></a>Resolução para entidade de dimensão
 
@@ -33,7 +31,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -76,7 +74,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **builtin.dimension.**
+O exemplo a seguir mostra a resolução da entidade **builtin.dimension.**
 
 ```json
 {
@@ -92,8 +90,8 @@ O exemplo seguinte mostra a resolução da entidade **builtin.dimension.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça o [e-mail](luis-reference-prebuilt-email.md), [número,](luis-reference-prebuilt-number.md)e entidades [ordinárias.](luis-reference-prebuilt-ordinal.md)
+Saiba mais sobre o [email,](luis-reference-prebuilt-email.md) [número](luis-reference-prebuilt-number.md)e entidades [ordinais.](luis-reference-prebuilt-ordinal.md)

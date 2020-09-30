@@ -3,12 +3,12 @@ title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469784"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533984"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -16,9 +16,9 @@ Os seus recursos, grupos de recursos, subscrições, grupos de gestão e inquili
 
 Os grupos de gestão têm agora configurações de hierarquia que permitem ao administrador do inquilino controlar estes comportamentos. Este artigo abrange cada uma das definições de hierarquia disponíveis e como defini-las.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Permissões DO RBAC para configurações de hierarquia
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Permissões Azure RBAC para configurações de hierarquia
 
-A configuração de qualquer uma das definições da hierarquia requer as seguintes duas operações do RBAC no grupo de gestão de raízes:
+A configuração de qualquer uma das definições da hierarquia requer as seguintes duas operações de fornecedor de recursos no grupo de gestão de raízes:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Estas operações apenas permitem que um utilizador leia e atualize as definiç�
 
 ## <a name="setting---default-management-group"></a>Definição - Grupo de gestão predefinido
 
-Por padrão, uma nova subscrição adicionada dentro de um inquilino é adicionada como membro do grupo de gestão de raiz. Se as atribuições políticas, o controlo de acesso baseado em funções (RBAC) e outras construções de governação forem atribuídas ao grupo de gestão de raízes, elas efetuam imediatamente estas novas subscrições. Por esta razão, muitas organizações não aplicam estas construções no grupo de gestão de raízes, embora esse seja o local desejado para as atribuir. Noutros casos, é desejado um conjunto mais restritivo de controlos para novas subscrições, mas não deve ser atribuído a todas as subscrições. Esta definição suporta ambos os casos de utilização.
+Por padrão, uma nova subscrição adicionada dentro de um inquilino é adicionada como membro do grupo de gestão de raiz. Se as atribuições políticas, o controlo de acesso baseado em funções Azure (Azure RBAC) e outras construções de governação forem atribuídas ao grupo de gestão de raízes, elas imediatamente efetuam estas novas subscrições. Por esta razão, muitas organizações não aplicam estas construções no grupo de gestão de raízes, embora esse seja o local desejado para as atribuir. Noutros casos, é desejado um conjunto mais restritivo de controlos para novas subscrições, mas não deve ser atribuído a todas as subscrições. Esta definição suporta ambos os casos de utilização.
 
 Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível da organização podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições de funções Azure mais adequadas a uma nova subscrição pode ser definido.
 

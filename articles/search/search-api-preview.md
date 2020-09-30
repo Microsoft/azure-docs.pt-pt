@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7d7e7e883d9b92b7a9e700f66a54ed48ba5296b1
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 90f91c56b2448e8455f3c22cf7ccae7b06b5be70
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402944"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539916"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização em Azure Cognitive Search
 
@@ -28,7 +28,7 @@ As funcionalidades de pré-visualização de que a transição para a disponibil
 | [**Sessões de Debug**](cognitive-search-debug-session.md) | Portal, Enriquecimento de IA (skillset) | Um editor de skillset em sessão usado para investigar e resolver problemas com um skillset. As correções aplicadas durante uma sessão de depurar podem ser guardadas para um skillset no serviço. | Apenas portal, utilizando links de página média na página 'Vista Geral' para abrir uma sessão de depuração. |
 | [**Mancha nativa soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexantes, bolhas Azure| O indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 | [**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
-| [**Competência de deteção pii**](cognitive-search-skill-pii-detection.md) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
+| [**Competência de deteção pii**](cognitive-search-skill-pii-detection.md) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoais de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
 | [**Enriquecimento incremental**](cognitive-search-incremental-indexing-conceptual.md) | Configuração do indexante| Adiciona o caching a um pipeline de enriquecimento, permitindo-lhe reutilizar a saída existente se uma modificação direcionada, como uma atualização a um skillset ou outro objeto, não alterar o conteúdo. O caching aplica-se apenas a documentos enriquecidos produzidos por um skillset.| Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 | [**Indexador Cosmos DB: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Fonte de dados indexante | Para cosmos DB, a SQL API está geralmente disponível, mas MongoDB, Gremlin e Cassandra APIs estão em pré-visualização. | Apenas para Gremlin e Cassandra, [inscreva-se primeiro](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. As fontes de dados mongoDB podem ser configuradas no portal. Caso contrário, a configuração da fonte de dados para as três APIs é suportada utilizando [criar fonte de dados (REST)](/rest/api/searchservice/create-data-source) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 |  [**Indexador Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Fonte de dados indexante | Indexe conteúdo e metadados da Data Lake Storage Gen2.| É necessário [inscrever-se](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. Aceda a esta fonte de dados utilizando Criar Fonte de [Dados (REST)](/rest/api/searchservice/create-data-source) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
@@ -58,7 +58,7 @@ POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?ap
 
 O serviço Azure Cognitive Search está disponível em várias versões. Para mais informações, consulte as [versões API](search-api-versions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja a documentação de referência da API de pré-visualização de pré-visualização de pesquisa. Se encontrar problemas, peça-nos ajuda no [Stack Overflow](https://stackoverflow.com/) ou [no suporte de contacto.](https://azure.microsoft.com/support/community/?product=search)
 

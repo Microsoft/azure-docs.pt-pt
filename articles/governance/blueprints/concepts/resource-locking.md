@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651935"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534867"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -33,7 +33,7 @@ Os recursos criados por artefactos numa atribuição de plantas têm quatro esta
 
 ## <a name="overriding-locking-states"></a>Estados de bloqueio dominantes
 
-É normalmente possível que alguém com [controlo de acesso baseado em funções](../../../role-based-access-control/overview.md) (RBAC) adequado na subscrição, como a função "Proprietário", possa alterar ou apagar qualquer recurso. Este acesso não é o caso quando a Azure Blueprints aplica o bloqueio como parte de uma missão implantada. Se a atribuição tiver sido definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
+É normalmente possível que alguém com [um controlo de acesso baseado em funções Azure (Azure RBAC)](../../../role-based-access-control/overview.md) na subscrição, como o papel de "Proprietário", possa alterar ou eliminar qualquer recurso. Este acesso não é o caso quando a Azure Blueprints aplica o bloqueio como parte de uma missão implantada. Se a atribuição tiver sido definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
 
 Esta medida de segurança protege a consistência da planta definida e do ambiente que foi concebido para criar a partir de eliminação ou alteração acidental ou programática.
 
@@ -101,7 +101,7 @@ Quando a atribuição é removida, as fechaduras criadas pela Azure Blueprints s
 
 ## <a name="how-blueprint-locks-work"></a>Como funcionam as fechaduras de plantas
 
-Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) neguem que a ação seja aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionar a opção **Read Only** ou **Not Delete.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio da planta fora das Plantas Azure.
+Um RBAC [Azure nega que as atribuições](../../../role-based-access-control/deny-assignments.md) neguem que a ação seja aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionar a opção Read **Only** ou **Not Delete.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio da planta fora das Plantas Azure.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot da página Access control (I A M) e do separador de atribuições Deny para um grupo de recursos." border="false":::
 
@@ -161,7 +161,7 @@ Em alguns cenários de design ou segurança, pode ser necessário excluir um pri
 
 ## <a name="exclude-an-action-from-a-deny-assignment"></a>Excluir uma ação de uma atribuição de negação
 
-Semelhante a [excluir um principal](#exclude-a-principal-from-a-deny-assignment) numa atribuição de [negação](../../../role-based-access-control/deny-assignments.md) numa atribuição de projeto, pode excluir [operações específicas do RBAC](../../../role-based-access-control/resource-provider-operations.md). Dentro do bloco **properties.locks,** no mesmo local que **osPrincipals excluídos,** pode ser adicionado um **excluindoActions:**
+Tal como [excluir um principal](#exclude-a-principal-from-a-deny-assignment) numa atribuição de [negação](../../../role-based-access-control/deny-assignments.md) numa atribuição de um projeto, pode excluir [operações específicas do fornecedor de recursos Azure](../../../role-based-access-control/resource-provider-operations.md). Dentro do bloco **properties.locks,** no mesmo local que **osPrincipals excluídos,** pode ser adicionado um **excluindoActions:**
 
 ```json
 "locks": {
@@ -177,7 +177,7 @@ Semelhante a [excluir um principal](#exclude-a-principal-from-a-deny-assignment)
 },
 ```
 
-Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluídas deacções** podem utilizar `*` para a correspondência de wildcard das operações do RBAC.
+Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluídas deacções** podem utilizar `*` para a correspondência de wildcard das operações do fornecedor de recursos.
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6c6bd3ab87013aba04f43c95b3a986a64f2bc394
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231474"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540987"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de segurança da política Azure para referência de segurança Azure
 
@@ -76,7 +76,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Política Azure.
 
-* [Permissões Azure RBAC na Política Azure](../overview.md#rbac-permissions-in-azure-policy)
+* [Permissões do Azure RBAC na Política Azure](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 * [Como configurar o Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
@@ -132,7 +132,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Responsabilidade**: Cliente
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../../../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../../../security/benchmarks/security-baselines-overview.md)

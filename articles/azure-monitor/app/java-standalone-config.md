@@ -4,12 +4,12 @@ description: Monitorização de desempenho de aplicações sem código para apli
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371308"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537662"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Azure Monitor Application Insights
 
@@ -154,9 +154,9 @@ Se tiver algumas métricas JMX que esteja interessado em capturar:
           "display": "JVM uptime (millis)"
         },
         {
-          "objectName": "java.lang:type=MemoryPool,name=Code Cache",
+          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
           "attribute": "Usage.used",
-          "display": "Code Cache Used"
+          "display": "MetaSpace Used"
         }
       ]
     }
@@ -166,7 +166,7 @@ Se tiver algumas métricas JMX que esteja interessado em capturar:
 
 Também pode definir as métricas JMX utilizando a variável `APPLICATIONINSIGHTS_JMX_METRICS` ambiente.
 
-Este conteúdo variável do ambiente deve ser um dado json correspondente à estrutura acima referida, por exemplo. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
+Este conteúdo variável do ambiente deve ser um dado json correspondente à estrutura acima referida, por exemplo. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluindo métricas do Actuador de Bota de Mola)
 

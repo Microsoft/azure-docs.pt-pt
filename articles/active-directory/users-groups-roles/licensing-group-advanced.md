@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799065"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538845"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory
 
@@ -112,7 +112,7 @@ Aqui está um exemplo de como este processo pode parecer:
 
 3. Vá ao [**Azure Ative Directory > Licenças > Todos os produtos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selecione Office *365 Enterprise E5*, em seguida, selecione **Grupos Licenciados** para ver uma lista de todos os grupos com esse produto.
 
-4. Clique no grupo que pretende rever (neste caso, *O365 E5 - Apenas trocar*). Isto abrirá o separador **Licenças.** Clicando na licença E5 abrirá uma listagem de lâminas com todos os serviços ativados.
+4. Clique no grupo que pretende rever (neste caso, *O365 E5 - Apenas trocar*). Isto abrirá o separador **Licenças.** Clicar na licença E5 abrirá uma listagem de lâminas com todos os serviços ativados.
    > [!NOTE]
    > O serviço *Microsoft Stream* foi automaticamente adicionado e ativado neste grupo, além do serviço *Exchange Online:*
 
@@ -157,7 +157,7 @@ Pode utilizar [os registos de auditoria da AZure AD](../reports-monitoring/conce
 
 Aqui está um exemplo de recentes mudanças na licença de grupo, com detalhes:
 
-![Alterações na licença do grupo Screenshot](./media/licensing-group-advanced/audit-group-license-change.png)
+![Screenshot que mostra a página "Registos de auditoria" com um item de lista selecionado e o painel "Registo de Auditoria de Detalhes de Atividade" aberto.](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Saiba quando as mudanças de grupo começaram e terminaram o processamento
 
@@ -219,7 +219,7 @@ Se você usar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se
 
   Como uma solução alternativa a este tipo de limitações, pode ir à lâmina do **Grupo** em Ad AZure e clicar em **Reprocessamento**. Este comando processa todos os utilizadores desse grupo e resolve os estados de erro, se possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 

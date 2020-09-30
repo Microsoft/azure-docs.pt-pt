@@ -15,20 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214001"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537349"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
 Ser capaz de acelerar os pedidos de entrada é um papel fundamental da Azure API Management. Quer controlando a taxa de pedidos ou o total de pedidos/dados transferidos, a API Management permite que os fornecedores de API protejam as suas APIs de abusos e criem valor para diferentes níveis de produtos API.
 
+## <a name="rate-limits-and-quotas"></a>Limites de taxas e quotas
+Os limites de tarifas e quotas são utilizados para diferentes finalidades.
+
+### <a name="rate-limits"></a>Limites de taxa
+Os limites de tarifas são geralmente utilizados para proteger contra rajadas de volume curtas e intensas. Por exemplo, se souber que o seu serviço de backend tem um estrangulamento na sua base de dados com um volume de chamadas elevado, pode definir uma `rate-limit-by-key` política para não permitir um elevado volume de chamadas utilizando esta definição.
+
+### <a name="quotas"></a>Quotas
+As quotas são geralmente utilizadas para controlar as taxas de chamadas durante um período mais longo. Por exemplo, podem definir o número total de chamadas que um determinado assinante pode fazer dentro de um mês. Para rentabilizar a sua API, as quotas também podem ser definidas de forma diferente para subscrições baseadas em nível. Por exemplo, uma subscrição de nível básico pode ser capaz de fazer não mais de 10.000 chamadas por mês, mas um nível Premium pode ir até 100.000.000 chamadas por mês.
+
+Dentro da Azure API Management, os limites de taxas são normalmente propagados mais rapidamente através dos nós para proteger contra picos. Em contrapartida, a informação sobre as quotas de utilização é utilizada a longo prazo e, por conseguinte, a sua implementação é diferente.
+
+> [!CAUTION]
+> Devido à natureza distribuída da arquitetura de estrangulamento, a limitação das taxas nunca é completamente precisa. A diferença entre o configurado e o número real de pedidos permitidos varia em função do volume e taxa de pedido, da latência de backend e de outros fatores.
+
 ## <a name="product-based-throttling"></a>Estrangulamento à base de produtos
 Até à data, as capacidades de aceleração da taxa limitaram-se a ser definidas para uma determinada subscrição do Produto, definida no portal Azure. Isto é útil para o fornecedor API aplicar limites aos desenvolvedores que se inscreveram para usar a sua API, no entanto, não ajuda, por exemplo, a estrangular os utilizadores finais individuais da API. É possível que para um único utilizador da aplicação do desenvolvedor consuma toda a quota e, em seguida, impeça outros clientes do desenvolvedor de poderem utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos podem limitar o acesso a utilizadores ocasionais.
 
-## <a name="custom-key-based-throttling"></a>Estrangulamento personalizado à base de chaves
+## <a name="custom-key-based-throttling"></a>Estrangulamento personalizado baseado em chaves
 
 > [!NOTE]
 > As `rate-limit-by-key` políticas e as políticas não `quota-by-key` estão disponíveis quando estão no nível de Consumo da Azure API Management. 
@@ -79,5 +93,5 @@ Isto permite que a aplicação do cliente do desenvolvedor escolha como eles que
 ## <a name="summary"></a>Resumo
 A Azure API Management fornece taxa e cotação para proteger e acrescentar valor ao seu serviço API. As novas políticas de estrangulamento com regras de scoping personalizadas permitem-lhe um controlo mais fino sobre essas políticas para permitir que os seus clientes construam aplicações ainda melhores. Os exemplos deste artigo demonstram a utilização destas novas políticas através da taxa de produção limitando as chaves com endereços IP do cliente, identidade de utilizador e valores gerados pelo cliente. No entanto, existem muitas outras partes da mensagem que poderiam ser usadas como o agente do utilizador, fragmentos de caminhos URL, tamanho da mensagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Por favor, dê-nos o seu feedback como uma questão do GitHub para este tópico. Seria ótimo ouvir sobre outros potenciais valores-chave que têm sido uma escolha lógica nos seus cenários.

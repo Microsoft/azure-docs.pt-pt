@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905062"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541497"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto final do servidor Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Fá-lo transformando os seus Servidores Windows numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
-Um *ponto final do servidor* representa uma localização específica num servidor *registado*, como uma pasta num volume de servidor ou a raiz do volume. Vários pontos finais do servidor podem existir no mesmo volume se os seus espaços de nome não estiverem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Pode configurar as políticas de tiering de nuvem individualmente para cada ponto final do servidor. Se adicionar uma localização do servidor com um conjunto de ficheiros existente como ponto final do servidor a um grupo de sincronização, esses ficheiros serão fundidos com quaisquer outros ficheiros já em outros pontos finais do grupo de sincronização.
+Um *ponto final do servidor* representa uma localização específica num servidor *registado*, como uma pasta num volume de servidor ou a raiz do volume. Vários pontos finais do servidor podem existir no mesmo volume se os seus espaços de nome não estiverem sobrepostos (por exemplo, F:\sync1 e F:\sync2) e cada ponto final estiver sincronizado com um grupo de sincronização único. Pode configurar as políticas de tiering de nuvem individualmente para cada ponto final do servidor. Se adicionar uma localização do servidor com um conjunto de ficheiros existente como ponto final do servidor a um grupo de sincronização, esses ficheiros serão fundidos com quaisquer outros ficheiros já em outros pontos finais do grupo de sincronização.
 
 Veja [como implementar o Azure File Sync](storage-sync-files-deployment-guide.md) para obter informações sobre como implementar o Azure File Sync de ponta a ponta.
 
@@ -56,7 +56,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 ```
 Especificar `-Order CloudTieringPolicy` irá recordar primeiro os ficheiros modificados mais recentemente.
 Outros parâmetros opcionais mas úteis a considerar são:
-* `-ThreadCount`determina quantos ficheiros podem ser recolhidos em paralelo.
+* `-ThreadCount` determina quantos ficheiros podem ser recolhidos em paralelo.
 * `-PerFileRetryCount`determina quantas vezes uma recuperação será tentada de um ficheiro que está atualmente bloqueado.
 * `-PerFileRetryDelaySeconds`determina o tempo em segundos entre a tentativa de recuperação e deve ser sempre utilizado em combinação com o parâmetro anterior.
 
@@ -71,7 +71,7 @@ Para remover o ponto final do servidor:
 
     ![Remover um ponto final do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Registar/não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

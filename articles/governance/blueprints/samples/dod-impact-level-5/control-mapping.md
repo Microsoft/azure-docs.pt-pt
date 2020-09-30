@@ -3,12 +3,12 @@ title: Controlos de amostra de amostra do DoD Impact Level 5
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 5. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978366"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540545"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 5
 
@@ -32,7 +32,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes baseados em funções
 
-A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras RBAC personalizadas. Compreender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do RBAC são propensas a erros.
+A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
 - Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL
 - Auditar o uso das regras personalizadas do RBAC
@@ -48,7 +48,7 @@ O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada p
 
 A partilha de recursos de origem cruzada (CORS) pode permitir que os recursos dos Serviços de Aplicação sejam solicitados a partir de um domínio externo. A Microsoft recomenda que apenas os domínios necessários interajam com as suas aplicações API, função e web. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) para ajudá-lo a monitorizar as restrições de acesso a recursos CORS no Centro de Segurança Azure. Compreender as implementações do CORS pode ajudá-lo a verificar se os controlos de fluxo de informação são implementados.
 
-- O CORS não deve permitir que todos os recursos acedam às suas Aplicações Web
+- O CORS não deve permitir que todos os recursos tenham acesso às suas Aplicações Web
 
 ## <a name="ac-5-separation-of-duties"></a>AC-5 Separação de Deveres
 
@@ -190,7 +190,7 @@ Esta planta atribui definições de Política Azure que auditam as informações
 Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo definições [da Azure Policy](../../../policy/overview.md) a contas de auditoria com o proprietário e/ou a escrever permissões que não tenham autenticação de vários fatores ativadas. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 
 ## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) Identificação e Autenticação (Utilizadores Organizacionais) / Acesso à Rede a Contas Não Privilegiadas
 
@@ -362,7 +362,7 @@ Este plano fornece definições de política que o ajudam a garantir que as noti
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo da planta DoD Impact Level 5, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 

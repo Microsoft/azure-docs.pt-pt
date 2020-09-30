@@ -3,20 +3,18 @@ title: Gerir versões - LUIS
 titleSuffix: Azure Cognitive Services
 description: As versões permitem-lhe construir e publicar diferentes modelos. Uma boa prática é clonar o atual modelo ativo para uma versão diferente da app antes de fazer alterações no modelo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 3aa7958ea4edf6cf3e3c1b170e2351f49f719983
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782845"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540868"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Use versões para editar e testar sem afetar aplicações de produção ou de produção
 
@@ -26,7 +24,7 @@ A versão ativa é a versão que está a editar na secção **construção** do 
 
 Para trabalhar com versões, abra a sua aplicação selecionando o seu nome na página **My Apps** e, em seguida, selecione **Gerir** na barra superior e, em seguida, selecione **Versões** na navegação à esquerda.
 
-A lista de versões mostra quais as versões publicadas, onde são publicadas e qual a versão que está atualmente ativa.
+A lista de versões mostra quais são as versões publicadas, onde são publicadas e qual a versão que está atualmente ativa.
 
 ## <a name="clone-a-version"></a>Clone uma versão
 
@@ -65,7 +63,7 @@ Pode importar uma `.json` ou uma versão da sua `.lu` aplicação.
 
 ## <a name="other-actions"></a>Outras ações
 
-* Para **eliminar** uma versão, selecione uma versão da lista e, em seguida, selecione **Eliminar** da barra de ferramentas. Selecione **Ok**.
+* Para **eliminar** uma versão, selecione uma versão da lista e, em seguida, selecione **Eliminar** da barra de ferramentas. Selecione **OK**.
 * Para **mudar o nome de** uma versão, selecione uma versão da lista e, em seguida, **selecione Rename da** barra de ferramentas. Introduza novo nome e selecione **Feito**.
 * Para **exportar** uma versão, selecione uma versão da lista e, em seguida, selecione **a aplicação Export** a partir da barra de ferramentas. Escolha json ou LU para exportar para uma cópia de segurança ou para economizar no controlo de origem, escolha **Export for container** para usar esta [aplicação num recipiente LUIS](luis-container-howto.md).
 

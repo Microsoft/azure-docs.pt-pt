@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335889"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534442"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (pré-visualização) para os papéis de Azure AD (anteriormente Assistente de Segurança)
 
@@ -45,7 +45,7 @@ Além disso, mantenha as atribuições de funções permanentes se um utilizador
 
 1. **Selecione Reduzir os administradores globais**.
 
-    ![Reduzir administradores globais - Painel de papéis mostrando todos os membros](./media/pim-security-wizard/new-preview-page.png)
+    ![Screenshot que mostra a ação "Discovery and insights (Preview)" com a ação "Reduzir os administradores globais" selecionada.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Reveja a lista de atribuições de funções de Administrador Global.
 
@@ -65,7 +65,7 @@ Além disso, mantenha as atribuições de funções permanentes se um utilizador
 
     ![Opções adicionais de Insights para eliminar os principais dos serviços de acesso e revisão permanentes ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada](pim-how-to-give-access-to-pim.md)

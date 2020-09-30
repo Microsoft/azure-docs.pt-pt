@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512929"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533643"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 
@@ -50,13 +50,13 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
 
       ![Ícone de concha de nuvem de azure](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Se tiver várias subscrições na sua conta Azure, selecione a que foi whitelist para ficheiros Azure NetApp:
+2. Se tiver várias subscrições na sua conta Azure, selecione a que foi aprovada para ficheiros Azure NetApp:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. Na consola Azure Cloud Shell, insira o seguinte comando para verificar se a sua subscrição foi whitelisted:
+3. Na consola Azure Cloud Shell, insira o seguinte comando para verificar se a sua subscrição foi aprovada:
     
     ```azurepowershell
     az feature list | grep NetApp
@@ -69,7 +69,7 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
     "name": "Microsoft.NetApp/ANFGA" 
     ```
        
-   `<SubID>`é o seu ID de assinatura.
+   `<SubID>` é o seu ID de assinatura.
 
     Se não vir o nome da `Microsoft.NetApp/ANFGA` funcionalidade, não tem acesso ao serviço. Pare neste degrau. Siga as instruções em [Enviar um pedido de lista de espera para aceder ao serviço](#waitlist) para solicitar o acesso do serviço antes de continuar. 
 
@@ -97,7 +97,7 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
      "resourceTypes": […. 
     ```
 
-   `<SubID>`é o seu ID de assinatura.  O `state` valor do parâmetro indica `Registered` .
+   `<SubID>` é o seu ID de assinatura.  O `state` valor do parâmetro indica `Registered` .
 
 6. A partir do portal Azure, clique na lâmina **de Assinaturas.**
 7. Na lâmina de subscrições, clique no ID de subscrição. 
@@ -106,6 +106,6 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
       ![Registado Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma conta NetApp](azure-netapp-files-create-netapp-account.md)

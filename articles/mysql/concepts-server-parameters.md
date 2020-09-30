@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258553"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533728"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -214,7 +214,7 @@ Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" en
 Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 > [!NOTE]
-> Se tiver um servidor de réplica de leitura, a definição **innodb_strict_mode** para OFF ao nível da sessão num servidor principal quebrará a replicação. Sugerimos manter o parâmetro definido para OFF se tiver lido réplicas.
+> Se tiver um servidor de réplica de leitura, a definição **innodb_strict_mode** para OFF ao nível da sessão num servidor de origem quebrará a replicação. Sugerimos manter o parâmetro definido para OFF se tiver lido réplicas.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
@@ -274,7 +274,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outras variáveis não listadas aqui são definidas para os valores padrão MySQL fora da caixa. Consulte os docs MySQL para versões [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)e [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) para os valores predefinidos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-using-cli.md)

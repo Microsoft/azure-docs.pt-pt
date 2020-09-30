@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810382"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540470"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure
 
@@ -80,7 +80,12 @@ Ligue o dispositivo HoloLens, inscreva-se e ligue o dispositivo ao PC utilizando
 
 Selecione **Debug**  >  **Comece a depurar** para implementar a sua aplicação e comece a depurar.
 
-Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
+Na aplicação, selecione **BasicDemo** usando as setas e, em seguida, pressione o **Go!** botão para executar a demonstração. Siga as instruções para colocar e chame uma âncora.
+
+![Screenshot 1 ](./media/get-started-unity-hololens/screenshot-1.jpg)
+ ![ Screenshot 2 ](./media/get-started-unity-hololens/screenshot-2.jpg)
+ ![ Screenshot 3 ](./media/get-started-unity-hololens/screenshot-3.jpg)
+ ![ Screenshot 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 No Visual Studio, pare a aplicação selecionando **Stop Debugging** ou Shift+F5.
 

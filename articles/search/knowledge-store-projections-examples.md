@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f40841887b8116ad1384dc2b827d8215ea659490
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537502"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Como moldar e exportar enriquecimentos
 
@@ -356,7 +356,7 @@ O corte gera implicitamente uma relação entre as mesas dos pais e das criança
 
 As ```generatedKeyName``` propriedades e propriedades são ```referenceKeyName``` usadas para relacionar dados entre tabelas ou mesmo entre tipos de projeção. Cada linha na mesa/projeção da criança tem uma propriedade que aponta para o progenitor. O nome da coluna ou propriedade na criança é ```referenceKeyName``` do progenitor. Quando o ```referenceKeyName``` não é fornecido, o serviço predefini-o para ```generatedKeyName``` o do progenitor. 
 
-Power BI depende destas chaves geradas para descobrir relacionamentos dentro das tabelas. Se precisar da coluna na mesa da criança com o nome diferente, coloque a ```referenceKeyName``` propriedade na mesa dos pais. Um exemplo seria definir o ```generatedKeyName``` ID como iD na tabela de pbiDocument e como ```referenceKeyName``` DocumentID. Isto resultaria na coluna nas tabelas pbiEntities e pbiKeyPhrases contendo o documento id sendo nomeado DocumentID.
+Power BI depende destas chaves geradas para descobrir relacionamentos dentro das tabelas. Se precisar da coluna na mesa da criança com o nome diferente, coloque a ```referenceKeyName``` propriedade na mesa dos pais. Um exemplo seria definir o ```generatedKeyName``` ID como iD na tabela de pbiDocument e como ```referenceKeyName``` DocumentID. Isto resultaria na coluna nas tabelas pbiEntities e pbiKeyPhrases contendo o documento ID sendo nomeado DocumentID.
 
 ## <a name="projecting-to-objects"></a>Projetar para objetos
 
@@ -664,7 +664,7 @@ Ao definir uma projeção, existem algumas questões comuns que podem causar res
 
 + Erros de sintaxe do caminho. Os seletores de caminhos são sensíveis ao caso e podem levar a avisos de entrada em falta se não utilizar a caixa exata para o seletor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os exemplos deste artigo demonstram padrões comuns sobre como criar projeções. Agora que tem uma boa compreensão dos conceitos, está mais bem equipado para construir projeções para o seu cenário específico.
 

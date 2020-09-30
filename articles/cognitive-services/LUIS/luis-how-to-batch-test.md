@@ -3,20 +3,18 @@ title: Como realizar um teste de lote - LUIS
 titleSuffix: Azure Cognitive Services
 description: Use conjuntos de testes de lote de Compreensão linguística (LUIS) para encontrar expressões com intenções e entidades incorretas.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: ee15d08c820492cfa2c0701dfe3b682d57e00187
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344412"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540953"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste de lote com um conjunto de expressões de exemplo
 
@@ -36,7 +34,7 @@ ms.locfileid: "84344412"
 
 3. No campo Nome do **Conjunto de Dados,** insira um nome para o seu ficheiro conjunto de dados. O ficheiro dataset inclui uma **série de expressões,** incluindo a *intenção rotulada* e *as entidades.* Reveja o [ficheiro de lote de exemplo](luis-concept-batch-test.md#batch-file-format) para sintaxe.
 
-4. Selecione **Done** (Concluído). O ficheiro do conjunto de dados é adicionado.
+4. Selecione **Concluído**. O ficheiro do conjunto de dados é adicionado.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Executar, renomear, exportar ou apagar conjunto de dados
 

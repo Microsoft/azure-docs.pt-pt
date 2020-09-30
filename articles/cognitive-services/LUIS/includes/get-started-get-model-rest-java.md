@@ -2,20 +2,18 @@
 title: Obtenha modelo com chamada REST em Java
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
-ms.author: diberry
-ms.openlocfilehash: 7734a24904a2fa33aaf6eacaf631c4b7830f9abf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33efca9ab3c24ebd0a3d1c76924f2c1f4ee89581
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303936"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534667"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
@@ -157,7 +155,7 @@ ms.locfileid: "91303936"
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Melhores práticas para uma aplicação](../luis-concept-best-practices.md)

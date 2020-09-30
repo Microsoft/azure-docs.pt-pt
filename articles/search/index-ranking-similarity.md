@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: ee788125a5710e5a8b9861c28c4af8e6d83d5d80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924542"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535734"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo de classificação em Azure Cognitive Search
 
@@ -103,9 +103,9 @@ O algoritmo de semelhança só pode ser definido no tempo de criação de índic
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
 
-+ [Referência API DE REPOUSO](/rest/api/searchservice/)   
-+ [Adicione perfis de pontuação ao seu índice](index-add-scoring-profiles.md)    
-+ [Criar API de Índice](/rest/api/searchservice/create-index)   
-+ [Pesquisa Cognitiva Azure .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [Referência API DE REPOUSO](/rest/api/searchservice/)
++ [Adicione perfis de pontuação ao seu índice](index-add-scoring-profiles.md)
++ [Criar API de Índice](/rest/api/searchservice/create-index)
++ [Pesquisa Cognitiva Azure .NET SDK](/dotnet/api/overview/azure/search)

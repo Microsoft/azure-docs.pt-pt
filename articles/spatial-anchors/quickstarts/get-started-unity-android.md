@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7e92da72e8125c22655a7eb9986f0554963aefeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538153"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação Para Android unidade com âncoras espaciais Azure
 
@@ -58,9 +58,11 @@ Para concluir este início rápido, certifique-se de que tem:
 
 Selecione o seu dispositivo no **Dispositivo run** e, em seguida, selecione Build **And Run**. Pedir-lhe-ão que guarde um `.apk` ficheiro, para o qual pode escolher qualquer nome.
 
-Assim que a aplicação começar, deverá ver um ecrã com este aspeto:
+Na aplicação, selecione **BasicDemo** usando as setas e, em seguida, pressione o **Go!** botão para executar a demonstração. Siga as instruções para colocar e chame uma âncora.
 
-![Tela de aplicativo](./media/get-started-unity-android/demo-app-screen.png)
+![Screenshot 1 ](./media/get-started-unity-android/screenshot-1.jpg)
+ ![ Screenshot 2 ](./media/get-started-unity-android/screenshot-2.jpg)
+ ![ Screenshot 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 

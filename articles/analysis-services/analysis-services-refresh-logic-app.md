@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448588"
+ms.locfileid: "91540732"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -27,7 +27,7 @@ Todas as chamadas devem ser autenticadas com um token Azure Ative (OAuth 2) vál
 ## <a name="design-the-logic-app"></a>Desenhe o aplicativo de lógica
 
 > [!IMPORTANT]
-> Os exemplos a seguir assumem que a firewall dos Serviços de Análise Azure está desativada. Se a firewall estiver ativada, o endereço IP público do iniciador de pedidos deve ser whitelist na firewall dos Serviços de Análise Azure. Para saber mais sobre as gamas IP de Apps Lógicas Azure por região, consulte [limites e informações de configuração para Apps Azure Logic](../logic-apps/logic-apps-limits-and-config.md#configuration).
+> Os exemplos a seguir assumem que a firewall dos Serviços de Análise Azure está desativada. Se a firewall estiver ativada, o endereço IP público do iniciador de pedidos deve ser adicionado à lista aprovada na firewall dos Serviços de Análise Azure. Para saber mais sobre as gamas IP de Apps Lógicas Azure por região, consulte [limites e informações de configuração para Apps Azure Logic](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

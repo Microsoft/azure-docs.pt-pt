@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 6825627b77e3ea227cad88e347dbbabd5e6f5d0c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230981"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540341"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 
@@ -110,13 +110,13 @@ Agora que importou os dados para o Power BI, está na hora de construir um relat
 
 1. No lado esquerdo da janela, certifique-se de que selecionou a vista **'Relatório'.**
 
-    [![Selecione a vista de relatório](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![A screenshot mostra o ícone da visualização do relatório.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1. Na coluna **Visualizações,** selecione o seu visual de escolha. Por exemplo, selecione **gráfico de linha**. Isto irá adicionar um gráfico de linha em branco à sua tela.
 
 1. Na lista **Fields,** selecione **_Timestamp** e arraste-o para o campo **eixo** para exibir itens ao longo do eixo X. Certifique-se de que muda para **_Timestamp** para o valor do **eixo** (predefinição é **hierarquia de data).**
 
-    [![Selecione a vista de relatório](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![A screenshot mostra o menu Timestamp com _Timestamp selecionados.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1. Mais uma vez, na lista **Fields,** selecione **TimeSeriesId** e arraste-o para o campo **Valores** para exibir itens ao longo do eixo Y.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031222"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537162"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados na Base de Dados Azure para o MySQL
 
@@ -28,29 +28,29 @@ Para cenários de migração, utilize o [Serviço de Migração de Bases de Dado
 ## <a name="limitations-and-considerations"></a>Limitações e considerações
 
 ### <a name="data-not-replicated"></a>Dados não replicados
-A base de dados do [*sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) no servidor principal não é replicada. As alterações nas contas e permissões no servidor principal não são replicadas. Se criar uma conta no servidor principal e esta conta precisar de aceder ao servidor de réplica, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais as tabelas contidas na base de dados do sistema, consulte o [manual MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+A base de dados do [*sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) no servidor de origem não é replicada. As alterações nas contas e permissões no servidor de origem não são replicadas. Se criar uma conta no servidor de origem e esta conta precisar de aceder ao servidor de réplicas, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais as tabelas contidas na base de dados do sistema, consulte o [manual MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="filtering"></a>Filtragem
-Para saltar as tabelas de replicação do seu servidor principal (hospedados no local, em máquinas virtuais ou num serviço de base de dados hospedado por outros fornecedores de nuvem), o `replicate_wild_ignore_table` parâmetro é suportado. Opcionalmente, atualize este parâmetro no servidor de réplica alojado no Azure utilizando o [portal Azure](howto-server-parameters.md) ou [O Azure CLI](howto-configure-server-parameters-using-cli.md).
+Para saltar as tabelas de replicação do seu servidor de origem (hospedados no local, em máquinas virtuais ou num serviço de base de dados hospedado por outros fornecedores de nuvem), o `replicate_wild_ignore_table` parâmetro é suportado. Opcionalmente, atualize este parâmetro no servidor de réplica alojado no Azure utilizando o [portal Azure](howto-server-parameters.md) ou [O Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre este parâmetro.
 
 ### <a name="requirements"></a>Requirements
-- A versão principal do servidor deve ser pelo menos a versão 5.6 do MySQL. 
-- As versões do servidor principal e réplica devem ser as mesmas. Por exemplo, ambos devem ser a versão 5.6 do MySQL ou ambas devem ser a versão 5.7 do MySQL.
+- A versão do servidor de origem deve ser pelo menos a versão 5.6 do MySQL. 
+- As versões de servidor de origem e réplica devem ser as mesmas. Por exemplo, ambos devem ser a versão 5.6 do MySQL ou ambas devem ser a versão 5.7 do MySQL.
 - Cada mesa deve ter uma chave primária.
-- O servidor master deve utilizar o motor MySQL InnoDB.
-- O utilizador deve ter permissões para configurar a madeira binária e criar novos utilizadores no servidor principal.
-- Se o servidor principal tiver SSL ativado, certifique-se de que o certificado SSL CA fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [seguintes exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) e o `master_ssl_ca` parâmetro.
-- Confirme se o endereço IP do servidor mestre foi adicionado às regras de firewall do servidor de réplica da Base de Dados do Azure para MySQL. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
-- Verifique se o computador que aloja o servidor mestre permite tráfego de entrada e de saída na porta 3306.
-- Certifique-se de que o servidor principal tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).
+- O servidor de origem deve utilizar o motor MySQL InnoDB.
+- O utilizador deve ter permissões para configurar a sessão de registo binário e criar novos utilizadores no servidor de origem.
+- Se o servidor de origem tiver SSL ativado, certifique-se de que o certificado SSL CA fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [seguintes exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) e o `master_ssl_ca` parâmetro.
+- Certifique-se de que o endereço IP do servidor de origem foi adicionado à Base de Dados Azure para as regras de firewall do servidor de réplicas MySQL. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Certifique-se de que a máquina que hospeda o servidor de origem permite o tráfego de entrada e saída na porta 3306.
+- Certifique-se de que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).
 
 ### <a name="other"></a>Outros
 - A replicação de dados só é suportada nos níveis de preços otimizados para fins gerais e memória.
 - Os identificadores globais de transações (GTID) não são suportados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como configurar a [replicação de dados](howto-data-in-replication.md)
 - Saiba mais [sobre a replicação em Azure com réplicas de leitura](concepts-read-replicas.md)
 - Saiba como [migrar dados com tempo mínimo de inatividade usando DMS](howto-migrate-online.md)

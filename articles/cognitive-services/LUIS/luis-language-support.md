@@ -3,20 +3,18 @@ title: Suporte linguístico - LUIS
 titleSuffix: Azure Cognitive Services
 description: O LUIS tem uma variedade de funcionalidades dentro do serviço. Nem todas as funcionalidades estão na mesma paridade de idiomas. Confirme que as funcionalidades que lhe interessam são suportadas na cultura do idioma que está a segmentar. Uma aplicação LUIS é específica da cultura e não pode ser alterada uma vez definida.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.author: diberry
-ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588027"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541395"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio linguístico e regional ao LUIS
 

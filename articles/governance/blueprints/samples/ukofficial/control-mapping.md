@@ -3,12 +3,12 @@ title: OFICIAL DO Reino Unido & controlos de amostras de amostras do NHS do Rein
 description: Controlo do mapeamento das amostras de plantas do NHS do Reino Unido e do Reino Unido. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078986"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540392"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controlo do mapeamento das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
@@ -76,10 +76,10 @@ Esta planta ajuda-o a proteger os ativos do sistema de informação, atribuindo 
 
 ## <a name="9-secure-user-management"></a>9 Gestão Segura do Utilizador 
 
-O Azure implementa o controlo de acesso baseado em funções (RBAC) para ajudá-lo a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto ajuda-o a restringir e a controlar os direitos de acesso, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões e contas de proprietário e/ou de leitura/escrita com o proprietário, ler e/ou escrever permissões que não tenham autenticação de vários fatores ativadas.
+O controlo de acesso baseado em funções (Azure RBAC) ajuda-o a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto ajuda-o a restringir e a controlar os direitos de acesso, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões e contas de proprietário e/ou de leitura/escrita com o proprietário, ler e/ou escrever permissões que não tenham autenticação de vários fatores ativadas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 - As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
@@ -90,7 +90,7 @@ O Azure implementa o controlo de acesso baseado em funções (RBAC) para ajudá-
 Este projeto ajuda-o a restringir e a controlar os direitos de acesso, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões e contas de proprietário e/ou de leitura/escrita com o proprietário, ler e/ou escrever permissões que não tenham autenticação de vários fatores ativadas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 - As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
@@ -159,7 +159,7 @@ Esta planta ajuda-o a garantir que os eventos do sistema são registados atribui
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - Implementar o observador de rede quando as redes virtuais forem criadas
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo das plantas do NHS do Reino Unido e do Reino Unido, visite os seguintes artigos para saber mais sobre a visão geral e como implementar esta amostra:
 

@@ -1,32 +1,30 @@
 ---
-title: Entidades pré-construídas depreciadas - LUIS
+title: Entidades preconizadas pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações preconstruídas de entidades preconstruídas preconstruídas em Compreensão da Linguagem (LUIS).
+description: Este artigo contém informações de entidades pré-construídas preconizadas na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a050990c28b9137440ec05d918774d76f216be8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270666"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540851"
 ---
-# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-construídas depreciadas numa aplicação DA
-As seguintes entidades pré-construídas são depreciadas e não podem ser adicionadas às novas apps DA.
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-construídas predefinidas numa app LUIS
+As seguintes entidades pré-construídas são prevacionadas e não podem ser adicionadas a novas aplicações LUIS.
 
-* **Data de data**: As aplicações EXISTENTES DA QUE utilizam o tempo de **data** devem ser migradas para **dataV2**, embora a entidade da data continue a funcionar em aplicações pré-existentes que a utilizam.
-* **Geografia**: As aplicações EXISTENTES DA QUE utilizam **geografia** são suportadas até dezembro de 2018.
-* **Enciclopédia**: As aplicações EXISTENTES LUIS que utilizam **enciclopédia** são suportadas até dezembro de 2018.
+* **Data :** As aplicações LUIS existentes que utilizam **a data** devem ser migradas para o horário **de 2018**, embora a entidade da data continue a funcionar em aplicações pré-existentes que a utilizem.
+* **Geografia**: As aplicações LUIS existentes que utilizam **geografia** são suportadas até dezembro de 2018.
+* **Enciclopédia**: As aplicações LUIS existentes que utilizam **enciclopédia** são suportadas até dezembro de 2018.
 
-## <a name="geography-culture"></a>Cultura da geografia
-**A geografia** está disponível apenas no `en-us` local.
+## <a name="geography-culture"></a>Cultura de geografia
+**A geografia** só está disponível no `en-us` local.
 
 #### <a name="3-geography-subtypes"></a>3 Subtipos de geografia
 
@@ -39,11 +37,11 @@ Entidade pré-construída   |   Expressão de exemplo   |   JSON
 `builtin.geography.pointOfInterest`   |   `amazon river` |`{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }`|
 `builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
-## <a name="encyclopedia-culture"></a>Cultura enciclopédia
-**A enciclopédia** está disponível apenas no `en-US` local.
+## <a name="encyclopedia-culture"></a>Cultura da enciclopédia
+**A enciclopédia** só está disponível no `en-US` local.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos de enciclopédia
-A entidade enciclopédia incorporada inclui mais de 100 subtipos na tabela seguinte: Além disso, as entidades enciclopédias frequentemente mapeiam vários tipos. Por exemplo, a consulta que Ronald Reagan cede:
+A entidade incorporada em enciclopédia inclui mais de 100 sub-tipos na tabela seguinte: Além disso, as entidades de enciclopédia mapeiam frequentemente para vários tipos. Por exemplo, a consulta ronald Reagan rende:
 
 ```json
 {
@@ -161,7 +159,7 @@ Entidade pré-construída   |   Entidade pré-construída (subtipos)   |   Expre
 `builtin.encyclopedia.finance.stock_exchange`| `builtin.encyclopedia.finance.stock_exchange`| `tokyo stock exchange`|
 `builtin.encyclopedia.film.festival`| `builtin.encyclopedia.film.festival`| `berlin international film festival`|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Conheça a [dimensão,](luis-reference-prebuilt-dimension.md)as entidades de [e-mail](luis-reference-prebuilt-email.md) e [o número.](luis-reference-prebuilt-number.md)
+Conheça a [dimensão,](luis-reference-prebuilt-dimension.md)as entidades [de email](luis-reference-prebuilt-email.md) e o [número.](luis-reference-prebuilt-number.md)
 

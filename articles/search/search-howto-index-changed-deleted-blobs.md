@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 210a4a352f5130bc67d70f47bdf6305c5a992282
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403795"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534782"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Como configurar a deteção de alterações e eliminação para bolhas no índice de pesquisa cognitiva Azure
 
@@ -100,7 +100,11 @@ Depois de um indexante processar uma bolha apagada e remover o documento de pesq
 
 Se quiser reindexar esse documento, mude o `"softDeleteMarkerValue" : "false"` para essa bolha e volte a repetir o indexante.
 
-## <a name="see-also"></a>Ver também
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a melhorar a pesquisa cognitiva do Azure
+
+Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para utilizar a função existente, publique a sua pergunta no [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 * [Como configurar um indexador de bolhas](search-howto-indexing-azure-blob-storage.md)

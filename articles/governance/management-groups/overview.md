@@ -4,14 +4,14 @@ description: Saiba mais sobre os grupos de gestão, como as permissões destes f
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e0404cdc934771f8ebc0125ce9e21559739aee35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533811"
 ---
-# <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
+# <a name="what-are-azure-management-groups"></a>O que são os grupos de gestão do Azure?
 
 Se a sua organização tiver várias subscrições, poderá precisar de uma forma de gerir eficazmente o acesso, as políticas e a conformidade para essas subscrições. Os grupos de gestão do Azure fornecem um nível de âmbito acima das subscrições. Estes permitem-lhe organizar as subscrições em contentores chamados "grupos de gestão" e aplicar as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 Todas as subscrições num único grupo de gestão têm de confiar no mesmo inquilino do Azure Active Directory.
@@ -26,9 +26,9 @@ Pode criar uma estrutura flexível de grupos de gestão e de subscrições para 
    Diagrama de um grupo de gestão de raiz que detém grupos de gestão e subscrições. Alguns grupos de gestão de crianças detêm grupos de gestão, alguns possuem assinaturas, e alguns detêm ambos. Um dos exemplos na hierarquia da amostra são quatro níveis de grupos de gestão, sendo o nível infantil todas as subscrições.
 :::image-end:::
 
-Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará a todas as assinaturas do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
+Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política será herdada por todas as subscrições do Contrato Enterprise (EA) que são descendentes desse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
-Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições sob esse grupo de gestão, pode criar uma [atribuição de papel Azure](../../role-based-access-control/overview.md) no grupo de gestão, que herdará esse acesso a todas as subscrições. Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
+Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições sob esse grupo de gestão, pode criar uma [atribuição de papel Azure](../../role-based-access-control/overview.md) no grupo de gestão, que herdará esse acesso a todas as subscrições. Uma atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam em vez de scriptar O RBAC sobre diferentes subscrições.
 
 ### <a name="important-facts-about-management-groups"></a>Factos importantes sobre grupos de gestão
 
@@ -150,7 +150,7 @@ As definições de função são de âmbito atribuível em qualquer lugar da hie
 
 Por exemplo, vamos olhar para uma pequena parte de uma hierarquia para um visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de um subconjunto da hierarquia do grupo de gestão da amostra." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
    O diagrama centra-se no grupo de gestão de raiz com grupos de gestão de crianças I T e Marketing. O grupo de gestão I T tem um único grupo de gestão infantil chamado Production, enquanto o grupo de gestão de Marketing tem duas subscrições de crianças Free Trial.
 :::image-end:::
 
@@ -169,7 +169,7 @@ Existem algumas opções diferentes para corrigir este cenário:
 Existem limitações quando se utilizam funções personalizadas em grupos de gestão. 
 
  - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel se muda para um pai diferente que não tem a definição de papel.  
- - As ações do Plano de Dados da RBAC não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com as ações da RBAC que atualizam os fornecedores de recursos de planos de dados.
+ - As ações do plano de dados do fornecedor de recursos não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com a atualização dos fornecedores de recursos de planos de dados.
    Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
  - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
 
@@ -194,11 +194,11 @@ Se a função do Proprietário na subscrição for herdada do grupo de gestão a
 
 Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Pode procurar todos os eventos que acontecem a um grupo de gestão na mesma localização central de outros recursos do Azure. Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Screenshot de Registos de Atividade e operações relacionadas com o grupo de gestão selecionado." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

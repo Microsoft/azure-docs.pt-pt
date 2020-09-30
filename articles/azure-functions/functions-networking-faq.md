@@ -4,12 +4,12 @@ description: Respostas a algumas das perguntas e cenários mais comuns para netw
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385913"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538063"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre networking em Funções Azure
 
@@ -27,7 +27,7 @@ Pode restringir o acesso à Internet de várias formas:
     * Sob as restrições IP, também é possível configurar [os Pontos finais de serviço,](../virtual-network/virtual-network-service-endpoints-overview.md)que limitam a sua Função a apenas aceitar o tráfego de entrada a partir de uma determinada rede virtual.
 * Remoção de todos os gatilhos HTTP. Para algumas aplicações, basta simplesmente evitar os gatilhos HTTP e utilizar qualquer outra fonte de evento para ativar a sua função.
 
-Tenha em mente que o editor do portal Azure requer acesso direto à sua função de funcionamento. Quaisquer alterações de código através do portal Azure exigirão que o dispositivo que está a utilizar navegue no portal tenha o seu IP na lista branca. Mas ainda pode utilizar qualquer coisa no separador de funcionalidades da plataforma com restrições de rede em vigor.
+Tenha em mente que o editor do portal Azure requer acesso direto à sua função de funcionamento. Quaisquer alterações de código através do portal Azure exigirão que o dispositivo que está a utilizar navegue no portal tenha o seu IP adicionado à lista aprovada. Mas ainda pode utilizar qualquer coisa no separador de funcionalidades da plataforma com restrições de rede em vigor.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como posso restringir a minha aplicação de função a uma rede virtual?
 

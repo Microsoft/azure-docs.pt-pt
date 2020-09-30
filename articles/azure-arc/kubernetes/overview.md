@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Este artigo fornece uma visão geral de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: fb8a7b7c2e1e5b3de7d1ccdb4054e44825231458
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 61317f7f5f2bf17c88fc019294574993c1854e59
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604806"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540647"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é a pré-visualização de Kubernetes ativada por Azure?
 
@@ -60,7 +60,22 @@ Azure Arc habilitado Kubernetes é atualmente apoiado nestas regiões:
 * E.U.A. Leste 
 * Europa Ocidental
 
+## <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
-## <a name="next-steps"></a>Passos seguintes
+* Qual é a diferença entre o Azure Arc ativado pela Kubernetes e pelo Serviço Azure Kubernetes (AKS)?
+
+    Azure Kubernetes Service (AKS) é a oferta gerida pela Azure. AKS torna simples a implementação de um cluster de Kubernetes gerido em Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerir o Kubernetes ao descarregar grande parte dessa responsabilidade para o Azure. Os mestres do Kubernetes são geridos pelo Azure. Pode apenas gerir e manter os nós dos agentes.
+
+    Azure Arc habilitado a Kubernetes permite-lhe ligar clusters Kubernetes a Azure para alargar as capacidades de gestão da Azure, como o Azure Monitor e a Azure Policy. A manutenção do cluster Kubernetes subjacente em si é feita por si.
+
+* Preciso de ligar os meus clusters de Serviço Azure Kubernetes em execução em Azure a Azure Arc?
+
+    Não. Todas as funcionalidades de Azure Arc ativadas Kubernetes como Azure Monitor, Azure Policy (Gatekeeper) estão nativamente disponíveis com a AKS, que já tem uma representação de recursos em Azure. A Configuração do Cluster (GitOps) também está disponível nativamente em AKS e atualmente em pré-visualização privada. Utilize este [formulário de inscrição](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5acO18Lmx5Bk_qao2CrOcFUQ0UyRllDR1BEV1BPNENYRERYN1pFWTQ4WC4u) para ter acesso a esta funcionalidade.
+    
+* Devo ligar o meu cluster AKS ao Azure Stack HCI ao Azure Arc? E os clusters kubernetes a funcionar no Azure Stack Hub ou no Azure Stack Engine?
+
+    Sim, ligar estes aglomerados ao Arco Azure tem benefícios. Fornece uma representação de recursos para estes clusters Kubernetes em Azure Resource Manager. Utilizando esta representação de recursos, capacidades como a Configuração do Cluster, O Monitor Azure, Azure Policy (Gatekeeper) podem ser estendidas a estes clusters Kubernetes
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligar um cluster](./connect-cluster.md)

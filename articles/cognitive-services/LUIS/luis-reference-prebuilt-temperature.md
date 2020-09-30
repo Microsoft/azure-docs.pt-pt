@@ -1,28 +1,26 @@
 ---
-title: Entidade Pré-construída de Temperatura - LUIS
+title: Entidade pré-construída de temperatura - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidades pré-construídas de temperatura em Compreensão linguística (LUIS).
+description: Este artigo contém informações de entidades pré-construídas de temperatura na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46161a83d261ae23ca45b7293e48ff15e435f42d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270371"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535344"
 ---
-# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída de temperatura para uma app LUIS
-A temperatura extrai uma variedade de tipos de temperatura. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo temperatura à aplicação. A entidade de temperatura é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída de temperatura para uma aplicação LUIS
+A temperatura extrai uma variedade de tipos de temperatura. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham temperatura à aplicação. A entidade de temperatura é suportada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-temperature"></a>Tipos de temperatura
-A temperatura é gerida a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
+A temperatura é gerida a partir do repositório GitHub [do texto Recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Resolução para entidade de temperatura pré-construída
 
@@ -33,7 +31,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -75,7 +73,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **builtin.temperature.**
+O exemplo a seguir mostra a resolução da entidade **builtin.temperature.**
 
 ```json
 "entities": [
@@ -93,8 +91,8 @@ O exemplo seguinte mostra a resolução da entidade **builtin.temperature.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça a [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e as entidades [etárias.](luis-reference-prebuilt-age.md)
+Saiba mais sobre a [percentagem,](luis-reference-prebuilt-percentage.md) [número](luis-reference-prebuilt-number.md)e entidades [etárias.](luis-reference-prebuilt-age.md)

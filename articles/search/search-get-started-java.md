@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400660"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540358"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91400660"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie uma aplicação de consola Java que cria, carrega e consulta um índice de pesquisa usando [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK,](/java/azure/jdk/?view=azure-java-stable)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)
+Crie uma aplicação de consola Java que cria, carrega e consulta um índice de pesquisa usando [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK,](/java/azure/jdk/)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,7 +37,7 @@ Utilizamos o seguinte software e serviços para construir e testar este arranque
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/)
 
 + [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido.
 
@@ -55,7 +55,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
-Cada pedido enviado ao seu serviço requer uma chave api. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Cada pedido enviado ao seu serviço requer uma chave API. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="set-up-your-environment"></a>Configurar o ambiente
 
@@ -67,7 +67,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 1. Selecione **Maven**.
 1. Na lista **do Project SDK,** selecione o Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Criar um projeto maven" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 1. Para **GroupId** e **ArtifactId,** insira `AzureSearchQuickstart` .
 1. Aceite os restantes incumprimentos para abrir o projeto.
@@ -78,7 +78,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
 1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Opções de importação de Maven nas definições de IntelliJ" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 1. Abra o ficheiro pom.xml e substitua o conteúdo pelos seguintes detalhes de configuração Maven. Estes incluem referências ao [Plugin Maven DoEc e](https://www.mojohaus.org/exec-maven-plugin/) a uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
     Quando terminar, a árvore do projeto deve parecer a seguinte imagem.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Estrutura do diretório do projeto" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 1. Clique em **OK** para fechar a janela.
 
@@ -148,7 +148,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Na janela **do Projeto,** expanda a árvore de origem para aceder à `src`  >   `main`  > `resources`  >  `app` pasta e adicione um `config.properties` ficheiro. Para isso, selecione a `app` pasta, prima Alt + Insira, selecione **'Ficheiro'** e, em seguida, introduza o nome do ficheiro.
 
-1. Copie as seguintes definições para o novo ficheiro e `<YOUR-SEARCH-SERVICE-NAME>` substitua, e com o seu nome de serviço e `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` teclas. Se o seu ponto final de serviço for `https://mydemo.search.windows.net` , o nome de serviço será "mydemo".
+1. Copie as seguintes definições para o novo ficheiro e `<YOUR-SEARCH-SERVICE-NAME>` substitua, e com o seu nome de serviço e `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` teclas. Se o seu ponto final de serviço `https://mydemo.search.windows.net` for, o nome de serviço será `"mydemo"` .
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -373,10 +373,10 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Verifique se o seu projeto tem a seguinte estrutura.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Estrutura de diretório de projeto mais aulas" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java` 
- :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute o objetivo maven: verifique exec:java" border="false":::
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Ao processar concluído, procure uma mensagem BUILD SUCCESS seguida de um código de saída zero (0).
 
@@ -826,7 +826,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart Java, você trabalhou através de uma série de tarefas para criar um índice, carregá-lo com documentos, e executar consultas. Se estiver confortável com os conceitos básicos, recomendamos o seguinte artigo que lista as operações indexantes em REST.
 

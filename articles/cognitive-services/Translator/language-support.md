@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300226"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534068"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -71,7 +71,6 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 |Japonês|  `ja`    |
 |Canarês|`kn`|
 |Cazaque|`kk`|
-|Rio Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
@@ -102,6 +101,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Espanhol|   `es`    |
+|Suaíli|   `sw`    |
 |Sueco|   `sv`    |
 |Taitiano|  `ty`    |
 |Tâmil| `ta`    |
@@ -152,7 +152,6 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 |Irlandês | `ga`|
 |Italiano|   `it`    |
 |Japonês|  `ja`    |
-|Rio Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
 |Curdo (Central)  |`ku-Arab`  |
@@ -173,6 +172,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Espanhol|   `es`    |
+|Suaíli|   `sw`    |
 |Sueco|   `sv`    |
 |Taitiano|  `ty`    |
 |Tailandês|  `th`    |
@@ -246,7 +246,6 @@ Ver documentação de referência para as operações [de Procura](reference/v3-
 | Indonésio      | `id`          |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Rio Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
@@ -263,6 +262,7 @@ Ver documentação de referência para as operações [de Procura](reference/v3-
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
+| Suaíli      | `sw`          |
 | Sueco      | `sv`          |
 | Tâmil      | `ta`          |
 | Tailandês      | `th`          |
@@ -314,7 +314,6 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 |Canarês|`kn`|
-| Rio Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
@@ -335,6 +334,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
+| Suaíli|  `sw`    |
 | Sueco      | `sv`          |
 |Taitiano|  `ty`    |
 | Tailandês      | `th`          |

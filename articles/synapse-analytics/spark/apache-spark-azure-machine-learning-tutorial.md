@@ -1,22 +1,22 @@
 ---
-title: Executar experiências usando Azure Automated ML
-description: Executar experiências de aprendizagem automática usando Apache Spark e Azure Automated ML
+title: 'Tutorial: Executar experiências usando Azure Automated ML'
+description: Um tutorial sobre como executar experiências de machine learning usando Apache Spark e Azure Automated ML
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033579"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540511"
 ---
-# <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Executar experiências usando Azure Automated ML e Apache Spark
+# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Executar experiências usando Azure Automated ML e Apache Spark
 
 A azure Machine Learning é um ambiente baseado na nuvem que permite treinar, implantar, automatizar, gerir e rastrear modelos de aprendizagem de máquinas. 
 

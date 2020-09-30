@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723746"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540630"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
@@ -30,7 +30,7 @@ Verifique se tem os seguintes requisitos prontos:
 * Você precisará de um ficheiro kubeconfig para aceder ao cluster e papel de administração de cluster no cluster para implantação de agentes Kubernetes habilitados pela Arc.
 * O utilizador ou o principal de serviço utilizado `az login` e `az connectedk8s connect` os comandos devem ter as permissões de 'Ler' e 'Escrever' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Kubernetes Cluster - Azure Arc Onboarding" tem estas permissões e pode ser usada para atribuições de funções no utilizador ou principal de serviço.
 * O leme 3 é necessário para o embarque do cluster utilizando a extensão connectedk8s. [Instale a mais recente versão do Helm 3](https://helm.sh/docs/intro/install) para satisfazer este requisito.
-* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
+* A versão 2.3+ do Azure CLI é necessária para instalar as extensões CLI ativadas pelo Arco Azure. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ou atualize para a versão mais recente para garantir que tem a versão Azure CLI 2.3+.
 * Instale as extensões CLI ativadas pelo Arco:
   
   Instale a `connectedk8s` extensão, o que o ajuda a ligar os clusters Kubernetes ao Azure:
@@ -57,7 +57,7 @@ Verifique se tem os seguintes requisitos prontos:
 * E.U.A. Leste
 * Europa Ocidental
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 
 Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída funcionem.
 
@@ -102,7 +102,7 @@ Em primeiro lugar, crie um grupo de recursos para manter o recurso de cluster co
 az group create --name AzureArcTest -l EastUS -o table
 ```
 
-**Resultado:**
+**Saída:**
 
 ```console
 Location    Name
@@ -121,7 +121,7 @@ Em seguida, ligaremos o nosso cluster Kubernetes ao Azure. O fluxo de trabalho `
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-**Resultado:**
+**Saída:**
 
 ```console
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
@@ -159,7 +159,7 @@ Listar os seus agrupamentos ligados:
 az connectedk8s list -g AzureArcTest -o table
 ```
 
-**Resultado:**
+**Saída:**
 
 ```console
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
@@ -179,27 +179,16 @@ Se o seu cluster estiver por trás de um servidor de procuração de saída, a A
 
 1. Verifique a versão da `connectedk8s` extensão instalada na sua máquina executando este comando:
 
-    ```bash
+    ```console
     az -v
     ```
 
     Precisa de `connectedk8s` uma versão de extensão >= 0.2.3 para configurar agentes com procuração de saída. Se tiver a versão < 0.2.3 na sua máquina, siga os [passos de atualização](#before-you-begin) para obter a versão mais recente da extensão na sua máquina.
 
-2. Definir as variáveis ambientais necessárias para o Azure CLI:
+2. Executar o comando de ligação com parâmetros de procuração especificados:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
-
-3. Executar o comando de ligação com parâmetros de procuração especificados:
-
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
     ```
 
 > [!NOTE]
@@ -214,7 +203,7 @@ Azure Arc habilitado a Kubernetes implanta alguns operadores no `azure-arc` espa
 kubectl -n azure-arc get deployments,pods
 ```
 
-**Resultado:**
+**Saída:**
 
 ```console
 NAME                                        READY   UP-TO-DATE AVAILABLE AGE
@@ -263,7 +252,7 @@ Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o po
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

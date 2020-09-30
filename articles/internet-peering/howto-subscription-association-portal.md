@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710852"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540273"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do elemento de rede à subscrição do Azure com o portal
 
@@ -70,12 +70,12 @@ Como Fornecedor de Serviços de Internet ou Fornecedor de Troca de Internet, pod
 1. Em seguida, clique em **Rever + criar** e observar que o portal executa a validação básica da informação que introduziu. Isto é exibido numa fita em cima, como *a validação final de Running...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Separador de revisão peerAsn](./media/peerasn-review-tab-validation.png)
+    > ![A screenshot mostra ao Associado um separador Peer A S N Basics.](./media/peerasn-review-tab-validation.png)
 
 1. Assim que a mensagem na fita se voltar para *Validação Passada,* verifique as suas informações e envie o pedido clicando em **Criar**. Se a validação não passar, clique em **Anterior** e repita os passos acima para modificar o seu pedido e garantir que os valores introduzidos não têm erros.
 
     > [!div class="mx-imgBorder"]
-    > ![Separador de revisão peerAsn](./media/peerasn-review-tab.png)
+    > ![A screenshot mostra o separador Peer A S N Basics com validação passada.](./media/peerasn-review-tab.png)
 
 1. Depois de submeter o pedido, aguarde que esteja concluído. Se a implementação falhar, contacte [a Microsoft a espreitar](mailto:peering@microsoft.com). Uma implementação bem sucedida aparecerá como abaixo.
 

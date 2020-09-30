@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918099"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537910"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura pós-SQL dupla encriptação
-
-> [!NOTE]
-> Neste momento, deve solicitar o acesso para utilizar esta capacidade. Para tal, AskAzureDBforPostgreSQL@service.microsoft.com contacte.
 
 A Azure Database for PostgreSQL utiliza encriptação de armazenamento [de dados em repouso](concepts-security.md#at-rest) para dados usando as chaves geridas da Microsoft. Os dados, incluindo cópias de segurança, são encriptados no disco e esta encriptação está sempre acesa e não pode ser desativada. A encriptação utiliza o módulo criptográfico validado FIPS 140-2 e uma cifra AES de 256 bits para a encriptação de armazenamento Azure.
 
@@ -74,6 +71,6 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para a dupla encriptação
     > - Todos os **novos** servidores PostgreSQL criados nas regiões acima listadas também suportam encriptação de dados com chaves de gestor de clientes. Neste caso, os servidores criados através de restauro pontual (PITR) ou réplicas de leitura não se qualificam como "novos".
     > - Para validar se o seu servidor a provisionado suporta até 16 TB, pode ir à lâmina de nível de preços no portal e ver se o slider de armazenamento pode ser movido até 16 TB. Se só conseguir mover o slider até 4 TB, o seu servidor poderá não suportar a encriptação com as teclas geridas pelo cliente; no entanto, os dados são criptografados usando chaves geridas pelo serviço em todos os momentos. Por favor, contacte AskAzureDBforPostgreSQL@service.microsoft.com se tiver alguma pergunta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar a [encriptação dupla infraestrutura para a base de dados Azure para PostgreSQL](howto-double-encryption.md).

@@ -1,27 +1,65 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376904"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540024"
 ---
 ![Documentação Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-A produção máxima de disco **não acoched** é o limite máximo de armazenamento predefinido que a máquina virtual é capaz de manusear. O limite máximo de produção **em cache** é um limite separado quando ativa o cache do anfitrião. Ativar o cache do anfitrião pode ser feito ao criar a sua máquina virtual e a anexar discos. Também pode ajustar-se para ligar e desligar o anfitrião, cachendo os seus discos num VM existente:
+A produção máxima de disco **não acoched** é o limite máximo de armazenamento predefinido que a máquina virtual é capaz de manusear. O limite máximo de produção **em cache** é um limite separado quando ativa o cache do anfitrião. O caching do anfitrião funciona aproximando o armazenamento do VM que pode ser escrito ou lido rapidamente. A quantidade de armazenamento disponível para o VM para o caching hospedeiro está na documentação. Por exemplo, pode ver o Standard_D8s_v3 vem com 200 GiB de armazenamento de cache. Vamos. 
+
+Ativar o cache do anfitrião pode ser feito ao criar a sua máquina virtual e a anexar discos. Também pode ajustar-se para ligar e desligar o hospedeiro, cachendo os seus discos num VM existente.
 
 ![Caching hospedeiro](media/vm-disk-performance/host-caching.jpg)
 
-O cache do anfitrião pode ser ajustado de modo a corresponder aos seus requisitos de carga de trabalho para cada disco. Pode definir o seu caching do anfitrião para ser Read-Only para cargas de trabalho que apenas fazem operações de leitura e Leia/Escreva para cargas de trabalho que façam um balanço de operações de leitura e escrita. Se a sua carga de trabalho não seguir nenhum desses padrões, infelizmente não poderá usar o caching hospedeiro. 
+O cache do anfitrião pode ser ajustado de modo a corresponder aos seus requisitos de carga de trabalho para cada disco. Pode definir o seu caching do anfitrião para ser apenas para leitura apenas para cargas de trabalho que apenas fazem operações de leitura e Ler/escrever para cargas de trabalho que fazem um balanço de operações de leitura e escrita. Se a sua carga de trabalho não seguir nenhum desses padrões, não recomendamos a utilização de caching hospedeiro. 
+
+Vamos analisar alguns exemplos de diferentes configurações de cache do anfitrião e ver como isso afeta o fluxo de dados e o desempenho. Neste primeiro exemplo, vamos analisar o que acontece com os pedidos de IO quando a definição de caching do anfitrião está definida **apenas**para Ler .
+
+Configurar:
+- Standard_D8s_v3 
+    - IOPS em cache: 16.000
+    - IOPS sem cocó: 12.800
+- Disco de dados P30 
+    - IOPS: 5.000
+    - **Caching do anfitrião: Só para leitura** 
+
+Quando uma leitura é realizada e os dados desejados estão disponíveis na cache, a cache devolve os dados solicitados e não há necessidade de ler a partir do disco. Esta leitura é contada para os limites em cache do VM.
+
+![Leia o hospedeiro Caching Read Hit](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+Quando uma leitura é realizada e os dados desejados **não** estão disponíveis na cache, o pedido de leitura é então retransmitido para o disco que, em seguida, o surface para a cache e o VM. Esta leitura é contada tanto para o limite não encatado do VM como para o limite de cache do VM.
+
+![Leia o anfitrião Caching Read miss](media/vm-disk-performance/host-caching-read-miss.jpg)
+
+Quando uma escrita é executada, a escrita tem de ser escrita tanto para a cache como para o disco antes de ser considerada completa. Esta escrita é contada para o limite não encatado do VM e o limite de cache do VM.
+
+![Leia o anfitrião Caching Write](media/vm-disk-performance/host-caching-write.jpg)
+
+Neste próximo exemplo, vamos ver o que acontece com os pedidos de IO quando a definição de cache do anfitrião está definida para **Ler/escrever**.
+
+Configurar:
+- Standard_D8s_v3 
+    - IOPS em cache: 16.000
+    - IOPS sem cocó: 12.800
+- Disco de dados P30 
+    - IOPS: 5.000
+    - **Caching do anfitrião: Ler/escrever** 
+
+As leituras são tratadas da mesma forma que read-only, as escritas são a única coisa diferente com o caching de Leitura/escrita. Ao escrever com o conjunto de cache do anfitrião para Ler/escrever, a escrita só precisa de ser escrita para a cache do anfitrião para ser considerada completa. A escrita é então preguiçosamente escrita para o disco como um processo de fundo. Isto significa que as escritas serão contadas para IO em cache quando estiver escrita para a cache e quando estiver preguiçosamente escrita para o disco contará para o IO não encatado.
+
+![Ler/escrever Caching Do anfitrião](media/vm-disk-performance/host-caching-read-write.jpg)
 
 Vamos continuar com um exemplo com a nossa Standard_D8s_v3 máquina virtual. Só que desta vez, vamos permitir o cache do anfitrião nos discos e agora o limite de IOPS do VM é de 16.000 IOPS. Anexados ao VM estão três discos P30 subjacentes que aguentam 5.000 IOPS.
 
@@ -31,10 +69,10 @@ Configurar:
     - IOPS sem cocó: 12.800
 - Disco P30 OS 
     - IOPS: 5.000
-    - Caching do anfitrião ativado 
+    - Caching do anfitrião: Ler/escrever 
 - 2 Discos de Dados P30
     - IOPS: 5.000
-    - Caching do anfitrião ativado
+    - Caching do anfitrião: Ler/escrever
 
 ![Exemplo de Caching do anfitrião](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
@@ -50,13 +88,13 @@ Configurar:
     - IOPS sem cocó: 12.800
 - Disco P30 OS 
     - IOPS: 5.000
-    - Caching do anfitrião ativado 
+    - Caching do anfitrião: Ler/escrever
 - 2 Discos de dados P30 X 2
     - IOPS: 5.000
-    - Caching do anfitrião ativado
+    - Caching do anfitrião: Ler/escrever
 - 2 Discos de dados P30 X 2
     - IOPS: 5.000
-    - Caching hospedeiro incapacitado
+    - Caching do anfitrião: Ler/escrever
 
 ![Exemplo de caching do anfitrião com armazenamento remoto](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
@@ -87,7 +125,8 @@ Métricas que ajudam a diagnosticar a tampa do IO do disco:
 - **Os Discos de Banda consumida Percentagem Consumida** - a percentagem calculada pela produção do disco os concluída sobre a produção do disco de OS fortada. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de largura de banda do seu disco de SO.
 
 Métricas que ajudam a diagnosticar a tampa de IO VM:
-- **VM Cached IOPS Percentagem consumida** - a percentagem calculada pelo total de IOPS concluída acima do limite máximo da máquina virtual em cache IOPS. Se este valor estiver a 100%, a sua aplicação em execução será limitada a IO do limite de IOPs em cache do seu VM.
+- **VM Cached IOPS Percentagem consumida** - a percentagem calculada pelo total de IOPS concluída acima do limite máximo da máquina virtual em cache IOPS. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de IOPS em cache do seu VM.
 - **VM Cached Bandwidth Consumed Percentagem** - a percentagem calculada pela produção total do disco concluída sobre a potência da máquina virtual em cache máximo. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de largura de banda em cache do seu VM.
-- **VM IOPS Educar A Percentagem Consumida** - a percentagem calculada pelo total de IOPS numa máquina virtual concluída sobre o limite máximo de IOPS da máquina virtual não-acolhida. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de IOPs sem cocó do seu VM.
+- **VM IOPS Educar A Percentagem Consumida** - a percentagem calculada pelo total de IOPS numa máquina virtual concluída sobre o limite máximo de IOPS da máquina virtual não-acolhida. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite IOPS não coberto do seu VM.
 - **VM Percentagem consumida** pela largura de banda não colada - a percentagem calculada pela produção total do disco numa máquina virtual concluída sobre a potência máxima da máquina virtual. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de largura de banda não coberta do seu VM.
+
