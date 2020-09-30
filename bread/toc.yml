@@ -598,12 +598,9 @@
         - name: Máquina Virtual de Ciência de Dados
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Consumidor do Marketplace
-      tocHref: /azure/marketplace-consumer/
+    - name: Marketplace comercial
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Publicação do Marketplace
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Serviços de Multimédia
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/

@@ -190,6 +190,18 @@ groups:
     title: Ir
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-seventeen
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação ou CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-curl
+    title: REST
 - id: cogsvcs-text-analytics-features
   title: Funcionalidades da Análise de Texto
   prompt: Escolher uma oferta de funcionalidade da Análise de Texto
@@ -755,9 +767,9 @@ groups:
   - id: platform-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: 420743e3abfa61d89ec7f3da1e0a161f5367b9b7
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: 9e70f2b3f236bf24279550a1441b40fd0f9ae246
+  ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91295197"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91461177"

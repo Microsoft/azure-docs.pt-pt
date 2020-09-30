@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Balanceador de Carga Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md
-    - name: Controlos de segurança incorporados
-      href: load-balancer-security-controls.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Gestão do Conjunto de Back-end
       href: backend-pool-management.md
     - name: Balanceador de Carga Standard e Conjuntos de Dimensionamento de Máquinas Virtuais
