@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 699b3d9c9799b9d3a4ec148cbf395b212715f536
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686093"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368571"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 
@@ -63,7 +63,7 @@ Pode comprar planos do Databricks no [portal do Azure](https://portal.azure.com/
 Pode fazer os seguintes tipos de alterações numa reserva após a compra:
 
 - Atualizar âmbito da reserva
-- Acesso baseado em funções
+- Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
 Não pode dividir ou unir a pré-compra de unidades de consolidação de Databricks. Para obter mais informações sobre como gerir reservas, veja [Gerir reservas após a compra](manage-reserved-vm-instance.md).
 
