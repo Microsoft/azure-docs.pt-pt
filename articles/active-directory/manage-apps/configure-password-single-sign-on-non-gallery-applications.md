@@ -1,25 +1,25 @@
 ---
-title: Como configurar um único sign-on baseado em palavra-passe para aplicações AD AZure
-description: Como configurar um único sign-on (SSO) baseado em palavra-passe para as suas aplicações AD Azure na plataforma de identidade microsoft (Azure AD)
+title: Compreenda o sign-on único baseado em palavra-passe (SSO) para aplicações no Azure Ative Directory
+description: Compreenda o sign-on único baseado em palavra-passe (SSO) para aplicações no Azure Ative Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049065"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598339"
 ---
-# <a name="configure-password-based-single-sign-on"></a>Configurar o sign-on único baseado em palavra-passe
+# <a name="understand-password-based-single-sign-on"></a>Compreender o sign-on único baseado em palavra-passe
 
-Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. No guia quickstart, você configura SSO baseado em SAML. Outra opção é sSO baseado em palavra-passe. Este artigo entra em mais detalhes sobre a opção SSO baseada em palavra-passe. 
+Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. No guia quickstart, configura sSO baseado em SAML ou OIDC. Outra opção é sSO baseado em palavra-passe. Este artigo entra em mais detalhes sobre a opção SSO baseada em palavra-passe. 
 
 Esta opção está disponível para qualquer website com uma página de início de sção HTML. SSO baseado em palavra-passe também é conhecido como abóbada de senha. O SSO baseado em palavras-passe permite-lhe gerir o acesso ao utilizador e palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil onde vários utilizadores precisam de partilhar uma única conta, como as contas de aplicações de redes sociais da sua organização.
 
@@ -39,19 +39,19 @@ O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as 
 
 ## <a name="before-you-begin"></a>Before you begin
 
-A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e a configuração de uma única inscrição (SSO) pode ser simples ou complexa dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser criadas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar necessitar de configuração personalizada e precisar de utilizar SSO baseado em palavra-passe, então este artigo é para si.
+A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar um único sign-on (SSO) pode ser simples ou complexo dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser configuradas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar necessitar de configuração personalizada e precisar de utilizar SSO baseado em palavra-passe, então este artigo é para si.
 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 
 >
-> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não aparecerá na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 
 >
 > Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 
 ## <a name="basic-configuration"></a>Configuração básica
 
-Na [série quickstart](view-applications-portal.md), aprendeu a adicionar uma app ao seu inquilino, o que permite ao Azure AD saber que está a ser usado como Fornecedor de Identidade (IdP) para a aplicação. Algumas aplicações já estão pré-configuradas e aparecem na galeria AZure AD. Outras aplicações não estão na galeria e você tem que criar uma app genérica e configugá-la manualmente. Dependendo da aplicação, a opção SSO baseada em palavra-passe pode não estar disponível. Se não vir a lista de opções baseada em Palavra-Passe na página de s registação única da aplicação, então não está disponível.
+Na [série quickstart](view-applications-portal.md), aprendeu a adicionar uma app ao seu inquilino, o que permite ao Azure AD saber que está a ser usado como Fornecedor de Identidade (IdP) para a aplicação. Algumas aplicações já estão pré-configuradas e mostram na galeria AZure AD. Outras aplicações não estão na galeria e você tem que criar uma app genérica e configugá-la manualmente. Dependendo da aplicação, a opção SSO baseada em palavra-passe pode não estar disponível. Se não vir a lista de opções baseada em Palavra-Passe na página de s registação única da aplicação, então não está disponível.
 
 > [!IMPORTANT]
 > A extensão do navegador My Apps é necessária para SSO baseado em palavras-passe. Para saber mais, consulte [a implementação do Plano a Minhas Aplicações.](access-panel-deployment-plan.md)
@@ -60,7 +60,7 @@ A página de configuração para SSO baseado em palavra-passe é simples. Inclui
 
 Depois de introduzir o URL, **selecione Guardar**. A Azure AD analisa o HTML da página de entrada de inscrição para o nome de utilizador e os campos de entrada de palavra-passe. Se a tentativa for bem sucedida, está feito.
  
-O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](methods-for-assigning-users-and-groups.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para ser usado para um utilizador quando iniciar o sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, selecione **''' ''' 'Update Credentials'.** Por fim, introduza o nome de utilizador e a palavra-passe a utilizar para o utilizador ou grupo. Se não o fizer, os utilizadores serão solicitados a introduzir as credenciais por si mesmos no lançamento.
+O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](methods-for-assigning-users-and-groups.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para ser usado para um utilizador quando iniciar o sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, selecione **''' ''' 'Update Credentials'.** Por fim, introduza o nome de utilizador e a palavra-passe a utilizar para o utilizador ou grupo. Caso não o faça, os utilizadores serão solicitados a introduzir as credenciais no lançamento.
  
 
 ## <a name="manual-configuration"></a>Configuração manual

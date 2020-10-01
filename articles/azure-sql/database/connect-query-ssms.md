@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
-ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461143"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598268"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Utilize SSMS para ligar e consultar a Base de Dados Azure SQL ou a exemplo gerida do Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Obtenha a informação de ligação necessária para ligar à sua base de dados.
 
 ## <a name="connect-to-your-database"></a>Ligar à sua base de dados
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 No SSMS, ligue-se ao seu servidor.
 
 > [!IMPORTANT]
@@ -85,7 +87,7 @@ No SSMS, ligue-se ao seu servidor.
    ![ligar ao servidor](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> Este tutorial utiliza a Autenticação do Servidor SQL.  No entanto, para ligar via Azure Ative Directory com O MFA, certifique-se de que está a utilizar [SSMS 18.6 ou mais recente](https://aka.ms/ssms). 
+> Este tutorial utiliza a Autenticação do Servidor SQL.
 
 3. Selecione **Opções** na caixa de diálogo **'Ligar ao Servidor'.** No menu **'Ligar para baixo' da base de dados,** selecione **mySampleDatabase**. Completar o quickstart na [secção Pré-Requisitos](#prerequisites) cria uma base de dados AdventureWorksLT chamada mySampleDatabase. Se a sua cópia de trabalho da base de dados AdventureWorks tiver um nome diferente do mySampleDatabase, então selecione-a.
 
@@ -183,7 +185,7 @@ Executar este código [DELETE](/sql/t-sql/statements/delete-transact-sql/) Trans
 
 2. **Selecione Executar** para eliminar a linha especificada na `Product` tabela. O painel **de mensagens** apresenta **(1 linha afetada)**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre o SSMS, consulte [o SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms/).
 - Para ligar e consultar utilizando o portal Azure, consulte [Ligar e consultar o editor de consulta do portal Azure SQL](connect-query-portal.md).

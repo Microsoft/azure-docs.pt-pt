@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 609c06eedb5c28e31c19df1595c8e4b3b0a59956
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532227"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597069"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming offline Widevine para Android com Media Services v3
 
@@ -30,6 +30,8 @@ Além de proteger conteúdos para streaming online, a subscrição de conteúdos
 
 - Alguns fornecedores de conteúdo podem não permitir a entrega de licenças de DRM para além da fronteira entre um país e uma região. Se um utilizador quiser ver conteúdo durante a viagem ao estrangeiro, é necessário descarregar offline.
 - Em alguns países/regiões, a disponibilidade de Internet e/ou largura de banda é limitada. Os utilizadores podem optar por descarregar conteúdo para poderem vê-lo em resolução suficientemente alta para uma experiência de visualização satisfatória.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 Este artigo discute como implementar a reprodução em modo offline para conteúdo DASH protegido pela Widevine em dispositivos Android. A DRM offline permite-lhe fornecer modelos de subscrição, aluguer e compra para o seu conteúdo, permitindo que os clientes dos seus serviços levem facilmente conteúdo com eles quando desligados da internet.
 

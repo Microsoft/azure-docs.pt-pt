@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2020
+ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 2ce3a4116c12065bbaee8e11d5ada3b8c89b1a9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2184a6e67b17f9fcaefc0a8e556ba81e839a2399
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088228"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598057"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux
 
@@ -78,7 +78,7 @@ Leia primeiro as seguintes notas e artigos SAP:
   * [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Instale SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para obter uma elevada disponibilidade, o SAP HANA está instalado em duas máquinas virtuais. Os dados são replicados utilizando a replicação do sistema HANA.
 
@@ -222,7 +222,7 @@ Para implementar o modelo, siga estes passos:
 Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Ligações às Bases de Dados de Inquilinos](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [sap hana de bases de dados](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) de inquilinos ou [sap Note 2388694][2388694].
 
 > [!IMPORTANT]
-> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir o parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 > Consulte também a nota [SAP 2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Instalar o SAP HANA
@@ -342,7 +342,12 @@ Os passos desta secção utilizam os seguintes prefixos:
 
 1. **[A]** RHEL para a configuração HANA
 
-   Configure o RHEL, conforme descrito na Nota [SAP 2292690] e [2455582] e <https://access.redhat.com/solutions/2447641> .
+   Configure o RHEL tal como descrito nas <https://access.redhat.com/solutions/2447641> seguintes notas SAP:  
+   - [2292690 - SAP HANA DB: Definições recomendadas de SO para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
+   - [2777782 - SAP HANA DB: Definições recomendadas de OS para RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+   - [2455582 - Linux: Aplicações SAP em execução compiladas com GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
+   - [2593824 - Linux: Aplicações SAP em execução compiladas com GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
+   - [2886607 - Linux: Aplicações SAP em execução compiladas com GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 1. **[A]** Instalar o SAP HANA
 
@@ -551,7 +556,7 @@ Siga os passos na configuração do [Pacemaker no Red Hat Enterprise Linux em Az
 
 ## <a name="create-sap-hana-cluster-resources"></a>Criar recursos de cluster SAP HANA
 
-Instale os agentes de recurso SAP HANA em **todos os nós**. Certifique-se de que ativa um repositório que contenha a embalagem.
+Instale os agentes de recurso SAP HANA em **todos os nós**. Certifique-se de que ativa um repositório que contenha a embalagem. Não é necessário ativar repositórios adicionais, se utilizar uma imagem ativada pelo RHEL 8.x HA.  
 
 <pre><code># Enable repository that contains SAP HANA resource agents
 sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
@@ -566,13 +571,18 @@ Em seguida, crie a topologia HANA. Executar os seguintes comandos num dos nóns 
 # Replace the bold string with your instance number and HANA system ID
 sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
 op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
---clone clone-max=2 clone-node-max=1 interleave=true
+clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
-Em seguida, crie os recursos HANA:
+Em seguida, crie os recursos HANA.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+
+Se construir um cluster em **RHEL 7.x,** utilize os seguintes comandos:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
-
+#
 sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
 op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
@@ -581,14 +591,32 @@ op promote timeout=3600 op demote timeout=3600 \
 master notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
-
 sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>
-
 sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
 
 sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-master symmetrical=false
-
 sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-master 4000
+
+sudo pcs property set maintenance-mode=false
+</code></pre>
+
+Se construir um cluster em **RHEL 8.x,** utilize os seguintes comandos:  
+
+<pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
+#
+sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+op start timeout=3600 op stop timeout=3600 \
+op monitor interval=61 role="Slave" timeout=700 \
+op monitor interval=59 role="Master" timeout=700 \
+op promote timeout=3600 op demote timeout=3600 \
+promotable meta notify=true clone-max=2 clone-node-max=1 interleave=true
+
+sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
+sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>
+sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
+
+sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-clone symmetrical=false
+sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-clone 4000
 
 sudo pcs property set maintenance-mode=false
 </code></pre>
@@ -638,7 +666,10 @@ Resource Group: g_ip_HN1_03
 
 Pode migrar o nó mestre SAP HANA executando o seguinte comando:
 
-<pre><code>[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
+<pre><code># On RHEL <b>7.x</b> 
+[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-clone --master
 </code></pre>
 
 Se `AUTOMATED_REGISTER="false"` definir, este comando deve migrar o nó mestre SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
@@ -686,6 +717,9 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-the-azure-fencing-agent"></a>Teste o agente de esgrima Azure
 
+> [!NOTE]
+> Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.  
+
 Estado dos recursos antes de iniciar o teste:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
@@ -717,7 +751,10 @@ hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-d
 
 # Switch back to root and clean up the failed state
 exit
+# On RHEL <b>7.x</b>
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03 node=&lt;hostname on which the resource needs to be cleaned&gt;
 </code></pre>
 
 Estado de recursos após o teste:
@@ -762,7 +799,10 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-d
 
 # Switch back to root and clean up the failed state
 hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> exit
+# On RHEL <b>7.x</b>
 [root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03-master
+# On RHEL <b>8.x</b>
+[root@hn1-db-1 ~]# pcs resource cleanup SAPHana_HN1_03 node=&lt;hostname on which the resource needs to be cleaned&gt;
 </code></pre>
 
 Estado de recursos após o teste:

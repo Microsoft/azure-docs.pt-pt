@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 030677276fa077c06a95e7c677fec956b9c2a947
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556404"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598076"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux
 
@@ -91,7 +91,7 @@ Leia primeiro as seguintes notas e artigos SAP:
     - [Configurar a replicação do sistema de escala SAP HANA quando os sistemas de ficheiros HANA estiverem em ações NFS](https://access.redhat.com/solutions/5156571)
 - [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp](https://www.netapp.com/us/media/tr-4746.pdf)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Tradicionalmente em ambiente de escala, todos os sistemas de ficheiros para SAP HANA são montados a partir do armazenamento local. A criação de alta disponibilidade de replicação do sistema SAP HANA no Red Hat Enterprise Linux é publicada no guia [Configurar a replicação do sistema SAP HANA no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
 
@@ -548,13 +548,18 @@ Neste exemplo, cada nó de cluster tem os seus próprios sistemas de ficheiros H
 
     ```
     pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 7.x
     pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 8.x
+    pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     # Take the cluster out of maintenance mode
     sudo pcs property set maintenance-mode=false
     ```
 
    Verifique o estado do cluster e todos os recursos
-
+   > [!NOTE]
+   > Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+   
     ```
     sudo pcs status
     

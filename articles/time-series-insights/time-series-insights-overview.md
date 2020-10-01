@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020530"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597817"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é Azure Time Series Insights Gen1?
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Azure Time Series Insights é construído para armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo, como os gerados por dispositivos IoT. Se pretender armazenar, gerir, consultar ou visualizar dados de séries de tempo na nuvem, o Azure Time Series Insights é provavelmente o correto para si.
 

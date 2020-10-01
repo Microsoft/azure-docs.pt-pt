@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461160"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596119"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -27,14 +27,12 @@ Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suporta
 
 **Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
 
-> [!Note]
-> Em dezembro de 2021, os lançamentos de SSMS antes do dia 18.6 deixarão de autenticar através do Azure Ative Directy com o MFA. Para continuar a utilizar a autenticação do Azure Ative Directory com O MFA, por favor instale ou atualize o SSMS 18.6 ou mais recente.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2017, versão 17.2. A mais recente caixa de diálogo de ligação deve ser semelhante à seguinte imagem:
 
   ![Screenshot do diálogo 'Connect to Server' no SQL Server Management Studio, mostrando as definições para o tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
@@ -90,7 +88,7 @@ Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com`
 - Não existem requisitos de software adicionais para a Autenticação Universal do Diretório Ativo, exceto que deve utilizar uma versão suportada do SSMS.  
 - Consulte o seguinte link para a mais recente versão da Ative Directory Authentication Library (ADAL) para autenticação universal: [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para etapas de configuração, consulte a [autenticação multi-factor Configure Azure SQL Database para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  

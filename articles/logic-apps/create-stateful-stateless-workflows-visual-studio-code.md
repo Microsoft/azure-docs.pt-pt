@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409855"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597798"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho stateful ou apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -389,9 +389,11 @@ O fluxo de trabalho de aplicações lógicas neste exemplo utiliza este gatilho 
 
 1. Se tiver de apagar um item no designer, siga estes passos:
 
-   1. No designer, selecione o item.
+   1. No designer, selecione o item, que abre o painel de detalhes do item para o lado direito.
 
-   1. No painel de detalhes do item que se abre para o lado direito, selecione o botão elipses **(...**) **>** **Delete**. Para confirmar a eliminação, selecione **OK**.
+   1. Expanda a janela visual Studio Code suficientemente para que, ao lado do gatilho ou nome de ação, o botão elipses **(...**) apareça no canto superior direito. 
+
+   1. Abra o menu de elipses **(...**) e selecione **Delete**. Para confirmar a eliminação, selecione **OK**.
 
       ![Screenshot que mostra item selecionado no designer com painel de detalhes abertos e com botão de elipses selecionado e opção "Excluir".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -443,9 +445,9 @@ O fluxo de trabalho de aplicações lógicas neste exemplo utiliza este gatilho 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Yes | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
-   | **Assunto** | Yes | `An email from your example workflow` | O assunto do e-mail |
-   | **Corpo** | Yes | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
+   | **Para** | Sim | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
+   | **Assunto** | Sim | `An email from your example workflow` | O assunto do e-mail |
+   | **Corpo** | Sim | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
    ||||
 
    > [!NOTE]

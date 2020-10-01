@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/7/2020
-ms.openlocfilehash: f745e5e8b611271be9dff2131a2079abc609cf91
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539066"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596500"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -51,10 +51,41 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
 1. Reveja os [requisitos](concepts-data-in-replication.md#requirements) do servidor principal antes de prosseguir. 
 
-   Por exemplo, certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
+2. Certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
    Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
 
+   Se a sua organização tiver políticas de segurança rigorosas e não permitirá que todos os endereços IP no servidor de origem possam permitir a comunicação do Azure para o seu servidor de origem, pode potencialmente utilizar o comando abaixo para determinar o endereço IP do seu servidor MySQL.
+
+   1. Inscreva-se na base de dados Azure para o MySQL utilizando uma ferramenta como a linha de comando MySQL.
+   2. Execute a consulta abaixo.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Abaixo está alguma saída de amostra:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Saída da linha de comando MySQL.
+   4. Execute o seguinte no utilitário ping para obter o endereço IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Por exemplo: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Configure as regras de firewall do seu servidor de origem para incluir o endereço IP de saída do passo anterior na porta 3306.
+
+   > [!NOTE]
+   > Este endereço IP pode ser alterado devido a operações de manutenção/implantação. Este método de conectividade destina-se apenas a clientes que não têm dinheiro para permitir todo o endereço IP na porta 3306.
+   
 1. Ligue a exploração madeireira binária
 
    Verifique se a exploração madeireira binária foi ativada na fonte executando o seguinte comando: 
@@ -126,7 +157,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
 1. Obtenha o nome do ficheiro de registo binário e offset
 
-   Executar o [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o nome do ficheiro de registo binário atual e compensar.
+   Executar o [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o nome do ficheiro de registo binário atual e compensar.
     
    ```sql
     show master status;
@@ -254,5 +285,5 @@ Para ignorar um erro de replicação e permitir a replicação, utilize o seguin
 CALL mysql.az_replication_skip_counter;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para o MySQL. 

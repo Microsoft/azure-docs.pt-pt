@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362254"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597617"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure usando o portal Azure
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicionar ou remover atribuições de funções do Azure com o portal do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando o portal Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o portal Azure.
 
 Se precisar de atribuir funções de administrador no Azure Ative Directory, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
@@ -27,7 +27,7 @@ Se precisar de atribuir funções de administrador no Azure Ative Directory, con
 
 Para adicionar ou remover atribuições de funções, você deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 
 ## <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
@@ -35,19 +35,15 @@ Para adicionar ou remover atribuições de funções, você deve ter:
 
 ![Página de controlo de acesso (IAM) para uma subscrição](./media/role-assignments-portal/access-control-subscription.png)
 
-Para ser o mais eficaz com a página access control (IAM), ajuda se conseguir responder às seguintes três perguntas quando está a tentar atribuir uma função:
+Para ser o mais eficaz com a página access control (IAM), ajuda a seguir estes passos para atribuir um papel.
 
-1. **Quem precisa de acesso?**
+1. Determinar quem precisa de acesso. Pode atribuir uma função a um utilizador, grupo, principal de serviço ou identidade gerida.
 
-    Que se refere a um utilizador, grupo, principal de serviço ou identidade gerida. Isto também é chamado de diretor de *segurança.*
+1. Encontre o papel apropriado. As permissões são agrupadas em papéis. Pode selecionar a partir de uma lista de várias [funções incorporadas do Azure](built-in-roles.md) ou pode usar as suas próprias funções personalizadas.
 
-1. **De que papel precisam?**
+1. Identifique o âmbito necessário. O Azure fornece quatro níveis de âmbito: grupo de [gestão,](../governance/management-groups/overview.md)subscrição, [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups)e recursos. Para obter mais informações sobre o âmbito, consulte [o âmbito de aplicação.](scope-overview.md)
 
-    As permissões são agrupadas em papéis. Pode selecionar a partir de uma lista de várias [funções incorporadas](built-in-roles.md) ou pode usar as suas próprias funções personalizadas.
-
-1. **Onde precisam de acesso?**
-
-    Quando se refere ao conjunto de recursos a que o acesso se aplica. Onde pode ser um grupo de gestão, subscrição, grupo de recursos ou um único recurso, como uma conta de armazenamento. Isto chama-se *o âmbito.*
+1. Execute os passos numa das seguintes secções para atribuir uma função.
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
@@ -101,11 +97,11 @@ Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lh
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de funções Add será desativada.
 
-   ![Adicionar menu de atribuição de funções](./media/shared/add-role-assignment-menu.png)
+   ![Adicione menu de atribuição de função para uma subscrição](./media/shared/add-role-assignment-menu.png)
 
     O painel Adicionar atribuição de função é aberto.
 
-   ![Adicione painel de atribuição de funções](./media/role-assignments-portal/add-role-assignment.png)
+   ![Adicione painel de atribuição de funções para uma subscrição](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Na lista pendente **Função**, selecione a função **Proprietário**.
 
@@ -150,7 +146,7 @@ Siga estes passos para atribuir um papel a uma identidade gerida atribuída pelo
 
 1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
 
-   ![Adicione painel de atribuição de funções](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Adicionar painel de atribuição de funções para identidade gerida atribuída pelo sistema](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Clique em **Guardar** para atribuir a função.
 
@@ -166,7 +162,7 @@ Siga estes passos para atribuir uma função a uma identidade gerida atribuída 
 
     Se as funções já estiverem atribuídas à identidade gerida atribuída pelo utilizador selecionado, consulte a lista de atribuições de funções. Esta lista inclui todas as atribuições de funções que tem permissão para ler.
 
-    ![Atribuições de funções para uma identidade gerida atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Atribuições de funções para uma identidade gerida atribuída pelo utilizador](./media/shared/role-assignments-user-assigned.png)
 
 1. Para alterar a subscrição, clique na lista **de Assinaturas.**
 
@@ -178,7 +174,7 @@ Siga estes passos para atribuir uma função a uma identidade gerida atribuída 
 
 1. Na lista pendente **Função**, selecione uma função, como **Contribuidor de Máquina Virtual**.
 
-   ![Adicione painel de atribuição de funções](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+   ![Adicione painel de atribuição de funções para uma identidade gerida atribuída pelo utilizador](./media/role-assignments-portal/add-role-assignment-with-scope.png)
 
 1. Clique em **Guardar** para atribuir a função.
 
@@ -194,7 +190,7 @@ No Azure RBAC, para remover o acesso de um recurso Azure, remove-se uma atribui�
 
 1. Na lista de atribuições de funções, adicione uma marca de verificação junto ao principal de segurança com a atribuição de função que pretende remover.
 
-   ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment-select.png)
+   ![Atribuição de funções selecionada para ser removida](./media/role-assignments-portal/remove-role-assignment-select.png)
 
 1. Clique em **Remover**.
 
@@ -204,9 +200,9 @@ No Azure RBAC, para remover o acesso de um recurso Azure, remove-se uma atribui�
 
     Se vir uma mensagem de que as atribuições de funções herdadas não podem ser removidas, está a tentar remover uma tarefa de papel no âmbito de uma criança. Deve abrir o controlo de acesso (IAM) no âmbito onde a função foi atribuída e tentar novamente. Uma forma rápida de abrir o controlo de acesso (IAM) no âmbito correto é olhar para a coluna **Scope** e clicar no link ao lado **de (Herdado)**.
 
-   ![Mensagem Remover atribuição de função](./media/role-assignments-portal/remove-role-assignment-inherited.png)
+   ![Remover mensagem de atribuição de funções para atribuições de funções herdadas](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Liste atribuições de funções Azure usando o portal Azure](role-assignments-list-portal.md)
 - [Tutorial: Conceder acesso a um utilizador aos recursos do Azure através do portal Azure](quickstart-assign-role-user-portal.md)

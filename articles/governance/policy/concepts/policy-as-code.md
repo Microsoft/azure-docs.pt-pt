@@ -1,14 +1,14 @@
 ---
 title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e valide automaticamente os recursos.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651887"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598209"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -38,6 +38,8 @@ Exemplos destes formatos de ficheiros estão disponíveis no [Azure Policy GitHu
 
 - Definição de política: [Adicione uma etiqueta aos recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definição de iniciativa: [Etiquetas de faturação](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Além disso, [reveja os recursos da Política de Exportação](../how-to/export-resources.md) para obter as definições e atribuições existentes no ambiente de gestão de códigos de origem [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -144,7 +146,7 @@ Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo 
 
 Este artigo abrange o fluxo de trabalho geral para a Política como Código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 6836461e9f1d4f14bc39161a99ad9d151caafaa5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540800"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598193"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
@@ -54,9 +54,40 @@ Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, n
 
 1. Reveja os [requisitos](concepts-data-in-replication.md#requirements) do servidor principal antes de prosseguir. 
 
-   Por exemplo, certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
+2. Certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
    Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
+
+   Se a sua organização tiver políticas de segurança rigorosas e não permitirá que todos os endereços IP no servidor de origem possam permitir a comunicação do Azure para o seu servidor de origem, pode potencialmente utilizar o comando abaixo para determinar o endereço IP da sua Base de Dados Azure para o servidor MariaDB.
+    
+   1. Inscreva-se na sua Base de Dados Azure para MariaDB utilizando uma ferramenta como a linha de comando MySQL.
+   2. Execute a consulta abaixo.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Abaixo está alguma saída de amostra:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Saída da linha de comando MySQL.
+   4. Execute o seguinte no utilitário ping para obter o endereço IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Por exemplo: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Configure as regras de firewall do seu servidor de origem para incluir o endereço IP de saída do passo anterior na porta 3306.
+
+   > [!NOTE]
+   > Este endereço IP pode ser alterado devido a operações de manutenção/implantação. Este método de conectividade destina-se apenas a clientes que não têm dinheiro para permitir todo o endereço IP na porta 3306.
 
 2. Ligue a exploração madeireira binária.
     
@@ -281,5 +312,5 @@ Para ignorar um erro de replicação e permitir a replicação, utilize o seguin
 CALL mysql.az_replication_skip_counter;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para MariaDB.

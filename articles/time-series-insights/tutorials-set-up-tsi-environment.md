@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 83cf8ca47774713ca8dbfd493d7aa16bf65fb6b7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597671"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
@@ -288,7 +288,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | --- | --- |
         | **Hierarquias** | Selecione **hierarquia de localização** |
         | **País** | Entrar **nos EUA** |
-        | **Cidade** | Entrar em **Seattle** |
+        | **City** | Entrar em **Seattle** |
         | **Edifício** | Entrar **na agulha do espaço** |
 
     1. Selecione **Guardar**.
@@ -304,7 +304,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Descrição** | **Insira a instância para o elevador 2** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
-    | **Cidade** | Entrar em **Seattle** |
+    | **City** | Entrar em **Seattle** |
     | **Edifício** | Insira **o Centro de Ciência do Pacífico** |
 
     **Para elevador 3:**
@@ -316,7 +316,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Descrição** | **Insira a instância para o elevador 3** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
-    | **Cidade** | Entra em **Nova Iorque** |
+    | **City** | Entra em **Nova Iorque** |
     | **Edifício** | Entrar no **Empire State Building** |
 
     [![Ver as instâncias atualizadas.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)

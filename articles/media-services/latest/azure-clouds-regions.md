@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258661"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597131"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que existem serviços de mídia azul v3
 
@@ -95,6 +95,8 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
 | Público simbólico | `https://management.core.usgovcloudapi.net/` |
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 ### <a name="azure-germany"></a>Azure Alemanha
 

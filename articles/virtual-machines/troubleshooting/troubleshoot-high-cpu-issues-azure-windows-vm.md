@@ -3,7 +3,7 @@ title: Problemas de alto CPU para máquinas virtuais Azure Windows
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: v-miegge
+author: mnanda
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 1cc1b6cc6e678e30b2d66d67cdc4aa438cd2058b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91543090"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596843"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Problemas de alto CPU para máquinas virtuais Azure Windows
 

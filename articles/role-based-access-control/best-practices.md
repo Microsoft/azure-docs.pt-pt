@@ -2,23 +2,19 @@
 title: Boas práticas para o Azure RBAC
 description: Melhores práticas para a utilização do controlo de acesso baseado em funções Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735339"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595495"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Boas práticas para o Azure RBAC
 
@@ -28,7 +24,9 @@ Este artigo descreve algumas boas práticas para a utilização do controlo de a
 
 Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
 
-Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. O diagrama seguinte mostra um padrão sugerido para a utilização do RBAC Azure.
+Quando planear a estratégia de controlo de acesso, é boa prática conceder aos utilizadores o privilégio menor de que precisam para trabalhar. Evite atribuir funções mais amplas a âmbitos mais amplos, mesmo que inicialmente pareça mais conveniente fazê-lo. Limitando funções e âmbitos, limita-se os recursos em risco se o diretor de segurança estiver alguma vez comprometido.
+
+O diagrama seguinte mostra um padrão sugerido para a utilização do RBAC Azure.
 
 ![Azure RBAC e menos privilégio](./media/best-practices/rbac-least-privilege.png)
 

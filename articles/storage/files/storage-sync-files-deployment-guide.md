@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c64c376e8f283336573500e69ac31989b5947961
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069633"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598254"
 ---
-# <a name="deploy-azure-file-sync"></a>Implementar o Azure File Sync
+# <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
 
 Recomendamos vivamente que leia Planeamento para uma implementação e Planeamento de [Ficheiros Azure](storage-files-planning.md) [antes de](storage-sync-files-planning.md) completar os passos descritos neste artigo.
@@ -524,13 +524,12 @@ As etapas recomendadas para embarcar no Azure File Sync para o primeiro com zero
 Se não tiver armazenamento extra para o embarque inicial e quiser anexar as ações existentes, pode pré-sedição dos dados nas partilhas de ficheiros Azure. Esta abordagem é sugerida, se e somente se puder aceitar tempo de inatividade e garantir absolutamente nenhuma alteração de dados nas ações do servidor durante o processo inicial de embarque. 
  
 1. Certifique-se de que os dados em qualquer um dos servidores não podem ser alterados durante o processo de embarque.
-2. O ficheiro Azure pré-seed partilha com os dados do servidor utilizando qualquer ferramenta de transferência de dados sobre o SMB, por exemplo, Robocopy, cópia SMB direta. Uma vez que a AzCopy não faz o upload de dados sobre o SMB, por isso não pode ser usado para pré-seeding.
+2. O ficheiro Azure pré-seed partilha com os dados do servidor utilizando qualquer ferramenta de transferência de dados sobre o SMB. Robocopia, por exemplo. YOu também pode usar AzCopy em vez de REST. Certifique-se de que utiliza o AzCopy com os interruptores apropriados para preservar os timetamps e atributos ACLs.
 3. Crie topologia de Sincronização de Ficheiros Azure com os pontos finais do servidor pretendidos apontando para as ações existentes.
 4. Deixe sincronizar o processo de reconciliação em todos os pontos finais. 
 5. Uma vez concluída a reconciliação, pode abrir ações para alterações.
  
 Atualmente, a abordagem pré-seeding tem algumas limitações - 
-- A fidelidade total nos ficheiros não é preservada. Por exemplo, os ficheiros perdem ACLs e os tempos.
 - As alterações de dados no servidor antes da topologia da sincronização estar completamente em funcionamento podem causar conflitos nos pontos finais do servidor.  
 - Após a criação do ponto final da nuvem, o Azure File Sync executa um processo para detetar os ficheiros na nuvem antes de iniciar a sincronização inicial. O tempo necessário para concluir este processo varia consoante os vários fatores, como a velocidade da rede, a largura de banda disponível e o número de ficheiros e pastas. Para a estimativa aproximada na versão de pré-visualização, o processo de deteção é executado aproximadamente a 10 ficheiros/seg.  Assim, mesmo que a pré-sementeira seja rápida, o tempo geral para obter um sistema totalmente funcional pode ser significativamente mais longo quando os dados são pré-semeados na nuvem.
 

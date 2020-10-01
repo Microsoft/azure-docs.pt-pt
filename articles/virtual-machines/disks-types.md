@@ -3,17 +3,17 @@ title: Selecione um tipo de disco para Azure IaaS VMs - discos geridos
 description: Saiba mais sobre os tipos de discos Azure disponíveis para máquinas virtuais, incluindo discos ultra, SSDs premium, SSDs padrão e HDDs standard.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088498"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596786"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 
@@ -23,7 +23,7 @@ A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direc
 
 A tabela seguinte fornece uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e drives de disco rígido padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
@@ -57,7 +57,7 @@ Algumas capacidades-chave dos discos ultra são:
 |64     |19,200         |2.000         |
 |128     |38,400         |2.000         |
 |256     |76 800         |2.000         |
-|512     |80.000         |2.000         |
+|512     |153,600         |2.000         |
 |1.024-65.536 (tamanhos nesta gama aumentando em incrementos de 1 TiB)     |160 000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Âmbito e limitações do GA

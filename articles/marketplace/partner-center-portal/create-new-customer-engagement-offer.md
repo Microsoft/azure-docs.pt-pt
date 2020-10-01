@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: c488daeafefce23d1fc65fe61e8c0f39cd1c0490
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 106ad6c1669506b5a8086afc1a74d967478e556c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646717"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597292"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
@@ -36,7 +36,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
+- Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços. Por exemplo, se o seu ID editor for testpublisherid e introduzir **test-offer-1,** o endereço web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -56,11 +57,11 @@ Selecione a opção que gostaria de usar para esta oferta.
 
 #### <a name="get-it-now-free"></a>Obtê-lo agora (grátis)
 
-Enuprova gratuitamente a sua oferta aos clientes, fornecendo um URL válido (a começar por *http* ou *https*) onde podem aceder à sua aplicação.  Por exemplo, `https://contoso.com/my-app`.
+Enuse a sua oferta aos clientes gratuitamente.
 
 #### <a name="free-trial-listing"></a>Ensaio gratuito (listagem)
 
-Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo um URL válido (começando `http` com `https` ou) onde podem obter um julgamento.  Por exemplo, `https://contoso.com/trial/my-app`. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
+Enuse a sua oferta aos clientes com um link para um teste gratuito. Os testes gratuitos de listagem de ofertas são criados, geridos e configurados pelo seu serviço e não têm subscrições geridas pela Microsoft.
 
 > [!NOTE]
 > Os tokens que a sua aplicação receberá através do seu link de teste só podem ser utilizados para obter informações do utilizador através do Azure Ative Directory (Azure AD) para automatizar a criação de conta na sua app. As contas da Microsoft não são suportadas para autenticação utilizando este token.

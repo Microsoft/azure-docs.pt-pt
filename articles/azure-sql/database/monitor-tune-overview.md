@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333091"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596970"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,16 @@ Para monitorizar o desempenho de uma base de dados na Base de Dados Azure SQL e 
 
 A Azure SQL Database fornece uma série de Consultores de Bases de Dados para fornecer recomendações inteligentes de afinação de desempenho e opções de afinação automática para melhorar o desempenho. Além disso, o Query Performance Insight mostra-lhe detalhes sobre as consultas responsáveis pela utilização mais CPU e IO para bases de dados individuais e aglineadas.
 
-A Azure SQL Database e Azure SQL Managed Instance fornecem capacidades avançadas de monitorização e afinação apoiadas pela inteligência artificial para o ajudar na resolução de problemas e na maximização do desempenho das suas bases de dados e soluções. Pode optar por configurar a [exportação de streaming](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) destes [Insights Inteligentes](intelligent-insights-overview.md) e outros registos e métricas de recursos de base de dados para um dos vários destinos para consumo e análise, nomeadamente utilizando [a SQL Analytics).](../../azure-monitor/insights/azure-sql.md) O Azure SQL Analytics é uma solução avançada de monitorização da nuvem para monitorizar o desempenho de todas as suas bases de dados em escala e em várias subscrições numa única vista. Para obter uma lista dos registos e métricas que pode exportar, consulte [a telemetria de diagnóstico para exportação](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
+A Azure SQL Database e Azure SQL Managed Instance fornecem capacidades avançadas de monitorização e afinação apoiadas pela inteligência artificial para o ajudar na resolução de problemas e na maximização do desempenho das suas bases de dados e soluções. Pode optar por configurar a [exportação](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de streaming destes [Insights Inteligentes](intelligent-insights-overview.md) e outros registos e métricas de recursos de base de dados para um dos vários destinos para consumo e análise, nomeadamente utilizando [a SQL Analytics](../../azure-monitor/insights/azure-sql.md). O Azure SQL Analytics é uma solução avançada de monitorização da nuvem para monitorizar o desempenho de todas as suas bases de dados em escala e em várias subscrições numa única vista. Para obter uma lista dos registos e métricas que pode exportar, consulte [a telemetria de diagnóstico para exportação](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Finalmente, o SQL Server tem as suas próprias capacidades de monitorização e diagnóstico que a SQL Database e a SQL Managed Instance alavancam, tais como [loja de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [vistas dinâmicas de gestão (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [a monitorização utilizando DMVs](monitoring-with-dmvs.md) para scripts para monitorizar uma variedade de problemas de desempenho.
+O SQL Server tem as suas próprias capacidades de monitorização e diagnóstico que a SQL Database e a SQL Managed Instance alavancam, tais como [loja de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [vistas dinâmicas de gestão (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [a monitorização utilizando DMVs](monitoring-with-dmvs.md) para scripts para monitorizar uma variedade de problemas de desempenho.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Capacidades de monitorização e afinação no portal Azure
 
-No portal Azure, a Azure SQL Database e a Azure SQL Managed Instance fornecem monitorização das métricas de recursos. Além disso, a Azure SQL Database fornece consultores de base de dados e o Query Performance Insight fornece recomendações de sintonização de consulta e análise de desempenho de consulta. Finalmente, no portal Azure, pode ativar automaticamente para [servidores SQL lógicos](logical-servers.md) e suas bases de dados únicas e agitadas.
+No portal Azure, a Azure SQL Database e a Azure SQL Managed Instance fornecem monitorização das métricas de recursos. A Azure SQL Database fornece consultores de base de dados, e o Query Performance Insight fornece recomendações de afinação de consultas e análise de desempenho de consulta. No portal Azure, pode ativar a sintonização automática para [servidores SQL lógicos](logical-servers.md) e suas bases de dados únicas e agitadas.
+
+> [!NOTE]
+> As bases de dados com uma utilização extremamente baixa podem aparecer no portal com uma utilização inferior à efetiva. Devido à forma como a telemetria é emitida ao converter um duplo valor para o número inteiro mais próximo, determinados montantes de utilização inferiores a 0,5 serão arredondados para 0, o que provoca uma perda de granularidade da telemetria emitida. Para obter mais informações, consulte [a base de dados Baixa e as métricas elásticas da piscina arredondar para zero](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Azure SQL Database e Azure SQL Managed Instance monitorização de recursos
 
@@ -46,6 +49,33 @@ A Azure SQL Database inclui [consultores de base de dados](database-advisor-impl
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Insight de desempenho de consulta na base de dados Azure SQL
 
 [O Insight de Desempenho](query-performance-insight-use.md) de Consulta mostra o desempenho no portal Azure de consultas de topo consumistas e mais longas para bases de dados individuais e ageyadas.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Baixa base de dados e métricas elásticas de piscina arredondamento para zero
+
+A partir de setembro de 2020, as bases de dados com uma utilização extremamente baixa podem aparecer no portal com menos do que o uso real. Devido à forma como a telemetria é emitida ao converter um duplo valor para o número inteiro mais próximo, determinados valores de utilização inferiores a 0,5 serão arredondados para 0, o que provoca uma perda de granularidade da telemetria emitida.
+
+Por exemplo: Considere uma janela de 1 minuto com os seguintes quatro pontos de dados: 0.1, 0.1, 0.1, 0.1, estes valores baixos são arredondados para 0, 0, 0, 0 e apresentam uma média de 0. Se algum dos pontos de dados for superior a 0,5, por exemplo: 0.1, 0.1, 0.9, 0.1, são arredondados para 0, 0, 1, 0 e mostram um avg de 0,25.
+
+Métricas de base de dados afetadas:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Métricas elásticas de piscinas afetadas:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Gerar avaliações inteligentes de problemas de desempenho
 

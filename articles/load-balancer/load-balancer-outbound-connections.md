@@ -11,56 +11,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 79399d0890f61d723f371528408d226f6a192ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336501"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595642"
 ---
 # <a name="outbound-connections"></a>Ligações de saída
 
 O Azure Load Balancer proporciona conectividade de saída através de diferentes mecanismos. Este artigo descreve os cenários e como geri-los. 
 
-## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Visão geral do cenário de conexões de saída
 
-Termos usados nestes cenários. Para mais informações, consulte [Terminologia:](#terms)
+## <a name="scenarios"></a>Cenários
 
-* [Tradução de endereço de rede de origem (SNAT)](#snat)
-* [Mascaramento de porta (PAT)](#pat)
-* Protocolo de Controlo de Transmissão (TCP)
-* Protocolo de Datagrama do Utilizador (UDP)
-* Tradução de Endereços de Rede
-* Protocolo de mensagem de controlo de internet
-* Protocolo de Segurança Encapsulador
+* Máquina virtual com IP público.
+* Máquina virtual sem IP público.
+* Máquina virtual sem IP público e sem balanceador de carga padrão.
 
-### <a name="scenarios"></a>Cenários
-
-* [Cenário 1](#scenario1) - Máquina virtual com IP público.
-* [Cenário 2](#scenario2) - Máquina virtual sem IP público.
-* [Cenário 3](#scenario3) - Máquina virtual sem IP público e sem balanceador de carga padrão.
-
-### <a name="scenario-1---virtual-machine-with-public-ip"></a><a name="scenario1"></a>Cenário 1 - Máquina virtual com IP público
+### <a name="virtual-machine-with-public-ip"></a><a name="scenario1"></a>Máquina virtual com IP público
 
 | Associações | Método | Protocolos IP |
 | ---------- | ------ | ------------ |
-| Equilibrador de carga pública ou autónomo | [SNAT](#snat) </br> [Porto disfarçado não](#pat) usado. | TCP </br> UDP </br> ICMP </br> ESP |
+| Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> [PAT (Mascaramento portuário)](#pat) não utilizado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
 O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. 
 
 Um IP público atribuído a um VM é uma relação 1:1 (em vez de 1: muitos) e implementado como um APÁtrida 1:1 NAT.
 
-### <a name="scenario-2---virtual-machine-without-public-ip"></a><a name="scenario2"></a>Cenário 2 - Máquina virtual sem IP público
+### <a name="virtual-machine-without-public-ip"></a><a name="scenario2"></a>Máquina virtual sem IP público
 
 | Associações | Método | Protocolos IP |
 | ------------ | ------ | ------------ |
-| Balanceador de carga público | Utilização de frontend de balançador de carga para [SNAT](#snat) com [máscara de porta (PAT)](#pat).| TCP </br> UDP |
+| Balanceador de carga público | Utilização de frontend de balançador de carga para [SNAT](#snat) com [PAT (mascaramento de porta)](#pat).| TCP </br> UDP |
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
 O recurso do balançador de carga está configurado com uma regra do balançador de carga. Esta regra é usada para criar uma ligação entre o frontend IP público com o pool backend. 
 
@@ -74,15 +63,15 @@ As portas efémeras do endereço IP público frontend do balançador de carga s�
 
 Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas SNAT. As portas SNAT são pré-atribuídas conforme descrito no [quadro de atribuição de portas SNAT predefinido](#snatporttable).
 
-### <a name="scenario-3---virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a> Cenário 3 - Máquina virtual sem IP público e sem balanceador de carga padrão
+### <a name="virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a>Máquina virtual sem IP público e sem balanceador de carga padrão
 
 | Associações | Método | Protocolos IP |
 | ------------ | ------ | ------------ |
 |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 
-Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem do fluxo de saída para um endereço IP de fonte pública. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
+Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de origem pública. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
 
 O endereço IP público será divulgado e um novo IP público solicitado se recolocar o: 
 
@@ -136,7 +125,7 @@ Alterar o tamanho da sua piscina de backend pode afetar alguns dos seus fluxos e
 > [!NOTE]
 > **O Azure Virtual Network NAT** pode fornecer conectividade de saída para máquinas virtuais numa rede virtual.  Veja [o que é Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
 
-Você tem total controlo declarativo sobre a conectividade de saída para escalar e afinar esta capacidade às suas necessidades. Esta secção expande o cenário 2 como descrito acima.
+Você tem total controlo declarativo sobre a conectividade de saída para escalar e afinar esta capacidade às suas necessidades.
 
 ![Regras de saída do balançador de carga](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -196,24 +185,20 @@ A operação para configurar uma regra de saída falhará se tentar redefinir um
 
 Quando aplicar um NSG a um VM equilibrado em carga, preste atenção às [etiquetas](../virtual-network/security-overview.md#service-tags) de serviço e às [regras de segurança predefinidas](../virtual-network/security-overview.md#default-security-rules). Certifique-se de que o VM pode receber pedidos de sonda de saúde do Azure Load Balancer.
 
-Se um NSG bloquear pedidos de sonda de saúde a partir da etiqueta padrão AZURE_LOADBALANCER, a sua sonda de saúde VM falha e o VM é marcado para baixo. O Balancer de Carga deixa de enviar novos fluxos para o VM.
+Se um NSG bloquear pedidos de sonda de saúde a partir da etiqueta predefinição AZURE_LOADBALANCER, a sua sonda de saúde VM falha e o VM está marcado indisponível. O Balancer de Carga deixa de enviar novos fluxos para o VM.
 
 ## <a name="scenarios-with-outbound-rules"></a>Cenários com regras de saída
 
 ### <a name="outbound-rules-scenarios"></a>Cenários de regras de saída
 
-* [Cenário 1](#scenario1out) - Configurar ligações de saída a um conjunto específico de IPs ou prefixo público.
-* [Cenário 2](#scenario2out) - Modificar a atribuição da porta [SNAT.](#snat)
-* [Cenário 3](#scenario3out) - Permitir apenas saídas.
-* [Cenário 4](#scenario4out) - OUTBOUND NAT apenas para VMs (sem entrada).
-* [Cenário 5](#scenario5out) - OUTBOUND NAT para o balanceador de carga padrão interno.
-* [Cenário 6](#scenario6out) - Permitir que ambos os protocolos de TCP & UDP para o NAT de saída com um balanceador de carga padrão público.
+* Configure as ligações de saída a um conjunto específico de IPs ou prefixo público.
+* Modificar a atribuição do porto [SNAT.](#snat)
+* Ativar apenas a saída.
+* NAT de saída apenas para VMs (sem entrada).
+* NAT de saída para o equilibrador de carga padrão interno.
+* Ativar os protocolos de UDP & TCP para o NAT de saída com um balanceador de carga padrão público.
 
-### <a name="scenario-1"></a><a name="scenario1out"></a>Cenário 1
-
-| Cenário |
-| -------- |
-| Configure as ligações de saída a um conjunto específico de IPs ou prefixo público|
+### <a name="configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Configure as ligações de saída a um conjunto específico de IPs ou prefixo público
 
 #### <a name="details"></a>Detalhes
 
@@ -229,11 +214,7 @@ Para utilizar um IP ou prefixo público diferente do utilizado por uma regra de 
 4. Reutilizar uma piscina de backend ou criar uma piscina de backend e colocar os VMs numa piscina de backend do equilibrador de carga pública
 5. Configure uma regra de saída no equilibrador de carga pública para permitir que os VMs de saída utilizem o frontend. Se não desejar que a regra de equilíbrio de carga seja utilizada para a saída, desative o SNAT de saída na regra de equilíbrio de carga.
 
-### <a name="scenario-2"></a><a name="scenario2out"></a>Cenário 2
-
-| Cenário |
-| -------- |
-| Modificar a atribuição de porta [SNAT](#snat) |
+### <a name="modify-snat-port-allocation"></a><a name="scenario2out"></a>Modificar a atribuição de porta [SNAT](#snat)
 
 #### <a name="details"></a>Detalhes
 
@@ -251,26 +232,18 @@ Se tentar dar mais portas [SNAT](#snat) do que as disponíveis com base no núme
 
 Se você der 10.000 portas por VM e sete VMs em um pool backend compartilhar um único IP público, a configuração é rejeitada. Sete multiplicados por 10.000 ultrapassa o limite de 64.000 portos. Adicione mais endereços IP públicos ao frontend da regra de saída para ativar o cenário. 
 
-Reverter para a [atribuição de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias VM terão 1024 portas, 51-100 VM instâncias chegarão a 512 até ao máximo de ocorrências.  Para obter mais informações sobre a atribuição padrão da porta SNAT, consulte [acima](#snatporttable).
+Reverter para a [atribuição de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias VM terão 1024 portas, 51-100 VM instâncias chegarão a 512 até ao máximo de ocorrências.  Para obter mais informações sobre a atribuição por padrão da porta SNAT, consulte a [tabela de atribuição de portas SNAT](#snatporttable).
 
-### <a name="scenario-3"></a><a name="scenario3out"></a>Cenário 3
-
-| Cenário |
-| -------- |
-| Ativar apenas saída |
+### <a name="enable-outbound-only"></a><a name="scenario3out"></a>Ativar apenas saída
 
 #### <a name="details"></a>Detalhes
 
-Você pode usar um balanceador de carga padrão público para fornecer NAT de saída para um grupo de VMs. Neste cenário, use uma regra de saída por si só, sem necessidade de quaisquer regras adicionais.
+Utilize um equilibrador de carga padrão público para fornecer NAT de saída para um grupo de VMs. Neste cenário, use uma regra de saída por si só, sem necessidade de quaisquer regras adicionais.
 
 > [!NOTE]
 > **O Azure Virtual Network NAT** pode fornecer conectividade de saída para máquinas virtuais sem a necessidade de um equilibrador de carga.  Veja [o que é Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
 
-### <a name="scenario-4"></a><a name="scenario4out"></a>Cenário 4
-
-| Cenário |
-| -------- |
-| NAT de saída apenas para VMs (sem entrada) |
+### <a name="outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>NAT de saída apenas para VMs (sem entrada)
 
 > [!NOTE]
 > **O Azure Virtual Network NAT** pode fornecer conectividade de saída para máquinas virtuais sem a necessidade de um equilibrador de carga.  Veja [o que é Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
@@ -288,11 +261,7 @@ Para este cenário:
 
 Utilize um prefixo ou IP público para escalar portas [SNAT.](#snat) Adicione a fonte de ligações de saída a uma lista de permitir ou negar.
 
-### <a name="scenario-5"></a><a name="scenario5out"></a>Cenário 5
-
-| Cenário |
-| -------- |
-| NAT de saída para equilibrador de carga padrão interno |
+### <a name="outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>NAT de saída para equilibrador de carga padrão interno
 
 > [!NOTE]
 > **O Azure Virtual Network NAT** pode fornecer conectividade de saída para máquinas virtuais utilizando um equilibrador de carga padrão interno.  Veja [o que é Azure Virtual Network NAT?](../virtual-network/nat-overview.md)
@@ -304,11 +273,7 @@ A conectividade de saída não está disponível para um balanceador de carga pa
 Para obter mais informações, consulte [a configuração do balanceador de carga apenas de saída](https://docs.microsoft.com/azure/load-balancer/egress-only).
 
 
-### <a name="scenario-6"></a><a name="scenario6out"></a>Cenário 6
-
-| Cenário |
-| -------- |
-| Ativar os protocolos de UDP & TCP para o NAT de saída com um balanceador de carga padrão público |
+### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Ativar os protocolos de UDP & TCP para o NAT de saída com um balanceador de carga padrão público
 
 #### <a name="details"></a>Detalhes
 
@@ -360,7 +325,7 @@ Quando um balançador de carga pública está associado a VMs sem IPs públicos,
 
 A fonte é reescrita do endereço IP privado da rede virtual para o endereço IP público frontal do esídubo de carga. 
 
-No espaço de endereço IP público, os cinco tuples do fluxo abaixo devem ser únicos:
+No espaço de endereço IP público, o cinco tuple do fluxo deve ser único:
 
 * Endereço IP de origem
 * Porta de origem

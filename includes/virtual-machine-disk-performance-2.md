@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540024"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91606002"
 ---
 ![Documentação Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-A produção máxima de disco **não acoched** é o limite máximo de armazenamento predefinido que a máquina virtual é capaz de manusear. O limite máximo de produção **em cache** é um limite separado quando ativa o cache do anfitrião. O caching do anfitrião funciona aproximando o armazenamento do VM que pode ser escrito ou lido rapidamente. A quantidade de armazenamento disponível para o VM para o caching hospedeiro está na documentação. Por exemplo, pode ver o Standard_D8s_v3 vem com 200 GiB de armazenamento de cache. Vamos. 
+A produção máxima de disco **não acoched** é o limite máximo de armazenamento predefinido que a máquina virtual é capaz de manusear. O limite máximo de produção **em cache** é um limite separado quando ativa o cache do anfitrião. O caching do anfitrião funciona aproximando o armazenamento do VM que pode ser escrito ou lido rapidamente. A quantidade de armazenamento disponível para o VM para o caching hospedeiro está na documentação. Por exemplo, pode ver o Standard_D8s_v3 vem com 200 GiB de armazenamento de cache.
 
 Ativar o cache do anfitrião pode ser feito ao criar a sua máquina virtual e a anexar discos. Também pode ajustar-se para ligar e desligar o hospedeiro, cachendo os seus discos num VM existente.
 
@@ -94,7 +94,7 @@ Configurar:
     - Caching do anfitrião: Ler/escrever
 - 2 Discos de dados P30 X 2
     - IOPS: 5.000
-    - Caching do anfitrião: Ler/escrever
+    - Caching hospedeiro: Deficiente
 
 ![Exemplo de caching do anfitrião com armazenamento remoto](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

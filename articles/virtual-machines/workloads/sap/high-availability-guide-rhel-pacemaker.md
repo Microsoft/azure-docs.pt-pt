@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800267"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598300"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 
@@ -66,6 +66,7 @@ Leia primeiro as seguintes notas e artigos SAP:
 * Documentação RHEL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
   * [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Considerações na adoção do RHEL 8 - Alta disponibilidade e clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configure SAP S/4HANA ASCS/ERS com Standalone Enqueue Server 2 (ENSA2) em Pacemaker em RHEL 7.6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalação de cluster
@@ -78,7 +79,7 @@ Leia primeiro as seguintes notas e artigos SAP:
 
 Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicáveis ao nó 2.
 
-1. **[A]** Registar
+1. **[A]** Registar-se. Este passo não é necessário, se utilizar imagens ativadas pelo RHEL 8.x HA.  
 
    Registe as suas máquinas virtuais e prenda-as a uma piscina que contenha repositórios para o RHEL 7.
 
@@ -88,9 +89,9 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Note que ao anexar uma piscina a uma imagem Azure Marketplace PAYG RHEL, você será efetivamente cobrado duas vezes para o seu uso RHEL: uma para a imagem PAYG, e uma para o direito RHEL na piscina que anexa. Para mitigar isto, o Azure fornece agora imagens BYOS RHEL. Mais informações estão disponíveis [aqui.](../redhat/byos.md)
+   Ao anexar uma piscina a uma imagem Azure Marketplace PAYG RHEL, você será efetivamente cobrado duas vezes para o seu uso RHEL: uma para a imagem PAYG, e uma para o direito RHEL na piscina que anexa. Para mitigar isto, o Azure fornece agora imagens BYOS RHEL. Poderá encontrar mais informações [aqui](../redhat/byos.md).
 
-1. **[A]** Permitir RHEL para repos SAP
+1. **[A]** Permitir RHEL para repos SAP. Este passo não é necessário, se utilizar imagens ativadas pelo RHEL 8.x HA.  
 
    Para instalar as embalagens necessárias, ative os seguintes repositórios.
 
@@ -108,6 +109,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
 
    > [!IMPORTANT]
    > Recomendamos as seguintes versões do agente da Azure Fence (ou posteriormente) para que os clientes beneficiem de um tempo de execução mais rápido, se uma paragem de recursos falhar ou os nós de cluster não puderem mais comunicar quais:  
+   > UTILIZAÇÃO RHEL 7.7 ou superior utiliza a versão mais recente disponível do pacote de agentes de vedação  
    > RHEL 7.6: cerca-agentes-4.2.1-11.el7_6.8  
    > RHEL 7.5: cerca-agentes-4.0.11-86.el7_5.8  
    > RHEL 7.4: cerca-agentes-4.0.11-66.el7_4.12  
@@ -165,15 +167,23 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
 
 1. **[1]** Criar cluster pacemaker
 
-   Executar os seguintes comandos para autenticar os nós e criar o cluster. Desloque o token a 30000 para permitir a manutenção da conservação da memória. Para mais informações, consulte [este artigo para Linux.][virtual-machines-linux-maintenance]
-
+   Executar os seguintes comandos para autenticar os nós e criar o cluster. Desloque o token a 30000 para permitir a manutenção da conservação da memória. Para mais informações, consulte [este artigo para Linux.][virtual-machines-linux-maintenance]  
+   
+   Se construir um cluster em **RHEL 7.x,** utilize os seguintes comandos:  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
+   </code></pre>
 
-   # Run the following command until the status of both nodes is online
+   Se construir um cluster em **RHEL 8.X,** utilize os seguintes comandos:  
+   <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
+   sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
+   sudo pcs cluster start --all
+   </code></pre>
+
+   Verifique o estado do cluster, executando o seguinte comando:  
+   <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
-
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -188,17 +198,22 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    #
    # No resources
    #
-   #
    # Daemon Status:
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** Definir votos esperados
-
-   <pre><code>sudo pcs quorum expected-votes 2
+1. **[A]** Definir votos esperados. 
+   
+   <pre><code># Check the quorum votes 
+    pcs quorum status
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
    </code></pre>
+
+   >[!TIP]
+   > Se construir um aglomerado multi-nó, que é aglomerado com mais de dois nós, não coloque os votos em 2.    
 
 1. **[1]** Permitir ações de cerca simultâneas
 
@@ -211,7 +226,7 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
 
 1. Ir para <https://portal.azure.com>
 1. Abra a lâmina do Diretório Ativo Azure  
-   Vá ao Properties e escreva o ID do Diretório. Esta é a identificação do **inquilino.**
+   Vá ao Properties e tome nota da identificação do Diretório. Esta é a identificação do **inquilino.**
 1. Clique nos registos da App
 1. Clique em Novo Registo
 1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
@@ -219,8 +234,8 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
    O URL de inscrição não é usado e pode ser qualquer URL válido
 1. Selecione Certificados e Segredos e, em seguida, clique em Novo segredo de cliente
 1. Introduza uma descrição para uma nova chave, selecione "Nunca expira" e clique em Adicionar
-1. Anota o Valor. É usado como **a palavra-passe** para o diretor de serviço
-1. Selecione Descrição geral. Escreva o ID da aplicação. É usado como nome de utilizador **(ID de login** nos passos abaixo) do Diretor de Serviço
+1. Faça um nó o Valor. É usado como **a palavra-passe** para o diretor de serviço
+1. Selecione Descrição geral. Tome nota do ID do formulário de aplicação. É usado como nome de utilizador **(ID de login** nos passos abaixo) do Diretor de Serviço
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
 
@@ -276,12 +291,17 @@ Depois de editar as permissões para as máquinas virtuais, pode configurar os d
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Utilize o seguinte comando para configurar o dispositivo da vedação.
-
 > [!NOTE]
 > A opção 'pcmk_host_map' só é necessária no comando, se os nomes dos anfitriões RHEL e os nomes dos nódoes Azure não forem idênticos. Consulte a secção arrojada no comando.
 
+Para o RHEL **7.X,** utilize o seguinte comando para configurar o dispositivo da cerca:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+Para o RHEL **8.X,** utilize o seguinte comando para configurar o dispositivo da cerca:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

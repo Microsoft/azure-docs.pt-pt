@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401389"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595966"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Utilize a Azure Media Services para ajudar a proteger os seus meios de comunicação a partir do momento em que deixa o computador durante todo o processo de armazenamento, processamento e entrega. Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Se o conteúdo for encriptado com uma chave clara AES e for enviado por HTTPS, não é claro até chegar ao cliente. 
+Utilize a Azure Media Services para ajudar a proteger os seus meios de comunicação a partir do momento em que deixa o computador durante todo o processo de armazenamento, processamento e entrega. Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Se o conteúdo for encriptado com uma chave clara AES e for enviado por HTTPS, não é claro até chegar ao cliente.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 Nos Serviços de Comunicação Social v3, uma chave de conteúdo está associada ao Localizador de Streaming (ver [exemplo).](protect-with-aes128.md) Se utilizar o serviço de entrega de chaves media, pode deixar que a Azure Media Services gere a chave de conteúdo para si. A chave de conteúdo deve ser gerada se estiver a utilizar o seu próprio serviço de entrega de chaves, ou se precisar de lidar com um cenário de alta disponibilidade onde precisa de ter a mesma chave de conteúdo em dois centros de dados.
 
@@ -136,7 +138,7 @@ O HLS/CMAF + FairPlay (incluindo HEVC/H.265) é suportado nos seguintes disposit
 
 * iOS 11 ou posterior.
 * iPhone 8 ou mais tarde.
-* MacOS High Sierra com CPU de 7ª Geração Intel.
+* macOS High Sierra com CPU de 7ª Geração Intel.
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -255,7 +257,7 @@ Para exemplos REST que usam URLs de aquisição de licença/chave personalizados
 > [!NOTE]
 > Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 Se tiver o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de que especifica a política de streaming apropriada.
 
@@ -265,7 +267,7 @@ Se tiver erros que terminam com `_NOT_SPECIFIED_IN_URL` , certifique-se de que e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger com encriptação AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)

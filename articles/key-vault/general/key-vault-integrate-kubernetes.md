@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061806"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597895"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -114,7 +114,7 @@ Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetr
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 
-* **utilizadorAssignedIdentityID**: # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o id do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
+* **utilizadorAssignedIdentityID**: # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
 * **keyvaultName**: O nome do seu cofre chave
 * **objetos**: O recipiente para todo o conteúdo secreto que pretende montar
     * **nome do objeto**: O nome do conteúdo secreto
@@ -351,7 +351,7 @@ kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 Verifique se o conteúdo do segredo está exposto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ajudar a garantir que o cofre da chave é recuperável, consulte:
 > [!div class="nextstepaction"]

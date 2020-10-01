@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee94a36ea27a15067cbcbab22b10629bc4b37634
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099560"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596241"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicione uma fonte de eventos hub de evento ao seu ambiente Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
     [![Abra o seu espaço de nome de centro de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. Na sua instância de hub de evento, selecione **Entidades > Grupos de Consumidores.** Em seguida, selecione **+ Grupo de consumidores** para adicionar um novo grupo de consumidores. 
+1. Na sua instância de hub de evento, selecione **Entidades > Grupos de Consumidores.** Em seguida, selecione **+ Grupo de consumidores** para adicionar um novo grupo de consumidores.
 
    [![Centro de eventos - Adicione um grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -68,11 +68,11 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
 1. Selecione os valores adequados para **a opção Importação**:
 
-   * Se tiver um centro de eventos existente numa das suas subscrições, selecione **Use Event Hub a partir de subscrições disponíveis.** Esta opção é a abordagem mais fácil.
+   - Se tiver um centro de eventos existente numa das suas subscrições, selecione **Use Event Hub a partir de subscrições disponíveis.** Esta opção é a abordagem mais fácil.
 
      [![Selecione uma opção de importação de Fonte de Evento](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  A tabela a seguir descreve as propriedades necessárias para o Centro de Eventos de Utilização a partir da opção **de subscrições disponíveis:**
+   - A tabela a seguir descreve as propriedades necessárias para o Centro de Eventos de Utilização a partir da opção **de subscrições disponíveis:**
 
        [![Detalhes do centro de subscrição e eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -84,10 +84,10 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
        | Valor da política do Centro de Eventos | Selecione a política de acesso partilhado pretendido. Pode criar a política de acesso partilhado no separador Configurar do centro de **eventos.** Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de *eventos deve* ter **lido** permissões. |
        | Chave política do Centro de Eventos | Pré-povoado do valor de política do Event Hub selecionado. |
 
-    * Se o centro de eventos for externo às suas subscrições ou se pretender selecionar opções avançadas, selecione **configurações do Centro de Eventos manualmente**.
+   - Se o centro de eventos for externo às suas subscrições ou se pretender selecionar opções avançadas, selecione **configurações do Centro de Eventos manualmente**.
 
        A tabela a seguir descreve as propriedades necessárias para a opção **"Fornecer Centros de Eventos" manualmente:**
- 
+
        | Propriedade | Descrição |
        | --- | --- |
        | ID da subscrição | A subscrição da instância do centro de eventos desejada e o espaço de nome pertence. |
@@ -97,7 +97,7 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
        | Valor da política do Centro de Eventos | Selecione a política de acesso partilhado pretendido. Pode criar a política de acesso partilhado no separador Configurar do centro de **eventos.** Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de *eventos deve* ter **lido** permissões. |
        | Chave política do Centro de Eventos | A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Service Bus. Introduza a chave primária ou secundária aqui. |
 
-    * Ambas as opções partilham as seguintes opções de configuração:
+   - Ambas as opções partilham as seguintes opções de configuração:
 
        | Propriedade | Descrição |
        | --- | --- |
@@ -113,8 +113,8 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
+- [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
 
-* [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
+- [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 
-* Aceda ao seu ambiente no [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).
+- Aceda ao seu ambiente no [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).

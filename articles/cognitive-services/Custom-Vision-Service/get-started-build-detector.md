@@ -1,25 +1,27 @@
 ---
-title: Quickstart Construa um detetor de objetos - Serviço de Visão Personalizada
+title: 'Quickstart: Construa um detetor de objetos com o website Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de detetor de objetos.
+description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar, treinar e testar um modelo de detetor de objetos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconhecimento de imagem, app de reconhecimento de imagem, visão personalizada
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596897"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Quickstart: Como construir um detetor de objetos com visão personalizada
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Quickstart: Construa um detetor de objetos com o website Custom Vision
 
-Neste arranque rápido, você vai aprender a construir um detetor de objetos através do site Da Visão Personalizada. Uma vez construído um modelo, pode testar com novas imagens e eventualmente integrá-lo no seu próprio software de reconhecimento de imagem.
+Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de detetor de objetos. Uma vez construído um modelo, pode testá-lo com novas imagens e eventualmente integrá-lo na sua própria app de reconhecimento de imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 

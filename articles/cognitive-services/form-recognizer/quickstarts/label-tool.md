@@ -1,24 +1,26 @@
 ---
-title: 'Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool - Form Recogniser'
+title: 'Quickstart: Label forms, train a model, and analyze forming using the sample labeling tool - Form Recogniser'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, utilizará a ferramenta de rotulagem da amostra do Reconhecimento de Formulários para rotular manualmente documentos de formulário. Em seguida, irá treinar um modelo personalizado com os documentos rotulados e usar o modelo para extrair pares de chaves/valor.
+description: Neste arranque rápido, utilizará a ferramenta de rotulagem da amostra do Reconhecimento de Formulários para rotular manualmente documentos de formulário. Em seguida, irá treinar um modelo de processamento de documentos personalizado com os documentos rotulados e usar o modelo para extrair pares de chaves/valor.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: processamento de documentos
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418964"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597742"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
-Neste arranque rápido, utilizará a API do Coitalista de Formulários com a ferramenta de rotulagem da amostra para treinar um modelo personalizado com dados etiquetados manualmente. Consulte a secção [Train com etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
+Neste arranque rápido, utilizará a API do Coitalista de Formulários com a ferramenta de rotulagem da amostra para treinar um modelo de processamento de documentos personalizado com dados etiquetados manualmente. Consulte a secção [Train com etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre a aprendizagem supervisionada com o Form Recogniser.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -93,7 +95,7 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
 
 ## <a name="set-up-input-data"></a>Configurar dados de entrada
 
-Primeiro, certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em sub-dobradeiras com base no formato comum. Quando treinar, terá de direcionar a API para uma sub-dobra.
+Primeiro, certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Ao preparar, precisará de direcionar a API para uma subpasta.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Configure a partilha de recursos de domínio cruzado (CORS)
 
@@ -120,7 +122,7 @@ Preencha os campos com os seguintes valores:
 
 * **Nome do visor** - O nome do visor da ligação.
 * **Descrição** - A descrição do seu projeto.
-* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Desa esta hora de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Defina o tempo de expiração para algum tempo depois de usar o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
@@ -137,7 +139,7 @@ Na ferramenta de rotulagem da amostra, os projetos armazenam as suas configuraç
 * **Chave API** - A tecla de subscrição do Reconhecimento de Formulários.
 * **Descrição** - Opcional - Descrição do projeto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nova página do projeto na ferramenta de rotulagem de amostras.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
 ## <a name="label-your-forms"></a>Rotular os seus formulários
 
@@ -153,7 +155,7 @@ Clique **em OCR em todos os ficheiros** do painel esquerdo para obter as informa
 
 Também mostrará quais as tabelas que foram automaticamente extraídas. Clique no ícone de tabela/grelha na mão esquerda do documento para ver a tabela extraída. Neste arranque rápido, uma vez que o conteúdo da tabela é extraído automaticamente, não vamos rotular o conteúdo da tabela, mas sim confiar na extração automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização da tabela na ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos no texto
 
@@ -199,7 +201,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rotulagem de amostra.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
 
 Siga os passos acima para rotular pelo menos cinco dos seus formulários.
@@ -254,7 +256,7 @@ Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seg
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de treino.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
 Após o final do treino, examine o valor **de precisão média.** Se for baixo, deve adicionar mais documentos de entrada e repetir os passos acima. Os documentos que já rotulou permanecerão no índice do projeto.
 
@@ -269,11 +271,11 @@ Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar.
 
 # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
 
-Com o Model Compose, pode compor até 100 modelos para um único modelo ID. Quando ligar para analisar com este ID de modelo composto, o Form Recogniser classificará primeiro o formulário que submeteu, correspondendo-o ao melhor modelo de correspondência e, em seguida, devolverá os resultados para esse modelo. Isto é útil quando os formulários de entrada podem pertencer a um de vários modelos.
+Com a Composição de Modelo, pode compor até 100 modelos para um único ID de modelo. Quando chama Analisar com este ID de modelo composto, o Reconhecedor de Formato vai, em primeiro lugar, classificar o formulário que submeteu, fazendo-o corresponder ao modelo com a melhor correspondência e, em seguida, devolver os resultados para esse modelo. Tal é útil quando os formulários recebidos possam pertencer a um de vários modelos.
 
 Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
 ---
 
@@ -304,9 +306,12 @@ Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao me
 
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.fott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que tratam da formação de dados etiquetada.
+Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser construir a sua própria utilidade para rotular dados de treino, use as APIs REST que lidam com a formação de dados rotulados.
 
 > [!div class="nextstepaction"]
 > [Treine com rótulos usando Python](./python-labeled-data.md)
+
+* [O que é o Reconhecedor de Formato?](../overview.md)
+* [Formas Recogniser biblioteca cliente quickstarts](client-library.md)

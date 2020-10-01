@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870838"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596560"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída Azure Stream Analytics para Azure Cosmos DB  
 O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração.
@@ -72,7 +72,9 @@ Dependendo da sua escolha da chave de partição, poderá receber este _aviso:_
 
 É importante escolher uma propriedade chave de partição que tenha uma série de valores distintos, e que lhe permita distribuir a sua carga de trabalho uniformemente através destes valores. Como artefacto natural da partição, os pedidos que envolvem a mesma chave de partição são limitados pela produção máxima de uma única partição. 
 
-O tamanho de armazenamento para documentos que pertencem à mesma chave de partição está limitado a 20 GB. Uma chave de partição ideal é aquela que aparece frequentemente como um filtro nas suas consultas e tem cardinaldade suficiente para garantir que a sua solução seja escalável.
+O tamanho de armazenamento para documentos que pertencem ao mesmo valor da chave de partição está limitado a 20 GB (o limite de tamanho da [partição física](../cosmos-db/partition-data.md) é de 50 GB). Uma [chave de partição ideal](../cosmos-db/partitioning-overview.md#choose-partitionkey) é aquela que aparece frequentemente como um filtro nas suas consultas e tem cardinaldade suficiente para garantir que a sua solução seja escalável.
+
+As chaves de partição usadas para consultas stream analytics e Cosmos DB não precisam de ser idênticas. As topologias totalmente paralelas recomendam a utilização da *chave de partição de entrada,* `PartitionId` como a chave de partição da consulta Stream Analytics, mas essa pode não ser a escolha recomendada para a chave de partição de um recipiente Cosmos DB.
 
 Uma chave de partição é também o limite para transações em procedimentos armazenados e gatilhos para Azure Cosmos DB. Deve escolher a chave de partição para que os documentos que ocorrem em conjunto em transações partilhem o mesmo valor chave de partição. O artigo [Partition in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) dá mais detalhes sobre a escolha de uma chave de partição.
 

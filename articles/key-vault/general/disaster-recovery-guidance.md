@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 6ccd127a35ea0d6a135a4b345297988cfdd8015b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315818"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597868"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade e redundância do Azure Key Vault
 
@@ -25,16 +25,16 @@ O Azure Key Vault dispõe de várias camadas de redundância para garantir que a
 
 O conteúdo do seu cofre-chave é replicado dentro da região e numa região secundária a pelo menos 250 km de distância, mas dentro da mesma geografia para manter alta durabilidade das suas chaves e segredos. Consulte o documento das [regiões emparelhadas Azure](../../best-practices-availability-paired-regions.md) para obter detalhes sobre pares de regiões específicas.
 
-
 Se os componentes individuais dentro do serviço de cofre chave falharem, os componentes alternativos dentro da região entram para servir o seu pedido para garantir que não há degradação da funcionalidade. Não precisa de tomar nenhuma medida para iniciar este processo, acontece automaticamente e será transparente para si.
 
-No caso raro de uma região inteira de Azure não estar disponível, os pedidos que você faz do Azure Key Vault naquela região são automaticamente encaminhados (*falhados*) para uma região secundária. Quando a região primária está novamente disponível, os pedidos são encaminhados de volta (*falhados*de volta - para a região primária. Mais uma vez, não precisa de tomar nenhuma medida porque isto acontece automaticamente.
+No caso raro de uma região inteira de Azure não estar disponível, os pedidos que você faz do Azure Key Vault naquela região são automaticamente encaminhados (*falhados*) para uma região secundária. Quando a região primária está novamente disponível, os pedidos são encaminhados de volta (*falhados*de volta - para a região primária. Mais uma vez, não precisas de tomar nenhuma ação porque isto acontece automaticamente.
 
 Através deste design de alta disponibilidade, o Azure Key Vault não requer tempo de inatividade para atividades de manutenção.
 
 Há algumas ressalvas a ter em conta:
 
 * Em caso de falha de uma região, pode levar alguns minutos para o serviço falhar. Os pedidos que são feitos durante este período antes do failover podem falhar.
+* Se estiver a utilizar um link privado para ligar ao cofre da chave, pode demorar até 20 minutos para que a ligação seja restabelecida em caso de falha. 
 * Durante o failover, o seu cofre chave está apenas em modo de leitura. Os pedidos que são suportados neste modo são:
   * Certificados de lista
   * Obter certificados

@@ -1,26 +1,27 @@
 ---
-title: Quickstart Construir um classificador - Serviço de Visão Personalizada
+title: 'Quickstart: Construa um classificador com o website Da Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de classificação de imagem.
+description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar, treinar e testar um modelo de classificação de imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: reconhecimento de imagem, app de reconhecimento de imagem, visão personalizada
+ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277347"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596874"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Quickstart: Como construir um classificador com Visão Personalizada
+# <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Quickstart: Construa um classificador com o website Da Visão Personalizada
 
-Neste arranque rápido, você vai aprender a construir um classificador de imagem através do site Da Visão Personalizada. Uma vez construído um modelo, pode testar com novas imagens e eventualmente integrá-lo no seu próprio software de reconhecimento de imagem.
+Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de classificação de imagem. Uma vez construído um modelo, pode testá-lo com novas imagens e eventualmente integrá-lo na sua própria app de reconhecimento de imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 

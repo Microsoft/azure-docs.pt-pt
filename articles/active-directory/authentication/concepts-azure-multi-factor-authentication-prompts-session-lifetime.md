@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ab36eb9d5c66f61fbb320c91087659cc811eca85
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052669"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595553"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar as solicitações de reauthentication e compreender a vida útil da sessão para autenticação multi-factor Azure
 
@@ -121,7 +121,7 @@ Para configurar as políticas de acesso condicional para a frequência de inscri
 1. Selecione **Segurança,** em **seguida, Acesso Condicional**.
 1. Configure uma política utilizando as opções de gestão de sessão recomendadas detalhadas neste artigo.
 
-Para rever as vidas dos token, [use a Azure AD PowerShell para consultar quaisquer políticas de AD Azure](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Desative todas as políticas que tiver em vigor.
+Para rever as vidas dos token, [use a Azure AD PowerShell para consultar quaisquer políticas de AD Azure](../develop/configure-token-lifetimes.md#prerequisites). Desative todas as políticas que tiver em vigor.
 
 Se estiver ativado mais de uma definição no seu inquilino, recomendamos que atualizámos as suas definições com base no licenciamento disponível para si. Por exemplo, se tiver licenças premium Azure AD, deve utilizar apenas a política de acesso condicional da *sessão de frequência de entrada* e navegador *persistente.* Se tiver aplicações microsoft 365 ou licenças gratuitas Azure AD, deve utilizar a configuração *remain-in?*
 
@@ -134,6 +134,6 @@ O quadro que se segue resume as recomendações baseadas em licenças:
 | **SSO**                      | [A azure AD junta-se](../devices/concept-azure-ad-join.md) ou [Ad Hybrid Ad ,](../devices/concept-azure-ad-join-hybrid.md)ou [SSO sem emenda](../hybrid/how-to-connect-sso.md) para dispositivos não geridos. | Associação ao Azure AD<br />Associação ao Azure AD Híbrido |
 | **Definições de reauthentication** | Mantenha-se inscrito                  | Utilize políticas de acesso condicional para a frequência de inscrição e sessão de navegador persistente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, preencha o tutorial para [Garantir eventos de entrada de utilizador com autenticação multi-factor Azure](tutorial-enable-azure-mfa.md) ou [Utilize deteções de risco para iniciar insusões de utilizador para desencadear a autenticação multi-factor Azure](tutorial-risk-based-sspr-mfa.md).

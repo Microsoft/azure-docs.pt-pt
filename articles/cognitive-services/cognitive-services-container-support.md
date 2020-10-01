@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461211"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597450"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
 
@@ -58,9 +58,9 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 | Serviço | Nível de Preços Suportados | Contentor | Descrição |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | F0, S0 | **Detetor de Anomalias** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector)  | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática.<br>[Pedir acesso][request-access] |
-| [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** | Extratos de texto impresso a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. O recipiente Ler também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente Ler funciona atualmente apenas com inglês. |
-| [Face][fa-containers] | F0, S0 | **Face** | Deteta rostos humanos em imagens e identifica atributos, incluindo marcos faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança, ou comparar rostos com uma base de dados para ver se já existe um rosto semelhante ou idêntico. Também pode organizar rostos semelhantes em grupos, usando traços visuais partilhados.<br>[Pedir acesso][request-access] |
-| [Reconhecedor de formulários][fr-containers] | F0, S0 | **Reconhecedor de Formato** | A Form Understanding aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formulários.<br>[Pedir acesso][request-access] |
+| [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** OCR[(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/concept-recognizing-text.md)<br>[Pedir acesso][request-access] |
+| [Face][fa-containers] | F0, S0 | **Face** | Deteta rostos humanos em imagens e identifica atributos, incluindo marcos faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança, ou comparar rostos com uma base de dados para ver se já existe um rosto semelhante ou idêntico. Também pode organizar rostos semelhantes em grupos, usando traços visuais partilhados. |
+| [Reconhecedor de formulários][fr-containers] | F0, S0 | **Reconhecedor de Formato** | A Form Understanding aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formulários. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409) | Carrega um modelo de Compreensão de Linguagem treinado ou publicado, também conhecido como app LUIS, num recipiente de estivadores e fornece acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para o [portal LUIS](https://www.luis.ai) para melhorar a precisão de previsão da aplicação. |
 | [API de Serviço de Voz][sp-containers-stt] | F0, S0 | **Discurso-a-texto** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text) | Transcreve voz em tempo real contínua para texto. |
 | [API de Serviço de Voz][sp-containers-cstt] | F0, S0 | **Discurso-a-texto personalizado** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text) | Transcreve a fala contínua em tempo real em texto usando um modelo personalizado. |
@@ -80,7 +80,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 Além disso, alguns recipientes são suportados em Serviços Cognitivos [**All-In-One oferecendo**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) chaves de recursos. Pode criar um único recurso De Serviços Cognitivos All-In-One e utilizar a mesma chave de faturação através de serviços suportados para os seguintes serviços:
 
 * Imagem Digitalizada
-* Rostos
+* Face
 * LUIS
 * Análise de Texto
 
@@ -108,7 +108,7 @@ Os recipientes individuais também podem ter os seus próprios requisitos, inclu
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [as receitas de recipientes](containers/container-reuse-recipe.md) que pode utilizar com os Serviços Cognitivos.
 

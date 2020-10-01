@@ -3,14 +3,14 @@ title: Enviar eventos de armazenamento Blob para o ponto final da web - modelo
 description: Utilize a Grelha de Eventos Azure e um modelo de Gestor de Recursos Azure para criar uma conta de armazenamento Blob e subscreva os seus eventos. Envie os eventos para um Webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661270"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598357"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Route Blob eventos de armazenamento para o ponto final web usando um modelo ARM
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Quickstart: Route Blob storage events to web endpoint usando um modelo ARM
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma conta de armazenamento Blob, subscrever eventos para esse armazenamento de bolhas, e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -77,7 +77,7 @@ Quando envia o ficheiro para o armazenamento da Azure Blob, o Event Grid envia u
 
 ![Ver resultados](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
 ).
@@ -88,5 +88,5 @@ Para obter mais informações sobre os modelos do Gestor de Recursos Azure, cons
 
 * [Documentação do Gestor de Recursos Azure](../azure-resource-manager/index.yml)
 * [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/)
-* [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
+* [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
 * [Modelos de grelha de eventos Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

@@ -1,31 +1,34 @@
 ---
-title: 'Quickstart: Experimente o Moderador de Conteúdo na web - Moderador de Conteúdo'
+title: 'Quickstart: Experimente o Moderador de Conteúdo na web'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, utilizará a ferramenta online de Análise de Moderadores de Conteúdo para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código.
+description: Utilize a ferramenta de Análise de Moderador de Conteúdo on-line para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: cog-serv-seo-aug-2020
+keywords: moderador de conteúdo, moderação de conteúdo
+ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332632"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596809"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
 
-Neste arranque rápido, utilizará a ferramenta online de Análise de Moderadores de Conteúdo para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código. Se pretender integrar este serviço na sua app mais rapidamente, consulte os outros quickstarts na secção [Etapas Seguintes.](#next-steps)
+Neste arranque rápido, utilizará a ferramenta online de Análise de Moderadores de Conteúdo para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código. Se pretender integrar este serviço na sua aplicação de moderação de conteúdo mais rapidamente, consulte os outros quickstarts na secção [Etapas Seguintes.](#next-steps)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador web
 
-## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de revisão
+## <a name="set-up-the-review-tool"></a>Configurar a ferramenta 'Revisão'
+
 A ferramenta content Moderator Review é uma ferramenta baseada na web que permite aos revisores humanos ajudar o serviço cognitivo na tomada de decisões. Neste guia, irá passar pelo curto processo de configuração da ferramenta de revisão para que possa ver como funciona o serviço Desemisco de Conteúdo. Vá ao site da [ferramenta De Revisão de Moderadores](https://contentmoderator.cognitive.microsoft.com/) de Conteúdo e inscreva-se.
 
 ![Página inicial do moderador de conteúdo](images/homepage.PNG)
@@ -82,6 +85,6 @@ Ou, continue com os próximos passos para começar a usar as APIs de Moderação
 ## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a usar as apis de moderação na sua aplicação.
-- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
-- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou utilize o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para digitalizar o conteúdo de texto para obter potencial profanação, classificação de texto indesejada assistida por máquinas (pré-visualização) e dados pessoais.
+- Implementar moderação de imagem. Utilize a [consola API](try-image-api.md) ou siga o [quickstart](client-libraries.md) da biblioteca do cliente para digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
+- Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou utilize o [quickstart](client-libraries.md) da biblioteca do cliente para digitalizar o conteúdo de texto para potencial profanação, classificação de texto indesejada assistida por máquina (pré-visualização) e dados pessoais.
 - Implementar moderação de vídeo. Siga o guia de como pesquisar vídeos para adultos e picantes para a moderação do [vídeo.](video-moderation-api.md) 

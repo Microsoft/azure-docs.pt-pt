@@ -1,14 +1,14 @@
 ---
 title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019738"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596933"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -35,6 +35,9 @@ Este modelo centralizado de implantação tem as seguintes vantagens:
 - Os dados de todas as fontes de dados e conectores de dados que estejam integrados com o Azure Sentinel (tais como Registos de Atividade ad AZure, registos do Office 365 ou alertas de Proteção de Ameaças da Microsoft) permanecerão dentro de cada inquilino do cliente.
 - Reduz a latência da rede.
 - Fácil de adicionar ou remover novas subsidiárias ou clientes.
+
+> [!NOTE]
+> Pode gerir recursos delegados que estão localizados em [diferentes regiões.](../../availability-zones/az-overview.md#regions) No entanto, a delegação de assinaturas através de uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e da nuvem pública de Azure, ou através de duas nuvens nacionais separadas, não é apoiada.
 
 ## <a name="granular-role-based-access-control-rbac"></a>Controlo de acesso baseado em funções granulares (RBAC)
 
@@ -85,7 +88,7 @@ Pode ativar o [conector Microsoft Cloud App Security (MCAS)](../../sentinel/conn
 
 Depois de configurar os conectores de dados do Office 365, pode utilizar as capacidades do inquilino Azure Sentinel, como visualizar e analisar os dados em livros, utilizando consultas para criar alertas personalizados e configurar livros de jogadas para responder a ameaças.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [Azure Sentinel.](../../sentinel/overview.md)
 - Reveja a [página de preços do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).

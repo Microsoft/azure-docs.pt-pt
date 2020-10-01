@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: c7fbe46d378d45f49a8510f9fdd01a9cae665d0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074389"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595937"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Linux com os comandos de reparação da Máquina Virtual do Azure
 
@@ -42,7 +42,7 @@ Siga estes passos para resolver problemas na questão dos VM:
 1. Iniciar o Azure Cloud Shell
 2. Executar az adicionar/atualizar extensão
 3. Executar az vm reparação criar
-4. Executar passos de mitigação
+4. Execute o funcionaamento de reparação az vm ou execute passos de mitigação.
 5. Executar restauro de reparação az vm
 
 Para obter documentação e instruções adicionais, consulte [a reparação az vm](/cli/azure/ext/vm-repair/vm/repair).
@@ -59,7 +59,7 @@ Para obter documentação e instruções adicionais, consulte [a reparação az 
 
    Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar ``az --version`` para localizar a versão. Se necessitar de instalar ou atualizar o seu Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
    
-   Se precisar de iniciar sessão na Cloud Shell com uma conta diferente da que está atualmente a iniciar sessão no Portal Azure com a ``az login`` [sua referência de login az.](/cli/azure/reference-index?view=azure-cli-latest#az-login)  Para alternar entre subscrições associadas à sua conta pode utilizar ``az account set --subscription`` [referência definida por conta az](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Se precisar de iniciar sessão na Cloud Shell com uma conta diferente da que está atualmente a iniciar sessão no Portal Azure com a ``az login`` [sua referência de login az.](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)  Para alternar entre subscrições associadas à sua conta pode utilizar ``az account set --subscription`` [referência definida por conta az](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Se esta for a primeira vez que utiliza os `az vm repair` comandos, adicione a extensão CLI de reparação de VM.
 
@@ -79,7 +79,13 @@ Para obter documentação e instruções adicionais, consulte [a reparação az 
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Execute os passos de mitigação necessários no VM de reparação criado e, em seguida, proceda ao passo 5.
+4. Execute `az vm repair run`. Este comando executará o script de reparação especificado no disco anexo através do VM de reparação. Se o guia de resolução de problemas que está a utilizar estiver a utilizar um id de execução, utilize-o aqui, caso contrário poderá utilizar scripts de lista de reparação az vm para ver scripts de reparação disponíveis. O grupo de recursos e o nome VM utilizados aqui são para o VM não funcional utilizado no passo 3. Informações adicionais sobre os scripts de reparação podem ser encontradas na biblioteca de [scripts de reparação](https://github.com/Azure/repair-script-library).
+
+   ```azurecli-interactive
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
+   ```
+
+   Opcionalmente, pode executar as etapas de mitigação manual necessárias utilizando o VM de reparação e, em seguida, proceder ao passo 5.
 
 5. Execute `az vm repair restore`. Este comando trocará o disco de oss reparado com o disco operativo original do VM. O grupo de recursos e o nome VM utilizados aqui são para o VM não funcional utilizado no passo 3.
 

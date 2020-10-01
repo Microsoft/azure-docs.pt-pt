@@ -3,12 +3,12 @@ title: Implementar e configurar a solução VMware Azure
 description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 08d2d48820505dad9bba74fe3ac84f45525f4525
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583431"
+ms.locfileid: "91598170"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -40,7 +40,7 @@ Utilize as informações recolhidas no artigo [de implementação do Planeamento
 Depois de implementar a Solução VMware Azure, irá criar a caixa de salto da rede virtual que se conecta ao vCenter e ao NSX. Depois de configurar os circuitos ExpressRoute e ExpressRoute Global Reach, a caixa de salto não é necessária.  Mas é útil chegar ao vCenter e NSX na sua Solução Azure VMware.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Crie a caixa de salto Azure VMware Solution":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Crie a caixa de salto Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 Para criar uma máquina virtual (VM) na rede virtual que [identificou ou criou como parte do processo de implantação,](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution)siga estas instruções: 
 
@@ -60,7 +60,7 @@ A caixa de salto encontra-se na rede virtual onde a Azure VMware Solution se con
 
 Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Você verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment) durante o [passo de implementação](#deploy-azure-vmware-solution) mais cedo neste artigo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Crie a caixa de salto Azure VMware Solution":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Crie a caixa de salto Azure VMware Solution" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 Neste exemplo, a rede 10.74.72.0/22 foi a entrada durante a implantação deriva das redes /24.  Se vir algo semelhante, pode ligar-se ao vCenter na Solução VMware Azure.
 

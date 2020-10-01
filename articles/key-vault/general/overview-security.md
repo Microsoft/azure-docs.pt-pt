@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377578"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596361"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -75,6 +75,14 @@ Pode reduzir a exposição dos seus cofres especificando quais endereços IP tê
 Após as regras de firewall estarem em vigor, os utilizadores só podem ler dados do Key Vault quando os seus pedidos são originários de redes virtuais permitidas ou de intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre de Chaves a partir do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Key Vault Picker por outros serviços Azure. Os utilizadores podem ser capazes de ver a lista de cofres chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de clientes.
 
 Para mais informações sobre o endereço da rede Azure Key Vault, reveja [os pontos finais do serviço de rede virtual para Azure Key Vault ( Azure Key Vault)](overview-vnet-service-endpoints.md)
+
+### <a name="tls-and-https"></a>TLS e HTTPS
+
+*   A extremidade frontal do Key Vault (plano de dados) é um servidor multi-inquilino. Isto significa que os cofres-chave de diferentes clientes podem partilhar o mesmo endereço IP público. Para conseguir o isolamento, cada pedido HTTP é autenticado e autorizado independentemente de outros pedidos.
+*   Pode identificar versões mais antigas do TLS para reportar vulnerabilidades, mas como o endereço IP público é partilhado, não é possível que a equipa de serviço de cofre-chave desative versões antigas do TLS para cofres-chave individuais a nível de transporte.
+*   O protocolo HTTPS permite ao cliente participar na negociação da TLS. **Os clientes podem impor a versão mais recente do TLS,** e sempre que um cliente o faça, toda a ligação utilizará a proteção de nível correspondente. O facto de o Key Vault ainda suportar versões TLS mais antigas não prejudicará a segurança das ligações utilizando versões TLS mais recentes.
+*   Apesar das vulnerabilidades conhecidas no protocolo TLS, não existe um ataque conhecido que permita a um agente malicioso extrair qualquer informação do seu cofre-chave quando o intruso iniciar uma ligação com uma versão TLS que tenha vulnerabilidades. O intruso ainda precisaria de autenticar e autorizar-se, e enquanto os clientes legítimos se ligarem sempre às versões recentes do TLS, não é possível que as credenciais possam ter sido vazadas de vulnerabilidades em versões antigas do TLS.
+
 
 ## <a name="monitoring"></a>Monitorização
 

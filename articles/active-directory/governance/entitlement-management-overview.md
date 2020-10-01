@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594327"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597381"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -77,8 +77,9 @@ A gestão de direitos introduz à Azure AD o conceito de pacote de *acesso.* Um 
 
 Também pode controlar o acesso a outros recursos que dependem de grupos de segurança AD Azure ou grupos Microsoft 365.  Por exemplo:
 
-- Pode dar licenças aos utilizadores para o Microsoft 365 utilizando um grupo de segurança AD AZure num pacote de acesso e configurando [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo
-- Você pode dar aos utilizadores acesso para gerir recursos Azure usando um grupo de segurança Azure AD em um pacote de acesso e criando uma [atribuição de papel Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo
+- Pode dar licenças aos utilizadores para o Microsoft 365 utilizando um grupo de segurança AZure AD num pacote de acesso e configurando [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo.
+- Você pode dar aos utilizadores acesso para gerir recursos Azure usando um grupo de segurança Azure AD em um pacote de acesso e criando uma [atribuição de papel Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo.
+- Pode dar aos utilizadores acesso para gerir as funções de Azure AD utilizando grupos atribuíveis às funções AD do Azure num pacote de acesso e [atribuindo um papel de AD Azure a esse grupo.](../users-groups-roles/roles-groups-assign-role.md)
 
 ## <a name="how-do-i-control-who-gets-access"></a>Como controlo quem tem acesso?
 
@@ -166,7 +167,7 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários pedem os pacotes de acesso. | 2.000 funcionários que **podem** solicitar os pacotes de acesso | 2.000 |
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns utilizadores de **Utilizadores do parceiro Contoso** (convidados) podem solicitar os mesmos pacotes de acesso sujeitos a aprovação. Contoso tem 30.000 utilizadores. 150 colaboradores solicitam o acesso aos pacotes de acesso e 10.500 utilizadores da Contoso solicitam acesso. | 2.000 colaboradores + 500 utilizadores convidados de Contoso que excedem o rácio 1:5 (10.500 - (2.000 * 5)) | 2.500 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Crie o seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)
