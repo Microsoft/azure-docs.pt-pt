@@ -28,15 +28,17 @@ Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblio
 
 A partir do Android Studio, selecione Iniciar um novo projeto Android Studio.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Screenshot mostrando o botão 'Iniciar um novo Android Studio Project' selecionado no Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Screenshot mostrando o botão 'Iniciar um novo Android Studio Project' selecionado no Android Studio.&quot;:::
 
-Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
+Selecione o modelo de projeto &quot;Atividade Vazia" em "Telefone e Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando a opção Atividade Vazia selecionada no ecrã do modelo do projeto.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando o botão 'Iniciar um novo Android Studio Project' selecionado no Android Studio.&quot;:::
 
-Selecione biblioteca mínima de clientes de "API 26: Android 8.0 (Oreo)" ou superior.
+Selecione o modelo de projeto &quot;Atividade Vazia" ou superior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot mostrando a opção 'Atividade vazia' selecionada no ecrã do modelo do projeto 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot mostrando o botão 'Iniciar um novo Android Studio Project' selecionado no Android Studio.&quot;:::
+
+Selecione o modelo de projeto &quot;Atividade Vazia":::
 
 
 ### <a name="install-the-package"></a>Instale o pacote
@@ -313,7 +315,9 @@ private void startCall() {
 
 A aplicação pode agora ser lançada utilizando o botão "Run App" na barra de ferramentas (Shift+F10). Verifique se consegue fazer chamadas ligando `8:echo123` . Uma mensagem pré-gravada reproduzirá a sua mensagem de volta para si.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot mostrando a aplicação completa.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot mostrando o botão 'Iniciar um novo Android Studio Project' selecionado no Android Studio.&quot;:::
+
+Selecione o modelo de projeto &quot;Atividade Vazia":::
 
 ## <a name="sample-code"></a>Código de Exemplo
 
