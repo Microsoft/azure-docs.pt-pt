@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322738"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,12 @@ Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de el
 
       ![Grupo de recursos para discos geridos](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de blocos. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – StandardSSD, StandardHDD ou PremiumSSD. Os VHDX/VHDs devem aparecer como blobs de blocos na conta de armazenamento de teste.
+    > [!NOTE]
+    > Se um blob de páginas não for convertido com sucesso para um disco gerido durante uma cópia de dados, o blob de páginas permanece na conta de armazenamento e o seu armazenamento será cobrado.
+
+  -  Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de blocos. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – StandardSSD, StandardHDD ou PremiumSSD. Os VHDX/VHDs devem aparecer como blobs de blocos na conta de armazenamento de teste.
+  
+
   
 ::: zone-end
 

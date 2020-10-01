@@ -78,6 +78,8 @@
                   href: security-baseline.md
                 - name: Rever a segurança
                   href: data-box-security.md
+            - name: Transferir ACLs e metadados
+              href: data-box-file-acls-preservation.md
             - name: FAQ
               href: data-box-faq.md
         - name: Procedimento

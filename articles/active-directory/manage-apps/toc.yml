@@ -26,7 +26,7 @@
       href: delete-application-portal.md
 - name: Tutoriais
   items:
-    - name: 'Aplicações de galeria integradas (por exemplo, ServiceNow, Salesforce, Dropbox)'
+    - name: Lista de aplicações pré-configuradas
       href: /azure/active-directory/saas-apps/
     - name: Adicionar uma aplicação no local com o Proxy de Aplicações
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Recursos de migração
           href: migration-resources.md
-        - name: Migrar uma aplicação do ADFS para o Azure
+        - name: Migrar uma aplicação do AD FS para o Azure
           href: migrate-adfs-apps-to-azure.md
         - name: Utilizar o relatório de atividades da aplicação do AD FS (pré-visualização)
           href: migrate-adfs-application-activity.md
@@ -260,7 +260,7 @@
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problema ao instalar o Conector do Agente do Proxy de Aplicações
               href: application-proxy-connector-installation-problem.md
-            - name: Problema ao iniciar sessão
+            - name: Problema de início de sessão
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: Problemas de CORS no Proxy de Aplicações
               href: application-proxy-understand-cors-issues.md

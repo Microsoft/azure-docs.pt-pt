@@ -1,23 +1,23 @@
 ### YamlMime:Landing
 title: Documentação da gestão de aplicações
-summary: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Microsoft 365 e a milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
+summary: O Azure Active Directory é um sistema de Gestão de Identidades e Acessos (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas.
 metadata:
   title: Documentação da gestão de aplicações
-  description: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Microsoft 365 e a milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
+  description: O Azure AD é um sistema de Gestão de Identidades e Acessos (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 10/10/2019
+  ms.date: 09/28/2020
   author: kenwith
   ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: dc056bbfb880b8cdfc2326edc3036657803f24d7
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: e3232f319c14af6724bc5b844f71a5c6ff34bfa9
+  ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88209120"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91535003"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:
@@ -27,75 +27,91 @@ landingContent:
       url: what-is-application-management.md
     - text: O que é o início de sessão único?
       url: what-is-single-sign-on.md
+- title: Introdução
+  linkLists:
   - linkListType: quickstart
     links:
-    - text: Série de Início Rápido
+    - text: Ver as suas aplicações
       url: view-applications-portal.md
-- title: Gerir aplicações da cloud e o início de sessão único
+    - text: Adicionar uma aplicação
+      url: add-application-portal.md
+- title: Adicionar e configurar aplicações
   linkLists:
-  - linkListType: concept
+  - linkListType: learn
     links:
-    - text: Compreender o início de sessão único
+    - text: Adicionar uma aplicação
+      url: add-application-portal.md
+    - text: Configurar uma aplicação
+      url: add-application-portal-configure.md
+- title: Gerir aplicações
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Melhores práticas
+      url: application-management-fundamentals.md
+    - text: Cenários comuns
+      url: common-scenarios.md
+- title: Compreender o início de sessão único
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Conceitos de início de sessão único
       url: what-is-single-sign-on.md
-    - text: Experiências de utilizador final
-      url: end-user-experiences.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar o início de sessão único
-      url: configure-saml-single-sign-on.md
-    - text: Atribuir um utilizador ou grupo a uma aplicação
-      url: assign-user-or-group-access-portal.md
-- title: Aprovisionar utilizadores e grupos numa aplicação
+    - text: Opções de início de sessão único
+      url: sso-options.md
+- title: Consentimento da aplicação
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: O que é o aprovisionamento de aplicações?
-      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
-  - linkListType: tutorial
-    links:
-    - text: Tutoriais de aprovisionamento de aplicações SaaS
-      url: /azure/active-directory/saas-apps/
-  - linkListType: how-to-guide
-    links:
-    - text: Criar uma aplicação? Utilizar o SCIM no aprovisionamento (documentação de aprovisionamento de aplicações)
-      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
-    - text: Adicionar uma aplicação de galeria? Configurar o aprovisionamento (documentação de aprovisionamento de aplicações)
-      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
-- title: Publicar aplicações no local com o Proxy de Aplicações
+    - text: Configurar o consentimento do utilizador
+      url: configure-user-consent.md
+    - text: Configurar o consentimento do administrador
+      url: configure-admin-consent-workflow.md
+- title: Migrar aplicações
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: O que é o Proxy de Aplicação?
+    - text: Recursos de migração
+      url: migration-resources.md
+    - text: Migrar uma aplicação do AD FS para o Azure
+      url: migrate-adfs-apps-to-azure.md
+- title: Utilizar aplicações no local
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: O que é um Proxy de Aplicações?
       url: what-is-application-proxy.md
-  - linkListType: concept
-    links:
-    - text: Planear o Proxy de Aplicações
+    - text: Implementação do Proxy de Aplicações
       url: application-proxy-deployment-plan.md
-  - linkListType: tutorial
-    links:
-    - text: Adicionar uma aplicação no local
-      url: application-proxy-add-on-premises-application.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar conectores com servidores proxy
-      url: application-proxy-configure-connectors-with-proxy-servers.md
-    - text: Configurar uma home page personalizada
-      url: application-proxy-configure-custom-home-page.md
-  - linkListType: deploy
-    links:
-    - text: Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações
-      url: application-proxy-integrate-with-remote-desktop-services.md
-    - text: Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD
-      url: application-proxy-integrate-with-sharepoint-server.md
-- title: Proteger aplicações legadas com controladores e redes de entrega de aplicações
+- title: Aplicações seguras
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: Proteger o acesso híbrido das aplicações legadas (cloud e no local)
-      url: secure-hybrid-access.md
-  - linkListType: how-to-guide
+    - text: Gerir o acesso a aplicações
+      url: what-is-access-management.md
+    - text: Gerir restrições de inquilino
+      url: tenant-restrictions.md
+- title: Configurar As Minhas Aplicações
+  linkLists:
+  - linkListType: learn
     links:
-    - text: Proteger as suas aplicações com o F5 Big-IP APM
-      url: https://aka.ms/f5-hybridaccessguide
-    - text: Proteger as suas aplicações com o Zscaler ZPA
-      url: https://aka.ms/zscaler-hybridaccessguide
+    - text: Planear uma implementação de As Minhas Aplicações
+      url: access-panel-deployment-plan.md
+    - text: Criar coleções
+      url: access-panel-collections.md
+- title: Desenvolver novas aplicações
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Orientação para programadores
+      url: developer-guidance-for-integrating-applications.md
+    - text: Compreender a plataforma
+      url: ../develop/v2-overview.md
+- title: Novo no Docs
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Configurar o SSO baseado em SAML
+      url: add-application-portal-setup-sso.md
+    - text: Configurar o SSO baseado em OIDC
+      url: add-application-portal-setup-oidc-sso.md

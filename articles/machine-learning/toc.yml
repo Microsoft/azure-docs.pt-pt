@@ -137,7 +137,7 @@
         - name: Processamento de dados
           href: concept-optimize-data-processing.md
     - name: Preparação de modelos
-      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      displayName: 'run config, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
     - name: Preparação distribuída
       displayName: 'parallellization, deep learning, deep neural network, dnn'
@@ -319,16 +319,12 @@
               href: how-to-differential-privacy.md
     - name: Preparar modelos
       items:
-        - name: Submeter execução de preparação
-          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+        - name: Configurar e submeter a execução de preparação
+          displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
-        - name: Utilizar avaliadores para ML
-          items:
-            - name: Criar avaliadores em formação
-              href: how-to-train-ml-models.md
-            - name: Otimizar hiperparâmetros
-              displayName: parameter
-              href: how-to-tune-hyperparameters.md
+        - name: Otimizar hiperparâmetros
+          displayName: 'parameter, hyperparameter, hyperdrive'
+          href: how-to-tune-hyperparameters.md
         - name: Trabalhar com o MLflow
           items:
             - name: Controlar experiências com o MLflow
