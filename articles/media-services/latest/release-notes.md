@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425641"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619972"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -42,9 +42,9 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="august-2020"></a>Agosto de 2020
 
 ### <a name="dynamic-encryption"></a>Encriptação Dinâmica
-O suporte para a encriptação de ficheiros interoperáveis (PIFF 1.1) do legado PlayReady Protected Está agora disponível no Pacote Dinâmico. Isto fornece suporte para séries de TV inteligentes legacy da Samsung e LG que implementaram os primeiros rascunhos da norma de encriptação comum (CENC) publicada pela Microsoft.  O formato PIFF 1.1 é também conhecido como o formato de encriptação que foi previamente suportado pela biblioteca do cliente Silverlight. Hoje em dia, o único cenário de uso para este formato de encriptação é visar o legado mercado smart TV onde permanece um número não trivial de Smart TV's em algumas regiões que apenas suportam o Smooth Streaming com encriptação PIFF 1.1. 
+O suporte para a encriptação de ficheiros interoperáveis (PIFF 1.1) do legado PlayReady Protected Está agora disponível no Pacote Dinâmico. Isto fornece suporte para séries de TV inteligentes legacy da Samsung e LG que implementaram os primeiros rascunhos da norma de encriptação comum (CENC) publicada pela Microsoft.  O formato PIFF 1.1 é também conhecido como o formato de encriptação que foi previamente suportado pela biblioteca do cliente Silverlight. Hoje em dia, o único cenário de uso para este formato de encriptação é direcionar o legado mercado smart TV onde permanece um número não trivial de Smart TVs em algumas regiões que apenas suportam o Smooth Streaming com encriptação PIFF 1.1. 
 
-Para utilizar o novo suporte de encriptação PIFF 1.1, altere o valor de encriptação para 'piff' no caminho URL do Localizador de Streaming. Para mais detalhes consulte a [visão geral da Proteção de Conteúdos.](content-protection-overview.md)
+Para utilizar o novo suporte de encriptação PIFF 1.1, altere o valor de encriptação para 'piff' no caminho URL do Localizador de Streaming. Para mais detalhes, consulte a [visão geral da Proteção de Conteúdos.](content-protection-overview.md)
 Por exemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -60,7 +60,7 @@ As transcrições ao vivo suportam agora 19 línguas e 8 regiões.
 
 Publicámos um tutorial chamado [proteção de conteúdo de ponta a ponta usando a Azure AD](./azure-ad-content-protection.md).
 
-### <a name="high-availablity"></a>Alta availablidade
+### <a name="high-availability"></a>Elevada disponibilidade
 
 Publicámos uma [visão geral](./media-services-high-availability-encoding.md) e uma amostra de Alta Disponibilidade com Serviços de Comunicação Social e [Vídeo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)a Pedido (VOD).
 
@@ -135,13 +135,13 @@ Suporte adicional para os seguintes novos codificadores recomendados para stream
 ### <a name="file-encoding-enhancements"></a>Melhoramentos de codificação de ficheiros
 
 - Uma nova predefinição de Codificação de Conteúdos Conscientes já se encontra disponível. Produz um conjunto de MP4s alinhados com GOP utilizando codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma primeira análise leve do conteúdo de entrada. Utiliza esses resultados para determinar o número ideal de camadas, a taxa de bits adequada e as definições de resolução para entrega através do streaming adaptativo. Esta predefinição é particularmente eficaz para vídeos de baixa complexidade e complexidade média, onde os ficheiros de saída estão a taxas de bits mais baixas, mas a uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio intercalados. Para mais informações, consulte as [especificações abertas da API.](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)
-- Melhor desempenho e multi-rosca para o redimensionador em Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bit verá os maiores aumentos de desempenho. 
+- Melhor desempenho e multi-rosca para o ressizer em Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bit verá os maiores aumentos de desempenho. 
 - A codificação padrão mantém agora uma cadência gop regular para o conteúdo da taxa de fotogramas variável (VFR) durante a codificação do VOD ao utilizar a definição de GOP baseada no tempo.  Isto significa que o cliente que submete conteúdo misto de taxa de fotogramas que varia entre 15-30 fps, por exemplo, deve agora ver distâncias gop regulares calculadas na saída para ficheiros de streaming de bitrate adaptativo MP4. Isto melhorará a capacidade de alternar perfeitamente entre faixas ao entregar sobre HLS ou DASH. 
 -  Sincronização AV melhorada para o teor de origem da taxa de fotogramas variável (VFR)
 
 ### <a name="video-indexer-video-analytics"></a>Indexante de Vídeo, Análise de Vídeo
 
-- Os quadros-chave extraídos usando a predefinição videoAnalyzer estão agora na resolução original do vídeo em vez de serem redimensionados. A extração de chaves de alta resolução dá-lhe imagens de qualidade originais e permite-lhe utilizar os modelos de inteligência artificial baseados na imagem fornecidos pelos serviços Microsoft Computer Vision e Custom Vision para obter ainda mais informações a partir do seu vídeo.
+- Os quadros-chave extraídos usando a predefinição videoAnalyzer estão agora na resolução original do vídeo em vez de serem redimensionados. A extração de quadros de alta resolução dá-lhe imagens de qualidade originais e permite-lhe utilizar os modelos de inteligência artificial baseados na imagem fornecidos pelos serviços Microsoft Computer Vision e Custom Vision para obter ainda mais informações a partir do seu vídeo.
 
 ## <a name="september-2019"></a>Setembro de 2019
 
@@ -155,7 +155,7 @@ A Media Services v3 está anunciando a pré-estreia de 24 hrs x 365 dias de codi
 
 #### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
+Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o artigo [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
 
 Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -173,7 +173,7 @@ Para mais informações, consulte [Nuvens e regiões em que existem serviços de
 
 #### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação dos processadores de media *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), que estão a ser reformados. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](../previous/legacy-components.md)
+Estamos a anunciar a depreciação dos processadores de media *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), que estão a ser reformados. Para as datas de aposentadoria, consulte este artigo [de componentes legados.](../previous/legacy-components.md)
 
 Para mais detalhes, consulte [a Migração WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
@@ -223,8 +223,8 @@ Para mais informações, consulte [Nuvens e regiões em que existem serviços de
 
 Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Mídia.
 
-* O tamanho máximo do ficheiro suportado para o processamento foi atualizado. As [quotas e os limites.](limits-quotas-constraints.md)
-* [Melhorias de velocidades de codificação](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* O tamanho máximo do ficheiro suportado para o processamento foi atualizado. Quotas [e limites.](limits-quotas-constraints.md)
+* [Melhorias de velocidades de codificação](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Abril de 2019
 
@@ -404,12 +404,12 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição Geral](media-services-overview.md)
+- [Descrição geral](media-services-overview.md)
 - [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)
 - [Media Services v2 notas de lançamento](../previous/media-services-release-notes.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: a8d34d60cfb4037192abcc20649b478e9f58a6bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000807"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620142"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Oracle PeopleSoft - Protegida por F5 BIG-IP APM
 
@@ -44,7 +44,7 @@ Para começar, precisa dos seguintes itens:
         * Uma subscrição de Inteligência IP F5 para detetar e bloquear agressores conhecidos e tráfego malicioso 
         * Um módulo de segurança de hardware de rede (HSM) para salvaguardar e gerir chaves digitais para autenticação forte
 1. O sistema F5 BIG-IP é a provisionado com módulos APM (LTM é opcional) 
-1. Embora opcional, é altamente recomendado implementar os sistemas F5 num grupo de [dispositivos de sincronização/failover](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), que inclui o par de espera ativo, com um endereço IP flutuante para alta disponibilidade (HA). Uma maior redundância de interface pode ser alcançada utilizando o Protocolo de Controlo de Agregação de Ligações (LACP). LACP gere as interfaces físicas conectadas como uma única 
+1. Embora opcional, é altamente recomendado implementar os sistemas F5 num grupo de [dispositivos de sincronização/failover](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), que inclui o par de espera ativo, com um endereço IP flutuante para alta disponibilidade (HA). Uma maior redundância de interface pode ser alcançada utilizando o Protocolo de Controlo de Agregação de Ligações (LACP). LACP gere as interfaces físicas conectadas como uma única interface virtual (grupo agregado) e deteta quaisquer falhas de interface dentro do grupo.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -108,7 +108,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a Oracle PeopleSoft - Protegida pela aplicação F5 BIG-IP APM espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ------------------ | --------- |
     | EMPLID | utilizador.employeeid |
 
@@ -126,7 +126,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

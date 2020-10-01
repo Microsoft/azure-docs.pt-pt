@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310092"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619649"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos com caco
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -80,7 +80,7 @@ Escolham os vossos nomes agora e escrevam-nos.
         - Selecione uma **localização** da lista de drop-down.
     - Para **o Utilizador** - Recomendamos que escolha um valor de **utilizador** curto.
 
-1. **Implemente a aplicação**.
+1. **Implementar a aplicação**.
 
     - Clique para concordar com os termos e condições.
     - Clique em **Comprar**.
@@ -133,7 +133,7 @@ Uma página central do Centro de **Eventos** fornece uma lista de links para os 
 
    ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
+### <a name="azure-traffic-manager"></a>Gestor de Tráfego do Azure
 
 Para controlar a distribuição de pedidos de entrada, a aplicação Wingtip utiliza [o Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino na sua URL. Cada URL também inclui o seu valor específico do Utilizador. Cada URL obedece ao formato apresentado utilizando os seguintes passos:
 
@@ -200,7 +200,7 @@ Em seguida, nós providenciaremos outro inquilino, desta vez na sua própria bas
 
    ![Página de eventos de Salix Salsa](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
-   - Percorra a parte inferior da página. Ali no banner você vê o nome da base de dados em que os dados do inquilino são armazenados.
+   - Desloque-se até à parte inferior da página. Ali no banner você vê o nome da base de dados em que os dados do inquilino são armazenados.
 
 3. Refresque o **Centro de Eventos** e os dois novos inquilinos agora aparecem na lista.
 
@@ -253,7 +253,7 @@ As cargas de trabalho geradas pelo script do gerador de carga são apenas para i
   - [Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL](elastic-pool-overview.md)
   - [Aumentar horizontalmente com a Base de Dados SQL do Azure](elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber:
 

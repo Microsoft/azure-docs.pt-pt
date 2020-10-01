@@ -7,16 +7,19 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 36687f6394ef03a3fceb70c73601680dd262d90c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245405"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620210"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights que é preenchido com dados de dispositivos simulados. Neste tutorial, ficará a saber como:
 
@@ -41,7 +44,7 @@ Aprenda a usar um acelerador de solução Azure IoT para gerar dados e começar 
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O ambiente Azure Time Series Insights é onde os dados do dispositivo são recolhidos e armazenados. Uma vez armazenados, o [Azure Time Series Insights Explorer](time-series-quickstart.md) e a [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) podem ser utilizados para consultar e analisar os dados.
 
@@ -175,7 +178,7 @@ Nesta secção final, verifique se os dados da telemetria foram gerados e armaze
 
    [![Azure Time Series Insights Explorer tempo range visualização filtrada e eventos](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial cria vários serviços Azure em execução para suportar o ambiente Azure Time Series Insights ambiente e solução de simulação de dispositivos. Para removê-los, navegue de volta para o portal Azure.
 

@@ -6,19 +6,19 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 213a4fdb0e064e1c36a04f7190f14fab80cb4daa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117351"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620363"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
         ![Botão de propriedades do recipiente blob](./media/auditing-configure/4_container_properties_button.png)
 
-     1. Copie o URL do recipiente clicando no ícone da cópia e guarde o URL (por exemplo, no Bloco de Notas) para utilização futura. O formato URL do contentor deve ser`https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copie o URL do recipiente clicando no ícone da cópia e guarde o URL (por exemplo, no Bloco de Notas) para utilização futura. O formato URL do contentor deve ser `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![URL de cópia de recipiente de bolha](./media/auditing-configure/5_container_copy_name.png)
 
@@ -177,7 +177,7 @@ Os registos de auditoria de uma instância gerida podem ser enviados para os cen
 
 5. Selecione um destino para os eventos de auditoria: Centros de Eventos, registos do Azure Monitor ou ambos. Configure para cada alvo os parâmetros necessários (por exemplo, log analytics espaço de trabalho).
 
-6. Clique em **Save** (Guardar).
+6. Clique em **Guardar**.
 
     ![Configurar configurações de diagnóstico](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -242,7 +242,7 @@ As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazena
 - É fornecida uma nova sintaxe `TO EXTERNAL MONITOR` para permitir os alvos de registo de Eventos e Azure Monitor.
 - A sintaxe `TO FILE` não é **suportada** porque a Azure SQL Managed Instance não consegue aceder a ações de ficheiros do Windows.
 - A opção de encerramento não é **suportada**.
-- `queue_delay`de 0 não é **suportado**.
+- `queue_delay` de 0 não é **suportado**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

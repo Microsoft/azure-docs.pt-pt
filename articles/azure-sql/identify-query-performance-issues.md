@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284116"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619768"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamentos de desempenho de consulta na Base de Dados Azure SQL
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamento de desempenho de consultas na Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Ao tentar resolver um estrangulamento de desempenho, comece por determinar se o estrangulamento está a ocorrer enquanto a consulta se encontra em estado de funcionamento ou em estado de espera. Aplicam-se diferentes resoluções em função desta determinação. Utilize o diagrama seguinte para ajudar a compreender os fatores que podem causar um problema relacionado com a execução ou um problema relacionado com a espera. Neste artigo são discutidos problemas e resoluções relativos a cada tipo de problema.

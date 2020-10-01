@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 65513b3cd5813d7d127ca9cbabdcd038f11beee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042870"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619802"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Configurar e utilizar registos Azure Monitor com uma aplicação SaaS de Base de Dados Azure SQL multitenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -87,7 +87,7 @@ Neste exercício, abra o espaço de trabalho do Log Analytics no portal Azure pa
 
 1. Selecione **visão geral** para abrir a solução de análise de registo no portal Azure.
 
-   ![Descrição geral](./media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![Descrição Geral](./media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Pode levar alguns minutos até que a solução esteja ativa. 
@@ -140,7 +140,7 @@ Para obter mais informações sobre como utilizar registos do Azure Monitor para
 Registos do Azure Monitor para taxas de base de dados SQL com base no volume de dados no espaço de trabalho. Neste tutorial, criou um espaço de trabalho gratuito, que está limitado a 500 MB por dia. Após esse limite ser atingido, os dados deixaram de ser adicionados ao espaço de trabalho.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441940"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619921"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considerações de segurança para o movimento de dados
 
@@ -142,7 +142,7 @@ As imagens que se seguem mostram a utilização do Data Management Gateway para 
 
 ![IPSec VPN com gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurações de firewall e endereço IP whitelisting do gateway
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurações de firewall e endereço IP filtrante do gateway
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para as redes no local/rede privada  
 Numa empresa, uma **firewall corporativa** funciona no router central da organização. E a **firewall do Windows** funciona como um daemon na máquina local na qual o portal está instalado. 
@@ -158,7 +158,7 @@ A tabela seguinte fornece requisitos **de porta** e domínio de saída para a **
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) necessário quando o seu destino é a loja Azure Data Lake | 
 
 > [!NOTE] 
-> Poderá ter de gerir portas/domínios whitelisting ao nível da firewall corporativa, conforme exigido pelas respetivas fontes de dados. Esta tabela utiliza apenas a Base de Dados Azure SQL, Azure Synapse Analytics, Azure Data Lake Store como exemplos.   
+> Poderá ter de gerir portas/domínios de filtragem ao nível da firewall corporativa, conforme exigido pelas respetivas fontes de dados. Esta tabela utiliza apenas a Base de Dados Azure SQL, Azure Synapse Analytics, Azure Data Lake Store como exemplos.   
 
 A tabela seguinte fornece requisitos de **porta de entrada** para a firewall do **windows**.
 
@@ -168,10 +168,10 @@ A tabela seguinte fornece requisitos de **porta de entrada** para a firewall do 
 
 ![Requisitos da porta gateway](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Configurações IP/ whitelisting na loja de dados
-Algumas lojas de dados na nuvem também requerem a whitelisting do endereço IP da máquina que os acede. Certifique-se de que o endereço IP da máquina de gateway está whitelisted/ configurado na firewall adequadamente.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Configurações/filtragem ip na loja de dados
+Algumas lojas de dados na nuvem também requerem a aprovação do endereço IP da máquina que os acede. Certifique-se de que o endereço IP da máquina de gateway é aprovado/configurado na firewall adequadamente.
 
-As seguintes lojas de dados em nuvem requerem a whitelisting do endereço IP da máquina gateway. Algumas destas lojas de dados, por padrão, podem não necessitar de whitelisting do endereço IP. 
+As seguintes lojas de dados em nuvem requerem a aprovação do endereço IP da máquina de gateway. Algumas destas lojas de dados, por padrão, podem não exigir a aprovação do endereço IP. 
 
 - [Base de Dados SQL do Azure](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ As seguintes lojas de dados em nuvem requerem a whitelisting do endereço IP da 
 **Resposta:** Ainda não apoiamos esta funcionalidade. Estamos a trabalhar ativamente para esse fim.
 
 **Pergunta:** Quais são os requisitos portuários para a porta de entrada para o trabalho?
-**Resposta:** Gateway faz ligações baseadas em HTTP para abrir internet. As **portas de saída 443 e 80** devem ser abertas para porta de entrada para estoiá-lo. Abra **o Porto de Entrada 8050** apenas ao nível da máquina (não ao nível da firewall corporativa) para a aplicação Do Gestor Credencial. Se a Base de Dados Azure SQL ou a Azure Synapse Analytics forem usadas como fonte/destino, então também precisa abrir a porta **1433.** Para obter mais informações, consulte as configurações de Firewall e a secção [de endereços IP da lista branca.](#firewall-configurations-and-whitelisting-ip-address-of gateway) 
+**Resposta:** Gateway faz ligações baseadas em HTTP para abrir internet. As **portas de saída 443 e 80** devem ser abertas para porta de entrada para estoiá-lo. Abra **o Porto de Entrada 8050** apenas ao nível da máquina (não ao nível da firewall corporativa) para a aplicação Do Gestor Credencial. Se a Base de Dados Azure SQL ou a Azure Synapse Analytics forem usadas como fonte/destino, então também precisa abrir a porta **1433.** Para obter mais informações, consulte as configurações de Firewall e a secção [de endereços IP de filtragem.](#firewall-configurations-and-filtering-ip-address-of gateway) 
 
 **Pergunta:** Quais são os requisitos de certificado para gateway?
 **Resposta:** O gateway atual requer um certificado que é usado pela aplicação do gestor credencial para definir de forma segura credenciais de armazenamento de dados. Este certificado é um certificado auto-assinado criado e configurado pela configuração do gateway. Em vez disso, pode utilizar o seu próprio certificado TLS/SSL. Para obter mais informações, consulte a secção [de aplicação do gestor credencial.](#click-once-credentials-manager-app) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre o desempenho da atividade de cópia, consulte [o desempenho da atividade de Copy e o guia de afinação](data-factory-copy-activity-performance.md).
-
- 

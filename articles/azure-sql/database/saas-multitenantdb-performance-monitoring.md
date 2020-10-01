@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e4f26b21ad7458b4f5bcad9a902f4e048d726f1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3307e31935377f55f792e640934e59017c1980c7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042436"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619627"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorize e gere o desempenho da base de dados Azure SQL de vários inquilinos em uma aplicação SaaS multi-arrendatário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -76,7 +76,7 @@ O script *New-TenantBatch* cria novos inquilinos com chaves de inquilino únicas
 
 O *Demo-PerformanceMonitoringAndManagement.ps1* script é fornecido que simula uma carga de trabalho que corre contra a base de dados de vários inquilinos. A carga é gerada utilizando um dos cenários de carga disponíveis:
 
-| Demonstração | Scenario |
+| Demonstração | Cenário |
 |:--|:--|
 | 2 | Gerar carga de intensidade normal (aproximadamente 30 DTU) |
 | 3 | Gerar carga com rajadas mais longas por inquilino|
@@ -184,7 +184,7 @@ Como o dimensionamento é uma tarefa facilmente chamada através da API de gest�
 
 Quando o uso agregado de inquilinos segue padrões de utilização previsíveis, você pode usar a Azure Automation para escalar uma base de dados para cima e para baixo em um horário. Por exemplo, reduza a base de dados depois das 18h e volte a subir antes das 6h nos dias úteis quando sabe que há uma queda nos requisitos de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficará a saber como:
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: sample
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046986"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619836"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do tampão de anel para eventos prolongados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,12 +31,12 @@ Este tópico apresenta uma amostra de código Transact-SQL que:
 2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting**.
 
    * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'**.
-   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente **pacote0.ring_buffer**.
+   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente  **package0.ring_buffer**.
 3. Começa a sessão do evento.
 4. Emite um par de declarações simples SQL UPDATE.
 5. Emite uma declaração SQL SELECT para recuperar a saída do evento a partir do tampão de anel.
 
-   * **sys.dm_xe_database_session_targets** e outras visões dinâmicas de gestão (DMVs) juntam-se.
+   * **sys.dm_xe_database_session_targets** e outros pontos de vista dinâmicos de gestão (DMVs) juntam-se.
 6. Para a sessão do evento.
 7. Deixa cair o alvo do tampão do anel, para libertar os seus recursos.
 8. Deixa cair a sessão do evento e a mesa de demonstração.

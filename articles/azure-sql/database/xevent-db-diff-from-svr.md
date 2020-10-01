@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046958"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619819"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos alargados na Base de Dados Azure SQL 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -81,7 +81,7 @@ A funcionalidade de eventos alargados é suportada por várias [vistas de catál
 | **sys.database_event_session_targets** |Retorna uma linha para cada alvo de evento para uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de eventos na base de dados. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_ * em vez de *.database \_ *. O padrão do nome é como **sys.server_event_%**.
+No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_ * em vez de *.database \_ *. O padrão do nome é como **sys.server_event_%.**
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Novas visões dinâmicas de gestão [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -97,7 +97,7 @@ A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](https://
 
 No Microsoft SQL Server, as vistas de catálogo semelhantes são nomeadas sem a parte da base de * \_ dados* do nome, tais como:
 
-- **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions.**
 
 ### <a name="dmvs-common-to-both"></a>DMVs comuns a ambos
 

@@ -8,23 +8,23 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300110"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620074"
 ---
-# <a name="prerequisites"></a>Pré-requisitos
-
-Para completar tudo isto, é necessário ter acesso a um grupo de recursos para o qual lhe é atribuída a função **De proprietário.** Crie o espaço de trabalho synapse neste grupo de recursos.
-
-## <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
+# <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
 Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma piscina SQL e uma piscina Apache Spark. 
 
-## <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para completar tudo isto, é necessário ter acesso a um grupo de recursos para o qual lhe é atribuída a função **De proprietário.** Crie o espaço de trabalho synapse neste grupo de recursos.
+
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho sinapse no Portal Azure
 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.

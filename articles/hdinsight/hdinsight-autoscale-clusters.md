@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532193"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620091"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Aglomerados autoscale Azure HDInsight
 
@@ -68,16 +68,16 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 > [!Important]
 > A funcionalidade de Dimensionamento Automático do Azure HDInsight foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters do Spark e do Hadoop com melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se tiver criado um cluster do Spark antes de 7 de novembro de 2019 e quiser utilizar a funcionalidade de Dimensionamento Automático no cluster, o caminho recomendado será criar um novo cluster e ativar o Dimensionamento Automático no novo cluster.
 >
-> A autoescala para Consulta Interativa (LLAP) foi lançada para disponibilidade geral no dia 27 de agosto de 2020. Os clusters HBase ainda estão em pré-visualização. O Dimensionamento Automático só está disponível nos clusters do Spark, do Hadoop, do Interactive Query e do HBase.
+> A autoescala para Consulta Interativa (LLAP) foi lançada para disponibilidade geral para HDI 4.0 no dia 27 de agosto de 2020. Os clusters HBase ainda estão em pré-visualização. O Dimensionamento Automático só está disponível nos clusters do Spark, do Hadoop, do Interactive Query e do HBase.
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versão | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
@@ -225,7 +225,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Description |
+| Estado do cluster | Descrição |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
@@ -251,7 +251,7 @@ Pode levar 10 a 20 minutos para uma operação de escalonamento ser concluída. 
 
 ### <a name="prepare-for-scaling-down"></a>Prepare-se para escalonar
 
-Durante o processo de dimensionamento do cluster, a Autoscale desativa os nós para atingir o tamanho do alvo. Se as tarefas estiverem a ser executadas nesses nós, a Autoscale aguarda até que as tarefas estejam concluídas. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários são transferidos para os restantes nós. Certifique-se de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
+Durante o processo de dimensionamento do cluster, a Autoscale desativa os nós para atingir o tamanho do alvo. Se as tarefas estiverem a ser executadas nesses nós, a Autoscale aguarda até que as tarefas estejam concluídas para os clusters Spark e Hadoop. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários são transferidos para os restantes nós. Certifique-se de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
 
 Os trabalhos de corrida continuarão. Os postos de trabalho pendentes aguardarão o agendamento com menos nós de trabalhadores disponíveis.
 
@@ -265,7 +265,7 @@ A autoescala para clusters Hadoop também monitoriza a utilização do HDFS. Se 
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Desaprote as consultas concurrentas totais da configuração da Colmeia para o cenário de utilização máxima
 
-Eventos de autoescala não alteram a configuração *máxima de consultas concurrentas* totais da colmeia em Ambari. Isto significa que o Serviço Interativo Hive Server 2 pode lidar apenas com o número de consultas simultâneas em qualquer momento, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga e no horário. A recomendação geral é definir esta configuração para o cenário de utilização máxima para evitar a intervenção manual.
+Eventos de autoescala não alteram a configuração *máxima de consultas concurrentas* totais da colmeia em Ambari. Isto significa que o Serviço Interativo Hive Server 2 pode lidar apenas com o número de consultas simultâneas em qualquer momento, mesmo que a contagem de daemons de Consulta Interativa seja dimensionada para cima e para baixo com base na carga e no horário. A recomendação geral é definir esta configuração para o cenário de utilização máxima para evitar a intervenção manual.
 
 No entanto, poderá experimentar uma falha de reinício do Hive Server 2 se houver apenas um pequeno número de nós de trabalhadores e o valor para consultas máximas simultâneas é configurado demasiado alto. No mínimo, necessita do número mínimo de nós de trabalhadores que possam acomodar o número dado de Tez Ams (igual à configuração máxima total de consultas simultâneas). 
 
@@ -275,11 +275,11 @@ No entanto, poderá experimentar uma falha de reinício do Hive Server 2 se houv
 
 HDInsight Autoscale utiliza um ficheiro de etiqueta de nó para determinar se um nó está pronto para executar tarefas. O ficheiro da etiqueta do nó é armazenado em HDFS com três réplicas. Se o tamanho do cluster for drasticamente reduzido e houver uma grande quantidade de dados temporários, há uma pequena chance de que as três réplicas possam ser largadas. Se isto acontecer, o cluster entra num estado de erro.
 
-### <a name="llap-daemons-count"></a>Contagem de Daemons LLAP
+### <a name="interactive-query-daemons-count"></a>Contagem de Daemons de Consulta Interativa
 
-No caso de clusters LLAP ativados por autoscae, um evento de escala automática para cima/para baixo também escala o número de daemons LLAP para o número de nós de trabalhadores ativos. A mudança no número de daemons não persiste na `num_llap_nodes` configuração em Ambari. Se os serviços da Hive forem reiniciados manualmente, o número de daemons LLAP é reiniciado de acordo com a configuração em Ambari.
+No caso de agrupamentos de consultas interativos com uma escala automática, um evento de escala automática para cima/para baixo também escala o número de daemons de consulta interativa para o número de nós de trabalhadores ativos. A mudança no número de daemons não persiste na `num_llap_nodes` configuração em Ambari. Se os serviços da Hive forem reiniciados manualmente, o número de daemons de consulta interativa é reiniciado de acordo com a configuração em Ambari.
 
-Se o serviço LLAP for reiniciado manualmente, é necessário alterar manualmente a `num_llap_node` configuração (o número de nós(s) necessários para executar o daemon Hive LLAP) em *função da colmeia-interactiva-env avançada* para corresponder à contagem atual do nó de trabalhador ativo.
+Se o serviço de consulta interativa for reiniciado manualmente, é necessário alterar manualmente a `num_llap_node` configuração (o número de nós(s) necessários para executar o daemon hive interactive) em *hive-interactive-env avançado* para corresponder à contagem atual do nó de trabalhador ativo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

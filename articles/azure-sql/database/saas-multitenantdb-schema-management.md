@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b115b410547b37e6cfa369b825c94b6b22436941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dc28b51e33de6bf08995064404d2d4cc6ca9b58
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042177"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619581"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Gerir o esquema numa aplicação SaaS que utiliza bases de dados de vários inquilinos com oncimado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Este tutorial requer que utilize o PowerShell para criar a base de dados de agen
 1. Em **PowerShell ISE,** *aberto... \\Demo-SchemaManagement.ps1\\ de Gestão \\ de Módulos de Aprendizagem. *
 2. Prima **F5** para executar o script.
 
-O *Demo-SchemaManagement.ps1* script chama *o*Deploy-SchemaManagement.ps1script para criar uma base de dados chamada _jobagent_ no servidor do catálogo. O guião cria então o agente de trabalho, passando a base _de dados de trabalho_ como parâmetro.
+O *Demo-SchemaManagement.ps1* script chama * o *Deploy-SchemaManagement.ps1script para criar uma base de dados chamada _jobagent_ no servidor do catálogo. O guião cria então o agente de trabalho, passando a base _de dados de trabalho_ como parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
@@ -163,7 +163,7 @@ Observe os seguintes itens no script *OnlineReindex.sql:*
 -->
 * [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](../../sql-database/elastic-jobs-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

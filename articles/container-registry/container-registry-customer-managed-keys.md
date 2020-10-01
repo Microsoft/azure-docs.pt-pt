@@ -1,19 +1,19 @@
 ---
-title: Encriptação em repouso com uma chave gerida pelo cliente
+title: Registo de encriptação com uma chave gerida pelo cliente
 description: Saiba mais sobre encriptação no resto do seu registo de contentores Azure e como encriptar o seu registo Premium com uma chave gerida pelo cliente armazenada no Cofre de Chaves Azure
 ms.topic: article
-ms.date: 08/26/2020
+ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487237"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620346"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
-Quando armazena imagens e outros artefactos num registo de contentores Azure, o Azure encripta automaticamente o conteúdo do registo em repouso com [as teclas geridas pelo serviço](../security/fundamentals/encryption-models.md). Pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando uma chave que cria e gere no Cofre da Chave Azure. Este artigo acompanha-o através dos degraus usando o CLI Azure e o portal Azure.
+Quando armazena imagens e outros artefactos num registo de contentores Azure, o Azure encripta automaticamente o conteúdo do registo em repouso com [as teclas geridas pelo serviço](../security/fundamentals/encryption-models.md). Pode complementar a encriptação padrão com uma camada de encriptação adicional utilizando uma chave que cria e gere no Cofre de Chaves Azure (uma chave gerida pelo cliente). Este artigo acompanha-o através dos degraus usando o CLI Azure e o portal Azure.
 
 A encriptação do lado do servidor com as chaves geridas pelo cliente é suportada através da integração com [o Azure Key Vault](../key-vault/general/overview.md). Pode criar as suas próprias chaves de encriptação e armazená-las num cofre de chaves ou utilizar as APIs do Azure Key Vault para gerar chaves. Com o Azure Key Vault, também pode auditar o uso da chave.
 
@@ -84,7 +84,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 Crie um cofre chave com [chave-chave criar][az-keyvault-create] para armazenar uma chave gerida pelo cliente para encriptação de registo.
 
-Para evitar a perda de dados causada por eliminações acidentais da chave ou do cofre, deve ativar as seguintes definições: **Proteção de eliminação** e **purga**suave . O exemplo a seguir inclui parâmetros para estas definições:
+Para evitar a perda de dados causada por eliminações acidentais da chave ou do cofre, ative as seguintes definições: **Proteção de eliminação** e **purga**suave . O exemplo a seguir inclui parâmetros para estas definições:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -93,7 +93,16 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-### <a name="add-key-vault-access-policy"></a>Adicione a política de acesso ao cofre de chaves
+> [!NOTE]
+> A partir da versão 2.2 do Azure CLI, `az keyvault create` permite a eliminação suave por padrão.
+
+Para ser utilizado em etapas posteriores, obtenha o ID de recursos do cofre chave:
+
+```azurecli
+keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
+```
+
+### <a name="enable-key-vault-access"></a>Permitir o acesso ao cofre de chaves
 
 Configure uma política para o cofre chave para que a identidade possa acessá-lo. No seguinte comando [de definição de keyvault az,][az-keyvault-set-policy] você passa o ID principal da identidade gerida que criou, armazenado anteriormente numa variável ambiental. Desembrulhe as permissões de chave para **obter,** **desembrulhar oKey**e **embrulhar oKey**.  
 
@@ -103,6 +112,14 @@ az keyvault set-policy \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
   --key-permissions get unwrapKey wrapKey
+```
+
+Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/az/role/assigment#az-role-assignment-create)
+
+```azurecli 
+az role assignment create --assignee $identityPrincipalID \
+  --role "Key Vault Crypto Service Encryption (preview)" \
+  --scope $keyvaultID
 ```
 
 ### <a name="create-key-and-get-key-id"></a>Crie a chave e obtenha iD chave
@@ -199,7 +216,7 @@ Ao criar um cofre-chave para uma chave gerida pelo cliente, no **separador Bási
 
 ![Criar cofre chave no portal Azure](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
-### <a name="add-key-vault-access-policy"></a>Adicione a política de acesso ao cofre de chaves
+### <a name="enable-key-vault-access"></a>Permitir o acesso ao cofre de chaves
 
 Configure uma política para o cofre chave para que a identidade possa acessá-lo.
 
@@ -210,6 +227,15 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
 
 ![Criar política de acesso ao cofre chave](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+
+ Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do Serviço Crypto do Cofre de Chaves à identidade.
+
+1. Navegue para o cofre da chave.
+1. Selecione **Access control (IAM)**  >  **+Add**  >  **Add role assignment**.
+1. Na janela **de atribuição de funções Adicionar:**
+    1. Selecione o papel **de encriptação do serviço crypto do cofre de chaves (pré-visualização).** 
+    1. Atribuir acesso à **identidade gerida atribuída pelo Utilizador.**
+    1. Selecione o nome de recurso da sua identidade gerida atribuída pelo utilizador e selecione **Save**.
 
 ### <a name="create-key"></a>Criar chave
 
@@ -381,7 +407,7 @@ Rode uma chave gerida pelo cliente utilizada para encriptação de registo de ac
 Ao rodar uma chave, normalmente especifica a mesma identidade utilizada na criação do registo. Opcionalmente, configurar uma nova identidade atribuída ao utilizador para o acesso à chave, ou ativar e especificar a identidade atribuída ao sistema do registo.
 
 > [!NOTE]
-> Certifique-se de que a política de acesso ao cofre de [chaves](#add-key-vault-access-policy) necessária está definida para a identidade que configura para o acesso à chave.
+> Certifique-se de que o acesso ao cofre de [teclas](#enable-key-vault-access) necessário está definido para a identidade que configura para o acesso à chave.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -432,7 +458,7 @@ Por exemplo, para gerar e configurar uma nova versão chave:
 
 ## <a name="revoke-key"></a>Revogar a chave
 
-Revogue a chave de encriptação gerida pelo cliente alterando a política de acesso no cofre da chave ou eliminando a chave. Por exemplo, utilize o comando [az keyvault delete-policy][az-keyvault-delete-policy] para alterar a política de acesso da identidade gerida utilizada pelo seu registo:
+Revogue a chave de encriptação gerida pelo cliente alterando a política de acesso ou permissões no cofre da chave ou eliminando a chave. Por exemplo, utilize o comando [az keyvault delete-policy][az-keyvault-delete-policy] para alterar a política de acesso da identidade gerida utilizada pelo seu registo:
 
 ```azurecli
 az keyvault delete-policy \
@@ -478,7 +504,7 @@ Para atualizar as definições de encriptação do registo para utilizar a ident
 
 ### <a name="enable-key-vault-bypass"></a>Ativar o bypass do cofre de chaves
 
-Para aceder a um cofre de chaves configurado com uma firewall key Vault, o registo deve contornar a firewall. Configure o cofre de chaves para permitir o acesso por qualquer [serviço de confiança](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O Registo de Contentores Azure é um dos serviços de confiança.
+Para aceder a um cofre de chaves configurado com uma firewall key Vault, o registo deve contornar a firewall. Certifique-se de que o cofre da chave está configurado para permitir o acesso por qualquer [serviço de confiança](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O Registo de Contentores Azure é um dos serviços de confiança.
 
 1. No portal, navegue para o cofre da chave.
 1. Selecione **Rede de Definições**  >  **Networking**.
@@ -489,7 +515,25 @@ Para aceder a um cofre de chaves configurado com uma firewall key Vault, o regis
 
 Depois de completar os passos anteriores, rode a chave para uma nova chave no cofre da chave atrás de uma firewall. Para etapas, consulte [a tecla Rotativa](#rotate-key) neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="troubleshoot"></a>Resolver Problemas
+
+### <a name="removing-user-assigned-identity"></a>Remoção da identidade atribuída ao utilizador
+
+Se tentar remover uma identidade atribuída ao utilizador de um registo que é utilizado para encriptação, poderá ver uma mensagem de erro semelhante a:
+ 
+```
+Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
+```
+ 
+Também não poderá alterar (rodar) a chave de encriptação. Se ocorrer este problema, desatribua primeiro a identidade utilizando o GUID visualizado na mensagem de erro. Por exemplo:
+
+```azurecli
+az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+```
+        
+Em seguida, depois de alterar a chave e atribuir uma identidade diferente, pode remover a identidade original atribuída ao utilizador.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [encriptação em repouso em Azure](../security/fundamentals/encryption-atrest.md).
 * Saiba mais sobre as políticas de acesso e como [garantir o acesso a um cofre de chaves.](../key-vault/general/secure-your-key-vault.md)

@@ -2,13 +2,13 @@
 title: Configure Azure Arc permitiu o agrupamento kubernetes com monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve como configurar a monitorização com o Azure Monitor para contentores em Azure Arc ativados aglomerados kubernetes.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977534"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620295"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Permitir a monitorização do cluster Kubernetes habilitado pelo Arco Azure
 
@@ -21,8 +21,6 @@ O Azure Monitor para contentores pode ser ativado para uma ou mais implementaç�
 O Azure Monitor para contentores suporta a monitorização do Arco Azure ativado kubernetes (pré-visualização) conforme descrito no artigo de [visão geral,](container-insights-overview.md) com exceção das seguintes características:
 
 - Dados ao Vivo (pré-visualização)
-
-- [Recolher métricas](container-insights-update-metrics.md) de nódoas e cápsulas de cluster e guardá-las na base de dados de métricas do Monitor Azure
 
 O seguinte é oficialmente suportado com o Azure Monitor para contentores:
 
@@ -106,7 +104,7 @@ Para permitir a monitorização do seu cluster utilizando o script PowerShell ou
 1. Faça o download e guarde o script para uma pasta local que configura o seu cluster com o add-on de monitorização utilizando os seguintes comandos:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Configure a `$azureArcClusterResourceId` variável definindo os valores correspondentes para `subscriptionId` , e representando o `resourceGroupName` `clusterName` ID de recurso do seu recurso de cluster Kubernetes ativado pelo Arco Azure.

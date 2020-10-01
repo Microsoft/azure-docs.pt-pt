@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: d49a1120ddda98430f4f9b3c488819829a9fd7b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 584cf5d1d7cad4b626aae8fca3cd74d116470839
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320698"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619734"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para Azure Data Box via NFS
 
@@ -85,7 +85,7 @@ Se estiver a utilizar um computador anfitrião do Linux, execute os passos segui
 Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes de começar a cópia de dados, reveja as seguintes considerações:
 
 * Certifique-se de que copia os dados para partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie VHDs para bolhas de página. Se o formato de dados não corresponder à partilha apropriada (tipo de armazenamento), num passo posterior, o carregamento de dados para o Azure falhará.
-*  Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box](data-box-limits.md).
+*  Ao copiar dados, certifique-se de que o tamanho dos dados está em conformidade com os limites de tamanho descritos nos limites de tamanho da [conta de armazenamento Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 * Recomendamos que não utilize as opções SMB e NFS em simultâneo nem copie os mesmos dados para o mesmo destino final no Azure. Nesses casos, não é possível determinar o resultado final.
 * **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
@@ -145,11 +145,11 @@ Durante o processo de cópia, em caso de erros, verá uma notificação.
 
 Selecione **Transferir lista de problemas**.
 
-![Transferir e ver erros em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+![Faça o download da lista de problemas para um erro de cópia](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Abra a lista para ver os detalhes do erro e selecione o URL de resolução para ver a resolução recomendada.
 
-![Transferir e ver erros em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+![Problemas numa lista de problemas de erro de cópia](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Para obter mais informações, veja a secção Para obter mais informações, veja a secção [Ver registos de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja a secção [Resolver problemas do Data Box](data-box-troubleshoot.md).
 

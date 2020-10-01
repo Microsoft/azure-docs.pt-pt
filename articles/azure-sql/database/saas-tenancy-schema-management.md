@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62e20a10e9709bc69a746a6f62e949c47c3a6d02
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255556"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620159"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir o esquema numa aplicação SaaS utilizando o padrão de base de dados por inquilino com base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Este tutorial requer que utilize o PowerShell para criar um agente de trabalho e
 1. **Em PowerShell ISE,** aberto... \\Demo-SchemaManagement.ps1de Gestão de Módulos \\ de Aprendizagem. \\ * *
 1. Prima **F5** para executar o script.
 
-O *Demo-SchemaManagement.ps1* script chama *o*Deploy-SchemaManagement.ps1script para criar uma base de dados chamada *osagent* no servidor do catálogo. Em seguida, cria o agente de trabalho, usando a base de dados como parâmetro.
+O *Demo-SchemaManagement.ps1* script chama * o *Deploy-SchemaManagement.ps1script para criar uma base de dados chamada *osagent* no servidor do catálogo. Em seguida, cria o agente de trabalho, usando a base de dados como parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
@@ -113,7 +113,7 @@ Observe os seguintes elementos no script _OnlineReindex.sql:_
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

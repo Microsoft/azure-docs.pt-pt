@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 446517f56d1f5ba6fa32408489f07411ee1a3e02
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356813"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619598"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app multi-inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

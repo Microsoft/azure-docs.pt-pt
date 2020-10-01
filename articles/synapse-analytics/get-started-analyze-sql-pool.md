@@ -9,14 +9,14 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 3df0959003923a9a4ff2347330fd5a4f22e52245
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300127"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620040"
 ---
-# <a name="analyze-data-with-sql-dedicated-pools"></a>Analisar dados com piscinas dedicadas SQL
+# <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
 O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma piscina DE SQL dedicada. Neste tutorial, você usará os dados do Táxi nyc para explorar as capacidades de uma piscina SQL desatada.
 
