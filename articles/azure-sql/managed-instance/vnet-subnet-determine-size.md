@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323112"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617645"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho da sub-rede necessária & gama para Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ O número de casos geridos que podem ser implantados na sub-rede de um VNet depe
 
 Ao criar uma instância gerida, o Azure atribui uma série de máquinas virtuais dependendo do nível selecionado durante o provisionamento. Como estas máquinas virtuais estão associadas à sua sub-rede, necessitam de endereços IP. Para garantir uma elevada disponibilidade durante as operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários numa sub-rede é maior do que o número de casos geridos nessa sub-rede.
 
-Por design, uma instância gerida precisa de um mínimo de 32 endereços IP numa sub-rede. Como resultado, pode utilizar a máscara mínima de sub-rede de /27 ao definir os intervalos IP da sub-rede. Recomenda-se um planeamento cuidadoso do tamanho da sub-rede para as suas implementações de instância gerida. Os fatores que devem ser tomados em consideração durante o planeamento são:
+Por predefinição, uma instância gerida precisa de um mínimo de 32 endereços IP numa sub-rede. Como resultado, pode utilizar uma máscara de sub-rede mínima de/27 ao definir os seus intervalos de IP de sub-rede. É recomendado realizar um planeamento cuidadoso do tamanho da sub-rede para as suas implementações de instância gerida. Os fatores que devem ser tomados em consideração durante o planeamento são:
 
 - Número de casos geridos, incluindo parâmetros de exemplo:
   - nível de serviço

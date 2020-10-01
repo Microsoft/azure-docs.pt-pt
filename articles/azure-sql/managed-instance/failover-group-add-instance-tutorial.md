@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578568"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617745"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

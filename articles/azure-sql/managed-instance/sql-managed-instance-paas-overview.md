@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ce86f4e6ed5f29be3e36959e0f9db76edaab4982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273029"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618160"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,15 +56,15 @@ As principais características da SQL Managed Instance são mostradas na tabela 
 |Funcionalidade | Descrição|
 |---|---|
 | Versão/construção do SQL Server | Motor de base de dados SQL Server (mais recente estável) |
-| Backups automatizados geridos | Yes |
-| Caso incorporado e monitorização e métricas de bases de dados | Yes |
-| Patching automático de software | Yes |
-| As mais recentes funcionalidades do motor da base de dados | Yes |
+| Backups automatizados geridos | Sim |
+| Caso incorporado e monitorização e métricas de bases de dados | Sim |
+| Patching automático de software | Sim |
+| As mais recentes funcionalidades do motor da base de dados | Sim |
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
-| VNet - Implementação do Gestor de Recursos Azure | Yes |
-| VNet - Modelo de implementação clássico | No |
-| Suporte ao portal | Yes|
+| VNet - Implementação do Gestor de Recursos Azure | Sim |
+| VNet - Modelo de implementação clássico | Não |
+| Suporte ao portal | Sim|
 | Serviço de Integração Incorporada (SSIS) | No - SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | No - SSAS é [paaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
 | Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospedeiro SSRS num Azure VM. Embora a SQL Managed Instance não possa executar o SSRS como um serviço, pode hospedar [bases de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatório instalado na Máquina Virtual Azure, utilizando a autenticação do SQL Server. |

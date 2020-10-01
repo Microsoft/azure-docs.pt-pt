@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: a4747fcd3a68c91e10d13a03adcbc4930bd9d759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2134cf1fda5f0f1699feb46582813d198304f92e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345262"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616385"
 ---
 # <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitor de armazenamento OLTP na memória OLTP em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -67,6 +67,6 @@ Para resolver este erro, também:
 > [!NOTE]
 > Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento OLTP disponível suficiente e a reorientação da operação tem sucesso. Por isso, recomendamos que monitorize o armazenamento geral disponível em memória OLTP e que refaça quando encontrar o erro 41823 ou 41840. Para obter mais informações sobre a lógica de relemissão, consulte [a Lógica de Deteção de Conflitos e Retripsto com OLTP in-memory](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para orientar a monitorização, consulte [a monitorização utilizando pontos de vista dinâmicos de gestão](database/monitoring-with-dmvs.md).

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361114"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616657"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise do SaaS com a Azure SQL Database, Azure Synapse Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

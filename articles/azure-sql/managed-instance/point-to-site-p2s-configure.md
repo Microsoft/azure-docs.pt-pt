@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325084"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617694"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Quickstart: Configurar uma ligação ponto-a-local com Azure SQL Gestão Instância a partir de instalações
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

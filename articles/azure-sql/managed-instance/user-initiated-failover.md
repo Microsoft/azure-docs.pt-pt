@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: e805de26b7d2e5ec8d29801a05291acfe086bb1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323163"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617762"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 

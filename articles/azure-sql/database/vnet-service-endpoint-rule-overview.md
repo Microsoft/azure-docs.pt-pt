@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 827d66b51aa2080c4fb10209439d7781ddf787a7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436930"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616708"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -280,7 +280,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall ao nível do servidor e de nível de base de dados][sql-db-firewall-rules-config-715d]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de Rede Virtual: Operações][rest-api-virtual-network-rules-operations-862r] com APIs REST

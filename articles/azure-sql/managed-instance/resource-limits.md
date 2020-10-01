@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: c563862c777dd9b5bf4c9f31155aa65c430acd1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323246"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618120"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 > [!Important]
 > Business Critical o nível de serviço fornece uma cópia adicional incorporada da SQL Managed Instance (réplica secundária) que pode ser usada para carga de trabalho apenas de leitura. Se conseguir separar consultas de leitura-escrita e consultas de leitura/analítica/reporte, está a receber o dobro dos vCores e da memória pelo mesmo preço. A réplica secundária pode ficar alguns segundos atrás da instância primária, por isso é projetada para descarregar cargas de trabalho de reporte/analítico que não precisam do estado exato dos dados atuais. Na tabela abaixo, **as consultas apenas de leitura** são as consultas que são executadas em réplicas secundárias.
 
-| **Funcionalidade** | **Finalidade Geral** | **Crítico para a Empresa** |
+| **Funcionalidade** | **Fins Gerais** | **Crítico para a Empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*O mesmo número de vCores é dedicado a consultas apenas de leitura. |
 | Memória máxima | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore) para consultas de leitura-escrita<br/>+ mais 20,4 GB - 408 GB (5.1GB/vCore) para consultas só de leitura.<br/>Adicione mais vCores para obter mais memória. |

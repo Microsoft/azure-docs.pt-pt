@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 5311d6504e98c107b6ceb893babb6db31c9aff51
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325050"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618170"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrar um certificado de uma base de dados protegida pelo TDE para a Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

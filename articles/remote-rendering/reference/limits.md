@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976562"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617503"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -28,10 +28,12 @@ Uma série de funcionalidades têm tamanho, contagem ou outras limitações.
 
 ## <a name="geometry"></a>Geometria
 
-* Total de materiais admissíveis num ativo: 65.535. Consulte [a des duplicação de materiais](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) para obter mais informações.
-* Dimensão máxima de uma única textura: 16.384 x 16.384. Texturas de origem maiores serão reduzidas pelo processo de conversão.
+* **Animação:** As animações limitam-se a animar transformações individuais de objetos de jogo. Animações esqueléticas com animações de esfolar ou vértice não são suportadas. As faixas de animação do ficheiro do ativo de origem não são preservadas. Em vez disso, as animações de transformação de objetos têm de ser conduzidas pelo código do cliente.
+* **Shaders personalizados:** A autoria de shaders personalizados não é suportada. Só podem ser [utilizados materiais de cor incorporados](../overview/features/color-materials.md) ou [materiais PBR.](../overview/features/pbr-materials.md)
+* **Número máximo de materiais distintos** num ativo: 65.535. Para obter mais informações sobre a redução automática da contagem de material, consulte o capítulo [da des duplicação do material.](../how-tos/conversion/configure-model-conversion.md#material-de-duplication)
+* **Dimensão máxima de uma única textura:** 16.384 x 16.384. Texturas de origem maiores serão reduzidas em tamanho pelo processo de conversão.
 
-## <a name="overall-number-of-polygons"></a>Número total de polígonos
+### <a name="overall-number-of-polygons"></a>Número total de polígonos
 
 O número admissível de polígonos para todos os modelos carregados depende do tamanho do VM, tal como transmitido à [gestão da sessão REST API:](../how-tos/session-rest-api.md#create-a-session)
 
@@ -40,7 +42,7 @@ O número admissível de polígonos para todos os modelos carregados depende do 
 |padrão| 20 milhões |
 |premium| sem limite |
 
-Consulte o capítulo [do tamanho do servidor](../reference/vm-sizes.md) para obter informações mais detalhadas sobre esta limitação.
+Para obter informações detalhadas sobre esta limitação, consulte o capítulo do tamanho do [servidor.](../reference/vm-sizes.md)
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 
@@ -48,6 +50,6 @@ Consulte o capítulo [do tamanho do servidor](../reference/vm-sizes.md) para obt
 
 * Win32/x64 é a única plataforma Win32 suportada. Win32/x86 não é suportado.
 
-**Hololens 2**
+**HoloLens 2**
 
 * A [função de câmara de PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) não é suportada.

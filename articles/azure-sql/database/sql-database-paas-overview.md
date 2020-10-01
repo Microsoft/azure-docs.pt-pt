@@ -7,28 +7,28 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907053"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617235"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O Azure SQL Database é uma plataforma totalmente gerida como um motor de base de dados de serviço (PaaS) que lida com a maioria das funções de gestão de bases de dados, tais como upgrade, patching, backups e monitorização sem o envolvimento do utilizador. O Azure SQL Database está sempre a funcionar na versão mais recente e estável do motor de base de dados sql Server e o SISTEMA remendado com 99,99% de disponibilidade. As capacidades paaS que são incorporadas na Base de Dados Azure SQL permitem-lhe focar-se na administração de bases de dados específicas do domínio e atividades de otimização que são fundamentais para o seu negócio.
+A Base de Dados SQL do Azure é um motor de base de dados totalmente gerido com uma plataforma como serviço (PaaS) que lida com a maioria das funções de gestão da base de dados, como a atualização, aplicação de patches, cópias de segurança e monitorização sem a participação do utilizador. A Base de Dados SQL do Azure é sempre executada na versão estável mais recente do motor de base de dados do SQL Server e no SO corrigido com 99,99% de disponibilidade. As funcionalidades de PaaS incorporadas na Base de Dados SQL do Azure permitem-lhe que se concentre nas atividades de administração e otimização da base de dados específica do domínio que são essenciais para a sua empresa.
 
-Com a Azure SQL Database, pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para as aplicações e soluções em Azure. A BASE de Dados SQL pode ser a escolha certa para uma variedade de aplicações em nuvem modernas porque permite processar dados relacionais e [estruturas não relacionais](../multi-model-features.md), tais como gráficos, JSON, espacial e XML.
+Com a Base de Dados SQL do Azure, pode criar uma camada de armazenamento altamente disponível e de elevado desempenho para as aplicações e soluções no Azure. A BASE de Dados SQL pode ser a escolha certa para uma variedade de aplicações em nuvem modernas porque permite processar dados relacionais e [estruturas não relacionais](../multi-model-features.md), tais como gráficos, JSON, espacial e XML.
 
-O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) De facto, as mais recentes capacidades do SQL Server são lançadas primeiro para a Base de Dados SQL e, em seguida, para o próprio SQL Server. Obtém-se as mais recentes capacidades do SQL Server sem sobrecarga para remendar ou atualizar, testadas em milhões de bases de dados. 
+O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) Na verdade, as funcionalidades mais recentes do SQL Server são lançadas primeiro para a Base de Dados SQL e depois para o próprio SQL Server. Obtém as funcionalidades mais recentes do SQL Server, sem custos gerais para correções ou atualizações, que foram testadas em milhões de bases de dados. 
 
-A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A SQL Database é um serviço totalmente gerido que tem alta disponibilidade incorporada, backups e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tens de gerir a infraestrutura subjacente.
+A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A Base de Dados SQL é um serviço totalmente gerido que tem uma elevada disponibilidade incorporada, cópias de segurança e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tens de gerir a infraestrutura subjacente.
 
 Se é novo na Base de Dados Azure SQL, consulte o vídeo da *Base de Dados Azure SQL* da nossa série de [vídeos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
@@ -114,7 +114,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) da Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia. A plataforma Azure gere totalmente todas as bases de dados, e garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, potenciais falhas de hardware, software ou rede subjacentes, implementando correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida através da integração do computação e armazenamento num único nó para o desempenho e, em seguida, implementando tecnologia semelhante a Always On Availability Groups. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte [a disponibilidade da Base de Dados SQL](high-availability-sla.md). 
 
-Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estes incluem:
+Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Incluem-se:
 
 - [Backups automáticos:](automated-backups-overview.md)
 

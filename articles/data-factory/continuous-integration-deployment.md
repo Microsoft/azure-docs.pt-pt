@@ -11,18 +11,18 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533320"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616912"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível.A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
@@ -461,7 +461,13 @@ Abaixo está o modelo de parametrização padrão atual. Se precisar de adiciona
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exemplo: parametrização de um ID interativo do cluster interativo Azure Databricks
@@ -553,7 +559,7 @@ O exemplo a seguir mostra como adicionar um único valor ao modelo de parametriz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
 -   **Script pré e pós-implantação.** Antes do passo de implementação do Gestor de Recursos em CI/CD, é necessário completar certas tarefas, como parar e reiniciar os gatilhos e realizar a limpeza. Recomendamos que utilize scripts PowerShell antes e depois da tarefa de implantação. Para obter mais informações, consulte [os gatilhos ativos da Atualização](#updating-active-triggers). A equipa de fábrica de dados [forneceu um script](#script) para usar localizado na parte inferior desta página.
 
 -   **Integração tempos de execução e partilha.** Os tempos de integração não mudam frequentemente e são semelhantes em todas as fases do seu CI/CD. Assim, a Data Factory espera que tenha o mesmo nome e tipo de tempo de integração em todas as fases do CI/CD. Se quiser partilhar os tempos de integração em todas as fases, considere usar uma fábrica ternuy apenas para conter os tempos de integração partilhada. Você pode usar esta fábrica partilhada em todos os seus ambientes como um tipo de tempo de execução de integração ligado.
+
+-   **Implementação de ponto final privado gerido**. Se um ponto final privado já existir numa fábrica e tentar implantar um modelo ARM que contenha um ponto final privado com o mesmo nome mas com propriedades modificadas, a implementação falhará. Por outras palavras, pode implantar com sucesso um ponto final privado desde que tenha as mesmas propriedades que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, pode sobrepor-se a essa propriedade, parametrizando essa propriedade e fornecendo o respetivo valor durante a implantação.
 
 -   **Cofre de Chaves**. Quando utiliza serviços ligados cujas informações de ligação são armazenadas no Cofre da Chave Azure, é aconselhável manter cofres-chave separados para diferentes ambientes. Também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, pode não querer que os membros da sua equipa tenham permissões para segredos de produção. Se seguir esta abordagem, recomendamos que mantenha os mesmos nomes secretos em todas as fases. Se mantiver os mesmos nomes secretos, não precisa de parametrizar cada cadeia de ligação em ambientes CI/CD porque a única coisa que muda é o nome do cofre chave, que é um parâmetro separado.
 

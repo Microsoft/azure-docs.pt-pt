@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320749"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617167"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -40,7 +40,7 @@ Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado pa
 
 Azure Stack Edge Pro tem as seguintes capacidades:
 
-|Funcionalidade |Description  |
+|Funcionalidade |Descrição  |
 |---------|---------|
 |Inferencing acelerado da IA| Ativada pela GPU incorporada (uma ou duas dependendo do modelo).|
 |Computação edge      |Suporta VM e cargas de trabalho contentorizadas para permitir a análise, processamento e filtragem de dados. |
@@ -73,7 +73,7 @@ Dispositivo físico Azure Stack Edge Pro, recurso Azure e conta de armazenamento
 
 - **Disponibilidade de recursos** - Para esta versão de pré-visualização, o recurso está disponível nas regiões leste dos EUA, DaE e do Sudeste Asiático.
 
-- **Disponibilidade do dispositivo** - Para uma lista de todos os países onde o dispositivo Azure Stack Edge Pro está disponível, aceda à secção **Disponibilidade** no separador **Azure Stack Edge Pro** para preços [Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Disponibilidade do dispositivo** - Para uma lista de todos os países/regiões onde o dispositivo Azure Stack Edge Pro está disponível, aceda à secção **Disponibilidade** no separador **Azure Stack Edge Pro** para preços [Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. As regiões onde as contas de armazenamento armazenam os dados do Azure Stack Edge Pro devem estar localizadas perto do local onde o dispositivo está localizado para um desempenho ótimo. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento.
 

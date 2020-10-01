@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920118"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617065"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 
@@ -61,8 +61,8 @@ Utilize o [portal Azure](https://portal.azure.com) para criar um grupo de recurs
 
 Utilize o [portal Azure](https://portal.azure.com) para criar [duas ocorrências geridas SQL](instance-create-quickstart.md) na mesma rede virtual e sub-rede. Por exemplo, nomeie as duas instâncias geridas:
 
-- `sql-mi-pub`(juntamente com alguns caracteres para aleatoriedade)
-- `sql-mi-sub`(juntamente com alguns caracteres para aleatoriedade)
+- `sql-mi-pub` (juntamente com alguns caracteres para aleatoriedade)
+- `sql-mi-sub` (juntamente com alguns caracteres para aleatoriedade)
 
 Também terá de [configurar um Azure VM para se ligar](connect-vm-instance-configure.md) às suas instâncias geridas. 
 
@@ -70,11 +70,11 @@ Também terá de [configurar um Azure VM para se ligar](connect-vm-instance-conf
 
 [Crie uma conta de armazenamento Azure](/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie uma [parte de arquivo](../../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento. 
 
-Copie o caminho da partilha de ficheiros no formato de:`\\storage-account-name.file.core.windows.net\file-share-name`
+Copie o caminho da partilha de ficheiros no formato de: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Exemplo: `\\replstorage.file.core.windows.net\replshare`
 
-Copie as teclas de acesso ao armazenamento no formato de:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copie as teclas de acesso ao armazenamento no formato de: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
@@ -293,7 +293,7 @@ Execute o seguinte corte T-SQL para inserir linhas adicionais na editora e, em s
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para deixar cair a publicação, executar o seguinte comando T-SQL:
 

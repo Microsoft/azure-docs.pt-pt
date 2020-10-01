@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 17838d4a652be3a1b50da56812731e0f634a0c08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 461acc07ee2217a38f7bb59805d4c7e0de4a1e22
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323129"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617660"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Configurar uma rede virtual existente para o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +31,7 @@ Se um dos seguintes casos se aplicar a si, pode validar e modificar a sua rede u
 - Pretende verificar se a sub-rede ainda está em conformidade com os [requisitos](connectivity-architecture-overview.md#network-requirements) de rede depois de ter feito alterações.
 
 > [!Note]
-> Pode criar um caso gerido apenas em redes virtuais criadas através do modelo de implementação do Azure Resource Manager. As redes virtuais Azure criadas através do modelo de implementação clássico não são suportadas. Calcular o tamanho da sub-rede seguindo as diretrizes no Determine o tamanho da sub-rede para o artigo [sql Managed Instance.](vnet-subnet-determine-size.md) Não podes redimensionar a sub-rede depois de implantares os recursos lá dentro.
+> Pode criar um caso gerido apenas em redes virtuais criadas através do modelo de implementação do Azure Resource Manager. As redes virtuais Azure criadas através do modelo de implementação clássico não são suportadas. Calcular o tamanho da sub-rede seguindo as diretrizes no Determine o tamanho da sub-rede para o artigo [sql Managed Instance.](vnet-subnet-determine-size.md) Não pode redimensionar a sub-rede após implementar os recursos no interior.
 >
 > Após a criação da instância gerida, a deslocação da instância ou VNet para outro grupo de recursos ou subscrição não é suportada.
 

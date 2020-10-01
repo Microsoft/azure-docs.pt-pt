@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356830"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618945"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 
@@ -120,7 +120,7 @@ Uma página central do Centro de **Eventos** fornece uma lista de links para os 
 
     ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
-### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
+### <a name="azure-traffic-manager"></a>Gestor de Tráfego do Azure
 
 A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos de entrada. O URL para aceder à página de eventos para um inquilino específico utiliza o seguinte formato:
 
@@ -128,7 +128,7 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager
 
     As partes do formato anterior são explicadas na tabela seguinte.
 
-    | Parte url        | Description       |
+    | Parte url        | Descrição       |
     | :-------------- | :---------------- |
     | eventos.wingtip-dpt | Os eventos partes da aplicação Wingtip.<br /><br /> *-dpt* distingue a *implementação de bilhetes* wingtip por base de dados de outros. Exemplos são as implementações *de* uma única aplicação por inquilino *(-sa)* ou *uma base de dados multitenante* *(-mt).* |
     | . * &lt; utilizador &gt; * | *af1* no exemplo. |

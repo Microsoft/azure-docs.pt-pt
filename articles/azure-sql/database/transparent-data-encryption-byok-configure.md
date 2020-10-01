@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387137"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619122"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,7 +82,7 @@ Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
 > O comprimento combinado para o nome do cofre e nome chave não pode exceder 94 caracteres.
 
 > [!TIP]
-> Um exemplo KeyId do Key Vault:https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Um exemplo KeyId do Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 
 ```powershell
 # add the key from Key Vault to the server
@@ -148,7 +148,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> Mantenha a chave URI ou keyID da nova chave para o próximo passo, por exemplo:https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Mantenha a chave URI ou keyID da nova chave para o próximo passo, por exemplo: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Adicione a chave do cofre ao servidor e desaprote o Protetor TDE
 
@@ -241,7 +241,7 @@ Verifique se ocorre um problema:
    - A chave não deve ter uma data de validade
    - A chave deve ter a *chave get*, *wrap key*, e *desembrulhar* as operações das chaves ativadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como rodar o Protetor TDE de um servidor para cumprir os requisitos de segurança: [Rode o protetor de encriptação de dados transparente utilizando o PowerShell](transparent-data-encryption-byok-key-rotation.md).
 - Em caso de risco de segurança, aprenda a remover um Protetor TDE potencialmente comprometido: [Remova uma chave potencialmente comprometida](transparent-data-encryption-byok-remove-tde-protector.md).

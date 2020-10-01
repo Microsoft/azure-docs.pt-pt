@@ -10,16 +10,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 587a01f8b3d366f315813b70bb2ff83eeccd5be4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996456"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618731"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob
 
 Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Cofre da Chave Azure ou noutra loja de chaves.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>Encriptação de operações de leitura e escrita
 

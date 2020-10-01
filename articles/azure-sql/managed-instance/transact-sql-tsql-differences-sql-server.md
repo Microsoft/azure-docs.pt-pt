@@ -5,18 +5,18 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 63aed3ce47a5499154041f067c292c656adcde6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323180"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617881"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -103,7 +103,7 @@ Para obter mais informações, consulte:
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DO SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Auditing (Auditoria)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [Auditoria](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certificados
 

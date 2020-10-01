@@ -7,16 +7,19 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b5723433cca20c934d4cb5b129d77c1c6d65feef
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168240"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617116"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Moldar JSON para maximizar o desempenho da consulta no seu ambiente Gen1
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Este artigo fornece orientações sobre como moldar o JSON para maximizar a eficiência das suas consultas Azure Time Series Insights.
 
@@ -184,7 +187,7 @@ Exemplo JSON carga útil:
 
 > - Os **dispositivos** de colunasId e **série.tagId** servem como cabeçalhos de coluna para os vários dispositivos e tags numa frota. A utilização de cada um como seu atributo limita a consulta a 594 (para ambientes S1) ou 794 (para ambientes S2) dispositivos totais com as outras seis colunas.
 > - Foram evitadas propriedades desnecessárias, pela razão citada no primeiro exemplo.
-> - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede, introduzindo **o deviceId**, que é utilizado para o par único de **mensagensId** e **deviceLocation**. A **série-chave composta.tagId** é utilizada para o par único de **tipo** e **unidade**. A tecla composta permite que o par **deviceId** e **série.tagId** seja utilizado para se referir a quatro valores: **messageId, deviceLocation, type** e **unit**. Estes dados são associados aos dados da telemetria no momento de entrada. É então armazenado em Azure Time Series Insights para consulta.
+> - Os dados de referência são utilizados para reduzir o número de bytes transferidos através da rede, introduzindo **o deviceId**, que é utilizado para o par único de **mensagensId** e **deviceLocation**. A **série-chave composta.tagId** é utilizada para o par único de **tipo** e **unidade**. A tecla composta permite que o par  **deviceId** e **série.tagId** seja utilizado para se referir a quatro valores: **messageId, deviceLocation, type** e **unit**. Estes dados são associados aos dados da telemetria no momento de entrada. É então armazenado em Azure Time Series Insights para consulta.
 > - São utilizadas duas camadas de nidificação, pela razão citada no primeiro exemplo.
 
 ### <a name="for-both-scenarios"></a>Para ambos os cenários

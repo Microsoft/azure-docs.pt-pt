@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 keywords: Nuvem de servidor SQL, SQL Server na nuvem, base de dados PaaS, cloud SQL Server, DBaaS, IaaS
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611840"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618272"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -38,7 +38,7 @@ Se você é novo no Azure SQL, confira o vídeo *What is Azure SQL* da nossa sé
 
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 No mundo atual, impulsionado por dados, impulsionar a transformação digital depende cada vez mais da nossa capacidade de gerir quantidades massivas de dados e aproveitar o seu potencial. Mas as propriedades de dados de hoje são cada vez mais complexas, com dados alojados no local, na nuvem, ou na borda da rede. Os desenvolvedores que estão a construir aplicações inteligentes e imersivas podem encontrar-se limitados por limitações que podem, em última análise, afetar a sua experiência. As limitações decorrentes de plataformas incompatíveis, a inadequada segurança de dados, os recursos insuficientes e as barreiras de desempenho dos preços criam complexidade que pode inibir a modernização e desenvolvimento de aplicações. 
 
@@ -171,7 +171,7 @@ Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [A sua primeira Base de Dados SQL do Azure](database/single-database-create-quickstart.md) para começar a utilizar a Base de Dados SQL.
 - Consulte [o seu primeiro Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md) para começar com a SQL Managed Instance. 

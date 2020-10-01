@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436566"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617422"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -189,7 +189,7 @@ Para obter referência de comando, consulte o [keyvault Azure CLI](/cli/azure/ke
 
 [!INCLUDE [sql-database-akv-permission-delay](../includes/sql-database-akv-permission-delay.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como rodar o protetor TDE de um servidor para cumprir os requisitos de segurança: [Rode o protetor de encriptação de dados transparente utilizando o PowerShell](transparent-data-encryption-byok-key-rotation.md)
 - Começa com o suporte Bring Your Own Key para TDE: [Ligue o TDE utilizando a sua própria chave a partir do Key Vault usando o PowerShell](transparent-data-encryption-byok-configure.md)

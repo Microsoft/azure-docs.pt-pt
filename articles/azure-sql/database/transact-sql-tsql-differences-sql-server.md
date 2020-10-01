@@ -6,23 +6,23 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: fa10f97d0eb2f48e80d20f90a254c44c6e95a8e8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 02b589eebb716f5a69b4db9f00faf12401b8de7f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436974"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619011"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução de diferenças transact-SQL durante a migração para a Base de Dados SQL
 
 Ao [migrar a sua base](migrate-to-database-from-sql-server.md) de dados do SQL Server para a Base de Dados Azure SQL, poderá descobrir que a base de dados do SQL Server requer alguma reengenharia antes de poder ser migrada. Este artigo fornece orientação para ajudá-lo a realizar esta reengenharia e compreender as razões subjacentes pelas quais a reengenharia é necessária. Para detetar incompatibilidades, utilize o [Assistente de Migração de Dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A maioria das funcionalidades Transact-SQL que as aplicações utilizam são totalmente suportadas tanto no Microsoft SQL Server como no Azure SQL Database. Por exemplo, os componentes SQL de núcleo, tais como tipos de dados, operadores, cordas, aritmética, lógica e funções de cursor funcionam de forma idêntica no SQL Server e na SQL Database. Existem, no entanto, algumas diferenças de T-SQL em elementos DDL (linguagem de definição de dados) e DML (linguagem de manipulação de dados) que resultam em declarações e consultas T-SQL que só são parcialmente suportadas (que discutimos mais tarde neste artigo).
 
@@ -86,6 +86,6 @@ A referência Transact-SQL inclui artigos relacionados com as versões SQL Serve
 
 Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Por exemplo, o artigo CREATE TRIGGER está disponível na Base de Dados SQL. Mas a opção **ALL SERVER** para gatilhos de nível de servidor, indica que os gatilhos de nível do servidor não podem ser usados na Base de Dados SQL. Em vez disso, utilize gatilhos de nível de base.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte [a comparação de funcionalidades da Base de Dados Azure SQL](features-comparison.md). A lista nesta página complementa as diretrizes e apresenta artigos, e foca-se nas declarações da Transact-SQL.

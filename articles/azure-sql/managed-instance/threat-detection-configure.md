@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d81550f5c6906e409675002fde670db3734de883
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d2ea14356bf85c795769f1d406f1571f36adaa38
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885050"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617924"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

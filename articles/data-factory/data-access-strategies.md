@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484957"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616861"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -38,10 +38,10 @@ Isto deve funcionar em muitos cenários, e nós entendemos que um endereço IP e
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Estratégias de acesso a dados através da Azure Data Factory
 
 * **[Link Privado](https://docs.microsoft.com/azure/private-link/private-link-overview)** - Pode criar um tempo de execução de integração Azure dentro da Rede Virtual Gerida pela Azure Data Factory e irá aproveitar pontos finais privados para se conectar de forma segura a lojas de dados suportadas. O tráfego entre a Rede Virtual Gerida e as fontes de dados percorre a rede de espinha dorsal da Microsoft e não é exposição à rede pública.
-* **[Serviço Fidedigno](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Azure Storage (Blob, ADLS Gen2) suporta a configuração de firewall que permite selecionar serviços de plataforma fidedignas para aceder à conta de armazenamento de forma segura. Os Serviços Fidedignos aplicam a autenticação de Identidade Gerida, que garante que nenhuma outra fábrica de dados pode ligar-se a este armazenamento, a menos que a lista branca para o fazer utilizando a sua identidade gerida. Pode encontrar mais detalhes **[neste blog.](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** Por isso, isto é extremamente seguro e recomendado. 
+* **[Serviço Fidedigno](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Azure Storage (Blob, ADLS Gen2) suporta a configuração de firewall que permite selecionar serviços de plataforma fidedignas para aceder à conta de armazenamento de forma segura. Os Serviços Fidedignos impõem a autenticação de Identidade Gerida, que garante que nenhuma outra fábrica de dados pode ligar-se a este armazenamento, a menos que seja aprovada para o fazer utilizando a sua identidade gerida. Pode encontrar mais detalhes **[neste blog.](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** Por isso, isto é extremamente seguro e recomendado. 
 * **IP Estático Único** - Você precisará configurar um tempo de integração auto-hospedado para obter um IP estático para conectores data factory. Este mecanismo garante que pode bloquear o acesso de todos os outros endereços IP. 
 * **[Gama IP estática](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - Pode utilizar os endereços IP do Azure Integration Runtime para permitir a sua lista no seu armazenamento (por exemplo, S3, Salesforce, etc.). Certamente restringe endereços IP que podem ligar-se às lojas de dados, mas também se baseia em regras de Autenticação/Autorização.
-* **[Tag de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure (como Azure Data Factory). A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. É útil quando o whitelisting acesso de dados em lojas de dados hospedadas no IaaS hospedados em Redes Virtuais.
+* **[Tag de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure (como Azure Data Factory). A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. É útil para filtrar o acesso de dados em lojas de dados hospedadas no IaaS na Rede Virtual.
 * **Permitir serviços Azure** - Alguns serviços permitem que todos os serviços da Azure se conectem a ele caso escolha esta opção. 
 
 Para obter mais informações sobre mecanismos de segurança de rede suportados nas lojas de dados em Azure Integration Runtime e Self-hosted Integration Runtime, consulte abaixo de duas tabelas.  
@@ -49,17 +49,17 @@ Para obter mais informações sobre mecanismos de segurança de rede suportados 
 
     | Arquivos de Dados                  | Mecanismo de Segurança da Rede Suportado nas Lojas de Dados | Private Link     | Serviço de Confiança     | Gama IP estática | Etiquetas de Serviço | Permitir serviços Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
-    | Lojas de dados Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Yes             | -            | Yes                  |
+    | Lojas de dados Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Sim             | -            | Sim                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Sim*            | Sim*         | -                    |
-    |                              | Azure Data Lake Gen1                                | -                | -                   | Yes             | -            | Yes                  |
-    |                              | Base de Dados Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Yes             | -            | Yes                  |
-    |                              | Armazenamento de Ficheiros do Azure                                  | Yes              | -                   | Yes             | -            | .                    |
-    |                              | Armazenamento Azure (Blob, ADLS Gen2)                     | Yes              | Sim (apenas MSI auth) | Yes             | -            | .                    |
-    |                              | Azure SQL DB, Azure Synapse Analytics), SQL Ml  | Sim (apenas Azure SQL DB/DW)        | -                   | Yes             | -            | Yes                  |
-    |                              | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | sim      | Yes                 | Yes             | -            | -                    |
-    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Yes             | -            | -                    |
-    | Azure laaS                   | SQL Server, Oráculo, etc.                          | -                | -                   | Yes             | Yes          | -                    |
-    | LaaS no local              | SQL Server, Oráculo, etc.                          | -                | -                   | Yes             | -            | -                    |
+    |                              | Azure Data Lake Gen1                                | -                | -                   | Sim             | -            | Sim                  |
+    |                              | Base de Dados Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Sim             | -            | Sim                  |
+    |                              | Armazenamento de Ficheiros do Azure                                  | Sim              | -                   | Sim             | -            | .                    |
+    |                              | Armazenamento Azure (Blob, ADLS Gen2)                     | Sim              | Sim (apenas MSI auth) | Sim             | -            | .                    |
+    |                              | Azure SQL DB, Azure Synapse Analytics), SQL Ml  | Sim (apenas Azure SQL DB/DW)        | -                   | Sim             | -            | Sim                  |
+    |                              | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | sim      | Sim                 | Sim             | -            | -                    |
+    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Sim             | -            | -                    |
+    | Azure laaS                   | SQL Server, Oráculo, etc.                          | -                | -                   | Sim             | Sim          | -                    |
+    | LaaS no local              | SQL Server, Oráculo, etc.                          | -                | -                   | Sim             | -            | -                    |
     
     **Aplicável apenas quando o Azure Data Explorer é injetado em rede virtual e o intervalo IP pode ser aplicado em NSG/Firewall.* 
 
@@ -69,14 +69,14 @@ Para obter mais informações sobre mecanismos de segurança de rede suportados 
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
     | Lojas de dados Azure PaaS       | Azure Cosmos DB                                               | Sim       | -                   |
     |                                | Azure Data Explorer                                           | -         | -                   |
-    |                                | Azure Data Lake Gen1                                          | Yes       | -                   |
-    |                                | Base de Dados Azure para MariaDB, MySQL, PostgreSQL               | Yes       | -                   |
-    |                                | Armazenamento de Ficheiros do Azure                                            | Yes       | -                   |
-    |                                | Azure Storage (Blog, ADLS Gen2)                             | Yes       | Sim (apenas MSI auth) |
-    |                                | Azure SQL DB, Azure Synapse Analytics), SQL Ml          | Yes       | -                   |
-    |                                | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | Yes       | Yes                 |
-    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Yes       | -                   |
-    | Azure laaS                     | SQL Server, Oráculo, etc.                                  | Yes       | -                   |
+    |                                | Azure Data Lake Gen1                                          | Sim       | -                   |
+    |                                | Base de Dados Azure para MariaDB, MySQL, PostgreSQL               | Sim       | -                   |
+    |                                | Armazenamento de Ficheiros do Azure                                            | Sim       | -                   |
+    |                                | Azure Storage (Blog, ADLS Gen2)                             | Sim       | Sim (apenas MSI auth) |
+    |                                | Azure SQL DB, Azure Synapse Analytics), SQL Ml          | Sim       | -                   |
+    |                                | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | Sim       | Sim                 |
+    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Sim       | -                   |
+    | Azure laaS                     | SQL Server, Oráculo, etc.                                  | Sim       | -                   |
     | LaaS no local              | SQL Server, Oráculo, etc.                                  | Sim       | -                   |    
 
 ## <a name="next-steps"></a>Próximos passos
@@ -85,4 +85,4 @@ Para obter mais informações, consulte os seguintes artigos relacionados:
 * [Arquivos de dados suportados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
 * [Azure Key Vault 'Serviços fidedignos'](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
 * [Azure Storage 'Trusted Microsoft Services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identidade gerida para fábrica de dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Identidade gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)

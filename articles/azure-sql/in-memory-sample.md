@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345279"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616810"
 ---
 # <a name="in-memory-sample"></a>Amostra na memória
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -152,7 +152,7 @@ end
 
 Para fazer a versão *_ondisk* do script T-SQL anterior para ostress.exe, substituiria ambas as ocorrências do *_inmem* substring por *_ondisk*. Estas substituições afetam os nomes das tabelas e dos procedimentos armazenados.
 
-#### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e`ostress`
+#### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e `ostress`
 
 Idealmente, você planeja executar ostress.exe numa máquina virtual Azure (VM). Criaria um [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica de Azure onde reside a sua base de dados AdventureWorksLT. Mas podes correr ostress.exe no teu portátil.
 
@@ -333,7 +333,7 @@ GO
 
 Numa base de dados com o nível de preços P2, pode esperar cerca de nove vezes o ganho de desempenho desta consulta utilizando o índice de colunas agrupadas em comparação com o índice tradicional. Com o P15, pode esperar cerca de 57 vezes o ganho de desempenho utilizando o índice de loja de colunas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart 1: In-Memory OLTP Technologies para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
 

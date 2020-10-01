@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984894"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616929"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utilize a Azure Data Factory para migrar dados do Amazon S3 para o Azure Storage 
 
@@ -74,7 +74,7 @@ Migrar dados sobre ligação privada:
 
 - Nesta arquitetura, a migração de dados é feita através de uma ligação de pares privado entre a AWS Direct Connect e a Azure Express Route de modo a que os dados nunca se cruzem através da Internet pública.  Requer a utilização da rede AWS VPC e Azure Virtual. 
 - Você precisa instalar o tempo de integração auto-hospedado da ADF em um Windows VM dentro da sua rede virtual Azure para alcançar esta arquitetura.  Pode escalar manualmente os seus IVMs auto-hospedados ou escalar para vários VMs (até 4 nós) para utilizar totalmente a sua rede e armazenamento IOPS/largura de banda. 
-- Se for aceitável transferir dados através de HTTPS mas pretender bloquear o acesso à rede à fonte S3 para uma gama IP específica, pode adotar uma variação desta arquitetura removendo o VPC AWS e substituindo o link privado por HTTPS.  Você vai querer manter O Azure Virtual e auto-hospedado IR em Azure VM para que você possa ter um IP estático publicamente encaminhável para fins de whitelisting. 
+- Se for aceitável transferir dados através de HTTPS mas pretender bloquear o acesso à rede à fonte S3 para uma gama IP específica, pode adotar uma variação desta arquitetura removendo o VPC AWS e substituindo o link privado por HTTPS.  Você vai querer manter O Azure Virtual e auto-hospedado IR em Azure VM para que você possa ter um IP estático publicamente encaminhável para fins de filtragem. 
 - Tanto a migração inicial de dados instantâneos como a migração de dados delta podem ser alcançadas usando esta arquitetura. 
 
 ## <a name="implementation-best-practices"></a>Implementação das melhores práticas 

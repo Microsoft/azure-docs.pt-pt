@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 53d12510c4960b16d56ee32f07ca96bc398f999a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84043157"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619157"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastres para uma aplicação SaaS multi-arrendatário usando a geo-replicação da base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ A aplicação foi concebida de modo a que se conecte sempre a partir de um caso 
 
 As bases de dados dos inquilinos podem ser distribuídas por regiões de recuperação e originais durante algum tempo durante o repatriamento. Para cada base de dados, a aplicação procura a região em que a base de dados está localizada fazendo uma pesquisas de DNS no nome do servidor do inquilino. Na Base de Dados SQL, o nome do servidor é um pseudónimo. O nome do servidor pseudónimo contém o nome da região. Se a aplicação não estiver na mesma região que a base de dados, redireciona para o caso na mesma região que o servidor. Redirecionar para instâncias na mesma região que a base de dados minimiza a latência entre app e base de dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

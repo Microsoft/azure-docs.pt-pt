@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: da9f3e2b6b8936c74e20a226b606082fb3e0d3ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35d0053d8c45547eaa5e89e6da15fcaf0343d6c5
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263169"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617303"
 ---
 # <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verificar a firewall incorporada do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

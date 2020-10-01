@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: c5ee1f1fbd55bfa44f78f2d1f0129b60be8ea34c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325186"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617439"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementar Azure SQL Gestd Instance para uma piscina de instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,16 +30,16 @@ A tabela a seguir mostra as operações disponíveis relacionadas com os pools d
 
 |Comando|Portal do Azure|PowerShell|
 |:---|:---|:---|
-|Criar uma piscina de exemplos|No|Yes|
-|Atualizar uma piscina de instância (número limitado de propriedades)|No |Yes |
-|Verifique uma instância de utilização da piscina e propriedades|No|Yes |
-|Excluir uma piscina de instância|No|Yes|
-|Criar um caso gerido dentro de uma piscina de exemplo|No|Yes|
-|Atualizar o uso do recurso para uma instância gerida|Yes |Yes|
-|Verifique a utilização e as propriedades para uma instância gerida|Yes|Yes|
-|Apagar uma instância gerida da piscina|Yes|Yes|
-|Criar uma base de dados no caso dentro da piscina|Yes|Yes|
-|Eliminar uma base de dados da SQL Managed Instance|Yes|Yes|
+|Criar uma piscina de exemplos|Não|Sim|
+|Atualizar uma piscina de instância (número limitado de propriedades)|Não |Sim |
+|Verifique uma instância de utilização da piscina e propriedades|Não|Sim |
+|Excluir uma piscina de instância|Não|Sim|
+|Criar um caso gerido dentro de uma piscina de exemplo|Não|Sim|
+|Atualizar o uso do recurso para uma instância gerida|Sim |Sim|
+|Verifique a utilização e as propriedades para uma instância gerida|Sim|Sim|
+|Apagar uma instância gerida da piscina|Sim|Sim|
+|Criar uma base de dados no caso dentro da piscina|Sim|Sim|
+|Eliminar uma base de dados da SQL Managed Instance|Sim|Sim|
 
 Comandos [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponíveis:
 

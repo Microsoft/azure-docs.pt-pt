@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: data sync, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 51a251d7a1ff4063178a6c03d71fedc5adfca423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb66c0371914b29c3db911823519b29df8c4b16c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332870"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616470"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolução de problemas de Sincronização de Dados SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

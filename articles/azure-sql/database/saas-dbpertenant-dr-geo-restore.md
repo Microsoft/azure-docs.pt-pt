@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356898"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619040"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilize o geo-restauro para recuperar uma aplicação SaaS multitensante a partir de backups de bases de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

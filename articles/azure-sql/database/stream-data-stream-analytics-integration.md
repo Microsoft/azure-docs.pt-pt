@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437076"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617099"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para a Base de Dados Azure SQL utilizando a integração Azure Stream Analytics (pré-visualização)
 
@@ -43,7 +43,7 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
 ## <a name="configure-stream-analytics-integration"></a>Integração de análise de Configure Stream
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. Navegue para a base de dados onde pretende ingerir os seus dados de streaming. Selecione **stream analytics (pré-visualização)**.
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
@@ -122,7 +122,7 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
      ![stream de trabalhos de análise](./media/stream-data-stream-analytics-integration/jobs.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Padrões da solução Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343834"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618646"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -666,6 +666,6 @@ A lista que se segue apresenta um resumo das recomendações de loteamento discu
 * Evite a execução paralela de lotes que operam numa única tabela numa base de dados. Se optar por dividir um único lote por várias linhas de trabalho, faça testes para determinar o número ideal de fios. Após um limiar não especificado, mais fios diminuirão o desempenho em vez de o aumentarem.
 * Considere o tampão no tamanho e no tempo como uma forma de implementar o loteamento para mais cenários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se na forma como o design da base de dados e as técnicas de codificação relacionadas com o lote podem melhorar o desempenho da sua aplicação e a escalabilidade. Mas este é apenas um fator na sua estratégia geral. Para obter mais formas de melhorar o desempenho e a escalabilidade, consulte [a orientação de desempenho da Base de Dados](database/performance-guidance.md) e [considerações de preço e desempenho para uma piscina elástica.](database/elastic-pool-overview.md)

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 32c5135629bf56645ea39a8eee991de3cae6dca0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325339"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618966"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -96,7 +96,7 @@ Ao encontrar erros fora da memória, as opções de mitigação incluem:
 - Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
 - Otimização de consultas e configuração para reduzir a utilização da memória. As soluções comuns são descritas no quadro seguinte.
 
-|Solução|Description|
+|Solução|Descrição|
 | :----- | :----- |
 |Reduzir o tamanho das bolsas de memória|Para obter mais informações sobre subsídios de memória, consulte o post de blog [de concessão de memória Understanding SQL Server.](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) Uma solução comum para evitar subsídios de memória excessivamente grandes é manter [as estatísticas](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) atualizadas. Isto resulta em estimativas mais precisas do consumo de memória pelo motor de consulta, evitando subvenções de memória desnecessariamente grandes.</br></br>Em bases de dados utilizando o nível de compatibilidade 140 e posteriormente, o motor da base de dados pode ajustar automaticamente o tamanho do subsídio de memória utilizando [o feedback do subsídio de memória do modo Lote](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-memory-grant-feedback). Em bases de dados utilizando o nível de compatibilidade 150 e posteriormente, o motor da base de dados utiliza igualmente [o feedback do subsídio de memória do modo Row](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback), para consultas de modo de linha mais comuns. Esta funcionalidade incorporada ajuda a evitar erros fora da memória devido a grandes subsídios de memória desnecessariamente grandes.|
 |Reduzir o tamanho da cache do plano de consulta|O motor de base de dados caches planos de consulta na memória, para evitar compilar um plano de consulta para cada execução de consulta. Para evitar o inchaço do cache do plano de consulta causado por planos de cache que só são utilizados uma vez, ative a configuração OTIMIZE_FOR_AD_HOC_WORKLOADS [com âmbito de base de dados](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|
