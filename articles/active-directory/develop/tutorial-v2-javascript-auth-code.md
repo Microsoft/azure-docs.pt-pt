@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicação de página única JavaScript - fluxo de código de auth / Rio Azure
+title: 'Tutorial: Criar uma aplicação de página única JavaScript que usa fluxo de código auth / Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Como as aplicações javaScript SPA podem usar o fluxo de código auth para chamar uma API que requer acesso a tokens por Azure Ative Directory v2.0 endpoint
+description: Neste tutorial, cria-se um JavaScript SPA que pode iniciar sessão nos utilizadores e utilizar o fluxo de código auth para obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256811"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611168"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -32,6 +32,11 @@ Este tutorial mostra-lhe como criar uma aplicação de página única JavaScript
 MSAL.js 2.0 melhora em MSAL.js 1.0, suportando o fluxo de código de autorização no navegador em vez do fluxo de concessão implícito. MSAL.js 2.0 **NÃO** suporta o fluxo implícito.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Node.js](https://nodejs.org/en/download/) para gerir um webserver local
+* [Código de Estúdio Visual](https://code.visualstudio.com/download) ou outro editor de código
 
 ## <a name="how-the-tutorial-app-works"></a>Como funciona a aplicação tutorial
 
@@ -52,11 +57,6 @@ Prefere baixar o projeto de amostra concluído deste tutorial? Para executar o p
 Em seguida, para configurar a amostra de código antes de executá-la, salte para o [passo de configuração](#register-your-application).
 
 Para continuar com o tutorial e construir a aplicação por si mesmo, passe para a secção seguinte, [Pré-requisitos.](#prerequisites)
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* [Node.js](https://nodejs.org/en/download/) para gerir um webserver local
-* [Código de Estúdio Visual](https://code.visualstudio.com/download) ou outro editor de código
 
 ## <a name="create-your-project"></a>Criar o seu projeto
 
@@ -619,23 +619,23 @@ Concluiu a criação da aplicação e está agora pronto para lançar o Node.js 
 
 Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser exibindo diálogo de insusimento":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer consentimento para acesso à aplicação
 
 A primeira vez que iniciar sessão na sua candidatura, é-lhe pedido que lhe conceda acesso ao seu perfil e o inscreva:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diálogo de conteúdo exibido no navegador web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
 
 Se consentir com as permissões solicitadas, as aplicações web exibem o seu nome de utilizador, o que significa um login bem sucedido:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultados de um sucesso de sind in no navegador web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
 
 ### <a name="call-the-graph-api"></a>Ligue para a API do Gráfico
 
 Depois de iniciar sessão, selecione **Ver Perfil** para visualizar as informações do perfil do utilizador devolvidas na resposta da chamada para a API do Gráfico da Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informações de perfil do Microsoft Graph exibidas no navegador":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 
@@ -649,14 +649,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
+Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de página única javaScript na plataforma de identidade da Microsoft, consulte a nossa série de cenários multi-partes:
 
-> [!div class="checklist"]
-> * Executar o fluxo de código de autorização OAuth 2.0 com PKCE
-> * Assine nas contas pessoais da Microsoft, bem como contas de trabalho e escola
-> * Adquirir um token de acesso
-> * Ligue para o Microsoft Graph ou para a sua própria API que requer acesso a tokens obtidos a partir do ponto final da plataforma de identidade da Microsoft
-
-Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos implícitos e de código de auth, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
-
-Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de página única javaScript na plataforma de identidade da Microsoft, o cenário multi-partes: série de aplicações de uma página única pode [ajudá-lo](scenario-spa-overview.md) a começar.
+> [!div class="nextstepaction"]
+> [Cenário: Aplicação de página única](scenario-spa-overview.md)

@@ -3,12 +3,12 @@ title: Implantação de tecido de serviço Azure com PowerShell
 description: Saiba como remover e implementar aplicações no Azure Service Fabric e como realizar estas ações em Powershell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699843"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611457"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações usando PowerShell
 
@@ -347,7 +347,7 @@ Consulte [a cadeia de ligação da loja de imagens](service-fabric-image-store-c
 ### <a name="deploy-large-application-package"></a>Implementar pacote de aplicações de grande porção
 
 Emissão: [Copy-ServiceFabricApplicationComplicationSsem](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) horários para um grande pacote de aplicações (ordem de GB).
-Tente:
+Experimente:
 - Especifique um tempo limite maior para o comando [Copy-ServiceFabricApplicationPackage,](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com `TimeoutSec` parâmetro. Por predefinição, o tempo limite é de 30 minutos.
 - Verifique a ligação da rede entre a sua máquina de origem e o cluster. Se a ligação for lenta, considere utilizar uma máquina com uma melhor ligação de rede.
 Se a máquina cliente estiver noutra região que não o cluster, considere usar uma máquina cliente numa região mais próxima ou igual ao cluster.
@@ -373,7 +373,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ### <a name="deploy-application-package-with-many-files"></a>Implementar pacote de aplicações com muitos ficheiros
 
 Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) times out for a application package with many files (porção de milhares).
-Tente:
+Experimente:
 - [Comprima a embalagem](service-fabric-package-apps.md#compress-a-package) antes de copiar para a loja de imagens. A compressão reduz o número de ficheiros.
 - Especifique um tempo limite maior para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) com `TimeoutSec` parâmetro.
 - Especificar `Async` o interruptor para [Registar-ServiçoFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). O comando retorna quando o cluster aceita o comando e o registo do tipo de aplicação continua assíncronamente.
@@ -390,7 +390,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar pacote de uma aplicação](service-fabric-package-apps.md)
 

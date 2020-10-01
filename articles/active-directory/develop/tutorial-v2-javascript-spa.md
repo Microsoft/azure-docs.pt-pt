@@ -1,7 +1,7 @@
 ---
-title: Tutorial de aplicação de página única JavaScript Rio Azure
+title: 'Tutorial: Criar uma aplicação de página única JavaScript que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Neste tutorial, você aprende como as aplicações de uma página única JavaScript (SPAs) podem chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade microsoft.
+description: Neste tutorial, você constrói uma aplicação de página única JavaScript (SPA) que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a API do Gráfico microsoft em seu nome.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fca1ab61c4c07d8c619719d79872470626137249
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256829"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611185"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
-Este guia demonstra como uma aplicação de página única JavaScript (SPA) pode:
-- Assine contas pessoais, bem como contas de trabalho e escola
-- Adquirir um token de acesso
-- Ligue para a Microsoft Graph API ou outras APIs que requerem tokens de acesso a partir do ponto final da *plataforma de identidade* da Microsoft
+Neste tutorial, você constrói uma aplicação de uma página (SPA) no JavaScript que pode iniciar sôs em utilizadores com contas pessoais da Microsoft ou contas de trabalho e escola, e depois adquirir um token de acesso para ligar para a API do Gráfico microsoft.
+
+Neste tutorial:
+
+> [!div class="checklist"]
+> * Criar um projeto JavaScript com `npm`
+> * Registe a inscrição no portal Azure
+> * Adicione código para suportar a inscrição do utilizador e a s inscrição
+> * Adicione código para ligar para a Microsoft Graph API
+> * Testar a aplicação
 
 >[!TIP]
 > Este tutorial utiliza MSAL.js v1.x que se limita a utilizar o fluxo de subvenção implícito para aplicações de uma página única. Recomendamos que todas as novas aplicações utilizem [MSAL.js 2.x e o fluxo de código de autorização com suporte AKCE e CORS.](tutorial-v2-javascript-auth-code.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Node.js](https://nodejs.org/en/download/) para gerir um servidor web local.
+* [Código do Estúdio Visual](https://code.visualstudio.com/download) ou outro editor para modificar ficheiros de projeto.
+* Um navegador web moderno. **O Internet Explorer** não é **suportado** pela app que constrói neste tutorial devido à utilização da app de convenções [ES6.](http://www.ecma-international.org/ecma-262/6.0/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de amostras gerada por este guia
 
 ![Mostra como funciona a app de amostras gerada por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>Mais informações
+A aplicação de amostra criada por este guia permite a um JavaScript SPA consultar a API do Microsoft Graph ou uma API web que aceita fichas a partir do ponto final da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. Este token será utilizado para adquirir o perfil e os e-mails do utilizador através da **MS Graph API**.
 
-A aplicação de amostra criada por este guia permite a um JavaScript SPA consultar a API do Microsoft Graph ou uma API web que aceita fichas a partir do ponto final da plataforma de identidade da Microsoft. Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. Este token será utilizado para adquirir o perfil e os e-mails do utilizador através da **MS Graph API**. A aquisição e renovação de token são tratadas pela **Microsoft Authentication Library (MSAL) para JavaScript**.
-
-### <a name="libraries"></a>Bibliotecas
-
-Este guia utiliza a seguinte biblioteca:
-
-|Biblioteca|Description|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para JavaScript|
+A aquisição e renovação de token são tratadas pela [Microsoft Authentication Library (MSAL) para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## <a name="set-up-your-web-server-or-project"></a>Configurar o seu servidor web ou projeto
 
 > Prefere descarregar o projeto desta amostra? [Descarregue os ficheiros do projeto.](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 >
 > Para configurar a amostra de código antes de a executar, salte para o [passo de configuração](#register-your-application).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Para executar este tutorial, você precisa de um servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core,](https://www.microsoft.com/net/core)ou iIS Express integração com [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-
-* As instruções deste guia baseiam-se num servidor web incorporado em Node.js. Recomendamos a utilização [do Código do Estúdio Visual](https://code.visualstudio.com/download) como ambiente de desenvolvimento integrado (IDE).
-
-* Um navegador web moderno. Esta amostra JavaScript utiliza convenções [ES6](http://www.ecma-international.org/ecma-262/6.0/) e, como tal, **não** suporta o **Internet Explorer.**
 
 ## <a name="create-your-project"></a>Criar o seu projeto
 
@@ -486,8 +482,6 @@ Na aplicação de amostra criada por este guia, o `callMSGraph()` método é uti
    ```
 1. No seu navegador, insira **http://localhost:3000** **http://localhost:{port}** ou, onde a *porta* é a porta que o seu servidor web está a ouvir. Deverá ver o conteúdo do seuindex.htmficheiro *L* e o botão **Iniciar.**
 
-## <a name="test-your-application"></a>Teste a sua aplicação
-
 Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
 
 ![A janela de inscrição da conta JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,10 @@ A API do Microsoft Graph requer que o âmbito de leitura do *utilizador.leia* pa
 > O utilizador poderá ser solicitado para obter consentimentos adicionais à medida que aumenta o número de âmbitos.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plataforma de identidade da Microsoft na nossa série de cenários multi-partes.
+
+> [!div class="nextstepaction"]
+> [Cenário: Aplicação de página única](scenario-spa-overview.md)

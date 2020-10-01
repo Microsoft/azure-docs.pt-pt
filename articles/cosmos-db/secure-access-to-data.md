@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569577"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611644"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
@@ -22,21 +22,21 @@ A Azure Cosmos DB utiliza dois tipos de chaves para autenticar os utilizadores e
 
 |Tipo de chave|Recursos|
 |---|---|
-|[Chaves principais](#primary-keys) |Utilizado para recursos administrativos: contas de base de dados, bases de dados, utilizadores e permissões|
+|[Chaves primárias](#primary-keys) |Utilizado para recursos administrativos: contas de base de dados, bases de dados, utilizadores e permissões|
 |[Fichas de recursos](#resource-tokens)|Utilizados para recursos de aplicação: contentores, documentos, anexos, procedimentos armazenados, gatilhos e UDFs|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Chaves principais
+## <a name="primary-keys"></a>Chaves primárias
 
-As chaves principais fornecem acesso a todos os recursos administrativos para a conta de base de dados. Chaves principais:
+As chaves primárias fornecem acesso a todos os recursos administrativos da conta de base de dados. Chaves primárias:
 
 - Fornecer acesso a contas, bases de dados, utilizadores e permissões. 
 - Não é possível utilizar acesso granular a contentores e documentos.
 - São criados durante a criação de uma conta.
 - Pode ser regenerado a qualquer momento.
 
-Cada conta é composta por duas teclas Master: uma chave primária e uma chave secundária. O objetivo das chaves duplas é que possa regenerar, ou rolar chaves, proporcionando acesso contínuo à sua conta e dados.
+Cada conta é composta por duas chaves primárias: uma chave primária e uma chave secundária. O objetivo das chaves duplas é que possa regenerar, ou rolar chaves, proporcionando acesso contínuo à sua conta e dados.
 
 Além das duas chaves primárias da conta cosmos DB, existem duas chaves só de leitura. Estas chaves só de leitura permitem a leitura das operações na conta. As teclas só de leitura não fornecem acesso aos recursos de permissões de leitura.
 

@@ -1,6 +1,6 @@
 ---
-title: Plataforma de identidade da Microsoft Windows desktop quickstart
-description: Saiba como uma aplicação windows desktop .NET (XAML) pode obter um token de acesso e chamar uma API protegida por um ponto final da plataforma de identidade da Microsoft
+title: 'Quickstart: Inicie síprofone nos utilizadores e ligue para o Microsoft Graph numa aplicação de desktop da Plataforma Universal Windows ! Rio Azure'
+description: Neste quickstart, saiba como uma aplicação windows desktop .NET (XAML) pode obter um token de acesso e chamar uma API protegida por um ponto final da plataforma de identidade da Microsoft
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,22 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114562"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613276"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
 Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de ambiente de trabalho do Windows que pode iniciar sessão em contas pessoais, profissionais e escolares, obter um token de acesso e chamar a Microsoft Graph API. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Pré-requisitos
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho [de desenvolvimento da Plataforma Universal Windows](/windows/uwp/get-started/get-set-up) instalada
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
 > * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)

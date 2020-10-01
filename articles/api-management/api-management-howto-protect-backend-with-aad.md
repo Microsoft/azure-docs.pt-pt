@@ -1,27 +1,23 @@
 ---
-title: Proteja uma API utilizando o OAuth 2.0 com AAD e API Management
+title: Proteja o backend da API na Gestão da API utilizando o OAuth 2.0 e o AD Azure
 titleSuffix: Azure API Management
-description: Saiba como proteger um backend da API web com o Azure Ative Directory e a API Management.
+description: Saiba como garantir o acesso a um backend web API na Azure API Management com autorização de utilizador OAuth 2.0 e Diretório Ativo Azure
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243414"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612341"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteja um backend web API na Azure API Management utilizando a autorização OAuth 2.0 com Azure AD 
 
-Este guia mostra-lhe como configurar o seu exemplo de Gestão API Azure para proteger uma API, utilizando o protocolo OAuth 2.0 com o Azure Ative Directory (Azure AD). 
+Este guia mostra-lhe como configurar o seu exemplo [de Gestão API Azure](api-management-key-concepts.md) para proteger uma API, utilizando o [protocolo OAuth 2.0 com o Azure Ative Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > Esta funcionalidade está disponível nos níveis **de Developer,** **Basic,** **Standard**e **Premium** da API Management.
@@ -46,9 +42,9 @@ Segue-se uma visão geral rápida dos passos:
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registar um pedido na AZure AD para representar a API
 
-Para proteger uma API com AD Azure, primeiro registe uma aplicação na AZure AD que representa a API. 
+Para proteger uma API com AD Azure, primeiro registe uma aplicação na AZure AD que representa a API. Os passos seguintes utilizam o portal Azure para registar a aplicação. Para obter mais informações sobre o registo de aplicações, consulte [Quickstart: Configure uma aplicação para expor uma API web](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Vá ao [portal Azure](https://portal.azure.com) para registar a sua inscrição. Procure e selecione **registos DE APP.**
+1. Vá ao [portal Azure](https://portal.azure.com) para registar a sua inscrição. Procure e selecione **registos de Aplicações.**
 
 1. Selecione **Novo registo**. 
 
@@ -79,7 +75,7 @@ Para registar outra aplicação no AD Azure para representar a Consola de Desenv
 
 1. Vá ao [portal Azure](https://portal.azure.com) para registar a sua inscrição.
 
-1.  Procure e selecione **registos DE APP.**
+1. Procure e selecione **registos de Aplicações.**
 
 1. Selecione **Novo registo**.
 
@@ -106,7 +102,7 @@ Quando o segredo for criado, note o valor chave para utilização num passo post
 
 Agora que registou duas aplicações para representar a API e a Consola de Desenvolvimento, conceda permissões para permitir que a aplicação cliente-app ligue para a app backend.  
 
-1. Vá ao [portal Azure](https://portal.azure.com) para conceder permissões à sua aplicação ao cliente. Procure e selecione **registos DE APP.**
+1. Vá ao [portal Azure](https://portal.azure.com) para conceder permissões à sua aplicação ao cliente. Procure e selecione **registos de Aplicações.**
 
 1. Escolha a aplicação do seu cliente. Em seguida, na lista de páginas para a aplicação, selecione **permissões API**.
 

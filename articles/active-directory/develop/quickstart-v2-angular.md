@@ -1,7 +1,7 @@
 ---
-title: Inscreva-se nos utilizadores em aplicações de página única angular - Azure
+title: 'Quickstart: Inscreva-se nos utilizadores em aplicações de página única angular - Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação Angular pode chamar uma API que requer acesso a tokens utilizando a plataforma de identidade da Microsoft.
+description: Neste quickstart, você aprende como uma aplicação Angular pode chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade Microsoft.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 23b25340906ddb4501492b048740f590c13654c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258035"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613429"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
@@ -96,7 +96,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >
 > Substitua estes valores:
 >
->|Nome do valor|Description|
+>|Nome do valor|Descrição|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
 >|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|

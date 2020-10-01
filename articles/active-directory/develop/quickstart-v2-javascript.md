@@ -1,7 +1,7 @@
 ---
-title: Inscreva-se nos utilizadores em aplicações de página única JavaScript ! Rio Azure
+title: 'Quickstart: Iniciar sing em utilizadores em aplicações de página única JavaScript / Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação JavaScript pode chamar uma API que requer acesso a tokens usando a plataforma de identidade da Microsoft.
+description: Neste quickstart, você aprende como uma aplicação JavaScript pode chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade Microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257933"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613327"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
-Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares. Um JavaScript SPA também pode obter um token de acesso para ligar para a API do Microsoft Graph ou qualquer API web. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares. Um JavaScript SPA também pode obter um token de acesso para ligar para a API do Microsoft Graph ou qualquer API web. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie gratuitamente uma subscrição Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
 * [Código do Estúdio Visual](https://code.visualstudio.com/download) (para editar ficheiros de projeto)
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registe-se e baixe a sua aplicação de arranque rápido
@@ -204,7 +203,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -232,7 +231,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -262,7 +261,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 
@@ -300,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 Para um guia passo a passo mais detalhado sobre a construção do pedido para este arranque rápido, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial para iniciar sincê-lo e chamar MS Graph](./tutorial-v2-javascript-spa.md)
-
-Para consultar o repo MSAL para obter documentação, PERGUNTAS Frequentes, questões e muito mais, consulte:
-
-> [!div class="nextstepaction"]
-> [MSAL.js GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)](tutorial-v2-javascript-spa.md)

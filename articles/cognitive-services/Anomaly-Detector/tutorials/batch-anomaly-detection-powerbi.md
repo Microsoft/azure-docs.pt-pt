@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d42fd298a4bc6c6f0c0d27bdeae1999d6474f75
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905782"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612001"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando deteção de lotes e Power BI
 
@@ -56,7 +56,7 @@ O Power BI converterá os tempos na primeira coluna para um tipo de `Date/Time` 
 
 Clique na fita **Transform** no Editor de Consulta de Energia. No grupo **Any Column,** abra o tipo de **dados:** menu suspenso e selecione **Texto**.
 
-![Uma imagem do ecrã "Navigator" da fonte de dados no Power BI](../media/tutorials/data-type-drop-down.png)
+![Uma imagem do tipo de dados desce](../media/tutorials/data-type-drop-down.png)
 
 Quando receber um aviso sobre a alteração do tipo de coluna, clique em **Substituir Corrente**. Em seguida, clique **em Fechar & Aplicar** ou **Aplicar** na fita **Home.**
 
@@ -66,7 +66,7 @@ Para formatar e enviar o ficheiro de dados para a API do Detetor de Anomalias, p
 
 Certifique-se de que a sua nova consulta está selecionada e, em seguida, clique em **Editor Avançado**.
 
-![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
+![Uma imagem do ecrã "Editor Avançado"](../media/tutorials/advanced-editor-screen.png)
 
 Dentro do Editor Avançado, utilize o seguinte corte de power query M para extrair as colunas da tabela e enviá-la para a API. Em seguida, a consulta criará uma tabela a partir da resposta JSON, e devolvê-la-á. Substitua a `apiKey` variável pela sua chave API do Detetor de Anomalias válida e `endpoint` pelo seu ponto final. Depois de inserir a consulta no Editor Avançado, clique em **'Fazer'.**
 
@@ -114,7 +114,7 @@ Dentro do Editor Avançado, utilize o seguinte corte de power query M para extra
 
 Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo **Enter Parâmetro**, e clique em **Invocar**.
 
-![Uma imagem do botão "Editor Avançado"](../media/tutorials/invoke-function-screenshot.png)
+![Uma imagem da função invocada](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação de fontes de dados
 
@@ -148,11 +148,11 @@ Adicione os seguintes campos da **Função Invocada** ao campo **Valores** do gr
 * LowerMargins
 * Valores Esperados
 
-![Uma imagem do novo ecrã de medida rápida](../media/tutorials/chart-settings.png)
+![Uma imagem das definições do gráfico](../media/tutorials/chart-settings.png)
 
 Depois de adicionar os campos, clique no gráfico e redimensione-o para mostrar todos os pontos de dados. A sua tabela será semelhante à imagem abaixo:
 
-![Uma imagem do novo ecrã de medida rápida](../media/tutorials/chart-visualization.png)
+![Uma imagem da visualização do gráfico](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Mostrar pontos de dados de anomalia
 
@@ -162,15 +162,15 @@ No lado direito da janela Power BI, abaixo do painel **FIELDS,** clique com o bo
 
 No ecrã que aparece, selecione **o valor filtrado** como o cálculo. Desa estava **o valor base** para `Sum of Value` . Em seguida, arraste `IsAnomaly` dos campos **de função invocada** para **filtrar**. Selecione `True` no menu de entrega do **filtro.**
 
-![Uma imagem do novo ecrã de medida rápida](../media/tutorials/new-quick-measure-2.png)
+![Uma segunda imagem do novo ecrã de medida rápida](../media/tutorials/new-quick-measure-2.png)
 
 Depois de clicar **em Ok,** terá um `Value for True` campo na parte inferior da lista dos seus campos. Clique com o botão direito e rebatize-o para **Anomalia.** Adicione-o aos **Valores**do gráfico. Em seguida, selecione a ferramenta **Formato** e coloque o tipo de eixo X **em Categorical**.
 
-![Uma imagem do novo ecrã de medida rápida](../media/tutorials/format-x-axis.png)
+![Uma imagem do eixo formato x](../media/tutorials/format-x-axis.png)
 
 Aplique cores no seu gráfico clicando na ferramenta **Formato** e nas **cores dos Dados.** A sua ficha deve parecer-se com o seguinte:
 
-![Uma imagem do novo ecrã de medida rápida](../media/tutorials/final-chart.png)
+![Uma imagem do gráfico final](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,14 +4,14 @@ description: Como definir alvos de armazenamento para que o seu Cache Azure HPC 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826709"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611306"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -19,65 +19,21 @@ ms.locfileid: "87826709"
 
 Pode definir até dez alvos de armazenamento diferentes para uma cache. A cache apresenta todos os alvos de armazenamento num espaço de nome agregado.
 
+Os caminhos do espaço de nome são configurados separadamente depois de adicionar os alvos de armazenamento. Em geral, um alvo de armazenamento NFS pode ter até dez caminhos de espaço de nome, ou mais para algumas configurações grandes. Leia [os caminhos do espaço de nome NFS](add-namespace-paths.md#nfs-namespace-paths) para mais detalhes.
+
 Lembre-se que as exportações de armazenamento devem estar acessíveis a partir da rede virtual do seu cache. Para armazenamento de hardware no local, poderá ser necessário configurar um servidor DNS que possa resolver os nomes de anfitriões para o acesso ao armazenamento NFS. Leia mais no [acesso ao DNS.](hpc-cache-prerequisites.md#dns-access)
 
-Adicione os alvos de armazenamento depois de criar o seu cache. O procedimento é ligeiramente diferente dependendo se você está adicionando armazenamento Azure Blob ou uma exportação NFS. Os detalhes para cada um estão abaixo.
+Adicione os alvos de armazenamento depois de criar o seu cache. Acompanhe este processo:
+
+1. [Criar a cache](hpc-cache-create.md)
+1. Definir um alvo de armazenamento (informação neste artigo)
+1. [Crie os caminhos voltados para o cliente](add-namespace-paths.md) (para o [espaço de nome agregado)](hpc-cache-namespace.md)
+
+O procedimento para adicionar um alvo de armazenamento é ligeiramente diferente dependendo se você está adicionando armazenamento Azure Blob ou uma exportação NFS. Os detalhes para cada um estão abaixo.
 
 Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) de vídeo de criar uma cache e adicionar um alvo de armazenamento a partir do portal Azure.
 
 [![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
-
-## <a name="view-storage-targets"></a>Ver alvos de armazenamento
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-A partir do portal Azure, abra a sua instância de cache e clique em **Apontar os alvos de armazenamento** na barra lateral esquerda. A página de alvos de armazenamento lista todos os alvos existentes e dá um link para adicionar um novo.
-
-![Screenshot da ligação dos alvos de armazenamento na barra lateral, sob a rubrica Configure, que se situa entre as definições e monitorização das rubricas da categoria](media/hpc-cache-storage-targets-sidebar.png)
-
-### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
-Utilize a opção [az hpc-cache-target-target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os alvos de armazenamento existentes para uma cache. Forneça o nome da cache e o grupo de recursos (a não ser que o tenha definido globalmente).
-
-```azurecli
-az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
-```
-
-Use [az hpc-cache-target-target para](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) ver detalhes sobre um alvo de armazenamento particular. (Especificar o alvo de armazenamento pelo nome.)
-
-Exemplo:
-
-```azurecli
-$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
-
-{
-  "clfs": null,
-  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
-  "junctions": [
-    {
-      "namespacePath": "/nfs1/data1",
-      "nfsExport": "/datadisk1",
-      "targetPath": ""
-    }
-  ],
-  "location": "eastus",
-  "name": "nfsd1",
-  "nfs3": {
-    "target": "10.0.0.4",
-    "usageModel": "WRITE_WORKLOAD_15"
-  },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "scgroup",
-  "targetType": "nfs3",
-  "type": "Microsoft.StorageCache/caches/storageTargets",
-  "unknown": null
-}
-$
-```
-
----
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Adicione um novo alvo de armazenamento Azure Blob
 
@@ -86,6 +42,14 @@ Um novo alvo de armazenamento Blob precisa de um recipiente Blob vazio ou um rec
 O portal Azure **Adicionar página-alvo de armazenamento** inclui a opção de criar um novo recipiente Blob pouco antes de o adicionar.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do portal Azure, abra a sua instância de cache e clique em **Apontar os alvos de armazenamento** na barra lateral esquerda.
+
+![screenshot das definições > página alvo de armazenamento, com dois alvos de armazenamento existentes numa tabela e um destaque em torno do botão alvo de armazenamento + adicionar acima da tabela](media/add-storage-target-button.png)
+
+A página **de alvos de Armazenamento** lista todos os alvos existentes e dá um link para adicionar um novo.
+
+Clique no botão **de destino de armazenamento Adicionar.**
 
 ![screenshot da página alvo de armazenamento de adicionar, preenchida com informações para um novo alvo de armazenamento Azure Blob](media/hpc-cache-add-blob.png)
 
@@ -102,8 +66,6 @@ Para definir um recipiente Azure Blob, insira esta informação.
 * **Recipiente de armazenamento** - Selecione o recipiente Blob para este alvo ou clique em **Criar novo**.
 
   ![screenshot do diálogo para especificar o nome e o nível de acesso (privado) para novo recipiente](media/add-blob-new-container.png)
-
-* **Caminho virtual do espaço de nome** - Desacorda o caminho do ficheiro virado para o cliente para este alvo de armazenamento. Leia [Configurar o espaço de nome agregado](hpc-cache-namespace.md) para saber mais sobre a funcionalidade de espaço de nome virtual.
 
 Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
 
@@ -163,17 +125,20 @@ Verifique também as definições de firewall da sua conta de armazenamento. Se 
 
 Utilize a interface [az hpc-cache blob-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) interface para definir um alvo de armazenamento Azure Blob.
 
+> [!NOTE]
+> Os comandos Azure CLI exigem atualmente que crie um caminho de espaço de nome quando adicionar um alvo de armazenamento. Isto é diferente do processo utilizado com a interface do portal Azure.
+
 Além dos parâmetros padrão do grupo de recursos e do nome cache, deve fornecer estas opções para o alvo de armazenamento:
 
-* ``--name``- Definir um nome que identifique este alvo de armazenamento na Cache Azure HPC.
+* ``--name`` - Definir um nome que identifique este alvo de armazenamento na Cache Azure HPC.
 
-* ``--storage-account``- O identificador de conta, neste formulário: /subscrições/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/providers/Microsoft.Storage/storageAcounts/*<account_name>*
+* ``--storage-account`` - O identificador de conta, neste formulário: /subscrições/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/providers/Microsoft.Storage/storageAcounts/*<account_name>*
 
   Para obter informações sobre o tipo de conta de armazenamento que pode utilizar, leia [os requisitos de armazenamento blob](hpc-cache-prerequisites.md#blob-storage-requirements).
 
-* ``--container-name``- Especificar o nome do recipiente a utilizar para este alvo de armazenamento.
+* ``--container-name`` - Especificar o nome do recipiente a utilizar para este alvo de armazenamento.
 
-* ``--virtual-namespace-path``- Desaponte o caminho do ficheiro virado para o cliente para este alvo de armazenamento. Encerra caminhos em aspas. Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para saber mais sobre a funcionalidade de espaço de nome virtual.
+* ``--virtual-namespace-path`` - Desaponte o caminho do ficheiro virado para o cliente para este alvo de armazenamento. Encerra caminhos em aspas. Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para saber mais sobre a funcionalidade de espaço de nome virtual.
 
 Comando de exemplo:
 
@@ -188,7 +153,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Adicione um novo alvo de armazenamento NFS
 
-Um alvo de armazenamento NFS tem mais campos do que o alvo de armazenamento Blob. Estes campos especificam como alcançar a exportação de armazenamento e como cache eficientemente os seus dados. Além disso, um alvo de armazenamento NFS permite criar vários caminhos de espaço de nome se o anfitrião NFS tiver mais do que uma exportação disponível.
+Um alvo de armazenamento NFS tem configurações diferentes de um alvo de armazenamento Blob. A definição do modelo de utilização ajuda a cache a cache eficientemente cache dados deste sistema de armazenamento.
 
 ![Screenshot de adicionar página-alvo de armazenamento com o alvo NFS definido](media/add-nfs-target.png)
 
@@ -220,13 +185,21 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
+| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhuma                     |
 | Mais de 15% escreve       | Leitura/escrita   | Nunca                 | Uma hora                   |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
+| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhuma                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do portal Azure, abra a sua instância de cache e clique em **Apontar os alvos de armazenamento** na barra lateral esquerda.
+
+![screenshot das definições > página alvo de armazenamento, com dois alvos de armazenamento existentes numa tabela e um destaque em torno do botão alvo de armazenamento + adicionar acima da tabela](media/add-storage-target-button.png)
+
+A página **de alvos de Armazenamento** lista todos os alvos existentes e dá um link para adicionar um novo.
+
+Clique no botão **de destino de armazenamento Adicionar.**
 
 ![Screenshot de adicionar página-alvo de armazenamento com o alvo NFS definido](media/add-nfs-target.png)
 
@@ -240,47 +213,36 @@ Forneça estas informações para um alvo de armazenamento apoiado pela NFS:
 
 * **Modelo de utilização** - Escolha um dos perfis de caching de dados com base no seu fluxo de trabalho, descrito em [Escolha um modelo de utilização](#choose-a-usage-model) acima.
 
-### <a name="nfs-namespace-paths"></a>Caminhos de espaço de nome NFS
-
-Um alvo de armazenamento NFS pode ter vários caminhos virtuais, desde que cada caminho represente uma exportação ou subdiretório diferente no mesmo sistema de armazenamento.
-
-Crie todos os caminhos a partir de um alvo de armazenamento.
-
-Pode [adicionar e editar os caminhos do espaço de nome](hpc-cache-edit-storage.md) num alvo de armazenamento a qualquer momento.
-
-Preencha estes valores para cada caminho do espaço de nome:
-
-* **Caminho virtual do espaço de nome** - Desacorda o caminho do ficheiro virado para o cliente para este alvo de armazenamento. Leia [Configurar o espaço de nome agregado](hpc-cache-namespace.md) para saber mais sobre a funcionalidade de espaço de nome virtual.
-
-* **Rota de exportação NFS** - Insira o caminho para a exportação de NFS.
-
-* **Caminho subdirecional** - Se pretender montar um subdiretório específico da exportação, insira-o aqui. Se não, deixe este campo em branco.
-
 Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Utilize o comando Azure CLI [az hpc-cache nfs-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o alvo de armazenamento. Forneça estes valores para além do nome cache e do grupo de recursos cache:
+Utilize o comando Azure CLI [az hpc-cache nfs-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o alvo de armazenamento.
 
-* ``--name``- Definir um nome que identifique este alvo de armazenamento na Cache Azure HPC.
-* ``--nfs3-target``- O endereço IP do seu sistema de armazenamento NFS. (Pode utilizar aqui um nome de domínio totalmente qualificado se o seu cache tiver acesso a um servidor DNS que possa resolver o nome.)
-* ``--nfs3-usage-model``- Um dos perfis de caching de dados, descritos em [Escolha um modelo de utilização,](#choose-a-usage-model)acima.
+> [!NOTE]
+> Os comandos Azure CLI exigem atualmente que crie um caminho de espaço de nome quando adicionar um alvo de armazenamento. Isto é diferente do processo utilizado com a interface do portal Azure.
+
+Forneça estes valores para além do nome cache e do grupo de recursos cache:
+
+* ``--name`` - Definir um nome que identifique este alvo de armazenamento na Cache Azure HPC.
+* ``--nfs3-target`` - O endereço IP do seu sistema de armazenamento NFS. (Pode utilizar aqui um nome de domínio totalmente qualificado se o seu cache tiver acesso a um servidor DNS que possa resolver o nome.)
+* ``--nfs3-usage-model`` - Um dos perfis de caching de dados, descritos em [Escolha um modelo de utilização,](#choose-a-usage-model)acima.
 
   Verifique os nomes dos modelos de utilização com a [lista de modelos de utilização az-cache de](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list)comando.
 
-* ``--junction``- O parâmetro de junção liga o caminho do ficheiro virtual voltado para o cliente com uma trajetória de exportação no sistema de armazenamento.
+* ``--junction`` - O parâmetro de junção liga o caminho do ficheiro virtual voltado para o cliente com uma trajetória de exportação no sistema de armazenamento.
 
   Um alvo de armazenamento NFS pode ter vários caminhos virtuais, desde que cada caminho represente uma exportação ou subdiretório diferente no mesmo sistema de armazenamento. Crie todos os caminhos para um sistema de armazenamento num alvo de armazenamento.
 
-  Pode [adicionar e editar os caminhos do espaço de nome](hpc-cache-edit-storage.md) num alvo de armazenamento a qualquer momento.
+  Pode [adicionar e editar os caminhos do espaço de nome](add-namespace-paths.md) num alvo de armazenamento a qualquer momento.
 
   O ``--junction`` parâmetro utiliza estes valores:
 
-  * ``namespace-path``- O caminho de ficheiro virtual voltado para o cliente
-  * ``nfs-export``- Exportação do sistema de armazenamento para associar-se ao caminho voltado para o cliente
-  * ``target-path``(opcional) - Uma subdiretória da exportação, se necessário
+  * ``namespace-path`` - O caminho de ficheiro virtual voltado para o cliente
+  * ``nfs-export`` - Exportação do sistema de armazenamento para associar-se ao caminho voltado para o cliente
+  * ``target-path`` (opcional) - Uma subdiretória da exportação, se necessário
 
   Exemplo: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
@@ -295,7 +257,7 @@ az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-n
     --junction namespace-path="/nfs1/data1" nfs-export="/datadisk1" target-path=""
 ```
 
-Saída:
+Resultado:
 ```azurecli
 
 {- Finished ..
@@ -325,10 +287,67 @@ Saída:
 
 ---
 
+## <a name="view-storage-targets"></a>Ver alvos de armazenamento
+
+Pode utilizar o portal Azure ou o CLI Azure para mostrar os alvos de armazenamento já definidos para o seu cache.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do portal Azure, abra a sua instância de cache e clique em **Alvos de Armazenamento**, que está sob a direção de Definições na barra lateral esquerda. A página de alvos de armazenamento lista todos os alvos e controlos existentes para adicioná-los ou apagá-los.
+
+Clique no nome de um alvo de armazenamento para abrir a página de detalhes.
+
+Leia [os alvos de armazenamento editar](hpc-cache-edit-storage.md) para saber mais.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Utilize a opção [az hpc-cache-target-target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os alvos de armazenamento existentes para uma cache. Forneça o nome da cache e o grupo de recursos (a não ser que o tenha definido globalmente).
+
+```azurecli
+az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
+```
+
+Use [az hpc-cache-target-target para](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) ver detalhes sobre um alvo de armazenamento particular. (Especificar o alvo de armazenamento pelo nome.)
+
+Exemplo:
+
+```azurecli
+$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
+
+{
+  "clfs": null,
+  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "scgroup",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+$
+```
+
+---
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar metas de armazenamento, considere uma destas tarefas:
+Depois de criar metas de armazenamento, continue com estas tarefas para ter o seu cache pronto a usar:
 
+* [Configurar o espaço de nome agregado](add-namespace-paths.md)
 * [Montar o Azure HPC Cache](hpc-cache-mount.md)
 * [Mover dados para o armazenamento da Azure Blob](hpc-cache-ingest.md)
 

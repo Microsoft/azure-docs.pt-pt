@@ -3,12 +3,12 @@ title: Capture streaming eventos - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece uma visão geral da funcionalidade Captura que lhe permite capturar eventos streaming através de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667443"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613412"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos através de Azure Event Hubs em Azure Blob Storage ou Azure Data Lake Storage
 O Azure Event Hubs permite-lhe capturar automaticamente os dados de streaming em Event Hubs num [armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) ou na conta [Azure Data Lake Storage Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) da sua escolha, com a flexibilidade adicional de especificar um intervalo de tempo ou tamanho. A configuração do Capture é rápida, não há custos administrativos para executá-lo, e escala automaticamente com [unidades de produção](event-hubs-scalability.md#throughput-units)de Event Hubs . O Event Hubs Capture é a forma mais fácil de carregar dados de streaming no Azure e permite-lhe focar no processamento de dados e não na captura de dados.
@@ -18,6 +18,8 @@ O Azure Event Hubs permite-lhe capturar automaticamente os dados de streaming em
 
 O Event Hubs Capture permite-lhe processar gasodutos em tempo real e baseados em lotes no mesmo fluxo. Isto significa que pode construir soluções que cresçam com as suas necessidades ao longo do tempo. Quer esteja a construir sistemas baseados em lotes hoje com um olho para o processamento futuro em tempo real, ou se pretende adicionar um caminho frio eficiente a uma solução existente em tempo real, o Event Hubs Capture facilita o trabalho com dados de streaming.
 
+> [!IMPORTANT]
+> A conta de armazenamento de destino (Azure Storage ou Azure Data Lake Storage) deve estar na mesma subscrição que o centro de eventos. 
 
 ## <a name="how-event-hubs-capture-works"></a>Como funciona a captura de centros de eventos
 
@@ -134,7 +136,7 @@ A captura não consome quota de saída, uma vez que é faturada separadamente.
 
 Pode criar uma subscrição da Azure Event Grid com um espaço de nomes de Event Hubs como fonte. O seguinte tutorial mostra-lhe como criar uma subscrição de Event Grid com um centro de eventos como fonte e uma aplicação Azure Functions como pia: [Processar e migrar dados de Centros de Eventos capturados para um Azure Synapse Analytics usando a Grade de Eventos e Funções Azure.](store-captured-data-data-warehouse.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Event Hubs Capture é a forma mais fácil de obter dados no Azure. Utilizando o Azure Data Lake, Azure Data Factory e Azure HDInsight, pode realizar o processamento de lotes e outras análises utilizando ferramentas e plataformas familiares à sua escolha, em qualquer escala que necessite.
 
 Saiba como ativar esta funcionalidade utilizando o portal Azure e o modelo Azure Resource Manager:

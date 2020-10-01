@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 688541147a9a765ed94d8e6c18ce4ee63615f627
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1a8155c9c0466184a09bc4ff224c9bdf42c173b9
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583575"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612562"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (C#)
 
@@ -48,7 +48,7 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -74,7 +74,7 @@ Neste arranque rápido, utilize uma solução de IoT de amostra em C# para inter
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | DEVICE_ID | my-pnp-dispositivo |
     | IOTHUB_CONNECTION_STRING | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
@@ -92,7 +92,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> Esta amostra utiliza o **Microsoft.Azure.Devices.Client;** espaço de nome do cliente de **serviço IoT Hub**. Para saber mais sobre como recuperar o ID do modelo, consulte o [guia do desenvolvedor.](concepts-developer-guide.md)
+> Esta amostra utiliza o **Microsoft.Azure.Devices.Client;** espaço de nome do cliente de **serviço IoT Hub**. Para saber mais sobre como recuperar o ID do modelo, consulte o [guia do desenvolvedor.](concepts-developer-guide-service.md)
 
 Este código gera a seguinte saída:
 

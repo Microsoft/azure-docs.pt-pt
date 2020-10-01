@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534605"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612783"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para redes virtuais
 
@@ -69,13 +69,13 @@ Note as seguintes limitações atuais para o DPS ao utilizar pontos finais priva
 
 Para configurar um ponto final privado, siga estes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)abra o seu recurso DPS e clique no **separador De Rede.** Clique nas **ligações de ponto final privado** e + ponto final **privado**.
+1. No [portal Azure,](https://portal.azure.com/)abra o seu recurso DPS e clique no **separador 'Rede'.** Clique **em ligações de ponto final privado e** + ponto final **privado.**
 
     ![Adicione um novo ponto final privado para DPS](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
 2. Na página _'Criar'_ Bases de ponto final privado, insira as informações mencionadas na tabela abaixo.
 
-    ![Configure o recurso que um novo ponto final privado mapeia para](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Criar pontos finais privados básicos](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Campo | Valor |
     | :---- | :-----|
@@ -88,14 +88,14 @@ Para configurar um ponto final privado, siga estes passos:
 
 3. Na página _'Criar' 'Recurso' de ponto final privado,_ insira as informações mencionadas na tabela abaixo.
 
-    ![Configure o recurso que um novo ponto final privado mapeia para](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Criar recurso de ponto final privado](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Campo | Valor |
     | :---- | :-----|
     | **Subscrição**        | Escolha a subscrição Azure que contém o recurso DPS que o seu ponto final privado irá apontar.  |
     | **Tipo de recurso**       | Escolha **Microsoft.Devices/ProvisioningServices**. |
     | **Recurso**            | Selecione o recurso DPS para o quais o ponto final privado irá mapear. |
-    | **Sub-recurso-alvo** | Selecione **iotDps**. |
+    | **Recurso secundário de destino** | Selecione **iotDps**. |
 
     > [!TIP]
     > As informações sobre o **'Ligar a um recurso Azure' por ID ou** indicação de pseudónimos são fornecidas na secção ['Pedido' uma](#request-a-private-endpoint) secção de ponto final privado neste artigo.
@@ -107,7 +107,7 @@ Para configurar um ponto final privado, siga estes passos:
  
     Clique **em seguida : Tags**, e opcionalmente forneça quaisquer tags para o seu recurso.
 
-    ![Configure o recurso que um novo ponto final privado mapeia para](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configure o ponto final privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Clique **em Rever + criar** e, em seguida, **criar** para criar o seu recurso de ponto final privado.
 
@@ -128,7 +128,7 @@ Pode solicitar um ponto final privado a um recurso DPS através do ID de recurso
     | Campo | Valor |
     | :---- | :-----|
     | **ID de recursos ou pseudónimo** | Introduza o ID do recurso para o recurso DPS. |
-    | **Sub-recurso-alvo** | Insira **iotDps** |
+    | **Recurso secundário de destino** | Insira **iotDps** |
     | **Mensagem de pedido** | Introduza uma mensagem de pedido para o proprietário do recurso DPS.<br>Por exemplo, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     Clique **em seguida : Configuração** para configurar o VNET para o ponto final privado.
@@ -141,7 +141,7 @@ Pode solicitar um ponto final privado a um recurso DPS através do ID de recurso
 
 5. O proprietário do DPS verá o pedido de ponto final privado na lista **de ligações de ponto final privado** no separador de rede DPS. Nessa página, o proprietário pode **aprovar** ou **rejeitar** o pedido de ponto final privado, conforme mostrado abaixo.
 
-    ![Separador de propriedades DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Aprovação do DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Preços de pontos finais privados

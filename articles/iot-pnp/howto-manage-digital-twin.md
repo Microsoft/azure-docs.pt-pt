@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577599"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613395"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerir ioT plug e jogar gémeos digitais
 
@@ -179,17 +179,17 @@ Todas as chaves do mapa devem ser nomes DTDL v2 válidos.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Resolução de problemas atualiza erros digitais da API
 
-Durante a pré-visualização pública, a API digital de twin de atualização lança a seguinte mensagem de erro genérica:
+A API digital twin lança a seguinte mensagem de erro genérica:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Certifique-se de que o patch de atualização segue as [regras para definir](#rules-for-setting-the-desired-value-of-a-digital-twin-property) o valor desejado de uma propriedade digital twin
+Se vir este erro, certifique-se de que o patch de atualização segue [as regras para definir](#rules-for-setting-the-desired-value-of-a-digital-twin-property) o valor pretendido de uma propriedade digital twin
 
 Quando atualizar um componente, certifique-se de que o [objeto vazio $metadata marcador](#add-replace-or-remove-a-component) está definido.
 
 As atualizações podem falhar se os valores reportados de um dispositivo não estiverem em conformidade com as [convenções de plug-plug e play IoT](./concepts-convention.md#writable-properties).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 

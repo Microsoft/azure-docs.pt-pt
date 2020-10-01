@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837113"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611525"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -51,7 +51,7 @@ Pode implantar imagens de VM e de instância até ao tamanho da cache VM. Por ex
 Os discos efémeros também exigem que o tamanho VM suporte o armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para obter mais informações, consulte [os tamanhos Azure VM](sizes.md) para obter mais detalhes sobre quais tamanhos suportam armazenamento Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Pré-visualização - Os discos EFÉMERes já podem ser armazenados em discos temporários
-Os discos EFÉMEROS podem agora ser armazenados em disco de vm temp/recursos, além da cache VM. Assim, agora pode usar discos EFÉMEROS com VM que não têm cache ou têm cache insuficiente, mas tem um disco temporário/recursos para armazenar o disco EFÉMER OS como Dav3, Dav4, Eav4 e Eav3. Se um VM tiver cache e espaço temporário suficiente, agora também poderá especificar onde pretende armazenar o disco EFÉMER OS Utilizando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Esta funcionalidade encontra-se em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite acesso.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)
+Os discos EFÉMEROS podem agora ser armazenados em disco de vm temp/recursos, além da cache VM. Assim, agora pode usar discos EFÉMEROS com VM que não têm cache ou têm cache insuficiente, mas tem um disco temporário/recursos para armazenar o disco EFÉMER OS como Dav3, Dav4, Eav4 e Eav3. Se um VM tiver cache e espaço temporário suficiente, agora também poderá especificar onde pretende armazenar o disco EFÉMER OS Utilizando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Com esta funcionalidade, quando um VM do Windows é a provisionado, configuramos o ficheiro de página a ser localizado no disco OS. Esta funcionalidade encontra-se em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite acesso.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)
 
 ## <a name="powershell"></a>PowerShell
 

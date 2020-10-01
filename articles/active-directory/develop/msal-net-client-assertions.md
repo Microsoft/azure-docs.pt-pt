@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166319"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612817"
 ---
 # <a name="confidential-client-assertions"></a>Afirmações confidenciais do cliente
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-As alegações esperadas pela Azure AD são:
+As [alegações esperadas pela Azure AD](active-directory-certificate-credentials.md) são:
 
 Tipo de afirmação | Valor | Descrição
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A alegação "aud" (audiência) identifica os destinatários a que o JWT se destina (aqui Azure AD) Ver [RFC 7519, Secção 4.1.3]
-exp | Thu jun 27 2019 15:04:17 GMT+0200 (Horário de verão do Romance) | A alegação "exp" (tempo de validade) identifica o tempo de validade no ou após o qual o JWT NÃO DEVE ser aceite para processamento. Ver [RFC 7519, Secção 4.1.4]
-iss | {ClientID} | A alegação "iss" (emitente) identifica o principal que emitiu o JWT. O processamento desta reclamação é específico da aplicação. O valor "iss" é uma cadeia sensível a maiôs contendo um valor StringOrURI. [RFC 7519, Secção 4.1.1]
-jti | (um Guia) | A alegação "jti" (JWT ID) fornece um identificador único para o JWT. O valor do identificador DEVE ser atribuído de forma a garantir que existe uma probabilidade negligenciável de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; se a aplicação utilizar vários emitentes, as colisões devem ser evitadas entre os valores produzidos também por diferentes emitentes. A alegação "jti" pode ser usada para evitar que o JWT seja reproduzido. O valor "jti" é uma corda sensível a casos. [RFC 7519, Secção 4.1.7]
-nbf | Thu jun 27 2019 14:54:17 GMT+0200 (Horário de verão do Romance) | A alegação "nbf" (não antes) identifica o tempo anterior ao qual o JWT NÃO DEVE ser aceite para processamento. [RFC 7519, Secção 4.1.5]
-sub | {ClientID} | A alegação "sub" (sujeito) identifica o sujeito do JWT. As alegações num JWT são normalmente declarações sobre o assunto. O valor do assunto DEVE ser considerado localmente único no contexto do emitente ou ser globalmente único. A Ver [RFC 7519, Secção 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A alegação "aud" (audiência) identifica os destinatários a que o JWT se destina (aqui Azure AD) Ver [RFC 7519, Secção 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  Neste caso, o destinatário é o servidor de login (login.microsoftonline.com).
+exp | 1601519414 | A alegação "exp" (tempo de validade) identifica o tempo de validade no ou após o qual o JWT NÃO DEVE ser aceite para processamento. Consulte [RFC 7519, Secção 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Isto permite que a afirmação seja usada até lá, por isso mantenha-a curta - 5-10 minutos `nbf` depois, no máximo.  A Azure AD não coloca restrições na `exp` hora atual. 
+iss | {ClientID} | A alegação "iss" (emitente) identifica o principal que emitiu o JWT, neste caso o seu pedido de cliente.  Utilize o ID da aplicação GUID.
+jti | (um Guia) | A alegação "jti" (JWT ID) fornece um identificador único para o JWT. O valor do identificador DEVE ser atribuído de forma a garantir que existe uma probabilidade negligenciável de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; se a aplicação utilizar vários emitentes, as colisões devem ser evitadas entre os valores produzidos também por diferentes emitentes. O valor "jti" é uma corda sensível a casos. [RFC 7519, Secção 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | A alegação "nbf" (não antes) identifica o tempo anterior ao qual o JWT NÃO DEVE ser aceite para processamento. [RFC 7519, Secção 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  A utilização do tempo atual é apropriada. 
+sub | {ClientID} | A alegação "sub" (sujeito) identifica o sujeito do JWT, neste caso também o seu pedido. Use o mesmo valor que `iss` . 
 
 Aqui está um exemplo de como elaborar estas alegações:
 
@@ -181,7 +181,7 @@ Assim que tiver a sua afirmação assinada pelo cliente, pode usá-la com o apis
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`por defeito produzirá uma afirmação assinada contendo as alegações esperadas pela Azure AD mais alegações adicionais do cliente que pretende enviar. Aqui está um código sobre como fazê-lo.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` por defeito produzirá uma afirmação assinada contendo as alegações esperadas pela Azure AD mais alegações adicionais do cliente que pretende enviar. Aqui está um código sobre como fazê-lo.
 
 ```csharp
 string ipAddress = "192.168.1.2";

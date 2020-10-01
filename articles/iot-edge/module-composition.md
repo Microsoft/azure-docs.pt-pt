@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a9f4f165f457dfb902a4c0ecce3f4a9b13e2ec8
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511845"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611542"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Saiba como implementar módulos e estabelecer rotas no IoT Edge
 
@@ -32,13 +32,13 @@ Todos os dispositivos IoT Edge devem ser configurados com um manifesto de implan
 
 Nos tutoriais Azure IoT Edge, constrói-se um manifesto de implantação através de um assistente no portal Azure IoT Edge. Também pode aplicar um manifesto de implantação programáticamente utilizando REST ou o IoT Hub Service SDK. Para obter mais informações, consulte [as implementações do IoT Edge.](module-deployment-monitoring.md)
 
-## <a name="create-a-deployment-manifest"></a>Criar um manifesto de implantação
+## <a name="create-a-deployment-manifest"></a>Criar um manifesto de implementação
 
 A um nível elevado, um manifesto de implantação é uma lista de gémeos módulos que são configurados com as suas propriedades desejadas. Um manifesto de implantação diz a um dispositivo IoT Edge (ou a um grupo de dispositivos) quais os módulos para instalar e como os configurar. Os manifestos de implantação incluem as *propriedades desejadas* para cada módulo gémeo. Os dispositivos IoT Edge reportam as *propriedades reportadas* para cada módulo.
 
 São necessários dois módulos em todos os manifestos de implantação: `$edgeAgent` e `$edgeHub` . Estes módulos fazem parte do tempo de funcionamento do IoT Edge que gere o dispositivo IoT Edge e os módulos que funcionam nele. Para obter mais informações sobre estes módulos, consulte [o tempo de execução IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 
-Além dos dois módulos de tempo de execução, pode adicionar até 30 módulos próprios para executar num dispositivo IoT Edge.
+Além dos dois módulos de tempo de execução, pode adicionar até 50 módulos próprios para executar num dispositivo IoT Edge.
 
 Um manifesto de implantação que contenha apenas o tempo de execução IoT Edge (edgeAgent e edgeHub) é válido.
 
@@ -159,9 +159,9 @@ As mensagens que passam entre módulos no IoT Edge são formatadas da mesma form
 
 Pode criar consultas em torno de qualquer um dos três parâmetros com a seguinte sintaxe:
 
-* Propriedades do sistema: `$<propertyName>` ou`{$<propertyName>}`
-* Propriedades da aplicação:`<propertyName>`
-* Propriedades do corpo:`$body.<propertyName>`
+* Propriedades do sistema: `$<propertyName>` ou `{$<propertyName>}`
+* Propriedades da aplicação: `<propertyName>`
+* Propriedades do corpo: `$body.<propertyName>`
 
 Por exemplo, sobre como criar consultas para propriedades de mensagens, consulte [as expressões de perguntas de perguntas de mensagens dispositivo-a-nuvem](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
@@ -279,7 +279,7 @@ O exemplo a seguir mostra como pode ser um documento manifesto de implantação 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma lista completa de propriedades que podem ou devem ser incluídas em $edgeAgent e $edgeHub, consulte [propriedades do agente IoT Edge e do hub IoT Edge](module-edgeagent-edgehub.md).
 

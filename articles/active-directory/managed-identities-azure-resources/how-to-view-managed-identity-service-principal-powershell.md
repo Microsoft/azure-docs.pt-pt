@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2f9ac119a3365eff39fe1a65ff8b553d3900b117
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 15ccc0faa4d74a2ef95aca00a6257f27b9a209c3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969319"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611950"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Ver o principal de serviço de uma identidade gerida usando o PowerShell
 
@@ -42,10 +42,10 @@ Neste artigo, você aprende a ver o principal de serviço de uma identidade geri
 
 ## <a name="view-the-service-principal"></a>Ver o principal de serviço
 
-Este comando seguinte demonstra como ver o principal de serviço de um VM ou aplicação com a identidade atribuída pelo sistema ativada. `<VM or application name>`Substitua-o por seus próprios valores.
+Este comando seguinte demonstra como ver o principal de serviço de um VM ou aplicação com a identidade atribuída pelo sistema ativada. `<Azure resource name>`Substitua-o por seus próprios valores.
 
 ```azurepowershell-interactive
-Get-AzADServicePrincipal -DisplayName <VM or application name>
+Get-AzADServicePrincipal -DisplayName <Azure resource name>
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

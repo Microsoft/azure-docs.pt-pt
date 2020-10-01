@@ -1,6 +1,7 @@
 ---
-title: Remover app registada na plataforma de identidade da Microsoft Rio Azure
-description: Aprenda a remover uma aplicação registada com a plataforma de identidade da Microsoft.
+title: 'Quickstart: Remova uma aplicação registada da plataforma de identidade microsoft Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste arranque rápido, aprende-se a remover uma aplicação registada na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115327"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612392"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Quickstart: Remova uma aplicação registada na plataforma de identidade da Microsoft
 
@@ -30,22 +31,19 @@ Neste início rápido, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ter um inquilino que tenha pedidos registados. Para saber como adicionar e registar aplicações, veja [Registar uma aplicação com a plataforma de identidade da Microsoft](quickstart-register-app.md).
+* Conclusão do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Remover uma aplicação criada por si ou pela sua organização
 
 As aplicações que o utilizador ou a sua organização registaram são representados por um objeto de aplicação e o objeto principal de serviço no seu inquilino. Para obter mais informações, veja [Objetos de Aplicação e Objetos de Principal de Serviço](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Para remover uma aplicação
+Para eliminar uma aplicação, tem de estar listado como proprietário da aplicação ou ter privilégios de administrador.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-2. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-3. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
-4. Na página **Descrição geral**, selecione **Eliminar**.
-5. Selecione **Sim** para confirmar que pretende eliminar a aplicação.
-
-   > [!NOTE]
-   > Para eliminar uma aplicação, tem de estar listado como proprietário da aplicação ou ter privilégios de administrador.
+1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
+1. Na página **Descrição geral**, selecione **Eliminar**.
+1. Selecione **Sim** para confirmar que pretende eliminar a aplicação.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Remover uma aplicação criada por outra organização
 
@@ -55,9 +53,7 @@ Para remover o acesso de uma aplicação ao seu diretório (depois de ter dado a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre estes outros inícios rápidos de gestão de aplicações relacionadas:
+Saiba mais sobre os principais objetos de aplicação e serviço na plataforma de identidade da Microsoft:
 
-* [Registar uma aplicação na plataforma de identidade da Microsoft](quickstart-register-app.md)
-* [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Configurar uma aplicação para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-* [Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Objetos do principal de serviço e aplicação no Azure Active Directory](app-objects-and-service-principals.md)

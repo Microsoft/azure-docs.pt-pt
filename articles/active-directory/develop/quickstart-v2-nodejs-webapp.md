@@ -1,6 +1,7 @@
 ---
-title: Adicione o OIDC a uma aplicação web Node.js - plataforma de identidade da Microsoft ! Rio Azure
-description: Saiba como implementar a autenticação numa aplicação web Node.js utilizando o OpenID Connect.
+title: 'Quickstart: Adicione o início de singing do utilizador a uma aplicação web Node.js [ Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste arranque rápido, aprende-se a implementar a autenticação numa aplicação web Node.js utilizando o OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257695"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613310"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -24,11 +25,8 @@ Neste arranque rápido, você vai aprender a configurar a autenticação OpenID 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará:
-
-* Instale Node.js a partir de http://nodejs.org/
-
-* Ou uma [conta Microsoft](https://www.outlook.com) ou o [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Node.js. ](https://nodejs.org/en/download/)
 
 ## <a name="register-your-application"></a>Registar a aplicação
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.

@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2ee20035fbb7b417897290caba4500f2c3862fee
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440702"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611814"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instale e utilize o emulador Azure Cosmos para desenvolvimento e testes locais
 
@@ -131,7 +131,7 @@ Pode executar o emulador Azure Cosmos no contentor Windows Docker. Consulte o [D
    ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
-   Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Primary Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    Exporting SSL Certificate
    You can import the SSL certificate from an administrator command prompt on the host by running:
    cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
@@ -458,7 +458,7 @@ Utilize os seguintes passos para desinstalar o emulador:
 
 1. Na lista de aplicações, percorra o **Emulador Azure Cosmos DB**, selecione-o, clique em **Desinstalar,** e depois confirme e selecione **Desinstalar** novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar o emulador local para o desenvolvimento local gratuito. Pode agora passar para os próximos artigos:
 

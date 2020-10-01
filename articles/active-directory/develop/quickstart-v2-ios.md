@@ -1,6 +1,7 @@
 ---
-title: Plataforma de identidade da Microsoft iOS e macOS quickstart Rio Azure
-description: Saiba como iniciar serção nos utilizadores e consultar o Microsoft Graph numa aplicação iOS ou macOS.
+title: 'Quickstart: Adicione o início com a Microsoft a uma aplicação para iOS ou macOS Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, saiba como uma aplicação iOS ou macOS pode iniciar sôm nos utilizadores, obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115259"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613463"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Quickstart: Inicie sísmia nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação para iOS ou macOS
 
@@ -25,13 +26,16 @@ Este quickstart contém uma amostra de código que demonstra como uma aplicaçã
 
 Este quickstart aplica-se tanto às aplicações iOS como ao macOS. Alguns passos são necessários apenas para aplicações iOS. Esses passos dizem que são apenas para iOS.
 
-![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> **Pré-requisitos**
-> * XCode 10+
-> * iOS 10+
-> * macOS 10.12+
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* XCode 10+
+* iOS 10+
+* macOS 10.12+
+
+## <a name="how-the-sample-works"></a>Como funciona a amostra
+
+![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -70,16 +74,16 @@ Este quickstart aplica-se tanto às aplicações iOS como ao macOS. Alguns passo
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-ios/green-check.png) A sua aplicação está configurada com estes atributos
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>Passo 2: Descarregue o projeto de amostra
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Descarregue a amostra de código para iOS]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Descarregue a amostra de código para macOS]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>Passo 2: Descarregue o projeto de amostra
-> 
+>
 > - [Descarregue a amostra de código para iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Descarregue a amostra de código para macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -260,15 +264,13 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados (isto é, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados ( `api://<Application ID>/access_as_user` ) |
-> | `account` | A conta está a ser pedida. Este quickstart é sobre uma única aplicação de conta. Se quiser construir uma aplicação multi-conta, terá de definir lógica para identificar qual a conta a utilizar para pedidos simbólicos usando `accountsFromDeviceForParameters:completionBlock:` e passando corretamente`accountIdentifier` |
+> | `account` | A conta está a ser pedida. Este quickstart é sobre uma única aplicação de conta. Se quiser construir uma aplicação multi-conta, terá de definir lógica para identificar qual a conta a utilizar para pedidos simbólicos usando `accountsFromDeviceForParameters:completionBlock:` e passando corretamente `accountIdentifier` |
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente o tutorial para iOS e macOS para um guia completo passo a passo sobre aplicações de construção, incluindo uma explicação completa deste arranque rápido.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar a aplicação utilizada neste arranque rápido
+Passe para o tutorial passo a passo no qual constrói uma aplicação iOS ou macOS que obtém um token de acesso a partir da plataforma de identidade da Microsoft e a usa para ligar para a Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Ligue para o tutorial da API do Gráfico para iOS e macOS](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS](tutorial-v2-ios.md)

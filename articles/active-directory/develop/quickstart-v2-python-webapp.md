@@ -1,6 +1,7 @@
 ---
-title: Adicione o sismo com a Microsoft a uma plataforma de identidade da Microsoft Python web app / Rio Azure
-description: Saiba como implementar o Microsoft Sign-In numa aplicação web Python utilizando o OAuth2
+title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web Python / Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, saiba como uma aplicação web Python pode iniciar sôm nos utilizadores, obter um token de acesso a partir da plataforma de identidade da Microsoft e ligar para a Microsoft Graph API.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120325"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613344"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python
 
@@ -26,8 +27,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará:
-
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) ou [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Frasco,](http://flask.pocoo.org/) [Flask-Session,](https://pypi.org/project/Flask-Session/) [pedidos](https://requests.kennethreitz.org/en/master/)
 - [Pitão MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -97,7 +97,7 @@ Para executar esta amostra, você precisará:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Descarregue o projeto e extrate o ficheiro zip para uma pasta local mais próxima da pasta raiz - por exemplo, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -119,8 +119,8 @@ Para executar esta amostra, você precisará:
 > Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Client_Secret_Here`- é o Segredo de **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
-> - `Enter_the_Tenant_Name_Here`- é o valor de identificação do **Diretório (inquilino)** do pedido que registou.
+> - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos**  para a aplicação que registou.
+> - `Enter_the_Tenant_Name_Here` - é o valor de identificação do **Diretório (inquilino)** do pedido que registou.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>Passo 3: Executar a amostra de código
@@ -162,11 +162,11 @@ Pode adicionar a referência ao MSAL Python adicionando o seguinte código à pa
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre aplicações web que assinam nos utilizadores e, em seguida, que chama APIs web:
+Saiba mais sobre aplicações web que assinam nos utilizadores na nossa série de cenários multi-partes.
 
 > [!div class="nextstepaction"]
-> [Cenário: aplicativos web que assinam nos utilizadores](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md)

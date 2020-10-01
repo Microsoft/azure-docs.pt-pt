@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a5b826bd76eb7e56620bcb5b5eec9464ebacffc6
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580418"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610080"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementar IoT Plug e Reproduzir em dispositivos constrangidos
 
@@ -39,7 +39,7 @@ O repositório SDK para incorporado C contém [várias amostras](https://github.
 
 ## <a name="using-azure-rtos"></a>Utilização de RTOS Azure
 
-O Azure RTOS inclui uma camada leve que adiciona conectividade nativa aos serviços de nuvem Azure IoT. Esta camada fornece um mecanismo simples para ligar dispositivos constrangidos ao Azure IoT enquanto utiliza as funcionalidades avançadas do Azure RTOS.
+O Azure RTOS inclui uma camada leve que adiciona conectividade nativa aos serviços de nuvem Azure IoT. Esta camada fornece um mecanismo simples para ligar dispositivos constrangidos ao Azure IoT enquanto utiliza as funcionalidades avançadas do Azure RTOS. Para saber mais, consulte o [RtOS do Microsoft Azure.](https://docs.microsoft.com/azure/rtos/overview-rtos)
 
 ### <a name="toolchains"></a>Poltronas de ferramentas
 

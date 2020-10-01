@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258521"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611661"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
 
@@ -202,7 +202,7 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
 Também pode ver a cadeia de registos de custódia que incluem os registos de auditoria e os ficheiros BOM.
 
-![Registos nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Registos nas contas de armazenamento 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 

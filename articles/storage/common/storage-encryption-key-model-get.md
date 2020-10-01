@@ -10,13 +10,13 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17be7cb8e3330a9bd0391e0750f5e37ac64b0484
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f59e4238c983cdb336500a68c52730ae5346b1c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971006"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612426"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual o modelo chave de encriptação de armazenamento Azure está a ser utilizado para a conta de armazenamento
 

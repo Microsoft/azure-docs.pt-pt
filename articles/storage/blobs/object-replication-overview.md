@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987059"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612171"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para bolhas de bloco
 

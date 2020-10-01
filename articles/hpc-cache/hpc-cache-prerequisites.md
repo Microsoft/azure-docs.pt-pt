@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7731839d23ec49ddfee814cc6b2f6b3459372f03
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613988"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612987"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -36,9 +36,6 @@ Leia o resto deste artigo para recomendações específicas.
 ## <a name="azure-subscription"></a>Subscrição do Azure
 
 Recomenda-se uma subscrição paga.
-<!-- 
-> [!NOTE]
-> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.  -->
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
 
@@ -164,6 +161,6 @@ Mais informações estão incluídas na [configuração do Troubleshoot NAS e no
 
 Se pretender criar ou gerir a Cache Azure HPC a partir da interface de linha de comando Azure (Azure CLI), tem de instalar o software CLI e a extensão hpc-cache. Siga as instruções na [Configuração Azure CLI para cache Azure HPC](az-cli-prerequisites.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma instância cache Azure HPC](hpc-cache-create.md) a partir do portal Azure

@@ -1,7 +1,7 @@
 ---
-title: Inscreva-se nos utilizadores em aplicações de página única JavaScript (SPA) com código auth ! Rio Azure
+title: 'Quickstart: Iniciar súp à vista nos utilizadores em aplicações de página única JavaScript (SPA) com código auth / Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação de página única JavaScript (SPA) pode iniciar scontabilidade pessoal, contas de trabalho e contas escolares utilizando o fluxo de código de autorização.
+description: Neste quickstart, saiba como uma aplicação de página única JavaScript (SPA) pode iniciar sômitos em utilizadores de contas pessoais, contas de trabalho e contas escolares utilizando o fluxo de código de autorização.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257984"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613446"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 

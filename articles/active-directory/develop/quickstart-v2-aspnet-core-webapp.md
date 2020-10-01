@@ -1,7 +1,7 @@
 ---
-title: Adicione o s-in com a Microsoft para ASP.NET aplicações web Core [ Rio Azure
+title: 'Quickstart: Adicione o início de sing-in com a Microsoft a uma aplicação web core ASP.NET [ Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Saiba como implementar o sôd in da Microsoft numa aplicação web core ASP.NET utilizando o OpenID Connect
+description: Neste quickstart, você aprende como uma aplicação implementa o início de sôrção da Microsoft em uma aplicação web core ASP.NET usando OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902367"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613497"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
 Neste quickstart, você usa uma amostra de código para saber como uma aplicação web core ASP.NET pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Pré-requisitos
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [Código de Estúdio Visual](https://code.visualstudio.com/)
+> * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
 > * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -108,7 +113,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >
 > Depois de consentir com as permissões solicitadas, a aplicação apresenta que fez login com sucesso usando as suas credenciais de Diretório Azure Ative.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser exibindo a aplicação web em execução e o utilizador assinou em":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Diálogo de consentimento mostrando as permissões que a aplicação está solicitando do utilizador >":::
 
 ## <a name="more-information"></a>Mais informações
 

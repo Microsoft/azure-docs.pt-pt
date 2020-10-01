@@ -4,13 +4,13 @@ description: Saiba como implementar um modelo de Gestor de Recursos Azure a part
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: ef52d20b20446e3b8f3b761949bf255b99d358cc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499590"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611627"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementar um modelo local de gestor de recursos Azure
 
@@ -26,7 +26,7 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para implemen
 
 Você precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Para as instruções de instalação, consulte:
 
-- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 
@@ -152,7 +152,7 @@ Para saber mais sobre a implementação do modelo utilizando o Azure CLI, consul
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe os recursos que implementou eliminando o grupo de recursos.
 

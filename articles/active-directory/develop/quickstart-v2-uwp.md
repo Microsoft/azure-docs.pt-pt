@@ -1,6 +1,7 @@
 ---
-title: Plataforma de identidade da Microsoft Windows UWP quickstart / Rio Azure
-description: Saiba como uma aplicação Universal Windows Platform (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto final da plataforma de identidade da Microsoft.
+title: 'Quickstart: Inicie sísmia nos utilizadores e ligue para o Microsoft Graph numa aplicação Universal Windows Platform / Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, saiba como uma aplicação Universal Windows Platform (UWP) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 996c3f5bd6781d35f9ce55da0766712c53e7cb7a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553860"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613293"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
@@ -133,7 +134,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
@@ -155,7 +156,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 
@@ -170,7 +171,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: | Description |
+> |Em que: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados |
 > | `firstAccount` | Especifica a primeira conta de utilizador na cache (o MSAL suporta vários utilizadores numa única aplicação) |

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b25f2691646192faf4d4c133835b456038abd94
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269204"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611933"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Ver o principal de serviço de uma identidade gerida no portal Azure
 
@@ -43,7 +43,7 @@ Este procedimento demonstra como ver o principal de serviço de um VM com a iden
 
 1. Clique **em Azure Ative Directory** e, em seguida, clique em **aplicações enterprise**.
 2. No **Tipo de Aplicação**, escolha **todas as aplicações** e, em seguida, clique em **Aplicar**.
-3. Na caixa de filtro de pesquisa, digite o nome do VM ou da aplicação que tenha gerido a identidade ativada ou escolha-a na lista apresentada.
+3. Na caixa de filtro de pesquisa, digite o nome do recurso Azure que tenha gerido a identidade ativada ou escolha-a na lista apresentada.
 
    ![Ver diretor de serviço de identidade gerido no portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447723"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612749"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>Identidades geridas
+
+Para obter o ID de uma identidade gerida, você pode usar comandos [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp.](/cli/azure/ad/sp)
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>Aplicação
 
 Para obter o ID de um principal serviço (identidade utilizada por uma aplicação), pode utilizar os comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) ou [az ad sp.](/cli/azure/ad/sp#az-ad-sp-list) Para um principiante de serviço, utilize o ID do objeto e **não** o ID da aplicação.
@@ -77,7 +89,7 @@ O modelo a seguir mostra uma forma básica de adicionar uma atribuição de fun�
 Para utilizar o modelo, tem de fazer o seguinte:
 
 - Crie um novo ficheiro JSON e copie o modelo
-- `<your-principal-id>`Substitua-se pelo ID de um utilizador, grupo ou aplicação para atribuir a função a
+- Substitua `<your-principal-id>` pelo ID de um utilizador, grupo, identidade gerida ou aplicação para atribuir a função
 
 ```json
 {
@@ -120,7 +132,7 @@ O modelo anterior não é muito flexível. O modelo a seguir utiliza parâmetros
 
 Para utilizar o modelo, deve especificar as seguintes entradas:
 
-- O ID de um utilizador, grupo ou aplicação para atribuir a função a
+- O ID de um utilizador, grupo, identidade gerida ou aplicação para atribuir o papel a
 - Um ID único que será usado para a atribuição de funções, ou pode usar o ID padrão
 
 ```json
@@ -214,7 +226,7 @@ O modelo a seguir demonstra:
 
 Para utilizar o modelo, deve especificar as seguintes entradas:
 
-- O ID de um utilizador, grupo ou aplicação para atribuir a função a
+- O ID de um utilizador, grupo, identidade gerida ou aplicação para atribuir o papel a
 
 ```json
 {
@@ -368,7 +380,7 @@ No Azure RBAC, para remover o acesso a um recurso Azure, você remove a atribui�
 - [CLI do Azure](role-assignments-cli.md#remove-role-assignment)
 - [API REST](role-assignments-rest.md#remove-a-role-assignment)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md)

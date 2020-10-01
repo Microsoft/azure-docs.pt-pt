@@ -4,14 +4,14 @@ description: Como gerir e atualizar a Cache Azure HPC utilizando o portal Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497233"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613062"
 ---
 # <a name="manage-your-cache"></a>Gerencie a sua cache
 
@@ -28,6 +28,7 @@ Os botões no topo da página podem ajudá-lo a gerir a cache:
 * **Iniciar** e [**Parar**](#stop-the-cache) - Retoma ou suspende a operação de cache
 * [**Flush**](#flush-cached-data) - Escreve dados alterados para alvos de armazenamento
 * [**Upgrade**](#upgrade-cache-software) - Atualiza o software cache
+* [**Recolher diagnósticos**](#collect-diagnostics) - Uploads de informação depuragem
 * **Refresh** - Recarregue a página geral
 * [**Excluir**](#delete-the-cache) - Destrói permanentemente a cache
 
@@ -197,6 +198,16 @@ $
 
 ---
 
+## <a name="collect-diagnostics"></a>Recolher diagnósticos
+
+O botão **'Recolha' de diagnósticos** inicia manualmente o processo para recolher informações do sistema e carregá-la para o Microsoft Service and Support para resolução de problemas. O seu cache recolhe e carrega automaticamente as mesmas informações de diagnóstico se ocorrer um problema grave de cache.
+
+Utilize este controlo se o Microsoft Service and Support o solicitar.
+
+Depois de clicar no botão, clique em **Sim** para confirmar o upload.
+
+![screenshot da mensagem de confirmação pop-up 'Start diagnostics collection'. O botão predefinido 'sim' é realçado.](media/diagnostics-confirm.png)
+
 ## <a name="delete-the-cache"></a>Apagar a cache
 
 O botão **Delete** destrói a cache. Quando se apaga uma cache, todos os seus recursos são destruídos e já não incorrem em encargos de conta.
@@ -244,7 +255,7 @@ A página geral mostra gráficos para algumas estatísticas básicas de cache - 
 
 Estes gráficos fazem parte das ferramentas de monitorização e análise incorporadas da Azure. Estão disponíveis ferramentas e alertas adicionais a partir das páginas sob o título **de Monitorização** na barra lateral do portal. Saiba mais na secção do portal da [documentação de Monitorização do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [as métricas e ferramentas estatísticas do Azure](../azure-monitor/index.yml)
 * Obtenha [ajuda com o seu Cache Azure HPC](hpc-cache-support-ticket.md)

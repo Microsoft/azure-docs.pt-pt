@@ -4,15 +4,15 @@ description: Descreve o esquema do evento para cada categoria no registo de Ativ
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829514"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612766"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
 O [registo de Atividades Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
@@ -23,6 +23,17 @@ O esquema variará dependendo da forma como acede ao registo:
 - Consulte a secção final [Schema a partir de centros de conta de armazenamento e eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando utilizar uma [definição de diagnóstico](diagnostic-settings.md) para enviar o registo de Atividade para Azure Storage ou Azure Event Hubs.
 - Consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/) para o esquema quando utilizar uma [definição de diagnóstico](diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho do Log Analytics.
 
+## <a name="severity-level"></a>Nível de Gravidade
+Cada entrada no registo de atividade tem um nível de gravidade. O nível de severidade pode ter um dos seguintes valores:  
+
+| Gravidade | Descrição |
+|:---|:---|
+| Crítico | Eventos que exigem a atenção imediata de um administrador de sistema. Pode indicar que uma aplicação ou sistema falhou ou deixou de responder.
+| Erro | Eventos que indicam um problema, mas não requerem atenção imediata.
+| Aviso | Eventos que prevêem potenciais problemas, embora não um erro real. Indique que um recurso não está num estado ideal e pode degradar-se mais tarde em erros ou eventos críticos.  
+| Informativo | Eventos que transmitem informação não crítica ao administrador. Semelhante a uma nota que diz: "Para a sua informação". 
+
+Os devlopers de cada fornecedor de recursos escolhem os níveis de gravidade das suas entradas de recursos. Como resultado, a gravidade real pode variar dependendo da forma como a sua aplicação é construída. Por exemplo, os itens que são "críticos" para um determinado recurso tomado na isloação podem não ser tão importantes como "erros" num tipo de recurso que é central para a sua aplicação Azure. Não se esqueça de considerar este facto ao decidir quais os eventos a alertar.  
 
 ## <a name="categories"></a>Categorias
 Cada evento no Registo de Atividades tem uma categoria específica que são descritas na tabela seguinte. Consulte as secções abaixo para obter mais detalhes sobre cada categoria e o seu esquema quando aceder ao registo de Atividade a partir do portal, PowerShell, CLI e REST API. O esquema é diferente quando [transmite o registo de atividade para armazenamento ou Centros de Eventos.](./resource-logs.md#send-to-azure-event-hubs) Um mapeamento das propriedades para o [esquema de registos](./resource-logs-schema.md) de recursos é fornecido na última secção do artigo.

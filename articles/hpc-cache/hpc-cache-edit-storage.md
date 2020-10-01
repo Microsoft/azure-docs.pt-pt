@@ -4,18 +4,30 @@ description: Como editar alvos de armazenamento Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: f11e12c4f30977514e04b09c7e1c3012eb7888a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092461"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613125"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
-Pode remover ou modificar um alvo de armazenamento da página do portal dos **alvos** de armazenamento da cache ou utilizando o CLI Azure.
+Pode remover ou modificar alvos de armazenamento com o portal Azure ou utilizando o CLI Azure.
+
+Dependendo do tipo de armazenamento, pode modificar estes valores-alvo de armazenamento:
+
+* Para os alvos de armazenamento blob, pode alterar o caminho do espaço de nome.
+
+* Para os alvos de armazenamento NFS, pode alterar estes valores:
+
+  * Caminhos do espaço de nome
+  * O subdiretório de exportação ou exportação de armazenamento associado a um caminho de espaço de nome
+  * Modelo de utilização
+
+Não é possível editar o nome, o tipo ou o sistema de armazenamento de um alvo de armazenamento (recipiente Blob ou endereço NFS hostname/IP). Se precisar de alterar estas propriedades, elimine o alvo de armazenamento e crie uma substituição pelo novo valor.
 
 > [!TIP]
 > O [vídeo Managing Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) mostra como editar um alvo de armazenamento no portal Azure.
@@ -24,7 +36,7 @@ Pode remover ou modificar um alvo de armazenamento da página do portal dos **al
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para remover um alvo de armazenamento, selecione-o na lista e clique no botão **Eliminar.**
+Para remover um alvo de armazenamento, abra a página **de alvos de Armazenamento.** Selecione o alvo de armazenamento da lista e clique no botão **Eliminar.**
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -45,41 +57,23 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-Esta ação remove a associação-alvo de armazenamento com este sistema Azure HPC Cache, mas não altera o sistema de armazenamento back-end. Por exemplo, se utilizar um recipiente de armazenamento Azure Blob, o recipiente e o seu conteúdo ainda existem depois de o eliminar da cache. Pode adicionar o recipiente a uma cache Azure HPC diferente, adicioná-lo novamente a esta cache ou eliminá-lo com o portal Azure.
+A eliminação de um alvo de armazenamento remove a associação do sistema de armazenamento com este sistema Azure HPC Cache, mas não altera o sistema de armazenamento back-end. Por exemplo, se utilizar um recipiente de armazenamento Azure Blob, o recipiente e o seu conteúdo ainda existem depois de o eliminar da cache. Pode adicionar o recipiente a uma cache Azure HPC diferente, adicioná-lo novamente a esta cache ou eliminá-lo com o portal Azure.
 
 Quaisquer alterações de ficheiros armazenadas na cache são escritas no sistema de armazenamento de back-end antes de o alvo de armazenamento ser removido. Este processo pode demorar uma hora ou mais se muitos dados alterados estiverem na cache.
 
-## <a name="update-storage-targets"></a>Atualizar alvos de armazenamento
+## <a name="change-a-blob-storage-targets-namespace-path"></a>Alterar o caminho do espaço de nome de um alvo de armazenamento de bolhas
 
-Pode editar alvos de armazenamento para modificar algumas das suas propriedades. Propriedades diferentes são editáveis para diferentes tipos de armazenamento:
+Os caminhos do espaço de nome são os caminhos que os clientes usam para montar este alvo de armazenamento. (Para saber mais, leia [Planeie o espaço de nome agregado](hpc-cache-namespace.md) e crie o espaço de nome [agregado).](add-namespace-paths.md)
 
-* Para os alvos de armazenamento blob, pode alterar o caminho do espaço de nome.
-
-* Para os alvos de armazenamento NFS, pode alterar estas propriedades:
-
-  * Caminho do espaço de nome
-  * Modelo de utilização
-  * Exportar
-  * Subdireorisivo de exportação
-
-Não é possível editar o nome, o tipo ou o sistema de armazenamento de um alvo de armazenamento (recipiente Blob ou endereço NFS hostname/IP). Se precisar de alterar estas propriedades, elimine o alvo de armazenamento e crie uma substituição pelo novo valor.
-
-No portal Azure, pode ver quais os campos que são editáveis clicando no nome alvo do armazenamento e abrindo a página de detalhes. Também pode modificar alvos de armazenamento com o Azure CLI.
-
-![screenshot da página de edição para um alvo de armazenamento NFS](media/hpc-cache-edit-storage-nfs.png)
-
-## <a name="update-an-nfs-storage-target"></a>Atualizar um alvo de armazenamento NFS
-
-Para um alvo de armazenamento NFS, pode atualizar várias propriedades. (Consulte a imagem acima para obter uma página de edição por exemplo.)
-
-* **Modelo de utilização** - O modelo de utilização influencia a forma como a cache retém dados. Leia [Escolha um modelo de utilização](hpc-cache-add-storage.md#choose-a-usage-model) para saber mais.
-* **Caminho virtual do espaço de nome** - O caminho que os clientes usam para montar este alvo de armazenamento. Leia [Plano do espaço de nome agregado](hpc-cache-namespace.md) para mais detalhes.
-* **NFS rota de exportação** - O sistema de armazenamento exporta para usar para este caminho do espaço de nome.
-* **Caminho subdirecional** - O subdirecional (sob a exportação) para associar a este caminho de espaço de nome. Deixe este campo em branco se não precisar de especificar uma subdirectória.
-
-Cada caminho de espaço de nome precisa de uma combinação única de exportação e subdireção. Ou seja, não se pode fazer dois caminhos diferentes virados para o cliente para o mesmo diretório no sistema de armazenamento back-end.
+O caminho do espaço de nome é a única atualização que pode fazer num alvo de armazenamento Azure Blob. Utilize o portal Azure ou o CLI Azure para alterá-lo.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Utilize a página **Namespace** para a sua Cache Azure HPC. A página do espaço de nome é descrita com mais detalhe no artigo [Configurar o espaço de nome agregado](add-namespace-paths.md).
+
+Clique no nome do caminho que pretende alterar e crie o novo caminho na janela de edição que aparece.
+
+![Screenshot da página do espaço de nome depois de clicar num caminho de espaço de nome Blob - os campos de edição aparecem num painel à direita](media/edit-namespace-blob.png)
 
 Depois de escoar as alterações, clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
 
@@ -87,57 +81,95 @@ Depois de escoar as alterações, clique **em OK** para atualizar o alvo de arma
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Utilize o comando [az-nfs-target-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) para alterar o modelo de utilização, o caminho virtual do espaço de nome e os valores de exportação ou subdiretório NFS para um alvo de armazenamento.
+Para alterar o espaço de nome de um alvo de armazenamento de bolhas com o CLI Azure, utilize a [atualização do alvo blob-armazenamento de cache de comando az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Só o `--virtual-namespace-path` valor pode ser alterado.
 
-* Para alterar o modelo de utilização, utilize a ``--nfs3-usage-model`` opção. Exemplo: ``--nfs3-usage-model WRITE_WORKLOAD_15``
-
-* Para alterar a trajetória do espaço de nome, exportar ou exportar subdiretório, utilize a ``--junction`` opção.
-
-  O ``--junction`` parâmetro utiliza estes valores:
-
-  * ``namespace-path``- O caminho de ficheiro virtual voltado para o cliente
-  * ``nfs-export``- Exportação do sistema de armazenamento para associar-se ao caminho voltado para o cliente
-  * ``target-path``(opcional) - Uma subdiretória da exportação, se necessário
-
-  Exemplo: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
-
-O nome do cache, o nome do alvo de armazenamento e o grupo de recursos são necessários em todos os comandos de atualização.
-
-Exemplo de comando: <!-- having problem testing this -->
-
-```azurecli
-az hpc-cache nfs-storage-target update --cache-name mycache \
-    --name rivernfs0 --resource-group doc-rg0619 \
-    --nfs3-usage-model READ_HEAVY_INFREQ
-```
-
-Se a cache for parada ou não em estado saudável, a atualização aplica-se depois de a cache estar saudável.
+  ```azurecli
+  az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
+    --resource-group rg --virtual-namespace-path "/new-path"
+  ```
 
 ---
 
-## <a name="update-an-azure-blob-storage-target"></a>Atualize um alvo de armazenamento Azure Blob
+## <a name="update-an-nfs-storage-target"></a>Atualizar um alvo de armazenamento NFS
 
-Para um alvo de armazenamento de bolhas, pode modificar o caminho virtual do espaço de nome.
+Para os alvos de armazenamento NFS, pode alterar ou adicionar caminhos virtuais de espaço de nome, alterar os valores de exportação ou subdiretórios NFS que um caminho de espaço de nome aponta e alterar o modelo de utilização.
+
+Os detalhes estão abaixo:
+
+* [Alterar valores agregados de espaço de nome](#change-aggregated-namespace-values) (caminho virtual do espaço de nome, exportação e subdiretório de exportação)
+* [Alterar o modelo de utilização](#change-the-usage-model)
+
+### <a name="change-aggregated-namespace-values"></a>Alterar valores agregados de espaço de nome
+
+Pode utilizar o portal Azure ou o CLI Azure para alterar a trajetória do espaço de identificação voltado para o cliente, a exportação de armazenamento e o subdiretório de exportação (se utilizado).
+
+Leia as diretrizes em [Add NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) se precisar de um lembrete sobre como criar vários caminhos válidos em um alvo de armazenamento.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-A página de detalhes para um alvo de armazenamento Blob permite modificar o caminho virtual do espaço de nome.
+Utilize a página **Namespace** para a sua Cache Azure HPC para atualizar os valores do espaço de nome. Esta página é descrita com mais detalhe no artigo [Configurar o espaço de nome agregado](add-namespace-paths.md).
 
-![screenshot da página de edição para um alvo de armazenamento de bolhas](media/hpc-cache-edit-storage-blob.png)
+![screenshot da página do espaço de nome do portal com a página de atualização NFS aberta à direita](media/update-namespace-nfs.png)
 
-Quando terminar, clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
+1. Clique no nome do caminho que pretende alterar.
+1. Utilize a janela de edição para escrever novos valores virtuais, de exportação ou de subdiretores.
+1. Depois de escoar as alterações, clique **em OK** para atualizar o alvo de armazenamento ou **cancelar** para descartar alterações.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Utilize [a atualização az hpc-cache blob-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) para atualizar o caminho do espaço de nome de um alvo.
+Utilize a ``--junction`` opção no comando [de atualização az hpc-cache nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) para alterar a trajetória do espaço de nome, exportação de NFS ou subdiretório de exportação.
+
+O ``--junction`` parâmetro utiliza estes valores:
+
+* ``namespace-path`` - O caminho de ficheiro virtual voltado para o cliente
+* ``nfs-export`` - Exportação do sistema de armazenamento para associar-se ao caminho voltado para o cliente
+* ``target-path`` (opcional) - Uma subdiretória da exportação, se necessário
+
+Exemplo: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
+
+Deve fornecer os três valores para cada caminho na ``--junction`` declaração. Utilize os valores existentes para quaisquer valores que não queira alterar.
+
+O nome do cache, o nome do alvo de armazenamento e o grupo de recursos também são necessários em todos os comandos de atualização.
+
+Comando de exemplo:
 
 ```azurecli
-az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
-    --resource-group rg --storage-account "/subscriptions/<subscription_ID>/resourceGroups/erinazcli/providers/Microsoft.Storage/storageAccounts/rg"  \
-    --container-name "container-name" --virtual-namespace-path "/new-path"
+az hpc-cache nfs-storage-target update --cache-name mycache \
+  --name st-name --resource-group doc-rg0619 \
+  --junction namespace-path="/new-path" nfs-export="/my-export" target-path="my-subdirectory"
 ```
+
+---
+
+### <a name="change-the-usage-model"></a>Alterar o modelo de utilização
+
+O modelo de utilização influencia a forma como a cache retém dados. Leia [Escolha um modelo de utilização](hpc-cache-add-storage.md#choose-a-usage-model) para saber mais.
+
+Para alterar o modelo de utilização para um alvo de armazenamento NFS, utilize um destes métodos.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Altere o modelo de utilização a partir da página **de alvos de Armazenamento** no portal Azure. Clique no nome do alvo de armazenamento para alterar.
+
+![screenshot da página de edição para um alvo de armazenamento NFS](media/edit-storage-nfs.png)
+
+Utilize o seletor drop-down para escolher um novo modelo de utilização. Clique **em OK** para atualizar o alvo de armazenamento ou clique em **Cancelar** para descartar alterações.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Utilize o comando [de atualização az hpc-cache nfs-target-target.](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update)
+
+O comando de atualização é quase idêntico ao comando que utiliza para adicionar um alvo de armazenamento NFS. Consulte para [Criar um alvo de armazenamento NFS](hpc-cache-add-storage.md#create-an-nfs-storage-target) para obter detalhes e exemplos.
+
+Para alterar o modelo de utilização, atualize a ``--nfs3-usage-model`` opção. Exemplo: ``--nfs3-usage-model WRITE_WORKLOAD_15``
+
+O nome da cache, o nome do alvo de armazenamento e os valores do grupo de recursos também são necessários.
+
+Se pretender verificar os nomes dos modelos de utilização, utilize a lista de modelos de utilização de cache de comando [az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
 
 Se a cache for parada ou não em estado saudável, a atualização aplicar-se-á depois de a cache estar saudável.
 

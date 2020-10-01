@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: b51cd938747c1cfa82b397160f077474e176b2f5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611747"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612970"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -65,13 +65,7 @@ A [função de chaves geridas pelo cliente](customer-keys.md) é suportada apena
 * US Gov - Arizona
 * US Gov - Virginia
 
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a página de [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre as suas capacidades
 * Conheça os [pré-requisitos do](hpc-cache-prerequisites.md) produto

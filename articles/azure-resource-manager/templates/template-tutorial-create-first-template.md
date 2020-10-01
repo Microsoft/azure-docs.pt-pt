@@ -5,13 +5,13 @@ author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.custom: ''
+ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409221"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613191"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 

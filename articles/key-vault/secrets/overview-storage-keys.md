@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20418dbc7432000116dcbe73a64987d83f38419d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585071"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612188"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -28,7 +28,6 @@ Quando utilizar a função chave da conta de armazenamento gerida, considere os 
 - Os valores-chave nunca são devolvidos em resposta a um chamador.
 - Só o Key Vault deve gerir as chaves da sua conta de armazenamento. Não maneie as chaves sozinho e evite interferir com os processos do Key Vault.
 - Apenas um único objeto do Key Vault deve gerir as chaves da conta de armazenamento. Não permita a gestão de chaves a partir de vários objetos.
-- Pode solicitar o Key Vault para gerir a sua conta de armazenamento com um responsável pelo utilizador, mas não com um diretor de serviço.
 - Regenerar as chaves usando apenas o Cofre de Chaves. Não regenerar manualmente as chaves da conta de armazenamento.
 
 Recomendamos a utilização da integração do Azure Storage com o Azure Ative Directory (Azure AD), o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração AD AD está disponível para [bolhas e filas Azure,](../../storage/common/storage-auth-aad.md)e fornece acesso baseado em símbolos OAuth2 ao Azure Storage (tal como o Azure Key Vault).
@@ -54,7 +53,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
-- [Criar um cofre chave](quick-create-cli.md)
+- [Criar um cofre de chaves](quick-create-cli.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerir chaves de conta de armazenamento

@@ -4,14 +4,14 @@ description: Como ligar os clientes a um serviço de Cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232683"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613016"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
@@ -20,7 +20,7 @@ Após a criação da cache, os clientes NFS podem aceder-lhe com um `mount` simp
 O comando de montagem é composto por estes elementos:
 
 * Um dos endereços de montagem da cache (listado na página geral da cache)
-* O caminho virtual do espaço de nome que definiu quando criou o alvo de armazenamento
+* Um caminho virtual de espaço de nome que definiu para o alvo de armazenamento (listado na página do espaço de identificação do cache)
 * O caminho local a utilizar no cliente
 * Parâmetros de comando que otimizam o sucesso deste tipo de montagem NFS
 
@@ -40,8 +40,8 @@ Por exemplo, crie VMs de cliente dentro da mesma rede virtual, ou use um ponto f
 
 Instale o software de utilidade Linux apropriado para suportar o comando de montagem NFS:
 
-* Para Red Hat Enterprise Linux ou SuSE:`sudo yum install -y nfs-utils`
-* Para Ubuntu ou Debian:`sudo apt-get install nfs-common`
+* Para Red Hat Enterprise Linux ou SuSE: `sudo yum install -y nfs-utils`
+* Para Ubuntu ou Debian: `sudo apt-get install nfs-common`
 
 ### <a name="create-a-local-path"></a>Criar um caminho local
 
@@ -65,7 +65,7 @@ Siga este procedimento para criar o comando de montagem.
 
 1. Personalize o campo **de percurso do Cliente.** Este campo dá um comando de exemplo que pode usar para criar um caminho local no cliente. O cliente acede ao conteúdo da Cache Azure HPC localmente neste diretório.
 
-   Clique no campo e edite o comando para conter o nome do diretório que pretende. O nome aparece no final da cadeia depois`sudo mkdir -p`
+   Clique no campo e edite o comando para conter o nome do diretório que pretende. O nome aparece no final da cadeia depois `sudo mkdir -p`
 
    ![screenshot do campo de caminho do cliente com cursor posicionado no final](media/mount-edit-client.png)
 
@@ -81,15 +81,15 @@ Siga este procedimento para criar o comando de montagem.
 
    ![screenshot do campo de caminhos de espaço namespace, com seletor aberto](media/mount-select-target.png)
 
-   Pode visualizar e alterar os caminhos virtuais do espaço de nome na página do portal 'Alvos de Armazenamento'. Leia [Os alvos de armazenamento](hpc-cache-add-storage.md) para ver como.
+   Pode visualizar e alterar os caminhos virtuais do espaço de nome na página do portal **Namespace.** Leia [Configurar o espaço de nome agregado](add-namespace-paths.md) para ver como.
 
    Para saber mais sobre a funcionalidade agregada de namespace da Azure HPC Cache, leia [Plano do espaço de nome agregado](hpc-cache-namespace.md).
 
 1. O campo **de comando Mount** no passo três povoa automaticamente com um comando de montagem personalizado que utiliza o endereço de montagem, o caminho virtual do espaço de nome e o caminho do cliente que definiu nos campos anteriores.
 
-   Clique no símbolo da cópia no lado direito do campo para copiá-lo automaticamente na sua área de transferência.
+   Clique no símbolo da cópia para o lado direito do campo para copiá-lo automaticamente na sua área de transferência.
 
-   ![screenshot do campo de caminhos de espaço namespace, com seletor aberto](media/mount-command-copy.png)
+   ![screenshot do campo de comando de montagem do protótipo, mostrando texto hover para o botão "copy to clipboard"](media/mount-command-copy.png)
 
 1. Utilize o comando de montagem copiado na máquina do cliente para o ligar à Cache Azure HPC. Pode emitir o comando diretamente da linha de comando do cliente ou incluir o comando de montagem num script ou modelo de configuração do cliente.
 
@@ -124,16 +124,16 @@ Para uma montagem robusta do cliente, passe estas definições e argumentos no s
 
 ### <a name="find-mount-command-components"></a>Encontre componentes de comando de montagem
 
-Se pretender criar um comando de montagem sem utilizar a página **de instruções do Monte,** pode encontrar os endereços de montagem na página **de visão geral** da cache e os caminhos de espaço de nome virtual na página alvo do **armazenamento.**
+Se pretender criar um comando de montagem sem utilizar a página **de instruções do Monte,** pode encontrar os endereços de montagem na página **de visão geral** da cache e os caminhos de espaço de nome virtual na página **Namespace.**
 
 ![screenshot da página geral da cache de Azure HPC, com uma caixa de destaque em torno da lista de endereços de montagem no direito inferior](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede da cache. Num grupo de recursos, estes NICs estão listados com nomes que terminam `-cluster-nic-` e um número. Não altere ou elimine estas interfaces, ou a cache ficará indisponível.
 
-Os caminhos virtuais do espaço de nome são mostrados na página de detalhes de cada alvo de armazenamento. Clique num nome-alvo de armazenamento individual para ver os seus detalhes, incluindo os caminhos agregados do espaço de nome associados.
+Os caminhos virtuais do espaço de nome são mostrados na página de definições do **Namespace** da cache.
 
-![screenshot da página de detalhe de um alvo de armazenamento (cabeçalho "Atualizar alvo de armazenamento"). Há uma caixa de destaque em torno de uma entrada na coluna virtual do caminho do espaço de nome da tabela](media/hpc-cache-view-namespace-paths.png)
+![screenshot do portal Definições > página Namespace com uma caixa de destaque em torno da primeira coluna da tabela: "Caminho do espaço de nome"](media/view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
