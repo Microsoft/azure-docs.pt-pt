@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5f570f13fd39bd25b37c35a2c823e64eaa02fef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 51f8d1eaa76a30e39647830b54c30cb8f7e8bb8e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295401"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613973"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 

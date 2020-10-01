@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906374"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613650"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>FAQ para clientes que já utilizam registos do Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Uma solução do Centro de Segurança é instalada no espaço de trabalho seleci
 Quando o Security Center identifica que um VM já está ligado a um espaço de trabalho que criou, o Security Center permite soluções neste espaço de trabalho de acordo com a configuração dos preços. As soluções aplicam-se apenas aos VMs Azure relevantes, através de [uma solução-alvo,](../operations-management-suite/operations-management-suite-solution-targeting.md)pelo que a faturação permanece a mesma.
 
 - **Azure Defender off** – O Security Center instala a solução 'SecurityCenterFree' no espaço de trabalho. Não será cobrado.
-- 
 - **O Azure Defender on** – Security Center instala a solução 'Security' no espaço de trabalho.
 
    ![Soluções no espaço de trabalho predefinido](./media/security-center-platform-migration-faq/solutions.png)

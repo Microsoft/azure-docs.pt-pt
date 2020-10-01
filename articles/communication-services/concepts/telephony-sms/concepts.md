@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e5cfc1e27bae10a1c67e4506afe9db825664785f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5598726726ecca1467b2c82c8ea7f947af033bb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947408"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614041"
 ---
 # <a name="sms-concepts"></a>Conceitos de SMS
 
@@ -29,10 +29,11 @@ As principais características das bibliotecas de clientes dos Serviços de Comu
 - **Conversas bidirecionais** para apoiar cenários como apoio ao cliente, alertas e lembretes de marcação.
 - **Entrega fiável** com relatórios de entrega em tempo real para mensagens enviadas a partir da sua aplicação.
 - **Analytics** para acompanhar os seus padrões de utilização e envolvimento com o cliente.
-- **Opt-Out** handling support para detetar e respeitar automaticamente opt-outs para números gratuitos. Os Serviços de Comunicação detetam mensagens STOP e START e enviam as seguintes respostas predefinidos aos utilizadores finais: 
-  - STOP - *"Foi desinscrita com sucesso a mensagens deste número. Resposta START para reenviar."*
-  - START- *"Foi ressocrito com sucesso a mensagens deste número. Responder STOP a cancelar a subscrição."*
-  - As mensagens STOP e START serão retransmitidas de volta para si. A Azure Communication Services encoraja-o a monitorizar e implementar estes opt-outs para garantir que não são enviadas mais mensagens aos destinatários que tenham optado por não fazer as suas comunicações.
+- **Opt-Out** handling support para detetar e respeitar automaticamente opt-outs para números gratuitos. Os opt-outs para números gratuitos dos EUA são mandatados e aplicados pelas transportadoras americanas.
+  - STOP - Se um destinatário de mensagens de texto quiser optar por não optar, pode enviar 'STOP' para o número gratuito. A transportadora envia a seguinte resposta por defeito para STOP: *"NETWORK MSG: Respondeu com a palavra "stop" que bloqueia todos os textos enviados a partir deste número. Envie um sms para "untop" para receber mensagens novamente."*
+  - START/UNSTOP - Se o destinatário pretender reenviar mensagens de texto a partir de um número gratuito, pode enviar 'START' ou 'UNSTOP para o número gratuito. A transportadora envia a seguinte resposta por defeito para START/UNSTOP: *"NETWORK MSG: Respondeu "untop" e começará a receber mensagens novamente a partir deste número."*
+  - Os Serviços de Comunicação Azure detetarão a mensagem STOP e bloquearão todas as mensagens adicionais ao destinatário. O relatório de entrega indicará uma entrega falhada com mensagem de estado como "Remetente bloqueado para destinatário dado."
+  - As mensagens STOP, UNSTOP e START serão retransmitidas de volta para si. A Azure Communication Services encoraja-o a monitorizar e implementar estes opt-outs para garantir que não são feitas mais tentativas de envio de mensagens aos destinatários que tenham optado por não fazer as suas comunicações.
 
 
 ## <a name="next-steps"></a>Passos seguintes

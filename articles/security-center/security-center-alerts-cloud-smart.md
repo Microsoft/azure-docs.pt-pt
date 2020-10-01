@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 742d7122c60b383e8ab7aa73f73b11b47843a9d5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575950"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613832"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alerta inteligente em nuvem no Centro de Segurança Azure (incidentes)
 
@@ -39,7 +39,8 @@ Durante uma investigação de um incidente, os analistas muitas vezes precisam d
 > [!TIP]
 > Para obter uma lista de alertas de incidentes de segurança que podem ser produzidos pela análise de fusão, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-fusion).
 
-![Relatório detetado por incidente de segurança](./media/security-center-alerts-cloud-smart/security-incident.png)
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot do incidente de segurança detetado relatório":::
 
-Para melhor compreender os incidentes de segurança, consulte [como lidar com incidentes de segurança no Centro de Segurança Azure.](security-center-incident.md)
+
+Para melhor compreender os incidentes de segurança, consulte [como gerir incidentes de segurança no Centro de Segurança Azure.](security-center-incident.md)
 

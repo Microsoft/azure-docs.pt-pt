@@ -3,18 +3,20 @@ title: Governe a sua propriedade de reserva usando o Backup Center
 description: Aprenda a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup com o Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997663"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614349"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Governe a sua propriedade de reserva usando o Backup Center
 
 O Backup Center ajuda-o a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup. Abaixo estão algumas das capacidades de governação do Backup Center:
 
 * Ver e atribuir Políticas Azure para backup
+
+* Consulte o cumprimento dos seus recursos em todas as Políticas Azure incorporadas para obter apoio.
 
 * Ver todas as fontes de dados que não foram configuradas para obter cópias de segurança.
 
@@ -29,6 +31,12 @@ Para ver todas as [Políticas Azure](https://docs.microsoft.com/azure/governance
 A seleção de qualquer uma das definições permite [atribuir a apólice](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a um âmbito.
 
 ![Selecione definições de Política Azure](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Conformidade de backup
+
+Clicar no item do menu de conformidade de cópia de segurança ajuda-o a ver a [conformidade](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) dos seus recursos de acordo com as várias políticas incorporadas que atribuiu ao seu ambiente Azure. Pode ver a percentagem de recursos que estão em conformidade com todas as políticas, bem como as políticas que têm um ou mais recursos não conformes.
+
+![Ver conformidade de backup](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Fontes de dados protegidas
 

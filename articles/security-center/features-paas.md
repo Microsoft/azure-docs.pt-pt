@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449955"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613633"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recursos para serviços Azure PaaS <a name="paas-services"></a>
 
@@ -36,20 +36,20 @@ A tabela abaixo mostra a disponibilidade de funcionalidades do Centro de Seguran
 |Registo de Contentores do Azure|-|-|✔|
 |Azure Cosmos DB*|-|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
-|Armazenamento do Azure Data Lake|✔|-|-|
-|Base de Dados Azure para MySQL*|✔|✔|-|
-|Base de Dados Azure para PostgreSQL*|✔|✔|-|
+|Armazenamento do Azure Data Lake|✔|✔|-|
+|Base de Dados Azure para MySQL*|-|✔|-|
+|Base de Dados Azure para PostgreSQL*|-|✔|-|
 |Espaço de nome azure Event Hubs|✔|-|-|
 |Aplicação de Funções do Azure|✔|-|-|
 |Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
-|Balanceador de Carga do Azure|✔|-|-|
+|Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
 |Base de Dados SQL do Azure|✔|✔|✔|
 |Instância Gerida do Azure SQL|✔|✔|✔|
 |Espaço de nome do ônibus de serviço Azure|✔|-|-|
 |Conta Azure Service Fabric|✔|-|-|
-|Contas de Armazenamento do Azure|✔|-|-|
+|Contas de Armazenamento do Azure|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Subscrição do Azure|✔ **|✔|-|
 |Rede Virtual do Azure</br> (incl. subnetas, NICs e grupos de segurança de rede)|✔|-|-|

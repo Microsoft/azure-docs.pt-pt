@@ -5,13 +5,13 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a798fd9d4ec7b937fbae231a8e17596abcb897f9
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.custom: ''
+ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069531"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613599"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Use modelos de arranque rápido Azure
 

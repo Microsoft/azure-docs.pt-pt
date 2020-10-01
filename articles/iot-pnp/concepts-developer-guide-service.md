@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7728af831b26bff19f347e5b85db6420e7966ed
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f082e4d4c6c71e460842f80a5aa17130b6a41279
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580478"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614228"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>Guia de desenvolvedores de serviço ioT plug e play
 
@@ -28,19 +28,20 @@ Utilize os SDKs de serviço Azure IoT na sua solução para interagir com dispos
 
 Os SDKs de serviço permitem-lhe aceder a informações do dispositivo a partir de uma solução, como um ambiente de trabalho ou uma aplicação web. Os SDKs de serviço incluem dois espaços de nome e modelos de objetos que pode usar para recuperar o ID do modelo:
 
-- Cliente de serviço Iot Hub.
-- Cliente de serviço digital Twins.
+- Cliente de serviço Iot Hub. Este serviço expõe o ID do modelo como uma propriedade gémea do dispositivo.
 
-| Linguagem | Cliente de serviço IoT Hub | Cliente de serviço Digital Twins |
+- Cliente de serviço digital Twins. A nova API digital Twins opera em construções de alto nível, tais como componentes, propriedades e comandos que são definidos como um modelo de linguagem De Definição de Gémeos Digitais. As APIs Digitais Twin facilitam aos construtores de soluções a criação de soluções IoT Plug e Play.
+
+| Plataforma | Cliente de serviço IoT Hub | Cliente de serviço Digital Twins |
 | -------- | ---------------------- | ---------------------------- |
-| C#       | [Documentação](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Amostra](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples/Thermostat/Program.cs)| [Amostra](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [Documentação](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| [Amostra](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [Documentação](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentação](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
-| Python   | [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) | 
+| .NET     | [Documentação](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Documentação](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Amostras](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Amostras](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Documentação](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentação](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentação](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) <br/> [Amostra](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## <a name="rest-api"></a>API REST
 
-Os exemplos a seguir utilizam a API IoT Hub REST para interagir com um dispositivo IoT Plug and Play ligado. A versão atual da API é `2020-09-30` . Apêndice `?api-version=2020-05-31` às suas chamadas DE REPOUSO PI.
+Os exemplos a seguir utilizam a API IoT Hub REST para interagir com um dispositivo IoT Plug and Play ligado. A versão atual da API é `2020-09-30` . Apêndice `?api-version=2020-09-30` às suas chamadas DE REPOUSO PI.
 
 > [!NOTE]
 > Os gémeos módulos não são atualmente suportados pela `digitalTwins` API.

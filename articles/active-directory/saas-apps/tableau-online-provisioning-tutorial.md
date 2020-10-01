@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533444"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613934"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar Tableau Online para fornecimento automático de utilizadores
 
@@ -80,17 +80,17 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Tableau Online**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Tableau Online**.
 
     ![O link Tableau Online na lista de candidaturas](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
     ![Provisionamento Online Tableau](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Modo de Provisionamento Online Tableau](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -133,7 +133,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 11. Reveja os atributos do utilizador que são sincronizados de Azure AD a Tableau Online na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Tableau Online para operações de atualização. Para guardar quaisquer alterações, **selecione Guardar**.
 
-    ![Tableau Online correspondente aos atributos do utilizador](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau Online correspondente aos atributos do utilizador](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Tableau**.
 
@@ -163,6 +163,9 @@ Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o prog
 
 Para obter informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="change-log"></a>Change log
+* 09/30/2020 - Suporte adicional para atributo "authSetting" para Utilizadores.
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o provisionamento da conta de utilizador para aplicações empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
@@ -170,7 +173,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

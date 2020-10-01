@@ -5,13 +5,13 @@ author: mumian
 ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6a2c59a9cbaddc02159ee89497900509f33772c0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.custom: ''
+ms.openlocfilehash: 310637ce099aca7b8b9057a674d6b2094b008a87
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069548"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613616"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado a partir do portal Azure
 

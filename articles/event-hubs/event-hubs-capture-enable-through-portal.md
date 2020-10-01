@@ -3,12 +3,12 @@ title: Event Hubs - Capture eventos de streaming usando o portal Azure
 description: Este artigo descreve como permitir a captura de eventos através do Azure Event Hubs utilizando o portal Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315742"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613582"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Permitir a captura de eventos transmitidos através dos Hubs de Eventos do Azure
 
@@ -17,6 +17,9 @@ O Azure [Event Hubs Capture][capture-overview] permite-lhe entregar automaticame
 Pode configurar a captura no momento de criação do hub de eventos através do [portal do Azure](https://portal.azure.com). Pode capturar os dados num recipiente de armazenamento Azure [Blob](https://azure.microsoft.com/services/storage/blobs/) ou numa conta [Azure Data Lake Storage Gen 1 ou Gen 2.](https://azure.microsoft.com/services/data-lake-store/)
 
 Para obter mais informações, veja a [Descrição geral de Captura de Hubs de Eventos][capture-overview].
+
+> [!IMPORTANT]
+> A conta de armazenamento de destino (Azure Storage ou Azure Data Lake Storage) deve estar na mesma subscrição que o centro de eventos.
 
 ## <a name="capture-data-to-azure-storage"></a>Capturar dados para o Armazenamento Azure
 
@@ -93,7 +96,7 @@ Pode configurar a Captura em hubs de eventos existentes que se encontram num esp
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a captura dos Hubs de Eventos ao ler a [Descrição geral de Captura de Hubs de Eventos][capture-overview].
 - Também pode configurar uma Captura de Hubs de Eventos através dos modelos do Azure Resource Manager. Para obter mais informações, consulte [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) (Ativar a Captura através de um modelo do Azure Resource Manager).

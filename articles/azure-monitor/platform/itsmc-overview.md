@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325764"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613769"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
@@ -65,7 +65,7 @@ Antes de poder criar uma ligação, tem de adicionar a Solução de Conector ITS
    >[!NOTE]
    >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como espaços de trabalho Log Analytics.
 
-5. Clique em **Create** (Criar).
+5. Clique em **Criar**.
 
 Quando o recurso de solução é implantado, aparece uma notificação no topo direito da janela.
 
@@ -111,6 +111,10 @@ Depois de ter preparado as suas ferramentas ITSM, siga os passos abaixo para cri
 Assim que tiver a sua ligação ITSM criada, pode criar artigos de trabalho na sua ferramenta ITSM com base em alertas Azure, utilizando a **Ação ITSM** em **Grupos de Ação**.
 
 Os Grupos de Ação fornecem uma forma modular e reutilizável de desencadear ações para os seus Alertas Azure. Pode utilizar grupos de ação com alertas métricos, alertas de registo de atividade e alertas Azure Log Analytics no portal Azure.
+
+> [!NOTE]
+> Uma vez criada a ligação ITSM, é necessário esperar 30 min após o conector criado para o processo de sincronização terminar
+> 
 
 Utilize o seguinte procedimento:
 
@@ -232,7 +236,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Description
+- Descrição
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -279,7 +283,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Description |
+| Description_s | Descrição |
 | Computador  | Item de configuração |
 
 

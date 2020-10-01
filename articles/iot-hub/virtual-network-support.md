@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281255"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613905"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -38,7 +38,7 @@ Este artigo descreve como alcançar estes objetivos usando [o Azure Private Link
 
 Um ponto final privado é um endereço IP privado atribuído dentro de um VNet propriedade do cliente através do qual um recurso Azure é acessível. Através do Azure Private Link, pode configurar um ponto final privado para o seu hub IoT para permitir que os serviços dentro do seu VNet cheguem ao IoT Hub sem exigir que o tráfego seja enviado para o ponto final público do IoT Hub. Da mesma forma, os seus dispositivos no local podem utilizar [a Rede Privada Virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obter conectividade com o seu VNet e o seu IoT Hub (através do seu ponto final privado). Como resultado, pode restringir ou bloquear completamente a conectividade aos pontos finais públicos do seu hub IoT, utilizando [o filtro IP do Hub IoT](./iot-hub-ip-filtering.md) e [configurando o encaminhamento para não enviar quaisquer dados para o ponto final incorporado.](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint) Esta abordagem mantém a conectividade com o seu Hub utilizando o ponto final privado para dispositivos. O principal foco desta configuração é para dispositivos dentro de uma rede no local. Esta configuração não é aconselhada para dispositivos implantados numa rede de vasta área.
 
-![Ponto final público do IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
+![Entrada de rede virtual IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
 Antes de proceder, assegure-se de que sejam cumpridos os seguintes requisitos:
 
@@ -92,7 +92,7 @@ Para permitir que outros serviços encontrem o seu hub IoT como um serviço micr
 
 1. Em **Status**, selecione **On**e, em seguida, clique em **Guardar**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot mostrando como ligar identidade gerida para IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot mostrando onde adicionar ponto final privado para IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Atribua identidade gerida ao seu IoT Hub no momento da criação usando o modelo ARM
 

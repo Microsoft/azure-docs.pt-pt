@@ -5,13 +5,13 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5e662380c57d20a2e372669dce1bb4c44e75b067
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496326"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614398"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar múltiplas instâncias de recursos com modelos ARM
 
@@ -174,7 +174,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 Compare os nomes de contas de armazenamento com a definição de nome no modelo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

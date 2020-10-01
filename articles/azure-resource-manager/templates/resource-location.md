@@ -3,13 +3,13 @@ title: Localização do recurso do modelo
 description: Descreve como definir a localização do recurso num modelo do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e60fa9727ef899c3192c751614736cd1dda5b382
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504199"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613701"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Definir localização de recursos no modelo ARM
 

@@ -1,14 +1,14 @@
 ---
 title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541769"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614262"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -45,7 +45,7 @@ Uma política pode ser incluída como um dos _muitos artefactos_ numa definiçã
 
 ## <a name="blueprint-definition"></a>Definição de esquema
 
-Um esquema é composto por _artefactos_. A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
+Uma planta é composta por _artefactos._ A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
@@ -74,7 +74,10 @@ Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Qua
 
 ## <a name="blueprint-assignment"></a>Atribuição do esquema
 
-Cada **versão** **publicada** de uma planta pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma subscrição existente. No portal, o esquema utiliza como predefinição a **Versão****Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
+Cada **versão** **publicada** de uma planta pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a um grupo de gestão ou subscrição existente. No portal, o esquema utiliza como predefinição a **Versão****Publicada** mais recentemente. Se existirem parâmetros de artefactos ou parâmetros de planta, os parâmetros são definidos durante o processo de atribuição.
+
+> [!NOTE]
+> Atribuir uma definição de projeto a um grupo de gestão significa que o objeto de atribuição existe no grupo de gestão. A implantação de artefactos ainda visa uma subscrição. Para realizar uma atribuição de grupo de gestão, a [API Create or Update REST](/rest/api/blueprints/assignments/createorupdate) deve ser utilizada e o organismo de pedido deve incluir um valor para definir a `properties.scope` subscrição-alvo.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões no Azure Blueprints
 
@@ -123,10 +126,10 @@ Existem as seguintes limitações para determinados campos:
 
 |Objeto|Campo|Personagens permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Planta|Name|letras, números, hífens e períodos|48|
+|Planta|Nome|letras, números, hífens e períodos|48|
 |Planta|Versão|letras, números, hífens e períodos|20|
-|Atribuição do esquema|Name|letras, números, hífens e períodos|90|
-|Artefacto de planta|Name|letras, números, hífens e períodos|48|
+|Atribuição do esquema|Nome|letras, números, hífens e períodos|90|
+|Artefacto de planta|Nome|letras, números, hífens e períodos|48|
 
 ## <a name="video-overview"></a>Descrição geral em vídeo
 
@@ -134,7 +137,7 @@ A seguinte visão geral da Azure Blueprints é da Azure Fridays. Para download d
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma planta - Portal](./create-blueprint-portal.md).
 - [Criar uma planta - PowerShell](./create-blueprint-powershell.md).

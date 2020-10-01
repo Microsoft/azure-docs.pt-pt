@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068834"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614024"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -183,6 +183,14 @@ Utilize as seguintes soluções alternativas para esta questão:
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Estou a receber quando estou a `"AADSTS7000215: Invalid client secret is provided."` usar a API da AKS. O que devo fazer?
 
 Isto deve-se geralmente à caducidade das principais credenciais de serviço. [Atualize as credenciais para um cluster AKS.](update-credentials.md)
+
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Não posso aceder ao meu cluster API a partir da minha máquina/ferramenta de automação/dev ao usar gamas IP autorizadas pelo servidor API. Como é que resolvo este problema?
+
+Isto requer `--api-server-authorized-ip-ranges` incluir os sistemas ip(s) ou IP de sistemas de automação/dev/ferramentas que estão a ser utilizados. Consulte a secção "Como encontrar o meu IP" no [acesso seguro ao servidor API utilizando intervalos de endereço IP autorizados](api-server-authorized-ip-ranges.md).
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Não consigo ver recursos no visualizador de recursos de Kubernetes no portal Azure para o meu cluster configurado com gamas IP autorizadas pelo servidor API. Como é que resolvo este problema?
+
+O [visualizador de recursos Kubernetes](kubernetes-portal.md) requer `--api-server-authorized-ip-ranges` que inclua acesso para o computador cliente local ou gama de endereços IP (a partir do qual o portal está a ser navegado). Consulte a secção "Como encontrar o meu IP" no [acesso seguro ao servidor API utilizando intervalos de endereço IP autorizados](api-server-authorized-ip-ranges.md).
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Estou a receber erros depois de restringir o tráfego de saídas.
 

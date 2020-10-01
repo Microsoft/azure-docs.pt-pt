@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 08/14/2020
-ms.openlocfilehash: ceb1c9711d67b32f9a31e6105df0e0e0eec42907
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321378"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614432"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ O modelo de compra de núcleo virtual (vCore) utilizado pela Azure SQL Database 
 
 As opções de nível de serviço no modelo vCore incluem Final Geral, Critical de Negócios e Hiperescala. O nível de serviço define geralmente os limites de arquitetura de armazenamento, espaço e E/S, e opções de continuidade de negócios relacionadas com disponibilidade e recuperação de desastres.
 
-|-|**Finalidade Geral**|**Crítico para a Empresa**|**Hyperscale**|
+|-|**Fins Gerais**|**Crítico para a Empresa**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho. Oferece opções de computação e armazenamento equilibradas, dimensionáveis e orientadas para orçamentos. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
 |Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
@@ -91,7 +91,11 @@ Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões ond
 - A série M é uma opção de hardware otimizada pela memória para cargas de trabalho que exigem mais memória e limites de computação mais elevados do que os fornecidos pela Gen5.
 - A série M fornece 29 GB por vCore e até 128 vCores, o que aumenta o limite de memória em relação à Gen5 em 8x para quase 4 TB.
 
-A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA). Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series-1).
+A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series-1).
+
+#### <a name="azure-offer-types-supported-by-m-series"></a>Tipos de oferta Azure suportados pela série M
+
+Para aceder à série M, a subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Para obter uma lista completa dos tipos de oferta Azure suportados pela série M, consulte [as ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

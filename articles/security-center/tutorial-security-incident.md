@@ -1,6 +1,6 @@
 ---
-title: Tutorial de resposta a incidentes - Centro de Segurança Azure
-description: Neste tutorial, você vai aprender como triagem de alertas de segurança, determinar a causa principal & âmbito de um incidente, e pesquisar dados de segurança.
+title: Tutorial de resposta de alerta - Centro de Segurança Azure
+description: Neste tutorial, você vai aprender a triagem de alertas de segurança e determinar a causa principal & âmbito de um alerta.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,115 +12,115 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336280"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614167"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
-O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
+# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Triagem, investigar e responder a alertas de segurança
+O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Também pode integrar alertas de outros produtos e serviços de segurança no Security Center e criar alertas personalizados com base nos seus próprios indicadores ou fontes de inteligência. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. 
+
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Triar alertas de segurança
-> * Fazer investigações mais aprofundadas para determinar a origem e o âmbito dos incidentes de segurança
-> * Procurar dados de segurança para ajudar à investigação
+> * Investigue um alerta de segurança para determinar a causa principal
+> * Responda a um alerta de segurança e atenue essa causa raiz
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para analisar as funcionalidades abrangidas por este tutorial, tem de ter o Azure Defender habilitado. Pode tentar a Azure Defender sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O quickstart [Começar com o Security Center](security-center-get-started.md) acompanha-o como fazer o upgrade.
 
-## <a name="scenario"></a>Cenário
-A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
-
-A primeira fase desta migração foi concluída após a integração de todos os recursos e a aceitação de todas as recomendações de segurança do Centro de Segurança. O Contoso CSIRT é o ponto central para lidar com incidentes de segurança informática. A equipa consiste num grupo de pessoas com responsabilidades para lidar com qualquer incidente de segurança. Os membros da equipa têm deveres claramente definidos para se certificar de que nenhuma área de resposta é deixada sem cobertura.
-
-Para efeitos deste cenário, vamos concentrar-nos nas funções das seguintes pessoas que fazem parte da CSIRT da Contoso:
-
-![Ciclo de vida de resposta a incidentes](./media/tutorial-security-incident/security-center-incident-response.png)
-
-A Constança está nas operações de segurança. As suas responsabilidades incluem:
-
-* Monitorização e capacidade de resposta contínuas a ameaças de segurança.
-* Escalonamento para o proprietário da carga de trabalho na nuvem ou analista de segurança, conforme necessário.
-
-Sam é um analista de segurança e as suas responsabilidades incluem:
-
-* Investigar ataques.
-* Resolver alertas.
-* Trabalhar com proprietários de cargas de trabalho para determinar e aplicar atenuações.
-
-Como pode ver, a Constança e o Samuel têm responsabilidades diferentes e devem trabalhar em conjunto para partilharem as informações do Centro de Segurança.
 
 ## <a name="triage-security-alerts"></a>Triar alertas de segurança
-O Centro de Segurança proporciona uma vista unificada de todos os alertas de segurança. Os alertas de segurança são classificados de acordo com a gravidade e, se possível, sempre que houver alertas relacionados, os mesmos são combinados num incidente de segurança. Ao triar alertas e incidentes, deve:
+O Centro de Segurança proporciona uma vista unificada de todos os alertas de segurança. Os alertas de segurança são classificados com base na gravidade da atividade detetada. 
 
-- Ignorar alertas para os quais não sejam necessárias ações adicionais, como, por exemplo, se forem falsos positivos
-- Agir para remedir os ataques conhecidos, como, por exemplo, bloquear o tráfego de rede de um endereço IP malicioso
-- Determinar os alertas que exigem mais investigação
+Triagem dos seus alertas a partir da página **de alertas** de segurança:
+
+:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página da lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+
+Use esta página para rever os alertas de segurança ativos no seu ambiente para decidir qual o alerta para investigar primeiro.
+
+Ao triagem de alertas de segurança, priorize alertas baseados na gravidade do alerta, abordando primeiro alertas com maior gravidade. Saiba mais sobre a gravidade dos alertas em [Como são classificados os alertas?](security-center-alerts-overview.md#how-are-alerts-classified)
+
+> [!TIP]
+> Pode ligar o Azure Security Center às soluções SIEM mais populares, incluindo o Azure Sentinel e consumir os alertas da sua ferramenta de eleição. Saiba mais em [Alertas de Exportação para um SIEM.](continuous-export.md)
 
 
-1. No menu principal do Centro de Segurança, em **DETEÇÃO**, selecione **Alertas de segurança**:
+## <a name="investigate-a-security-alert"></a>Investigue um alerta de segurança
 
-   ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
+Quando decidir qual o alerta para investigar primeiro:
 
-2. Na lista de alertas, selecione um incidente de segurança, que é uma coleção de alertas, para saber mais sobre este incidente. É aberto **Incidente de segurança detetado**.
+1. Selecione o alerta pretendido.
+1. A partir da página geral do alerta, selecione o recurso para investigar primeiro.
+1. Inicie a sua investigação a partir do painel esquerdo, que mostra a informação de alto nível sobre o alerta de segurança.
 
-   ![Incidente de segurança detetado](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Página da lista de alertas de segurança":::
 
-3. Neste ecrã, a descrição do incidente de segurança aparece na parte superior e a lista de alertas que fazem parte do mesmo. Clique no alerta que pretende investigar mais aprofundadamente para obter mais informações.
+    Este painel mostra:
+    - Gravidade, estado de alerta e tempo de atividade
+    - Descrição que explica a atividade precisa que foi detetada
+    - Recursos afetados
+    - Kill chain intenção da atividade na matriz MITRE ATT&CK
 
-   ![Detalhes de alerta do incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+1. Para obter informações mais detalhadas que o ajudem a investigar a atividade suspeita, examine o separador **Detalhes do Alerta.**
 
-   O tipo de alerta pode variar. Leia [Compreender os alertas de segurança no Centro de Segurança do Azure ](security-center-alerts-type.md) para obter mais detalhes sobre o tipo de alerta e possíveis passos de remediação. Para os alertas que podem ser dispensados em segurança, clique com o botão direito do rato nos mesmos e selecione a opção **Dispensar**:
+1. Quando tiver revisto a informação nesta página, poderá ter o suficiente para proceder a uma resposta. Se precisar de mais detalhes:
 
-   ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+    - Contacte o titular do recurso para verificar se a atividade detetada é falsamente positiva.
+    - Investigue os troncos crus gerados pelo recurso atacado
 
-4. Se a origem e o âmbito da atividade maliciosa forem desconhecidos, avance para o próximo passo para investigar mais.
+## <a name="respond-to-a-security-alert"></a>Responda a um alerta de segurança
+Depois de investigar um alerta e compreender o seu âmbito de aplicação, pode responder ao alerta de segurança do Centro de Segurança Azure:
 
-## <a name="investigate-an-alert-or-incident"></a>Investigar um alerta ou incidente
-1. Na página **Alerta de segurança**, clique no botão **Iniciar investigação** (se já tiver começado, o nome muda para **Continuar investigação**).
+1.  Abra o **separador de ação Take** para ver as respostas recomendadas.
 
-   ![Investigação](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Página da lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
-   O mapa de investigação é uma representação gráfica das entidades que estão ligadas a este incidente ou alerta de segurança. Ao clicar numa entidade no mapa, as informações sobre essa entidade mostrarão entidades novas e o mapa expande-se. As propriedades da entidade que está selecionada no mapa estão realçadas no painel do lado direito da página. As informações disponíveis em cada separador variam de acordo com a entidade selecionada. Durante o processo de investigação, reveja todas as informações relevantes para entender melhor o movimento do agressor.
+1.  Reveja a secção **de ameaças para** as etapas de investigação manuais necessárias para atenuar a questão.
+1.  Para endurecer os seus recursos e prevenir futuros ataques deste tipo, remediar as recomendações de segurança na secção **Prevenir futuros ataques.**
+1.  Para ativar uma aplicação lógica com etapas de resposta automatizadas, utilize a secção **de resposta automatizada Trigger.**
+1.  Se a atividade detetada *não for* maliciosa, pode suprimir futuros alertas deste tipo utilizando a secção de **alertas semelhantes de Supressão.**
 
-2. Se precisar de mais provas ou se tiver de investigar adicionalmente entidades que tenham sido encontradas durante a investigação, avance para o passo seguinte.
+1.  Quando terminar a investigação sobre o alerta e responder da forma apropriada, altere o estatuto para **Dispensado.**
 
-## <a name="search-data-for-investigation"></a>Procurar dados para investigação
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Página da lista de alertas de segurança":::
 
-Pode utilizar as funcionalidades de pesquisa do Centro de Segurança para localizar mais provas de sistemas comprometidos e obter mais detalhes sobre as entidades que fazem parte da investigação.
+    Isto remove o alerta da lista principal de alertas. Pode utilizar o filtro na página da lista de alertas para visualizar todos os alertas com o estado **de Despedimento.**
 
-Para fazer uma pesquisa, abra o dashboard do **Centro de Segurança**, clique em **Pesquisar** no painel de navegação do lado esquerdo, selecione a área de trabalho que contém as entidades que pretende pesquisar, escreva a consulta de pesquisa e clique no botão de pesquisa.
+1.  Opcionalmente, forneça feedback sobre um alerta à Microsoft:
+    1. Marcando o alerta como **útil** ou **não útil** e fornecendo
+    1. Selecione uma razão e adicione um comentário.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página da lista de alertas de segurança":::
 
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, mantenha o provisionamento automático e o Azure Defender ativado. Se não pretender continuar ou desejar desativar o Azure Defender:
+    > [!TIP]
+    > Revemos o seu feedback para melhorar os nossos algoritmos e fornecer melhores alertas de segurança.
+
+## <a name="end-the-tutorial"></a>Termine o tutorial
+
+Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, mantenha o provisionamento automático e o Azure Defender ativado. 
+
+Se não pretende continuar, ou se pretende desativar qualquer uma destas funcionalidades:
 
 1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações**.
-1. Selecione a subscrição que pretende desvalorizar.
-1. Desemaça **o Azure Defender.**
-1. Selecione **Guardar**.
-
-Se pretender desativar aprovisionamento automático:
-
-1. Volte ao menu principal do Centro de Segurança e selecione **a política de segurança.**
-2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
-3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
+1. Selecione a subscrição relevante.
+1. Para reduzir, selecione **Azure Defender off**.
+1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar**.
 4. Selecione **Guardar**.
 
 >[!NOTE]
-> A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
+> A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure que já têm o agente. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, ficou a conhecer as funcionalidades do Centro de Segurança que devem ser utilizadas para responder a incidentes de segurança, tais como:
+Neste tutorial, você aprendeu sobre as funcionalidades do Centro de Segurança a serem usadas ao responder a um alerta de segurança. Para materiais relacionados ver:
 
-> [!div class="checklist"]
-> * Incidentes de segurança que sejam uma combinação de alertas relacionados para um recurso
-> * Mapa de investigação, que é uma representação gráfica das entidades que estão ligadas a um incidente ou alerta de segurança
-> * Capacidades de pesquisa para localizar mais provas de sistemas comprometidos
+- [Responder a alertas do Azure Defender para o Key Vault](defender-for-key-vault-usage.md)
+- [Alertas de segurança - um guia de referência](alerts-reference.md)
+- [Introdução ao Azure Defender](azure-defender.md)

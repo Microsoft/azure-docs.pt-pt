@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986484"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614007"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -35,7 +35,7 @@ Saiba mais sobre [o que pode apoiar](backup-overview.md) e sobre [cenários de b
 
 ## <a name="where-is-data-backed-up"></a>Onde estão os dados?
 
-A Azure Backup armazena dados de reserva em cofres - Cofres de recuperação e cofres de reserva. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
+A Azure Backup armazena dados de reserva em cofres - cofres dos Serviços de Recuperação e cofres de reserva. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
 
 Os cofres têm as seguintes características:
 
@@ -98,10 +98,10 @@ A tabela a seguir resume as funcionalidades suportadas para os diferentes tipos 
 
 **Funcionalidade** | **Cópia de segurança direta de ficheiros e pastas (utilizando o agente MARS)** | **Azure VM Backup** | **Máquinas ou aplicativos com DPM/MABS**
 --- | --- | --- | ---
-De volta ao cofre | ![Yes][green] | ![Yes][green] | ![Yes][green]
-Voltar para o disco DPM/MABS e depois para Azure | | | ![Yes][green]
-Dados de comprimir enviados para cópia de segurança | ![Yes][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Yes][green]
-Executar backup incremental |![Yes][green] |![Yes][green] |![Yes][green]
+De volta ao cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
+Voltar para o disco DPM/MABS e depois para Azure | | | ![Sim][green]
+Dados de comprimir enviados para cópia de segurança | ![Sim][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Sim][green]
+Executar backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para servidores DPM/MABS implantados apenas no local.
 
 ![Chave de mesa](./media/backup-architecture/table-key.png)

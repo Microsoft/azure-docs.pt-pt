@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: 984e152b5e0a5f1e5a8bf14aef165144555e582f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91543080"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614092"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configure Cinode para o fornecimento automático de utilizadores
 

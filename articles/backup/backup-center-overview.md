@@ -2,13 +2,13 @@
 title: Visão geral do Backup Center
 description: Este artigo fornece uma visão geral do Backup Center for Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997008"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614292"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do Backup Center
 
@@ -39,7 +39,11 @@ No azulejo **Jobs,** você tem uma visão resumida de todos os backups e restaur
 
 No azulejo **de Back Instances,** obtém uma visão resumida de todas as instâncias de backup em toda a sua propriedade de reserva. Por exemplo, pode ver o número de casos de backup que estão em estado de apagação suave em comparação com o número de casos que ainda estão configurados para proteção. A seleção de qualquer um dos números deste azulejo permite-lhe visualizar mais informações sobre casos de backup para um determinado tipo de fonte de dados e estado de proteção.
 
-Siga os passos abaixo para entender as diferentes capacidades que o Backup Center fornece e como pode usar essas capacidades para gerir a sua propriedade de backup de forma eficiente.
+Veja o seguinte vídeo para entender as capacidades do Backup Center:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Siga os [próximos passos](#next-steps) para entender as diferentes capacidades que o Backup Center fornece e como pode usar essas capacidades para gerir a sua propriedade de backup de forma eficiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
