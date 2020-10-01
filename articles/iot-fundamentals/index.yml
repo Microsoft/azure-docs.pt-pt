@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 85667dfcc33d7bc8d1bab5b73119be2ef3b81c40
-  ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+  ms.openlocfilehash: f06d1346e18c54c4a5ceed547dd14e0290e9676e
+  ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88186000"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91578210"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -120,7 +120,7 @@ conceptualContent:
     links:
     - url: ../iot-pnp/overview-iot-plug-and-play.md
       itemType: overview
-      text: O que é a Pré-visualização do IoT Plug and Play?
+      text: O que é o IoT Plug and Play?
     - url: ../iot-pnp/quickstart-connect-device-node.md
       itemType: quickstart
       text: Ligar um dispositivo de exemplo ao Hub IoT
