@@ -9,40 +9,40 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650607"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91641029"
 ---
-## <a name="reference-docs"></a>Doutorados de referência
+## <a name="reference-docs"></a>Documentos de referência
 
-O serviço de Fala fornece dois SDKs. O primeiro SDK é o [SDK](../speech-sdk.md) de discurso primário e fornece a maioria das funcionalidades necessárias para interagir com o serviço de Fala. O segundo SDK é específico dos dispositivos, devidamente nomeados para o [SDK dispositivos](../speech-devices-sdk.md)de fala . Ambos os SDKs estão disponíveis em muitas línguas.
+O serviço de Discurso fornece dois SDKs. O primeiro SDK é o [SDK](../speech-sdk.md) de discurso primário e fornece a maioria das funcionalidades necessárias para interagir com o serviço De Discurso. O segundo SDK é específico para dispositivos, devidamente nomeados os [Dispositivos de Fala SDK](../speech-devices-sdk.md). Ambos os SDKs estão disponíveis em muitos idiomas.
 
 ### <a name="speech-sdk-reference-docs"></a>Docs de referência SDK de fala
 
-Utilize a seguinte lista para encontrar os docs de referência sdk de discurso apropriados:
+Utilize a seguinte lista para encontrar os documentos de referência apropriados da SDK de discurso:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">SDK Python<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objectiva-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">SDK JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">OdK Objective-C <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
-> O serviço de fala SDK é mantido e atualizado ativamente. Para acompanhar alterações, atualizações e adições de funcionalidades consulte as notas de lançamento do [Speech SDK](../releasenotes.md).
+> O serviço de discurso SDK é mantido e atualizado ativamente. Para acompanhar as alterações, atualizações e adições de funcionalidades consulte as notas de lançamento do [Speech SDK](../releasenotes.md).
 
-### <a name="speech-devices-sdk-reference-docs"></a>Dispositivos de Fala SDK referenciais docs
+### <a name="speech-devices-sdk-reference-docs"></a>Dispositivos de fala SDK referência docs
 
-O [SDK](../speech-devices-sdk.md) de Dispositivos de Fala é um superconjunto do SDK de Fala, com funcionalidade alargada para dispositivos específicos. Para descarregar o SDK dos Dispositivos de Fala, primeiro deve [escolher um kit](../get-speech-devices-sdk.md#choose-a-development-kit)de desenvolvimento .
+O [Speech Devices SDK](../speech-devices-sdk.md) é um superconjunto do SDK do discurso, com funcionalidades alargadas para dispositivos específicos. Para descarregar o SDK de Dispositivos de Fala, tem primeiro [de escolher um kit de desenvolvimento.](../get-speech-devices-sdk.md#choose-a-development-kit)
 
-### <a name="rest-api-references"></a>Referências da API REST
+### <a name="rest-api-references"></a>Referências API REST
 
-Para referências de várias APIs do serviço de fala, consulte a listagem abaixo:
+Para obter referências de vários SERVIÇOS DE DISCURSO REST APIs, consulte a listagem abaixo:
 
 - [REST API: Discurso-a-texto](../rest-speech-to-text.md)
-- [REST API: Avaliação da pronúncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
-- [REST API: Texto-a-falar](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Transcrição e personalização do lote<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- [REST API: Avaliação de pronúncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
+- [REST API: Texto-a-discurso](../rest-text-to-speech.md)
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: Transcrição e personalização do lote <span class="docon docon-navigate-external x-hidden-focus"></span></a>

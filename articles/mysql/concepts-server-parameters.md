@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533728"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627351"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -54,6 +54,12 @@ Para melhorar as questões de desempenho de consultas curtas na piscina de fios,
 
 > [!IMPORTANT]
 > Por favor, teste a piscina de rosca antes de ligá-la em produção. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Na Base de Dados Azure para o MySQL, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)*. 
+
+O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -274,7 +280,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outras variáveis não listadas aqui são definidas para os valores padrão MySQL fora da caixa. Consulte os docs MySQL para versões [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)e [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) para os valores predefinidos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-using-cli.md)

@@ -9,16 +9,37 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317281"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630004"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 
-A monitorização é uma das muitas capacidades incorporadas que os serviços de dados habilitados a Azure Arc trazem consigo. 
+Periodicamente, pode exportar informações de utilização para efeitos de faturação, métricas de monitorização e registos e, em seguida, enviá-la para Azure.  A exportação e upload de qualquer um destes três tipos de dados também criará e atualizará o controlador de dados, a instância gerida pelo SQL e os recursos do grupo de servidores de hiperescala PostgreSQL em Azure.
+
+> [!NOTE] 
+Durante o período de pré-visualização, não há qualquer custo para a utilização de serviços de dados ativados pelo Azure Arc.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Necessitará do Azure CLI (az) e do Azure Data CLI (azdata) instalados.  [Instale ferramentas](./install-client-tools.md).
+
+Antes de enviar dados para o Azure, tem de garantir que a sua subscrição do Azure tem o fornecedor de recursos Microsoft.AzureData registado.
+
+Pode verificar isto executando o seguinte comando:
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+Se o fornecedor de recursos não estiver atualmente registado na sua subscrição, pode registá-lo executando o seguinte comando.  Este comando leva um minuto ou dois para ser concluído.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## <a name="upload-usage-data"></a>Carregar dados de utilização
 

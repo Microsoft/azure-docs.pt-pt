@@ -1,5 +1,5 @@
 ---
-title: Configuração de DNS de Endpoint Privado Azure
+title: Configuração de DNS do Ponto Final Privado do Azure
 description: Aprenda a configuração de DNS de Endpoint Privado Azure
 services: private-link
 author: mblanco77
@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918133"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628014"
 ---
-# <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS de Endpoint Privado Azure
+# <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do Ponto Final Privado do Azure
 
 
 Quando está a ligar-se a um recurso de ligação privada utilizando um nome de domínio totalmente qualificado (FQDN) como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços existentes do Microsoft Azure podem já ter uma configuração DNS para utilizar quando se conectam sobre um ponto final público. Esta configuração precisa de ser ultrapassada para se ligar utilizando o seu ponto final privado. 
@@ -74,7 +74,7 @@ Para os serviços Azure, utilize os nomes de zona recomendados como descritos no
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
 | IoT Hub (Microsoft.Devices/IotHubs) / IotHub | privatelink.azure-devices.net | azure-devices.net |
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Monitor Azure (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.com | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.com |
+| Monitor Azure (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Serviços Cognitivos (Microsoft.CognitiveServices/contas) / conta | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
 
@@ -121,7 +121,7 @@ Este modelo pode ser estendido a várias redes virtuais espreitadas que estão a
 
 Neste cenário, há um [hub e falou](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) topologia em rede com as redes de fala partilhando um ponto final privado comum, e todas as redes virtuais faladas estão ligadas à mesma zona privada de DNS. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub e falou com o DNS fornecido pelo Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Rede virtual única e DNS fornecidos pelo Azure":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Cargas de trabalho no local utilizando um remetente DNS
 
@@ -142,7 +142,7 @@ Para configurar corretamente, precisa dos seguintes recursos:
 
 O diagrama seguinte ilustra a sequência de resolução de DNS a partir de uma rede de acesso ao local que utiliza um reencaminhador de DNS implantado em Azure, onde a resolução é feita por uma zona privada de DNS [ligada a uma rede virtual:](../dns/private-dns-virtual-network-links.md)
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="No local usando DNS Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rede virtual única e DNS fornecidos pelo Azure":::
 
 Esta configuração pode ser estendida para uma rede no local que já tenha uma solução DNS no lugar. 
 A solução DNS no local precisa de ser configurada para encaminhar o tráfego DNS para o Azure DNS através de um [reencaminhador condicional](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) que faz referência ao reencaminhador DNS implantado no Azure.
@@ -163,7 +163,7 @@ O diagrama seguinte ilustra a sequência de resolução de DNS de uma rede de in
 > [!IMPORTANT]
 > O reencaminhamento condicional deve ser feito para o [reencaminhador público](#azure-services-dns-zone-configuration)recomendado para a zona de DNS .Por exemplo:  `database.windows.net`   em vez de **privatelink**.database.windows.net.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="No local reencaminhando para Azure DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Rede virtual única e DNS fornecidos pelo Azure":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Cargas de trabalho de rede virtual e no local utilizando um reencaminhador de DNS
 
@@ -190,7 +190,7 @@ Para configurar corretamente, precisa dos seguintes recursos:
 
 O diagrama que se segue ilustra a sequência de resolução de DNS a partir de uma rede virtual que utiliza um reencaminhador DENS implantado em Azure, onde a resolução é feita por uma zona privada de DNS [ligada a uma rede virtual:](../dns/private-dns-virtual-network-links.md)
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Cenário híbrido":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Rede virtual única e DNS fornecidos pelo Azure":::
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Conheça os pontos finais privados](private-endpoint-overview.md)

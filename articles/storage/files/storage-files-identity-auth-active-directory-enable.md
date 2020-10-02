@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd80f7b4a62380b62acb52543b49f5640cc5d365
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322075"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627981"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
@@ -54,7 +54,7 @@ Antes de ativar a autenticação AD DS para ações de ficheiros Azure, certifiq
 
     Certifique-se de que a conta de armazenamento que contém as suas ações de ficheiros ainda não está configurada para a Autenticação DS AD AZure. Se a autenticação Azure Files AD DS estiver ativada na conta de armazenamento, tem de ser desativada antes de ser alterada para utilizar o DS AD no local. Isto implica que os ACLs existentes configurados no ambiente Azure AD DS terão de ser reconfigurados para uma aplicação adequada da permissão.
 
-    Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
+    Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
 
 - Faça qualquer configuração de rede relevante antes de ativar e configurar a autenticação DS AD nas suas ações de ficheiroS Azure. Consulte [as considerações de networking dos Ficheiros Azure](storage-files-networking-overview.md) para obter mais informações.
 

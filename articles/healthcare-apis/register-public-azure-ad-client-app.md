@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853046"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629085"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registar um pedido de cliente público no Azure Ative Directory
 
@@ -45,7 +45,8 @@ Da mesma forma com a [aplicação confidencial](register-confidential-azure-ad-c
 
 1. Abra as **permissões da API**.
 
-    Se estiver a utilizar a API Azure para FHIR, adicionará uma permissão às APIs de Cuidados de Saúde Azure, procurando APIs de Azure Healthcare ao abrigo **de APIs que a minha organização utiliza** (imagem abaixo).
+    Se estiver a utilizar a API Azure para FHIR, adicionará uma permissão às APIs de Cuidados de Saúde Azure, procurando APIs de Azure Healthcare ao abrigo **de APIs que a minha organização utiliza.** Só poderá encontrá-lo se já tiver [implantado a API Azure para fHIR.](fhir-paas-powershell-quickstart.md)
+
     
     Se estiver a fazer referência a uma aplicação de recursos diferente, selecione o [registo de aplicação de recursos da FHIR API](register-resource-azure-ad-client-app.md) que criou anteriormente ao abrigo **das Minhas APIs**:
 

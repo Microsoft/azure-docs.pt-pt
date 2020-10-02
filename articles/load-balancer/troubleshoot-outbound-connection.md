@@ -7,18 +7,18 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851136"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629000"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Falhas nas ligações de saída de resolução de problemas
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Falhas nas ligações de saída de resolução de problemas
 
 Este artigo destina-se a fornecer resoluções para problemas comuns que podem ocorrer com ligações de saída de um Balançador de Carga Azure. A maioria dos problemas com a conectividade de saída que os clientes experimentam devem-se à exaustão da porta SNAT e aos intervalos de ligação que levam a pacotes abandonados. Este artigo fornece medidas para atenuar cada uma destas questões.
 
-## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestão da exaustão portuária do SNAT (PAT)
+## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gestão da exaustão portuária do SNAT (PAT)
 [As portas efémeras utilizadas](load-balancer-outbound-connections.md) para [pat](load-balancer-outbound-connections.md) são um recurso exaustivo, conforme descrito em [VM autónomo sem endereço IP público](load-balancer-outbound-connections.md) e [VM equilibrado em carga sem endereço IP público](load-balancer-outbound-connections.md). Pode monitorizar a sua utilização de portas efémeras e comparar com a sua alocação atual para determinar o risco de ou confirmar a exaustão do SNAT utilizando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se sabe que está a iniciar muitas ligações TCP ou UDP de saída para o mesmo endereço IP de destino e porta, e observa ligações de saída falhadas ou é aconselhado por suporte a que está a esgotar as portas SNAT [(portas efémeras](load-balancer-outbound-connections.md#preallocatedports) pré-locadas utilizadas pela [PAT),](load-balancer-outbound-connections.md)tem várias opções gerais de mitigação. Reveja estas opções e decida o que está disponível e o melhor para o seu cenário. É possível que um ou mais possam ajudar a gerir este cenário.
@@ -44,7 +44,7 @@ Quando [as portas efémeras pré-locadas utilizadas](load-balancer-outbound-conn
 As portas efémeras têm um tempo limite de 4 minutos (não ajustável). Se as retraçãos forem demasiado agressivas, a exaustão não tem oportunidade de se limpar por si própria. Portanto, considerando como- e com que frequência - as suas transações de retréis de aplicação é uma parte crítica do projeto.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Atribuir um IP público a cada VM
-A atribuição de um endereço IP público altera o seu cenário de [IP público para um VM](load-balancer-outbound-connections.md). Todas as portas efémeras do IP público que são utilizadas para cada VM estão disponíveis para o VM. (Ao contrário dos cenários em que as portas efémeras de um IP público são partilhadas com todos os VMs associados à respetiva piscina de backend.) Existem compensações a ter em conta, tais como o custo adicional dos endereços IP públicos e o impacto potencial da whitelisting de um grande número de endereços IP individuais.
+A atribuição de um endereço IP público altera o seu cenário de [IP público para um VM](load-balancer-outbound-connections.md). Todas as portas efémeras do IP público que são utilizadas para cada VM estão disponíveis para o VM. (Ao contrário dos cenários em que as portas efémeras de um IP público são partilhadas com todos os VMs associados à respetiva piscina de backend.) Existem compensações a ter em conta, tais como o custo adicional dos endereços IP públicos e o impacto potencial da filtragem de um grande número de endereços IP individuais.
 
 >[!NOTE] 
 >Esta opção não está disponível para funções de trabalhador web.
@@ -55,7 +55,7 @@ Ao utilizar o Balanceador de Carga Padrão público, atribui [vários endereços
 >[!NOTE]
 >Na maioria dos casos, a exaustão dos portos SNAT é um sinal de mau design.  Certifique-se de que compreende por que razão está a esgotar as portas antes de utilizar mais frontends para adicionar portas SNAT.  Pode estar a mascarar um problema que pode levar ao fracasso mais tarde.
 
-## <a name="scale-out"></a><a name="scaleout"></a>Aumentar horizontalmente
+## <a name="scale-out"></a><a name="scaleout"></a>Escala para fora
 [As portas pré-locadas](load-balancer-outbound-connections.md#preallocatedports) são atribuídas com base no tamanho da piscina de backend e agrupadas em camadas para minimizar a perturbação quando algumas portas têm de ser realojadas para acomodar o próximo nível de tamanho da piscina de backend maior.  Pode ter a opção de aumentar a utilização da porta SNAT para um dado frontend, escalando a sua piscina de backend para o tamanho máximo para um determinado nível.  Tendo em conta que a atribuição por porta padrão é necessária para que a aplicação se escalone eficientemente sem risco de exaustão SNAT.
 
 Por exemplo, duas máquinas virtuais no pool de backend teriam 1024 portas SNAT disponíveis por configuração IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação fosse aumentada para 50 máquinas virtuais, embora o número de portas pré-locadas permaneça constante por máquina virtual, um total de 51.200 (50 x 1024) portas SNAT podem ser utilizadas pela implantação.  Se desejar aumentar a sua implantação, verifique o número de [portas pré-locadas](load-balancer-outbound-connections.md#preallocatedports) por nível para se certificar de que molda a sua escala ao máximo para o respetivo nível.  No exemplo anterior, se tivesse optado por escalar para 51 em vez de 50 instâncias, iria progredir para o nível seguinte e acabaria com menos portas SNAT por VM, bem como no total.

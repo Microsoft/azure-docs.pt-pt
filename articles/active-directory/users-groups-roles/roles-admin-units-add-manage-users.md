@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e518a66ae2eedd952f521e0a67769b6e08de87
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 22f35d88f3bb36d63d533941d27f72336714077c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450436"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630283"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Azure Ative Directory
 
@@ -97,6 +97,7 @@ No portal Azure pode abrir o perfil de um utilizador:
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+Nota: Get-AzureADAdministrativeUnmember apenas devolve 100 membros.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -138,7 +139,7 @@ Depois de ter guardado as entradas no ficheiro, faça o upload do ficheiro, **se
 
 ![Envie o ficheiro de upload em massa](./media/roles-admin-units-add-manage-users/bulk-user-remove.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir um papel a uma unidade administrativa](roles-admin-units-assign-roles.md)
 - [Adicionar grupos a uma unidade administrativa](roles-admin-units-add-manage-groups.md)

@@ -1,28 +1,24 @@
 ---
-title: Simular respostas de API com o portal do Azure | Microsoft Docs
-description: Este tutorial mostra como utilizar a Gestão de API (APIM) para definir uma política numa API de modo a devolver uma resposta simulada. Este método permite aos programadores continuar a implementação e o teste da instância de Gestão de API no caso de o back-end não estar disponível para enviar respostas reais.
-services: api-management
-documentationcenter: ''
+title: Tutorial - Respostas da API ridículas em Gestão da API - Portal Azure / Microsoft Docs
+description: Neste tutorial, você usa a API Management para definir uma política em uma API para que ele retorne uma resposta ridicularizada se o backend não estiver disponível para enviar respostas reais.
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "70067948"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631125"
 ---
-# <a name="mock-api-responses"></a>Simular respostas de API
+# <a name="tutorial-mock-api-responses"></a>Tutorial: Respostas da API falsas
 
-As APIs de back-end podem ser importadas para uma API de APIM ou criadas e geridas manualmente. Os passos neste tutorial mostram como utilizar o APIM para criar uma API em branco e geri-la manualmente. O tutorial mostra como definir uma política numa API de modo a devolver uma resposta simulada. Este método permite aos programadores continuar a implementação e o teste da instância de APIM mesmo que o back-end não esteja disponível para enviar respostas reais. A capacidade de simular respostas pode ser útil em vários cenários:
+As APIs de backend podem ser importadas para uma API de Gestão de API (APIM) ou criadas e geridas manualmente. Os passos neste tutorial mostram-lhe como usar a APIM para criar uma API em branco e geri-la manualmente, em seguida, definir uma política em uma API para que ele retorne uma resposta ridicularizada. Este método permite aos programadores continuar a implementação e o teste da instância de APIM mesmo que o back-end não esteja disponível para enviar respostas reais. 
+
+A capacidade de simular respostas pode ser útil em vários cenários:
 
 + Quando a fachada de API é concebida primeiro e a implementação de back-end é efetuada mais tarde. Quando o back-end está a ser desenvolvido em paralelo.
 + Quando o back-end está temporariamente não operacional ou não consegue dimensionar.
@@ -35,7 +31,8 @@ Neste tutorial, ficará a saber como:
 > * Ativar a simulação de respostas
 > * Testar a API simulada
 
-![Resposta de operação simulada](./media/mock-api-responses/mock-api-responses01.png)
+
+:::image type="content" source="media/mock-api-responses/mock-api-responses01.png" alt-text="Resposta da API ridicularizada":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,79 +42,84 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
-Os passos nesta secção mostram como criar uma API em branco sem back-end. Mostra também como adicionar uma operação à API. Chamar a operação depois de concluir os passos nesta secção produz um erro. Não obterá erros depois de concluir os passos na secção "Ativar a simulação de respostas".
+Os passos nesta secção mostram como criar uma API em branco sem back-end. 
 
-![Criar API em branco](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
-1. Selecione **APIs** no serviço **Gestão de API**.
-2. No menu à esquerda, selecione **+ Adicionar API**.
-3. Selecione **API em branco** na lista.
-4. Introduza "*API de teste*" para **Nome a apresentar**.
-5. Introduza "*Ilimitados*" para **Produtos**.
-6. Selecione **Criar**.
+1. Inscreva-se no portal Azure e navegue para a sua instância de Gestão da API.
+1. Selecione **APIs**  >  **+ Adicione**  >  **API Em Branco API**.
+1. Na janela **Create a API em branco,** selecione **Full**.
+1. Introduza *a API de teste* para o nome do **visor**.
+1. Selecione **Ilimitado** para **Produtos.**
+1. Certifique-se de que **o Managed** é selecionado em **Gateways**.
+1. Selecione **Criar**.
+
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Resposta da API ridicularizada":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adicionar uma operação à API de teste
 
-![Adicionar operação à API](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+Uma API expõe uma ou mais operações. Nesta secção, adicione uma operação à API em branco que criou. Chamar a operação depois de concluir os passos nesta secção produz um erro. Não terá erros depois de completar os passos mais tarde na secção [De zombaria de resposta Ativa.](#enable-response-mocking)
 
 1. Selecione a API que criou no passo anterior.
-2. Clique em **+ Adicionar Operação**.
+1. Selecione **+ Adicionar Operação**.
+1. Na janela **Frontend, introduza** os seguintes valores.
 
-    | Definição             | Valor                             | Descrição                                                                                                                                                                                   |
+     | Definição             | Valor                             | Descrição                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Nome a apresentar**    | *Chamada de teste*                       | O nome que é apresentado no **Portal do programador**.                                                                                                                                       |
-    | **URL** (verbo HTTP) | GET                               | Pode escolher um dos verbos HTTP predefinidos.                                                                                                                                         |
+    | **Nome a apresentar**    | *Chamada de teste*                       | O nome que é apresentado no portal do [desenvolvedor](api-management-howto-developer-portal.md).                                                                                                                                       |
+    | **URL** (verbo HTTP) | GET                               | Selecione um dos verbos HTTP pré-definidos.                                                                                                                                         |
     | **URL**             | */teste*                           | Um caminho de URL para a API.                                                                                                                                                                       |
-    | **Descrição**     |                                   | Forneça uma descrição da operação utilizada para fornecer a documentação aos programadores que utilizam esta API no **Portal do programador**.                                                    |
-    | Separador **Consulta**       |                                   | Pode adicionar parâmetros de consulta. Além de fornecer um nome e uma descrição, pode fornecer valores que podem ser atribuídos a este parâmetro. Um dos valores pode ser marcado como predefinição (opcional). |
-    | Separador **Pedido**     |                                   | Pode definir os tipos de conteúdo, exemplos e esquemas do pedido.                                                                                                                                  |
-    | Separador **Resposta**    | Veja os passos que se seguem nesta tabela. | Defina códigos de estado de resposta, tipos de conteúdo, exemplos e esquemas.                                                                                                                           |
+    | **Descrição**     |                                   |  Descrição opcional da operação, utilizada para fornecer documentação no portal do desenvolvedor aos desenvolvedores que utilizam esta API.                                                    |
+    
+1. Selecione o separador **Respostas,** localizado nos campos URL, Nome do Visor e Descrição. Introduza as definições neste separador para definir códigos de estado de resposta, tipos de conteúdo, exemplos e esquemas.
+1. **Selecione + Adicionar resposta**e selecione **200 OK** da lista.
+1. No cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
+1. Introduza *a aplicação/json* na caixa de pesquisa e selecione o tipo de conteúdo **de aplicação/json.**
+1. Na caixa de texto **Exemplo**, introduza `{ "sampleField" : "test" }`.
+1. Selecione **Guardar**.
 
-3. Selecione o separador **Resposta**, localizado abaixo dos campos URL, Nome a apresentar e Descrição.
-4. Clique em **+ Adicionar resposta**.
-5. Selecione **200 OK** na lista.
-6. No cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
-7. Introduza "*application/json*" na caixa de pesquisa e selecione o tipo de conteúdo **application/json**.
-8. Na caixa de texto **Exemplo**, introduza `{ "sampleField" : "test" }`.
-9. Selecione **Criar**.
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Resposta da API ridicularizada" border="false":::
+
+Embora não sejam necessárias para este exemplo, as definições adicionais para uma operação API podem ser configuradas em outros separadores, incluindo:
+
+
+|Tecla de Tabulação      |Descrição  |
+|---------|---------|
+|**Query**     |  Adicione parâmetros de consulta. Além de fornecer um nome e descrição, pode fornecer valores que são atribuídos a um parâmetro de consulta. Um dos valores pode ser marcado como predefinição (opcional).        |
+|**Pedir**     |  Defina tipos de conteúdo de pedido, exemplos e esquemas.       |
 
 ## <a name="enable-response-mocking"></a>Ativar a simulação de respostas
 
-![Ativar a simulação de respostas](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+1. Selecione a API criada na [Criar uma API de teste.](#create-a-test-api)
+1. Selecione a operação de teste que adicionou.
+1. Na janela à direita, certifique-se de que o separador **Design** está selecionado.
+1. Na janela **de processamento de entrada,** selecione **+ Adicionar a política**.
 
-1. Selecione a API que criou no passo "Criar uma API de teste".
-2. Selecione a operação de teste que adicionou.
-3. Na janela à direita, clique no separador **Conceber**.
-4. Na janela **Processamento de entrada**, clique em **+Adicionar política**.
-5. Selecione o mosaico **Simular respostas** da galeria.
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Resposta da API ridicularizada" border="false":::
 
-    ![Mosaico da política de simulação de respostas](./media/mock-api-responses/mock-responses-policy-tile.png)
+1. **Selecione Respostas falsas** da galeria.
 
-6. Na caixa de texto **Respostas da Gestão de API**, escreva **200 OK, application/json**. Esta seleção indica que a API deve devolver o exemplo de resposta que definiu na secção anterior.
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Resposta da API ridicularizada" border="false":::
 
-    ![Ativar a simulação de respostas](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+1. Na caixa de texto **Respostas da Gestão de API**, escreva **200 OK, application/json**. Esta seleção indica que a API deve devolver o exemplo de resposta que definiu na secção anterior.
 
-7. Clique em **Guardar**.
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Resposta da API ridicularizada":::
+
+1. Selecione **Guardar**.
+
+    > [!TIP]
+    > Uma barra amarela com o texto **Mocking está ativada** para a sua API indica que as respostas devolvidas da API Management enviam uma política de zombaria e não uma resposta real de backend.
 
 ## <a name="test-the-mocked-api"></a>Testar a API simulada
 
-![Testar a API simulada](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
+1. Selecione a API criada na [Criar uma API de teste.](#create-a-test-api)
+1. Selecione o separador **Teste**.
+1. Certifique-se de que a API **Chamada de teste** está selecionada. Selecione **Enviar** para efetuar uma chamada de teste.
 
-1. Selecione a API que criou no passo "Criar uma API de teste".
-2. Abra o separador **Testar**.
-3. Certifique-se de que a API **Chamada de teste** está selecionada.
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Resposta da API ridicularizada":::
 
-    > [!TIP]
-    > Uma barra amarela com o texto **A simulação está ativada** indica que as respostas devolvidas da Gestão de API enviam uma política de simulação e não uma resposta de back-end real.
+1. A **resposta de HTTP** apresenta o JSON fornecido como um exemplo na primeira secção do tutorial.
 
-4. Selecione **Enviar** para efetuar uma chamada de teste.
-5. A **resposta de HTTP** apresenta o JSON fornecido como um exemplo na primeira secção do tutorial.
-
-    ![Ativar a simulação de respostas](./media/mock-api-responses/mock-api-responses-test-response.png)
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Resposta da API ridicularizada":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

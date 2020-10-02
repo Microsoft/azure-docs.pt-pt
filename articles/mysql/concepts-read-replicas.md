@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: 4550f1da0ac87a55bab64566a0035451dee8d225
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/1/2020
+ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538267"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627572"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -36,6 +36,9 @@ Um cenário comum é fazer com que as cargas de trabalho bi e analíticas utiliz
 Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
 
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea mySQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
+
+> [!IMPORTANT]
+> A base de dados Azure para o MySQL utiliza registo binário baseado em **ROW.** Se faltar uma chave primária à mesa, todas as linhas da tabela são digitalizadas para operações de DML. Isto causa um maior atraso de replicação. Para garantir que a réplica é capaz de acompanhar as alterações na origem, recomendamos geralmente adicionar uma chave primária nas tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se já tiver uma.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor de origem. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
@@ -177,7 +180,7 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 
 - Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.
@@ -185,7 +188,7 @@ Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimin
 - Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.
 - Reveja a lista completa das limitações de replicação do [MySQL na documentação MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

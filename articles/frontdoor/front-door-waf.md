@@ -1,5 +1,5 @@
 ---
-title: Dimensione e proteja uma aplicação web usando Azure Front Door e WAF
+title: 'Tutorial: Escalar e proteger uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)'
 description: Este tutorial irá mostrar-lhe como utilizar o Azure Web Application Firewall com o serviço Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276277"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626484"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
 
-Muitas aplicações web têm sofrido um rápido aumento de tráfego nas últimas semanas por causa do COVID-19. Estas aplicações web também estão a sofrer um aumento no tráfego malicioso, incluindo ataques de negação de serviço. Há uma maneira eficaz de escalar tanto para os picos de tráfego como para se proteger de ataques: configurar a Porta frontal Azure com a Azure WAF como uma camada de aceleração, caching e segurança em frente à sua aplicação web. Este artigo fornece orientações sobre como obter rapidamente Azure Front Door com Azure WAF configurado para qualquer aplicação web que seja executada dentro ou fora de Azure. 
+Muitas aplicações web têm sofrido um rápido aumento de tráfego nas últimas semanas por causa do COVID-19. Estas aplicações web também estão a sofrer um aumento no tráfego malicioso, incluindo ataques de negação de serviço. Existe uma forma eficaz de escalar a sua aplicação para picos de tráfego e proteger-se de ataques: configurar a Porta frontal Azure com Azure WAF como uma camada de aceleração, caching e segurança em frente à sua aplicação web. Este artigo fornece orientações sobre como obter Azure Front Door com Azure WAF configurado para qualquer aplicação web que corre dentro ou fora de Azure. 
 
-Vamos usar o CLI do Azure para montar o WAF neste tutorial. Pode realizar a mesma coisa utilizando o portal Azure PowerShell, Azure Resource Manager ou as APIs Azure REST. 
+Vamos usar o Azure CLI para configurar a WAF neste tutorial. Pode realizar a mesma coisa utilizando o portal Azure PowerShell, Azure Resource Manager ou as APIs Azure REST. 
 
 Neste tutorial, irá aprender a:
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Neste tutorial, irá aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) para começar com o Azure CLI.
+- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) para começar com o Azure CLI.
 
   > [!TIP] 
   > Uma maneira fácil e rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -48,7 +48,7 @@ Neste tutorial, irá aprender a:
    ```
 
 > [!NOTE] 
-> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest)
+> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="create-an-azure-front-door-resource"></a>Criar um recurso Azure Front Door
 
@@ -121,7 +121,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 `--resource-group`: O grupo de recursos em que colocou o recurso Azure Front Door.
 
-`--set`: É aqui que atualiza o atributo para o recurso `WebApplicationFirewallPolicyLink` `frontendEndpoint` Azure Front Door com a nova política WAF. Você deve ter o ID da política da WAF a partir da resposta que obteve quando criou o perfil WAF mais cedo neste tutorial.
+`--set`: É onde atualiza o atributo para o associado `WebApplicationFirewallPolicyLink` com o seu recurso `frontendEndpoint` Azure Front Door com a nova política WAF. Você deve ter o ID da política da WAF a partir da resposta que obteve quando criou o perfil WAF mais cedo neste tutorial.
 
  > [!NOTE] 
 > O exemplo anterior é aplicável quando não está a utilizar um domínio personalizado. Se não estiver a utilizar quaisquer domínios personalizados para aceder às suas aplicações web, pode saltar a secção seguinte. Nesse caso, dará aos seus clientes o `hostName` que obteve quando criou o recurso Azure Front Door. Vão usar isto `hostName` para ir à tua aplicação web.
@@ -136,15 +136,15 @@ Há uma coisa importante a notar se precisa que os seus clientes entrem no seu w
 
 Também precisa de atualizar a configuração da porta frontal Azure para [adicionar o domínio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) ao mesmo para que esteja ciente deste mapeamento.
 
-Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e pretender ativar o protocolo HTTPS, tem de [configurar os certificados para o seu domínio personalizado na Porta frontal Azure.](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https) 
+Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e quiser ativar o protocolo HTTPS. É necessário [configurar os certificados para o seu domínio personalizado na Porta frontal Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Bloqueie a sua aplicação web
 
-Recomendamos que garanta que apenas as bordas da Porta Frontal Azure podem comunicar com a sua aplicação web. Ao fazê-lo, ninguém poderá contornar a proteção da Porta Frontal Azure e aceder diretamente à sua aplicação. Para conseguir este bloqueio, como [posso bloquear o acesso ao meu backend para apenas Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Recomendamos que garanta que apenas as bordas da porta dianteira Azure podem comunicar com a sua aplicação web. Ao fazê-lo, ninguém poderá contornar a proteção da Porta Frontal Azure e aceder diretamente à sua aplicação. Para conseguir este bloqueio, como [posso bloquear o acesso ao meu backend para apenas Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, porta frontal e política da WAF:
+Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para remover o grupo de recursos, porta frontal e política da WAF:
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Para aprender a resolver problemas na porta da frente, consulte os guias de reso
 
 > [!div class="nextstepaction"]
 > [Resolução de problemas problemas comuns de encaminhamento](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Autoridades de certificação permitidas](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d58a8c1dc79c10ed42fd1675115eb14f2ad4d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283739"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628371"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Existem duas opções para ligar redes virtuais:
 - [Azure VNet olhando](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway VNet-to-VNet VPN[(portal Azure,](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) [PowerShell,](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-O peering é preferível porque utiliza a rede de espinha dorsal da Microsoft, por isso, do ponto de vista da conectividade, não há uma diferença notável na latência entre máquinas virtuais numa rede virtual esprevada e na mesma rede virtual. O espreitamento de rede virtual está limitado às redes da mesma região.  
+O peering é preferível porque utiliza a rede de espinha dorsal da Microsoft, por isso, do ponto de vista da conectividade, não há uma diferença notável na latência entre máquinas virtuais numa rede virtual esprevada e na mesma rede virtual. O espreitamento de rede virtual é para suportar entre as redes da mesma região. O espreitamento global da rede virtual também é suportado com a limitação descrita na nota abaixo.  
 
 > [!IMPORTANT]
-> O cenário de observação da rede virtual para a SQL Managed Instance está limitado às redes da mesma região devido aos [constrangimentos do espreitamento da rede virtual global.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
+> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
 ## <a name="connect-from-on-premises"></a>Ligar a partir de instalações 
 

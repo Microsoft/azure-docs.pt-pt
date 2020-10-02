@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650860"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630938"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar aparelho virtual de rede em Azure HDInsight
 
@@ -23,7 +23,7 @@ O Azure Firewall está automaticamente configurado para permitir o tráfego de m
 
 * Os serviços de endpoint de serviço podem ser configurados com pontos finais de serviço que resultam em contornar o NVA, geralmente para considerações de custos ou desempenho.
 * As dependências do endereço IP destinam-se ao tráfego não-HTTP/S (tráfego TCP e UDP).
-* Os pontos finais FQDN HTTP/HTTPS podem ser whitelisted no seu dispositivo NVA.
+* Os pontos finais FQDN HTTP/HTTPS podem ser aprovados no seu dispositivo NVA.
 * Atribua a tabela de rotas que cria para a sua sub-rede HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Dependências capazes de endpoint de serviço
@@ -57,7 +57,7 @@ Pode opcionalmente ativar um ou mais dos seguintes pontos finais de serviço que
 | ocsp.digicert.com:80                                                  |
 | microsoft.com:80                                                      |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar a firewall para restringir o tráfego de saída](./hdinsight-restrict-outbound-traffic.md)
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)

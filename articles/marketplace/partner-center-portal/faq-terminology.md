@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317557"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631805"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 
@@ -45,23 +45,24 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Tipo de licença Azure: Empresa | Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um Acordo Empresarial, assinado diretamente com a Microsoft.|
 | Tipo de licença Azure: Empresa através de Revendedor  | Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um revendedor que facilita o seu Acordo de Empresa com a Microsoft.|
 | Tipo de licença Azure: Pague à medida que vai| Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um acordo "Pay as You Go", assinado diretamente com a Microsoft.|
+| ID de conta de faturação| Cliente, Encomenda, Utilização| O identificador da conta em que a faturação é gerada. Utilize este atributo para ligar relatórios analíticos com o relatório de transações de pagamento.|
 | Nome da instância da nuvem| Encomenda| A Cloud Microsoft em que ocorreu uma implementação em VM.|
 | Nome da instância da nuvem: Azure Global| Encomenda| A nuvem pública global da Microsoft.|
 | Nome da instância da nuvem: Governo Azure | Encomenda| Nuvens específicas do governo da Microsoft para um dos seguintes governos: China, Alemanha ou Estados Unidos da América.| |
-| Cidade do Cliente| Customer| O nome da cidade fornecido pelo cliente. A cidade pode ser diferente da cidade na assinatura Azure de um cliente.|
-| Linguagem de comunicação do cliente  | Customer| O idioma preferido pelo cliente para comunicação.|
+| Cidade do Cliente| Cliente| O nome da cidade fornecido pelo cliente. A cidade pode ser diferente da cidade na assinatura Azure de um cliente.|
+| Linguagem de comunicação do cliente  | Cliente| O idioma preferido pelo cliente para comunicação.|
 | Nome da empresa do cliente | Cliente, Encomenda | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na Subscrição Azure de um cliente.|
 | País/Região do Cliente | Cliente, Encomenda | O nome país/região fornecido pelo cliente. O país/região poderia ser diferente do país/região na Subscrição Azure de um cliente.|
-| E-mail do cliente| Customer| O endereço de e-mail fornecido pelo cliente final. O e-mail pode ser diferente do endereço de e-mail na Subscrição Azure de um cliente.|
-| Primeiro nome do cliente| Customer| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na Subscrição Azure de um cliente.|
+| E-mail do cliente| Cliente| O endereço de e-mail fornecido pelo cliente final. O e-mail pode ser diferente do endereço de e-mail na Subscrição Azure de um cliente.|
+| Primeiro nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na Subscrição Azure de um cliente.|
 | ID de Cliente | Cliente, Encomenda | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais Subscrições do Azure Marketplace.|
-| Código Postal do Cliente  | Customer| O código postal fornecido pelo cliente. O código pode ser diferente do código postal fornecido na Subscrição Azure de um cliente.|
-| Estado do Cliente| Customer| O estado (endereço) fornecido pelo cliente. O Estado pode ser diferente do estado fornecido na Subscrição Azure de um cliente.|
-| Data Adquirida| Customer| Na primeira data em que o cliente adquiriu qualquer oferta publicada por si.|
-| Data Perdida| Customer| Na última data em que o cliente cancelou a última de todas as ofertas previamente adquiridas.|
+| Código Postal do Cliente  | Cliente| O código postal fornecido pelo cliente. O código pode ser diferente do código postal fornecido na Subscrição Azure de um cliente.|
+| Estado do Cliente| Cliente| O estado (endereço) fornecido pelo cliente. O Estado pode ser diferente do estado fornecido na Subscrição Azure de um cliente.|
+| Data Adquirida| Cliente| Na primeira data em que o cliente adquiriu qualquer oferta publicada por si.|
+| Data Perdida| Cliente| Na última data em que o cliente cancelou a última de todas as ofertas previamente adquiridas.|
 | É novo cliente  | Encomenda| O valor identificará um novo cliente adquirindo uma ou mais das suas ofertas pela primeira vez (ou não). O valor será "Sim" se no mesmo mês de calendário para "Data Adquirida". O valor será "Não" se o cliente tiver adquirido alguma das suas ofertas antes do mês civil reportado. |
 | É pré-visualização SKU| Encomenda| O valor irá informá-lo se marcou o SKU como "pré-visualização". O valor será "Sim" se o SKU tiver sido marcado em conformidade, e apenas as subscrições Azure autorizadas por você pode implementar e usar esta imagem. O valor será "Não" se o SKU não tiver sido identificado como "pré-visualização". |
-| É Contacto Promocional Opt In| Customer| O valor irá informá-lo se o cliente optou proativamente pelo contacto promocional das editoras. Neste momento, não estamos a apresentar a opção aos clientes, por isso indicámos "Não" em todo o tabuleiro. Assim que esta funcionalidade for implementada, começaremos a atualizar em conformidade.|
+| É Contacto Promocional Opt In| Cliente| O valor irá informá-lo se o cliente optou proativamente pelo contacto promocional das editoras. Neste momento, não estamos a apresentar a opção aos clientes, por isso indicámos "Não" em todo o tabuleiro. Assim que esta funcionalidade for implementada, começaremos a atualizar em conformidade.|
 | Tipo de Licença de Mercado| Encomenda| O método de faturação da oferta do Marketplace.|
 | Tipo de licença de mercado: faturado através do Azure| Encomenda| A Microsoft é o seu agente para esta oferta do Marketplace e fatura clientes em seu nome. (Cartão de Crédito PAYG ou Fatura Empresarial)|
 | Tipo de licença de mercado: Traga a sua própria licença | Encomenda| O VM requer uma chave de licença fornecida pelo cliente para implementar. A Microsoft não cobra aos clientes a listagem das suas ofertas desta forma através do mercado.|
@@ -87,8 +88,8 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Estado da Encomenda| Encomenda| O estado de uma encomenda do Marketplace na altura em que os dados foram atualizados pela última vez.|
 | Estado da encomenda: Ativo  | Encomenda| O cliente comprou uma encomenda e não cancelou a sua encomenda.|
 | Estado da Encomenda: cancelado | Encomenda| O cliente previamente adquiriu uma encomenda e posteriormente cancelou a sua encomenda.|
-| E-mail do fornecedor| Customer| O endereço de e-mail do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Solução Cloud (CSP), este será o CSP.|
-| Nome do provedor| Customer| O nome do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Solução Cloud (CSP), este será o CSP.|
+| E-mail do fornecedor| Cliente| O endereço de e-mail do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Solução Cloud (CSP), este será o CSP.|
+| Nome do provedor| Cliente| O nome do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Solução Cloud (CSP), este será o CSP.|
 | SKU| Encomenda| Nome SKU (agora chamado Plano) como definido durante a publicação. Uma oferta pode ter muitos SKUs (planos), mas cada um só pode ser associado a uma única oferta.|
 | Data de Fim do Julgamento| Encomenda| A data do período experimental para esta ordem terminará ou terminou.|
 |||

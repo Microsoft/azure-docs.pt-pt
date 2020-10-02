@@ -3,17 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319819"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630019"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -25,6 +25,29 @@ Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este art
 - Correções de erros
 
 Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes para acompanhar novas atualizações.
+
+## <a name="september-2020"></a>Setembro de 2020
+
+Eis o que mudou em setembro de 2020:
+
+- Otimizamos o desempenho reduzindo a latência da ligação nas seguintes geografias Azure:
+    - Alemanha
+    - África do Sul (apenas para ambientes de validação)
+
+Agora pode utilizar o [Experience Estimador](https://azure.microsoft.com/services/virtual-desktop/assessment/) para estimar a qualidade da experiência do utilizador nestas áreas.
+
+- Lançámos a versão 1.2.1364 do cliente windows desktop para o Windows Virtual Desktop. Nesta atualização, fizemos as seguintes alterações:
+    - Corrigiu um problema em que um único sinal de s-on (SSO) não funcionou no Windows 7.
+    - Corrigiu um problema que fez com que o cliente se desligasse quando um utilizador que viabilizasse a otimização de meios para equipas tentava ligar ou juntar-se a uma reunião das Equipas enquanto outra aplicação tinha um fluxo de áudio aberto em modo exclusivo.
+    - Corrigiu um problema em que as Equipas não enumeravam dispositivos de áudio ou vídeo quando a otimização dos meios de comunicação para equipas estava ativada.
+    - Acrescentou um "Precisa de ajuda com as configurações?" ligação para a página de definições do ambiente de trabalho.
+    - Corrigiu um problema com o botão "Subscrever" que aconteceu ao utilizar temas escuros de alto contraste.
+    
+- Graças à tremenda ajuda dos nossos utilizadores, corrigimos dois problemas críticos para o cliente do Microsoft Store Remote Desktop. Continuaremos a rever feedback e corrigir problemas à medida que alargamos a nossa versão faseada do cliente a mais utilizadores em todo o mundo.
+    
+- Adicionámos uma nova funcionalidade que permite alterar a localização do VM, imagem, grupo de recursos, nome prefixo, configuração de rede como parte do fluxo de trabalho para adicionar um VM à sua implementação no portal Azure.
+
+- Os IT Pros podem agora gerir vMs híbridos do Azure Ative Directory com o Windows 10 Enterprise VMs utilizando o Microsoft Endpoint Manager. Para saber mais, consulte a [nossa publicação de blog.](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -141,7 +164,6 @@ Consulte estes artigos para saber mais sobre as atualizações para os nossos cl
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os planos futuros no [roteiro virtual do Microsoft 365 Windows Desktop.](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)
-

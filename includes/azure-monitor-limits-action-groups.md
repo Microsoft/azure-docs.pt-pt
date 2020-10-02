@@ -5,20 +5,20 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 610713286e3cb7a084b2e81260797d4cac0ddad7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67305319"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91641318"
 ---
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Push de aplicativo Azure | 10 ações de aplicação Azure por grupo de ação. | Chamada de apoio. |
-| E-mail | 1.000 ações de e-mail num grupo de ação.<br>Não mais de 100 e-mails numa hora.<br>Consulte também a [taxa de limitação da informação.](../articles/azure-monitor/platform/alerts-rate-limiting.md) | Chamada de apoio. |
+| E-mail | 1.000 ações de e-mail num grupo de ação.<br>Não mais de 100 e-mails numa hora.<br>Consulte também a [taxa de limitação da informação.](../articles/azure-monitor/platform/alerts-rate-limiting.md) | O mesmo que o Padrão |
 | ITSM | 10 Ações ITSM num grupo de ação. | Chamada de apoio. | 
 | Aplicação lógica | 10 ações de aplicações lógicas num grupo de ação. | Chamada de apoio. |
 | Runbook | 10 ações de um grupo de ação. | Chamada de apoio. |

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 803663f845272c6b1573fceed8025cc23483ec09
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266416"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628745"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
 
@@ -109,7 +109,7 @@ Para verificar se o agente está em execução, siga estes passos:
 5.  Clique em Novo Screenshot de **Configuração** 
  ![ do ecrã Azure AD Provisioning (Preview) com o link "Nova configuração" realçado.](media/tutorial-single-forest/configure1.png)
 7.  No ecrã de configuração, introduza um **e-mail de Notificação,** mova o seletor para **Ativar** e clique em **Guardar**.
-![Screenshot do ecrã configurar com e-mail de notificação preenchido e Ativar selecionado.](media/tutorial-single-forest/configure2.png)
+![Screenshot do ecrã configurar com e-mail de notificação preenchido e Ativar selecionado.](media/how-to-configure/configure2.png)
 1.  O estado de configuração deve agora ser **saudável**.
 ![Screenshot do ecrã Azure AD Provisioning (Preview) mostrando o estado saudável.](media/how-to-configure/manage4.png)
 

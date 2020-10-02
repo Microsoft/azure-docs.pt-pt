@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 9de26246756f831ace57e7ed03a3a598ef020c91
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451394"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91639627"
 ---
 **Volume e retenção de recolha de dados** 
 
@@ -70,7 +70,7 @@ O Azure Monitor é um serviço de dados de alta escala que serve milhares de cli
 
 Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento, abrindo um pedido de apoio. 
 
-Para ser notificado sobre a aproximação ou o limite de taxa de volume de ingestão no seu espaço de trabalho, crie uma [regra de alerta de registo](../articles/azure-monitor/platform/alerts-log.md) utilizando a seguinte consulta com base lógica de alerta sobre o número de resultados ralador do que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+Para ser notificado sobre a aproximação ou o limite de taxa de volume de ingestão no seu espaço de trabalho, crie uma [regra de alerta de registo](../articles/azure-monitor/platform/alerts-log.md) utilizando a seguinte consulta com base lógica de alerta sobre o número de resultados superior a zero, período de avaliação de 5 minutos e frequência de 5 minutos.
 
 Taxa de volume de ingestão ultrapassou o limiar
 ```Kusto

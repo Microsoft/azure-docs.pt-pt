@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895805"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627147"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -45,17 +45,22 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
 
 - **Serviço de integração de serviços:**<br> Alguns serviços estão ligados de forma nativa, como os serviços AWS e Microsoft, estes serviços aproveitam a fundação Azure para integração fora da caixa, as seguintes soluções podem ser conectadas em alguns cliques:
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Atividades Azure](connect-azure-activity.md)
     - [Azure Ative Directory](connect-azure-active-directory.md) - registos de auditoria e registos de login
+    - [Atividades Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender para a identidade](connect-azure-atp.md) (anteriormente Azure Advanced Threat Protection)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender for IoT](connect-asc-iot.md) (anteriormente Azure Security Center for IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Centro de Segurança Azure](connect-azure-security-center.md) - alertas de soluções Azure Defender
+    - [Firewall de aplicação web Azure (WAF)](connect-azure-waf.md) (anteriormente Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nomes de domínio](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - inclui dados brutos do MDATP
     - [Microsoft Defender para Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anteriormente Microsoft Defender Advanced Threat Protection)
-    - [Firewall de aplicações Web da Microsoft](connect-microsoft-waf.md)
+    - [Microsoft Defender para a identidade](connect-azure-atp.md) (anteriormente Azure Advanced Threat Protection)
+    - [Microsoft Defender para o Office 365](connect-office-365-advanced-threat-protection.md) (anteriormente Office 365 Advanced Threat Protection)
+    - [Escritório 365](connect-office-365.md) (agora com Equipas!)
     - [Firewall do Windows](connect-windows-firewall.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Citrix Analytics (Segurança)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 logs](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [ICDX da Symantec](connect-symantec.md)
+    - [Ponto Final da Cloud VMware Carbon Black Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
 
     O agente Azure Sentinel, que é na verdade o agente Log Analytics, converte registos formatados por CEF num formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo do aparelho, o agente é instalado diretamente no aparelho ou num reencaminhador dedicado à base de registo de Linux. O agente da Linux recebe eventos do daemon Syslog sobre a UDP, mas se uma máquina Linux é esperada para recolher um grande volume de eventos Syslog, eles são enviados para o TCP do daemon Syslog para o agente e de lá para Log Analytics.
 
-    - **Firewalls, proxies e pontos finais:**
+    - **Firewalls, proxies e pontos finais - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,21 +97,29 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
         - [F5 ASM](connect-f5.md)
         - [Produtos da Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Outros aparelhos CEF](connect-common-event-format.md)
-        - [Outros aparelhos Syslog](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Outros aparelhos baseados em CEF](connect-common-event-format.md)
+    - **Firewalls, proxies e pontos finais - Syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Outros aparelhos baseados em Syslog](connect-syslog.md)
     - Soluções DLP
-    - [Fornecedores de inteligência de ameaça](connect-threat-intelligence.md)
+    - [Fornecedores de informações sobre ameaças](connect-threat-intelligence.md)
     - [Máquinas DNS](connect-dns.md) - agente instalado diretamente na máquina DNS
+    - [Azure Stack VMs](connect-azure-stack.md)
     - Servidores Linux
     - Outras nuvens
     
 ## <a name="agent-connection-options"></a>Opções de ligação do agente<a name="agent-options"></a>
 
-Para ligar o seu aparelho externo ao Azure Sentinel, o agente deve ser colocado numa máquina dedicada (VM ou no local) para apoiar a comunicação entre o aparelho e o Azure Sentinel. Pode utilizar o agente automaticamente ou manualmente. A implementação automática só está disponível se a sua máquina dedicada for um novo VM que está a criar em Azure. 
+Para ligar o seu aparelho externo ao Azure Sentinel, o agente deve ser colocado numa máquina dedicada (VM ou no local) para apoiar a comunicação entre o aparelho e o Azure Sentinel. Pode implementar o agente de forma automática ou manual. A implementação automática só está disponível se a sua máquina dedicada for um novo VM que está a criar em Azure. 
 
 
 ![CEF em Azure](./media/connect-cef/cef-syslog-azure.png)

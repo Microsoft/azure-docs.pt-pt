@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948545"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631392"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Quickstart: Monitorize a sua primeira métrica utilizando o portal web
 
@@ -38,6 +38,13 @@ Ao providenciar uma instância Metrics Advisor, pode utilizar as APIs e o espaç
 > * Se quiser utilizar a API REST para interagir com o serviço, precisará da chave e ponto final a partir do recurso que criar. Pode encontrá-los no separador  **Chaves e pontos finais** no recurso criado.
 
 Este documento utiliza uma Base de Dados SQL como exemplo para criar o seu primeiro monitor.
+
+## <a name="sign-in-to-your-workspace"></a>Inscreva-se no seu espaço de trabalho
+
+Depois de o seu recurso ser implantado, inscreva-se no [portal Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione o seu espaço de trabalho para começar a monitorizar as suas métricas. 
+ 
+Atualmente pode criar um recurso Metrics Advisor em cada região disponível. Pode trocar espaços de trabalho no portal Metrics Advisor a qualquer momento.
+
 
 ## <a name="onboard-time-series-data"></a>Dados da série de tempo a bordo
 
@@ -85,12 +92,12 @@ Uma vez carregado e mostrado o esquema de dados como abaixo, selecione os campos
 |Seleção  |Descrição  |Notas  |
 |---------|---------|---------|
 |**Timestamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o timetamp.        | Opcional. Deve ser especificado com no máximo uma coluna.       |
-|**Medida**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
+|**Medir**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
 |**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar nenhum número ou número arbitrário de colunas como dimensões. Nota: se estiver a selecionar uma coluna não-string como dimensão, tenha cuidado com a explosão de dimensão. | Opcional.        |
 |**Ignorar**     | Ignore a coluna selecionada.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configuração de Schema" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Definições de ligação" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Configurações de roll-up automática
 
@@ -110,7 +117,7 @@ Quando a deteção for aplicada, clique numa das métricas listadas no feed de d
 - Atualizar a configuração de deteção para atender os resultados esperados
 - Configurar notificação para anomalias detetadas
 
-:::image type="content" source="../media/metric-details.png" alt-text="Detalhes métricos" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Definições de ligação" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Ver os insights de diagnóstico
 
@@ -118,13 +125,13 @@ Após afinação da configuração de deteção, as anomalias encontradas devem 
 
 Para visualizar os conhecimentos de diagnóstico, clique nos pontos vermelhos nas visualizações da série de tempo, que representam anomalias detetadas. Aparecerá uma janela com uma página de análise de incidentes. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Ligação incidente" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Definições de ligação" lightbox="../media/incident-link.png":::
 
 Depois de clicar no link, você será apostado na página de análise de incidentes que analisa sobre a anomalia correspondente, com um monte de insights de diagnóstico. No topo, haverá estatísticas sobre o incidente, como **Severidade,** **Anomalias envolvidas,** e cronometrado **hora de início** e **fim.** 
 
 Em seguida, verá a anomalia ancestral do incidente, e conselhos automatizados de causa-raiz. Este aconselhamento de causa de raiz automatizada é gerado através da análise da árvore incidente de todas as anomalias relacionadas, incluindo: desvio, distribuição e contribuição para as anomalias dos pais. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidentes" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Definições de ligação" lightbox="../media/incident-diagnostic.png":::
 
 Com base nestes, já pode ter uma visão direta do que está a acontecer e do impacto do incidente, bem como da causa de raiz mais potencial. Para que se tomassem medidas imediatas para resolver o incidente o mais rapidamente possível. 
 

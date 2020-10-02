@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210699"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627079"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização da piscina SQL Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 
    > [!NOTE]
    > Se não vir o cartão **Upgrade para Gen2** no separador Tarefas, o seu tipo de subscrição é limitado na região atual.
-   > [Envie um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) para obter a sua subscrição na lista branca.
+   > [Envie um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) para obter a sua assinatura aprovada.
 
 3. Certifique-se de que a sua carga de trabalho está concluída em funcionamento e a 50da antes de ser melhorada. Você vai experimentar tempo de inatividade por alguns minutos antes que a sua piscina SQL esteja novamente on-line como uma piscina SQL de nível De Gama Otimizada Compute. **Selecione Upgrade**:
 
@@ -244,6 +244,6 @@ A base de dados recuperada será ativada pelo TDE se a base de dados de origem e
 
 Se sentir algum problema com a sua piscina SQL, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "atualização Gen2" como a causa possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A sua piscina SQL melhorada está online. Para tirar partido da arquitetura melhorada, consulte as [classes de Recursos para Gestão da Carga de Trabalho.](resource-classes-for-workload-management.md)

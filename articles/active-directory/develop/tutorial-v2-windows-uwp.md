@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574250"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627674"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Chame a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
 Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP) pode solicitar um token de acesso. A aplicação chama então a API do Gráfico microsoft. O guia aplica-se também a outras APIs que requerem acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
 

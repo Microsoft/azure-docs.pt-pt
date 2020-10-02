@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0919e2b0703d56c61bd9ee37cb70021de4deff45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322279"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631210"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -142,21 +142,7 @@ A saída deste comando é semelhante à seguinte JSON:
 ### <a name="virtual-network-and-private-endpoint"></a>Rede virtual e ponto final privado
 
 > [!IMPORTANT]
-> A utilização do Azure Private Link com o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade só está disponível nas seguintes regiões:
->
-> * **E.U.A. Leste**
-> * **E.U.A. Centro-Sul**
-> * **E.U.A. Oeste**
-> * **E.U.A. Oeste 2**
-> * **Canadá Central**
-> * **Sudeste Asiático**
-> * **Leste do Japão**
-> * **Europa do Norte**
-> * **Leste da Austrália**
-> * **Sul do Reino Unido**
->
-> Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A utilização de um espaço de trabalho de aprendizagem automática Azure com ligação privada não está disponível nas regiões do Governo Azure ou nas regiões Azure China 21Vianet.
 
 Se pretender restringir o acesso ao seu espaço de trabalho a uma rede virtual, pode utilizar os seguintes parâmetros:
 

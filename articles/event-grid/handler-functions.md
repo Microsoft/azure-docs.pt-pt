@@ -3,12 +3,12 @@ title: A azure funciona como manipulador de eventos para eventos Azure Event Gri
 description: Descreve como pode usar funções Azure como manipuladores de eventos para eventos de Grade de Eventos.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 87aeb78729dcc7bec9f193fab389e5c0952e63d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270333"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629693"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>A azure funciona como manipulador de eventos para eventos de Grade de Eventos
 
@@ -18,7 +18,7 @@ Use **funções Azure** numa arquitetura sem servidor para responder a eventos d
 
 Para obter mais informações, consulte [o gatilho da Grelha de Eventos para as Funções Azure](../azure-functions/functions-bindings-event-grid.md) para uma visão geral da utilização do gatilho da Grelha de Eventos em funções.
 
-## <a name="tutorials"></a>Tutoriais
+## <a name="tutorials"></a>Tutorials (Tutoriais)
 
 |Título  |Descrição  |
 |---------|---------|
@@ -60,7 +60,7 @@ No momento em que criar uma subscrição na UI, na página De Subscrição de **
 
 Pode atualizar estes valores para uma subscrição existente no separador **Funcionalidades** da página **Tópico de Grelha de Eventos.** 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Ativar o loteamento após a criação":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Ativar o lote no momento de criar uma subscrição":::
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 Pode definir **maxEventsPerBatch** e **preferirBatchSizeInKilobytes** num modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [a referência do modelo de eventos Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
@@ -70,9 +70,6 @@ Pode utilizar o comando [de subscrição de eventos az ou](https://docs.microsof
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Pode utilizar o [cmdion de subscrição new-AzEventGridS ou](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) para configurar as definições relacionadas com o lote utilizando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .
-
-> [!NOTE]
-> Entregar eventos a uma função Azure em **outro inquilino** não é apoiado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 

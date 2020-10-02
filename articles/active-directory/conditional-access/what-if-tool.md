@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948203"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631431"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolver problemas com a ferramenta What If no Acesso Condicional
 
@@ -36,7 +36,7 @@ Na **ferramenta Acesso Condicional E se a ferramenta**, primeiro precisa de conf
 
 - O utilizador que pretende testar 
 - As aplicações na nuvem que o utilizador tentaria aceder
-- As condições em que o acesso às aplicações de nuvem configuras é realizado
+- As condições em que o acesso às aplicações de nuvem configuradas é realizado
      
 Como próximo passo, pode iniciar uma simulação que avalia as suas definições. Apenas as políticas que estão habilitados fazem parte de uma avaliação.
 

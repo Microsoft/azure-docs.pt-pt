@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392731"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626399"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parâmetros do servidor na Base de Dados Azure para MariaDB
 
@@ -29,16 +29,22 @@ A lista de parâmetros suportados do servidor está em constante crescimento. Ut
 
 Consulte as seguintes secções abaixo para saber mais sobre os limites dos vários parâmetros do servidor comumente atualizados. Os limites são determinados pelo nível de preços e vCores do servidor.
 
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Na Base de Dados Azure para MariaDB, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)*.
+
+O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) para **TRUE**.
+
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/innodb-system-variables/#innodb_buffer_pool_size) para saber mais sobre este parâmetro.
 
 #### <a name="servers-supporting-up-to-4-tb-storage"></a>Servidores que suportam até 4 armazenamento de TB
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|872415232|134217728|872415232|
-|Básica|2|2684354560|134217728|2684354560|
+|Básico|1|872415232|134217728|872415232|
+|Básico|2|2684354560|134217728|2684354560|
 |Fins Gerais|2|3758096384|134217728|3758096384|
 |Fins Gerais|4|8053063680|134217728|8053063680|
 |Fins Gerais|8|16106127360|134217728|16106127360|
@@ -53,10 +59,10 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/innodb-system-variab
 
 #### <a name="servers-support-up-to-16-tb-storage"></a>Servidores suportam até 16 armazenamento de TB
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|872415232|134217728|872415232|
-|Básica|2|2684354560|134217728|2684354560|
+|Básico|1|872415232|134217728|872415232|
+|Básico|2|2684354560|134217728|2684354560|
 |Fins Gerais|2|7516192768|134217728|7516192768|
 |Fins Gerais|4|16106127360|134217728|16106127360|
 |Fins Gerais|8|32212254720|134217728|32212254720|
@@ -72,7 +78,7 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/innodb-system-variab
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`só podem ser atualizados nos níveis de preços otimizados para fins gerais e memória.
+> `innodb_file_per_table` só podem ser atualizados nos níveis de preços otimizados para fins gerais e memória.
 
 A MariaDB armazena a tabela InnoDB em diferentes espaços de mesa com base na configuração que forneceu durante a criação da tabela. O [espaço de mesa do sistema](https://mariadb.com/kb/en/innodb-system-tablespaces/) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de ficheiros por tabela](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contém dados e índices para uma única tabela InnoDB, e é armazenado no sistema de ficheiros no seu próprio ficheiro de dados. Este comportamento é controlado pelo parâmetro do `innodb_file_per_table` servidor. A definição `innodb_file_per_table` faz com que o `OFF` InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de mesa de ficheiros por mesa.
 
@@ -82,10 +88,10 @@ A Azure Database for MariaDB suporta no maior, **1 TB,** num único ficheiro de 
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|262144|128|268435455|
 |Fins Gerais|4|262144|128|536870912|
 |Fins Gerais|8|262144|128|1073741824|
@@ -100,10 +106,10 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 ### <a name="max_connections"></a>max_connections
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido**|**Valor mínimo**|**Valor máximo**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
 |Fins Gerais|2|300|10|600|
 |Fins Gerais|4|625|10|1250|
 |Fins Gerais|8|1250|10|2500|
@@ -131,10 +137,10 @@ Criar novas ligações de clientes com a MariaDB leva tempo e uma vez estabeleci
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|16777216|16384|268435455|
 |Fins Gerais|4|16777216|16384|536870912|
 |Fins Gerais|8|16777216|16384|1073741824|
@@ -153,10 +159,10 @@ A cache de consulta é ativada por padrão em MariaDB com o `have_query_cache` p
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|0|0|16777216|
 |Fins Gerais|4|0|0|33554432|
 |Fins Gerais|8|0|0|67108864|
@@ -173,10 +179,10 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|524288|32768|4194304|
 |Fins Gerais|4|524288|32768|8388608|
 |Fins Gerais|8|524288|32768|16777216|
@@ -193,10 +199,10 @@ Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variab
 
 Reveja a [documentação mariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|16777216|1024|67108864|
 |Fins Gerais|4|16777216|1024|134217728|
 |Fins Gerais|8|16777216|1024|268435456|
@@ -227,7 +233,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outros parâmetros do servidor que não estão listados aqui são definidos para os seus valores padrão MariaDB fora da caixa para [MariaDB](https://mariadb.com/kb/en/server-system-variables/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-cli.md)

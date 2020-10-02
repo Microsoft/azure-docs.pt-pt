@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235541"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629017"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento a pedido
 Utilize o provisionamento a pedido para doar um utilizador numa aplicação em segundos. Entre outras coisas, pode utilizar esta capacidade para:
@@ -28,12 +28,15 @@ Utilize o provisionamento a pedido para doar um utilizador numa aplicação em s
 ## <a name="how-to-use-on-demand-provisioning"></a>Como utilizar o provisionamento a pedido
 
 1. Inicie sessão no **portal do Azure**.
-2. Vá a **todos os serviços**  >  **Aplicações da Empresa.**
-3. Selecione a sua aplicação e, em seguida, vá para a página de configuração de provisionamento.
-4. Configure o provisionamento fornecendo as suas credenciais de administração.
-5. Selecione **Provisão a pedido**.
-6. Procure por um utilizador com o primeiro nome, apelido, nome de exibição, nome principal do utilizador ou endereço de e-mail.
-7. Selecione **Disposição** na parte inferior da página.
+1. Vá a **todos os serviços**  >  **Aplicações da Empresa.**
+1. Selecione a sua aplicação e, em seguida, vá para a página de configuração de provisionamento.
+1. Configure o provisionamento fornecendo as suas credenciais de administração.
+1. Selecione **Provisão a pedido**.
+1. Procure por um utilizador com o primeiro nome, apelido, nome de exibição, nome principal do utilizador ou endereço de e-mail.
+   > [!NOTE]
+   > Para a aplicação de provisionamento cloud HR (Workday/SuccessFactors to AD/Azure AD), o valor de entrada é diferente. Para o cenário workday, forneça "WID" do utilizador no Workday. Para o cenário SuccessFactors, forneça "personIdExternal" do utilizador em SuccessFactors. 
+ 
+1. Selecione **Disposição** na parte inferior da página.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot que mostra o portal Azure UI para o fornecimento de um utilizador a pedido.":::
 
@@ -121,7 +124,7 @@ Finalmente, o serviço de prestação de serviços toma medidas, tais como criar
 
 Aqui está um exemplo do que você pode ver após o bem sucedido fornecimento a pedido de um utilizador:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot que mostra o fornecimento a pedido bem sucedido de um utilizador.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot que mostra o portal Azure UI para o fornecimento de um utilizador a pedido.":::
 
 #### <a name="view-details"></a>Ver detalhes
 
@@ -131,7 +134,7 @@ A secção **de detalhes do Ver** exibe os atributos que foram modificados na ap
 
 * As falhas nas exportações podem variar muito. Verifique a [documentação para a disponibilização de registos](../reports-monitoring/concept-provisioning-logs.md#error-codes) de falhas comuns.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **Precisa de desligar o provisionamento para utilizar o provisionamento a pedido?** Para aplicações que utilizem um token ao portador de longa duração ou um nome de utilizador e senha para autorização, não são necessários passos adicionais. Os pedidos que utilizam o OAuth para autorização exigem atualmente que o trabalho de provisionamento seja interrompido antes de utilizar o provisionamento a pedido. Aplicações como G Suite, Box, Workplace by Facebook e Slack enquadram-se nesta categoria. Estão em curso trabalhos para apoiar o provisionamento a pedido de todos os pedidos sem ter de deixar de provisões.
 
@@ -144,7 +147,7 @@ Existem atualmente algumas limitações conhecidas para o provisionamento a pedi
 > [!NOTE]
 > As seguintes limitações são específicas da capacidade de provisionamento a pedido. Para obter informações sobre se uma aplicação suporta grupos de provisionamento, supressões ou outras capacidades, consulte o tutorial para essa aplicação.
 
-* Os serviços workday, Amazon Web Services (AWS) e as aplicações SuccessFactors não suportam o fornecimento a pedido. 
+* A aplicação Amazon Web Services (AWS) não suporta o fornecimento a pedido. 
 * O fornecimento a pedido de grupos e funções não é apoiado.
 * O fornecimento a pedido suporta a desativação de utilizadores que não tenham sido atribuídos à aplicação. No entanto, não suporta desativar ou eliminar utilizadores que tenham sido desativados ou eliminados do Azure AD. Esses utilizadores não aparecerão quando pesquisar por um utilizador.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249591"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629442"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
 
@@ -298,6 +298,32 @@ Este erro é registado porque o Azure Files [não suporta atualmente o multicana
 
 ### <a name="solution"></a>Solução
 Este erro pode ser ignorado.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Incapaz de aceder a pastas ou ficheiros que nome têm um espaço ou um ponto no final
+
+Não é possível aceder a pastas ou ficheiros a partir da partilha de ficheiros Azure enquanto estiver montado no Linux, comandos como aplicações du e ls e/ou terceiros podem falhar com um erro de "Não existem ficheiros ou diretórios" ao aceder à partilha, no entanto é capaz de carregar ficheiros para as referidas pastas através do portal.
+
+### <a name="cause"></a>Causa
+
+As pastas ou ficheiros foram carregados de um sistema que codifica os caracteres no final do nome para um carácter diferente, os ficheiros enviados de um computador Macintosh podem ter um caráter "0xF028" ou "0xF029" em vez de 0x20 (espaço) ou 0X2E (ponto).
+
+### <a name="solution"></a>Solução
+
+Utilize a opção mapchars na partilha enquanto monta a parte no Linux: 
+
+Em vez de:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+Utilização:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

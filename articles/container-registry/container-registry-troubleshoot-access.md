@@ -2,13 +2,13 @@
 title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532453"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630955"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -22,6 +22,7 @@ Pode incluir um ou mais dos seguintes:
 * Incapaz de empurrar ou puxar imagens e recebe erro do Azure CLI `Could not connect to the registry login server`
 * Não é possível retirar imagens do registo ao Serviço Azure Kubernetes ou a outro serviço Azure
 * Não consegue aceder a um registo por trás de um representante https e recebe erro `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Não é possível configurar as definições de rede virtual e recebe erro `Failed to save firewall and virtual network settings for container registry`
 * Não pode aceder ou visualizar as definições de registo no portal Azure ou gerir o registo utilizando o CLI Azure
 * Não é possível adicionar ou modificar configurações de rede virtuais ou regras de acesso público
 * As tarefas ACR são incapazes de empurrar ou puxar imagens
@@ -47,7 +48,7 @@ Consulte [a saúde de um registo de contentores Azure](container-registry-check-
 
 ### <a name="configure-client-firewall-access"></a>Configure o acesso à firewall do cliente
 
-Para aceder a um registo por trás de uma firewall do cliente ou servidor de procuração, configure as regras de firewall para aceder ao REST do registo e aos pontos finais de dados. Se os [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem ativados, precisa de regras para aceder:
+Para aceder a um registo por trás de uma firewall do cliente ou servidor de procuração, configure as regras de firewall para aceder ao REST público do registo e pontos finais de dados. Se os [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) estiverem ativados, precisa de regras para aceder:
 
 * Ponto final DO REST: `<registryname>.azurecr.io`
 * Ponto final de dados: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ Confirme que a rede virtual está configurada com um ponto final privado para Pr
 Reveja as regras e etiquetas de serviço da NSG utilizadas para limitar o tráfego de outros recursos da rede ao registo. 
 
 Se um ponto final de serviço do registo estiver configurado, confirme que uma regra de rede é adicionada ao registo que permite o acesso a partir dessa sub-rede de rede. O ponto final de serviço suporta apenas o acesso a partir de máquinas virtuais e clusters AKS na rede.
+
+Se pretender restringir o acesso ao registo utilizando uma rede virtual numa subscrição Azure diferente, certifique-se de que regista o `Microsoft.ContainerRegistry` fornecedor de recursos nessa subscrição. [Registe o fornecedor de recursos](../azure-resource-manager/management/resource-providers-and-types.md) do Registo de Contentores Azure utilizando o portal Azure CLI ou outras ferramentas Azure.
 
 Se o Azure Firewall ou uma solução semelhante estiver configurado na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado a chegar aos pontos finais do registo.
 
@@ -125,7 +128,7 @@ Links relacionados:
 * [Linha de Base de Segurança Azure para registo de contentores Azure](security-baseline.md)
 * [Melhores práticas do Azure Container Registry](container-registry-best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não resolver o seu problema aqui, consulte as seguintes opções.
 

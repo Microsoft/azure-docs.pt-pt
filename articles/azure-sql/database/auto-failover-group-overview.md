@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 023d6512a13e1add1e9980d450a91ed2183e7793
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614449"
+ms.locfileid: "91627232"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -359,7 +359,11 @@ Quando se cria um grupo de failover entre as instâncias geridas primárias e se
 - Os dois casos de SQL Managed Instance têm de ser em diferentes regiões do Azure.
 - As duas instâncias da SQL Managed Instance têm de ser o mesmo nível de serviço e ter o mesmo tamanho de armazenamento.
 - A sua instância secundária de SQL Managed Instance deve estar vazia (sem bases de dados de utilizadores).
-- As redes virtuais utilizadas pelos casos de SQL Managed Instance precisam de ser conectadas através de uma [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Via Expresso.](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Quando duas redes virtuais se ligam através de uma rede no local, verifique se não há nenhuma regra de firewall a bloquear as portas 5022 e 11000-11999. O VNet Peering Global não é suportado.
+- As redes virtuais utilizadas pelos casos de SQL Managed Instance precisam de ser conectadas através de uma [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Via Expresso.](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Quando duas redes virtuais se ligam através de uma rede no local, verifique se não há nenhuma regra de firewall a bloquear as portas 5022 e 11000-11999. O VNet Peering global é suportado com a limitação descrita na nota abaixo.
+
+   > [!IMPORTANT]
+   > [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
+
 - Os dois VNets de Instância Gerida SQL não podem ter endereços IP sobrepostos.
 - Precisa de configurar os Grupos de Segurança de Rede (NSG) para que as portas 5022 e o intervalo 11000~12000 tenham a entrada e a saída abertas para as ligações da sub-rede da outra instância gerida. Deste modo, permite o tráfego de replicação entre as instâncias.
 
