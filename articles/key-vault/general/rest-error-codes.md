@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419134"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631227"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de erro Azure Key Vault REST API
  
@@ -128,7 +128,7 @@ Se você só pode obter o token de acesso de resposta, você pode descodificá-l
 HTTP 403 significa que o pedido foi autenticado (sabe a identidade do pedido) mas a identidade não tem autorização para aceder ao recurso solicitado. Há duas causas:
 
 - Não há política de acesso à identidade.
-- O endereço IP do recurso de pedido não está listado em branco nas definições de firewall do cofre de chaves.
+- O endereço IP do recurso de pedido não é aprovado nas definições de firewall do cofre de chaves.
 
 HTTP 403 ocorre frequentemente quando a aplicação do cliente não está a usar o ID do cliente que o cliente pensa que é. Isto significa geralmente que as políticas de acesso não estão corretamente criadas para a identidade de chamada real.
 
@@ -166,5 +166,3 @@ O estrangulamento é trabalhado utilizando estas técnicas:
 - Se o número de pedidos não puder ser reduzido através do caching e o backoff cronometrado não funcionar, então considere dividir as chaves em vários Cofres-Chave. O limite de serviço para uma única subscrição é 5x o limite individual do Key Vault. Se utilizar mais de 5 Cofres-chave, deve considerar-se a utilização de várias subscrições. 
 
 Orientações detalhadas, incluindo o pedido de aumento de limites, podem ser encontrados aqui: [Orientação de estrangulamento do Cofre-Chave](overview-throttling.md)
-
-

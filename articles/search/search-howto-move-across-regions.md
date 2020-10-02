@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007048"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629816"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mude o seu serviço de Pesquisa Cognitiva Azure para outra região do Azure
 
@@ -27,7 +27,7 @@ Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquis
 
 + Garanta que os serviços e as funcionalidades que a conta utiliza são suportados na região de destino.
 
-+ Para as funcionalidades de pré-visualização, garanta que a subscrição está na lista de permissões da região de destino.
++ Para funcionalidades de pré-visualização, certifique-se de que a sua subscrição está aprovada para a região alvo.
 
 ## <a name="prepare-and-move"></a>Preparar e mover
 
@@ -51,7 +51,7 @@ Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquis
 
 Elimine o serviço antigo assim que o novo serviço estiver totalmente testado e operacional. A eliminação automática do serviço elimina automaticamente todos os conteúdos associados ao serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes links podem ajudá-lo a localizar mais informações ao completar os passos acima descritos.
 

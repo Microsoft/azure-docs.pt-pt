@@ -3,12 +3,12 @@ title: Criar um laboratório de Hacking Ético com serviços de laboratório Azu
 description: Aprenda a criar um laboratório usando os Serviços Azure Lab para ensinar hacking ético.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297591"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631686"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Crie um laboratório para ensinar aulas de hacking ético 
 Este artigo mostra-lhe como criar uma aula que se centre no lado forense da pirataria ética. Os testes de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta aceder ao sistema ou rede para demonstrar vulnerabilidades que um intruso malicioso pode explorar. 
@@ -70,26 +70,23 @@ Kali é uma distribuição Linux que inclui ferramentas para testes de penetraç
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Configurar um VM aninhado com imagem metaplotiável  
 A imagem Metaplodável Rapid7 é uma imagem configurada propositadamente com vulnerabilidades de segurança. Vais usar esta imagem para testar e encontrar problemas. As seguintes instruções mostram-lhe como utilizar uma imagem metaperiável pré-criada. No entanto, se for necessária uma versão mais recente da imagem metapertilizável, ver [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3) .
 
-1. Navegue para [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html) . Preencha o formulário para descarregar a imagem e selecione o botão **Enviar.**
-1. Selecione o botão **Baixar Metaploitável Agora.**
-1. Quando o ficheiro zip for descarregado, extraia o ficheiro zip e lembre-se da localização.
-1. Converta o ficheiro vmdk extraído num ficheiro vhdx para que possa utilizar com Hyper-V. Para tal, abra a PowerShell com privilégios administrativos e navegue até à pasta onde reside o ficheiro VMDK, e siga estas instruções:
-    1. Descarregue o [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)e execute mvmc_setup.msi ficheiro quando solicitado.
-    1. Importe o módulo PowerShell.  A localização predefinida na qual o módulo está instalado é C:\Program Files\Microsoft Virtual Machine Converter\
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. Converta o vmdk num ficheiro VHD que pode ser usado pelo Hyper-V. Esta operação pode demorar alguns minutos.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. Copie o recém-criado metaplosiável.vhdx para C:\Users\Public\Documents\Hyper-V\Discos Rígidos Virtuais\. 
+1. Descarregue a imagem metaperitável.
+    1. Navegue para [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html) . Preencha o formulário para descarregar a imagem e selecione o botão **Enviar.**
+    2. Selecione o botão **Baixar Metaploitável Agora.**
+    3. Quando o ficheiro zip for descarregado, extraia o ficheiro zip e lembre-se da localização do ficheiro Metasploitable.vmdk.
+1. Converta o ficheiro vmdk extraído num ficheiro vhdx para que possa utilizar o ficheiro vhdx com Hyper-V. Existem várias ferramentas disponíveis para converter imagens VMware em imagens Hyper-V e vice-versa.  Vamos usar o [StarWind V2V Converter.](https://www.starwindsoftware.com/starwind-v2v-converter)  Para baixar, consulte a [página de download do StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Iniciar **o StarWind V2V Converter**.
+    1. Na **localização selecionada da imagem para converter página,** escolha **o ficheiro Local**.  Selecione **Seguinte**.
+    1. Na página de **imagem 'Fonte',** navegue para e selecione o Metasploitable.vmdk extraído no passo anterior para a definição do **nome 'Ficheiro'.**  Selecione **Seguinte**.
+    1. Na **localização selecionada da imagem de destino,** escolha **o ficheiro Local.**  Selecione **Seguinte**.
+    1. Na página do **formato de imagem de destino Select,** escolha **VHD/VHDX**.  Selecione **Seguinte**.
+    1. Na **opção Selecione para a página de formato de imagem VHD/VHDX,** escolha **a imagem de cultivo VHDX**.  Selecione **Seguinte**.
+    1. Na página de nome do **ficheiro de destino Select,** aceite o nome do ficheiro predefinido.  Selecione **Converter**.
+    1. Na página **de Conversão,** aguarde que a imagem seja convertida.  Este processo pode demorar vários minutos.  **Selecione Acabamento** quando a conversão estiver concluída.
 1. Crie uma nova máquina virtual Hyper-V.
     1. Gestor **de Hiper-V aberto.**
     1. Escolha **a ação**  ->  **nova**máquina  ->  **virtual**.
-    1. Na **página antes de começar** o **novo assistente de máquina virtual,** clique em **seguinte**.
+    1. Na página **antes de começar** o novo assistente de máquina **virtual,** selecione **Seguinte**.
     1. Na página **'Indicar o Nome e a Localização',** **insira o metaploitível** para o **nome**e selecione **Seguinte**.
 
         ![Novo assistente de imagem VM](./media/class-type-ethical-hacking/new-vm-wizard-1.png)
@@ -129,7 +126,7 @@ Para obter mais informações sobre preços, consulte [os preços dos serviços 
 ## <a name="conclusion"></a>Conclusão
 Este artigo acompanhou-o através dos degraus para criar um laboratório para a aula de hacking ético. Inclui passos para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual do hospedeiro para testes de penetração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

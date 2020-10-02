@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115616"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631278"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utilização de atributos de extensão de esquema de diretório em sinistros
 
@@ -35,7 +35,7 @@ O identificador de um atributo de extensão de esquema de diretório é do formu
 Os atributos de extensão do esquema de diretório podem ser registados e povoados de uma de duas maneiras:
 
 - Configurando o AD Connect para criá-los e sincronizar os dados nos mesmos a partir das instalações AD. Ver [extensões de diretório de sincronização de ligação Azure AD](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Usando o Microsoft Graph para registar, definir os valores de, e ler a partir de extensão de esquema de diretório atribui [extensões de esquema de diretório / Conceitos de API de gráfico e/ou](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) PowerShell+ [Gerir atributos de extensão com cmdlets AzureAD PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Ao utilizar o Microsoft Graph para registar, descreva os valores e leia a partir de [extensões](/graph/extensibility-overview)de esquema . [Os cmdlets PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) também estão disponíveis.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emissão de reclamações com dados de atributos de extensão de esquema de diretório criados com AD Connect
 Os atributos de extensão de esquema de diretório criados e sincronizados usando o AD Connect estão sempre associados ao ID de aplicação utilizado pelo AD Connect. Podem ser utilizados como fonte de reclamações, configurando-as como reclamações na configuração **de Aplicações Empresariais** no Portal UI para aplicações SAML registadas usando a Galeria ou a experiência de configuração de aplicação não-Galeria ao abrigo **de Aplicações empresariais,** e através de uma política de mapeamento de reclamações para aplicações registadas através da experiência de registo de aplicações.  Uma vez que um atributo de extensão de diretório criado via AD Connect esteja no diretório, ele aparecerá na configuração de reclamações SAML SSO UI.
@@ -58,7 +58,7 @@ Por exemplo, aqui está uma política de mapeamento de reclamações para emitir
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Onde *xxxxxxx* é o ID da aplicação com que a extensão foi registada.
 > O parâmetro "ID" no esquema de alegações utilizado para atributos de diretório incorporado é "ExtensionID" para atributos de extensão de diretório.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba como [adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT).](active-directory-optional-claims.md) 
+- Saiba como [adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT).](active-directory-optional-claims.md)
 - Saiba como [personalizar as reclamações emitidas em fichas para uma aplicação específica.](active-directory-claims-mapping.md)

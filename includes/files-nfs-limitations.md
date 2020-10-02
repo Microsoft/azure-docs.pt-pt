@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705219"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91642295"
 ---
 Durante a pré-visualização, a NFS tem as seguintes limitações:
 
@@ -22,7 +22,7 @@ Durante a pré-visualização, a NFS tem as seguintes limitações:
 - Deve criar uma nova conta de armazenamento para criar uma quota NFS.
 - Apenas o plano de gestão REST APIs são suportados. As APIs do plano de dados não estão disponíveis, o que significa que ferramentas como o Explorador de Armazenamento não funcionarão com ações NFS nem poderá navegar em NFS partilhar dados no portal Azure.
 - Disponível apenas para o nível premium.
-- Atualmente apenas disponível com armazenamento localmente redundante.
+- Atualmente apenas disponível com armazenamento localmente redundante (LRS).
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Funcionalidades de Armazenamento Azure ainda não suportadas
 

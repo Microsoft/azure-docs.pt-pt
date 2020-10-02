@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658373"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628677"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Ative Directory Connect cloud provisioning FAQ
 
@@ -84,7 +84,19 @@ Não, a instalação do agente no núcleo do servidor não é suportada.
 
 Não, os servidores de paragem não são suportados.
 
-## <a name="next-steps"></a>Próximos passos 
+**P: Posso sincronizar as contas de utilizadores do Hóspede?**
+
+Não, a sincronização das contas dos utilizadores dos hóspedes não é suportada.
+
+**P: Se eu mover um utilizador de um OU que é telescópio para provisão de nuvem para um OU que é traçado para Azure AD Connect, o que acontece?**
+
+O utilizador será eliminado e recriada.  Mover um utilizador de um OU que seja previsto para o provisionamento em nuvem será visto como uma operação de eliminação.  Se o utilizador for transferido para um OU que é gerido pelo Azure AD Connect, será re-a provisionado para a Azure AD e um novo utilizador criado.
+
+**P: Se eu mudar o nome ou mover o OU que está no âmbito do filtro de provisionamento em nuvem, o que acontece ao utilizador que foi criado em Azure AD?**
+
+Nada.  Os utilizadores não serão eliminados se a U for renomeada ou movida.
+
+## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

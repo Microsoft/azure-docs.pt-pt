@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009601"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631386"
 ---
 # <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
 A Azure Cache for Redis fornece uma loja de dados na memória com base no software de código aberto [Redis](https://redis.io/). O Redis melhora o desempenho e a escalabilidade de uma aplicação que utiliza fortemente as lojas de dados de backend. É capaz de processar grandes volumes de pedidos, mantendo dados frequentemente acedidos na memória do servidor que podem ser escritos e lidos rapidamente. A Redis traz uma solução crítica de baixa latência e armazenamento de dados de alto rendimento para aplicações modernas.
@@ -31,12 +31,20 @@ Azure Cache para Redis melhora o desempenho da aplicação apoiando padrões com
 | Colocação em fila de tarefas e mensagens | As aplicações muitas vezes adicionam tarefas a uma fila quando as operações associadas ao pedido demoram tempo a ser executadas. As operações de execução mais longas são processadas em sequência, muitas vezes por outro servidor.  Este método de diferimento do trabalho é denominado colocação em fila de tarefas. A azure Cache para Redis fornece uma fila distribuída para ativar este padrão na sua aplicação.|
 | Transações distribuídas | As aplicações às vezes requerem uma série de comandos contra uma loja de dados de backend para executar como uma única operação atómica. Todos os comandos têm de ser realizados com êxito, caso contrário, devem ser todos revertidos para o estado inicial. A Azure Cache for Redis suporta a execução de um lote de comandos como uma única [transação](https://redis.io/topics/transactions). |
 
+## <a name="redis-versions"></a>Versões Redis
+
+Azure Cache para Redis suporta a versão 4.x do Redis e, como pré-visualização, 6.0. Tomámos a decisão de saltar o Redis 5.0 para te trazer a versão mais recente. Anteriormente, a Azure Cache para Redis apenas mantinha uma única versão Redis. Irá fornecer uma nova atualização de lançamento e pelo menos uma versão estável mais antiga. Pode [escolher qual a versão que](cache-how-to-version.md) funciona melhor para a sua aplicação.
+
+> [!NOTE]
+> Redis 6.0 está em pré-visualização - [contacte-nos](mailto:azurecache@microsoft.com) se estiver interessado. Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 ## <a name="service-tiers"></a>Escalões de serviço
 Azure Cache for Redis está disponível nos seguintes níveis:
 
 | Escalão de serviço | Descrição |
 |---|---|
-Básico | Uma cache de nó único. Este nível suporta vários tamanhos de memória (250 MB - 53 GB)e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. O nível básico não tem acordo de nível de serviço (SLA). |
+| Básico | Uma cache de nó único. Este nível suporta vários tamanhos de memória (250 MB - 53 GB)e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. O nível básico não tem acordo de nível de serviço (SLA). |
 | Standard | Uma cache replicada num nó de dois nós, configuração primária/réplica, gerida por Azure com um [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)de alta disponibilidade . |
 | Premium | O nível Premium é o nível pronto para a Enterprise. As Caches de escalão Premium suportam mais funcionalidades e têm um maior débito com menores latências. As Caches no escalão Premium são implementadas em hardware mais poderoso e fornecem um melhor desempenho comparativamente aos Escalões Básico ou Standard. Esta vantagem significa que a produção para uma cache do mesmo tamanho será maior em Premium em comparação com o nível Standard. |
 

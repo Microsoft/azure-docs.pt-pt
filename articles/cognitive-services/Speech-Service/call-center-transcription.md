@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360655"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630156"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -121,7 +121,7 @@ Outro cenário é a integração direta com o Protocolo de Iniciação da Sessã
 
  O serviço Speech funciona bem com modelos embutidos. No entanto, é melhor personalizar e afinar ainda mais a experiência para o seu produto ou ambiente. As opções de personalização vão desde a sintonização de modelos acústicos a fontes de voz únicas para a sua marca. Depois de ter construído um modelo personalizado, pode usá-lo com qualquer uma das funcionalidades do serviço Speech em tempo real ou em modo de lote.
 
-| Serviço de voz | Modelação | Description |
+| Serviço de voz | Modelo | Descrição |
 | -------------- | ----- | ----------- |
 | Conversão de voz em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicações, ferramentas ou dispositivos que sejam utilizados em ambientes particulares, como num carro ou num piso de fábrica, cada um com condições de gravação específicas. Exemplos incluem discurso acentuado, ruídos de fundo específicos, ou usar um microfone específico para a gravação. |
 |                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e gramática específicos da indústria, como terminologia médica, ou jargão de TI. |
@@ -142,7 +142,7 @@ O código de amostra está disponível no GitHub para cada uma das funcionalidad
 - [SDK de Dispositivos de Voz](speech-devices-sdk.md)
 - [REST API: Discurso-a-texto](rest-speech-to-text.md)
 - [REST API: Texto-a-discurso](rest-text-to-speech.md)
-- [REST API: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+- [REST API: Transcrição e personalização do lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Passos seguintes
 

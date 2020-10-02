@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450070"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631839"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -49,7 +49,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + pacote de interpretação azureml atualizado para depender da comunidade interpretação 0.15.0
     + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
   + **azureml-pipeline-core**
-    +  Problema de suspensão do gasoduto fixo com `OutputFileDatasetConfig` quando é chamado com o parâmetro definido para um nome de conjunto de `register_on_complete` `name` dados pré-existente.
+    +  Problema de gasoduto fixo com `OutputFileDatasetConfig` o local onde o sistema pode parar de responder quando é chamado com o parâmetro definido para `register_on_complete` um nome de conjunto de `name` dados pré-existente.
   + **azureml-pipeline-steps**
     + Removidos cadernos de dados velhos.
   + **azureml-tensorboard**
@@ -98,7 +98,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Desde que a propriedade da Swaggerurl para a entidade de ponta de gasoduto através desse utilizador possa ver a definição de esquema para o ponto final do gasoduto publicado.
   + **azureml-pipeline-steps**
     + Novo Kusto Step e Kusto Compute Target.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Atualizar a descrição do pacote para a página geral do pypi.
   + **azureml-train**
     + Atualizar a descrição do pacote para a página geral do pypi.
@@ -387,7 +387,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
   + **azureml-pipeline-steps**
     + Doc melhora o pacote de passos de gasoduto azureml.
     + Removido o requisito de passthru_automl_config para a utilização intermédia de dados com AutoMLStep em Pipelines.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Doc melhora a azureml-telemetria.
   + **azureml-train-automl-client**
     + Consertado um bug onde `experiment.submit()` chamado duas vezes num `AutoMLConfig` objeto resultou em comportamento diferente.
@@ -1694,7 +1694,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -2060,6 +2060,6 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
   + Novo visualizador de ficheiros de Logs
   + Links para execuções experimentais, cálculo, modelos, imagens e implementações a partir do separador de atividades
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

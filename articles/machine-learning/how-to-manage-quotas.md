@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322381"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629595"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 
@@ -151,7 +151,7 @@ Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
 
     | Campo | Seleção |
     | ----- | ----- |
-    | Tipo de problema | Técnico |
+    | Tipo de problema | Parte Técnica |
     | Serviço | Os meus serviços. Selecione __Machine Learning__ na lista de dropdown. |
     | Tipo de problema | Configuração do espaço de trabalho, SDK e CLI |
     | Subtipo de problema | Problema com o aprovisionamento ou a gestão da área de trabalho |

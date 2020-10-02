@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400199"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631720"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Tráfego de rede de controlo em Azure HDInsight
 
@@ -58,13 +58,13 @@ Para ver um exemplo da configuração da UDR com o Azure Firewall, consulte [a r
 
 ## <a name="required-ports"></a>Portos necessários
 
-Se planeia usar uma **firewall** e aceder ao cluster a partir de fora em determinadas portas, poderá ter de permitir o tráfego nas portas necessárias para o seu cenário. Por predefinição, não é necessária uma lista especial de portas, desde que o tráfego de gestão Azure explicado na secção anterior possa chegar ao cluster no porto 443.
+Se planeia usar uma **firewall** e aceder ao cluster a partir de fora em determinadas portas, poderá ter de permitir o tráfego nas portas necessárias para o seu cenário. Por predefinição, não é necessária uma filtragem especial das portas desde que o tráfego de gestão Azure explicado na secção anterior possa chegar ao cluster na porta 443.
 
 Para obter uma lista de portas para serviços específicos, consulte os [Ports utilizados pelos serviços Apache Hadoop no documento HDInsight.](hdinsight-hadoop-port-settings-for-services.md)
 
 Para obter mais informações sobre as regras de firewall para aparelhos virtuais, consulte o documento [de cenário do aparelho virtual.](../virtual-network/virtual-network-scenario-udr-gw-nva.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter amostras de código e exemplos de criação de Redes Virtuais Azure, consulte [criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de configuração hdinsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200975"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629374"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteger uma base de dados em Azure Synapse
 
@@ -33,7 +33,7 @@ Este artigo irá acompanhá-lo através do básico de garantir a sua piscina Syn
 
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são usadas tanto pelo [servidor lógico SQL](../../azure-sql/database/logical-servers.md) como pelas suas bases de dados para rejeitar tentativas de ligação de endereços IP que não tenham sido explicitamente whitelist. Para permitir ligações a partir da sua aplicação ou endereço IP público da sua máquina cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o portal Azure, REST API ou PowerShell.
+As regras de firewall são usadas tanto pelo [servidor lógico SQL](../../azure-sql/database/logical-servers.md) como pelas suas bases de dados para rejeitar tentativas de ligação de endereços IP que não tenham sido explicitamente aprovadas. Para permitir ligações a partir da sua aplicação ou endereço IP público da sua máquina cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o portal Azure, REST API ou PowerShell.
 
 Como uma boa prática, deve restringir ao máximo as gamas de endereços IP permitidas através da firewall ao nível do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
@@ -96,12 +96,12 @@ A gestão de bases de dados e servidores a partir do portal Azure ou a utilizaç
 
 ## <a name="encryption"></a>Encriptação
 
-A Encriptação de Dados Transparente (TDE) ajuda a proteger contra a ameaça de atividade maliciosa encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que sejam necessárias quaisquer alterações nas suas aplicações. A Encriptação de Dados Transparente encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica chamada chave de encriptação de base de dados.
+A Encriptação de Dados Transparente (TDE) ajuda a proteger contra a ameaça de atividade maliciosa encriptando e desencriptando os seus dados em repouso. Quando encripta a sua base de dados, as cópias de segurança associadas e os ficheiros de registo de transações são encriptados sem que sejam necessárias quaisquer alterações nas suas aplicações. A TDE encripta o armazenamento de uma base de dados completa ao utilizar uma chave simétrica denominada chave de encriptação de base de dados.
 
 Na Base de Dados SQL, a chave de encriptação da base de dados está protegida por um certificado de servidor incorporado. O certificado de servidor incorporado é único para cada servidor. A Microsoft roda automaticamente estes certificados pelo menos a cada 90 dias. O algoritmo de encriptação utilizado é AES-256. Para obter uma descrição geral do TDE, consulte [a Encriptação de Dados Transparente.](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Pode encriptar a sua base de dados utilizando o [portal Azure](sql-data-warehouse-encryption-tde.md) ou [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](../sql/connect-overview.md).

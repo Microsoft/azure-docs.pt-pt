@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287810"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631516"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes
 
@@ -54,7 +54,7 @@ Para [o Azure App Service](/azure/app-service/app-service-value-prop-what-is), s
 
 A ideia por trás da defesa em profundidade é gerir o risco usando diversas estratégias defensivas. Colocar as defesas de segurança numa aplicação reduz a hipótese de um ataque bem sucedido. Recomendamos que implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.
 
-Por exemplo, o risco de ataque aumenta com o tamanho *(área de superfície)* da aplicação. Pode reduzir a área de superfície utilizando a whitelisting para fechar o espaço de endereço IP exposto e portas de audição que não são necessárias nos equilibros de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal) [Os grupos de segurança da rede (NSGs)](/azure/virtual-network/security-overview) são outra forma de reduzir a superfície de ataque.
+Por exemplo, o risco de ataque aumenta com o tamanho *(área de superfície)* da aplicação. Pode reduzir a área de superfície utilizando uma lista de aprovação para fechar o espaço de endereço IP exposto e portas de audição que não são necessárias nos equilibros de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal) [Os grupos de segurança da rede (NSGs)](/azure/virtual-network/security-overview) são outra forma de reduzir a superfície de ataque.
 Pode utilizar [etiquetas de serviço](/azure/virtual-network/security-overview#service-tags) e grupos de segurança de [aplicações](/azure/virtual-network/security-overview#application-security-groups) para minimizar a complexidade para criar regras de segurança e configurar a segurança da rede, como uma extensão natural da estrutura de uma aplicação.
 
 Deve implementar os serviços Azure numa [rede virtual](/azure/virtual-network/virtual-networks-overview) sempre que possível. Esta prática permite que os recursos de serviço se comuniquem através de endereços IP privados. O tráfego de serviço Azure de uma rede virtual utiliza endereços IP públicos como endereços IP de origem por padrão. A utilização [de pontos finais](/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço irá mudar o tráfego de serviço para utilizar endereços privados de rede virtual como endereços IP de origem quando estão a aceder ao serviço Azure a partir de uma rede virtual.

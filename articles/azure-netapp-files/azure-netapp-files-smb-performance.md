@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460454"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628501"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>PERGUNTAS Frequentes sobre desempenho SMB para ficheiros Azure NetApp
 
@@ -46,7 +46,7 @@ O Windows tem suportado o SMB Multichannel desde o Windows 2012 para permitir o 
 
 Para ver se a sua máquina virtual Azure NICs suporta RSS, executar o comando `Get-SmbClientNetworkInterface` da seguinte forma e verificar o `RSS Capable` campo: 
 
-![Suporte RSS para máquina virtual Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Screenshot que mostra saída RSS para máquina virtual Azure.](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## <a name="does-azure-netapp-files-support-smb-direct"></a>Os ficheiros Azure NetApp suportam SMB Direto?
 
@@ -60,9 +60,9 @@ A funcionalidade SMB Multichannel permite a um cliente SMB3 estabelecer um conju
 
 Não. O cliente SMB corresponderá à contagem de NIC devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
 
-Como mostra a saída `Get-SmbClientNetworkInterace` abaixo, a máquina virtual tem duas interfaces de rede - 15 e 12.  Como mostrado abaixo sob o comando `Get-SmbMultichannelConnection` , apesar de existirem dois NICS capazes de RSS, apenas a interface 12 é utilizada em conexão com a partilha SMB; a interface 15 não está em uso.
+Como mostra a saída `Get-SmbClientNetworkInterace` abaixo, a máquina virtual tem 2 interfaces de rede --15 e 12.  Como mostrado sob o seguinte comando `Get-SmbMultichannelConnection` , apesar de existirem dois NICS com capacidade RSS, apenas a interface 12 é utilizada em conexão com a partilha SMB; a interface 15 não está em uso.
 
-![NICS capaz de RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![Screeshot que mostra saída para NICS capaz de RSS.](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## <a name="is-nic-teaming-supported-in-azure"></a>A NIC Teaming é apoiada em Azure?
 
@@ -74,25 +74,61 @@ Os seguintes testes e gráficos demonstram o poder do SMB Multicanal em cargas d
 
 ### <a name="random-io"></a>I/O aleatório  
 
-Com o SMB Multicanal desativado no cliente, foram realizados testes puros de leitura e escrita de 8 KiB utilizando a FIO e um conjunto de trabalho de 40 GiB.  A quota SMB foi separada entre cada teste, com incrementos da contagem de ligação ao cliente SMB por definições de interface de rede RSS `1` `4` de, `8` , , . `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Os testes mostram que a definição padrão `4` é suficiente para cargas de trabalho intensivas de E/S; incrementando `8` e não teve qualquer `16` efeito. 
+Com o SMB Multicanal desativado no cliente, foram realizados testes puros de leitura e escrita de 4 KiB utilizando fio e um conjunto de trabalho de 40 GiB.  A quota SMB foi separada entre cada teste, com incrementos da contagem de ligação ao cliente SMB por definições de interface de rede RSS `1` `4` de, `8` , , . `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Os testes mostram que a definição padrão `4` é suficiente para cargas de trabalho intensivas de E/S; incrementando `8` e tendo um efeito `16` negligenciável. 
 
 O comando `netstat -na | findstr 445` provou que foram estabelecidas ligações adicionais com incrementos de `1` e para `4` `8` `16` .  Quatro núcleos de CPU foram totalmente utilizados para sMB durante cada teste, tal como confirmado pela estatística perfmon `Per Processor Network Activity Cycles` (não incluída neste artigo.)
 
-![Testes de E/S aleatórios](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Gráfico que mostra comparação aleatória de E/O do SMB Multicanal.](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-A máquina virtual Azure não afeta os limites de E/S de armazenamento SMB (nem NFS).  Como mostrado abaixo, o tipo de instância D16 tem uma taxa limitada de 32.000 para iOPS de armazenamento em cache e 25.600 para IOPS de armazenamento não encatado.  No entanto, o gráfico acima mostra significativamente mais E/S sobre SMB.
+A máquina virtual Azure não afeta os limites de E/S de armazenamento SMB (nem NFS).  Como mostrado no gráfico seguinte, o tipo de instância D32ds tem uma taxa limitada de 308.000 para iops de armazenamento em cache e 51.200 para IOPS de armazenamento não encatado.  No entanto, o gráfico acima mostra significativamente mais E/S sobre SMB.
 
-![Comparação aleatória de E/O](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Gráfico que mostra teste de comparação de E/S aleatório.](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### <a name="sequential-io"></a>IO sequencial 
 
-Foram efetuados ensaios semelhantes aos testes de E/S aleatórios acima descritos com I/O sequencial de 64 KiB. Embora os aumentos na contagem de ligação do cliente por interface de rede RSS para além de 4' não tiveram qualquer efeito percetível na I/O aleatória, o mesmo não se aplica à I/O sequencial. Como mostra o gráfico seguinte, cada aumento está associado a um aumento correspondente na produção de leitura. A produção de escrita permaneceu plana devido às restrições de largura de banda de rede colocadas pela Azure para cada instância tipo/tamanho. 
+Foram efetuados testes semelhantes aos testes de E/S aleatórios descritos anteriormente com I/O sequencial de 64 KiB. Embora os aumentos na contagem de ligação do cliente por interface de rede RSS para além de 4' não tiveram qualquer efeito percetível na I/O aleatória, o mesmo não se aplica à I/O sequencial. Como mostra o gráfico seguinte, cada aumento está associado a um aumento correspondente na produção de leitura. A produção de escrita permaneceu plana devido às restrições de largura de banda de rede colocadas pela Azure para cada instância tipo/tamanho. 
 
-![Testes sequenciais de E/S](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Gráfico que mostra comparação de testes de produção.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-O Azure coloca limites de taxa de rede em cada tipo/tamanho de máquina virtual. O limite de taxas é imposto apenas ao tráfego de saída. O número de NICs presentes numa máquina virtual não tem qualquer influência na quantidade total de largura de banda disponível para a máquina.  Por exemplo, o tipo de instância D16 tem um limite de rede imposto de 8000 Mbps (1.000 MiB/s).  Como mostra o gráfico sequencial acima, o limite afeta o tráfego de saída (escreve) mas não as leituras multicanais.
+O Azure coloca limites de taxa de rede em cada tipo/tamanho de máquina virtual. O limite de taxas é imposto apenas ao tráfego de saída. O número de NICs presentes numa máquina virtual não tem qualquer influência na quantidade total de largura de banda disponível para a máquina.  Por exemplo, o tipo de instância D32ds tem um limite de rede imposto de 16.000 Mbps (2.000 MiB/s).  Como mostra o gráfico sequencial acima, o limite afeta o tráfego de saída (escreve) mas não as leituras multicanais.
 
-![Comparação sequencial de E/O](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Gráfico que mostra teste de comparação sequencial de I/O.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## <a name="what-performance-is-expected-with-a-single-instance-with-a-1-tb-dataset"></a>Que desempenho é esperado com um único caso com um conjunto de dados de 1-TB?
+
+Para fornecer uma visão mais detalhada das cargas de trabalho com misturas de leitura/escrita, os dois gráficos seguintes mostram o desempenho de um único volume de nuvem ultra nível de serviço de 50 TB com um conjunto de dados de 1-TB e com multicanal SMB de 4. Foi utilizado um IODepth ideal de 16, e foram utilizados parâmetros flexíveis IO (FIO) para garantir a utilização integral da largura de banda da rede `numjobs=16` .
+
+O gráfico a seguir mostra os resultados para 4k I/O aleatório, com uma única instância VM e uma mistura de leitura/escrita em intervalos de 10%:
+
+![Gráfico que mostra o padrão do Windows 2019 _D32ds_v4 teste IO aleatório 4K.](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+O gráfico a seguir mostra os resultados da I/O sequencial:
+
+![Gráfico que mostra o padrão do Windows 2019 _D32ds_v4 produção sequencial de 64K.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## <a name="what-performance-is-expected-when-scaling-out-using-5-vms-with-a-1-tb-dataset"></a>Que desempenho é esperado ao escalonar utilizando 5 VMs com um conjunto de dados de 1-TB?
+
+Estes testes com 5 VMs utilizam o mesmo ambiente de teste que o VM único, com cada processo a escrever para o seu próprio ficheiro.
+
+O gráfico a seguir mostra os resultados para i/O aleatório:
+
+![Gráfico que mostra o padrão do Windows 2019 _D32ds_v4 teste randio IO de 4K de 5 instâncias.](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+O gráfico a seguir mostra os resultados da I/O sequencial:
+
+![Gráfico que mostra o padrão do Windows 2019 _D32ds_v4 produção sequencial de 64K 5 instâncias.](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## <a name="how-do-you-monitor-hyper-v-ethernet-adapters-and-ensure-that-you-maximize-network-capacity"></a>Como monitoriza os adaptadores hiper-V ethernet e assegura que maximiza a capacidade da rede?  
+
+Uma estratégia usada nos testes com a FIO é `numjobs=16` definir. Fazê-lo, cada trabalho é em 16 instâncias específicas para maximizar o Adaptador de Rede Hiper-V da Microsoft.
+
+Pode verificar se há atividade em cada um dos adaptadores no Monitor de Desempenho do Windows selecionando **monitor de desempenho > adicionar contadores > interface de rede > adaptador de rede Microsoft Hyper-V**.
+
+![Screenshot que mostra interface do Contador de Adicionar Monitor de Desempenho.](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+Depois de ter o tráfego de dados a funcionar nos seus volumes, pode monitorizar os seus adaptadores no Windows Performance Monitor. Se não utilizar todos estes 16 adaptadores virtuais, poderá não maximizar a capacidade de largura de banda da sua rede.
+
+![Screenshot que mostra a saída do Monitor de Desempenho.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## <a name="is-accelerated-networking-recommended"></a>Recomenda-se a rede acelerada?
 
@@ -115,10 +151,10 @@ A SMB Signing é suportada para todas as versões de protocolo SMB que são supo
 
 A SMB Signing tem um efeito nocivo no desempenho da SMB. Entre outras causas potenciais da degradação do desempenho, a assinatura digital de cada pacote consome CPU adicional do lado do cliente, como mostra a produção perfmon abaixo. Neste caso, o Core 0 aparece responsável pela SMB, incluindo a Assinatura SMB.  Uma comparação com os números de produção de leitura sequencial não multicanal na secção anterior mostra que a assinatura SMB reduz a produção global de 875MiB/s para aproximadamente 250MiB/s. 
 
-![Impacto de desempenho de assinatura SMB](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Gráfico que mostra sMB A assinar o impacto do desempenho.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp](azure-netapp-files-faqs.md)
 - Consulte os [Ficheiros Azure NetApp: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.

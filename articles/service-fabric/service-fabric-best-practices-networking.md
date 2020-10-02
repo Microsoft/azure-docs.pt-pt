@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948968"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630707"
 ---
 # <a name="networking"></a>Redes
 
@@ -47,7 +47,7 @@ Para ativar o networking acelerado num cluster de tecido de serviço existente, 
 
 A escala da infraestrutura é necessária para permitir a rede acelerada num cluster existente, pois permitir uma rede acelerada no local causaria tempo de inatividade, uma vez que requer que todas as máquinas virtuais num conjunto de disponibilidade sejam [paradas elocadas antes de permitir a ligação de rede acelerada em qualquer NIC existente.](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms)
 
-## <a name="cluster-networking"></a>Rede de Agrupamentos
+## <a name="cluster-networking"></a>Redes do Cluster
 
 * Os clusters de tecido de serviço podem ser implantados numa rede virtual existente, seguindo os passos descritos nos [padrões de networking do Service Fabric](./service-fabric-patterns-networking.md).
 
@@ -59,7 +59,7 @@ A escala da infraestrutura é necessária para permitir a rede acelerada num clu
 
 ## <a name="network-security-rules"></a>Regras de Segurança de Rede
 
-As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de tecido de serviço gerido Azure. A não abertura das seguintes portas ou a whitelisting do IP/URL impedirá o bom funcionamento do cluster e poderá não ser suportada. Com esta regra definida é estritamente necessário utilizar [atualizações automáticas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)de imagem de SO, caso contrário, portas adicionais terão de ser abertas.
+As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de tecido de serviço gerido Azure. A não abertura das seguintes portas ou a aprovação do IP/URL impedirá o bom funcionamento do cluster e poderá não ser suportada. Com esta regra definida é estritamente necessário utilizar [atualizações automáticas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)de imagem de SO, caso contrário, portas adicionais terão de ser abertas.
 
 ### <a name="inbound"></a>Entrada 
 |Prioridade   |Nome               |Porta        |Protocolo  |Origem             |Destino       |Ação   

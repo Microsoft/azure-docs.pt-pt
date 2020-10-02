@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte par
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329603"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627956"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 
@@ -34,7 +34,7 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 O suporte específico da ferramenta é resumido na tabela.
 
-**Ferramenta** | **Avaliar** | **Migrate** 
+**Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
 Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](tutorial-prepare-vmware.md) [VMs hiper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
 Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-migrate-vmware.md) [Hiper-VMs](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
@@ -97,7 +97,7 @@ Reino Unido | Reino Unido Sul ou Reino Unido Oeste
 Estados Unidos da América | Central EUA ou Oeste 2
 
 > [!NOTE]
-> Para a geografia suíça, a Suíça West só está disponível para utilizadores da REST EPI e precisa de uma subscrição whitelist.
+> Para a geografia suíça, a Suíça West só está disponível para utilizadores da API REST e precisa de uma subscrição aprovada.
 
 ## <a name="supported-geographies-azure-government"></a>Geografias apoiadas (Governo Azure)
 

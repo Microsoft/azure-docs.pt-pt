@@ -3,12 +3,12 @@ title: Azure Migrate eletrodoméstico FAQ
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526566"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630496"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -42,7 +42,7 @@ O aparelho pode ser acionado da seguinte forma:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
-O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. Certifique-se de que estes [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão na lista branca para o aparelho ligar ao Azure.
+O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. Certifique-se de que estes [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão aprovados para que o aparelho se conecte ao Azure.
 
 - Para utilizar o tráfego de replicação do Azure ExpressRoute para o Azure Migrate, é necessário espreitar a Microsoft ou um espreitamento público existente (o olhar público é depreciado para novas criações de ER).
 - A replicação sobre o Azure ExpressRoute com (apenas) o espreitamento privado ativado não é suportado.

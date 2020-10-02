@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5da00916a3f7a6a3685b1de1c56dd032355e28fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938747"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628422"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc habilitado colocação do grupo de servidores de hiperescala postgreSQL
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 A arquitetura pode ser representada como:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Representação lógica de 4 nóns agrupados num aglomerado de Kubernetes":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 O cluster Kubernetes acolhe um Controlador de Dados Azure Arc e um grupo de servidores de hiperescala postgreSQL ativado. Este grupo de servidores é constituído por três instâncias PostgreSQL: um coordenador e dois trabalhadores.
 
@@ -129,7 +129,7 @@ Cada cápsula que faz parte do grupo de servidores pós-escala pós-escala do Ar
 
 A arquitetura parece:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 cápsulas cada colocada em nós separados":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 Significa que, neste ponto, cada instância PostgreSQL que constitui o grupo de servidores de hiperescala pós-escala do Arco Azure ativado é hospedado em hospedeiros físicos específicos dentro do recipiente Kubernetes. Esta é a melhor configuração para ajudar a obter o maior desempenho do Azure Arc ativado o grupo de servidores pós-escala PostgreSQL, uma vez que cada função (coordenador e trabalhadores) utiliza os recursos de cada nó físico. Esses recursos não são partilhados entre vários papéis postgreSQL.
 
@@ -207,35 +207,22 @@ E note que o casulo do novo trabalhador (postgres01-3) foi colocado no mesmo nó
 
 A arquitetura parece:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Quarto casulo no mesmo nó que coordenador":::
-
-Porque é que o novo trabalhador/casulo não é colocado no nó físico restante do cluster Kubernetes aks-agentpool-42715708-vmss00003?
-
-A razão é que o último nó físico do cluster Kubernetes está realmente hospedando várias cápsulas que hospedam componentes adicionais que são necessários para executar serviços de dados habilitados Azure Arc. Kubernetes avaliou que o melhor candidato – no momento do agendamento – para acolher o trabalhador adicional é o nó físico aks-agentpool-42715708-vmss000000. 
-
-Utilizando os mesmos comandos acima; vemos o que cada nó físico está hospedado:
-
-|Outros nomes de cápsulas\* |Utilização|Kubernetes nódoa física que hospeda as cápsulas
-|----|----|----
-|bootstrapper-jh48b||aks-agentpool-42715708-vmss00003
-|controlo-gwmbs||aks-agentpool-42715708-vmss00002
-|controldb-0||aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, recebe dados do `Fluentbit` recipiente de cada vagem|aks-agentpool-42715708-vmss00003
-|logsui-5fzv5||aks-agentpool-42715708-vmss00003
-|métricasdb-0|InfluxDB, recebe dados do `Telegraf` recipiente de cada cápsula|aks-agentpool-42715708-vmss000000
-|métricas-47d47||aks-agentpool-42715708-vmss00002
-|métricas-864kj||aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf||aks-agentpool-42715708-vmss00003
-|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l||aks-agentpool-42715708-vmss00003
-|mgmtproxy-4qppp||aks-agentpool-42715708-vmss00002
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Aglomerado de 4 nó AKS no portal Azure" do controlador que mantém um olho na disponibilidade do controlador de dados.|aks-agentpool-42715708-vmss000000
+|logsdb-0|Esta é uma instância de Pesquisa Elástica que é usada para armazenar todos os registos recolhidos em todas as cápsulas de serviços de dados do Arco. Elasticsearch, recebe dados do `Fluentbit` recipiente de cada vagem|aks-agentpool-42715708-vmss00003
+|logsui-5fzv5|Este é um caso kibana que se senta em cima da base de dados de Pesquisa Elástica para apresentar um GUI de análise de registo.|aks-agentpool-42715708-vmss00003
+|métricasdb-0|Este é um caso do InfluxDB que é usado para armazenar todas as métricas recolhidas em todas as cápsulas de serviços de dados arc. InfluxDB, recebe dados do `Telegraf` recipiente de cada cápsula|aks-agentpool-42715708-vmss000000
+|métricas-47d47|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00002
+|métricas-864kj|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00003
+|metricsdc-nxm4l|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Este é um caso grafana que se senta em cima da base de dados do InfluxDB para apresentar um painel de monitorização GUI.|aks-agentpool-42715708-vmss00003
+|mgmtproxy-4qppp|Esta é uma camada de procuração de aplicação web que fica em frente aos casos de Grafana e Kibana.|aks-agentpool-42715708-vmss00002
 
 > \* O sufixo nos nomes das cápsulas variará em outras implementações. Além disso, estamos aqui apenas listando as cápsulas hospedadas dentro do espaço de nome Kubernetes do Controlador de Dados do Arco Azure.
 
 A arquitetura parece:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Todas as cápsulas no espaço de nome em vários nós":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 Isto significa que os nós coordenadores (Pod 1) do Azure Arc ativado pelo grupo de servidores Postgres Hyperscale partilham os mesmos recursos físicos que o terceiro nó de trabalhador (Pod 4) do grupo de servidores. Isso é aceitável, uma vez que o nó coordenador está normalmente a utilizar muito poucos recursos em comparação com o que um nó do Trabalhador pode estar a usar. A partir daí, poderá inferir que deve escolher cuidadosamente:
 - o tamanho do cluster Kubernetes e as características de cada um dos seus nós físicos (memória, vCore)
@@ -259,16 +246,16 @@ Vamos adicionar um quinto nó ao cluster AKS:
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Layout do portal Azure antes":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Layout do portal Azure depois":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
     :::column-end:::
 :::row-end:::
 
 A arquitetura parece:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Layout lógico no cluster Kubernetes após atualização":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 Vamos ver que cápsulas do espaço de nome do Controlador de Dados do Arco estão hospedadas no novo nó físico AKS executando o comando:
 
@@ -278,7 +265,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 E vamos atualizar a representação da arquitetura do nosso sistema:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Todas as cápsulas no diagrama lógico do cluster":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 Podemos observar que o novo nó físico do cluster Kubernetes está hospedado apenas o casulo métrico que é necessário para os serviços de dados do Azure Arc. Note que, neste exemplo, estamos focados apenas no espaço de nome do Arc Data Controller, não estamos representando as outras cápsulas.
 
@@ -353,7 +340,7 @@ E observe em que cápsulas corre:
 
 E a arquitetura parece:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes programa o mais novo casulo em nó com menor utilização":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
 Kubernetes marcou o novo pod PostgreSQL no nó físico menos carregado do cluster Kubernetes.
 

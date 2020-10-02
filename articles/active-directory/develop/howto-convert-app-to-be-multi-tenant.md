@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705899"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631312"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -97,7 +97,7 @@ Como o ponto final /comum não corresponde a um inquilino e não é um emitente,
     https://sts.windows.net/{tenantid}/
 ```
 
-Portanto, uma aplicação multi-inquilino não pode validar fichas apenas combinando o valor do emitente nos metadados com o `issuer` valor no token. Uma aplicação multi-arrendatário precisa de lógica para decidir quais os valores do emitente válidos e que não se baseiam na parte de identificação do inquilino do valor do emitente. 
+Portanto, uma aplicação multi-inquilino não pode validar fichas apenas combinando o valor do emitente nos metadados com o `issuer` valor no token. Uma aplicação multi-arrendatário precisa de lógica para decidir quais os valores do emitente válidos e que não se baseiam na parte de identificação do inquilino do valor do emitente.
 
 Por exemplo, se uma aplicação multi-arrendatário apenas permite a entrada de inquilinos específicos que se inscreveram para o seu serviço, então deve verificar o valor do emitente ou o valor de `tid` reclamação no token para garantir que o inquilino está na sua lista de subscritores. Se uma aplicação multi-arrendatário apenas lida com indivíduos e não tomar nenhuma decisão de acesso baseada nos inquilinos, então pode ignorar completamente o valor do emitente.
 
@@ -116,7 +116,7 @@ Esta experiência de consentimento é afetada pelas permissões solicitadas pelo
 * Uma permissão delegada concede a uma aplicação a capacidade de agir como um utilizador assinado no utilizador para um subconjunto das coisas que o utilizador pode fazer. Por exemplo, pode conceder a um pedido a permissão delegada para ler o assinado no calendário do utilizador.
 * Uma permissão apenas para aplicações é concedida diretamente à identidade da aplicação. Por exemplo, pode conceder a uma aplicação a permissão apenas para ler a lista de utilizadores num inquilino, independentemente de quem esteja inscrito na aplicação.
 
-Algumas permissões podem ser consentidas por um utilizador regular, enquanto outras requerem o consentimento de um administrador de inquilino. 
+Algumas permissões podem ser consentidas por um utilizador regular, enquanto outras requerem o consentimento de um administrador de inquilino.
 
 ### <a name="admin-consent"></a>Consentimento do administrador
 
@@ -179,10 +179,6 @@ Se um administrador consentir com uma aplicação para todos os utilizadores de 
 
 As aplicações multi-arrendadas também podem ter acesso a fichas para chamar APIs que estão protegidas pela Azure AD. Um erro comum ao utilizar a Biblioteca de Autenticação de Diretório Ativo (ADAL) com uma aplicação multi-arrendatário é solicitar inicialmente um token para um utilizador que utilize /comum, receber uma resposta e, em seguida, solicitar um token subsequente para esse mesmo utilizador também usando /comum. Porque a resposta da AZure AD vem de um inquilino, não /comum, ADAL caches o símbolo como sendo do inquilino. A chamada subsequente para /comum para obter um token de acesso para o utilizador falha a entrada de cache, e o utilizador é solicitado a iniciar novamente a sposição. Para evitar a falta da cache, certifique-se de que as chamadas subsequentes para um utilizador já assinado são feitas no ponto final do arrendatário.
 
-## <a name="next-steps"></a>Passos seguintes
-
-Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Microsoft 365 como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Conteúdo relacionado
 
 * [Amostra de aplicação de vários inquilinos](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 * [Integrar aplicações com o Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral do Quadro de Consentimento][AAD-Consent-Overview]
 * [Âmbitos de permissão da Microsoft Graph API][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Passos seguintes
+
+Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Microsoft 365 como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

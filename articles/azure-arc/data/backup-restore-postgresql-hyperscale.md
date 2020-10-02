@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569720"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630428"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauro para Azure Arc ativado grupos de servidores de hiperescala postgreSQL
 
@@ -93,8 +93,6 @@ Em que:
 - __nome__ indica o nome de uma cópia de segurança
 - __o nome do servidor__ indica um grupo de servidor
 - __não esperar__ indica que a linha de comando não esperará que a cópia de segurança esteja completa para que possa continuar a usar esta janela de linha de comando
-
->**Nota:** O comando que permite listar as cópias de segurança disponíveis para restaurar ainda não mostra a data/hora em que a cópia de segurança foi tomada. Assim, recomenda-se que dê um nome à cópia de segurança (utilizando o parâmetro do nome) que inclui a informação de data/hora.
 
 Este comando coordenará uma cópia de segurança completa distribuída em todos os nós que constituem o seu grupo de servidores pós-escala pós-SQL ativado pelo Arco Azure. Por outras palavras, irá fazer backup de todos os dados nos seus nós coordenador e operário.
 

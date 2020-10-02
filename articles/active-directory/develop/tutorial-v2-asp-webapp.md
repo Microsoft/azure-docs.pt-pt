@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574233"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627963"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicione o acesso à Microsoft a uma aplicação web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
 Este guia demonstra como implementar o início de sção na Microsoft através de uma solução de MVC ASP.NET utilizando uma aplicação tradicional baseada no navegador web e OpenID Connect.
 
@@ -69,7 +69,7 @@ Esta secção descreve como instalar e configurar o gasoduto de autenticação a
 
 ## <a name="add-authentication-components"></a>Adicionar componentes de autenticação
 
-1. In Visual Studio: Vá para **ferramentas**  >  **Nuget Package Manager**Package Manager  >  **Consola**.
+1. In Visual Studio: Vá para **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
 2. Adicione *Pacotes NuGet de middleware OWIN*, escrevendo o seguinte na janela da Consola do Gestor de Pacotes:
 
     ```powershell
@@ -295,7 +295,7 @@ Este controlador demonstra as utilizações do atributo `[Authorize]` para prote
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -313,7 +313,7 @@ Este controlador demonstra as utilizações do atributo `[Authorize]` para prote
     ```
 
 ### <a name="more-information"></a>Mais informações
-Devido à utilização do `[Authorize]` atributo, todos os métodos deste controlador só podem ser executados se o utilizador for autenticado. Se o utilizador não for autenticado e tentar aceder ao controlador, o OWIN inicia um desafio de autenticação e obriga o utilizador a autenticar. O código anterior analisa a lista de reclamações de atributos específicos do utilizador incluídos no token de Id do utilizador. Estes atributos incluem o nome completo do utilizador e o nome de utilizador, bem como o assunto do identificador de utilizador global. Também contém o *ID de inquilino*, que representa o ID da organização do utilizador.
+Devido à utilização do `[Authorize]` atributo, todos os métodos deste controlador só podem ser executados se o utilizador for autenticado. Se o utilizador não for autenticado e tentar aceder ao controlador, o OWIN inicia um desafio de autenticação e obriga o utilizador a autenticar. O código anterior analisa a lista de reclamações de atributos específicos do utilizador incluídos no token de ID do utilizador. Estes atributos incluem o nome completo e o nome de utilizador do utilizador, bem como o sujeito do identificador de utilizador global. Contém também o ID do *Inquilino,* que representa o ID para a organização do utilizador.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma vista para mostrar as reivindicações do utilizador
 
@@ -427,7 +427,7 @@ Depois de navegar pela vista do controlador, deverá ver uma tabela que contenha
 
 |Propriedade |Valor |Descrição |
 |---|---|---|
-|**Nome** |Nome completo do utilizador | O nome próprio e apelido do utilizador
+|**Nome** |Nome completo do utilizador | O primeiro e último nome do utilizador
 |**Nome de Utilizador** |utilizador<span>@domain.com</span> | O nome de utilizador que é usado para identificar o utilizador|
 |**Assunto** |Assunto |Uma cadeia que identifica exclusivamente o utilizador através da web|
 |**ID do inquilino** |GUID | Um **guia** que representa exclusivamente a organização AZure AD do utilizador|

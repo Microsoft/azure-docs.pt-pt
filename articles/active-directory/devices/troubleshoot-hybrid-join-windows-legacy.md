@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74379107"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627377"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
 
@@ -40,7 +40,6 @@ Este artigo fornece-lhe orientações de resolução de problemas sobre como res
 
 - A AD híbrida Azure junta-se a dispositivos Windows de nível inferior ao que funciona no Windows 10. Muitos clientes não percebem que precisam de FS AD (para domínios federados) ou SSO sem costura configurados (para domínios geridos).
 - Para clientes com domínios federados, se o Ponto de Ligação de Serviço (SCP) foi configurado de modo a apontar para o nome de domínio gerido (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), então o AD AD Híbrido Azure Join para dispositivos Windows de nível baixo não funcionará.
-- O número máximo de dispositivos por utilizador aplica-se atualmente também aos dispositivos híbridos Azure AD de baixo nível. 
 - O mesmo dispositivo físico aparece várias vezes no Azure AD quando vários utilizadores de domínios inscrevem os dispositivos híbridos Azure AD de nível baixo.  Por exemplo, se *jdoe* e *jharnett* iniciarem sing-in a um dispositivo, é criado um registo separado (DeviceID) para cada um deles no separador informações do **UTILIZADOR.** 
 - Também pode obter várias entradas para um dispositivo no separador informações do utilizador devido a uma reinstalação do sistema operativo ou a um re-registo manual.
 - O registo inicial/união de dispositivos está configurado para efetuar uma tentativa de iniciar sedus ou bloquear/desbloquear. Pode haver um atraso de 5 minutos desencadeado por uma tarefa de agendamento de tarefas. 
@@ -70,7 +69,7 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
     
    - Autoworkplace.exe é incapaz de autenticar silenciosamente com Azure AD ou AD FS. Isto pode ser causado por FS AD em falta ou mal configurado (para domínios federados) ou por falta ou configuração errada Azure AD Single Sign-On (para domínios geridos) ou problemas de rede. 
    - Pode ser que a autenticação multi-factor (MFA) esteja ativada/configurada para o utilizador e a WIAORMULTIAUTHN não esteja configurada no servidor AD FS. 
-   - Outra possibilidade é que a página home realm discovery (HRD) esteja à espera da interação do utilizador, o que impede **queautoworkplace.exe** solicitem silenciosamente um token.
+   - Outra possibilidade é que a página home realm discovery (HRD) esteja à espera da interação do utilizador, o que impede ** queautoworkplace.exe** solicitem silenciosamente um token.
    - Pode ser que os URLs AD FS e Azure AD estejam desaparecidos na zona intranet do IE no cliente.
    - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** de chegar em AD FS ou nos URLs AD Azure. 
    - **Autoworkplace.exe** requer que o cliente tenha linha de visão direta do cliente para o controlador de domínio AD da organização, o que significa que a adada híbrida Azure só tem sucesso quando o cliente está ligado à intranet da organização.
@@ -103,6 +102,6 @@ Também pode encontrar as informações de estado no registo do evento em: **Apl
    - Ou se o seu domínio for gerido, então o SSO sem emenda não foi configurado ou funcionando.
    - Um utilizador atingiu o limite dos dispositivos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para dúvidas, consulte a [faq de gestão](faq.md) de dispositivos  

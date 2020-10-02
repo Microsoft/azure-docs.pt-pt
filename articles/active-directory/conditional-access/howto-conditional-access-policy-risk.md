@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049048"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628269"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso Condicional: Acesso condicional baseado no risco de inscrição
 
@@ -37,7 +37,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
    1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
-1. Em **Condições**  >  **Risco do utilizador**, definir **Configurar** para **Sim**. Em **Selecione o nível de risco de inscrição esta política aplicar-se-á a** 
+1. Em **Condições**  >  **de risco de inscrição,** definir **Configurar** para **Sim**. Em **Selecione o nível de risco de inscrição esta política aplicar-se-á a** 
    1. Selecione **Alto** e **Médio**.
    1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.

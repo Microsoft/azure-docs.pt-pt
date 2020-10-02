@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939047"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631749"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>O Assessor de Métricas frequentemente fez perguntas
 
@@ -74,9 +74,26 @@ Com base na granularidade dos seus dados, os comprimentos dos dados históricos 
 
 ### <a name="more-concepts-and-technical-terms"></a>Mais conceitos e termos técnicos
 
-Por favor, vá ao [Glossário](glossary.md) ler mais.
+Consulte também o [Glossário](glossary.md) para mais informações.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Como deteto este tipo de anomalias? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Como escrevo uma consulta válida para ingerir os meus dados?  
+
+Para o Metrics Advisor ingerir os seus dados, terá de criar uma consulta que retorne as dimensões dos seus dados num único timetamp. O advisor de métricas executará esta consulta várias vezes para obter os dados de cada timetamp. 
+
+Note que a consulta deve voltar no máximo um registo para cada combinação de dimensão, a uma determinada hora de tempo. Todos os registos devolvidos devem ter a mesma hora. Não deve haver registos duplicados devolvidos pela consulta.
+
+Por exemplo, suponha que crie a consulta abaixo, para uma métrica diária: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Certifique-se de que utiliza a granularidade correta para as suas séries hors de trabalho. Para uma métrica de hora a hora, usaria: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Note que estas consultas apenas devolvem dados a uma única hora de tempo, e contêm todas as combinações de dimensão a serem ingeridas pelo Metrics Advisor. 
+
+:::image type="content" source="media/query-result.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Como deteto picos & diminui como anomalias?
 

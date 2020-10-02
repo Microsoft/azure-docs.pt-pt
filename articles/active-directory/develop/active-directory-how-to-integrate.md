@@ -1,5 +1,6 @@
 ---
-title: Como integrar-se com a plataforma de identidade da Microsoft
+title: Como integrar-se com a plataforma de identidade da Microsoft Rio Azure
+titleSuffix: Microsoft identity platform
 description: Conheça os benefícios de integrar a sua aplicação com a plataforma de identidade da Microsoft e obtenha recursos para funcionalidades como sing-in simplificado, gestão de identidade, autenticação de vários fatores e controlo de acesso.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706171"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631414"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integração com a plataforma de identidade da Microsoft
 
@@ -45,9 +46,9 @@ Existem várias formas de a sua aplicação se integrar com a plataforma de iden
 
 **Utilize a plataforma de identidade da Microsoft para o Controlo de Acesso Baseado em Papéis.**  Os administradores e os proprietários de aplicações podem atribuir utilizadores e grupos a funções que define quando regista a sua aplicação na plataforma de identidade da Microsoft. As informações de função são enviadas para a sua aplicação em tokens de sinal e também podem ser lidas usando a API do Gráfico microsoft. Saiba mais sobre [a utilização da plataforma de identidade da Microsoft para autorização.](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Tenha acesso ao perfil do utilizador, calendário, e-mail, contactos, ficheiros e muito mais
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Tenha acesso ao perfil dos utilizadores, calendário, e-mail, contactos, ficheiros e muito mais
 
-**A plataforma de identidade da Microsoft é o servidor de autorização do Microsoft 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever o acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [o acesso às APIs da Microsoft 365](/previous-versions/office/office-365-api/).
+**A plataforma de identidade da Microsoft é o servidor de autorização do Microsoft 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever o acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [as APIs microsoft 365](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promover a sua aplicação nos Mercados Azure e Microsoft 365
 
