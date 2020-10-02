@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906195"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649580"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
@@ -26,15 +26,13 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 Ev3 série VM's feature Intel® Hyper-Threading Technology.
 
-ACU: 160 - 190
-
-Armazenamento Premium: Não Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 160 - 190<br>
+[Armazenamento Premium](premium-storage-performance.md): Não Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | NICs/Largura de banda da rede máximos |
 |---|---|---|---|---|---|---|
@@ -58,15 +56,13 @@ As instâncias da série Esv3 são executadas na Intel® Xeon® Platinum 8272CL 
 
 Esv3 série VM's feature Intel® Hyper-Threading Technology.
 
-ACU: 160-190
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 160-190<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Rebentamento de armazenamento em cache e temporário: IOPS/MBps<sup>3</sup> | Produção de disco não-abacatado por maxilar: IOPS/MBps |  Saída do disco rebentado: IOPS/MBps<sup>3</sup>| Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

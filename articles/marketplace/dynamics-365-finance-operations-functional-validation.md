@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016253"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651161"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 Validação funcional de Finanças e Operações
 
@@ -58,7 +58,7 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
 
     | Campo | Imagem <img src="" width="400px">|
     | --- | --- |
-    | Descrição geral do pacote | [![Ecrã geral do pacote](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Descrição geral do pacote | [![Screenshot que mostra a janela "Package overview".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprovadores de soluções</li></ul> | [![Ecrã geral do pacote](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Conteúdo do pacote<ul><li>Modelo</li><li>Pacote implementável de software</li></ul> | [![Ecrã de conteúdo de pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuração GER</li><li>Backup de base de dados</li></ul><br>Os artefactos não são necessários na secção **de configuração GER.** | [![Ecrã de conteúdo de pacote dois](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
@@ -74,6 +74,6 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
 
     [![Mostra a janela da biblioteca do projeto](media/dynamics-365-finance-operations/supplemental-content.png)](media/dynamics-365-finance-operations/supplemental-content.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a criar uma oferta, consulte: [Criar uma oferta Dynamics 365 for Operations.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563480"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649954"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -98,7 +98,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.
@@ -117,7 +117,7 @@ Para obter mais informações, consulte [a proteção contra ameaças avançadas
 
 Em geral, as funcionalidades da Azure Files e a interoperabilidade com outros serviços são as mesmas entre ações de ficheiros premium e ações de ficheiros padrão (incluindo ações de ficheiros otimizadas, quentes e cool), no entanto existem algumas diferenças importantes:
 - **Modelo de faturação**
-    - As ações de ficheiros premium são faturadas usando um modelo de faturação provisão, o que significa que você paga pelo armazenamento que você presta em vez de quanto armazenamento você realmente pede. 
+    - As ações de ficheiros premium são faturadas usando um modelo de faturação provisão, o que significa que você paga o preço fixo pelo armazenamento que você presta em vez de quanto armazenamento você usa. Não existem custos adicionais para transações e metadados em repouso.
     - As ações de ficheiros standard são faturadas usando um modelo pay-as-you-go, que inclui um custo base de armazenamento para o armazenamento que você está realmente consumindo e, em seguida, um custo adicional de transação com base na forma como você usa a ação. Com as ações de ficheiro padrão, a sua conta aumentará se utilizar (ler/escrever/montar) o ficheiro Azure partilhar mais.
 - **Opções de redundância**
     - As ações de ficheiros premium só estão disponíveis para armazenamento localmente redundante (LRS) e zona redundante (ZRS).
@@ -126,7 +126,7 @@ Em geral, as funcionalidades da Azure Files e a interoperabilidade com outros se
     - As ações de ficheiros premium podem ser a provisionadas até 100 TiB sem qualquer trabalho adicional.
     - Por predefinição, as ações de ficheiros padrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB optando pela bandeira da conta de armazenamento *de grandes ficheiros.* As ações de ficheiros standard só podem abranger até 100 TiB para contas de armazenamento redundantes locais ou de zonas redundantes. Para obter mais informações sobre o aumento do tamanho das ações de ficheiros, consulte [Ativar e criar grandes ações de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Disponibilidade regional**
-    - As ações de ficheiros premium não estão disponíveis em todas as regiões, e o apoio redundante da zona está disponível num subconjunto menor de regiões. Para saber se as ações de ficheiros premium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para a Azure. Para saber quais as regiões que suportam zRS, consulte [o apoio da Zona de Disponibilidade de Azure por região.](../../availability-zones/az-region.md) Para nos ajudar a priorizar novas regiões e funcionalidades de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
+    - As ações de ficheiros premium estão disponíveis na maioria das regiões de Azure, com exceção de algumas regiões. O apoio redundante da zona está disponível num subconjunto de regiões. Para saber se as ações de ficheiros premium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para a Azure. Para saber quais as regiões que suportam o ZRS, consulte [o armazenamento redundante da zona.](../common/storage-redundancy.md#zone-redundant-storage) Para nos ajudar a priorizar novas regiões e funcionalidades de nível premium, preencha este [inquérito.](https://aka.ms/pfsfeedback)
     - As ações de ficheiros standard estão disponíveis em todas as regiões do Azure.
 - O Azure Kubernetes Service (AKS) suporta ações de ficheiros premium na versão 1.13 e posterior.
 

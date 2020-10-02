@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605552"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650408"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Ver e filtrar informações sobre recursos do Azure
 
@@ -25,15 +25,13 @@ O artigo centra-se no ecrã **de todos os recursos** mostrados na imagem seguint
 
 Comece a explorar **todos os recursos** utilizando filtros para se concentrar num subconjunto dos seus recursos. A imagem que se segue mostra a filtragem em grupos de recursos, selecionando dois dos seis grupos de recursos numa subscrição.
 
-:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Vista de filtro baseada em grupos de recursos":::
+:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Vista do portal Azure de todos os recursos" num dos dois grupos de recursos já selecionados.
 
-Pode combinar filtros, incluindo os baseados em pesquisas por texto, como mostra a imagem a seguir. Neste caso, os resultados são alargados a recursos que contenham "SimpleWinVM" num dos dois grupos de recursos já selecionados.
-
-:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Vista de filtro com base na entrada de texto":::
+:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 Para alterar quais colunas estão incluídas numa vista, **selecione 'Gerir' e** **editar colunas**.
 
-:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Editar colunas mostradas à vista":::
+:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 ## <a name="save-use-and-delete-views"></a>Guardar, usar e apagar vistas
 
@@ -43,7 +41,7 @@ Pode guardar vistas que incluam os filtros e colunas que selecionou. Para guarda
 
 1. Introduza um nome para a vista e, em seguida, selecione **OK**. A vista guardada aparece agora no menu **'Ver's Manage.**
 
-    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Vista salva":::
+    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 1. Para utilizar uma vista, altere entre **o Padrão** e uma das suas próprias opiniões para ver como isso afeta a lista de recursos apresentados.
 
@@ -55,21 +53,25 @@ Para eliminar uma vista:
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 
-As opiniões que analisámos até agora foram _pontos de vista_da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas assim como você pode listar vistas. Os filtros persistem entre os dois tipos de vistas. Para guardar e utilizar uma visão sumária:
+As opiniões que analisámos até agora foram _pontos de vista_da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas assim como você pode listar vistas. Os filtros persistem entre os dois tipos de vistas. Existem vistas padrão, como a vista **de localização** mostrada abaixo, bem como pontos de vista relevantes para serviços específicos, como a vista **de estado** para máquinas virtuais.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Vista do portal Azure de todos os recursos":::
+
+Para guardar e utilizar uma visão sumária:
 
 1. No menu 'ver' selecione **Resumo.**
 
-    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Menu de visualização sumária":::
+    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 1. A vista sumária permite-lhe resumir por diferentes atributos, incluindo **Localização** e **Tipo**. Selecione um **Resumo por** opção e um visual apropriado. A imagem que se segue mostra o **resumo do tipo** com um gráfico de **barras** visual.
 
-    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Resumo do tipo mostrando um gráfico de barras":::
+    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 1. **Selecione 'Gerir'** e **guarde** esta vista como fez com a vista da lista.
 
 1. Na vista resumida, em **resumo do tipo,** selecione uma barra na tabela. A seleção da barra fornece uma lista filtrada para um tipo de recurso.
 
-    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Todos os recursos filtrados por tipo":::
+    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 ## <a name="run-queries-in-azure-resource-graph"></a>Executar consultas no Gráfico de Recursos Azure
 
@@ -79,11 +81,11 @@ Para executar uma consulta de Gráfico de Recurso:
 
 1. Selecione **Consulta aberta**.
 
-    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Consulta de gráfico de recurso Azure open":::
+    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Vista do portal Azure de todos os recursos":::
 
 1. No **Azure Resource Graph Explorer**, selecione **consulta de execução** para ver os resultados.
 
-    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Executar consulta de gráfico de recurso Azure":::
+    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Vista do portal Azure de todos os recursos":::
 
     Para obter mais informações, consulte [executar a sua primeira consulta de Gráfico de Recurso utilizando o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
 

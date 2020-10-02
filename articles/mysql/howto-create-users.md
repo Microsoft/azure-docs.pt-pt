@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 9b79a0f21135e91ab72a4c8a9e604b84b67df0a9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: ed653ffb6fc24a75170d51d345c0c64724ff90f1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902822"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651026"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql-server"></a>Criar bases de dados e utilizadores em Azure Database para servidor MySQL
 
@@ -35,7 +35,8 @@ O utilizador de administração do servidor obtém certos privilégios para o se
 Uma vez criada a Base de Dados Azure para o servidor MySQL, pode utilizar a primeira conta de utilizador de administração do servidor para criar utilizadores adicionais e conceder acesso administrativo aos mesmos. Além disso, a conta de administração do servidor pode ser usada para criar utilizadores menos privilegiados que tenham acesso a esquemas de bases de dados individuais.
 
 > [!NOTE]
-> O papel de SUPER privilégio e DBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privilege-support) no artigo de limitações para entender o que não é suportado no serviço.
+> O papel de SUPER privilégio e DBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privileges--data-manipulation-support) no artigo de limitações para entender o que não é suportado no serviço.<br><br>
+> Os plugins de palavras-passe como "validate_password" e "caching_sha2_password" não são suportados pelo serviço.
 
 ## <a name="how-to-create-database-with-non-admin-user-in-azure-database-for-mysql"></a>Como criar base de dados com utilizador não administrativo na Base de Dados Azure para o MySQL
 
@@ -106,6 +107,10 @@ Uma vez criada a Base de Dados Azure para o servidor MySQL, pode utilizar a prim
 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
+
+## <a name="azure_superuser"></a>azure_superuser
+
+Todas as bases de dados Azure para servidores MySQL são criadas com um utilizador chamado "azure_superuser". Esta é uma conta de sistema criada pela Microsoft para gerir o servidor para realizar monitorização, backups e outras manutenção regulares. Os engenheiros de serviço também podem usar esta conta para aceder ao servidor durante um incidente com autenticação de certificados e devem solicitar o acesso usando processos just-in-time (JIT).
 
 ## <a name="next-steps"></a>Passos seguintes
 

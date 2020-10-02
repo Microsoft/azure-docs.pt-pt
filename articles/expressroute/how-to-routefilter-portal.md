@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 37f8903adbc676ae2e48e2ef5841d8f5b122842c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 468c7a0113a4603f4f47bb529145261ff50d96d4
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566250"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650549"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configure filtros de rota para o espreocupar a Microsoft: Portal Azure
 > [!div class="op_single_selector"]
@@ -88,33 +88,33 @@ Um filtro de rota pode ter apenas uma regra, e a regra deve ser do tipo 'Permiti
 ### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
 Pode criar um filtro de rota selecionando a opção de criar um novo recurso. Clique **em Criar um**  >  RouteFilter de rede**de**  >  **RouteFilter**recursos, como mostra a seguinte imagem:
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
+![Screenshot que mostra a página "Filtro rota".](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 Deve colocar o filtro de rota num grupo de recursos. 
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter.png)
+![Screenshot que mostra a página "Criar filtro de rota" com valores de exemplo introduzidos.](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. Criar uma regra de filtro
 
 Pode adicionar e atualizar as regras selecionando o separador de regras de gestão para o filtro de rota.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Screenshot que mostra a página "Visão Geral" com a ação "Gerir a regra" realçada.](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 Pode selecionar os serviços a que pretende ligar a partir da lista de drop-down e guardar a regra quando terminar.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
+![Screenshot que mostra a janela "Gerir a regra" com serviços selecionados na lista de abandono das "comunidades de serviços permitidos".](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Passo 3: Fixe o filtro de rota a um circuito ExpressRoute
 
 Pode ligar o filtro de rota a um circuito selecionando o botão "add Circuit" e selecionando o circuito ExpressRoute a partir da lista de recuo.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
+![Screenshot que mostra a página "Visão Geral" com a ação "Adicionar circuito" selecionada.](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 Se o fornecedor de conectividade configurar o seu circuito ExpressRoute, refresque o circuito a partir da lâmina do circuito ExpressRoute antes de selecionar o botão "adicionar circuito".
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
+![Screenshot que mostra a página "Visão Geral" com a ação "Refresh" selecionada.](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Tarefas comuns
 
@@ -122,7 +122,7 @@ Se o fornecedor de conectividade configurar o seu circuito ExpressRoute, refresq
 
 Pode ver as propriedades de um filtro de rota quando abre o recurso no portal.
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ViewRouteFilter.png)
+![Screenshot que mostra a página "Visão Geral".](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
@@ -130,16 +130,16 @@ Pode ver as propriedades de um filtro de rota quando abre o recurso no portal.
 Pode atualizar a lista de valores comunitários BGP anexados a um circuito selecionando o botão "Gerir a regra".
 
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Screenshot que mostra a página "Visão Geral" com a ação "Gerir a regra" realçada.](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
+![Screenshot que mostra a janela "Gerir a regra" com serviços selecionados.](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Para separar um filtro de rota de um circuito ExpressRoute
 
 Para separar um circuito do filtro de rota, clique com o botão direito no circuito e clique em "desassociar".
 
-![Criar um filtro de rota](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
+![Screenshot que mostra a página "Visão Geral" com a ação "Dissociate" em destaque.](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Para eliminar um filtro de rota

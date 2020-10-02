@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419534"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650311"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -28,6 +28,8 @@ Algumas organizações não mudaram para a autenticação híbrida pelas seguint
 * Devido a razões de negócio ou conformidade, a organização não quer usar a UPN no local para assinar no Azure AD.
 
 Para ajudar na mudança para a autenticação híbrida, pode agora configurar a AD Azure para permitir que os utilizadores iniciem sessão com um e-mail no seu domínio verificado como um ID de login alternativo. Por exemplo, se *Contoso* rebranded para *Fabrikam*, em vez de continuar a assinar com o legado `balas@contoso.com` UPN, o e-mail como um ID de login alternativo pode agora ser usado. Para aceder a uma aplicação ou serviços, os utilizadores iniciariam sessão no AZure AD utilizando o seu e-mail atribuído, como `balas@fabrikam.com` .
+
+Este artigo mostra-lhe como ativar e usar o e-mail como um ID de login alternativo. Esta funcionalidade está disponível na edição Azure AD Free e superior.
 
 > [!NOTE]
 > Iniciar sessão no Azure AD com e-mail como ID de login alternativo é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -45,6 +47,8 @@ A solução típica para este problema foi definir o Azure AD UPN para o endere�
 Uma abordagem diferente é sincronizar o AZure AD e as UPNs no local pelo mesmo valor e, em seguida, configurar a Azure AD para permitir que os utilizadores inscrevam-se no AD Azure com um e-mail verificado. Para fornecer esta capacidade, define um ou mais endereços de e-mail nos *ProxyAddresses* do utilizador atribuídos no diretório no local. *Os ProxyAddresses* são então sincronizados para Azure AD automaticamente usando O AZURE AD Connect.
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
+
+Inicie sessão no Azure AD com e-mail como iD de login alternativo está disponível na edição Azure AD Free e superior.
 
 No estado de pré-visualização atual, aplicam-se as seguintes limitações quando um utilizador assina com um e-mail não UPN como um ID de login alternativo:
 
@@ -177,7 +181,7 @@ Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a identidade híbrida, como a Azure AD App Proxy ou a Azure AD Domain Services, consulte [a identidade híbrida AD AD Azure para acesso e gestão de cargas de trabalho on-prem][hybrid-overview].
 

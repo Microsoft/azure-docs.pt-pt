@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619972"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651195"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -37,7 +37,6 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md) e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [OI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
 >
 > Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -264,21 +263,21 @@ As atualizações da versão GA da API V3 incluem:
 
 ## <a name="november-2018"></a>Novembro de 2018
 
-O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [conta az ams](/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams filtro de conta](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams ativo](/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams filtro de ativos](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams conteúdo chave-chave-política](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [trabalho az ams](/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-localizador](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - permite-lhe gerir Unidades Reservadas de Mídia. Para mais informações, consulte [as Unidades Reservadas para Os Meios de Escala.](media-reserved-units-cli-how-to.md)
+- [conta az ams](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams filtro de conta](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams ativo](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams filtro de ativos](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams conteúdo chave-chave-política](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [trabalho az ams](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-localizador](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - permite-lhe gerir Unidades Reservadas de Mídia. Para mais informações, consulte [as Unidades Reservadas para Os Meios de Escala.](media-reserved-units-cli-how-to.md)
 
 ### <a name="new-features-and-breaking-changes"></a>Novas funcionalidades e mudanças de rutura
 

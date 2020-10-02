@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e9a4f7266522fc17c33e2086af6cb7367bbed39e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921776"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650685"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Preparar dados com o fluxo de dados de estrangulamento
 
@@ -25,13 +25,13 @@ ms.locfileid: "85921776"
 
 Há duas formas de criar um fluxo de dados na Azure Data Factory. Uma maneira é clicar no ícone plus e selecionar o **Fluxo de Dados** no painel de recursos da fábrica.
 
-![Brigas](media/wrangling-data-flow/tutorial7.png)
+![Screenshot que mostra Data Flow no painel de recursos de fábrica.](media/wrangling-data-flow/tutorial7.png)
 
 O outro método está no painel de atividades da tela do gasoduto. Abra o **acordeão Move and Transform** e arraste a atividade **de fluxo de dados** para a tela.
 
 Em ambos os métodos, no painel lateral que se abre, **selecione Criar um novo fluxo de dados** e escolher o fluxo de **dados de Wrangling**. Clique em OK.
 
-![Brigas](media/wrangling-data-flow/tutorial1.png)
+![Screenshot que realça a opção de fluxo de dados wrangling.](media/wrangling-data-flow/tutorial1.png)
 
 ## <a name="author-a-wrangling-data-flow"></a>Autor de um fluxo de dados de estrangulamento
 
@@ -44,22 +44,22 @@ Adicione um **conjunto de dados Source** para o fluxo de dados de problemas. Pod
 
 Clique em **Criar** para abrir o editor de mashup online da Power Query.
 
-![Brigas](media/wrangling-data-flow/tutorial5.png)
+![Screenshot que mostra o botão Criar que abre o editor de mashup online da Power Query Online.](media/wrangling-data-flow/tutorial5.png)
 
-Autore o fluxo de dados de luta utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte funções de [transformação](wrangling-data-flow-functions.md)/
+Autore o fluxo de dados de luta utilizando a preparação de dados sem código. Para a lista de funções disponíveis, consulte [as funções de transformação](wrangling-data-flow-functions.md).
 
-![Brigas](media/wrangling-data-flow/tutorial6.png)
+![Screenshot que mostra o processo de autoria do fluxo de dados de luta.](media/wrangling-data-flow/tutorial6.png)
 
 ## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Executar e monitorizar um fluxo de dados de estrangulamento
 
 Para executar uma execução de depurar o gasoduto de um fluxo de dados de distúrbios, clique em **Debug** na tela do gasoduto. Assim que publicar o fluxo de dados, **o Trigger** executa agora uma execução a pedido do último oleoduto publicado. Os fluxos de dados de estrangulamento podem ser programados com todos os gatilhos existentes da Azure Data Factory.
 
-![Brigas](media/wrangling-data-flow/tutorial3.png)
+![Screenshot que mostra como adicionar um fluxo de dados de estrangulamento.](media/wrangling-data-flow/tutorial3.png)
 
 Vá ao **separador Monitor** para visualizar a saída de uma atividade de fluxo de dados desencadeada.
 
-![Brigas](media/wrangling-data-flow/tutorial2.png)
+![Screenshot que mostra a saída de uma atividade de fluxo de dados desencadeada.](media/wrangling-data-flow/tutorial2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar um fluxo de dados de mapeamento.](tutorial-data-flow.md)

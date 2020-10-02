@@ -9,12 +9,12 @@ ms.date: 07/22/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: b815dd9218ac395786e7ab7ed3a02ba440fe2807
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad3231652056244fdfc814251e6caad025db77e5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260177"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649903"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Para instalar uma biblioteca numa piscina spark (pré-visualização) diretament
 
  4. Faça o upload do ficheiro de configuração do ambiente utilizando o seletor de ficheiros.
 
-![Adicionar bibliotecas Python](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas Python")
+![Screenshot que realça o botão de ficheiro configurar ambiente upload.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas Python")
 
 ### <a name="verify-installed-libraries"></a>Verificar bibliotecas instaladas
 

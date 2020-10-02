@@ -504,7 +504,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: quickstart-custom-speech-commands-create-new.md
-- name: Implementar
+- name: Implementação
   items:
     - name: Ativar registo
       href: how-to-use-logging.md
@@ -581,8 +581,6 @@
     - name: Suporte
       displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
       href: support.md
-    - name: Regiões
-      href: regions.md
     - name: Documentação do Swagger
       href: swagger-documentation.md
     - name: Clouds nacionais

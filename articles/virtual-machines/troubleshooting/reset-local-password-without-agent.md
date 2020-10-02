@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: c7e6772799d98cd2997a1fe6b48efe1c7632cfaa
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598365"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650601"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor uma palavra-passe do Windows local da VM do Azure offline
 Pode redefinir a palavra-passe local do Windows de um VM em Azure utilizando o [portal Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado Azure esteja instalado. Este método é a forma primária de redefinir uma palavra-passe para um VM Azure. Se encontrar problemas com o agente convidado Azure que não responde ou que não instala depois de carregar uma imagem personalizada, pode redefinir manualmente uma palavra-passe do Windows. Este artigo detalha como redefinir uma palavra-passe de conta local anexando o disco virtual de origem os a outro VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -59,7 +59,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 4. Criar `scripts.ini` em `\Windows\System32\GroupPolicy\Machine\Scripts\` . Certifique-se de que as pastas ocultas são mostradas. Se necessário, crie as `Machine` pastas ou `Scripts` as pastas. 
    
@@ -71,10 +71,10 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Criar gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Criar gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
    
     Tem de cumprir os requisitos de complexidade de palavra-passe configurados para o seu VM ao definir a nova palavra-passe.
 
@@ -106,31 +106,31 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
    
    * Selecione o VM no portal Azure e, em seguida, clique em *Eliminar*:
      
-     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 2. Fixe o disco de oss de origem da VM ao VM de resolução de problemas. O VM de resolução de problemas deve situar-se na mesma região que o disco de oss da origem VM (tais `West US` como):
    
    1. Selecione o VM de resolução de problemas no portal Azure. Clique *em Discos*  |  *Anexar existentes:*
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
      
    2. Selecione *O Ficheiro VHD* e, em seguida, selecione a conta de armazenamento que contém a sua fonte VM:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
      
    3. Verifique a caixa marcada *Mostrar contas de armazenamento clássicas*e, em seguida, selecione o recipiente de origem. O recipiente de origem é tipicamente *vhds:*
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
      
    4. Selecione o OS vhd para anexar. Clique *em Selecionar* para concluir o processo:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
    5. Clique em Ok para anexar o disco
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 3. Ligue-se ao VM de resolução de problemas utilizando o Ambiente de Trabalho Remoto e certifique-se de que o disco oss da fonte VM está visível:
 
@@ -140,7 +140,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
 
    3. No File Explorer, procure o disco de dados que anexou. Se o VHD da fonte vM é o único disco de dados ligado ao VM de resolução de problemas, deve ser o F: unidade:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Criar gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 4. Crie `gpt.ini` `\Windows\System32\GroupPolicy` na unidade da fonte VM (se `gpt.ini` existir, renomear `gpt.ini.bak` para):
    
@@ -156,7 +156,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 5. Criar `scripts.ini` em `\Windows\System32\GroupPolicy\Machine\Scripts\` . Certifique-se de que as pastas ocultas são mostradas. Se necessário, crie as `Machine` pastas ou `Scripts` as pastas.
    
@@ -168,10 +168,10 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Criar gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Criar gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
    
     Tem de cumprir os requisitos de complexidade de palavra-passe configurados para o seu VM ao definir a nova palavra-passe.
 
@@ -181,17 +181,17 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
    
    2. Selecione o disco de dados anexado no passo 2, clique em **Retirar**e, em seguida, clique em **OK**.
 
-     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
      
-     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 8. Criar um VM a partir do disco oss da fonte VM:
    
-     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Criar gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Screenshot que mostra as atualizações feitas no ficheiro gpt.ini.":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Complete a experiência de máquina virtual Create
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: af5efd7c9b3c486e608c39c230700b52dd17a260
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371631"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650651"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição da aplicação gerida
 
@@ -35,42 +35,42 @@ Adicione o seguinte JSON ao ficheiro. Define os parâmetros para criar uma conta
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountNamePrefix": {
-            "type": "string"
-        },
-        "storageAccountType": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountNamePrefix": {
+      "type": "string"
     },
-    "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageAccountType": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "[variables('storageAccountName')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('storageAccountType')]"
-            },
-            "kind": "StorageV2",
-            "properties": {}
-        }
-    ],
-    "outputs": {
-        "storageEndpoint": {
-            "type": "string",
-            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-        }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     }
+  },
+  "variables": {
+    "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+    }
+  }
 }
 ```
 
@@ -86,50 +86,50 @@ Adicione o seguinte arranque JSON ao ficheiro e guarde-o.
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Azure.CreateUIDef",
-   "version": "0.1.2-preview",
-   "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-            {
-                "name": "storageConfig",
-                "label": "Storage settings",
-                "subLabel": {
-                    "preValidation": "Configure the infrastructure settings",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Storage settings",
-                "elements": [
-                    {
-                        "name": "storageAccounts",
-                        "type": "Microsoft.Storage.MultiStorageAccountCombo",
-                        "label": {
-                            "prefix": "Storage account name prefix",
-                            "type": "Storage account type"
-                        },
-                        "defaultValue": {
-                            "type": "Standard_LRS"
-                        },
-                        "constraints": {
-                            "allowedTypes": [
-                                "Premium_LRS",
-                                "Standard_LRS",
-                                "Standard_GRS"
-                            ]
-                        }
-                    }
-                ]
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "basics": [
+      {}
+    ],
+    "steps": [
+      {
+        "name": "storageConfig",
+        "label": "Storage settings",
+        "subLabel": {
+          "preValidation": "Configure the infrastructure settings",
+          "postValidation": "Done"
+        },
+        "bladeTitle": "Storage settings",
+        "elements": [
+          {
+            "name": "storageAccounts",
+            "type": "Microsoft.Storage.MultiStorageAccountCombo",
+            "label": {
+              "prefix": "Storage account name prefix",
+              "type": "Storage account type"
+            },
+            "defaultValue": {
+              "type": "Standard_LRS"
+            },
+            "constraints": {
+              "allowedTypes": [
+                "Premium_LRS",
+                "Standard_LRS",
+                "Standard_GRS"
+              ]
             }
-        ],
-        "outputs": {
-            "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-            "storageAccountType": "[steps('storageConfig').storageAccounts.type]",
-            "location": "[location()]"
-        }
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
+      "storageAccountType": "[steps('storageConfig').storageAccounts.type]",
+      "location": "[location()]"
     }
+  }
 }
 ```
 
@@ -161,7 +161,7 @@ Set-AzStorageBlobContent `
   -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
-  -Context $ctx 
+  -Context $ctx
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -197,7 +197,7 @@ az storage blob upload \
 
 O próximo passo é selecionar um grupo de utilizadores, utilizador ou aplicação para gerir os recursos para o cliente. Esta identidade tem permissões no grupo de recursos gerido, de acordo com a função que é atribuída. O papel pode ser qualquer papel incorporado do Azure, como Proprietário ou Contribuinte. Para criar um novo grupo de utilizadores do Active Directory, veja [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-É preciso o ID de objeto do grupo de utilizadores a utilizar para gerir os recursos. 
+É preciso o ID de objeto do grupo de utilizadores a utilizar para gerir os recursos.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -313,7 +313,7 @@ Antes de a definição de aplicação gerida poder ser implantada na sua conta d
 
 1. No [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento.
 1. Selecione **o controlo de acesso (IAM)** para exibir as definições de controlo de acesso para a conta de armazenamento. Selecione o **separador funções** para ver a lista de atribuições de funções.
-1. Na janela **de atribuição de funções Adicionar,** selecione a **função Contribuinte.** 
+1. Na janela **de atribuição de funções Adicionar,** selecione a **função Contribuinte.**
 1. A partir do **acesso do Access a** Campo, selecione **utilizador, grupo ou principal de serviço Azure.**
 1. Em **Seleção,** procure a função **de Fornecedor de Recursos de Aparelho** e selecione-a.
 1. Guarde a tarefa de função.
@@ -321,23 +321,23 @@ Antes de a definição de aplicação gerida poder ser implantada na sua conta d
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementar a definição de aplicação gerida com um modelo ARM
 
 Utilize o seguinte modelo ARM para implementar a sua aplicação gerida embalada como uma nova definição de aplicação gerida no Catálogo de Serviços cujos ficheiros de definição são armazenados e mantidos na sua própria conta de armazenamento:
-   
+
 ```json
-    {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        },
-        "applicationName": {
-            "type": "string",
-            "metadata": {
-                "description": "Managed Application name"
-            }
-        },
-        "storageAccountType": {
+{
+  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "applicationName": {
+      "type": "string",
+      "metadata": {
+        "description": "Managed Application name"
+      }
+    },
+    "storageAccountType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -350,45 +350,45 @@ Utilize o seguinte modelo ARM para implementar a sua aplicação gerida embalada
         "description": "Storage Account type"
       }
     },
-        "definitionStorageResourceID": {
-            "type": "string",
-            "metadata": {
-                "description": "Storage account resource ID for where you're storing your definition"
-            }
-        },
-        "_artifactsLocation": {
-            "type": "string",
-            "metadata": {
-                "description": "The base URI where artifacts required by this template are located."
-            }
-        }
+    "definitionStorageResourceID": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage account resource ID for where you're storing your definition"
+      }
     },
-    "variables": {
-        "lockLevel": "None",
-        "description": "Sample Managed application definition",
-        "displayName": "Sample Managed application definition",
-        "managedApplicationDefinitionName": "[parameters('applicationName')]",
-        "packageFileUri": "[parameters('_artifactsLocation')]",
-        "defLocation": "[parameters('definitionStorageResourceID')]",
-        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
-        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Solutions/applicationDefinitions",
-            "apiVersion": "2019-07-01",
-            "name": "[variables('managedApplicationDefinitionName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "lockLevel": "[variables('lockLevel')]",
-                "description": "[variables('description')]",
-                "displayName": "[variables('displayName')]",
-                "packageFileUri": "[variables('packageFileUri')]",
-                "storageAccountId": "[variables('defLocation')]"
-            }
-        }
-    ],
-    "outputs": {}
+    "_artifactsLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "The base URI where artifacts required by this template are located."
+      }
+    }
+  },
+  "variables": {
+    "lockLevel": "None",
+    "description": "Sample Managed application definition",
+    "displayName": "Sample Managed application definition",
+    "managedApplicationDefinitionName": "[parameters('applicationName')]",
+    "packageFileUri": "[parameters('_artifactsLocation')]",
+    "defLocation": "[parameters('definitionStorageResourceID')]",
+    "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+    "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Solutions/applicationDefinitions",
+      "apiVersion": "2020-08-21-preview",
+      "name": "[variables('managedApplicationDefinitionName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "lockLevel": "[variables('lockLevel')]",
+        "description": "[variables('description')]",
+        "displayName": "[variables('displayName')]",
+        "packageFileUri": "[variables('packageFileUri')]",
+        "storageAccountId": "[variables('defLocation')]"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

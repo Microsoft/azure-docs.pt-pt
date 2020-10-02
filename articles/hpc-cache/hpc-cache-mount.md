@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613016"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651433"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
@@ -79,7 +79,7 @@ Siga este procedimento para criar o comando de montagem.
 
 1. Escolha o caminho virtual do **espaço de identificação** para o cliente. Estes caminhos ligam-se às exportações no sistema de armazenamento back-end.
 
-   ![screenshot do campo de caminhos de espaço namespace, com seletor aberto](media/mount-select-target.png)
+   ![Screenshot que mostra o campo "Virtual namespace path", com seletor aberto.](media/mount-select-target.png)
 
    Pode visualizar e alterar os caminhos virtuais do espaço de nome na página do portal **Namespace.** Leia [Configurar o espaço de nome agregado](add-namespace-paths.md) para ver como.
 

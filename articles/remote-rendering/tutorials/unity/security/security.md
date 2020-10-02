@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021328"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650481"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -163,7 +163,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     ```
 
     Este código adiciona três variáveis de corda adicionais ao seu componente **RemoteRenderingCoordinator.**
-    ![Modelo ligado](./media/storage-account-linked-model.png)
+    ![Screenshot que realça o nome da conta de armazenamento, nome do recipiente blob e caminho do modelo do componente RemoteRenderingCoordinator.](./media/storage-account-linked-model.png)
 
 1. Adicione os seus valores ao componente **RemoteRenderingCoordinator.** Depois de ter seguido o [Quickstart para conversão de modelos,](../../../quickstarts/convert-model.md)os seus valores devem ser:
 
@@ -392,12 +392,13 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
     * **Azure Tenant ID** é o ID do *Diretório (inquilino)* encontrado no seu registo de aplicações AAD (ver imagem abaixo).
     * **O ID da conta de renderização remota Azure** é o mesmo **ID** de conta que tem usado para **RemoteRenderingCoordinator**.
 
-    ![Componente auth AAD](./media/app-overview-data.png)
+    ![Screenshot que destaca o ID de Aplicação (cliente) e Diretório (inquilino) ID.](./media/app-overview-data.png)
 
 1. Press Play no Editor de Unidade e consentimento para executar uma sessão.
     Uma vez que o componente **AADAuthentication** tem um controlador de visualização, o seu automaticamente ligado para apresentar um pedido após o painel modal de autorização de sessão.
 1. Siga as instruções encontradas no painel à direita do **AppMenu**.
-    Deverá ver algo semelhante a isto: ![ Componente auth AAD ](./media/device-flow-instructions.png) Depois de introduzir o fornecido codificado no seu dispositivo secundário (ou browser no mesmo dispositivo) e iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
+    Deve ver algo semelhante a isto: ![ Ilustração que mostra o painel de instruções que aparece à direita do AppMenu.](./media/device-flow-instructions.png)
+    Depois de introduzir o fornecido codificado no seu dispositivo secundário (ou navegador no mesmo dispositivo) e iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
 1. Depois deste ponto, tudo o que está no pedido deve proceder normalmente. Verifique se a Consola de Unidade se não está a progredir nas fases como esperado.
 
 ## <a name="build-to-device"></a>Construir para dispositivo

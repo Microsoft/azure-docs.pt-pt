@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 15a53ddaa669f0720632901edfd58eb273518867
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 5b0301a57c4223666ac612b997c87c87271fe49b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049626"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649529"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
@@ -24,15 +24,13 @@ A série Edv4 e Edsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum
 
 Os tamanhos da série Edv4 são executados nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Lago de Cascade). Os tamanhos de máquina virtual Edv4 dispõem de até 504 GiB de RAM, além de armazenamento SSD local rápido e grande (até 2.400 GiB). Estas máquinas virtuais são ideais para aplicações e aplicações empresariais intensivas de memória que beneficiam de baixa latência, armazenamento local de alta velocidade. Pode anexar SSDs standard e armazenamento de hdds standard aos Edv4 VMs. 
 
-ACU: 195 - 210
-
-Armazenamento Premium: Não Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 195 - 210<br>
+[Armazenamento Premium](premium-storage-performance.md): Não Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -50,15 +48,13 @@ Atualizações de preservação da memória: Suportadas
 
 Os tamanhos da série Edsv4 são executados nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Lago de Cascade). Os tamanhos de máquina virtual Edsv4 dispõem de até 504 GiB de RAM, além de armazenamento SSD local rápido e grande (até 2.400 GiB). Estas máquinas virtuais são ideais para aplicações e aplicações empresariais intensivas de memória que beneficiam de baixa latência, armazenamento local de alta velocidade.
 
-ACU: 195-210
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 195-210<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
 |---|---|---|---|---|---|---|---|---|

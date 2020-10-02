@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939300"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650294"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações na Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -26,6 +26,8 @@ Este artigo descreve limitações na Base de Dados Azure para o serviço MySQL F
 > Se estiver à procura de valores min/max para parâmetros de servidor como `max_connections` `innodb_buffer_pool_size` e, esta informação passou para os conceitos de parâmetros do servidor <!-- **[server parameters](./concepts-server-parameters.md)** --> .
 
 A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` `query_cache_size` , é determinado pelo nível de cálculo e tamanho do cálculo do servidor. Consulte os conceitos de parâmetros do servidor <!-- [server parameters](./concepts-server-parameters.md)--> para mais informações sobre estes limites.
+
+Os plugins de palavras-passe como "validate_password" e "caching_sha2_password" não são suportados pelo serviço.
 
 ## <a name="storage-engines"></a>Motores de armazenamento
 
@@ -65,7 +67,7 @@ Os seguintes não são suportados:
 - Esta configuração só pode ser definida durante a criação do servidor.
 - Não suportado no nível de cálculo burstable.
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 - O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (VNet Integration)*, não pode ser alterado para *acesso público (endereços IP permitidos)* após a criação, e vice-versa
 - O TLS/SSL é ativado por defeito e não pode ser desativado.
 - A versão mínima TLS suportada no servidor é TLS1.2. Consulte para [ligar utilizando TLS/SSL](./how-to-connect-tls-ssl.md) para saber mais.

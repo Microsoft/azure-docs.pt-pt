@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81000106"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651450"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Dados de exportação da Azure IoT Central e visualizar insights no Power BI
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, precisa de:
 Antes de criar o seu centro de eventos e aplicação lógica, precisa de criar um grupo de recursos para os gerir. O grupo de recursos deve estar no mesmo local que a sua **aplicação In-Store Analytics - checkout** IoT Central. Para criar um grupo de recursos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Na navegação à esquerda, selecione **grupos de recursos.** Em seguida, **selecione Adicionar**.
+1. Na navegação à esquerda, selecione **grupos de recursos.** Em seguida, selecione **Adicionar**.
 1. Para **subscrição**, selecione o nome da subscrição Azure que usou para criar a sua aplicação IoT Central.
 1. Para o nome do **grupo Recursos,** insira _a análise da loja de retalho_*.
 1. Para a **Região**, selecione a mesma região que escolheu para a aplicação IoT Central.
@@ -409,7 +409,7 @@ Para adicionar a lógica ao design de aplicações lógicas, selecione **Code vi
     * Selecione o campo **Timestamp** e, em seguida, **selecione x-opt-enqueuedtime** da lista de **conteúdos Dynamic.**
     * Selecione o campo **Dwell Time 1** e, em seguida, selecione **Ver mais** ao lado **da Telemetria Parse**. Em seguida, selecione **DwellTime1**.
     * Selecione o campo **Dwell Time 2** e, em seguida, selecione **Ver mais** ao lado **da Telemetria Parse**. Em seguida, selecione **DwellTime2**.
-    * Selecione **Guardar** para guardar as alterações. A ação **da interface Dwell Time** parece a seguinte imagem: ![ Ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Selecione **Guardar** para guardar as alterações. A ação **da interface Dwell Time** parece a seguinte imagem: Screenshot que mostra a ação ![ "Dwell Time interface".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Selecione a ação **de interface People Count** e selecione Adicione uma **ação**.
 1. Em **Pesquisar conectores e ações**, insira **Power BI**e, em seguida, prima **Enter**.
 1. Selecione as **linhas Adicionar a uma ação de conjunto de dados (pré-visualização).**
@@ -445,7 +445,7 @@ Adicione quatro telhas de gráfico de linha para mostrar a temperatura e a humid
 | Eixo | Timestamp | Timestamp | Timestamp | Timestamp |
 | Valores | Temperatura | Humidade | Temperatura | Humidade |
 | Janela do tempo | 60 minutos | 60 minutos | 60 minutos | 60 minutos |
-| Title | Temperatura (1 hora) | Humidade (1 hora) | Temperatura (1 hora) | Humidade (1 hora) |
+| Título | Temperatura (1 hora) | Humidade (1 hora) | Temperatura (1 hora) | Humidade (1 hora) |
 | Subtítulo | Zona 1 | Zona 1 | Zona 2 | Zona 2 |
 
 A imagem a seguir mostra as definições para o primeiro gráfico:
@@ -461,7 +461,7 @@ Adicione quatro telhas de cartão para mostrar os valores mais recentes de tempe
 | Conjunto de dados | Sensor zona 1 | Sensor zona 1 | Sensor zona 2 | Sensor zona 2 |
 | Tipo de visualização | Cartão | Cartão | Cartão | Cartão |
 | Campos | Temperatura | Humidade | Temperatura | Humidade |
-| Title | Temperatura (F) | Humidade (%) | Temperatura (F) | Humidade (%) |
+| Título | Temperatura (F) | Humidade (%) | Temperatura (F) | Humidade (%) |
 | Subtítulo | Zona 1 | Zona 1 | Zona 2 | Zona 2 |
 
 A imagem que se segue mostra as definições da primeira carta:
@@ -479,16 +479,16 @@ Adicione quatro telhas de cartão para mostrar o comprimento da fila e tempo de 
 | Eixo    | Timestamp | Timestamp | N/D | N/D |
 | Valor | Tempo de Morador 1 | Tempo de Morador 2 | Comprimento da fila 1 | Comprimento da fila 2 |
 | Janela do tempo | 60 minutos | 60 minutos |  N/D | N/D |
-| Title | Tempo de Mora | Tempo de Mora | Comprimento da Fila | Comprimento da Fila |
+| Título | Tempo de Mora | Tempo de Mora | Comprimento da Fila | Comprimento da Fila |
 | Subtítulo | Check-out 1 | Check-out 2 | Check-out 1 | Check-out 2 |
 
 Redimensione e reorganize os azulejos do seu painel para parecer a seguinte imagem:
 
-![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Screenshot que mostra o painel Power B I com azulejos redimensionados e reorganizados.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Pode adicionar alguns recursos gráficos adicionais para personalizar ainda mais o painel de instrumentos:
 
-![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
+![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
