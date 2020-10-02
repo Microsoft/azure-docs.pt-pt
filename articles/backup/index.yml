@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
+  ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90974438"
+  ms.lasthandoff: 10/01/2020
+  ms.locfileid: "91620125"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -60,6 +60,12 @@ landingContent:
       url: backup-center-overview.md
     - text: Cópia de Segurança da Base de Dados do Azure para PostgreSQL
       url: backup-azure-database-postgresql.md
+    - text: Cópia de segurança e restauro de discos seletivos para as VMs do Azure
+      url: selective-disk-backup-restore.md
+    - text: Restauro Entre Regiões das bases de dados do SQL Server nas VMs do Azure
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: Suporte para cópia de segurança de VM com um máximo de 32 discos
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Eliminação Recuperável do Azure Backup
       url: backup-azure-security-feature-cloud.md
     - text: Restaurar VMs do SQL Server no Azure como ficheiros

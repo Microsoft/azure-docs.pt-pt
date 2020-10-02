@@ -97,6 +97,8 @@
       href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do Hub IoT do Azure
       href: ../../iot-hub/security-baseline.md
+    - name: Linha de base de segurança do Azure Kubernetes Service
+      href: ../../aks/security-baseline.md
     - name: Linha de base de segurança do Balanceador de Carga do Azure
       href: ../../load-balancer/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
@@ -117,6 +119,8 @@
       href: ../../sql-database/security-baseline.md
     - name: Linha de base de segurança do Armazenamento do Azure
       href: ../../storage/common/security-baseline.md
+    - name: Linha de base de segurança do Gestor de Tráfego do Azure
+      href: ../../traffic-manager/security-baseline.md
     - name: Linha de base de segurança do Batch
       href: ../../batch/security-baseline.md
     - name: Linha de base de segurança dos Serviços Cognitivos
@@ -163,3 +167,7 @@
       href: ../../virtual-machines/linux/security-baseline.md
     - name: Linha de base de segurança de Máquinas Virtuais do Windows
       href: ../../virtual-machines/windows/security-baseline.md
+    - name: Linha de base de segurança da Rede Virtual
+      href: ../../virtual-network/security-baseline.md
+    - name: Linha de base de segurança do Gateway de VPN
+      href: ../../vpn-gateway/security-baseline.md

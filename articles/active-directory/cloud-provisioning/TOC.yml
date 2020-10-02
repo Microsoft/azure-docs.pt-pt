@@ -7,7 +7,7 @@
     - name: O que é o aprovisionamento na cloud do Azure AD Connect?
       href: what-is-cloud-provisioning.md
       maintainContext: true
-- name: Tutoriais
+- name: Tutorials (Tutoriais)
   expanded: true
   items:
     - name: Integrar uma única floresta do AD num único inquilino do Azure AD
@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: Configuração do aprovisionamento na cloud
           href: how-to-configure.md
+        - name: Aprovisionamento a pedido
+          href: how-to-on-demand-provision.md
+        - name: Mapeamento do atributo
+          href: how-to-attribute-mapping.md
         - name: Utilizar o Início de Sessão Único
           href: how-to-sso.md
     - name: Planear e estruturar
@@ -44,13 +48,13 @@
       items:
         - name: Atualização automática do agente
           href: how-to-automatic-upgrade.md
-    - name: Programar
+    - name: Desenvolver
       items:
         - name: Transformações
           href: how-to-transformation.md
         - name: API de sincronização do Azure AD
           href: /graph/api/resources/synchronization-overview
-    - name: Resolução de problemas
+    - name: Resolver Problemas
       items:
         - name: Resolver problemas de aprovisionamento na cloud
           href: how-to-troubleshoot.md

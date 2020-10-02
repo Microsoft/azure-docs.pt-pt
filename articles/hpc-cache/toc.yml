@@ -18,6 +18,8 @@
       items:
         - name: Adicionar destinos de armazenamento
           href: hpc-cache-add-storage.md
+        - name: Adicionar caminhos de espaço de nomes
+          href: add-namespace-paths.md
         - name: Mover dados para destinos de armazenamento (se necessário)
           items:
             - name: Pré-carregar o novo Armazenamento de blobs
@@ -42,8 +44,6 @@
   items:
     - name: CLI do Azure
       href: /cli/azure/ext/hpc-cache/hpc-cache
-    - name: Azure PowerShell
-      href: /powershell/module/Az.HPCCache
 - name: Recursos
   items:
     - name: Abrir um pedido de suporte
