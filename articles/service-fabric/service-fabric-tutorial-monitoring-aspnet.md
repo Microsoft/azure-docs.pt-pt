@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1940e65fc5a9fd4aecd0b0cbcf6631e0628bda91
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020114"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653133"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 
@@ -75,7 +75,7 @@ Siga estes passos para configurar insights de aplicações tanto para os serviç
 >[!NOTE]
 >Dependendo do tipo de projeto, quando clicar no nome do serviço, poderá ter de clicar em Add-> Application Insights Telemetria ...
 
-2. Clique em **Começar**.
+2. Clique **em Começar**.
 3. Faça o sômis na conta que usou para configurar a sua subscrição Azure e selecione a subscrição na qual criou o recurso Application Insights. Localize o recurso em *Recurso do Application Insights existente* na lista pendente "Recurso". Clique em **Registar** para adicionar o Application Insights ao seu serviço.
 
     ![Registar IA](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
@@ -191,7 +191,7 @@ Pode clicar num dos rastreios para ver mais detalhes acerca do mesmo. Não há i
 
 Além disso, pode clicar em *mapeamento da Aplicação* no menu à esquerda na página Descrição Geral, ou clicar no ícone **mapa da Aplicação** de modo ser levado para o Mapa da Aplicação que mostra os dois serviços ligados.
 
-![Detalhes de rastreio de IA](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Screenshot que destaca o mapa de aplicação no menu esquerdo.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 O Mapa da aplicação pode ajudar a compreender melhor a topologia da aplicação, especialmente quando começar a adicionar vários serviços que funcionam em conjunto. Também lhe dá dados básicos sobre taxas de êxito de pedidos e pode ajudar a diagnosticar pedidos falhados para compreender onde as coisas poderão ter corrido mal. Para saber mais sobre como utilizar o Mapa da aplicação, veja [Mapa da Aplicação no Application Insights](../azure-monitor/app/app-map.md).
 

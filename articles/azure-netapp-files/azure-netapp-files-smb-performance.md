@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91628501"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653694"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>PERGUNTAS Frequentes sobre desempenho SMB para ficheiros Azure NetApp
 

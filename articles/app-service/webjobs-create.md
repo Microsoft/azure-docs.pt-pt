@@ -8,18 +8,18 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085149"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652011"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Azure App Service
 
 Este artigo mostra como implementar WebJobs utilizando o [portal Azure](https://portal.azure.com) para carregar um executável ou script. Para obter informações sobre como desenvolver e implementar WebJobs utilizando o Visual Studio, consulte [Implementar WebJobs utilizando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 WebJobs é uma funcionalidade do [Azure App Service](index.yml) que lhe permite executar um programa ou script no mesmo caso que uma aplicação web, app API ou aplicativo móvel. Não há custo adicional para usar WebJobs.
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ São suportados os seguintes tipos de ficheiro:
 * .js (utilizando Node.js)
 * .jar (usando Java)
 
-## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a>Criar um WebJob contínuo
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Criar um WebJob contínuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -73,14 +73,14 @@ when making changes in one don't forget the other two.
 
 3. Utilize as definições **Add WebJob** conforme especificado na tabela.
 
-   ![Adicionar página WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Screenshot que mostra as definições do Add WebJob que precisa de configurar.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
    | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Contínuo | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
-   | **Escala** | Várias instâncias | Disponível apenas para WebJobs contínuos. Determina se o programa ou o script são executados em todas as instâncias ou apenas num caso. A opção de correr em várias instâncias não se aplica aos [níveis de preços gratuitos](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)ou partilhados . | 
+   | **Dimensionamento** | Várias instâncias | Disponível apenas para WebJobs contínuos. Determina se o programa ou o script são executados em todas as instâncias ou apenas num caso. A opção de correr em várias instâncias não se aplica aos [níveis de preços gratuitos](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)ou partilhados . | 
 
 4. Clique em **OK**.
 
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Pare um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a>Criar um WebJob ativado manualmente
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Criar um WebJob ativado manualmente
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -111,7 +111,7 @@ when making changes in one don't forget the other two.
 
 3. Utilize as definições **Add WebJob** conforme especificado na tabela.
 
-   ![Adicionar página WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Screenshot que mostra as definições que precisam de ser definidas para criar um WebJob ativado manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a>Criar um WebJob programado
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Criar um WebJob programado
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -179,7 +179,7 @@ Para saber mais, consulte [Agendar um WebJob desencadeado.](webjobs-dotnet-deplo
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Ver a história do trabalho
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Ver a história do trabalho
 
 1. Selecione o WebJob para o qual deseja ver o histórico e, em seguida, selecione o botão **'Registares'.**
    
@@ -201,6 +201,6 @@ Para saber mais, consulte [Agendar um WebJob desencadeado.](webjobs-dotnet-deplo
    
     ![Lista de WebJobs no painel de instrumentos de história](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="next-steps"></a><a name="NextSteps"></a>Próximos passos
+## <a name="next-steps"></a><a name="NextSteps"></a> Próximos passos
 
 O Azure WebJobs SDK pode ser usado com WebJobs para simplificar muitas tarefas de programação. Para mais informações, consulte [o que é o WebJobs SDK.](https://github.com/Azure/azure-webjobs-sdk/wiki)

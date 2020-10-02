@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395235"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653388"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
@@ -27,7 +27,7 @@ Se tem vários circuitos do ExpressRoute, significa que tem mais do que um camin
 
 Considere o seguinte cenário de exemplo:
 
-![Problema de Caso 1 do ExpressRoute - encaminhamento inferior ao ideal do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagrama que mostra o problema do Caso ExpressRoute 1 - encaminhamento subópto do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 No exemplo acima, preferir os caminhos ExpressRoute configurar a Preferência Local da seguinte forma. 
 

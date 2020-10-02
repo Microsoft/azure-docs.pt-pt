@@ -2,13 +2,13 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284738"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652487"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -23,7 +23,7 @@ O Azure Resource Manager elimina automaticamente as implementações do seu hist
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implementações são eliminadas
 
-As implementações são eliminadas do seu histórico quando atinge 775 ou mais implementações. O Gestor de Recursos Azure elimina as implementações até que o histórico seja reduzido a 750. As implementações mais antigas são sempre eliminadas primeiro.
+As implementações são eliminadas do seu histórico quando ultrapassa as 775 implementações. O Gestor de Recursos Azure elimina as implementações até que o histórico seja reduzido a 750. As implementações mais antigas são sempre eliminadas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Supressões da história da implantação":::
 

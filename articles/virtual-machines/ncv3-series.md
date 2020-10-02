@@ -7,24 +7,22 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: de118f7a4a29d306fe351199795a5a8cacb38fcd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ab08d23fe7448e50db42ea126e8158ad284b3320
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289740"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653473"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
 Os VMs da série NCv3 são alimentados por GPUs NVIDIA Tesla V100. Estas GPUs podem fornecer 1,5x o desempenho computacional da série NCv2. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho tradicionais de HPC, tais como modelação de reservatórios, sequenciação de ADN, análise de proteínas, simulações de Monte Carlo, entre outros. A configuração NC24rs v3 proporciona uma interface de rede de baixa latência e alta produção otimizada para cargas de trabalho de computação paralela bem acopladas. Além das GPUs, os VMs da série NCv3 também são alimentados por CPUs Intel Xeon E5-2690 v4 (Broadwell).
 
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 
 > [!IMPORTANT]
 > Para esta série VM, a quota vCPU (core) na sua subscrição está inicialmente definida para 0 em cada região. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).

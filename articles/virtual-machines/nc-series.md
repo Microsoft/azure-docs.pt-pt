@@ -7,24 +7,23 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bd62d7f7c04896a8a62ab1290ddbc9370934d333
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 38365cc144bbffbedfa1416112c5f8eca2b5fc13
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286245"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653524"
 ---
 # <a name="nc-series"></a>Série NC
 
 Os VMs da série NC são alimentados pelo cartão [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e pelo processador Intel Xeon E5-2690 v3 (Haswell). Os utilizadores podem crunch através de dados mais rapidamente, aproveitando CUDA para aplicações de exploração de energia, simulações de acidentes, renderização ray traced, deep learning, e muito mais. A configuração NC24r proporciona uma interface de rede de baixa latência e alta produção otimizada para cargas de trabalho de computação paralela bem acopladas.
 
-Armazenamento Premium: Não Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[Armazenamento Premium](premium-storage-performance.md): Não Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | NICs máximos |
 |---|---|---|---|---|---|---|---|

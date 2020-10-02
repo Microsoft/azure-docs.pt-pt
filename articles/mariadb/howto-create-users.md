@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 34fcb8d28ae8deda88a6ce91261301ab5d08a743
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 10/1/2020
+ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104559"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653065"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores no Azure Database for MariaDB 
 Este artigo descreve como pode criar utilizadores na Base de Dados Azure para MariaDB.
@@ -29,7 +29,8 @@ O utilizador de administração do servidor obtém certos privilégios para o se
 Uma vez criada a Base de Dados Azure para o servidor MariaDB, pode utilizar a primeira conta de utilizador de administração do servidor para criar utilizadores adicionais e conceder acesso administrativo aos mesmos. Além disso, a conta de administração do servidor pode ser usada para criar utilizadores menos privilegiados que tenham acesso a esquemas de bases de dados individuais.
 
 > [!NOTE]
-> O papel de SUPER privilégio e DBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privilege-support) no artigo de limitações para entender o que não é suportado no serviço.
+> O papel de SUPER privilégio e DBA não são apoiados. Reveja os [privilégios](concepts-limits.md#privileges--data-manipulation-support) no artigo de limitações para entender o que não é suportado no serviço.<br><br>
+> Os plugins de palavras-passe como "validate_password" e "caching_sha2_password" não são suportados pelo serviço.
 
 ## <a name="create-additional-admin-users"></a>Criar utilizadores de administração adicionais
 1. Obtenha a informação de ligação e o nome de utilizador administrativo.
@@ -55,7 +56,7 @@ Uma vez criada a Base de Dados Azure para o servidor MariaDB, pode utilizar a pr
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## <a name="create-database-users"></a>Criar utilizadores de bases de dados
+## <a name="create-database-users"></a>Criar utilizadores da base de dados
 
 1. Obtenha a informação de ligação e o nome de utilizador administrativo.
    Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de inscrição a partir da página **'Vista Geral'** do servidor ou da página **Propriedades** no portal Azure. 
@@ -91,7 +92,11 @@ Uma vez criada a Base de Dados Azure para o servidor MariaDB, pode utilizar a pr
    ```
    Para obter mais informações sobre a gestão da conta de utilizador, consulte a documentação MariaDB para [gestão de conta de utilizador,](https://mariadb.com/kb/en/library/user-account-management/) [grant syntax](https://mariadb.com/kb/en/library/grant/)e [Privilégios.](https://mariadb.com/kb/en/library/grant/#privilege-levels)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="azure_superuser"></a>azure_superuser
+
+Todas as bases de dados Azure para servidores MySQL são criadas com um utilizador chamado "azure_superuser". Esta é uma conta de sistema criada pela Microsoft para gerir o servidor para realizar monitorização, backups e outras manutenção regulares. Os engenheiros de serviço também podem usar esta conta para aceder ao servidor durante um incidente com autenticação de certificados e devem solicitar o acesso usando processos just-in-time (JIT).
+
+## <a name="next-steps"></a>Passos seguintes
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação: [Criar e gerir a base de dados Azure para regras de firewall MariaDB utilizando o portal Azure](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

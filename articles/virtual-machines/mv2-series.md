@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651136"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653558"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -20,15 +20,13 @@ A série Mv2 apresenta uma plataforma de alta potência e baixa latência em exe
 
 Recurso da série Mv2 da VM Intel® Tecnologia de Hiper-Rosca
 
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
-
-Acelerador de escrita: [suportado](./how-to-enable-write-accelerator.md)
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Suportado<br>
+<br>
 
 |Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs máximos | Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|

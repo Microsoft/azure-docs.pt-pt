@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567558"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653592"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -216,7 +216,7 @@ A tabela que se segue lista os limites específicos do suporte de recurso MongoD
 | Tempo máximo de execução para as operações do MongoDB| 30 |
 | Intervalo de ligação inativo para o fecho da ligação lateral do servidor* | 30 minutos |
 
-\* Recomendamos que as aplicações do cliente ajustem o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para O Azure LoadBalancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Este timeout garantirá que as ligações ociosas não sejam fechadas por um equilibrador de carga intermédio entre a máquina do cliente e a Azure Cosmos DB.
+\* Recomendamos que as aplicações do cliente ajustem o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para O Azure LoadBalancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md).  Este timeout garantirá que as ligações ociosas não sejam fechadas por um equilibrador de carga intermédio entre a máquina do cliente e a Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Experimente cosmos DB Limites livres
 

@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018863"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653167"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -161,7 +161,7 @@ Agora, quando o script **RemoteBounds** for adicionado ao mesmo objeto de jogo q
 
 1. Execute novamente a aplicação. Pouco depois de o modelo carregar, verá os limites do objeto remoto. Verá algo como os valores abaixo:
 
-     ![Limites atualizados](./media/updated-bounds.png)
+     ![Screenshot que mostra o exemplo dos limites do objeto remoto.](./media/updated-bounds.png)
 
 Agora temos um **BoxCollider** local configurado com limites precisos no objeto unidade. Os limites permitem visualização e interação usando as mesmas estratégias que usaríamos para um objeto renderizado localmente. Por exemplo, scripts que alteram a Transformação, física, e muito mais.
 

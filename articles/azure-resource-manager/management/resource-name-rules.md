@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447520"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653371"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -174,7 +174,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Os VMs do Windows não podem incluir período ou fim com hífen.<br><br>Os VMs Linux não podem terminar com período ou hífen. |
 > | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
 
 > [!NOTE]
@@ -704,6 +704,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

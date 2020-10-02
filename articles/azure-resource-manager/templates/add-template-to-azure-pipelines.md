@@ -1,38 +1,36 @@
 ---
 title: CI/CD com gasodutos e modelos Azure
-description: Descreve como configurar a integração contínua em Pipelines Azure utilizando projetos de implementação do Grupo de Recursos Azure em Estúdio Visual para implementar modelos de Gestor de Recursos.
+description: Descreve como configurar a integração contínua em Pipelines Azure utilizando modelos de Gestor de Recursos Azure. Mostra como usar um script PowerShell ou copiar ficheiros para um local de paragem e ser implantado a partir daí.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/01/2020
+ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084656"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653405"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos ARM com Gasodutos Azure
 
-O Visual Studio fornece o projeto Azure Resource Group para criar modelos Azure Resource Manager (ARM) e implantá-los na sua subscrição Azure. Pode integrar este projeto com Pipelines Azure para integração contínua e implantação contínua (CI/CD).
+Pode integrar os modelos Azure Resource Manager (modelos ARM) com Pipelines Azure para integração contínua e implementação contínua (CI/CD). A [integração tutorial contínua dos modelos ARM com Azure Pipelines](deployment-tutorial-pipeline.md) mostra como usar a [tarefa de implementação](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) do modelo ARM para implementar um modelo a partir do seu repo GitHub. Esta abordagem funciona quando pretende implantar um modelo diretamente a partir de um repositório.
 
-Existem duas formas de implementar modelos com gasodutos Azure:
+Neste artigo, aprende-se mais duas formas de implementar modelos com gasodutos Azure. Este artigo mostra como:
 
-* **Adicionar tarefa que executa um script Azure PowerShell**. Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque você usa o mesmo script que está incluído no projeto Visual Studio (Deploy-AzureResourceGroup.ps1). O script encena artefactos do seu projeto para uma conta de armazenamento a que o Gestor de Recursos pode aceder. Os artefactos são itens no seu projeto, tais como modelos ligados, scripts e binários de aplicações. Em seguida, o script implementa o modelo.
+* **Adicionar tarefa que executa um script Azure PowerShell**. Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque pode usar o mesmo script que usou ao realizar testes locais. O seu script implementa o modelo, mas também pode executar outras operações, tais como obter valores para usar como parâmetros.
 
-* **Adicionar tarefas para copiar e implementar tarefas**. Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa encena os artefactos e a outra tarefa implementa o modelo.
+   O Visual Studio fornece o [projeto Azure Resource Group](create-visual-studio-deployment-project.md) que inclui um script PowerShell. O script encena artefactos do seu projeto para uma conta de armazenamento a que o Gestor de Recursos pode aceder. Os artefactos são itens no seu projeto, tais como modelos ligados, scripts e binários de aplicações. Se quiser continuar a utilizar o script do projeto, utilize a tarefa de script PowerShell mostrada neste artigo.
 
-Este artigo mostra ambas as abordagens.
+* **Adicionar tarefas para copiar e implementar tarefas**. Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa coloca os artefactos num local acessível. A outra tarefa implementa o modelo a partir desse local.
 
 ## <a name="prepare-your-project"></a>Prepare o seu projeto
 
-Este artigo pressupõe que o seu projeto Visual Studio e a organização Azure DevOps estão prontos para criar o pipeline. Os seguintes passos mostram como se certificar de que está pronto:
+Este artigo assume que o seu modelo ARM e a organização Azure DevOps estão prontos para criar o pipeline. Os seguintes passos mostram como se certificar de que está pronto:
 
-* Tem uma organização da Azure DevOps. Se não tiver um, [crie um de graça.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Se a sua equipa já tem uma organização Azure DevOps, certifique-se de que é administrador do projeto Azure DevOps que pretende utilizar.
+* Tem uma organização da Azure DevOps. Se não tiver um, [crie um de graça.](/azure/devops/pipelines/get-started/pipelines-sign-up) Se a sua equipa já tem uma organização Azure DevOps, certifique-se de que é administrador do projeto Azure DevOps que pretende utilizar.
 
-* Configuraste uma [ligação de serviço](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) à tua subscrição do Azure. As tarefas no gasoduto executam sob a identidade do diretor de serviço. Para obter medidas para criar a ligação, consulte [Criar um projeto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
+* Configuraste uma [ligação de serviço](/azure/devops/pipelines/library/connect-to-azure) à tua subscrição do Azure. As tarefas no gasoduto executam sob a identidade do diretor de serviço. Para obter medidas para criar a ligação, consulte [Criar um projeto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* Você tem um projeto visual Studio que foi criado a partir do modelo de arranque **do Grupo de Recursos Azure.** Para obter informações sobre a criação desse tipo de projeto, consulte [criar e implementar grupos de recursos Azure através do Visual Studio.](create-visual-studio-deployment-project.md)
-
-* O seu projeto Visual Studio está [ligado a um projeto Azure DevOps.](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops)
+* Você tem um [modelo ARM](quickstart-create-templates-use-visual-studio-code.md) que define a infraestrutura para o seu projeto.
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
@@ -56,27 +54,32 @@ Está pronto para adicionar uma tarefa Azure PowerShell ou o ficheiro de cópia 
 
 ## <a name="azure-powershell-task"></a>Tarefa Azure PowerShell
 
-Esta secção mostra como configurar a implementação contínua utilizando uma única tarefa que executa o script PowerShell no seu projeto. O seguinte ficheiro YAML cria uma [tarefa Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+Esta secção mostra como configurar a implementação contínua utilizando uma única tarefa que executa o script PowerShell no seu projeto. Se precisar de um script PowerShell que implemente um modelo, consulte [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) ou [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
-```yaml
+O seguinte ficheiro YAML cria uma [tarefa Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell):
+
+```yml
+trigger:
+- master
+
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: azureps
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@3
+- task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'demo-deploy-sp'
-    ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
-    azurePowerShellVersion: LatestVersion
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-Template.ps1'
+    ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
 ```
 
-Quando define a `AzurePowerShell@3` tarefa, o gasoduto utiliza comandos do módulo AzureRM para autenticar a ligação. Por predefinição, o script PowerShell no projeto Visual Studio utiliza o módulo AzureRM. Se atualizou o seu script para utilizar o [módulo Az,](/powershell/azure/new-azureps-module-az)desate a tarefa para `AzurePowerShell@4` .
+Quando define a `AzurePowerShell@5` tarefa, o gasoduto utiliza o [módulo Az](/powershell/azure/new-azureps-module-az). Se estiver a utilizar o módulo AzureRM no seu script, desajuste a tarefa para `AzurePowerShell@3` .
 
 ```yaml
 steps:
-- task: AzurePowerShell@4
+- task: AzurePowerShell@3
 ```
 
 Para `azureSubscription` , fornecer o nome da ligação de serviço que criou.
@@ -92,69 +95,45 @@ Para `scriptPath` , fornecer o caminho relativo do ficheiro do pipeline para o s
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Se não precisar de encenar artefactos, basta passar o nome e a localização de um grupo de recursos para usar para implantação. O script do Estúdio Visual cria o grupo de recursos se já não existir.
+Em `ScriptArguments` , fornecer quaisquer parâmetros necessários pelo seu script. O exemplo a seguir mostra alguns parâmetros para um script, mas terá de personalizar os parâmetros para o seu script.
 
 ```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
+ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Se precisar de encenar artefactos para uma conta de armazenamento existente, utilize:
+Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo para o seu oleoduto de construção, e observe o estado.
 
-```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
-```
-
-Agora, que entende como criar a tarefa, vamos passar pelos passos para editar o oleoduto.
-
-1. Abra o seu oleoduto e substitua o conteúdo pelo seu YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-     demands: azureps
-
-   steps:
-   - task: AzurePowerShell@3
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
-       azurePowerShellVersion: LatestVersion
-   ```
-
-1. Selecione **Guardar**.
-
-   ![Guardar o pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
-
-1. Forneça uma mensagem para o compromisso, e comprometa-se diretamente a **dominar**.
-
-1. Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo para o seu oleoduto de construção, e observe o estado.
-
-   ![Ver resultados](./media/add-template-to-azure-pipelines/view-results.png)
+![Ver resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
 Pode selecionar o pipeline atualmente em execução para ver detalhes sobre as tarefas. Quando terminar, vê os resultados de cada passo.
 
 ## <a name="copy-and-deploy-tasks"></a>Copiar e implementar tarefas
 
-Esta secção mostra como configurar a implementação contínua utilizando duas tarefas para encenar os artefactos e implantar o modelo.
+Esta secção mostra como configurar a implementação contínua utilizando duas tarefas. A primeira tarefa coloca os artefactos numa conta de armazenamento e a segunda tarefa implementa o modelo.
 
-O yaml seguinte mostra a tarefa de [cópia de ficheiro Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+Para copiar ficheiros para uma conta de armazenamento, o principal de serviço para a ligação de serviço deve ser atribuído à função de Colaborador de Dados blob de armazenamento ou de armazenamento do Proprietário de Dados blob. Para mais informações, consulte [Começar com a AzCopy.](../../storage/common/storage-use-azcopy-v10.md)
 
-```yaml
-- task: AzureFileCopy@3
-  displayName: 'Stage files'
+A seguinte YAML mostra a [tarefa de cópia de ficheiro Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy).
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
   inputs:
-    SourcePath: 'AzureResourceGroup1'
-    azureSubscription: 'demo-deploy-sp'
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
     Destination: 'AzureBlob'
-    storage: 'stage3a4176e058d34bb88cc'
-    ContainerName: 'democontainer'
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
 ```
 
-Existem várias partes desta tarefa para rever para o seu ambiente. `SourcePath`Indica a localização dos artefactos relativos ao ficheiro do gasoduto. Neste exemplo, os ficheiros existem numa pasta chamada `AzureResourceGroup1` que era o nome do projeto.
+Existem várias partes desta tarefa para rever para o seu ambiente. `SourcePath`Indica a localização dos artefactos relativos ao ficheiro do gasoduto.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -173,92 +152,82 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
+Depois de criar a tarefa do ficheiro de cópia, está pronto para adicionar a tarefa para implementar o modelo encenado.
+
 O seguinte YAML mostra a tarefa de implementação do [modelo Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'Central US'
+    location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
 ```
 
-Existem várias partes desta tarefa para rever para o seu ambiente.
+Há várias partes desta tarefa a rever mais detalhadamente.
 
-- `deploymentScope`: Selecione o âmbito de implementação das opções: `Management Group` e `Subscription` `Resource Group` . Utilize **o Grupo de Recursos** nesta caminhada. Para saber mais sobre os âmbitos, consulte os [âmbitos de implementação](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Selecione o âmbito de implementação das opções: `Management Group` `Subscription` , e `Resource Group` . Para saber mais sobre os âmbitos, consulte os [âmbitos de implementação](deploy-rest.md#deployment-scope).
 
-- `ConnectedServiceName`: Fornecer o nome da ligação de serviço que criou.
+- `azureResourceManagerConnection`: Fornecer o nome da ligação de serviço que criou.
 
-    ```yaml
-    ConnectedServiceName: '<your-connection-name>'
-    ```
+- `subscriptionId`: Fornecer o ID de assinatura alvo. Esta propriedade aplica-se apenas ao âmbito de implementação do Grupo de Recursos e ao âmbito de implementação da subscrição.
 
-- `subscriptionName`: Fornecer o ID de assinatura alvo. Esta propriedade aplica-se apenas ao âmbito de implementação do Grupo de Recursos e ao âmbito de implementação da subscrição.
+- `resourceGroupName` e `location` : fornecer o nome e a localização do grupo de recursos para o quais pretende implementar. A tarefa cria o grupo de recursos se não existir.
 
-- `resourceGroupName`e `location` : fornecer o nome e a localização do grupo de recursos para o quais pretende implementar. A tarefa cria o grupo de recursos se não existir.
-
-    ```yaml
-    resourceGroupName: '<resource-group-name>'
-    location: '<location>'
-    ```
-
-A tarefa de implementação liga-se a um modelo nomeado `WebSite.json` e a um ficheiro de parâmetros nomeado WebSite.parameters.jsligado. Use os nomes do seu modelo e ficheiros de parâmetros.
-
-Agora, que entende como criar as tarefas, vamos passar pelos passos para editar o oleoduto.
-
-1. Abra o seu oleoduto e substitua o conteúdo pelo seu YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-
-   steps:
-   - task: AzureFileCopy@3
-     displayName: 'Stage files'
-     inputs:
-       SourcePath: 'AzureResourceGroup1'
-       azureSubscription: 'demo-deploy-sp'
-       Destination: 'AzureBlob'
-       storage: 'stage3a4176e058d34bb88cc'
-       ContainerName: 'democontainer'
-       outputStorageUri: 'artifactsLocation'
-       outputStorageContainerSasToken: 'artifactsLocationSasToken'
-       sasTokenTimeOutInMinutes: '240'
-    - task: AzureResourceGroupDeployment@2
-      displayName: 'Deploy template'
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: 'demo-deploy-sp'
-        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: 'demogroup'
-        location: 'Central US'
-        templateLocation: 'URL of the file'
-        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-        deploymentMode: 'Incremental'
+   ```yml
+   resourceGroupName: '<resource-group-name>'
+   location: '<location>'
    ```
 
-1. Selecione **Guardar**.
+- `csmFileLink`: Fornecer o link para o modelo encenado. Ao definir o valor, utilize variáveis devolvidas da tarefa de cópia de ficheiro. O exemplo a seguir liga-se a um modelo nomeado mainTemplate.js. Os **modelos nomeados por pasta estão incluídos** porque onde a tarefa de cópia de ficheiro copiou o ficheiro para. No seu oleoduto, forneça o caminho para o seu modelo e o nome do seu modelo.
 
-1. Forneça uma mensagem para o compromisso, e comprometa-se diretamente a **dominar**.
+   ```yml
+   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   ```
 
-1. Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo para o seu oleoduto de construção, e observe o estado.
+O seu oleoduto parece:
 
-   ![Ver resultados](./media/add-template-to-azure-pipelines/view-results.png)
+```yml
+trigger:
+- master
 
-Pode selecionar o pipeline atualmente em execução para ver detalhes sobre as tarefas. Quando terminar, vê os resultados de cada passo.
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
+    Destination: 'AzureBlob'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'demogroup'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
+```
+
+Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo para o seu oleoduto de construção, e observe o estado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para o processo passo a passo sobre a utilização de Gasodutos Azure com modelos ARM, consulte [Tutorial: Integração contínua dos modelos do Gestor de Recursos Azure com Gasodutos Azure](deployment-tutorial-pipeline.md).
+Para aprender a usar modelos ARM com ações do GitHub, consulte [os modelos de Gestor de Recursos do Azure, utilizando as ações do GitHub](deploy-github-actions.md).

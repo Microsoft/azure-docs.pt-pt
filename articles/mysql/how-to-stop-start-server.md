@@ -6,25 +6,25 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: f09b6d48e8a98b0995c882769d6c978996324dad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346114"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653099"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Parar/Iniciar uma Base de Dados Azure para o MySQL
 
 > [!IMPORTANT]
 > A funcionalidade stop/Start para Azure Database para o MySQL encontra-se atualmente em pré-visualização pública.
 
-Este artigo fornece procedimento passo a passo para executar Stop and Start do servidor flexível.
+Este artigo fornece procedimento passo a passo para executar Stop and Start do servidor único.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, precisa:
 
--   Deve ter uma base de dados Azure para o MySQL Flexible Server.
+-   Deve ter uma base de dados Azure para o MySQL single Server.
 
 > [!NOTE]
 > Consulte a limitação da utilização do [stop/start](concepts-servers.md#limitations-of-stopstart-operation)
@@ -40,18 +40,18 @@ Para completar este guia, precisa:
     :::image type="content" source="./media/howto-stop-start-server/mysql-stop-server.png" alt-text="Base de dados Azure para o servidor MySQL Stop":::
 
     > [!NOTE]
-    > Uma vez que o servidor é parado, as outras operações de gestão não estão disponíveis para o servidor flexível.
+    > Uma vez que o servidor é parado, as outras operações de gestão não estão disponíveis para o servidor único.
 
 ### <a name="start-a-stopped-server"></a>Inicie um servidor parado
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível que pretende iniciar.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor único que pretende iniciar.
 
 2.  A partir da página **'Vista Geral',** clique no botão **Iniciar** na barra de ferramentas.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database para o servidor de arranque mySQL":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Base de dados Azure para o servidor MySQL Stop":::
 
     > [!NOTE]
-    > Uma vez iniciado o servidor, todas as operações de gestão estão agora disponíveis para o servidor flexível.
+    > Uma vez iniciado o servidor, todas as operações de gestão estão agora disponíveis para o servidor único.
 
 ## <a name="how-to-stopstart-the-azure-database-for-mysql-using-cli"></a>Como parar/iniciar a Base de Dados Azure para o MySQL utilizando o CLI
 
@@ -65,11 +65,11 @@ Para completar este guia, precisa:
     az mysql server stop --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > Uma vez que o servidor é parado, as outras operações de gestão não estão disponíveis para o servidor flexível.
+    > Uma vez que o servidor é parado, as outras operações de gestão não estão disponíveis para o servidor único.
 
 ### <a name="start-a-stopped-server"></a>Inicie um servidor parado
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível que pretende iniciar.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor único que pretende iniciar.
 
 2.  A partir da página **'Vista Geral',** clique no botão **Iniciar** na barra de ferramentas.
 
@@ -77,7 +77,7 @@ Para completar este guia, precisa:
     az mysql server start --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > Uma vez iniciado o servidor, todas as operações de gestão estão agora disponíveis para o servidor flexível.
+    > Uma vez iniciado o servidor, todas as operações de gestão estão agora disponíveis para o servidor único.
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba [como criar alertas sobre métricas.](howto-alert-on-metric.md)

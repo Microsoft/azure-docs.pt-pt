@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286211"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653454"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 
@@ -24,6 +24,7 @@ As instâncias NDv2 proporcionam um excelente desempenho para as cargas de traba
 
 Criticamente, o NDv2 é construído para uma escala computacionalmente intensa (aproveitando 8 GPUs por VM) e cargas de carga de escala (aproveitando várias VMs trabalhando em conjunto). A série NDv2 suporta agora a rede de backend EDR 100 Gigabit InfiniBand EDR, semelhante à disponível na série HB de HPC VM, para permitir o agrupamento de alto desempenho para cenários paralelos, incluindo formação distribuída para IA e ML. Esta rede de backend suporta todos os principais protocolos InfiniBand, incluindo os utilizados pelas bibliotecas NCCL2 da NVIDIA, permitindo um agrupamento sem emendas de GPUs.
 
+> [!IMPORTANT]
 > Quando [ativar a InfiniBand](./workloads/hpc/enable-infiniband.md) no VM ND40rs_v2, utilize o controlador 4.7-1.0.0.1 Mellanox OFED.
 >
 > Devido ao aumento da memória da GPU, o novo ND40rs_v2 VM requer a utilização de [VMs de Geração 2](./windows/generation-2.md) e imagens de marketplace. 
@@ -32,15 +33,13 @@ Criticamente, o NDv2 é construído para uma escala computacionalmente intensa (
 
 <br>
 
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
-
-InfiniBand: Suportado
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+InfiniBand: Suportado<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento Temporário (SSD): GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo do disco não colocado em cache: IOPS/MBps | Largura de banda da rede Max | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|

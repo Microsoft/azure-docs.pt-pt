@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959064"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652045"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Introdução ao SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -264,13 +264,13 @@ Nesta secção, você constrói e executa o projeto localmente e desencadeia a f
 
 1. Introduza a *fila* como o nome da fila e, em seguida, selecione **OK**.
 
-   ![Criar fila](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot que mostra onde cria a fila e lhe dá o nome de "fila". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Clique no nó à direita para a nova fila e, em seguida, selecione **Ver Fila**.
 
 1. Selecione o ícone **'Adicionar mensagem'.**
 
-   ![Criar fila](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot que realça o ícone 'Adicionar Mensagem'.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. No diálogo **'Adicionar Mensagem',** insira *Hello World!* como o **texto mensagem**, e, em seguida, selecione **OK**. Há agora uma mensagem na fila.
 
@@ -329,7 +329,7 @@ Nesta secção, faz as seguintes tarefas para configurar o registo de Insights d
 
    |Nome  |cadeia de conexão  |Tipo de base de dados|
    |---------|---------|------|
-   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizar|
+   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
 
 1. Se a caixa **'Definições de Aplicação'** não tiver uma chave de instrumentação de Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a aplicação do Serviço de Aplicações.)
 

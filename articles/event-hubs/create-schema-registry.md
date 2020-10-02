@@ -4,12 +4,12 @@ description: Este artigo mostra-lhe como criar um registo de esquemas num espaç
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566368"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652198"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Criar um registo de esquemas Azure Event Hubs (pré-visualização)
 Este artigo mostra-lhe como criar um grupo de esquemas com esquemas num registo de esquemas hospedado pela Azure Event Hubs. Para uma visão geral da funcionalidade de Registo de Schema dos Hubs de Eventos Azure, consulte [o Registo Azure Schema em Centros de Eventos.](schema-registry-overview.md)
@@ -17,7 +17,6 @@ Este artigo mostra-lhe como criar um grupo de esquemas com esquemas num registo 
 > [!NOTE]
 > - A funcionalidade **de Registo de Schema** está atualmente em **pré-visualização,** e não é recomendada para cargas de trabalho de produção.
 > - A funcionalidade está disponível apenas em níveis **standard** e **dedicados,** não no nível **básico.**
-> - Esta pré-visualização está atualmente disponível apenas na região **centro-americana.** 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [Crie um espaço de nomes de Centros de Eventos.](event-hubs-create.md#create-an-event-hubs-namespace) Também pode utilizar um espaço de nome existente. 

@@ -7,24 +7,22 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 8c229a72b706333a117645095bd96e44abbdf469
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1dfd4185f077806d6b84376e786cfe5de1a8ffc3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418896"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653449"
 ---
 # <a name="nd-series"></a>Série ND
 
 As máquinas virtuais da série ND são uma nova adição à família GPU projetada para IA e cargas de trabalho deep learning. Oferecem excelente desempenho para treino e inferência. As instâncias ND são alimentadas por [GPUs NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) e Intel Xeon E5-2690 v4 (Broadwell) CPUs. Estes casos proporcionam um excelente desempenho para operações de ponto flutuante de precisão única, para cargas de carga de IA utilizando o Microsoft Cognitive Toolkit, TensorFlow, Caffe e outras estruturas. A série ND também oferece um tamanho de memória GPU muito maior (24 GB), permitindo encaixar em modelos de rede neural muito maior. Tal como a série NC, a série ND oferece uma configuração com uma rede secundária de baixa latência, de alta produção através da RDMA, e conectividade InfiniBand para que possa executar trabalhos de formação em larga escala abrangendo muitas GPUs.
 
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 
 > [!IMPORTANT]
 > Para esta série VM, a quota vCPU (core) por região na sua subscrição está inicialmente definida para 0. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).
@@ -59,6 +57,6 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

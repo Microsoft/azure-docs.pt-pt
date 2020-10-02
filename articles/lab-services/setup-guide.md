@@ -3,12 +3,12 @@ title: Guia de configuração de laboratório de sala de aula acelerado para ser
 description: Este guia ajuda os criadores de laboratório a criar rapidamente uma conta de laboratório para uso dentro da escola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445581"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652215"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração do laboratório de sala de aula
 
@@ -60,9 +60,6 @@ Os Serviços de Laboratório usam um modelo de preços pago, o que significa que
 - **Horário**: Um horário permite controlar automaticamente quando os VM dos seus laboratórios são iniciados e desligados.
 - **Quota**: A quota controla o número de horas que os alunos terão acesso a um VM fora do horário programado. Se a quota for alcançada enquanto um aluno a utiliza, o VM é automaticamente desligado. O aluno não pode reiniciar o VM a menos que a quota seja aumentada.
 - **Paragem automática**: Quando ativado, a definição de paragem automática faz com que os VMs do Windows se desliguem automaticamente após um certo período de tempo, depois de um aluno ter desligado de uma sessão de Protocolo de Ambiente de Trabalho Remoto (PDR). Por predefinição, esta definição está desativada.  
-
-    > [!NOTE]
-    > Atualmente esta definição existe apenas para o Windows.
 
 ### <a name="how-will-students-save-their-work"></a>Como é que os alunos vão salvar o seu trabalho?
 
@@ -129,7 +126,7 @@ Depois de entender os requisitos para o laboratório da sua turma, está pronto 
     > [!NOTE]
     > O custo estimado mostrado no painel de instrumentos é o custo máximo que se pode esperar para o uso dos alunos do laboratório. Por exemplo, *não* será cobrado por horas de quota não-aproveitadas pelos seus alunos. Os custos estimados *não* refletem quaisquer encargos pela utilização do modelo VM, da galeria de imagens partilhada, ou quando o criador do laboratório inicia uma máquina de utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Controlar a utilização de um laboratório de sala de aula](tutorial-track-usage.md)
   

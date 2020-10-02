@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375678"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654409"
 ---
 Para criar um projeto visual Studio para desenvolvimento de desktop C++, você precisa configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo e instalar o Speech SDK.
 
@@ -19,13 +19,13 @@ Para começar, certifique-se de que está configurado corretamente no Estúdio V
 
 1. Abra o Visual Studio 2019 para exibir a janela **Iniciar.**
 
-   ![Janela de início - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Screenshot que mostra a janela "Start" do Visual Studio 2019.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. **Selecione Continue sem código** para ir ao Visual Studio IDE.
 
 1. A partir da barra de menus Visual Studio, selecione **Tools**  >  **Get Tools and Features** para abrir o Instalador de Estúdio Visual e ver a caixa de diálogo **modificante.**
 
-   ![Separador de cargas de trabalho, caixa de diálogo modificante, Instalador de Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Screenshot que mostra o separador "Workloads" da caixa de diálogo "Modificar" para o "Instalador de Estúdio Visual".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. No **separador Workloads,** no **Windows,** encontre o desenvolvimento do Ambiente de Trabalho com carga de trabalho **C++.** Se a caixa de verificação ao lado da carga de trabalho ainda não estiver selecionada, selecione-a.
 

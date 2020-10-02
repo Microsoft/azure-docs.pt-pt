@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119645"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653235"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Ponto final da plataforma de identidade da Microsoft UserInfo
 
@@ -28,7 +28,7 @@ O ponto final do UserInfo faz parte da [norma OpenID Connect](https://openid.net
 
 Pode descobrir programáticamente o ponto final do UserInfo utilizando o documento de descoberta OpenID Connect, em `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Está listado no `userinfo_endpoint` campo, e este padrão pode ser usado através das nuvens para ajudar a apontar para o ponto final certo.  Não recomendamos a codificação dura do ponto final do UserInfo na sua aplicação – utilize o documento de descoberta OIDC para encontrar este ponto final em tempo de execução.
 
-Como parte da especificação OpenID Connect, o ponto final do UserInfo é frequentemente chamado automaticamente por [bibliotecas compatíveis com o OIDC](https://openid.net/developers/certified/) para obter informações sobre o utilizador.  Sem hospedar tal ponto final, a plataforma de identidade da Microsoft não seria compatível com padrões e algumas bibliotecas falhariam.  Da [lista de reclamações identificadas na norma OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) produzimos as reclamações de nome, reclamação de assunto e e-mail quando disponíveis e consentidas.  
+Como parte da especificação OpenID Connect, o ponto final do UserInfo é frequentemente chamado automaticamente por [bibliotecas compatíveis com o OIDC](https://openid.net/developers/certified/)  para obter informações sobre o utilizador.  Sem hospedar tal ponto final, a plataforma de identidade da Microsoft não seria compatível com padrões e algumas bibliotecas falhariam.  Da [lista de reclamações identificadas na norma OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) produzimos as reclamações de nome, reclamação de assunto e e-mail quando disponíveis e consentidas.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Considere: Use um token de ID em vez
 
@@ -42,7 +42,7 @@ UserInfo é uma API de token padrão do Portador de OAuth, chamada como qualquer
 
 ### <a name="permissions"></a>Permissões
 
-Utilize as [seguintes permissões OIDC](v2-permissions-and-consent.md#openid-connect-scopes) para ligar para a API Do UtilizadorInfo. `openid`é necessário, e os `profile` `email` e os âmbitos asseguram que informações adicionais são fornecidas na resposta.
+Utilize as [seguintes permissões OIDC](v2-permissions-and-consent.md#openid-connect-scopes) para ligar para a API Do UtilizadorInfo. `openid` é necessário, e os `profile` `email` e os âmbitos asseguram que informações adicionais são fornecidas na resposta.
 
 |Tipo de permissão      | Permissões    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-As reclamações aqui `sub` listadas, incluindo, são as mesmas alegações que a app veria no [token de ID](id-tokens.md) emitido para a app.  
+As reclamações aqui listadas são todas as alegações que o ponto final do UserInfo pode devolver.  Estes são os mesmos valores que a app veria no [token de ID](id-tokens.md) emitido para a app.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>Notas e ressalvas no ponto final do UserInfo
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 62f27a07c868cc9cc7f37a7b26ab38127946e3c2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284783"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652878"
 ---
 # <a name="nv-series"></a>Série NV
 
@@ -20,13 +20,12 @@ As máquinas virtuais da série NV são alimentadas pela [tecnologia NVIDIA Tesl
 
 Cada GPU em instâncias NV vem com uma licença GRID. Esta licença dá-lhe a flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único utilizador, ou 25 utilizadores simultâneos podem ligar-se ao VM para um cenário de aplicação virtual.
 
-Armazenamento Premium: Não Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[Armazenamento Premium](premium-storage-performance.md): Não Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | NICs máximos | Estações de trabalho virtuais | Aplicações Virtuais |
 |---|---|---|---|---|---|---|---|---|---|

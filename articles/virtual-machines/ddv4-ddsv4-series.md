@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649912"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652997"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
@@ -28,15 +28,13 @@ Os tamanhos da série Ddv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 
 Os novos tamanhos Ddv4 VM incluem armazenamento SSD local rápido e maior (até 2.400 GiB) e são projetados para aplicações que beneficiam de baixa latência, armazenamento local de alta velocidade, como aplicações que requerem leituras rápidas/escritas para armazenamento temporário ou que precisam de armazenamento temporário para caches ou arquivos temporários. Pode anexar SSDs Standard e armazenamento standard de HDDs aos Ddv4 VMs. O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais.
 
-ACU: 195-210
-
-Armazenamento Premium: Não Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 195-210<br>
+[Armazenamento Premium](premium-storage-performance.md): Não Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br> 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ Os novos tamanhos Ddsv4 VM incluem armazenamento SSD local rápido e maior (até
  > [!NOTE]
  >Os preços e os contadores de faturação para tamanhos Ddsv4 são os mesmos que a série Ddv4.
 
-ACU: 195-210
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 195-210<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+<br> 
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
 |---|---|---|---|---|---|---|---|---|

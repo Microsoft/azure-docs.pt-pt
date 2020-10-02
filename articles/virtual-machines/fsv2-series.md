@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 50653b0da2bb488f2a0d4254df2e27ba7c6a5f1f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648314"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651926"
 ---
 # <a name="fsv2-series"></a>Série Fsv2
 
@@ -20,15 +20,13 @@ A série Fsv2 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade
 
 Os VMs da série Fsv2 apresentam tecnologia de hiper rosca ® Intel.
 
-ACU: 195 - 210
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[ACU](acu.md): 195 - 210<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|

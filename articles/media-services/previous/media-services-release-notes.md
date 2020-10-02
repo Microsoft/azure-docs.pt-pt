@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268660"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652963"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -48,6 +48,18 @@ Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de 
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Rest API versão história
 Para obter informações sobre o histórico da versão API dos Serviços de Mídia REST, consulte a referência API dos [Serviços de Mídia Azure].
+
+## <a name="september-2020"></a>Setembro de 2020
+
+As seguintes propriedades v2 deixarão de ser preenchidas com dados históricos de progresso do trabalho:
+
+* [Eventos Históricos](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Para obter o histórico de tarefas, deve utilizar as notificações de emprego v2 através de webhooks ou mensagens de fila utilizando Pontos Finais de Notificação. Para obter mais informações, consulte:
+
+* [Use o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-queues.md)
+* [Use webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>Fevereiro de 2020
 
@@ -374,7 +386,7 @@ Os metadados REST dos Serviços de Comunicação Social são agora a versão 2.7
 
 O SDK dos Serviços de Comunicação Social para .NET é agora a versão 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Alterações interruptivas
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Quebra de mudanças
 * A origem foi renomeada para [StreamingEndpoint.]
 * Foi feita uma alteração no comportamento predefinido quando utiliza o portal Azure para codificar e publicar ficheiros MP4.
 

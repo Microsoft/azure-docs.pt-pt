@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011214"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653116"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação para vários serviços do Service Fabric Mesh
 
@@ -59,7 +59,7 @@ Na caixa **Nome**, escreva `todolistapp` e, na caixa **Localização**, defina o
 
 Certifique-se de que **Criar diretório para a solução** está selecionado e clique em **OK** para criar o projeto do Service Fabric Mesh.
 
-![Caixa de diálogo de novo projeto do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Screenshot que mostra como criar um projeto de malha de tecido de serviço.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Em seguida, verá a caixa de diálogo **Novo Serviço do Service Fabric**.
 
@@ -73,7 +73,7 @@ Defina o **Nome do Serviço** como **WebFrontEnd**. Prima **OK** para criar o se
 
 Em seguida, verá o diálogo ASP.NET Core Web Application. Selecione **Web Application** (Aplicação Web) e clique em **OK**.
 
-![Nova aplicação ASP.NET Core do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Screenshot que realça o modelo de aplicação web.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Tem agora uma aplicação do Service Fabric Mesh. Em seguida, crie o modelo para as informações das tarefas.
 

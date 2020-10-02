@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral do suporte do Registo de Schem
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a0cc54f6ada1a5900e817c8e22fc192cd73f6550
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568374"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653575"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registo de Esquemas do Azure nos Hubs de Eventos (Pré-visualização)
 Em muitos cenários de streaming e mensagens de eventos, a carga útil do evento ou da mensagem contém dados estruturados que estão a ser serializados ou deseralizados usando um formato orientado por esquemas como o Apache Avro. Tanto os remetentes como os recetores podem querer validar a integridade dos dados com um documento de esquema como com o esquema JSON. No que diz sobre os formatos orientados por esquemas, a disponibilização do esquema ao consumidor de mensagens é um pré-requisito para que o consumidor possa deserizar os dados. 
@@ -19,7 +19,6 @@ O **Registo Azure Schema** é uma característica do Event Hubs, que fornece um 
 > [!NOTE]
 > - A funcionalidade **de Registo de Schema** está atualmente em **pré-visualização,** e não é recomendada para cargas de trabalho de produção.
 > - A funcionalidade está disponível apenas em níveis **standard** e **dedicados,** não no nível **básico.**
-> - Esta pré-visualização está atualmente disponível apenas na região **centro-americana.** 
 
 Com quadros de serialização orientados por esquemas como o Apache Avro, externalizar metadados de serialização em esquemas partilhados também pode ajudar a reduzir drasticamente a sobrecarga por mensagem de informações de tipo e nomes de campo incluídos em todos os conjuntos de dados, como é o caso de formatos marcados como o JSON. Ter esquemas armazenados ao lado dos eventos e dentro da infraestrutura de eventos garante que os metadados necessários para serialização/des-serialização estão sempre ao alcance e os esquemas não podem ser deslocados. 
 
@@ -54,7 +53,7 @@ Para limites (por exemplo: número de grupos de esquemas num espaço de nome) qu
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 Ao aceder programaticamente ao registo de esquemas, é necessário registar uma aplicação no Azure Ative Directory (Azure AD) e adicionar o principal de segurança da aplicação a uma das funções de controlo de acesso baseado em funções (RBAC):
 
-| Função | Description | 
+| Função | Descrição | 
 | ---- | ----------- | 
 | Proprietário | Leia, escreva e elimine os grupos e esquemas do Registo de Schema. |
 | Contribuinte | Leia, escreva e elimine os grupos e esquemas do Registo de Schema. |

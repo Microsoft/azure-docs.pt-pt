@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557187"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652453"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Quickstart: Converter um modelo para renderização
 
@@ -29,7 +29,7 @@ Vai aprender a:
 * [Quickstart Completo: Rendere um modelo com Unidade](render-model.md)
 * Instalar Azure PowerShell [(documentação)](https://docs.microsoft.com/powershell/azure/)
   * Abrir um PowerShell com direitos de administração
-  * Corra:`Install-Module -Name Az -AllowClobber`
+  * Corra: `Install-Module -Name Az -AllowClobber`
 
 ## <a name="overview"></a>Descrição geral
 
@@ -38,7 +38,7 @@ O serviço de conversão consome modelos a partir do armazenamento de blob Azure
 
 É necessário:
 
-* Uma subscrição do Azure.
+* Uma subscrição do Azure
 * Uma conta 'StorageV2' na sua subscrição
 * Um recipiente de armazenamento de bolhas para o seu modelo de entrada
 * Um recipiente de armazenamento de bolhas para os seus dados de saída
@@ -188,8 +188,8 @@ O script de conversão gera um URI *de Assinatura de Acesso Partilhado (SAS)* pa
 
 O SAS URI criado pelo script de conversão só será válido por 24 horas. No entanto, depois de expirado, não precisa de voltar a converter o seu modelo. Em vez disso, pode criar um novo SAS no portal, conforme descrito nos próximos passos:
 
-1. Vá ao [portal Azure](https://www.portal.azure.com)
-1. Clique no seu recurso **de conta de armazenamento:** ![ Acesso à assinatura](./media/portal-storage-accounts.png)
+1. Aceda ao [Portal do Azure](https://www.portal.azure.com)
+1. Clique no recurso da sua **conta de Armazenamento:** ![ Screenshot que realça o recurso de conta de Armazenamento selecionado.](./media/portal-storage-accounts.png)
 1. No ecrã seguinte, clique no **explorador de armazenamento** no painel esquerdo e encontre o seu modelo de saída *(.arrAsset* file) no recipiente de armazenamento de bolhas de *arroutput.* Clique com o botão direito no ficheiro e **selecione Obter Assinatura** de Acesso Partilhado a partir do menu de contexto: Acesso à ![ assinatura](./media/portal-storage-explorer.png)
 1. Um novo ecrã abre onde pode selecionar uma data de validade. Prima **Criar**, e copiar o URI que é mostrado no diálogo seguinte. Este novo URI substitui o URI temporário que o script criou.
 

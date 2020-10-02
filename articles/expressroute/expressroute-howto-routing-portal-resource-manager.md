@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395728"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652232"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o peering de um circuito ExpressRoute
 
@@ -60,12 +60,12 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de e
 
    **Circuito - Estatuto do fornecedor: Não previsto**
 
-   [![Screenshot mostrando a página de visão geral para o Circuito de Demonstração ExpressRoute com uma caixa vermelha realçando o estado do Fornecedor que está definido para "Não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Screenshot que mostra a página de visão geral para o Circuito de Demonstração ExpressRoute com uma caixa vermelha realçando o estado do Fornecedor definido para "Não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
    **Circuito - Estatuto do fornecedor: Provisionado**
 
-   [![Screenshot mostrando a página de visão geral para o Circuito de Demonstração ExpressRoute com uma caixa vermelha realçando o estado do Fornecedor que está definido para "Provisioned".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Screenshot que mostra a página de visão geral para o Circuito de Demonstração ExpressRoute com uma caixa vermelha destacando o estado do Fornecedor definido para "Provisioned".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 
 2. Configure o peering da Microsoft para o circuito. Confirme que tem as seguintes informações antes de continuar.
 
@@ -175,7 +175,7 @@ Pode remover a configuração de peering selecionando o ícone de eliminação, 
 ![apagar o espreitamento privado](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Próximo passo, [ligue um VNet a um circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).

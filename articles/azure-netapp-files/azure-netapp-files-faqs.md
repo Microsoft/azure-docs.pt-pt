@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325577"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653626"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Tentei utilizar a raiz e os utilizadores locais para aceder a um volume de duplo protocolo com o estilo de segurança NTFS num sistema UNIX. Por que encontrei um erro de "Permissão negada"?   
 
-Um volume de duplo protocolo suporta os protocolos NFS e SMB.  Quando tenta aceder ao volume montado no sistema UNIX, o sistema tenta mapear o utilizador UNIX que utiliza para um utilizador do Windows. Se não for encontrado mapeamento, o erro "Permissão negada" ocorre.  Esta situação aplica-se também quando utiliza o utilizador 'raiz' para o acesso.    
-
-Para evitar o problema "Permissão negada", certifique-se de que o Windows Ative Directory inclui `pcuser` antes de aceder ao ponto de montagem. Se adicionar `pcuser` depois de encontrar o problema "Permissão negada", aguarde 24 horas para que a entrada do cache fique limpa antes de tentar novamente o acesso.
+Consulte [os volumes de dois protocolos de resolução de resoluções.](troubleshoot-dual-protocol-volumes.md)
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de duplo protocolo, porque é que o processo de criação falha com o erro "Falhou na validação da configuração LDAP, tente novamente depois de corrigir a configuração do LDAP"?  
 
-O registo do ponteiro (PTR) da máquina hospedeira de AD pode estar em falta no servidor DNS. É necessário criar uma zona de procura inversa no servidor DNS e, em seguida, adicionar um registo PTR da máquina hospedeira de AD nessa zona de procura inversa.
-
-Por exemplo, assuma que o endereço IP da máquina AD `1.1.1.1` é, o nome de hospedeiro da máquina AD (como se encontra através do `hostname` comando) é `AD1` , e o nome de domínio é `myDomain.com` .  O registo PTR adicionado à zona de procuração inversa deve ser `1.1.1.1`  ->  `AD1.myDomain.com` .
+Consulte [os volumes de dois protocolos de resolução de resoluções.](troubleshoot-dual-protocol-volumes.md)
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes de gestão da capacidade
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260772"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651722"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
 
@@ -85,7 +85,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 
     ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Visão explorador de armazenamento da saída")
 
-    ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visão explorador de armazenamento da saída")
+    ![Screenshot que realça o caminho de demodata > padrão > demo_df.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visão explorador de armazenamento da saída")
 
 ## <a name="run-spark-sql-statements"></a>Executar instruções SQL do Spark
 

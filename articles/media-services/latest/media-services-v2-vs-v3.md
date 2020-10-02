@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298951"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651757"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
 
@@ -30,18 +30,17 @@ Este artigo descreve alterações que foram introduzidas no Azure Media Services
 
 ## <a name="general-changes-from-v2"></a>Alterações gerais de v2
 
-* Para ativos criados com v3, os Serviços de Media suportam apenas a [encriptação de armazenamento do servidor do Azure Storage](../../storage/common/storage-service-encryption.md).
-    * Pode utilizar APIs v3 com Ativos criados com APIs v2 que tinham [encriptação de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pela Media Services.
-    * Não é possível criar novos Ativos com a [encriptação](../previous/media-services-rest-storage-encryption.md) de armazenamento AES 256 usando APIs v3.
-* As propriedades do [Ativo](assets-concept.md)em v3 diferem de v2, veja [como as propriedades mapeiam.](#map-v3-asset-properties-to-v2)
+* Para alterações relacionadas com o ativo, consulte a secção [de alterações específicas](#asset-specific-changes) do Ativo que se segue.
 * Os V3 SDKs estão agora dissociados do Storage SDK, o que lhe dá mais controlo sobre a versão do Storage SDK que pretende utilizar e evita problemas de versão. 
 * Nas APIs v3, todas as taxas de codificação estão em bits por segundo. Isto é diferente dos predefinos V2 Media Encoder Standard. Por exemplo, o bitrate em v2 seria especificado como 128 (kbps), mas em v3 seria 128000 (bits/segundo). 
 * As entidades AssetFiles, AccessPolicies e IngestManifests não existem na V3.
-* A propriedade IAsset.ParentAssets não existe em v3.
 * O ContentKeys já não é uma entidade, é agora propriedade do Localizador de Streaming.
 * O suporte da Grelha de Eventos substitui os pontos de final de notificação.
-* As seguintes entidades foram renomeadas
-    * A Saída de Emprego substitui a Tarefa, e agora faz parte de um Trabalho.
+* As seguintes entidades foram renomeadas:
+
+   * v3 JobOutput substitui v2 Task e agora faz parte de um Job. As entradas e saídas estão agora ao nível do Job. Para obter mais informações, consulte [Criar uma entrada de trabalho a partir de um ficheiro local.](job-input-from-local-file-how-to.md) 
+
+       Para obter a história do progresso do trabalho, ouça os eventos EventGrid. Para obter mais informações, consulte [eventos de Grelha de Eventos de Gestão](reacting-to-media-services-events.md).
     * O localizador de streaming substitui o localizador.
     * Live Event substitui Channel.<br/>A faturação de Eventos Ao Vivo é baseada em medidores do Live Channel. Para mais informações, consulte [a faturação](live-event-states-billing.md) e [os preços.](https://azure.microsoft.com/pricing/details/media-services/)
     * A Saída Ao Vivo substitui o Programa.
@@ -89,6 +88,12 @@ A API v3 tem as seguintes lacunas de características no que diz respeito à API
 
 ## <a name="asset-specific-changes"></a>Alterações específicas do ativo
 
+* Para ativos criados com v3, os Serviços de Media suportam apenas a [encriptação de armazenamento do servidor do Azure Storage](../../storage/common/storage-service-encryption.md).
+    * Pode utilizar APIs v3 com Ativos criados com APIs v2 que tinham [encriptação de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pela Media Services.
+    * Não é possível criar novos Ativos com a [encriptação](../previous/media-services-rest-storage-encryption.md) de armazenamento AES 256 usando APIs v3.
+* As propriedades do [Ativo](assets-concept.md)em v3 diferem de v2, veja [como as propriedades mapeiam.](#map-v3-asset-properties-to-v2)
+* A propriedade IAsset.ParentAssets não existe em v3.
+
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapear propriedades de ativos v3 para v2
 
 A tabela seguinte mostra como as propriedades do [Ativo](/rest/api/media/assets/createorupdate#asset)no mapa v3 para as propriedades do Ativo em v2.
@@ -124,7 +129,7 @@ Para proteger os seus Ativos em repouso, os ativos devem ser encriptados pela en
 
 A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários comuns.
 
-|Cenário|V2 API|V3 API|
+|Cenário|v2 API|v3 API|
 |---|---|---|
 |Criar um ativo e fazer upload de um ficheiro |[v2 .NET exemplo](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Submeter um emprego|[v2 .NET exemplo](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como primeiro criar uma Transform e depois submeter um Job.|
@@ -138,6 +143,6 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md)

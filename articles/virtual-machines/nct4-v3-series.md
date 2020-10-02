@@ -8,30 +8,29 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320171"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653507"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 série (Na pré-visualização) 
 
 As máquinas virtuais da série NCasT4_v3 são alimentadas por [GPUs Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12(Roma). Os VMs apresentam até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador AMD EPYC 7V12 (Roma) não multi-leitores e 440 GiB de memória do sistema. Estas máquinas virtuais são ideais para a implementação de serviços de IA, como a inferenização em tempo real de pedidos gerados pelo utilizador, ou para cargas de trabalho de gráficos e visualização interativas utilizando o controlador GRID da NVIDIA e a tecnologia virtual de GPU. As cargas de trabalho de cálculo standard da GPU baseadas em CUDA, TensorRT, Caffe, ONNX e outros quadros, ou aplicações gráficas aceleradas pela GPU baseadas em OpenGL e DirectX podem ser implementadas economicamente, com proximidade com os utilizadores, na série NCasT4_v3.
 
-Pode [submeter um pedido](https://aka.ms/NCT4v3Preview) para fazer parte do programa de pré-visualização.
+> [!NOTe]
+> [Submeta um pedido](https://aka.ms/NCT4v3Preview) para fazer parte do programa de pré-visualização.
 
 <br>
 
-ACU: 230-260
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[ACU](acu.md): 230-260<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- |

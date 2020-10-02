@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535982"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653320"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>O cliente lidera a partir da sua oferta de mercado comercial
 
@@ -44,7 +44,7 @@ Aqui estão os lugares onde uma pista é gerada:
 
 ## <a name="connect-to-your-crm-system"></a>Ligue-se ao seu sistema CRM
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
 
 ## <a name="understand-lead-data"></a>Compreender dados de chumbo
 
@@ -94,78 +94,8 @@ Aqui ficam algumas recomendações para conduzir condutores durante o seu ciclo 
 - **Seguimento**: Não se esqueça de acompanhar dentro de 24 horas. Obterá o chumbo na sua CRM de eleição imediatamente após o cliente implementar uma unidade de teste; enviar-lhes por e-mail dentro enquanto ainda estão quentes. Solicite agendar uma chamada para entender melhor se o seu produto é uma boa solução para o seu problema. Espere que a transação típica exija inúmeras chamadas de acompanhamento.
 - **Nutrir:** Nutrir as suas pistas para levá-lo a caminho de uma margem de lucro mais elevada. Faça o check-in, mas não os bombardeie. Recomendamos que envie um e-mail com, pelo menos, algumas vezes antes de os fechar; não desista depois da primeira tentativa. Lembre-se, estes clientes diretamente se envolveram com o seu produto e passaram algum tempo em um teste gratuito; são grandes perspetivas.
 
-## <a name="common-questions-about-lead-management"></a>Questões comuns sobre gestão de chumbo
-
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso conseguir ajuda para preparar o meu destino principal?
-
-Siga os passos na secção [Ligue-se ao seu sistema CRM,](#connect-to-your-crm-system)ou envie um bilhete de apoio através [da Ajuda e suporte do Partner Center](https://aka.ms/marketplacepublishersupport). Em seguida, **selecione Criar Oferta**O seu tipo de  >  **configuração de**  >  **gestão de chumbo**de oferta .
-
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Sou obrigado a configurar um destino principal para publicar uma oferta no mercado comercial?
-
-A resposta depende do tipo de oferta que está a publicar. Software como serviço (SaaS) e Dynamics 365 Utilização de Envolvimento com o Cliente **Contacte-me** para listar todas as ofertas Dynamics 365 para Finanças e Operações, todas as ofertas da Dynamics 365 Business Central e todas as ofertas do Serviço de Consultoria. Como resultado, requerem uma ligação a um destino de chumbo. Se o seu tipo de oferta não foi listado, uma ligação para um destino de chumbo não é necessária. Recomendamos que configuure um destino principal para que não perca oportunidades de negócio.
-
-### <a name="how-can-i-find-the-test-lead"></a>Como posso encontrar o resultado do teste?
-
-Procure `"MSFT_TEST"` no seu destino principal. Abaixo está um chumbo de teste de amostra da Microsoft. Note que o formato do chumbo de teste varia consoante o destino de chumbo.
-
-```
-{
-    "UserDetails": {
-      "FirstName": "MSFT_TEST_636573304831318844",
-      "LastName": "MSFT_TEST_636573304831318844",
-      "Email": "MSFT_TEST_636573304831318844@test.com",
-      "Phone": "1234567890",
-      "Country": "US",
-      "Company": "MSFT_TEST_636573304831318844",
-      "Title": "MSFT_TEST_636573304831318844"
-    },
-    "LeadSource": "AzureMarketplace",
-    "ActionCode": "INS",
-    "OfferTitle": "Contoso Test"
-    "Description": "MSFT_TEST_636573304831318844"
-}
-```
-
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Tenho uma oferta ao vivo, mas por que não vejo pistas?
-
-Certifique-se de que a sua ligação ao destino de chumbo é válida. Enviaremos um teste depois de selecionar **Publicar** a sua oferta no Partner Center. Se vir o chumbo do teste, a ligação é válida. Também pode testar a sua ligação de chumbo tentando adquirir a pré-visualização da oferta durante o passo de pré-visualização. Selecione **Get It Now**, **Contacte-me**ou **Teste Gratuito** na listagem no mercado comercial.
-
-Além disso, certifique-se de que procura os dados certos. O conteúdo na secção de [dados de chumbo do Understand](#understand-lead-data) deste artigo descreve os dados de chumbo que enviamos para o seu destino principal.
-
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>Configurei o armazenamento do Azure Blob como o meu destino principal, mas porque não vejo a pista?
-
-O armazenamento Azure Blob já não é suportado como um destino principal, por isso está a perder qualquer pista de clientes gerada pela sua oferta. Mude para qualquer uma das outras [opções](./commercial-marketplace-get-customer-leads.md)de destino de chumbo . 
-
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um e-mail do mercado comercial, mas por que não consigo encontrar a liderança no meu CRM?
-
-É possível que o domínio de e-mail do utilizador final seja de .edu. Por razões de privacidade, não transmitimos informações pessoais do domínio .edu. Envie um bilhete de apoio através [da Ajuda e suporte do Partner Center.](https://aka.ms/marketplacepublishersupport)
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei uma mesa Azure como o meu destino principal. Como posso ver as pistas?
-
-Pode aceder aos dados de chumbo armazenados na tabela Azure a partir do portal Azure. Também pode descarregar e instalar [gratuitamente o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para ver os dados da tabela da sua conta de armazenamento Azure.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>Configurei uma mesa Azure como o meu destino principal. Posso ser notificado sempre que for enviado um novo líder comercial?
-
-Yes. Siga as instruções na [gestão do chumbo Configure utilizando uma tabela Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) para configurar um fluxo Microsoft que envia um e-mail se um fio for adicionado à tabela Azure.
-
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Configurei a Salesforce como o meu destino principal, mas por que não encontro as pistas?
-
-Verifique se o formulário web-to-lead é um campo obrigatório baseado numa lista de escolhas. Se for, mude o campo para um campo de texto não-mando.
-
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Houve um problema com o meu destino principal, e perdi algumas pistas. Posso enviá-los para mim por e-mail?
-
-Devido às políticas de informação pessoal, não podemos partilhar informações de chumbo através de e-mails não protegidos.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Configurei uma mesa Azure como o meu destino principal. Quanto vai custar?
-
-Os dados da geração de chumbo são baixos. É menos de 1 GB para quase todos os editores. O custo depende do número de pistas recebidas. Por exemplo, se 1.000 leads forem recebidos num mês, o custo é de cerca de 50 cêntimos. Para obter mais informações sobre os preços de armazenamento, consulte [os preços gerais do Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
-
-Se a sua pergunta não for respondida, contacte o Microsoft Support através da [Ajuda do Centro de Parceiros e suporte](https://aka.ms/marketplacepublishersupport). Em seguida, **selecione Criar Oferta**O seu tipo de  >  **configuração de**  >  **gestão de chumbo**de oferta .
-
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Estou a receber notificações por e-mail quando novas pistas de clientes são recebidas. Como posso configurar outra pessoa para receber estes e-mails?
-
-Aceda à sua oferta no Partner Center e vá à página **de configuração da Oferta** **>Dição de Gestão de Chumbo.**  >  **Edit** Atualize os endereços de e-mail no campo **de e-mail de Contato.**
-
-## <a name="next-steps"></a>Próximos passos
-
 Após a configuração técnica, incorpore estes leads na sua estratégia atual de vendas e marketing e processos operacionais. Estamos interessados em compreender melhor o seu processo global de vendas e queremos trabalhar em estreita colaboração consigo para fornecer pistas de alta qualidade e dados suficientes para o tornar bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar os leads que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se estiver interessado em [fornecer feedback](mailto:AzureMarketOnboard@microsoft.com) e sugestões para que a sua equipa de vendas tenha mais sucesso com os líderes comerciais do mercado.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [FaQ de gestão de chumbo e resolução de problemas](../lead-management-faq.md)

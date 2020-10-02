@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157930"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653337"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerir a IoT Central a partir do portal Azure
 
@@ -56,13 +56,13 @@ Para começar, selecione **Todos os recursos** no portal. Selecione **Mostrar ti
 
 Para navegar para a aplicação, selecione o **URL de aplicação central IoT:**
 
-![Portal de gestão: gestão de recursos](media/howto-manage-iot-central-from-portal/image3.png)
+![Screenshot que mostra a página "Overview" com o "IoT Central Application URL" realçado.](media/howto-manage-iot-central-from-portal/image3.png)
 
 Para mover a aplicação para um grupo de recursos diferente, selecione **a alteração** ao lado do grupo de recursos. Na página **de recursos Move,** escolha o grupo de recursos que pretende mover esta aplicação para:
 
-![Portal de gestão: gestão de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
+![Screenshot que mostra a página "Visão Geral" com o "Grupo de Recursos (alteração)" realçado.](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Para mover a aplicação para uma subscrição diferente, selecione **alterar** ao lado da subscrição. Na página **de recursos Move,** escolha a subscrição que pretende mover esta aplicação para:
+Para mover a aplicação para uma subscrição diferente, selecione  **alterar** ao lado da subscrição. Na página **de recursos Move,** escolha a subscrição que pretende mover esta aplicação para:
 
 ![Portal de gestão: gestão de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 

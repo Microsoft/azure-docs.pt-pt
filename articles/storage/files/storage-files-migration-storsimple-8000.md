@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510354"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653252"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -119,7 +119,7 @@ Agora que completou a fase 1, terá feito o seguinte:
 
 :::row:::
     :::column:::
-        ![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![Ilustração que mostra que agora é hora de providenciar um VM e expor o clone de volume (ou múltiplo) ao VM sobre iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         Depois de o seu clone inicial estar disponível no aparelho virtual StorSimple 8020 em Azure, é agora altura de disponibilizar um VM e expor o clone de volume (ou múltiplo) ao VM sobre o iSCSI.
@@ -175,7 +175,7 @@ Só proceda à fase 3 quando tiver concluído estes passos para todos os volumes
 
 :::row:::
     :::column:::
-        ![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![Ilustração que mostra a necessidade de determinar e providenciar uma série de partilhas de ficheiros Azure e criar um Servidor do Windows no local como uma substituição do aparelho StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         Nesta fase, irá determinar e a provisionar uma série de partilhas de ficheiros Azure, criando um Servidor do Windows no local como substituição de aparelho StorSimple e configurar esse servidor para Azure File Sync. 
@@ -225,7 +225,7 @@ O seu Windows Server registado no local deve estar pronto e ligado à internet p
 
 :::row:::
     :::column:::
-        ![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Ilustração que mostra como você vai obter o VM conectado via Azure File Sync e iniciar uma primeira rodada de ficheiros em movimento a partir do seu(s) clone de volume StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         Esta fase diz respeito ao seu Azure VM com o iSCSI montado, clone de primeiro volume. Durante esta fase, você terá o VM ligado através do Azure File Sync e iniciará uma primeira ronda de ficheiros móveis a partir do seu(s) clone de volume StorSimple.
@@ -253,9 +253,9 @@ Durante este processo de migração, irá montar vários clones de volume para o
 > Para que isto funcione, uma chave de registo deve ser definida no servidor antes de o Azure File Sync ser configurado.
 
 1. Criar um novo diretório na unidade de sistema do VM. As informações do Azure File Sync terão de ser persistidos lá em vez de nos clones de volume montados. Por exemplo: `"C:\syncmetadata"`
-2. Abra o regedit e localize a seguinte colmeia de registo:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
+2. Abra o regedit e localize a seguinte colmeia de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Criar uma nova chave de tipo String, chamada: ***MetadataRootPath***
-4. Desacorra o caminho completo para o diretório que criou no volume do sistema, por exemplo:`C:\syncmetadata"`
+4. Desacorra o caminho completo para o diretório que criou no volume do sistema, por exemplo: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configure Azure File Sync no Azure VM
 
@@ -281,7 +281,7 @@ Por experiência própria, podemos assumir que a largura de banda - portanto, o 
 
 :::row:::
     :::column:::
-        ![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![Ilustração que mostra como minimizar o tempo de inatividade usando vários clones de volume e dizendo quando a sincronização é feita.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         Como discutido na fase anterior, a sincronização inicial pode demorar muito tempo. Os seus utilizadores e aplicações ainda estão a aceder ao aparelho StorSimple 8100 ou 8600 no local. Isto significa que as mudanças estão a acumular-se, e a cada dia um delta maior entre os dados vivos e o clone de volume inicial, está atualmente a migrar, formas. Nesta secção, aprenderá a minimizar o tempo de inatividade utilizando vários clones de volume e dizendo quando a sincronização é feita.
@@ -338,7 +338,7 @@ Neste momento, existem duas diferenças entre o seu Windows Server e o aparelho 
 1. Pode haver ficheiros que não tenham sincronizado (ver **PerItemErrors** do registo de eventos acima)
 2. O aparelho StorSimple tem uma cache povoada vs. o Windows Server apenas um espaço de nome sem nenhum conteúdo de ficheiro armazenado localmente neste momento.
 
-![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Ilustração que mostra como a cache do Servidor do Windows foi trazida para o estado do aparelho e garante que nenhum ficheiro é deixado para trás com um RoboCopy final.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 Podemos levar a cache do Servidor do Windows até ao estado do aparelho e garantir que nenhum ficheiro seja deixado para trás com um RoboCopy final.
 
@@ -451,7 +451,7 @@ Uma vez satisfeito e tiver observado a sua implantação de AFS durante pelo men
 
 A sua migração está completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça melhor o Azure File Sync. Especialmente com a flexibilidade das políticas de nivelamento em nuvem.
 

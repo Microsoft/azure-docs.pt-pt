@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654791"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653660"
 ---
 # <a name="m-series"></a>Série M
 
@@ -20,17 +20,14 @@ A série M oferece uma alta contagem de VCPU (até 128 vCPUs) e uma grande quant
 
 Recurso da série M VM, &reg; Intel Hyper-Threading Technology.
 
-ACU: 160-180
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
-
-Acelerador de escrita:  [suportado](./how-to-enable-write-accelerator.md)
+[ACU](acu.md): 160-180<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Suportado<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|

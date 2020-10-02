@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678176"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651841"
 ---
 # <a name="export-your-application"></a>Exportar a aplicação
 
@@ -30,7 +30,7 @@ Pode criar uma cópia de qualquer aplicação, menos quaisquer instâncias do di
 
 Selecione **Copiar**. Na caixa de diálogo, insira os detalhes da nova aplicação. Em seguida, **selecione Copy** para confirmar que deseja continuar. Para saber mais sobre os campos na forma, consulte o Criar um quickstart [de aplicação.](quick-deploy-iot-central.md)
 
-![Página de definições de aplicação](media/howto-use-app-templates/appcopy2.png)
+![Screenshot que mostra a página de definições "Copy Application".](media/howto-use-app-templates/appcopy2.png)
 
 Depois de a operação de cópia da aplicação ter sucesso, pode navegar para a nova aplicação utilizando o link.
 
@@ -88,6 +88,6 @@ Se eliminar um modelo de aplicação, já não pode utilizar o link partilhável
 
 Para atualizar o seu modelo de aplicação, altere o nome do modelo ou descrição na página **de Exportação do Modelo de Aplicação.** Em seguida, selecione novamente o botão **Exportação.** Esta ação gera um novo **link Shareable** e invalida qualquer URL de **ligação partilhada** anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a monitorizar a [saúde geral dos dispositivos ligados a uma aplicação IoT Central](howto-monitor-application-health.md)

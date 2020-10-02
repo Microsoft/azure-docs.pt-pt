@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654740"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653422"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -21,13 +21,12 @@ Os VMs da série B são ideais para cargas de trabalho que não necessitam de um
 
 A série B vem nos seguintes tamanhos VM:
 
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao Vivo: Suportado
-
-Atualizações de preservação da memória: Suportadas
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+<br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | CpU Base Perf de VM | Max CPU Perf de VM | Créditos Iniciais | Créditos bancários/hora | Créditos Max Banked | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

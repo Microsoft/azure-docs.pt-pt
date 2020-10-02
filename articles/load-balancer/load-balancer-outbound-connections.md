@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595642"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649801"
 ---
 # <a name="outbound-connections"></a>Ligações de saída
 
@@ -67,7 +67,7 @@ Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas 
 
 | Associações | Método | Protocolos IP |
 | ------------ | ------ | ------------ |
-|Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
+|Nenhuma </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
 
 #### <a name="description"></a>Descrição
 
@@ -160,7 +160,7 @@ Cada um dos endereços IP no prefixo IP público fornece mais 64.000 portas efé
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Tempo de saída inativo e reset TCP
 
-As regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de saída e corresponder às necessidades da sua aplicação. Intervalos de tempo de saída inativos a 4 minutos. Para obter mais informações, consulte [configurar intervalos de tempo inativos](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+As regras de saída fornecem um parâmetro de configuração para controlar o tempo limite de saída e corresponder às necessidades da sua aplicação. Intervalos de tempo de saída inativos a 4 minutos. Para obter mais informações, consulte [configurar intervalos de tempo inativos](load-balancer-tcp-idle-timeout.md). 
 
 O comportamento padrão do equilibrador de carga é baixar o fluxo silenciosamente quando o tempo de saída tiver sido atingido. O `enableTCPReset` parâmetro permite um comportamento e controlo de aplicação previsíveis. O parâmetro dita se deve enviar o Reset TCP bidirecional (TCP RST) no tempo limite do tempo de saída. 
 

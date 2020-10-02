@@ -3,12 +3,12 @@ title: Suporte à migração de VMware em Azure Migrate
 description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442272"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651960"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
 
@@ -154,7 +154,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
-Todos os VMs no local replicados ao Azure, com migração sem agente ou com base em agentes) devem satisfazer os requisitos Azure VM resumidos nesta tabela. 
+Todos os VMs no local replicados ao Azure (com migração sem agente ou com base em agentes) devem satisfazer os requisitos Azure VM resumidos nesta tabela. 
 
 **Componente** | **Requisitos** 
 --- | --- | ---
@@ -173,6 +173,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

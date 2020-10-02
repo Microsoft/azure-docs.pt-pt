@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252696"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652632"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos dos acionadores e dos enlaces das Funções do Azure
 
@@ -33,7 +33,7 @@ Considere os seguintes exemplos de como poderia implementar diferentes funções
 |A Grade de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
 | Um webhook que usa o Microsoft Graph para atualizar uma folha de Excel. | HTTP | *Nenhuma* | Microsoft Graph |
 
-<sup>\*</sup>Representa diferentes filas
+<sup>\*</sup> Representa diferentes filas
 
 Estes exemplos não se destinam a ser exaustivos, mas são fornecidos para ilustrar como se pode usar gatilhos e encadernações em conjunto.
 
@@ -50,7 +50,7 @@ O portal fornece um UI para esta configuração, mas pode editar o ficheiro dire
 
 Em .NET, o tipo de parâmetro define o tipo de dados para os dados de entrada. Por exemplo, use `string` para ligar ao texto de um gatilho de fila, um conjunto byte para ler como binário e um tipo personalizado para des-serializar a um objeto.
 
-Para idiomas que são digitado dinamicamente como JavaScript, use a `dataType` propriedade nofunction.js*no* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, definido `dataType` `binary` para:
+Para idiomas que são digitado dinamicamente como JavaScript, use a `dataType` propriedade nofunction.js* no* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP em formato binário, definido `dataType` `binary` para:
 
 ```json
 {
@@ -67,17 +67,27 @@ Outras opções para `dataType` são `stream` e `string` .
 
 Todos os gatilhos e encadernações têm uma `direction` propriedade no [function.jsarquivada:](./functions-reference.md)
 
-- Para os gatilhos, a direção é sempre`in`
-- Utilização de encadernações de entrada e saída `in` e`out`
+- Para os gatilhos, a direção é sempre `in`
+- Utilização de encadernações de entrada e saída `in` e `out`
 - Algumas encadernações suportam uma direção `inout` especial. Se `inout` utilizar, apenas o **editor Advanced** está disponível através do **separador Integração** no portal.
 
 Quando utiliza [atributos numa biblioteca de classes](functions-dotnet-class-library.md) para configurar gatilhos e encadernações, a direção é fornecida num construtor de atributos ou inferida do tipo de parâmetro.
+
+## <a name="add-bindings-to-a-function"></a>Adicione encadernações a uma função
+
+Pode ligar a sua função a outros serviços utilizando encadernações de entrada ou saída. Adicione uma ligação adicionando as suas definições específicas à sua função. Para saber como, consulte [Adicionar encadernações a uma função existente em Funções Azure](add-bindings-existing-function.md).  
 
 ## <a name="supported-bindings"></a>Encadernações apoiadas
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Para obter informações sobre quais as ligações que estão em pré-visualização ou aprovadas para utilização na produção, consulte [as línguas suportadas](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Vincula exemplos de código
+
+Utilize a tabela seguinte para encontrar exemplos de tipos de encadernação específicos que lhe mostrem como trabalhar com encadernações nas suas funções. Primeiro, escolha o separador de idiomas que corresponde ao seu projeto. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Recursos
 - [Expressões e padrões de ligação](./functions-bindings-expressions-patterns.md)

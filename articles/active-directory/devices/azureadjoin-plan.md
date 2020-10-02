@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370182"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653218"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -187,6 +187,7 @@ A ligação remota de ambiente de trabalho a um dispositivo aderido a Azure AD r
 A partir da atualização do Windows 10 2004, os utilizadores também podem utilizar o ambiente de trabalho remoto a partir de um dispositivo AZure AD registado no Windows 10 para um dispositivo AD Azure. 
 
 ## <a name="understand-your-provisioning-options"></a>Compreenda as suas opções de provisionamento
+**Nota:** Os dispositivos de ad AD não podem ser implantados usando a Ferramenta de Preparação do Sistema (Sysprep) ou ferramentas de imagem semelhantes
 
 Pode providenciar a ad AD Azure usando as seguintes abordagens:
 
@@ -198,11 +199,11 @@ Aqui está uma comparação destas três abordagens
  
 | Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
-| Requerem interação do utilizador para configurar | Yes | Yes | No |
-| Exigir esforço de TI | No | Yes | Sim |
+| Requerem interação do utilizador para configurar | Sim | Sim | Não |
+| Exigir esforço de TI | Não | Sim | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
 | Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
-| Requera suporte ao OEM do dispositivo | No | Yes | No |
+| Requera suporte ao OEM do dispositivo | Não | Sim | Não |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  

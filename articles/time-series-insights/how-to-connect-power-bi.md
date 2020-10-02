@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 6825627b77e3ea227cad88e347dbbabd5e6f5d0c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540341"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653779"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 

@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: d0a5b48e93e839b0a0adaf185700d7f60fec7948
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.date: 10/01/2020
+ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140688"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653711"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo
 
@@ -118,7 +118,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
 
 As variáveis são armazenadas na definição tipo de modelo de série sonora e podem ser fornecidas em linha através de APIs para substituir ou complementar a definição armazenada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o Modelo série de tempo.](./concepts-model-overview.md)
 

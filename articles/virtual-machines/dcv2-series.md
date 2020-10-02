@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 41dbb42637db98dcd97e3487f252e88f2ba5f9a3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649895"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653014"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -21,17 +21,13 @@ A série DCsv2 pode ajudar a proteger a confidencialidade e integridade dos seus
 
 Os casos de uso de exemplo incluem: partilha de dados multipartidários confidenciais, deteção de fraudes, branqueamento de capitais, blockchain, análise de uso confidencial, análise de inteligência e aprendizagem de máquinas confidenciais.
 
-Armazenamento Premium: Suportado*
-
-Caching de armazenamento premium: Suportado*
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[Armazenamento Premium](premium-storage-performance.md): Suportado*<br>
+[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 
 *Exceto por Standard_DC8_v2
-
-
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Max NICs / Largura de banda de rede esperada (MBps) | Memória EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

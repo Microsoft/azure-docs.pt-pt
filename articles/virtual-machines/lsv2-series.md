@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654757"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652929"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -25,17 +25,14 @@ A série Lsv2 apresenta alta produção, baixa latência, armazenamento NVMe loc
 >
 > Para saber mais, consulte o desempenho da Otimize nas máquinas virtuais da série Lsv2 para [Windows](../virtual-machines/windows/storage-performance.md) ou [Linux.](../virtual-machines/linux/storage-performance.md)  
 
-ACU: 150-175
-
-Rebentamento: Suportado
-
-Armazenamento Premium: Suportado
-
-Caching de armazenamento premium: Não suportado
-
-Migração ao vivo: Não suportado
-
-Atualizações de preservação da memória: Não suportadas
+[ACU](acu.md): 150-175<br>
+[Armazenamento Premium](premium-storage-performance.md): Suportado<br>
+[Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
+[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
+[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
+Rebentamento: Suportado<br>
+<br>
 
 | Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Produção de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Produção de disco de dados não colada (IOPs/MBps)<sup>4</sup> | Max rebenta desatado de saída de disco de dados (IOPs/MBps)<sup>5</sup>| Discos de dados max | NICs máximos | Largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|

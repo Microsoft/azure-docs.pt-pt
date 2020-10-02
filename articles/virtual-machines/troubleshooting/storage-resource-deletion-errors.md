@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320086"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651638"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento
 
@@ -95,7 +95,7 @@ Se o VHD for um disco de dados, retire o VHD do VM para remover o arrendamento:
 7. **Selecione Editar** na parte superior do **painel de discos.**
 8. Clique **no ícone de desprendimento** do disco de dados a eliminar.
 
-     ![Screenshot do portal, com o painel de armazenamento "Blob Metadata" aberto](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Screenshot do portal, com o painel de armazenamento "Blob Metadata" aberto e realça o ícone de desprendimento do disco de dados a ser eliminado.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Selecione **Guardar**. O disco está agora desligado do VM, e o VHD já não está alugado. Pode levar alguns minutos para o arrendamento ser liberado. Para verificar se o arrendamento foi liberado, navegue para a localização do blob e no painel **de propriedades Blob,** o valor **do Estado do arrendamento** deve ser **desbloqueado** ou **disponível**.
 

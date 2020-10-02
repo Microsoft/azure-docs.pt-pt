@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006470"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653677"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -76,10 +76,10 @@ Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pas
 
 Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refrescar-se. Confirme que as embalagens foram carregadas na janela do *Projeto:*
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacotes":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Novo Projeto de Unidade":::
 
 Se os seus pacotes não estiverem a carregar, verifique se a consola Unidade tem erros. Se não tiver erros e ainda não vir nenhuma embalagem na pasta **Pacotes,** verifique o botão de alternação de visibilidade da embalagem.\
-![Propriedades de câmara de unidade](./media/unity-package-visibility.png)
+![Screenshot com uma seta apontando para o botão de visibilidade da embalagem.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Certifique-se de que tem a versão mais recente do pacote
 
@@ -120,7 +120,7 @@ Os seguintes passos asseguram que o seu projeto está a utilizar a versão mais 
 
 1. Selecione **Gráficos** do menu da lista esquerda
 1. Altere a definição **de Pipeline de Renderização Scriptable** para *HybridRenderingPipeline*.\
-    ![alterando as definições de gráficos do projeto](./media/settings-graphics-render-pipeline.png)\
+    ![Screenshot que aponta onde você muda a definição de Pipeline de renderização Scriptable para HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Por vezes, a UI não preenche a lista dos tipos de gasodutos disponíveis das embalagens. Se isto ocorrer, o ativo *HybridRenderingPipeline* deve ser arrastado para o campo manualmente:\
     ![alterando as definições de gráficos do projeto](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Para progredir de **Não-Eutanásia** a **NoSession,** normalmente apresentamos 
 1. Arraste o componente para o seu próprio evento, para se referir a si próprio.
 ![Autenticação do bypass](./media/bypass-authorization-add-event.png)\
 1. Na queda para baixo **selecione RemoteRenderingCoordinator -> BypassAuthorization**.\
-![Autenticação do bypass](./media/bypass-authorization-event.png)
+![Screenshot que mostra a opção remoteRenderingCoordinator.BypassAuthorization.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Criar ou juntar-se a uma sessão remota
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Com a base necessária, está pronto para carregar um modelo na sessão remota e começar a receber quadros.
 
-![Pilha de ARR 4](./media/remote-render-stack-4.png)
+![Diagrama que mostra o fluxo de processo para preparar para carregar e ver um modelo.](./media/remote-render-stack-4.png)
 
 O método **LoadModel** foi concebido para aceitar um caminho modelo, manipulador de progresso e transformação dos pais. Estes argumentos serão utilizados para carregar um modelo na sessão remota, atualizar o utilizador sobre o progresso do carregamento e orientar o modelo renderizado remotamente com base na transformação dos pais.
 

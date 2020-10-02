@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: cc53aa9cab765f16fdf7a517793f8f36ca30daac
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396187"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651518"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões de coexistição ExpressRoute e Site-to-Site utilizando PowerShell
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Pode configurar uma ligação de Rede de VPNs como uma cópia de segurança para
 > 
 > 
 
-![Coexistir](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
+![Diagrama que mostra uma ligação VPN site-to-site como uma cópia de segurança para ExpressRoute.](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
 ### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Configurar uma Rede de VPNs para se ligar a sites não ligados através do ExpressRoute
 Pode configurar a sua rede para um local no qual alguns sites se ligam diretamente ao Azure através da Rede de VPNs e alguns sites estabelecem ligação através do ExpressRoute. 
@@ -263,5 +263,5 @@ Pode seguir os passos abaixo para adicionar a configuração Ponto-a-Local à su
 
 Para obter mais informações sobre VPNs Ponto a Site, veja [Configurar uma ligação Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
