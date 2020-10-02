@@ -42,8 +42,10 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Sobre os gateways com redundância entre zonas para as Zonas de Disponibilidade
       href: about-zone-redundant-vnet-gateways.md
-    - name: Controlos de segurança incorporados
-      href: vpn-gateway-security-controls.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Interoperabilidade de Conectividade de Back-end
       items:
         - name: Prefácio e Configuração de Teste

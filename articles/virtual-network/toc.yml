@@ -4,7 +4,7 @@
   items:
     - name: Sobre a Rede Virtual
       href: virtual-networks-overview.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   items:
     - name: Criar rede virtual - Portal
       href: quick-create-portal.md
@@ -95,6 +95,8 @@
           href: public-ip-security-baseline.md
     - name: Segurança
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Grupos de segurança de rede
           items:
             - name: Descrição geral
