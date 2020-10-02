@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d01164552b1f3f10f592cedf80eafe57566bf09c
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569703"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661079"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Trabalhar com uma conta do Azure Cosmos
 
@@ -27,11 +27,11 @@ Para gerir de forma segura o acesso a todos os dados dentro da sua conta Azure C
 
 O contentor Azure Cosmos é a unidade fundamental de escalabilidade. Você pode praticamente ter uma produção de provisão ilimitada (RU/s) e armazenamento em um recipiente. A Azure Cosmos DB partilha de forma transparente o seu recipiente utilizando a chave de partição lógica que especifica para escalar elasticamente a sua produção e armazenamento a provisionados. Para mais informações, consulte [o trabalho com os recipientes e itens da Azure Cosmos.](databases-containers-items.md)
 
-Atualmente, pode criar um máximo de 100 contas Azure Cosmos sob uma subscrição do Azure. Uma única conta Azure Cosmos pode gerir virtualmente uma quantidade ilimitada de dados e produção a provisionada. Para gerir os seus dados e o seu rendimento a provisionado, pode criar uma ou mais bases de dados Azure Cosmos na sua conta e dentro dessa base de dados, pode criar um ou mais contentores. A imagem a seguir mostra a hierarquia dos elementos numa conta da Azure Cosmos:
+Atualmente, pode criar um máximo de 50 contas Azure Cosmos sob uma subscrição do Azure (este é um limite suave que pode ser aumentado através de pedido de suporte). Uma única conta Azure Cosmos pode gerir virtualmente uma quantidade ilimitada de dados e produção a provisionada. Para gerir os seus dados e o seu rendimento a provisionado, pode criar uma ou mais bases de dados Azure Cosmos na sua conta e dentro dessa base de dados, pode criar um ou mais contentores. A imagem a seguir mostra a hierarquia dos elementos numa conta da Azure Cosmos:
 
 :::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Hierarquia de uma conta de Azure Cosmos" border="false":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 

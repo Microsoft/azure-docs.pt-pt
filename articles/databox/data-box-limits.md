@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d699fc47fa0a0cb57d103ff42ff17bdc0f3a82b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202689"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660926"
 ---
 # <a name="azure-data-box-limits"></a>Limites da Caixa de Dados Azure
 
@@ -28,6 +28,7 @@ Considere estes limites à medida que implementa e opera a sua Caixa de Dados Mi
 - A Data Box pode armazenar um máximo de 500 milhões de ficheiros para importação e exportação.
 - A Data Box suporta um máximo de 512 contentores ou partilhas na nuvem. Os diretórios de alto nível dentro da partilha do utilizador tornam-se contentores ou partilhas de ficheiros Azure na nuvem. 
 - A capacidade de utilização da Caixa de Dados pode ser inferior a 80 TB devido ao consumo de metadados reFS.
+- A Data Box suporta um máximo de 5 ligações de clientes de cada vez numa partilha NFS. 
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento Azure
 
@@ -46,13 +47,13 @@ As ressalvas da Caixa de Dados para uma ordem de importação incluem:
 
 As ressalvas da Caixa de Dados para uma encomenda de exportação incluem:
 
-- Data Box é um dispositivo baseado no Windows e não suporta nomes de ficheiros sensíveis a casos. Por exemplo, pode ter dois ficheiros diferentes em Azure com nomes que apenas diferem no invólucro. Não utilize a caixa de dados para exportar ficheiros como estes serão substituídos no dispositivo.
-- Se tiver etiquetas duplicadas em ficheiros de entrada ou tags referentes aos mesmos dados, a exportação da Data Box poderá saltar ou substituir os ficheiros. O número de ficheiros e o tamanho dos dados apresentados no portal Azure podem diferir do tamanho real dos dados presentes no dispositivo. 
-- A Data Box exporta dados para o sistema baseado no Windows sobre o SMB e é limitado por limitações SMB para ficheiros e pastas. Os ficheiros e pastas com nomes não suportados não são exportados.
+- Data Box é um dispositivo baseado no Windows e não suporta nomes de ficheiros sensíveis a casos. Por exemplo, pode ter dois ficheiros diferentes em Azure com nomes que apenas diferem no invólucro. Não utilize a Caixa de Dados para exportar ficheiros como os ficheiros serão substituídos no dispositivo.
+- Se tiver etiquetas duplicadas em ficheiros de entrada ou tags referentes aos mesmos dados, a exportação da Caixa de Dados poderá saltar ou substituir os ficheiros. O número de ficheiros e o tamanho dos dados que o portal Azure exibe podem diferir do tamanho real dos dados do dispositivo. 
+- A Data Box exporta dados para o sistema baseado no Windows sobre o SMB e é limitado por limitações SMB para ficheiros e pastas. Ficheiros e pastas com nomes não suportados não são exportados.
 - Há um mapeamento 1:1 do prefixo ao recipiente.
-- O tamanho máximo do nome de ficheiros é de 1024 ficheiros de caracteres, os nomes de ficheiros que excedam este comprimento não são exportados.
+- O tamanho máximo do nome de ficheiro é de 1024 caracteres. Os filenames que excedem este comprimento não são exportados.
 - São exportados prefixos duplicados no ficheiro *xml* (carregado durante a criação da encomenda). Os prefixos duplicados não são ignorados.
-- As bolhas de página e os nomes dos recipientes são sensíveis à caixa, pelo que, se o invólucro for desajustado, a bolha e/ou o recipiente não serão encontrados.
+- As bolhas de página e os nomes dos contentores são sensíveis a maiôs. Se o invólucro for desajustado, a bolha e/ou o recipiente não serão encontrados.
  
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento Azure

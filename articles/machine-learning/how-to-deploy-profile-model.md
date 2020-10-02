@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935590"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660994"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Perfilar o seu modelo para determinar a utilização de recursos
 
@@ -24,6 +24,10 @@ Este artigo mostra como perfilar uma aprendizagem automática para modelar para 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que treinou e registou um modelo com a Azure Machine Learning. Consulte [aqui](how-to-train-scikit-learn.md) o tutorial da amostra para um exemplo de formação e registo de um modelo de aprendizagem de scikit com Azure Machine Learning.
+
+## <a name="limitations"></a>Limitações
+
+* O perfil não funcionará quando o Registo do Contentor Azure (ACR) para o seu espaço de trabalho estiver por detrás de uma rede virtual.
 
 ## <a name="run-the-profiler"></a>Executar o perfil
 
@@ -125,7 +129,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

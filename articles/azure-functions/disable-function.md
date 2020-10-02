@@ -4,18 +4,18 @@ description: Saiba como desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4d93f728103aabdd1bd5557033a8bd36ffac2d42
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213145"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661028"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções em Funções Azure
 
 Este artigo explica como desativar uma função em Funções Azure. *Desativar* uma função significa fazer com que o tempo de execução ignore o gatilho automático definido para a função. Isto permite evitar que uma função específica funcione sem parar toda a aplicação de funções.
 
-A forma recomendada de desativar uma função é utilizando uma definição de aplicação no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` . Pode criar e modificar esta definição de aplicação de várias formas, incluindo utilizando o [CLI Azure](/cli/azure/) e a partir do **separador Manage** da sua função no [portal Azure](https://portal.azure.com). 
+A forma recomendada de desativar uma função é com uma definição de aplicação no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled` definido para `true` . Pode criar e modificar esta definição de aplicação de várias formas, incluindo utilizando o [CLI Azure](/cli/azure/) e a partir do **separador Manage** da sua função no [portal Azure](https://portal.azure.com). 
 
 > [!NOTE]  
 > Quando desativa uma função HTTP ativada utilizando os métodos descritos neste artigo, o ponto final pode ainda ser acessível quando estiver a ser utilizado no computador local.  
@@ -40,7 +40,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Utilizar o Portal
 
-Também pode utilizar os botões **Ativar** e **Desativar** na página **'Visão Geral'** da função. Estes botões funcionam criando e eliminando a configuração da `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplicação.
+Também pode utilizar os botões **Ativar** e **Desativar** na página **'Visão Geral'** da função. Estes botões funcionam alterando o valor da configuração da `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplicação. Esta definição específica da função é criada na primeira vez que é desativada.
 
 ![Interruptor de estado de função](media/disable-function/function-state-switch.png)
 
@@ -142,6 +142,6 @@ No segundo exemplo, a função é desativada quando há uma definição de aplic
 >O portal utiliza agora as definições de aplicação para desativar as funções v1.x. Quando uma aplicação que estabelece entra em conflito com o function.jsno ficheiro, pode ocorrer um erro. Deve retirar a `disabled` propriedade do function.jsficheiro para evitar erros. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo é sobre desativar os gatilhos automáticos. Para obter mais informações sobre os gatilhos, consulte [Triggers e encadernações](functions-triggers-bindings.md).

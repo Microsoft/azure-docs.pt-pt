@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119536"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660909"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -38,7 +38,7 @@ Para uma visão geral do programa Soluções Integradas, veja o [vídeo de visã
 
     * Desenvolvimento de Aplicações
     * Integração de Aplicações
-    * Gestão do ciclo de vida da aplicação
+    * Gestão do Ciclo de Vida das Aplicações
     * Plataforma Cloud
     * Análise de Dados
     * Datacenter
@@ -56,7 +56,7 @@ Os parceiros que queiram participar no programa devem identificar outros parceir
 
 ## <a name="develop-an-integrated-solution"></a>Desenvolver uma solução integrada
 
-Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos.
+Após a aprovação da sua nomeação, utilize os recursos do programa ligados para desenvolver a sua solução integrada. Siga estes passos:
 
 1. Complete as principais discussões empresariais e técnicas num formato de workshop para definir a abordagem de solução e integração.
 
@@ -112,6 +112,6 @@ Embora existam cinco tipos de serviços disponíveis para ofertas de serviços d
 
 Quando a sua solução estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, vai querer impulsionar a consciencialização e a procura através de atividades de marketing. Reveja as atividades enumeradas no [plano de projeto e na linha do tempo.](https://aka.ms/AA5qiuc) Este recurso inclui atividades que os parceiros podem conduzir dentro das suas próprias equipas e uns com os outros. Em seguida, aceda [aos benefícios do mercado](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) para os parceiros que publicam no mercado. Todas as ofertas de soluções integradas são elegíveis para benefícios a nível experimental.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre a aquisição de uma solução integrada no mercado, consulte [soluções Integradas.](./integrated-solutions.md)
+- [Formulário de nomeação de soluções integradas](https://aka.ms/AA5qicu)

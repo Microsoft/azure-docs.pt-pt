@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397628"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661062"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados Azure Arc utilizando ferramentas Kubernetes
 
@@ -31,11 +31,11 @@ Para criar o Controlador de dados do Arco Azure utilizando ferramentas Kubernete
 > [!NOTE]
 > Algumas das etapas para criar o controlador de dados Azure Arc que são indicados abaixo requerem permissões de administrador de cluster kubernetes.  Se não for um administrador de cluster Kubernetes, terá de pedir ao administrador de cluster kubernetes que execute estes passos em seu nome.
 
-#### <a name="cleanup-from-past-installations"></a>Limpeza de instalações passadas
+### <a name="cleanup-from-past-installations"></a>Limpeza de instalações passadas
 
-Se instalou no passado o controlador de dados Azure Arc no mesmo cluster e eliminou o controlador de dados do Arco Azure utilizando o `azdata arc dc delete` comando, pode haver alguns objetos de nível de cluster que ainda teriam de ser eliminados. Executar os seguintes comandos para eliminar os objetos de nível de cluster do controlador de dados do Azure Arc:
+Se instalou o controlador de dados Azure Arc no passado, no mesmo cluster e eliminou o controlador de dados do Arco Azure utilizando o `azdata arc dc delete` comando, pode haver alguns objetos de nível de cluster que ainda teriam de ser eliminados. Executar os seguintes comandos para eliminar os objetos de nível de cluster do controlador de dados do Azure Arc:
 
-```
+```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
 kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
@@ -280,7 +280,7 @@ Consulte a **Implementação de uma Instância Gerida SQL utilizando o Azure Arc
 
 Se encontrar algum problema com a criação, consulte o [guia de resolução de problemas.](troubleshoot-guide.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Crie um exemplo gerido pelo SQL utilizando ferramentas nativas de Kubernetes](./create-sql-managed-instance-using-kubernetes-native-tools.md)
 - [Criar um grupo de servidores de hiperescala PostgreSQL usando ferramentas nativas de Kubernetes](./create-postgresql-hyperscale-server-group-kubernetes-native-tools.md)
