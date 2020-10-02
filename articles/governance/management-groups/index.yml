@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/31/2020
-  ms.openlocfilehash: a2d736b2706b3b0958bb544c6d0e4434c78e6791
-  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+  ms.date: 09/30/2020
+  ms.openlocfilehash: 120e020a30daf377844ad9933a067def3360a399
+  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/01/2020
-  ms.locfileid: "89231338"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91597771"
 landingContent:
 - title: Acerca da Governação do Azure
   linkLists:
@@ -39,6 +39,10 @@ landingContent:
       url: ./create-management-group-azure-cli.md
     - text: Criar um grupo de gestão (Azure PowerShell)
       url: ./create-management-group-powershell.md
+    - text: Criar um grupo de gestão (.NET)
+      url: ./create-management-group-dotnet.md
+    - text: Criar um grupo de gestão (JavaScript)
+      url: ./create-management-group-javascript.md
     - text: Criar um grupo de gestão (REST)
       url: ./create-management-group-rest-api.md
     - text: Implementar recursos num grupo de gestão (modelos do ARM)

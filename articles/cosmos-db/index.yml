@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 8c3330849801e00646af77a3759430035331e953
-  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+  ms.openlocfilehash: 8f2dea260472da4178173d110c33d2681520cfce
+  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/09/2020
-  ms.locfileid: "89567151"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91566725"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
       url: regional-presence.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar multimestre
+    - text: Configurar escritas em várias regiões
       url: how-to-multi-master.md
     - text: Configurar níveis de consistência
       url: how-to-manage-consistency.md

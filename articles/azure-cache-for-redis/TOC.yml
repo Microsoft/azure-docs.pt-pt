@@ -68,6 +68,8 @@
       items:
         - name: Escolher um escalão de cache
           href: cache-overview.md#choosing-the-right-tier
+        - name: Definir versão do Redis
+          href: cache-how-to-version.md
         - name: Distribua a cache com clustering
           href: cache-how-to-premium-clustering.md
         - name: Mantenha a cache com a persistência de dados de Redis

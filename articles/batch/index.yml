@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/23/2019
-  ms.openlocfilehash: 632f95724c8a7f122153d278521f612208e95766
-  ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+  ms.date: 09/29/2020
+  ms.openlocfilehash: 40c268ed31cf7360d74c5eb8bebf75756fd76563
+  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/30/2020
-  ms.locfileid: "89146461"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91570480"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:
@@ -96,3 +96,5 @@ landingContent:
       url: /python/api/overview/azure/batch
     - text: REST
       url: /rest/api/batchservice/
+    - text: Ciclo de vida da API do Batch
+      url: /rest/api/batchservice/batch-api-status

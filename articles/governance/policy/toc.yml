@@ -17,6 +17,9 @@
     - name: Atribuir uma política - Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Atribuir uma política - .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: Atribuir uma política - JavaScript
       displayName: 'assign, compliance'
       href: ./assign-policy-javascript.md
@@ -139,6 +142,9 @@
     - name: Políticas de autor para propriedades de matriz
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Exportar recursos do Azure Policy
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: Configuração de Convidado
       items:
         - name: Criar uma política de Configuração de Convidado em Windows

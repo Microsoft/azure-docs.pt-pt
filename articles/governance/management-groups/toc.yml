@@ -19,6 +19,12 @@
     - name: Criar um grupo de gestão - Azure PowerShell
       displayName: hierarchy
       href: ./create-management-group-powershell.md
+    - name: Criar um grupo de gestão - .NET
+      displayName: hierarchy
+      href: ./create-management-group-dotnet.md
+    - name: Criar um grupo de gestão - JavaScript
+      displayName: hierarchy
+      href: ./create-management-group-javascript.md
     - name: Criar um grupo de gestão - REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md

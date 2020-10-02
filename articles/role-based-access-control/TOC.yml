@@ -28,6 +28,10 @@
       href: tutorial-custom-role-cli.md
 - name: Conceitos
   items:
+    - name: Definições de função
+      href: role-definitions.md
+    - name: Âmbito
+      href: scope-overview.md
     - name: Melhores práticas
       href: best-practices.md
     - name: Acesso Condicional para a gestão do Azure
@@ -40,11 +44,7 @@
 - name: Guias de procedimentos
   items:
     - name: Listar definições de função
-      items:
-        - name: Descrição geral
-          href: role-definitions.md
-        - name: Listar definições de função
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: Listar atribuições de função
       items:
         - name: Portal
@@ -57,6 +57,8 @@
           href: role-assignments-list-rest.md
     - name: Adicionar ou remover atribuições de função
       items:
+        - name: Passos para adicionar uma atribuição de função
+          href: role-assignments-steps.md
         - name: Portal
           href: role-assignments-portal.md
         - name: Portal - utilizadores convidados
