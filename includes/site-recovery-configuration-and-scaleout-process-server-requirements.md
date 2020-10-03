@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3106b52ede95fe63a8df691a82acdd4937c8cce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544028"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91672215"
 ---
 **Requisitos de configuração e servidor de processo**
 
@@ -38,7 +38,7 @@ Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Região do sistema operativo | Inglês (en-*)
 Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
 Políticas de grupo | Não ative estas políticas de grupo: <br> - Impedir o acesso à ordem de comando. <br> - Impedir o acesso a ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Nenhum website pre-existente <br> - Nenhum website/aplicação pré-existente na porta 443 <br>- Ativar a [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a definição [fastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+IIS | - Nenhum website pre-existente <br> - Nenhum website/aplicação pré-existente na porta 443 <br>- Ativar a  [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a definição [fastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 FIPS (Normas Federais de Processamento de Informação) | Não ative o modo FIPS
 |
 
@@ -50,7 +50,7 @@ Tipo de endereço IP | Estático
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados) 
 Tipo NIC | VMXNET3 (se o servidor de configuração for um VMware VM)
  |
-**Acesso** à Internet (o servidor precisa de acesso aos urLs seguintes, diretamente ou via procuração):|
+**Acesso**  à Internet (o servidor precisa de acesso aos urLs seguintes, diretamente ou via procuração):|
 \*.backup.windowsazure.com | Utilizado para transferência e coordenação de dados replicados
 \*.blob.core.windows.net | Usado para aceder à conta de armazenamento que armazena dados replicados. Pode fornecer o URL específico da sua conta de armazenamento de cache.
 \*.hypervrecoverymanager.windowsazure.com | Utilizado para operações de gestão e coordenação de replicação
@@ -58,7 +58,7 @@ https:\//login.microsoftonline.com | Utilizado para operações de gestão e coo
 time.nist.gov | Usado para verificar a sincronização do tempo entre o sistema e o tempo global
 time.windows.com | Usado para verificar a sincronização do tempo entre o sistema e o tempo global
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Opcional) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.microsoft.com </li></ul> | A configuração da OVF precisa de acesso a estes URLs adicionais. São usados para controlo de acesso e gestão de identidade pela Azure Ative Directory.
-https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também está na lista branca, se necessário.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também está aprovado, se necessário.
 |
 
 > [!NOTE]
@@ -83,4 +83,3 @@ A tabela seguinte resume os requisitos de capacidade para o servidor de configur
 12 vCPUs<br/><br/> 2 meias * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 a 150 máquinas
 16 vCPUs<br/><br/> 2 meias * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 máquinas
 |
-
