@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: db14670d19bf6bf0019e1533ebefdc5a47436a1c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/02/2020
+ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302371"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667865"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -279,7 +279,32 @@ Para obter informações sobre a anexação de um cluster AKS no portal, consult
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="detach-an-aks-cluster"></a>Desprender um cluster AKS
+
+Para separar um cluster do seu espaço de trabalho, utilize um dos seguintes métodos:
+
+> [!WARNING]
+> A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS **não elimina o cluster AKS**. Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+aks_target.detach()
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para desprender o cluster existente ao seu espaço de trabalho, utilize o seguinte comando. `myaks`Substitua-o pelo nome de que o cluster AKS está ligado ao seu espaço de trabalho como. `myresourcegroup`Substitua-o pelo grupo de recursos que contém o seu espaço de trabalho. `myworkspace`Substitua-o pelo nome do seu espaço de trabalho.
+
+```azurecli
+az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters__e o cluster que deseja remover. Utilize a __ligação Detach__ para separar o cluster.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como e onde implementar um modelo](how-to-deploy-and-where.md)
 * [Implementar um modelo para um cluster de serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)

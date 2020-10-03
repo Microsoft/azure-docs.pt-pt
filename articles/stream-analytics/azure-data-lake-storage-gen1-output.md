@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a642f7dfc470a695f96967cad0ed738d45b11efb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 59b4a04231df3b93b093750cc6c9d70982a418a9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881931"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665349"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Azure Data Lake Storage Gen 1 produção da Azure Stream Analytics
 
@@ -44,9 +44,9 @@ Para a tecla de partição, utilize fichas {date} e {time} no padrão de prefixo
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Para obter o tamanho máximo da mensagem, consulte os [limites de armazenamento do Data Lake](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). Para otimizar o tamanho do lote, utilize até 4 MB por operação de escrita.
+Para obter o tamanho máximo da mensagem, consulte os [limites de armazenamento do Data Lake](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). Para otimizar o tamanho do lote, utilize até 4 MB por operação de escrita.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)

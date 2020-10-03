@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631805"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665146"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 
@@ -45,7 +45,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Tipo de licença Azure: Empresa | Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um Acordo Empresarial, assinado diretamente com a Microsoft.|
 | Tipo de licença Azure: Empresa através de Revendedor  | Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um revendedor que facilita o seu Acordo de Empresa com a Microsoft.|
 | Tipo de licença Azure: Pague à medida que vai| Cliente, Encomenda | O cliente final adquire a Azure e a sua oferta marketplace através de um acordo "Pay as You Go", assinado diretamente com a Microsoft.|
-| ID de conta de faturação| Cliente, Encomenda, Utilização| O identificador da conta em que a faturação é gerada. Utilize este atributo para ligar relatórios analíticos com o relatório de transações de pagamento.|
+| ID de conta de faturação| Cliente, Encomenda, Utilização| O identificador da conta em que a faturação é gerada. **Mapear iD de conta** de faturação ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização.|
 | Nome da instância da nuvem| Encomenda| A Cloud Microsoft em que ocorreu uma implementação em VM.|
 | Nome da instância da nuvem: Azure Global| Encomenda| A nuvem pública global da Microsoft.|
 | Nome da instância da nuvem: Governo Azure | Encomenda| Nuvens específicas do governo da Microsoft para um dos seguintes governos: China, Alemanha ou Estados Unidos da América.| |
@@ -94,7 +94,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Data de Fim do Julgamento| Encomenda| A data do período experimental para esta ordem terminará ou terminou.|
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

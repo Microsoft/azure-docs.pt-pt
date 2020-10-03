@@ -3,15 +3,15 @@ title: Criar o Windows Virtual Desktop host pool PowerShell - Azure
 description: Como criar uma piscina de anfitriões no Windows Virtual Desktop com cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287292"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667168"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 
@@ -100,6 +100,9 @@ Para conseguir juntar o domínio, faça as seguintes coisas em cada máquina vir
     >[!NOTE]
     > Se estiver a juntar os seus VMs a um ambiente Azure Ative Directory Domain Services (Azure AD DS), certifique-se de que o seu domínio se junta ao utilizador também é membro do grupo de [Administradores AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
+>[!IMPORTANT]
+>Recomendamos que não ative quaisquer políticas ou configurações que desativem o Instalador do Windows. Se desativar o Instalador do Windows, o serviço não poderá instalar atualizações de agentes nos anfitriões da sessão e os anfitriões da sessão não funcionarão corretamente.
+
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registar as máquinas virtuais para a piscina de anfitriões virtual do Windows Desktop
 
 Registar as máquinas virtuais num conjunto de anfitriões virtual do Windows é tão simples como instalar os agentes virtuais do Windows Desktop.
@@ -143,7 +146,7 @@ Para atualizar o agente:
 6. Uma vez desinstalados estes itens, isto deve remover todas as associações com a antiga piscina de anfitriões. Se pretender voltar a inscrever este anfitrião no serviço, siga as instruções no [Registo das máquinas virtuais para a piscina de anfitriões virtual do Windows Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que fez uma piscina de anfitriões, pode povoá-la com RemoteApps. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, consulte o tutorial de grupos de aplicações Manage.
 

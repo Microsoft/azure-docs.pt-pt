@@ -1,5 +1,5 @@
 ---
-title: Criar palavras-chave personalizadas - Serviço de fala
+title: Criar quickstart de palavras-chave - serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O seu aparelho está sempre a ouvir uma palavra-chave (ou frase). Quando o utilizador diz a palavra-chave, o dispositivo envia todo o áudio subsequente para a nuvem, até que o utilizador deixe de falar. Personalizar a sua palavra-chave é uma forma eficaz de diferenciar o seu dispositivo e fortalecer a sua marca.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360672"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667698"
 ---
-# <a name="custom-keyword-basics"></a>Informações básicas sobre a palavra-chave personalizada
+# <a name="get-started-with-custom-keyword"></a>Começar com a palavra-chave personalizada
 
-Neste artigo, aprende-se o básico de trabalhar com palavras-chave personalizadas, utilizando o Speech Studio e o Speech SDK. Uma palavra-chave é uma palavra ou frase curta que permite ativar a voz do seu produto. Crias modelos de palavras-chave no Speech Studio e depois exportas um ficheiro modelo que usas com o Speech SDK nas tuas aplicações.
+Neste arranque rápido, aprende-se o básico de trabalhar com palavras-chave personalizadas, utilizando o Speech Studio e o Speech SDK. Uma palavra-chave é uma palavra ou frase curta que permite ativar a voz do seu produto. Crias modelos de palavras-chave no Speech Studio e depois exportas um ficheiro modelo que usas com o Speech SDK nas tuas aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -84,6 +84,6 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 > [!NOTE]
 > O exemplo aqui mostrado utiliza o reconhecimento de palavras-chave locais, uma vez que não requer um `SpeechConfig` objeto para o contexto de autenticação, e não contacta o back-end. No entanto, pode executar reconhecimento e verificação de [palavras-chave utilizando uma ligação contínua de back-end](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Teste a sua palavra-chave personalizada com os [dispositivos de fala SDK Quickstart](https://aka.ms/sdsdk-quickstart).

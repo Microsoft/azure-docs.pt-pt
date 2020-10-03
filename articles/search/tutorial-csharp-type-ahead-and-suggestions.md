@@ -7,35 +7,43 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 27437ae1db0ff3a205108638670b058eaaea04bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d610f7ad8f9c211f99f01cd866e26956c7242a1
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280730"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667219"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
 
-Saiba como implementar o autocomplete (consultas de tipa e documentos sugeridos) quando um utilizador começar a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas e resultados de sugestões autocompletos separadamente, e depois juntos. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
+Saiba como implementar o autocomplete (consultas de tipa e resultados sugeridos) quando um utilizador começar a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas autocompletas e resultados sugeridos separadamente, e depois juntos. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Adicionar sugestões
 > * Adicionar destaque às sugestões
 > * Adicionar autocompleto
 > * Combine auto-privatização e sugestões
 
+## <a name="overview"></a>Descrição geral
+
+Este tutorial adiciona auto-preenchimento e resultados sugeridos ao anterior Adicionar paging ao tutorial [de resultados de pesquisa.](tutorial-csharp-paging.md)
+
+Uma versão acabada do código neste tutorial pode ser encontrada no seguinte projeto:
+
+* [3-add-typeahead (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/3-add-typeahead)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial faz parte de uma série e baseia-se no projeto de paging criado no [Tutorial C#: Pagination de resultados de pesquisa - Azure Cognitive Search](tutorial-csharp-paging.md).
+* [Solução 2a-add-paging (GitHub).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging) Este projeto pode ser a sua própria versão construída a partir do tutorial anterior ou uma cópia do GitHub.
 
-Em alternativa, pode descarregar e executar a solução para este tutorial específico: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
+Este tutorial foi atualizado para utilizar o pacote [Azure.Search.Documents (versão 11).](https://www.nuget.org/packages/Azure.Search.Documents/) Para obter uma versão anterior do .NET SDK, consulte [a amostra de código Microsoft.Azure.Search (versão 10).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)
 
 ## <a name="add-suggestions"></a>Adicionar sugestões
 
-Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lista de sugestões.
+Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lista de resultados sugeridos.
 
 1. No ficheiro index.cshtml, altere `@id` a declaração **TextBoxFor** para **azureautosuggest**.
 
@@ -43,12 +51,12 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-2. Na sequência desta declaração, após o fecho ** &lt; /div, &gt; **insira este script. Este script aproveita o [widget autocomplete](https://api.jqueryui.com/autocomplete/) da biblioteca jQuery UI de código aberto para apresentar a lista de resultados sugeridos. 
+1. Na sequência desta declaração, após o fecho ** &lt; /div, &gt; **insira este script. Este script aproveita o [widget autocomplete](https://api.jqueryui.com/autocomplete/) da biblioteca jQuery UI de código aberto para apresentar a lista de resultados sugeridos.
 
     ```javascript
     <script>
         $("#azureautosuggest").autocomplete({
-            source: "/Home/Suggest?highlights=false&fuzzy=false",
+            source: "/Home/SuggestAsync?highlights=false&fuzzy=false",
             minLength: 2,
             position: {
                 my: "left top",
@@ -58,13 +66,13 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
     </script>
     ```
 
-    O ID "azureautosuggest" liga o script acima à caixa de pesquisa. A opção de origem do widget é definida como um método de Sugestão que chama a API de sugestão com dois parâmetros de consulta: destaques e **fuzzy**, ambos definidos como **falsos** neste caso. Além disso, é necessário um mínimo de dois caracteres para desencadear a busca.
+    O ID `"azureautosuggest"` liga o script acima à caixa de pesquisa. A opção de origem do widget é definida como um método de Sugestão que chama a API de sugestão com dois parâmetros de consulta: destaques e **fuzzy**, ambos definidos como **falsos** neste caso. Além disso, é necessário um mínimo de dois caracteres para desencadear a busca.
 
 ### <a name="add-references-to-jquery-scripts-to-the-view"></a>Adicionar referências aos scripts jQuery à vista
 
 1. Para aceder à biblioteca jQuery, altere a &lt; secção principal do ficheiro de &gt; visualização para o seguinte código:
 
-    ```cs
+    ```html
     <head>
         <meta charset="utf-8">
         <title>Typeahead</title>
@@ -91,42 +99,42 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
 ### <a name="add-the-suggest-action-to-the-controller"></a>Adicione a ação de sugestão ao controlador
 
-1. No controlador doméstico, adicione a ação **"Sugerir"** (por exemplo, após a ação **da Página).**
+1. No controlador doméstico, adicione a ação **SuggestAsync** (após a ação **pageAsync).**
 
     ```cs
-        public async Task<ActionResult> Suggest(bool highlights, bool fuzzy, string term)
+    public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
+    {
+        InitSearch();
+
+        // Setup the suggest parameters.
+        var options = new SuggestOptions()
         {
-            InitSearch();
+            UseFuzzyMatching = fuzzy,
+            Size = 8,
+        };
 
-            // Setup the suggest parameters.
-            var parameters = new SuggestParameters()
-            {
-                UseFuzzyMatching = fuzzy,
-                Top = 8,
-            };
-
-            if (highlights)
-            {
-                parameters.HighlightPreTag = "<b>";
-                parameters.HighlightPostTag = "</b>";
-            }
-
-            // Only one suggester can be specified per index. It is defined in the index schema.
-            // The name of the suggester is set when the suggester is specified by other API calls.
-            // The suggester for the hotel database is called "sg", and simply searches the hotel name.
-            DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
-
-            // Convert the suggest query results to a list that can be displayed in the client.
-            List<string> suggestions = suggestResult.Results.Select(x => x.Text).ToList();
-
-            // Return the list of suggestions.
-            return new JsonResult(suggestions);
+        if (highlights)
+        {
+            options.HighlightPreTag = "<b>";
+            options.HighlightPostTag = "</b>";
         }
+
+        // Only one suggester can be specified per index. It is defined in the index schema.
+        // The name of the suggester is set when the suggester is specified by other API calls.
+        // The suggester for the hotel database is called "sg", and simply searches the hotel name.
+        var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
+
+        // Convert the suggested query results to a list that can be displayed in the client.
+        List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+        // Return the list of suggestions.
+        return new JsonResult(suggestions);
+    }
     ```
 
-    O parâmetro **Top** especifica quantos resultados deve ser retornado (se não for especificado, o padrão é 5). Um _sugestivo_ é especificado no índice Azure, que é feito quando os dados são configurados, e não por uma aplicação do cliente como este tutorial. Neste caso, o sugestivo chama-se "sg", e procura no campo **do HotelName** - nada mais. 
+    O parâmetro **Tamanho** especifica quantos resultados deve ser retornado (se não for especificado, o padrão é 5). Um _sugestivo_ é especificado no índice de pesquisa quando o índice é criado. No índice de hotéis de amostra hospedado pela Microsoft, o nome sugestivo é "sg", e procura fósforos sugeridos exclusivamente no campo **HotelName.**
 
-    A correspondência fuzzy permite que "quase falhas" sejam incluídas na saída, até uma distância de edição. Se o parâmetro **de destaques** for definido como verdadeiro, então as tags HTML ousadas são adicionadas à saída. Vamos definir estes dois parâmetros para verdade na próxima secção.
+    A correspondência fuzzy permite que "quase falhas" sejam incluídas na saída, até uma distância de edição. Se o parâmetro **de destaques** for definido como verdadeiro, então as tags HTML ousadas são adicionadas à saída. Vamos definir ambos os parâmetros para verdade na próxima secção.
 
 2. Podes ter alguns erros de sintaxe. Em caso afirmativo, adicione as duas seguintes **usando** declarações no topo do ficheiro.
 
@@ -141,7 +149,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
     Note que as letras que inseriu _devem_ iniciar uma palavra, e não simplesmente ser incluídas dentro da palavra.
 
-4. No script view, definir **&confuso** para verdade, e executar a app novamente. Agora insira "po". Note que a procura assume que errou com uma carta!
+4. No script view, definir **&confuso** para verdade, e executar a app novamente. Agora insira "po". Note que a procura assume que errou com uma carta.
  
     ![Digitando "pa" com conjunto felpudo para verdade](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
@@ -151,7 +159,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
 Podemos melhorar a aparência das sugestões ao utilizador definindo o parâmetro **de destaque para** o verdadeiro. No entanto, primeiro temos de adicionar algum código à vista para exibir o texto arrojado.
 
-1. Na vista (index.cshtml), adicione o seguinte script após o script **azureautosuggest** que inseriu acima.
+1. Na vista (index.cshtml), adicione o seguinte script após o `"azureautosuggest"` script descrito anteriormente.
 
     ```javascript
     <script>
@@ -180,23 +188,23 @@ Podemos melhorar a aparência das sugestões ao utilizador definindo o parâmetr
     </script>
     ```
 
-2. Agora altere o ID da caixa de texto para que leia o seguinte.
+1. Agora altere o ID da caixa de texto para que leia o seguinte.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. Execute novamente a aplicação e deverá ver o seu texto inserido arrombado nas sugestões. Diga, tente escrever "pa".
+1. Execute novamente a aplicação e deverá ver o seu texto inserido arrombado nas sugestões. Tente escrever "pa".
  
     ![Digitar "pa" com destaque](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
-4. A lógica usada no roteiro de destaque acima não é infalível. Se introduzir um termo que aparece duas vezes no mesmo nome, os resultados arrojados não são bem o que desejaria. Tente escrever "mo".
+   A lógica usada no roteiro de destaque acima não é infalível. Se introduzir um termo que aparece duas vezes no mesmo nome, os resultados arrojados não são bem o que desejaria. Tente escrever "mo".
 
-    Uma das questões que um desenvolvedor precisa de responder é, quando é que um guião funciona "bem o suficiente", e quando deve ser abordado os seus caprichos. Não vamos levar mais destaque neste tutorial, mas encontrar um algoritmo preciso é algo a considerar se realçar não é eficaz para os seus dados. Para mais informações, consulte [hit highlighting](search-pagination-page-layout.md#hit-highlighting).
+   Uma das questões que um desenvolvedor precisa de responder é, quando é que um guião funciona "bem o suficiente", e quando deve ser abordado os seus caprichos. Não vamos levar mais destaque neste tutorial, mas encontrar um algoritmo preciso é algo a considerar se realçar não é eficaz para os seus dados. Para mais informações, consulte [hit highlighting](search-pagination-page-layout.md#hit-highlighting).
 
 ## <a name="add-autocomplete"></a>Adicionar autocompleto
 
-Outra variação, que é ligeiramente diferente das sugestões, é a auto-conclusão (às vezes chamada de "tipo à frente") que completa um termo de consulta. Mais uma vez, começaremos com a implementação mais simples, antes de melhorar a experiência do utilizador.
+Outra variação, ligeiramente diferente das sugestões, é a auto-conclusão (por vezes chamada de "tipo de frente") que completa um termo de consulta. Mais uma vez, começaremos com a implementação mais simples, antes de melhorar a experiência do utilizador.
 
 1. Introduza o seguinte script na vista, seguindo os seus scripts anteriores.
 
@@ -213,103 +221,103 @@ Outra variação, que é ligeiramente diferente das sugestões, é a auto-conclu
     </script>
     ```
 
-2. Agora mude a identificação da caixa de texto, para que leia o seguinte.
+1. Agora mude a identificação da caixa de texto, para que leia o seguinte.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. No controlador doméstico temos de entrar na ação **autocomplete,** por exemplo, abaixo da ação **Do Suggest.**
+1. No controlador doméstico, insira a ação **AutocompleteAsync** após a ação **Do SuggestAsync.**
 
     ```cs
-        public async Task<ActionResult> AutoComplete(string term)
+    public async Task<ActionResult> AutoCompleteAsync(string term)
+    {
+        InitSearch();
+
+        // Setup the autocomplete parameters.
+        var ap = new AutocompleteOptions()
         {
-            InitSearch();
+            Mode = AutocompleteMode.OneTermWithContext,
+            Size = 6
+        };
+        var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
 
-            // Setup the autocomplete parameters.
-            var ap = new AutocompleteParameters()
-            {
-                AutocompleteMode = AutocompleteMode.OneTermWithContext,
-                Top = 6
-            };
-            AutocompleteResult autocompleteResult = await _indexClient.Documents.AutocompleteAsync(term, "sg", ap);
+        // Convert the autocompleteResult results to a list that can be displayed in the client.
+        List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
 
-            // Convert the results to a list that can be displayed in the client.
-            List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-
-            // Return the list.
-            return new JsonResult(autocomplete);
-        }
+        return new JsonResult(autocomplete);
+    }
     ```
 
     Note que estamos a usar a mesma função *de sugestivo,* chamada "sg", na pesquisa autocompleta como fizemos para sugestões (por isso estamos apenas a tentar completar automaticamente os nomes do hotel).
 
     Existem uma gama de configurações **AutocompleteMode,** e estamos a usar **oneTermWithContext**. Consulte a [API autocompleta](/rest/api/searchservice/autocomplete) para obter uma descrição de opções adicionais.
 
-4. Execute a aplicação. Note como o leque de opções apresentadas na lista de suspensos são palavras únicas. Tente escrever palavras começando com "re". Note como o número de opções diminui à medida que mais letras são dactilografadas.
+1. Execute a aplicação. Note como o leque de opções apresentadas na lista de suspensos são palavras únicas. Tente escrever palavras começando com "re". Note como o número de opções diminui à medida que mais letras são dactilografadas.
 
     ![Dactilografia com auto-contícula básica](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
-    Tal como está, o script de sugestões que executou anteriormente é provavelmente mais útil do que este script de auto-premutável. Para tornar a auto-premôdração mais fácil de utilizar, é melhor adicionar à pesquisa de sugestão.
+    Tal como está, o script de sugestões que executou anteriormente é provavelmente mais útil do que este script de auto-premutável. Para tornar a auto-contígnia mais fácil de utilizar, considere usá-la com resultados sugeridos.
 
 ## <a name="combine-autocompletion-and-suggestions"></a>Combine auto-privatização e sugestões
 
 Combinar auto-cálculo e sugestões é a mais complexa das nossas opções, e provavelmente proporciona a melhor experiência do utilizador. O que queremos é mostrar, de acordo com o texto que está a ser digitado, é a primeira escolha da Azure Cognitive Search para a preconização automática do texto. Além disso, queremos uma série de sugestões como uma lista de desistentes.
 
-Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "auto-completação inline" ou um nome semelhante. No entanto, vamos implementar esta funcionalidade de forma nativa, para que possa ver o que se passa. Vamos começar a trabalhar no controlador primeiro neste exemplo.
+Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "auto-completação inline" ou um nome semelhante. No entanto, vamos implementar esta funcionalidade de forma nativa para que possa explorar as APIs. Vamos começar a trabalhar no controlador primeiro neste exemplo.
 
-1. Precisamos de adicionar uma ação ao controlador que devolva apenas um resultado de auto-contígnia, juntamente com um número especificado de sugestões. Chamaremos a esta ação **AutocompleteAndSuggest**. No controlador doméstico, adicione a seguinte ação, seguindo as suas outras novas ações.
+1. Adicione uma ação ao controlador que devolve apenas um resultado de auto-premedição, juntamente com um número especificado de sugestões. Chamaremos a esta ação **AutoCompleteAndSuggestAsync**. No controlador doméstico, adicione a seguinte ação, seguindo as suas outras novas ações.
 
     ```cs
-        public async Task<ActionResult> AutocompleteAndSuggest(string term)
+    public async Task<ActionResult> AutoCompleteAndSuggestAsync(string term)
+    {
+        InitSearch();
+
+        // Setup the type-ahead search parameters.
+        var ap = new AutocompleteOptions()
         {
-            InitSearch();
+            Mode = AutocompleteMode.OneTermWithContext,
+            Size = 1,
+        };
+        var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap);
 
-            // Setup the type-ahead search parameters.
-            var ap = new AutocompleteParameters()
-            {
-                AutocompleteMode = AutocompleteMode.OneTermWithContext,
-                Top = 1,
-            };
-            AutocompleteResult autocompleteResult = await _indexClient.Documents.AutocompleteAsync(term, "sg", ap);
+        // Setup the suggest search parameters.
+        var sp = new SuggestOptions()
+        {
+            Size = 8,
+        };
 
-            // Setup the suggest search parameters.
-            var sp = new SuggestParameters()
-            {
-                Top = 8,
-            };
+        // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
+        // The suggester for the hotel database is called "sg" and simply searches the hotel name.
+        var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", sp).ConfigureAwait(false);
 
-            // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
-            // The suggester for the hotel database is called "sg", and it searches only the hotel name.
-            DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", sp);
+        // Create an empty list.
+        var results = new List<string>();
 
-            // Create an empty list.
-            var results = new List<string>();
-
-            if (autocompleteResult.Results.Count > 0)
-            {
-                // Add the top result for type-ahead.
-                results.Add(autocompleteResult.Results[0].Text);
-            }
-            else
-            {
-                // There were no type-ahead suggestions, so add an empty string.
-                results.Add("");
-            }
-            for (int n = 0; n < suggestResult.Results.Count; n++)
-            {
-                // Now add the suggestions.
-                results.Add(suggestResult.Results[n].Text);
-            }
-
-            // Return the list.
-            return new JsonResult(results);
+        if (autocompleteResult.Value.Results.Count > 0)
+        {
+            // Add the top result for type-ahead.
+            results.Add(autocompleteResult.Value.Results[0].Text);
         }
+        else
+        {
+            // There were no type-ahead suggestions, so add an empty string.
+            results.Add("");
+        }
+
+        for (int n = 0; n < suggestResult.Value.Results.Count; n++)
+        {
+            // Now add the suggestions.
+            results.Add(suggestResult.Value.Results[n].Text);
+        }
+
+        // Return the list.
+        return new JsonResult(results);
+    }
     ```
 
     Uma opção de auto-prengressão é devolvida no topo da lista de **resultados,** seguida de todas as sugestões.
 
-2. Na vista, primeiro implementamos um truque para que uma palavra de auto-conteúdo cinza claro seja prestada sob texto mais ousado sendo introduzido pelo utilizador. HTML inclui posicionamento relativo para este fim. Altere a declaração **TextBoxPara** (e as suas declarações de &lt; div &gt; circundantes) para as seguintes, observando que uma segunda caixa de pesquisa identificada como **por baixo** está bem debaixo da nossa caixa de pesquisa normal, retirando esta caixa de pesquisa de 39 pixels da sua localização padrão!
+1. Na vista, primeiro implementamos um truque para que uma palavra de auto-conteúdo cinza claro seja prestada sob texto mais ousado sendo introduzido pelo utilizador. HTML inclui posicionamento relativo para este fim. Altere a declaração **TextBoxPara** (e as suas declarações de &lt; div &gt; circundantes) para as seguintes, observando que uma segunda caixa de pesquisa identificada como **por baixo** está bem debaixo da nossa caixa de pesquisa normal, retirando esta caixa de pesquisa de 39 pixels da sua localização padrão!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -320,9 +328,9 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
     </div>
     ```
 
-    Note que estamos a mudar o ID novamente, para **azureautocomplete** neste caso.
+    Reparem que estamos a mudar o ID novamente, para **azureautocomplete** neste caso.
 
-3. Também na vista, introduza o seguinte script, depois de todos os scripts que inseriu até agora. Há muito a fazer.
+1. Também na vista, introduza o seguinte script, depois de todos os scripts que inseriu até agora. O script é longo e complexo devido à variedade de comportamentos de entrada que lida.
 
     ```javascript
     <script>
@@ -336,7 +344,7 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
 
             // Use Ajax to set up a "success" function.
             source: function (request, response) {
-                var controllerUrl = "/Home/AutoCompleteAndSuggest?term=" + $("#azureautocomplete").val();
+                var controllerUrl = "/Home/AutoCompleteAndSuggestAsync?term=" + $("#azureautocomplete").val();
                 $.ajax({
                     url: controllerUrl,
                     dataType: "json",
@@ -431,23 +439,23 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
     </script>
     ```
 
-    Note o uso inteligente da função de **intervalo** para limpar o texto subjacente quando já não corresponde ao que o utilizador está a escrever, e também para definir o mesmo caso (superior ou inferior) à medida que o utilizador está a escrever (como "pa" corresponde a "PA", "pA", "Pa" ao procurar), de modo a que o texto sobreposto seja arrumado.
+    Note como a função **de intervalo** é usada para limpar o texto subjacente quando já não corresponde ao que o utilizador está a escrever, e também para definir o mesmo caso (superior ou inferior) como o utilizador está a escrever (como "pa" corresponde a "PA", "pA", "Pa" ao procurar), de modo a que o texto sobreposto seja limpo.
 
     Leia os comentários no script para obter um entendimento mais completo.
 
-4. Por último, precisamos de fazer um pequeno ajuste a duas classes HTML para torná-los transparentes. Adicione a seguinte linha às aulas **searchBoxForm** e **searchBox,** no ficheiro hotels.css.
+1. Por último, precisamos de fazer um pequeno ajuste a duas classes HTML para torná-los transparentes. Adicione a seguinte linha às aulas **searchBoxForm** e **searchBox,** no ficheiro hotels.css.
 
     ```html
-        background: rgba(0,0,0,0);
+    background: rgba(0,0,0,0);
     ```
 
-5. Agora executar a aplicação. Introduza "pa" na caixa de pesquisa. Você recebe "palácio" como a sugestão autocompleta, juntamente com dois hotéis que contêm "pa"?
+1. Agora executar a aplicação. Introduza "pa" na caixa de pesquisa. Você recebe "palácio" como a sugestão autocompleta, juntamente com dois hotéis que contêm "pa"?
 
     ![Dactilografia com autocompleto inline e sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
-6. Tente fazer tabbing para aceitar a sugestão de precontamento automático e tente selecionar sugestões utilizando as teclas de seta e tecla do separador, e tente novamente usando o rato e um simples clique. Verifique se o script lida com todas estas situações de forma ordenada.
+1. Tente fazer tabbing para aceitar a sugestão de precontamento automático e tente selecionar sugestões utilizando as teclas de seta e tecla do separador, e tente novamente usando o rato e um simples clique. Verifique se o script lida com todas estas situações de forma ordenada.
 
-    Pode decidir que é mais simples carregar numa biblioteca que lhe oferece esta funcionalidade, mas agora sabe pelo menos uma forma de obter a auto-premôdo inline para trabalhar!
+    Pode decidir que é mais simples carregar numa biblioteca que lhe oferece esta funcionalidade, mas agora sabe pelo menos uma forma de obter a auto-premôdo inline para funcionar.
 
 ## <a name="takeaways"></a>Conclusões
 
@@ -458,7 +466,7 @@ Considere os seguintes takeaways deste projeto:
 * Teste sempre funções de auto-completação com todas as formas de entrada.
 * A utilização da função **setInterval** pode ser útil na verificação e correção de elementos de UI.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para reduzir as pesquisas com um único clique.
 

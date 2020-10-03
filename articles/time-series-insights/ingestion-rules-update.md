@@ -8,14 +8,14 @@ ms.author: lyhughes
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 9a345661a50b18d53411d073ccf12375fe17cdb9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088600"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667814"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao Achatamento de JSON e fuga às regras para novos ambientes
 
@@ -47,10 +47,11 @@ Quaisquer novas implementações têm de corresponder às novas regras de ingest
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Se a sua carga útil contiver JSON aninhado ou caracteres especiais e automatizar expressões variáveis [do Modelo de Séries](.\time-series-insights-update-tsm.md) de Tempo
 
 Atualize o código do cliente que executa [o TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) para corresponder às novas regras de ingestão. Por exemplo, deve atualizar uma expressão anterior da [Série de Tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) de uma das `"value": {"tsx": "$event.series_value.Double"}` seguintes opções:
-  * `"value": {"tsx": "$event.series.value.Double"}`
-  * `"value": {"tsx": "$event['series']['value'].Double"}`
 
-## <a name="next-steps"></a>Passos seguintes
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
+
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o armazenamento e entrada da [Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
 

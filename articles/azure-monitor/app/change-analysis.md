@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540167"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667629"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -21,7 +21,7 @@ Com base na potência do [Azure Resource Graph,](../../governance/resource-graph
 > [!IMPORTANT]
 > A Análise de Alterações está atualmente em pré-visualização. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Análise de Alterações deteta vários tipos de alterações, desde a camada de infraestrutura até à implementação da aplicação. É um fornecedor de recursos Azure de nível de subscrição que verifica as alterações de recursos na subscrição. A Change Analysis fornece dados para várias ferramentas de diagnóstico para ajudar os utilizadores a entender que mudanças podem ter causado problemas.
 
@@ -101,7 +101,7 @@ Application Change Analysis é um detetor autónomo na Web App diagnosticar e re
 
    ![Screenshot do botão "Application Crashes"](./media/change-analysis/application-changes.png)
 
-3. Para ativar a Análise de Alterações, selecione **Ative já**.
+3. O link leva à Aplicação Change Aalysis UI telescópio para a aplicação web. Se o rastreio de alterações de aplicativos na Web no hóspede não estiver ativado, siga o banner para obter alterações nas definições de ficheiros e aplicações.
 
    ![Screenshot das opções "Application Crashes"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,11 +109,33 @@ Application Change Analysis é um detetor autónomo na Web App diagnosticar e re
 
     ![Screenshot da interface de utilizador "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
-5. Para aceder à Análise de Alterações, selecione **Diagnosticar e resolver problemas**Disponibilidade e Falhas de  >  **Availability and Performance**  >  **Aplicação de**Desempenho. Você verá um gráfico que resume o tipo de mudanças ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são apresentadas para ajudar com problemas imediatos.
+5. Os dados de alteração também estão disponíveis em detetores de **aplicações web para baixo** e **de falhas de aplicação** selecionados. Você verá um gráfico que resume o tipo de mudanças ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são apresentadas para ajudar com problemas imediatos.
 
      ![Screenshot da visão de mudança diff](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Ativar a análise de mudança à escala
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico e resolução de máquinas virtuais
+
+Vá para a ferramenta Diagnosticar e Resolver Problemas para uma Máquina Virtual.  Vá a **Ferramentas de Resolução de Problemas,** navegue pela página e selecione **Analise as alterações recentes** para ver as alterações na Máquina Virtual.
+
+![Screenshot do VM Diagnosticar e Resolver Problemas](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Alterar analisador em ferramentas de resolução de problemas](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Histórico de alteração de registo de atividade
+A funcionalidade [de histórico de alteração de visualização](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) no Registo de Atividade chama o backend do serviço de análise de alteração de aplicação para obter alterações associadas a uma operação. **Alterar o histórico** usado para chamar [o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) diretamente, mas trocou o backend para ligar para Application Change Analysis para que as alterações devolvidas incluam alterações no nível de recursos a partir do [Azure Resource Graph,](https://docs.microsoft.com/azure/governance/resource-graph/overview)propriedades de recursos do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), e alterações in-guest dos serviços PaaS, como app Web App Services. Para que o serviço de Análise de Alterações de Aplicação possa pesquisar alterações nas subscrições dos utilizadores, é necessário registar um fornecedor de recursos. A primeira vez que introduzir o separador **Change History,** a ferramenta começará automaticamente a registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Depois de registadas, as alterações a partir do **Azure Resource Graph** estarão disponíveis imediatamente e cobrirão os últimos 14 dias. As alterações de outras fontes estarão disponíveis após ~4 horas após a subscrição estar a bordo.
+
+![Atividade Log alterar integração de histórico](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integração de VM Insights
+Os utilizadores com [O Visor VM](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) habilitado podem ver o que mudou nas suas máquinas virtuais que podem causar picos num gráfico de métricas como CPU ou Memory e perguntar-se o que o causou. Os dados de alteração estão integrados na barra de navegação lateral VM Insights. O utilizador pode ver se alguma alteração ocorreu no VM e clicar em **Investigar Alterações** para ver detalhes de alteração na UI de alteração de aplicação.
+
+[![Integração de insights VM](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Ativar a análise de mudança à escala
 
 Se a sua subscrição incluir numerosas aplicações web, ativar o serviço ao nível da aplicação web seria ineficiente. Execute o seguinte script para ativar todas as aplicações web na sua subscrição.
 
@@ -147,15 +169,27 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico e resolução de máquinas virtuais
+## <a name="troubleshoot"></a>Resolução de problemas
 
-Vá para a ferramenta Diagnosticar e Resolver Problemas para uma Máquina Virtual.  Vá a **Ferramentas de Resolução de Problemas,** navegue pela página e selecione **Analise as alterações recentes** para ver as alterações na Máquina Virtual.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Ter dificuldade em registar o provedor de recursos Microsoft.Change Analysis a partir do separador Deturb
+Se for a primeira vez que vê o histórico change após a sua integração com a Análise de Alterações de Aplicações, verá que registará automaticamente um fornecedor de recursos **Microsoft.ChangeAnalysis**. Em casos raros, pode falhar pelas seguintes razões:
 
-![Screenshot do VM Diagnosticar e Resolver Problemas](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Não tem permissões suficientes para registar o fornecedor de recursos Microsoft.ChangeAnalysis.** Esta mensagem de erro significa que a sua função na subscrição atual não tem o **microsoft.Support/register/action** scope associado a ela. Isto pode acontecer se não for o proprietário de uma subscrição e obtiver permissões de acesso partilhadas através de um colega de trabalho. ou seja, ver acesso a um grupo de recursos. Para corrigir isto, pode contactar o proprietário da sua subscrição para registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Isto pode ser feito no portal Azure através **de Assinaturas Fornecedores de recursos** e pesquisa ```Microsoft.ChangeAnalysis``` e registo na UI, ou através da Azure PowerShell ou Azure CLI.
 
-![Screenshot do VM Diagnosticar e Resolver Problemas](./media/change-analysis/analyze-recent-changes.png)
+    Registar fornecedor de recursos através do PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
 
-## <a name="next-steps"></a>Próximos passos
+- **Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis**. Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
+
+- **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
+    ![Registo de RP de resolução de problemas demorando muito tempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
+
+## <a name="next-steps"></a>Próximas etapas
 
 - Ativar insights de aplicações para [aplicações Azure App Services](azure-web-apps.md).
 - Ativar os Insights de Aplicações para [Azure VM e Azure série de máquinas virtuais definir aplicações hospedadas no IIS](azure-vm-vmss-apps.md).

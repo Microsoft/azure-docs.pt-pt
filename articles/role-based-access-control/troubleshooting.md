@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441827"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665997"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferir uma subscrição para um diretório diferente
 
-- Se precisar de passos para transferir uma subscrição para um diretório AD Azure diferente, consulte [transferir uma subscrição Azure para um diretório AD Azure diferente (Preview)](transfer-subscription.md).
+- Se precisar de passos para transferir uma subscrição para um diretório AD Azure diferente, consulte [transferir uma subscrição Azure para um diretório AD Azure diferente](transfer-subscription.md).
 - Se transferir uma subscrição para um diretório AD Azure diferente, todas as atribuições de funções são **permanentemente** eliminadas do diretório AD de origem E não são migradas para o diretório Azure AD alvo. Tens de recriar as tuas funções no diretório alvo. Também tem de recriar manualmente identidades geridas para os recursos da Azure. Para mais informações, consulte [as PERGUNTAS Frequentes e questões conhecidas com identidades geridas.](../active-directory/managed-identities-azure-resources/known-issues.md)
 - Se é administrador global da Azure E não tem acesso a uma subscrição depois de ter sido transferida entre diretórios, utilize a **gestão access for Azure recursos** para aumentar temporariamente [o seu acesso](elevate-access-global-admin.md) para ter acesso à subscrição.
 
@@ -245,7 +245,7 @@ Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overv
 
 Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em seguida, clicar **em Todas as definições** para visualizar algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não consegue modificar nenhuma destas definições. Para aceder a estas funcionalidades, necessitará da função [Colaboradora.](built-in-roles.md#contributor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
 - [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)

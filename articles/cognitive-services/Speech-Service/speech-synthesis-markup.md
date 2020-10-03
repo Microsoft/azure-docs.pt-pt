@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5b3ea0a2037ae80116e9578999414677db1089ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 199e19116e0d8ba6bcc4954e767265e6fb4cd238
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319032"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666352"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -48,7 +48,7 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 `speak` é o elemento raiz, e é **necessário** para todos os documentos SSML. O `speak` elemento contém informações importantes, tais como versão, linguagem e a definição de vocabulário de marcação.
 
-**Syntax**
+**Sintaxe**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
@@ -66,7 +66,7 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 O `voice` elemento é necessário. É utilizado para especificar a voz que é usada para texto-a-voz.
 
-**Syntax**
+**Sintaxe**
 
 ```xml
 <voice name="string">
@@ -203,7 +203,7 @@ As alterações são aplicadas ao nível da frase, e os estilos variam por voz. 
 
 Para a voz chinesa XiaoxiaoNeural, a intensidade do estilo de fala pode ser alterada para melhor se adaptar ao seu caso de uso. Pode especificar um estilo mais forte ou mais suave para `styledegree` tornar o discurso mais expressivo ou moderado.
 
-**Syntax**
+**Sintaxe**
 
 ```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
@@ -220,7 +220,7 @@ Para a voz chinesa XiaoxiaoNeural, a intensidade do estilo de fala pode ser alte
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Description                                                 |
+| Voz                   | Estilo                     | Descrição                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -278,7 +278,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 > [!NOTE]
 > Utilize este elemento para anular o comportamento padrão de texto-a-voz (TTS) para uma palavra ou frase se o discurso sintetizado para essa palavra ou frase não soar natural. Configurado `strength` para evitar uma rutura `none` prosódica, que é automaticamente inserida pelo serviço text-to-speech.
 
-**Syntax**
+**Sintaxe**
 
 ```xml
 <break strength="string" />
@@ -292,7 +292,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
-| Força                      | Description |
+| Força                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -319,7 +319,7 @@ O `p` elemento pode conter texto e os seguintes elementos: , , , `audio` , , , ,
 
 O `s` elemento pode conter texto e os seguintes elementos: , , `audio` , , , , , e `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <p></p>
@@ -349,7 +349,7 @@ O `ph` elemento é utilizado para pronúncia fonética em documentos SSML. O `ph
 
 Os alfabetos fonéticos são compostos por telefones, que são compostos por letras, números ou caracteres, às vezes em combinação. Cada telefone descreve um som único de fala. Isto contrasta com o alfabeto latino, onde qualquer letra pode representar múltiplos sons falados. Considere as diferentes pronúncias da letra "c" nas palavras "doces" e "cessar", ou as diferentes pronúncias da letra combinada "th" nas palavras "coisa" e "aquelas".
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <phoneme alphabet="string" ph="string"></phoneme>
@@ -395,7 +395,7 @@ Por vezes, o serviço de texto-a-fala não consegue pronunciar uma palavra com p
 > [!NOTE]
 > O léxico personalizado suporta atualmente a codificação UTF-8. 
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <lexicon uri="string"/>
@@ -405,7 +405,7 @@ Por vezes, o serviço de texto-a-fala não consegue pronunciar uma palavra com p
 
 | Atributo | Descrição                               | Obrigatório / Opcional |
 |-----------|-------------------------------------------|---------------------|
-| `uri`     | O endereço do documento pls externo. | Necessário.           |
+| `uri`     | O endereço do documento pls externo. | Obrigatório.           |
 
 **Utilização**
 
@@ -432,7 +432,7 @@ Para definir como várias entidades são lidas, pode criar um léxico personaliz
 
 O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um elemento e um ou `grapheme` `grapheme` `alias` mais, e `phoneme` elementos. O `grapheme` elemento contém texto que descreve a <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthografia. <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Os `alias` elementos são usados para indicar a pronúncia de um acrónimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como o `lexeme` pronuncia-se.
 
-É importante notar que não se pode definir diretamente a pronúncia de uma palavra usando o léxico personalizado. Se precisar de definir a pronúncia para um acrónimo ou um termo abreviado, primeiro forneça um `alias` , em seguida, associe a `phoneme` isso `alias` . Por exemplo:
+É importante notar que não se pode definir diretamente a pronúncia de uma frase usando o léxico personalizado. Se precisar de definir a pronúncia para um acrónimo ou um termo abreviado, primeiro forneça um `alias` , em seguida, associe a `phoneme` isso `alias` . Por exemplo:
 
 ```xml
   <lexeme>
@@ -442,6 +442,14 @@ O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elem
   <lexeme>
     <grapheme>ScotlandMV</grapheme> 
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
+
+Também pode fornecer diretamente o seu esperado `alias` para o acrónimo ou termo abreviado. Por exemplo:
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>Scotland Media Wave</alias> 
   </lexeme>
 ```
 
@@ -510,7 +518,7 @@ O `prosody` elemento é utilizado para especificar alterações ao tom, contorno
 
 Como os valores prosódicos de atributos podem variar em relação a uma ampla gama, o reconhecimento da fala interpreta os valores atribuídos como uma sugestão do que devem ser os valores prosódicos reais da voz selecionada. O serviço de texto-a-fala limita ou substitui valores que não são suportados. Exemplos de valores não suportados são um pitch de 1 MHz ou um volume de 120.
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
@@ -593,7 +601,7 @@ As alterações de tom podem ser aplicadas às vozes padrão ao nível da palavr
 
 `say-as` é um elemento opcional que indica o tipo de conteúdo (como número ou data) do texto do elemento. Isto fornece orientação para o motor da síntese da fala sobre como pronunciar o texto.
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <say-as interpret-as="string" format="digit string" detail="string"> <say-as>
@@ -655,7 +663,7 @@ Qualquer áudio incluído no documento SSML deve satisfazer estes requisitos:
 * O tempo total combinado para todos os ficheiros de texto e áudio numa única resposta não pode exceder 90 (90) segundos.
 * O MP3 não deve conter nenhuma informação específica do cliente ou outra informação sensível.
 
-**Syntax**
+**Sintaxe**
 
 ```xml
 <audio src="string"/></audio>
@@ -691,7 +699,7 @@ Se o áudio de fundo fornecido for mais curto do que o texto-a-fala ou o desvane
 
 Apenas um ficheiro áudio de fundo é permitido por documento SSML. No entanto, pode intercalar `audio` tags dentro do `voice` elemento para adicionar áudio adicional ao seu documento SSML.
 
-**Syntax**
+**Sintaxe**
 
 ```XML
 <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
@@ -717,6 +725,6 @@ Apenas um ficheiro áudio de fundo é permitido por documento SSML. No entanto, 
 </speak>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Suporte linguístico: vozes, locais, línguas](language-support.md)

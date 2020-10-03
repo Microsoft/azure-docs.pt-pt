@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450067"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667270"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -183,7 +183,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -450,6 +450,10 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes armazena os segredos em formato codificado base-64. Terá de descodificar os `cert.pem` `key.pem` e componentes dos segredos antes de os fornecer `attach_config.enable_ssl` a . 
 
+### <a name="detaching-azure-kubernetes-service"></a>Destacamento serviço Azure Kubernetes
+
+A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS não elimina o cluster AKS. Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservices em falhas de serviço Azure Kubernetes
 
 Muitas falhas de serviço web no Serviço Azure Kubernetes podem ser depuradas ligando-se ao cluster utilizando `kubectl` . Você pode obter o `kubeconfig.json` para um Cluster de ServiçoS Azure Kubernetes executando
@@ -478,7 +482,7 @@ O controlo de acesso baseado em funções Azure pode ser usado para restringir a
 
 Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5598726726ecca1467b2c82c8ea7f947af033bb4
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 542532ba660c9d625b22a06e989f5a7d13e7a9d3
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614041"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664975"
 ---
 # <a name="sms-concepts"></a>Conceitos de SMS
 
@@ -36,7 +36,7 @@ As principais características das bibliotecas de clientes dos Serviços de Comu
   - As mensagens STOP, UNSTOP e START serão retransmitidas de volta para si. A Azure Communication Services encoraja-o a monitorizar e implementar estes opt-outs para garantir que não são feitas mais tentativas de envio de mensagens aos destinatários que tenham optado por não fazer as suas comunicações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Começar com o envio de SMS](../../quickstarts/telephony-sms/send.md)

@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 3ba3d8d4b345c9db2e41c647147021eb9616288e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948299"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667508"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
 
@@ -87,18 +87,18 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bash_profile` a 
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 Se tiver algum número de telefone atribuído ao seu recurso após a eliminação de recursos, os números de telefone serão libertados automaticamente do seu recurso ao mesmo tempo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste arranque rápido aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um recurso de Serviços de Comunicação
+> * Criar um recurso do Communication Services
 > * Configurar geografia de recursos e etiquetas
 > * Aceda às chaves desse recurso
 > * Eliminar o recurso

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 30e8224b6cb757f044a5eac598d834cee838391e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 6bb50e427fa85a170c5ad23a63d67c01e898a17d
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629986"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665689"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
@@ -30,10 +30,17 @@ A [especificação Swagger](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 Terá de definir o Swagger na mesma região que a subscrição do serviço Speech. Pode confirmar a sua região no portal Azure sob o seu recurso de serviço Speech. Para obter uma lista completa das regiões apoiadas, consulte [as regiões.](regions.md)
 
-1. Num browser, aceda à especificação swagger para a sua `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0` região. Nessa página, clique na **definição de API**e clique em **Swagger**. Copie o URL da página que aparece.
+1. Num browser, aceda à especificação swagger para a sua região:  
+       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
+1. Nessa página, clique na **definição de API**e clique em **Swagger**. Copie o URL da página que aparece.
 1. Em um novo navegador, vá para https://editor.swagger.io
 1. Clique **em Arquivo,** clique em **URL de importação,** cole o URL e clique **em OK**.
-1. Clique **em Gerar Cliente** e selecione **python**. A biblioteca de clientes descarrega para o seu computador.
+1. Clique **em Gerar Cliente** e selecione **python**. A biblioteca de clientes descarrega para o seu computador num `.zip` ficheiro.
+1. Extrair tudo do download. Podes usar `tar -xf` para extrair tudo.
+1. Instale o módulo extraído no seu ambiente Python:  
+       `pip install path/to/package/python-client`
+1. O pacote instalado tem o nome `swagger_client` . Verifique se a instalação funcionou:  
+       `python -c "import swagger_client"`
 
 Pode utilizar a biblioteca Python que gerou com as amostras de [serviço de fala no GitHub.](https://aka.ms/csspeech/samples)
 
@@ -43,7 +50,7 @@ Pode utilizar a biblioteca Python que gerou com as amostras de [serviço de fala
 * [REST API: Discurso-a-texto](rest-speech-to-text.md)
 * [REST API: Texto-a-discurso](rest-text-to-speech.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Amostras de serviço de fala no GitHub.](https://aka.ms/csspeech/samples)
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)

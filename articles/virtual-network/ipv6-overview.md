@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653295"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666828"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é iPv6 para Azure Virtual Network?
 
@@ -61,7 +61,7 @@ O IPv6 para Azure VNet inclui as seguintes capacidades:
     - Nota: O IPv6 só pode ser carregado para a interface de rede primária (NIC) em VMs Azure. 
 - [Suporte padrão IPv6 do Balanceador interno](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) de carga para criar aplicações resilientes de vários níveis dentro de VNETs Azure.   
 - Suporte básico do Balancer de Carga público IPv6 para compatibilidade com implantações antigas
-- [Os endereços IP e os intervalos de endereços IPv6, reservados,](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a whitelisting das suas aplicações azure-hospedadas para a sua empresa e os seus clientes.
+- [Os endereços IP e as gamas de endereços IPv6, reservados,](ipv6-public-ip-address-prefix.md) fornecem endereços IPv6 estáveis e previsíveis que facilitam a filtragem das suas aplicações azure-hospedadas para a sua empresa e para os seus clientes.
 - O IP público de nível de instância fornece conectividade de Internet IPv6 diretamente a VMs individuais.
 - [Adicione IPv6 às implementações iPv4 existentes -](ipv6-add-to-existing-vnet-powershell.md)esta funcionalidade permite-lhe adicionar facilmente conectividade IPv6 às implementações apenas iPv4 existentes sem a necessidade de recriar implementações.  O tráfego da rede IPv4 não é afetado durante este processo, pelo que, dependendo da sua aplicação e do SISTEMA, poderá adicionar IPv6 até mesmo a serviços ao vivo.    
 - Deixe que os clientes da Internet acedam perfeitamente à sua aplicação de stack dupla usando o seu protocolo de eleição com suporte Azure DNS para registos IPv6 (AAAA). 
@@ -87,7 +87,7 @@ O atual IPv6 para a versão virtual da Azure tem as seguintes limitações:
 
 Os recursos IPv6 Azure e largura de banda são cobrados às mesmas taxas que o IPv4. Não há taxas adicionais ou diferentes para o IPv6. Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Balancer de Carga.](https://azure.microsoft.com/pricing/details/load-balancer/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [implementar uma aplicação de pilha dupla IPv6 utilizando a Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 - Saiba como [implementar uma aplicação de pilha dupla IPv6 utilizando o Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).

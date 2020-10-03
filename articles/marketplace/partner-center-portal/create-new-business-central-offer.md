@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531824"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665243"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -256,9 +256,8 @@ Faça o upload do ficheiro de pacote de extensão (.app) para a sua oferta.
 
 Necessário se a sua oferta tiver de ser instalada juntamente com outra extensão que não será publicada no mercado. Se assim for, faça o upload do seu ficheiro .app aqui.
 
-#### <a name="dependency-package-file"></a>Arquivo de pacote de dependência
-
-Necessário se a sua oferta deve ser instalada juntamente com outra extensão que já foi publicada no mercado. Em caso afirmativo, faça o upload do seu `.app` ou `.zip` ficheiro aqui.
+>[!NOTE]
+>O ficheiro do pacote de dependência já não é utilizado. Em vez disso, faça o upload de um ficheiro de pacote de biblioteca.
 
 ### <a name="url-to-app-installation"></a>URL para instalação de aplicativos
 
@@ -313,6 +312,6 @@ Se é a sua primeira vez publicando esta oferta, você pode:
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e963c092b968476d20e25482cbe165234f7e86f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531953"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665927"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicione uma fonte de evento de hub IoT ao seu ambiente Azure Time Series Insight
 
@@ -65,10 +65,10 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 1. Selecione um valor para **a opção Importação**:
 
    * Se já tem um hub IoT numa das suas subscrições, selecione **Use IoT Hub a partir de subscrições disponíveis.** Esta opção é a abordagem mais fácil.
-   
+
      [![Selecione opções no painel de origem do novo evento](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
-    * A tabela a seguir descreve as propriedades necessárias para o Use IoT Hub a partir da opção **de subscrições disponíveis:**
+   * A tabela a seguir descreve as propriedades necessárias para o Use IoT Hub a partir da opção **de subscrições disponíveis:**
 
        [![Novo painel de fonte de eventos - Propriedades a definir no Use IoT Hub a partir da opção de subscrições disponíveis](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
@@ -79,7 +79,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
        | Nome da política do hub IoT | Selecione a política de acesso partilhado. Pode encontrar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de *eventos deve* ter permissões **de ligação de serviço.** |
        | Chave de política do hub IoT | A chave está pré-poupulada. |
 
-    * Se o hub IoT for externo às suas subscrições ou se quiser escolher opções avançadas, selecione **manualmente as definições do Hub IoT**.
+   * Se o hub IoT for externo às suas subscrições ou se quiser escolher opções avançadas, selecione **manualmente as definições do Hub IoT**.
 
       A tabela seguinte descreve manualmente as propriedades necessárias para as **definições do Hub Provide IoT**:
 
@@ -91,7 +91,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
        | Nome da política do hub IoT | A política de acesso partilhado. Pode criar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de *eventos deve* ter permissões **de ligação de serviço.** |
        | Chave de política do hub IoT | A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Azure Service Bus. Introduza a chave primária ou secundária aqui. |
 
-    * Ambas as opções partilham as seguintes opções de configuração:
+   * Ambas as opções partilham as seguintes opções de configuração:
 
        | Propriedade | Descrição |
        | --- | --- |
@@ -99,14 +99,13 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
        | Formato de serialização de eventos | Atualmente, o JSON é o único formato de serialização disponível. As mensagens do evento devem estar neste formato ou não podem ser lidos dados. |
        | Nome da propriedade Carimbo de data/hora | Para determinar este valor, é necessário compreender o formato de mensagem dos dados de mensagem enviados para o hub IoT. Este valor é o **nome** da propriedade específica do evento nos dados de mensagem que pretende utilizar como o tempo de marcação do evento. O valor é sensível a casos. Se ficar em branco, o **tempo de encade de evento** na fonte do evento é usado como o tempo de tempo do evento. |
 
-
 1. Adicione o nome dedicado do grupo de consumidores Azure Time Series Insight que adicionou ao seu hub IoT.
 
 1. Selecione **Criar**.
 
 1. Depois de criar a fonte do evento, o Azure Time Series Insight inicia automaticamente o streaming de dados para o seu ambiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
 

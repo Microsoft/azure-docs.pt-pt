@@ -2,19 +2,19 @@
 title: 'Quickstart: criar um espaço de trabalho Synapse'
 description: Crie um espaço de trabalho sinapse seguindo os passos deste guia.
 services: synapse-analytics
-author: pimorano
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 09/03/2020
-ms.author: pimorano
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: cbf7fb8deba86dd966ccb8087823c76b20413db8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04bbab477f20ec25ccb0e975dad2b30a511346d2
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260364"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667763"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -27,8 +27,8 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 
     |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
     |---|---|---|---|
-    |Noções básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
-    |Noções básicas|**Região**|Combine com a região da conta de armazenamento.|
+    |Informações básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
+    |Informações básicas|**Região**|Combine com a região da conta de armazenamento.|
 
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
@@ -68,7 +68,7 @@ As identidades geridas para o seu espaço de trabalho Azure Synapse podem já te
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma piscina SQL](quickstart-create-sql-pool-studio.md) 
 * [Criar uma piscina Apache Spark](quickstart-create-apache-spark-pool-portal.md)

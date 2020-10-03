@@ -1,17 +1,17 @@
 ---
 title: Tutorial - Identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
-description: Use identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
+description: Utilizar uma identidade gerida para invocar Funções do Azure a partir de uma aplicação do Azure Spring Cloud
 author: MarkGardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 6538022e7ada748f828f6d57dde73b5e12da84c9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108889"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664992"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
 
@@ -91,7 +91,7 @@ Por predefinição, as funções utilizam a autenticação baseada em chaves par
 }
 ```
 
-A aplicação pode agora ser publicada na instância da aplicação Function criada no passo anterior.
+A aplicação pode agora ser publicada na instância da [aplicação Function](#create-a-function-app) criada no passo anterior.
 
 ```console
 func azure functionapp publish <your-functionapp-name>
@@ -171,7 +171,7 @@ Esta amostra invocará a função desencadeada http, solicitando primeiro um tok
     
     Pode tentar passar valores diferentes para a função alterando o parâmetro do caminho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)

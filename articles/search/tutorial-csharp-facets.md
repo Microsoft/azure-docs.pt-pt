@@ -7,31 +7,39 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0b51960418b311ed6170d6d060f3674a9a825808
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ab15af07c5f63d375d8fdb4fc38e0853e207a0be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998514"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667287"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
 
-As facetas são usadas para ajudar a navegação, fornecendo ao utilizador um conjunto de links para usar para concentrar a sua pesquisa. As facetas são atributos dos dados (como a categoria, ou uma característica específica, de um hotel nos nossos dados de amostra).
-
-Este tutorial baseia-se no projeto de paging criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
+As facetas permitem a navegação auto-dirigida, fornecendo um conjunto de links para os resultados de filtragem. Neste tutorial, uma estrutura de navegação facetada é colocada no lado esquerdo da página, com etiquetas e texto clicável para aparar os resultados.
 
 Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Definir propriedades do modelo como _IsFacetable_
 > * Adicione navegação faceta à sua app
 
+## <a name="overview"></a>Descrição geral
+
+As facetas são baseadas em campos no seu índice de pesquisa. Um pedido de consulta que inclui facet=[string] fornece o campo para facetar por. É comum incluir múltiplas facetas, tais `&facet=category&facet=amenities` como, cada uma separada por um caráter ampersand (&). A implementação de uma estrutura de navegação facetada requer que especifique ambas as facetas e filtros. O filtro é utilizado num evento de clique para reduzir os resultados. Por exemplo, clicar em "orçamento" filtra os resultados com base nesses critérios.
+
+Este tutorial alarga o projeto de paging criado no [Add paging para pesquisar resultados](tutorial-csharp-paging.md) tutoriais.
+
+Uma versão acabada do código neste tutorial pode ser encontrada no seguinte projeto:
+
+* [4-add-facet-navegação (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/4-add-facet-navigation)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de:
+* [Solução 2a-add-paging (GitHub).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging) Este projeto pode ser a sua própria versão construída a partir do tutorial anterior ou uma cópia do GitHub.
 
-Ter o [Tutorial C#: Pesquisa de resultados pagination - Projeto de Pesquisa Cognitiva Azure](tutorial-csharp-paging.md) em funcionamento. Este projeto pode ser a sua própria versão ou instalá-lo a partir do GitHub: [Criar a primeira aplicação.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
+Este tutorial foi atualizado para utilizar o pacote [Azure.Search.Documents (versão 11).](https://www.nuget.org/packages/Azure.Search.Documents/) Para obter uma versão anterior do .NET SDK, consulte [a amostra de código Microsoft.Azure.Search (versão 10).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)
 
 ## <a name="set-model-properties-as-isfacetable"></a>Definir propriedades do modelo como IsFacetable
 
@@ -42,58 +50,53 @@ Para que uma propriedade modelo seja localizada numa pesquisa de facetas, deve s
     ```cs
     public partial class Hotel
     {
-        [System.ComponentModel.DataAnnotations.Key]
-        [IsFilterable]
+        [SimpleField(IsFilterable = true, IsKey = true)]
         public string HotelId { get; set; }
 
-        [IsSearchable, IsSortable]
+        [SearchableField(IsSortable = true)]
         public string HotelName { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnLucene)]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
         public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("Description_fr")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+        [JsonPropertyName("Description_fr")]
         public string DescriptionFr { get; set; }
 
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
         public string Category { get; set; }
 
-        [IsSearchable, IsFilterable, IsFacetable]
+        [SearchableField(IsFilterable = true, IsFacetable = true)]
         public string[] Tags { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
+        [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
         public bool? ParkingIncluded { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
+        [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
         public DateTimeOffset? LastRenovationDate { get; set; }
 
-        [IsFilterable, IsSortable, IsFacetable]
+        [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
         public double? Rating { get; set; }
 
         public Address Address { get; set; }
 
-        [IsFilterable, IsSortable]
+        [SimpleField(IsFilterable = true, IsSortable = true)]
         public GeographyPoint Location { get; set; }
 
         public Room[] Rooms { get; set; }
-
     }
     ```
 
-2. Não vamos mudar nenhuma etiqueta como parte deste tutorial, por isso feche o ficheiro hotel.cs inalterada.
+1. Não vamos mudar nenhuma etiqueta como parte deste tutorial, por isso feche o ficheiro hotel.cs inalterada.
 
     > [!Note]
     > Uma pesquisa de faceta lançará um erro se um campo solicitado na pesquisa não for marcado adequadamente.
 
-
 ## <a name="add-facet-navigation-to-your-app"></a>Adicione navegação faceta à sua app
 
-Para este exemplo, vamos permitir ao utilizador selecionar uma categoria de hotel, ou uma amenidade, a partir de listas de links mostrados à esquerda dos resultados. O utilizador começa por introduzir algum texto de pesquisa, depois pode reduzir os resultados da pesquisa selecionando uma categoria, e pode reduzir ainda mais os resultados selecionando uma amenidade, ou pode selecionar a amenidade primeiro (a ordem não é importante).
+Para este exemplo, vamos permitir ao utilizador selecionar uma categoria de hotel, ou uma amenidade, a partir de listas de links mostrados à esquerda dos resultados. O utilizador começa por introduzir algum texto de pesquisa e, em seguida, reduz progressivamente os resultados da pesquisa selecionando uma categoria ou amenidade.
 
-Precisamos que o controlador passe as listas de facetas para a vista. Precisamos manter as seleções de utilizadores à medida que a pesquisa progride, e mais uma vez, usamos o armazenamento temporário como mecanismo de preservação de dados.
+É trabalho do controlador passar as listas de facetas para a vista. Para manter as seleções de utilizadores à medida que a pesquisa progride, utilizamos o armazenamento temporário como mecanismo de preservação do estado.
 
 ![Usando a navegação faceta para reduzir uma pesquisa de "piscina"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
 
@@ -102,222 +105,224 @@ Precisamos que o controlador passe as listas de facetas para a vista. Precisamos
 1. Abra o ficheiro SearchData.cs e adicione propriedades de cordas à classe **SearchData,** para segurar as cordas do filtro faceta.
 
     ```cs
-        public string categoryFilter { get; set; }
-        public string amenityFilter { get; set; }
+    public string categoryFilter { get; set; }
+    public string amenityFilter { get; set; }
     ```
 
 ### <a name="add-the-facet-action-method"></a>Adicione o método de ação Facet
 
-O controlador doméstico precisa de uma nova ação, **Facet,** e atualiza as ações existentes **de Index** e **Page,** bem como atualizações para o método **RunQueryAsync.**
+O controlador doméstico precisa de uma nova ação, **Facet,** e atualiza as ações existentes **de Index** e **Page,** e do método **RunQueryAsync.**
 
-1. Abra o ficheiro do controlador doméstico e adicione a declaração **de utilização,** para ativar a construção da ** &lt; cadeia &gt; Lista.**
+<!-- 1. Open the home controller file, and add the **using** statement, to enable the **List&lt;string&gt;** construct.
 
     ```cs
-    using System.Collections.Generic;
+    using System.Collections.Generic; 
+    ```-->
+
+1. Substitua o método de ação **Index (Modelo SearchData).**
+
+    ```cs
+    public async Task<ActionResult> Index(SearchData model)
+    {
+        try
+        {
+            // Ensure the search string is valid.
+            if (model.searchText == null)
+            {
+                model.searchText = "";
+            }
+
+            // Make the search call for the first page.
+            await RunQueryAsync(model, 0, 0, "", "").ConfigureAwait(false);
+        }
+        catch
+        {
+            return View("Error", new ErrorViewModel { RequestId = "1" });
+        }
+
+        return View(model);
+    }
     ```
 
-2. Substitua o método de ação **Index (Modelo SearchData).**
+1. Substitua o método de ação **PageAsync (modelo SearchData).**
 
     ```cs
-        public async Task<ActionResult> Index(SearchData model)
+    public async Task<ActionResult> PageAsync(SearchData model)
+    {
+        try
         {
-            try
-            {
-                // Ensure the search string is valid.
-                if (model.searchText == null)
-                {
-                    model.searchText = "";
-                }
+            int page;
 
-                // Make the search call for the first page.
-                await RunQueryAsync(model, 0, 0, "", "");
+            // Calculate the page that should be displayed.
+            switch (model.paging)
+            {
+                case "prev":
+                    page = (int)TempData["page"] - 1;
+                    break;
+
+                case "next":
+                    page = (int)TempData["page"] + 1;
+                    break;
+
+                default:
+                    page = int.Parse(model.paging);
+                    break;
             }
 
-            catch
-            {
-                return View("Error", new ErrorViewModel { RequestId = "1" });
-            }
-            return View(model);
+            // Recover the leftMostPage.
+            int leftMostPage = (int)TempData["leftMostPage"];
+
+            // Recover the filters.
+            string catFilter = TempData["categoryFilter"].ToString();
+            string ameFilter = TempData["amenityFilter"].ToString();
+
+            // Recover the search text.
+            model.searchText = TempData["searchfor"].ToString();
+
+            // Search for the new page.
+            await RunQueryAsync(model, page, leftMostPage, catFilter, ameFilter);
         }
+
+        catch
+        {
+            return View("Error", new ErrorViewModel { RequestId = "2" });
+        }
+        return View("Index", model);
+    }
     ```
 
-3. Substitua o método de ação **Page (Modelo SearchData).**
+1. Adicione um método de ação **FacetAsync (modelo SearchData),** a ser ativado quando o utilizador clicar num link facet. O modelo conterá um filtro de pesquisa de categoria ou de amenidade. Adicione-o depois da ação **do PageAsync.**
 
     ```cs
-        public async Task<ActionResult> Page(SearchData model)
+    public async Task<ActionResult> FacetAsync(SearchData model)
+    {
+        try
         {
-            try
+            // Filters set by the model override those stored in temporary data.
+            string catFilter;
+            string ameFilter;
+            if (model.categoryFilter != null)
             {
-                int page;
-
-                // Calculate the page that should be displayed.
-                switch (model.paging)
-                {
-                    case "prev":
-                        page = (int)TempData["page"] - 1;
-                        break;
-
-                    case "next":
-                        page = (int)TempData["page"] + 1;
-                        break;
-
-                    default:
-                        page = int.Parse(model.paging);
-                        break;
-                }
-
-                // Recover the leftMostPage.
-                int leftMostPage = (int)TempData["leftMostPage"];
-
-                // Recover the filters.
-                string catFilter = TempData["categoryFilter"].ToString();
-                string ameFilter = TempData["amenityFilter"].ToString();
-
-                // Recover the search text.
-                model.searchText = TempData["searchfor"].ToString();
-
-                // Search for the new page.
-                await RunQueryAsync(model, page, leftMostPage, catFilter, ameFilter);
+                catFilter = model.categoryFilter;
+            } else
+            {
+                catFilter = TempData["categoryFilter"].ToString();
             }
 
-            catch
+            if (model.amenityFilter != null)
             {
-                return View("Error", new ErrorViewModel { RequestId = "2" });
+                ameFilter = model.amenityFilter;
+            } else
+            {
+                ameFilter = TempData["amenityFilter"].ToString();
             }
-            return View("Index", model);
+
+            // Recover the search text.
+            model.searchText = TempData["searchfor"].ToString();
+
+            // Initiate a new search.
+            await RunQueryAsync(model, 0, 0, catFilter, ameFilter).ConfigureAwait(false);
         }
-    ```
-
-4. Adicione um método de ação **Facet (modelo SearchData),** a ser ativado quando o utilizador clicar num link facet. O modelo conterá um filtro de pesquisa de categoria ou um filtro de pesquisa de amenidades. Talvez adicioná-lo depois da ação da **Página.**
-
-    ```cs
-        public async Task<ActionResult> Facet(SearchData model)
+        catch
         {
-            try
-            {
-                // Filters set by the model override those stored in temporary data.
-                string catFilter;
-                string ameFilter;
-                if (model.categoryFilter != null)
-                {
-                    catFilter = model.categoryFilter;
-                } else
-                {
-                    catFilter = TempData["categoryFilter"].ToString();
-                }
-
-                if (model.amenityFilter != null)
-                {
-                    ameFilter = model.amenityFilter;
-                } else
-                {
-                    ameFilter = TempData["amenityFilter"].ToString();
-                }
-
-                // Recover the search text.
-                model.searchText = TempData["searchfor"].ToString();
-
-                // Initiate a new search.
-                await RunQueryAsync(model, 0, 0, catFilter, ameFilter);
-            }
-
-            catch
-            {
-                return View("Error", new ErrorViewModel { RequestId = "2" });
-            }
-            return View("Index", model);
+            return View("Error", new ErrorViewModel { RequestId = "2" });
         }
+
+        return View("Index", model);
+    }
     ```
 
 ### <a name="set-up-the-search-filter"></a>Configurar o filtro de pesquisa
 
 Quando um utilizador seleciona uma determinada faceta, por exemplo, clica na categoria **Resort e Spa,** então apenas os hotéis especificados como esta categoria devem ser devolvidos nos resultados. Para reduzir uma busca desta forma, precisamos de configurar um _filtro._
 
-1. Substitua o método **RunQueryAsync** pelo seguinte código. Em primeiro lugar, é necessário uma cadeia de filtro de categoria e uma cadeia de filtro de amenidade, e define o parâmetro **filtro** dos **Parâmetros de Busca**.
+1. Substitua o método **RunQueryAsync** pelo seguinte código. Em primeiro lugar, é necessário uma cadeia de filtro de categoria e uma cadeia de filtro de amenidade, e define o parâmetro **filtro** das **Opções de Busca**.
 
     ```cs
-        private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)
+    private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)
+    {
+        InitSearch();
+
+        string facetFilter = "";
+
+        if (catFilter.Length > 0 && ameFilter.Length > 0)
         {
-            InitSearch();
-
-            string facetFilter = "";
-
-            if (catFilter.Length > 0 && ameFilter.Length > 0)
-            {
-                // Both facets apply.
-                facetFilter = $"{catFilter} and {ameFilter}"; 
-            } else
-            {
-                // One, or zero, facets apply.
-                facetFilter = $"{catFilter}{ameFilter}";
-            }
-
-            var parameters = new SearchParameters
-            {
-                Filter = facetFilter,
-
-                // Return information on the text, and number, of facets in the data.
-                Facets = new List<string> { "Category,count:20", "Tags,count:20" },
-
-                // Enter Hotel property names into this list, so only these values will be returned.
-                Select = new[] { "HotelName", "Description", "Category", "Tags" },
-
-                SearchMode = SearchMode.All,
-
-                // Skip past results that have already been returned.
-                Skip = page * GlobalVariables.ResultsPerPage,
-
-                // Take only the next page worth of results.
-                Top = GlobalVariables.ResultsPerPage,
-
-                // Include the total number of results.
-                IncludeTotalResultCount = true,
-            };
-
-            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-            model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
-
-            // This variable communicates the total number of pages to the view.
-            model.pageCount = ((int)model.resultList.Count + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
-
-            // This variable communicates the page number being displayed to the view.
-            model.currentPage = page;
-
-            // Calculate the range of page numbers to display.
-            if (page == 0)
-            {
-                leftMostPage = 0;
-            }
-            else
-               if (page <= leftMostPage)
-            {
-                // Trigger a switch to a lower page range.
-                leftMostPage = Math.Max(page - GlobalVariables.PageRangeDelta, 0);
-            }
-            else
-            if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
-            {
-                // Trigger a switch to a higher page range.
-                leftMostPage = Math.Min(page - GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
-            }
-            model.leftMostPage = leftMostPage;
-
-            // Calculate the number of page numbers to display.
-            model.pageRange = Math.Min(model.pageCount - leftMostPage, GlobalVariables.MaxPageRange);
-
-            // Ensure Temp data is stored for the next call.
-            TempData["page"] = page;
-            TempData["leftMostPage"] = model.leftMostPage;
-            TempData["searchfor"] = model.searchText;
-            TempData["categoryFilter"] = catFilter;
-            TempData["amenityFilter"] = ameFilter;
-
-            // Return the new view.
-            return View("Index", model);
+            // Both facets apply.
+            facetFilter = $"{catFilter} and {ameFilter}"; 
+        } else
+        {
+            // One, or zero, facets apply.
+            facetFilter = $"{catFilter}{ameFilter}";
         }
+
+        var options = new SearchOptions
+        {
+            Filter = facetFilter,
+
+            SearchMode = SearchMode.All,
+
+            // Skip past results that have already been returned.
+            Skip = page * GlobalVariables.ResultsPerPage,
+
+            // Take only the next page worth of results.
+            Size = GlobalVariables.ResultsPerPage,
+
+            // Include the total number of results.
+            IncludeTotalCount = true,
+        };
+
+        // Return information on the text, and number, of facets in the data.
+        options.Facets.Add("Category,count:20");
+        options.Facets.Add("Tags,count:20");
+
+        // Enter Hotel property names into this list, so only these values will be returned.
+        options.Select.Add("HotelName");
+        options.Select.Add("Description");
+        options.Select.Add("Category");
+        options.Select.Add("Tags");
+
+        // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+        model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
+
+        // This variable communicates the total number of pages to the view.
+        model.pageCount = ((int)model.resultList.TotalCount + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
+
+        // This variable communicates the page number being displayed to the view.
+        model.currentPage = page;
+
+        // Calculate the range of page numbers to display.
+        if (page == 0)
+        {
+            leftMostPage = 0;
+        }
+        else if (page <= leftMostPage)
+        {
+            // Trigger a switch to a lower page range.
+            leftMostPage = Math.Max(page - GlobalVariables.PageRangeDelta, 0);
+        }
+        else if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
+        {
+            // Trigger a switch to a higher page range.
+            leftMostPage = Math.Min(page - GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
+        }
+        model.leftMostPage = leftMostPage;
+
+        // Calculate the number of page numbers to display.
+        model.pageRange = Math.Min(model.pageCount - leftMostPage, GlobalVariables.MaxPageRange);
+
+        // Ensure Temp data is stored for the next call.
+        TempData["page"] = page;
+        TempData["leftMostPage"] = model.leftMostPage;
+        TempData["searchfor"] = model.searchText;
+        TempData["categoryFilter"] = catFilter;
+        TempData["amenityFilter"] = ameFilter;
+
+        // Return the new view.
+        return View("Index", model);
+    }
     ```
 
-    Adicionámos as propriedades **de Categoria** e **Tags** à lista de itens **Select** para devolver. Esta adição não é um requisito para que a navegação faceta funcione, mas utilizamos estas informações para verificar se estamos a filtrar corretamente.
+    Note que as propriedades **de Categoria** e Tags são **adicionadas** à lista de itens **Select** a devolver. Esta adição não é um requisito para que a navegação faceta funcione, mas utilizamos estas informações para verificar se os filtros estão a funcionar corretamente.
 
 ### <a name="add-lists-of-facet-links-to-the-view"></a>Adicionar listas de links facetas à vista
 
@@ -341,187 +346,189 @@ A vista vai requerer algumas mudanças significativas.
     .facetheader {
         font-size: 10pt;
         font-weight: bold;
-        color: darkgreen;    
+        color: darkgreen;
     }
     ```
 
-2. Para a vista, organizamos a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o conteúdo das &lt; marcas de corpo &gt; HTML, pelo seguinte código.
+1. Para a vista, organize a saída numa tabela, para alinhar cuidadosamente as listas de facetas à esquerda, e os resultados à direita. Abra o ficheiro index.cshtml. Substitua todo o conteúdo das &lt; marcas de corpo &gt; HTML, pelo seguinte código.
 
-    ```cs
+    ```html
     <body>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <h1 class="sampleTitle">
+                            <img src="~/images/azure-logo.png" width="80" />
+                            Hotels Search - Facet Navigation
+                        </h1>
+                    </td>
+                </tr>
 
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-    {
-        <table>
-            <tr>
-                <td></td>
-                <td>
-                    <h1 class="sampleTitle">
-                        <img src="~/images/azure-logo.png" width="80" />
-                        Hotels Search - Facet Navigation
-                    </h1>
-                </td>
-            </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!-- Display the search text box, with the search icon to the right of it.-->
+                        <div class="searchBoxForm">
+                            @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input value="" class="searchBoxSubmit" type="submit">
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td></td>
-                <td>
-                    <!-- Display the search text box, with the search icon to the right of it.-->
-                    <div class="searchBoxForm">
-                        @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input value="" class="searchBoxSubmit" type="submit">
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td valign="top">
+                        <div id="facetplace" class="facetchecks">
 
-            <tr>
-                <td valign="top">
-                    <div id="facetplace" class="facetchecks">
-
-                        @if (Model != null && Model.resultList != null)
-                        {
-                            List<string> categories = Model.resultList.Facets["Category"].Select(x => x.Value.ToString()).ToList();
-
-                            if (categories.Count > 0)
+                            @if (Model != null && Model.resultList != null)
                             {
-                                <h5 class="facetheader">Category:</h5>
-                                <ul class="facetlist">
-                                    @for (var c = 0; c < categories.Count; c++)
-                                    {
-                                        var facetLink = $"{categories[c]} ({Model.resultList.Facets["Category"][c].Count})";
-                                        <li>
-                                            @Html.ActionLink(facetLink, "Facet", "Home", new { categoryFilter = $"Category eq '{categories[c]}'" }, null)
-                                        </li>
-                                    }
-                                </ul>
-                            }
+                                List<string> categories = Model.resultList.Facets["Category"].Select(x => x.Value.ToString()).ToList();
 
-                            List<string> tags = Model.resultList.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
-
-                            if (tags.Count > 0)
-                            {
-                                <h5 class="facetheader">Amenities:</h5>
-                                <ul class="facetlist">
-                                    @for (var c = 0; c < tags.Count; c++)
-                                    {
-                                        var facetLink = $"{tags[c]} ({Model.resultList.Facets["Tags"][c].Count})";
-                                        <li>
-                                            @Html.ActionLink(facetLink, "Facet", "Home", new { amenityFilter = $"Tags/any(t: t eq '{tags[c]}')" }, null)
-                                        </li>
-                                    }
-                                </ul>
-                            }
-                        }
-                    </div>
-                </td>
-                <td valign="top">
-                    <div id="resultsplace">
-                        @if (Model != null && Model.resultList != null)
-                        {
-                            // Show the result count.
-                            <p class="sampleText">
-                                @Html.DisplayFor(m => m.resultList.Count) Results
-                            </p>
-
-                            @for (var i = 0; i < Model.resultList.Results.Count; i++)
-                            {
-                                string amenities = string.Join(", ", Model.resultList.Results[i].Document.Tags);
-
-                                string fullDescription = Model.resultList.Results[i].Document.Description;
-                                fullDescription += $"\nCategory: {Model.resultList.Results[i].Document.Category}";
-                                fullDescription += $"\nAmenities: {amenities}";
-
-                                // Display the hotel name and description.
-                                @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                                @Html.TextArea($"desc{i}", fullDescription, new { @class = "box2" })
-                            }
-                        }
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td valign="top">
-                    @if (Model != null && Model.pageCount > 1)
-                    {
-                        // If there is more than one page of results, show the paging buttons.
-                        <table>
-                            <tr>
-                                <td class="tdPage">
-                                    @if (Model.currentPage > 0)
-                                    {
-                                        <p class="pageButton">
-                                            @Html.ActionLink("|<", "Page", "Home", new { paging = "0" }, null)
-                                        </p>
-                                    }
-                                    else
-                                    {
-                                        <p class="pageButtonDisabled">|&lt;</p>
-                                    }
-                                </td>
-
-                                <td class="tdPage">
-                                    @if (Model.currentPage > 0)
-                                    {
-                                        <p class="pageButton">
-                                            @Html.ActionLink("<", "Page", "Home", new { paging = "prev" }, null)
-                                        </p>
-                                    }
-                                    else
-                                    {
-                                        <p class="pageButtonDisabled">&lt;</p>
-                                    }
-                                </td>
-
-                                @for (var pn = Model.leftMostPage; pn < Model.leftMostPage + Model.pageRange; pn++)
+                                if (categories.Count > 0)
                                 {
-                                    <td class="tdPage">
-                                        @if (Model.currentPage == pn)
+                                    <h5 class="facetheader">Category:</h5>
+                                    <ul class="facetlist">
+                                        @for (var c = 0; c < categories.Count; c++)
                                         {
-                                            // Convert displayed page numbers to 1-based and not 0-based.
-                                            <p class="pageSelected">@(pn + 1)</p>
+                                            var facetLink = $"{categories[c]} ({Model.resultList.Facets["Category"][c].Count})";
+                                            <li>
+                                                @Html.ActionLink(facetLink, "FacetAsync", "Home", new { categoryFilter = $"Category eq '{categories[c]}'" }, null)
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+
+                                List<string> tags = Model.resultList.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
+
+                                if (tags.Count > 0)
+                                {
+                                    <h5 class="facetheader">Amenities:</h5>
+                                    <ul class="facetlist">
+                                        @for (var c = 0; c < tags.Count; c++)
+                                        {
+                                            var facetLink = $"{tags[c]} ({Model.resultList.Facets["Tags"][c].Count})";
+                                            <li>
+                                                @Html.ActionLink(facetLink, "FacetAsync", "Home", new { amenityFilter = $"Tags/any(t: t eq '{tags[c]}')" }, null)
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            }
+                        </div>
+                    </td>
+                    <td valign="top">
+                        <div id="resultsplace">
+                            @if (Model != null && Model.resultList != null)
+                            {
+                                // Show the result count.
+                                <p class="sampleText">
+                                    @Model.resultList.TotalCount Results
+                                </p>
+
+                                var results = Model.resultList.GetResults().ToList();
+
+                                @for (var i = 0; i < results.Count; i++)
+                                {
+                                    string amenities = string.Join(", ", results[i].Document.Tags);
+
+                                    string fullDescription = results[i].Document.Description;
+                                    fullDescription += $"\nCategory: {results[i].Document.Category}";
+                                    fullDescription += $"\nAmenities: {amenities}";
+
+
+                                    // Display the hotel name and description.
+                                    @Html.TextAreaFor(m => results[i].Document.HotelName, new { @class = "box1" })
+                                    @Html.TextArea($"desc{i}", fullDescription, new { @class = "box2" })
+                                }
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td valign="top">
+                        @if (Model != null && Model.pageCount > 1)
+                        {
+                            // If there is more than one page of results, show the paging buttons.
+                            <table>
+                                <tr>
+                                    <td class="tdPage">
+                                        @if (Model.currentPage > 0)
+                                        {
+                                            <p class="pageButton">
+                                                @Html.ActionLink("|<", "PageAsync", "Home", new { paging = "0" }, null)
+                                            </p>
                                         }
                                         else
                                         {
-                                            <p class="pageButton">
-                                                @Html.ActionLink((pn + 1).ToString(), "Page", "Home", new { paging = @pn }, null)
-                                            </p>
+                                            <p class="pageButtonDisabled">|&lt;</p>
                                         }
                                     </td>
-                                }
 
-                                <td class="tdPage">
-                                    @if (Model.currentPage < Model.pageCount - 1)
-                                    {
-                                        <p class="pageButton">
-                                            @Html.ActionLink(">", "Page", "Home", new { paging = "next" }, null)
-                                        </p>
-                                    }
-                                    else
-                                    {
-                                        <p class="pageButtonDisabled">&gt;</p>
-                                    }
-                                </td>
+                                    <td class="tdPage">
+                                        @if (Model.currentPage > 0)
+                                        {
+                                            <p class="pageButton">
+                                                @Html.ActionLink("<", "PageAsync", "Home", new { paging = "prev" }, null)
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="pageButtonDisabled">&lt;</p>
+                                        }
+                                    </td>
 
-                                <td class="tdPage">
-                                    @if (Model.currentPage < Model.pageCount - 1)
+                                    @for (var pn = Model.leftMostPage; pn < Model.leftMostPage + Model.pageRange; pn++)
                                     {
-                                        <p class="pageButton">
-                                            @Html.ActionLink(">|", "Page", "Home", new { paging = Model.pageCount - 1 }, null)
-                                        </p>
+                                        <td class="tdPage">
+                                            @if (Model.currentPage == pn)
+                                            {
+                                                // Convert displayed page numbers to 1-based and not 0-based.
+                                                <p class="pageSelected">@(pn + 1)</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="pageButton">
+                                                    @Html.ActionLink((pn + 1).ToString(), "PageAsync", "Home", new { paging = @pn }, null)
+                                                </p>
+                                            }
+                                        </td>
                                     }
-                                    else
-                                    {
-                                        <p class="pageButtonDisabled">&gt;|</p>
-                                    }
-                                </td>
-                            </tr>
-                        </table>
-                    }
-                </td>
-            </tr>
-        </table>
-    }
+
+                                    <td class="tdPage">
+                                        @if (Model.currentPage < Model.pageCount - 1)
+                                        {
+                                            <p class="pageButton">
+                                                @Html.ActionLink(">", "PageAsync", "Home", new { paging = "next" }, null)
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="pageButtonDisabled">&gt;</p>
+                                        }
+                                    </td>
+
+                                    <td class="tdPage">
+                                        @if (Model.currentPage < Model.pageCount - 1)
+                                        {
+                                            <p class="pageButton">
+                                                @Html.ActionLink(">|", "PageAsync", "Home", new { paging = Model.pageCount - 1 }, null)
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="pageButtonDisabled">&gt;|</p>
+                                        }
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                    </td>
+                </tr>
+            </table>
+        }
     </body>
     ```
 
@@ -535,15 +542,15 @@ A vantagem da navegação faceta para o utilizador é que eles podem reduzir as 
 
     ![Usando a navegação faceta para reduzir uma pesquisa de "aeroporto"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
-2. Clique na categoria **Resort e Spa.** Verifique todos os resultados desta categoria.
+1. Clique na categoria **Resort e Spa.** Verifique todos os resultados desta categoria.
 
     ![Estreitando a pesquisa para "Resort e Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
 
-3. Clique na amenidade **do café da manhã continental.** Verifique todos os resultados ainda na categoria "Resort e Spa", com a amenidade selecionada.
+1. Clique na amenidade **do café da manhã continental.** Verifique todos os resultados ainda na categoria "Resort e Spa", com a amenidade selecionada.
 
     ![Reduzir a procura para "pequeno-almoço continental"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
 
-4. Tente selecionar qualquer outra categoria, em seguida, uma amenidade, e veja os resultados de estreitamento. Então tente o contrário, uma amenidade, depois uma categoria.
+1. Tente selecionar qualquer outra categoria, em seguida, uma amenidade, e veja os resultados de estreitamento. Então tente o contrário, uma amenidade, depois uma categoria. Envie uma pesquisa vazia para redefinir a página.
 
     >[!Note]
     > Quando uma seleção é feita numa lista de facetas (como categoria) irá substituir qualquer seleção anterior dentro da lista de categorias.
@@ -552,11 +559,11 @@ A vantagem da navegação faceta para o utilizador é que eles podem reduzir as 
 
 Considere os seguintes takeaways deste projeto:
 
-* É imperativo marcar cada propriedade como **IsFacetable,** se forem incluídas na navegação faceta.
-* A navegação faceta proporciona a um utilizador uma forma fácil e intuitiva de reduzir uma pesquisa.
-* A navegação faceta é melhor dividida em secções (categorias de hotel, comodidades de um hotel, intervalos de preços, gamas de classificação, etc.), cada secção com uma posição apropriada.
+* É imperativo marcar cada campo facetable com a propriedade **IsFacetable** para inclusão na navegação faceta.
+* As facetas são combinadas com filtros para reduzir os resultados.
+* As facetas são cumulativas, com cada edifício de seleção no anterior para mais resultados mais estreitos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 No próximo tutorial, olhamos para os resultados da encomenda. Até este ponto, os resultados são encomendados simplesmente na ordem em que estão localizados na base de dados.
 

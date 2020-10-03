@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440835"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667746"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Assuma que tem uma pasta com 100.000 objetos infantis. Se pegar no limite inferi
 
 Ao trabalhar com big data na Data Lake Storage Gen1, muito provavelmente um diretor de serviço é usado para permitir que serviços como Azure HDInsight trabalhem com os dados. No entanto, pode haver casos em que os utilizadores individuais também precisem de ter acesso aos dados. Nesses casos, deve utilizar [grupos](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) de segurança do Azure Ative Directory em vez de atribuir utilizadores individuais a pastas e ficheiros.
 
-Uma vez que um grupo de segurança é atribuído permissões, adicionar ou remover utilizadores do grupo não requer quaisquer atualizações para data lake storage Gen1. Isto também ajuda a garantir que não exceda o limite de [32 ACLs de acesso e predefinidos](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (isto inclui os quatro ACLs de estilo POSIX que estão sempre associados a todos os ficheiros e pastas: [o utilizador próprio,](data-lake-store-access-control.md#the-owning-user) [o grupo de propriedade,](data-lake-store-access-control.md#the-owning-group) [a máscara,](data-lake-store-access-control.md#the-mask)e outros).
+Uma vez que um grupo de segurança é atribuído permissões, adicionar ou remover utilizadores do grupo não requer quaisquer atualizações para data lake storage Gen1. Isto também ajuda a garantir que não exceda o limite de [32 ACLs de acesso e predefinidos](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (isto inclui os quatro ACLs de estilo POSIX que estão sempre associados a todos os ficheiros e pastas: [o utilizador próprio,](data-lake-store-access-control.md#the-owning-user) [o grupo de propriedade,](data-lake-store-access-control.md#the-owning-group) [a máscara,](data-lake-store-access-control.md#the-mask)e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
@@ -101,8 +101,8 @@ Abaixo estão as três principais opções recomendadas para orquestrar a replic
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Delimitada por nódoas operárias        | Limitado por unidades de Movimento de Dados de Nuvem Max        | Ligado por unidades de Analytics        |
-|**Suporta a cópia de deltas**     |   Yes      | No         | No         |
-|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Yes        | Não (Use Azure Automation ou Windows Task Scheduler)         |
+|**Suporta a cópia de deltas**     |   Sim      | Não         | Não         |
+|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Sim        | Não (Use Azure Automation ou Windows Task Scheduler)         |
 |**Sistemas de ficheiros suportados**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosos, consulte [conectores.](../data-factory/connector-azure-blob-storage.md)         | ADL a ADL, WASB a ADL (apenas na mesma região)        |
 |**Suporte ao OS**     |Qualquer os que executa o Hadoop         | N/D          | Windows 10         |
 
@@ -189,7 +189,7 @@ NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
 
 No caso comum de os dados dos lotes serem tratados diretamente em bases de dados como a Hive ou as bases de dados tradicionais do SQL, não há necessidade de uma pasta **/dentro** **ou/fora,** uma vez que a saída já vai para uma pasta separada para a tabela Hive ou base de dados externa. Por exemplo, extratos diários de clientes aterrariam nas respetivas pastas, e a orquestração por algo como Azure Data Factory, Apache Oozie ou Apache Airflow desencadearia um trabalho diário de Hive ou Spark para processar e escrever os dados numa tabela da Colmeia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Controlo de acessos em Azure Data Lake Storage Gen1](data-lake-store-access-control.md)

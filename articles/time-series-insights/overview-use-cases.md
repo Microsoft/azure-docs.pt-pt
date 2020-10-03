@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b5b6233c0978f15aad94b7f66f8935c2d6f6f1c1
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978143"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666964"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 usam casos
 
@@ -98,7 +98,7 @@ Azure Time Series Insights Gen2 faz a ponte entre os dados IoT e a análise avan
 
 * Em segundo lugar, a saída de modelos de machine learning e previsão pode ser alimentada no Azure Time Series Insights Gen2 para visualizar e armazenar os seus resultados. Este procedimento ajuda as organizações a otimizar e ajustar os seus modelos. Azure Time Series Insights Gen2 torna simples visualizar dados de telemetria de streaming no mesmo plano que as saídas do modelo treinado. Desta forma, ajuda as equipas de ciência de dados a detetar anomalias e a identificar padrões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
 * Leia [as melhores práticas da Azure Time Series Insights Gen2](./time-series-insights-update-plan.md) para planear o seu ambiente.

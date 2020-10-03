@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708217"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666794"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando o Azure CLI
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 As políticas de Endpoint do serviço Azure só estão disponíveis para o Armazenamento Azure. Assim, vamos permitir o Ponto Final de Serviço para *o Microsoft.Storage* nesta sub-rede para esta configuração de exemplo.
 
-As políticas de ponto final de serviço são aplicadas sobre os pontos finais do serviço. Começaremos por criar uma política de ponto final de serviço. Em seguida, criaremos as definições políticas ao abrigo desta política para que as contas de armazenamento do Azure sejam whitelisted para esta sub-rede
+As políticas de ponto final de serviço são aplicadas sobre os pontos finais do serviço. Começaremos por criar uma política de ponto final de serviço. Em seguida, criaremos as definições políticas ao abrigo desta política para que as contas de armazenamento do Azure sejam aprovadas para esta sub-rede
 
 Criar uma política de ponto final de serviço
 
@@ -361,6 +361,6 @@ Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, aplicou uma política de ponto final de serviço sobre um ponto final de serviço de rede virtual Azure ao Azure Storage. Criou contas de Armazenamento Azure e acesso limitado à rede a determinadas contas de armazenamento (e assim negou outras) a partir de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto final de serviço, consulte [a visão geral das políticas de pontos finais](virtual-network-service-endpoint-policies-overview.md)do Serviço .

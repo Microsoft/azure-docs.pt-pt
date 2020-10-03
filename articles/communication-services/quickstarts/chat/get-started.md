@@ -6,16 +6,16 @@ author: fanche
 manager: phans
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ed40f91c760d7c83466078b3523748175a1701ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947572"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665381"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Quickstart: Adicione chat à sua App
 
@@ -39,11 +39,11 @@ Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de cli
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste arranque rápido aprendeu a:
 

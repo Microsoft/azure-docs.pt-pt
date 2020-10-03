@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 2e1c8975c0f37fff2e177c9aa0dcf8f3b92a9d3f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421412"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664941"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -79,11 +79,11 @@ De forma a garantir que uma ligação cliente/IoT Hub permanece viva, tanto o se
 
 |Linguagem  |Intervalo padrão de manter vivo  |Configurável  |
 |---------|---------|---------|
-|Node.js     |   180 segundos      |     No    |
-|Java     |    230 segundos     |     No    |
+|Node.js     |   180 segundos      |     Não    |
+|Java     |    230 segundos     |     Não    |
 |C     | 240 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 segundos |  No   |
+|Python   | 60 segundos |  Não   |
 
 Seguindo a [especificação MQTT,](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)o intervalo de ping do IoT Hub é 1,5 vezes o valor de manter vivo o cliente. No entanto, o IoT Hub limita o tempo limite máximo do servidor para 29,45 minutos (1767 segundos) porque todos os serviços Azure estão ligados ao tempo limite de marcha lenta TCP, que é de 29,45 minutos. 
 
@@ -102,6 +102,38 @@ Ao fazê-lo, certifique-se de verificar os seguintes itens:
 * A MQTT não suporta as operações *de rejeição* quando recebe [mensagens nuvem-dispositivo](iot-hub-devguide-messaging.md). Se a sua aplicação back-end precisar de receber uma resposta da aplicação do dispositivo, considere a utilização de [métodos diretos.](iot-hub-devguide-direct-methods.md)
 
 * AmQP não é suportado no Python SDK.
+
+## <a name="example-in-c-using-mqtt-without-an-azure-iot-sdk"></a>Exemplo em C usando MQTT sem um Azure IoT SDK
+
+No [repositório IoT MQTT Sample,](https://github.com/Azure-Samples/IoTMQTTSample)você encontrará um par de projetos de demonstração C/C++ mostrando como enviar mensagens de telemetria, e receber eventos com um hub IoT sem usar o Azure IoT C SDK. 
+
+Estas amostras utilizam a biblioteca Eclipse Mosquitto para enviar mensagens para o MQTT Broker implementado no hub IoT.
+
+Este repositório contém:
+
+**Para janelas:**
+
+* TelemetriaMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina Windows.
+
+* Inscreva-seMQTTWin32: contém código para subscrever eventos de um determinado hub IoT numa máquina Windows.
+
+* DeviceTwinMQTTWin32: contém código para consultar e subscrever os eventos gémeos do dispositivo de um dispositivo no hub Azure IoT numa máquina Windows.
+
+* PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com ioT Plug & Reprodução capacidades do Dispositivo de pré-visualização para um hub Azure IoT, construído e executado numa máquina Windows. Pode ler mais no [IoT Plug & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+
+**Para Linux:**
+
+* MQTTLinux: contém código e script de construção para executar em Linux (WSL, Ubuntu e Raspbian foram testados até agora).
+
+* LinuxConsoleVS2019: contém o mesmo código mas num projeto VS2019 direcionado para o WSL (subsistil Windows Linux). Este projeto permite-lhe depurar o código em execução no Linux passo a passo a partir do Visual Studio.
+
+**Para mosquitto_pub:**
+
+Esta pasta contém dois comandos de amostras utilizados com mosquitto_pub ferramenta de utilidade fornecida por Mosquitto.org.
+
+* Mosquitto_sendmessage: enviar uma simples mensagem de texto para um hub Azure IoT agindo como um dispositivo.
+
+* Mosquitto_subscribe: ver eventos que ocorrem num centro de IoT Azure.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Utilizando o protocolo MQTT diretamente (como um dispositivo)
 
@@ -147,38 +179,6 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 Para pacotes de ligação e desconexão MQTT, o IoT Hub emite um evento no canal **de Monitorização de Operações.** Este evento tem informações adicionais que podem ajudá-lo a resolver problemas de conectividade.
 
 A aplicação do dispositivo pode especificar uma mensagem **Will** no pacote **CONNECT.** A aplicação do dispositivo deve usar `devices/{device_id}/messages/events/` ou como o nome tópico `devices/{device_id}/messages/events/{property_bag}` **will** para definir mensagens **Will** para ser reencaminhada como uma mensagem de telemetria. Neste caso, se a ligação de rede estiver fechada, mas um pacote **DISCONNECT** não foi previamente recebido do dispositivo, então o IoT Hub envia a mensagem **'Testamento'** fornecida no pacote **CONNECT** para o canal de telemetria. O canal de telemetria pode ser o ponto final padrão **de Eventos** ou um ponto final personalizado definido pelo encaminhamento IoT Hub. A mensagem tem a propriedade **iothub-MessageType** com um valor de **Will** atribuído a ela.
-
-### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Um exemplo de código C usando MQTT sem Azure IoT C SDK
-
-No [repositório IoT MQTT Sample,](https://github.com/Azure-Samples/IoTMQTTSample)você encontrará um par de projetos de demonstração C/C++ mostrando como enviar mensagens de telemetria, e receber eventos com um hub IoT sem usar o Azure IoT C SDK. 
-
-Estas amostras utilizam a biblioteca Eclipse Mosquitto para enviar mensagens para o MQTT Broker implementado no hub IoT.
-
-Este repositório contém:
-
-**Para janelas:**
-
-* TelemetriaMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina Windows.
-
-* Inscreva-seMQTTWin32: contém código para subscrever eventos de um determinado hub IoT numa máquina Windows.
-
-* DeviceTwinMQTTWin32: contém código para consultar e subscrever os eventos gémeos do dispositivo de um dispositivo no hub Azure IoT numa máquina Windows.
-
-* PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com ioT Plug & Reprodução capacidades do Dispositivo de pré-visualização para um hub Azure IoT, construído e executado numa máquina Windows. Pode ler mais no [IoT Plug & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
-
-**Para Linux:**
-
-* MQTTLinux: contém código e script de construção para executar em Linux (WSL, Ubuntu e Raspbian foram testados até agora).
-
-* LinuxConsoleVS2019: contém o mesmo código mas num projeto VS2019 direcionado para o WSL (subsistil Windows Linux). Este projeto permite-lhe depurar o código em execução no Linux passo a passo a partir do Visual Studio.
-
-**Para mosquitto_pub:**
-
-Esta pasta contém dois comandos de amostras utilizados com mosquitto_pub ferramenta de utilidade fornecida por Mosquitto.org.
-
-* Mosquitto_sendmessage: enviar uma simples mensagem de texto para um hub Azure IoT agindo como um dispositivo.
-
-* Mosquitto_subscribe: ver eventos que ocorrem num centro de IoT Azure.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilização direta do protocolo MQTT (como módulo)
 
@@ -437,7 +437,7 @@ Para obter mais informações, consulte o [guia do programador de métodos Diret
 
 Como consideração final, se precisar de personalizar o comportamento do protocolo MQTT no lado da nuvem, deve rever o gateway de [protocolo Azure IoT](iot-hub-protocol-gateway.md). Este software permite-lhe implementar um portal de protocolo personalizado de alto desempenho que interage diretamente com o IoT Hub. O gateway de protocolo Azure IoT permite-lhe personalizar o protocolo do dispositivo para acomodar implementações MQTT brownfield ou outros protocolos personalizados. Esta abordagem requer, no entanto, que você corra e opere um portal de protocolo personalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https://mqtt.org/).
 

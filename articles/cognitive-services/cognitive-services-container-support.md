@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597450"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665417"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
 
@@ -29,7 +29,8 @@ O suporte ao contentor está atualmente disponível para um subconjunto de Servi
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias][ad-containers]
-> * [Imagem Digitalizada][cv-containers]
+> * [Ler OCR (Reconhecimento de Caracteres Óticos) ][cv-containers]
+> * [Análise espacial][spa-containers]
 > * [Face][fa-containers]
 > * [Reconhecedor de Formato][fr-containers]
 > * [Compreensão de Idiomas (LUIS)][lu-containers]
@@ -108,7 +109,7 @@ Os recipientes individuais também podem ter os seus próprios requisitos, inclu
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [as receitas de recipientes](containers/container-reuse-recipe.md) que pode utilizar com os Serviços Cognitivos.
 

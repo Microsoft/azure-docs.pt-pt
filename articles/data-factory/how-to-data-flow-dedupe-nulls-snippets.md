@@ -8,18 +8,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 683d7ffe5549b86a587cd2dc3c9a86a36aee1bba
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637401"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666509"
 ---
 # <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>Dedupe linhas e encontrar nulos usando cortes de fluxo de dados
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facilmente executar tarefas comuns como a deduplicação de dados e a filtragem nula. Este guia de como adicionar essas funções aos seus oleodutos muito facilmente usando os excertos de scripts de fluxo de dados.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
@@ -61,6 +63,6 @@ Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facil
 
   Tem agora um fluxo de dados de funcionamento com verificações genéricas de deduping e NUS, retirando os fragmentos de código existentes da biblioteca data flow script e adicionando-os ao seu design existente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Construa o resto da sua lógica de fluxo de dados utilizando [transformações](concepts-data-flow-overview.md)de fluxos de dados de mapeamento.

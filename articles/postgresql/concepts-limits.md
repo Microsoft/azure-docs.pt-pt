@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836461"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665262"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Único
 As seguintes secções descrevem limites de capacidade e funcionais no serviço de base de dados. Se quiser aprender sobre os níveis de recursos (computação, memória, armazenamento), consulte o artigo [de níveis de preços.](concepts-pricing-tiers.md)
@@ -21,10 +21,10 @@ As seguintes secções descrevem limites de capacidade e funcionais no serviço 
 ## <a name="maximum-connections"></a>Número máximo de ligações
 O número máximo de ligações por nível de preços e vCores são mostrados abaixo. O sistema Azure requer cinco ligações para monitorizar a Base de Dados Azure para o servidor PostgreSQL. 
 
-|**Nível de preços**| **vCore(s)**| **Máx. Ligações** | **Conexões de utilizador max** |
+|**Escalão de Preço**| **vCore(s)**| **Máx. Ligações** | **Conexões de utilizador max** |
 |---|---|---|---|
-|Básica| 1| 55 | 50|
-|Básica| 2| 105 | 100|
+|Básico| 1| 55 | 50|
+|Básico| 2| 105 | 100|
 |Fins Gerais| 2| 150| 145|
 |Fins Gerais| 4| 250| 245|
 |Fins Gerais| 8| 480| 475|
@@ -56,7 +56,7 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10MB de memória. 
 > Note que antes da versão 10 do PostgreSQL, [a política de versão PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma _atualização de versão importante_ como um aumento no primeiro _ou_ segundo número (por exemplo, 9.5 a 9.6 foi considerada uma _grande_ atualização de versão).
 > A partir da versão 10, apenas uma alteração no primeiro número é considerada uma grande atualização de versão (por exemplo, 10.0 para 10.1 é uma versão _menor_ atualização, e 10 a 11 é uma _grande_ atualização de versão).
 
-### <a name="vnet-service-endpoints"></a>VNet service endpoints (Pontos finais de serviço de VNet)
+### <a name="vnet-service-endpoints"></a>Pontos finais de serviço da VNet
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 
 ### <a name="restoring-a-server"></a>Restaurar um servidor
@@ -67,7 +67,12 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10MB de memória. 
 ### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 no Windows
 - Em alguns cenários, os caracteres UTF-8 não são totalmente suportados em PostgreSQL de código aberto no Windows, que afeta a Base de Dados Azure para PostgreSQL. Por favor, consulte a linha [do Bug #15476 no arquivo pós-quadrado](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="gss-error"></a>Erro GSS
+Se vir um erro relacionado com **o GSS,** é provável que utilize uma versão mais recente do cliente/controlador que o Azure Postgres Single Server ainda não suporta totalmente. Este erro é conhecido por afetar as [versões do condutor JDBC 42.2.15 e 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planeamos concluir a atualização até ao final de novembro. Considere usar uma versão de motorista de trabalho entretanto.
+   - Ou, considere desativar o pedido do GSS.  Utilize um parâmetro de ligação como `gssEncMode=disable` .
+
+## <a name="next-steps"></a>Próximas etapas
 - Compreenda [o que está disponível em cada nível de preços](concepts-pricing-tiers.md)
 - Saiba mais sobre [versões de base de dados postgresql suportadas](concepts-supported-versions.md)
 - [Reveja como fazer o back up e restaurar um servidor na Base de Dados Azure para PostgreSQL utilizando o portal Azure](howto-restore-server-portal.md)

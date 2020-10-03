@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420528"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666788"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço público reservado IPv6
 
@@ -28,7 +28,7 @@ Quaisquer IPs públicos que reserve estão associados a uma região Azure à sua
 > [!WARNING]
 > Tenha cuidado para não eliminar acidentalmente os seus endereços IP públicos. A eliminação de um IP público retira-o da sua subscrição e não poderá recuperá-lo (nem mesmo com a ajuda do suporte do Azure).
 
-Além de reservar endereços IPv6 individuais, pode reservar gamas contíguas de endereços Azure IPv6 (conhecido como prefixo IP) para a sua utilização.  Semelhantes a endereços IP individuais, os prefixos reservados estão associados a uma região Azure à sua escolha e à sua subscrição Azure. Reservar uma gama previsível e contígua de endereços tem muitos usos. Por exemplo, pode simplificar muito *a whitelisting* IP das suas aplicações hospedadas no Azure pela sua empresa e pelos seus clientes, uma vez que as suas gamas IP estáticas podem ser facilmente programadas em firewalls no local.  Pode criar IPs públicos individuais a partir do seu prefixo IP conforme necessário e quando eliminar os IPs públicos individuais são *devolvidos* ao seu alcance reservado para que possa reutilizá-los mais tarde. Todos os endereços IP do seu Prefixo IP estão reservados para uso exclusivo até que apague o seu Prefix.
+Além de reservar endereços IPv6 individuais, pode reservar gamas contíguas de endereços Azure IPv6 (conhecido como prefixo IP) para a sua utilização.  Semelhantes a endereços IP individuais, os prefixos reservados estão associados a uma região Azure à sua escolha e à sua subscrição Azure. Reservar uma gama previsível e contígua de endereços tem muitos usos. Por exemplo, pode simplificar consideravelmente *a filtragem* IP das suas aplicações hospedadas no Azure pela sua empresa e pelos seus clientes, uma vez que as suas gamas IP estáticas podem ser facilmente programadas em firewalls no local.  Pode criar IPs públicos individuais a partir do seu prefixo IP conforme necessário e quando eliminar os IPs públicos individuais são *devolvidos* ao seu alcance reservado para que possa reutilizá-los mais tarde. Todos os endereços IP do seu Prefixo IP estão reservados para uso exclusivo até que apague o seu Prefix.
 
 
 
@@ -49,7 +49,7 @@ O IPv6 é suportado em IPs públicos básicos apenas com uma atribuição "dinâ
 
 Como uma boa prática, recomendamos que utilize iPs públicos standard e balanceadores de carga padrão para as suas aplicações IPv6.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Reserve um [prefixo de endereço IPv6](ipv6-reserve-public-ip-address-prefix.md)público.
 - Saiba mais sobre [os endereços IPv6](ipv6-overview.md).
 - Saiba [como criar e utilizar os IPs públicos](virtual-network-public-ip-address.md) (tanto IPv4 como IPv6) em Azure.

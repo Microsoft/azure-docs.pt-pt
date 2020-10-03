@@ -1,18 +1,18 @@
 ---
 title: Isolamento para VMs em Azure
 description: Saiba mais sobre o isolamento VM funciona em Azure.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831452"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666845"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento de máquina virtual em Azure
 
@@ -42,7 +42,7 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 | Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
 
-<sup>1</sup> Para mais detalhes sobre Standard_DS15_v2 e Standard_D15_v2 programa de aposentadoria de isolamento ver FAQs
+<sup>1</sup>  Para mais detalhes sobre Standard_DS15_v2 e Standard_D15_v2 programa de aposentadoria de isolamento ver FAQs
 
 
 ## <a name="faq"></a>FAQ
@@ -72,6 +72,6 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 | 15 de maio de 2021 | Aposentar-se D/DS15i_v2 (todos os clientes exceto quem comprou RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019)| 
 | 17 de novembro de 2022 | Aposentar-se D/DS15i_v2 quando 3 anos de RIs feito (para clientes que compraram RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Os clientes também podem optar por subdividir ainda mais os recursos destas máquinas virtuais isoladas utilizando [o suporte Azure para máquinas virtuais aninhadas.](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)

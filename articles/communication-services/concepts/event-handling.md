@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4773c6e65a1b12ea95d76e28a5855e449a212d9e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a205daeffb659ce0dd5756066d11691a89c166e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334468"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664958"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Tratamento de Eventos em Serviços de Comunicação Azure
 
@@ -350,7 +350,7 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
 | [Como lidar com eventos DE SMS em Serviços de Comunicação](../quickstarts/telephony-sms/handle-sms-events.md) | Manusear todos os eventos SMS recebidos pelo seu Serviço de Comunicação utilizando o WebHook. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](https://docs.microsoft.com/azure/event-grid/overview)
 * Para uma introdução aos conceitos de grelha de eventos Azure, consulte [Conceitos em Grelha de Eventos?](https://docs.microsoft.com/azure/event-grid/concepts)

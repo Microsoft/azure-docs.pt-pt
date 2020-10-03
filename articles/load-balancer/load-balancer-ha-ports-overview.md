@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564054"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664878"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral das portas de alta disponibilidade
 
-O Azure Standard Load Balancer ajuda-o a equilibrar os fluxos de TCP e UDP em todas as portas simultaneamente quando estiver a utilizar um equilibrador interno de carga. 
+O Azure Standard Load Balancer ajuda-o a equilibrar **todos os** fluxos de protocolo em **todas as** portas simultaneamente quando estiver a utilizar um Equilibrador de Carga interno através de portas HA.
 
-Uma regra de equilíbrio de carga das portas de alta disponibilidade (HA) é uma variante de uma regra de equilíbrio de carga, configurada num Balanceador de Carga Padrão interno. Pode simplificar a utilização de um equilibrador de carga, fornecendo uma única regra para equilibrar todos os fluxos TCP e UDP que chegam a todas as portas de um Balanceador de Carga Padrão interno. A decisão de equilibrar a carga é tomada por fluxo. Esta ação baseia-se na seguinte ligação de cinco tuples: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
+As portas de alta disponibilidade (HA) são um tipo de regra de equilíbrio de carga que proporciona uma maneira fácil de equilibrar **todos os** fluxos que chegam a **todas as** portas de um Balanceador de Carga Padrão interno. A decisão de equilibrar a carga é tomada por fluxo. Esta ação baseia-se na seguinte ligação de cinco tuples: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
 
 As regras de equilíbrio de carga das portas HA ajudam-no com cenários críticos, tais como alta disponibilidade e escala para aparelhos virtuais de rede (NVAs) dentro de redes virtuais. A funcionalidade também pode ajudar quando um grande número de portas deve ser equilibrada em carga. 
 
@@ -97,7 +97,7 @@ Pode configurar *um* recurso público Standard Load Balancer para os recursos de
 - A simetria de fluxo (principalmente para cenários de NVA) é suportada com instância de backend e uma única configuração NIC (e única configuração IP) apenas quando usada como mostrado no diagrama acima e usando regras de equilíbrio de carga das portas HA. Não é fornecido em nenhum outro cenário. Isto significa que dois ou mais recursos do Balancer de Carga e respetivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e o diagrama dos [aparelhos virtuais da rede](#nva). Quando estiver a utilizar vários NICs ou a fazer sanduiches no NVA entre um Balanceador de Carga público e interno, a simetria de fluxo não está disponível.  Poderá trabalhar em torno disto através da fonte NAT'ing o fluxo de entrada para o IP do aparelho para permitir que as respostas cheguem no mesmo NVA.  No entanto, recomendamos vivamente a utilização de um único NIC e a utilização da arquitetura de referência mostrada no diagrama acima.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como configurar as portas HA para o seu ILB via Portal,](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule) [PowerShell,](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer) [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)ou [Modelos](quickstart-load-balancer-standard-internal-template.md).
 - [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-standard-overview.md)

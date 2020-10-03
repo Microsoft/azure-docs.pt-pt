@@ -9,13 +9,13 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/07/2020
-ms.openlocfilehash: 135fbe914a1bf99f1cc32bd9291658f60282aa0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/02/2020
+ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102323"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666539"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Quickstart: Explore o ambiente de demonstração da Azure Time Series Insights Gen2
 
@@ -100,7 +100,7 @@ Ao usar a Azure Time Series Insights Gen2 e a telemetria de sensores, descobrimo
 
       [![Prolongar o tempo para 60 dias](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Outros pontos de dados do sensor podem ser adicionados para proporcionar um maior contexto. Quanto mais sensores vemos, mais completa é a nossa compreensão do problema. Vamos deixar cair um marcador para mostrar os valores reais. 
+1. Outros pontos de dados do sensor podem ser adicionados para proporcionar um maior contexto. Quanto mais sensores vemos, mais completa é a nossa compreensão do problema. Vamos deixar cair um marcador para mostrar os valores reais.
 
     1. Selecione **o Sistema gerador**, e, em seguida, selecione três sensores: **GridVoltagePhase1,** **GridVoltagePhase2**e **GridVoltagePhase3**.
     1. Deixe cair um marcador no último ponto de dados na área visível.
@@ -122,7 +122,7 @@ Agora que completou o quickstart, limpe os recursos que criou:
 1. A partir do menu esquerdo no [portal Azure](https://portal.azure.com), selecione **Todos os recursos**e localize o seu grupo de recursos Azure Time Series Insights Gen2.
 1. Ou elimina todo o grupo de recursos (e todos os recursos contidos no mesmo) selecionando **Eliminar** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Estás pronto para criar o teu próprio ambiente Azure Time Series Insights Gen2. Para começar:
 

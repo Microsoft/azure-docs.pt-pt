@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902924"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667440"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -88,14 +88,14 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 | Metas de computação de formação | Alvo de computação proprietária, suporte de CPU apenas | Ampla gama de objetivos de [computação de formação](concept-compute-target.md#train)personalizáveis. Inclui suporte de GPU e CPU | 
 | Alvos de computação de implantação | Formato de serviço web proprietário, não personalizável | Ampla gama de alvos de [computação](concept-compute-target.md#deploy)personalizável. Inclui suporte de GPU e CPU |
 | Gasoduto ML | Não suportado | Construir gasodutos flexíveis e [modulares](concept-ml-pipelines.md) para automatizar fluxos de trabalho |
-| MLOps | Gestão e implantação de modelos básicos | Versão de entidade (modelo, dados, fluxos de trabalho), automatização de fluxos de trabalho, integração com ferramentas CICD, [e muito mais](concept-model-management-and-deployment.md) |
+| MLOps | Gestão e implantação de modelos básicos; Apenas implantações do CPU | Versões de entidades (modelo, dados, fluxos de trabalho), automatização de fluxos de trabalho, integração com ferramentas CICD, implementações de CPU e GPU [e muito mais](concept-model-management-and-deployment.md) |
 | Formato de modelo | Formato proprietário, Estúdio (clássico) apenas | Múltiplos formatos suportados dependendo do tipo de trabalho de formação |
 | Treinamento de modelo automatizado e afinação de hiperparímetro |  Não suportado | [Suportado.](concept-automated-ml.md) Código primeiro e sem código. | 
 | Deteção de deriva de dados | Não suportado | [Suportado](how-to-monitor-datasets.md) |
 | Projetos de rotulagem de dados | Não suportado | [Suportado](how-to-create-labeling-projects.md) |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Visite o [estúdio,](https://ml.azure.com)ou explore as diferentes opções de autoria com estes tutoriais:  
   + [Use cadernos Python para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)

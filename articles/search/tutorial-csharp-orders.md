@@ -7,56 +7,62 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a6114791a1909a0cd02b96a4cdcc4c133b8e662e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280849"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667253"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
 
-Até este ponto na nossa série de tutoriais, os resultados são devolvidos e apresentados por ordem padrão. Esta pode ser a ordem na qual os dados estão localizados, ou possivelmente um _perfil de pontuação_ padrão, que será usado quando não forem especificados parâmetros de encomenda. Neste tutorial, vamos entrar em como encomendar resultados com base numa propriedade primária, e depois para resultados que tenham a mesma propriedade primária, como encomendar essa seleção em uma propriedade secundária. Como alternativa à encomenda com base em valores numéricos, o exemplo final mostra como encomendar com base num perfil de pontuação personalizado. Também iremos um pouco mais fundo na exibição de _tipos complexos._
+Ao longo desta série tutorial, os resultados foram devolvidos e apresentados por [ordem padrão](index-add-scoring-profiles.md#what-is-default-scoring). Neste tutorial, irá adicionar critérios de classificação primário e secundário. Como alternativa à encomenda com base em valores numéricos, o exemplo final mostra como classificar os resultados com base num perfil de pontuação personalizado. Também iremos um pouco mais fundo na exibição de _tipos complexos._
 
-Para comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
-
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Resultados da encomenda com base numa propriedade
 > * Resultados da encomenda com base em múltiplas propriedades
 > * Filtrar resultados com base numa distância de um ponto geográfico
 > * Resultados da encomenda com base num perfil de pontuação
 
+## <a name="overview"></a>Descrição geral
+
+Este tutorial estende o projeto de scrolling infinito criado no [Add paging para pesquisar resultados](tutorial-csharp-paging.md) tutoriais.
+
+Uma versão acabada do código neste tutorial pode ser encontrada no seguinte projeto:
+
+* [Resultados de 5 encomendas (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/5-order-results)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de:
+* [Solução 2b-add-infinite-scroll (GitHub).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) Este projeto pode ser a sua própria versão construída a partir do tutorial anterior ou uma cópia do GitHub.
 
-Tenha a versão infinita de scrolling do [Tutorial C#: Pagination resultados de pesquisa - Projeto de Pesquisa Cognitiva Azure](tutorial-csharp-paging.md) em funcionamento. Este projeto pode ser a sua própria versão ou instalá-lo a partir do GitHub: [Criar a primeira aplicação.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
+Este tutorial foi atualizado para utilizar o pacote [Azure.Search.Documents (versão 11).](https://www.nuget.org/packages/Azure.Search.Documents/) Para obter uma versão anterior do .NET SDK, consulte [a amostra de código Microsoft.Azure.Search (versão 10).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)
 
 ## <a name="order-results-based-on-one-property"></a>Resultados da encomenda com base numa propriedade
 
-Quando encomendamos resultados com base numa propriedade, digamos, classificação do hotel, não só queremos os resultados ordenados, mas também queremos a confirmação de que a encomenda está correta. Por outras palavras, se encomendarmos a classificação, devemos mostrar a classificação na vista.
+Ao encomendar resultados com base numa propriedade, como a classificação do hotel, não só queremos os resultados encomendados, como também queremos a confirmação de que a encomenda está correta. A adição do campo de classificação aos resultados permite-nos confirmar que os resultados estão corretamente classificados.
 
-Neste tutorial, vamos também adicionar um pouco mais à exibição de resultados, a tarifa de quarto mais barata, e a tarifa de quarto mais cara, para cada hotel. À medida que nos aprofundarmos na encomenda, também vamos adicionar valores para garantir que o que estamos a encomendar também é exibido na vista.
+Neste exercício, vamos também adicionar um pouco mais à exibição de resultados: a tarifa de quarto mais barata, e a tarifa de quarto mais cara, para cada hotel.
 
-Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vista e o controlador precisam de ser atualizados. Comece por abrir o controlador doméstico.
+Não é necessário modificar nenhum dos modelos para permitir a encomenda. Apenas a vista e o controlador requerem atualizações. Comece por abrir o controlador doméstico.
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>Adicione a propriedade OrderBy aos parâmetros de pesquisa
 
-1. Tudo o que é preciso para encomendar resultados com base numa única propriedade numérica, é definir o parâmetro **OrderBy** para o nome do imóvel. No método **Índice (modelo SearchData),** adicione a seguinte linha aos parâmetros de pesquisa.
+1. Adicione a opção **OrderBy** ao nome do imóvel. No método **Índice (modelo SearchData),** adicione a seguinte linha aos parâmetros de pesquisa.
 
     ```cs
-        OrderBy = new[] { "Rating desc" },
+    OrderBy = new[] { "Rating desc" },
     ```
 
     >[!Note]
     > A ordem predefinida está a subir, embora possa adicionar **asc** à propriedade para deixar isso claro. A ordem descendente é especificada adicionando **desc**.
 
-2. Agora executar a aplicação, e inserir qualquer termo de pesquisa comum. Os resultados podem ou não estar na ordem correta, uma vez que nem você como desenvolvedor, nem o utilizador, tem uma maneira fácil de verificar os resultados!
+1. Agora executar a aplicação, e inserir qualquer termo de pesquisa comum. Os resultados podem ou não estar na ordem correta, uma vez que nem você como desenvolvedor, nem o utilizador, tem uma maneira fácil de verificar os resultados!
 
-3. Vamos deixar claro que os resultados são ordenados na classificação. Em primeiro lugar, substitua as classes **box1** e **box2** no arquivo hotels.css pelas seguintes aulas (estas aulas são todas as novas que precisamos para este tutorial).
+1. Vamos deixar claro que os resultados são ordenados na classificação. Em primeiro lugar, substitua as classes **box1** e **box2** no arquivo hotels.css pelas seguintes aulas (estas aulas são todas as novas que precisamos para este tutorial).
 
     ```html
     textarea.box1A {
@@ -114,22 +120,22 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
     }
     ```
 
-    >[!Tip]
-    >Os navegadores geralmente cache css ficheiros, e isso pode levar à utilização de um ficheiro css antigo, e as suas edições ignoradas. Uma boa maneira de contornar isto é adicionar uma cadeia de consulta com um parâmetro de versão ao link. Por exemplo:
+    > [!Tip]
+    > Os navegadores geralmente cache css ficheiros, e isso pode levar à utilização de um ficheiro css antigo, e as suas edições ignoradas. Uma boa maneira de contornar isto é adicionar uma cadeia de consulta com um parâmetro de versão ao link. Por exemplo:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
     >```
     >
-    >Atualize o número da versão se achar que um ficheiro css antigo está a ser utilizado pelo seu navegador.
+    > Atualize o número da versão se achar que um ficheiro css antigo está a ser utilizado pelo seu navegador.
 
-4. Adicione a propriedade **'Rating'** ao parâmetro **Select,** no método **Index (SearchData model).**
+1. Adicione a propriedade **'Rating'** ao parâmetro **Select,** no método **Index (SearchData model).**
 
     ```cs
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Abra a vista (index.cshtml) e substitua o laço de renderização** &lt; (!-- Mostre os &gt; dados do hotel.--**) com o seguinte código.
+1. Abra a vista (index.cshtml) e substitua o laço de renderização** &lt; (!-- Mostre os &gt; dados do hotel.--**) com o seguinte código.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -144,7 +150,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
                 }
     ```
 
-6. A classificação deve estar disponível tanto na primeira página exibida, como nas páginas subsequentes que são chamadas através do pergaminho infinito. Para esta última destas duas situações, precisamos de atualizar tanto a ação **seguinte** no controlador, como a função **de deslocalizado** na vista. A partir do controlador, altere o método **Seguinte** para o seguinte código. Este código cria e comunica o texto de classificação.
+1. A classificação deve estar disponível tanto na primeira página exibida, como nas páginas subsequentes que são chamadas através do pergaminho infinito. Para esta última destas duas situações, precisamos de atualizar tanto a ação **seguinte** no controlador, como a função **de deslocalizado** na vista. A partir do controlador, altere o método **Seguinte** para o seguinte código. Este código cria e comunica o texto de classificação.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -172,7 +178,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
         }
     ```
 
-7. Agora atualize a função **deslocalizada** na vista, para exibir o texto de classificação.
+1. Agora atualize a função **deslocalizada** na vista, para exibir o texto de classificação.
 
     ```javascript
             <script>
@@ -194,7 +200,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
 
     ```
 
-8. Agora, executar a aplicação novamente. Pesse em qualquer termo comum, como "wifi", e verifique se os resultados são ordenados por ordem descendente da classificação do hotel.
+1. Agora, executar a aplicação novamente. Pesse em qualquer termo comum, como "wifi", e verifique se os resultados são ordenados por ordem descendente da classificação do hotel.
 
     ![Encomenda com base na classificação](./media/tutorial-csharp-create-first-app/azure-search-orders-rating.png)
 
@@ -212,7 +218,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
         public double expensive { get; set; }
     ```
 
-2. Calcular as taxas de quarto no final da ação **Index (SearchData model)** no controlador doméstico. Adicione os cálculos após o armazenamento de dados temporários.
+1. Calcular as taxas de quarto no final da ação **Index (SearchData model)** no controlador doméstico. Adicione os cálculos após o armazenamento de dados temporários.
 
     ```cs
                 // Ensure TempData is stored for the next call.
@@ -243,13 +249,13 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
                 }
     ```
 
-3. Adicione a propriedade **Quartos** ao parâmetro **Select** no método de ação **Index (SearchData)** do controlador.
+1. Adicione a propriedade **Quartos** ao parâmetro **Select** no método de ação **Index (SearchData)** do controlador.
 
     ```cs
      Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
     ```
 
-4. Altere o laço de renderização na vista para visualizar o intervalo de velocidade para a primeira página de resultados.
+1. Altere o laço de renderização na vista para visualizar o intervalo de velocidade para a primeira página de resultados.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -266,7 +272,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
                 }
     ```
 
-5. Altere o método **Seguinte** no controlador doméstico para comunicar o intervalo de tarifas, para as páginas de resultados subsequentes.
+1. Altere o método **Seguinte** no controlador doméstico para comunicar o intervalo de tarifas, para as páginas de resultados subsequentes.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -296,7 +302,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
         }
     ```
 
-6. Atualize a função **deslocalizada** na vista, para lidar com o texto das tarifas do quarto.
+1. Atualize a função **deslocalizada** na vista, para lidar com o texto das tarifas do quarto.
 
     ```javascript
             <script>
@@ -318,7 +324,7 @@ Não é necessário modificar nenhum dos modelos para permitir a encomenda. A vi
             </script>
     ```
 
-7. Executar a aplicação e verificar se os intervalos de tarifa do quarto são apresentados.
+1. Executar a aplicação e verificar se os intervalos de tarifa do quarto são apresentados.
 
     ![Gama de tarifas de quarto de exibição](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
@@ -338,7 +344,7 @@ A questão agora é como diferenciar entre hotéis com a mesma classificação. 
     >[!Tip]
     >Qualquer número de imóveis pode ser inscrito na lista **OrderBy.** Se os hotéis tivessem a mesma classificação e data de renovação, uma terceira propriedade poderia ser inserida para diferenciar entre eles.
 
-2. Mais uma vez, precisamos de ver a data da renovação na vista, só para ter a certeza de que a encomenda está correta. Para uma renovação, provavelmente só é necessário um ano. Altere o laço de renderização na vista para o seguinte código.
+1. Mais uma vez, precisamos de ver a data da renovação na vista, só para ter a certeza de que a encomenda está correta. Para uma renovação, provavelmente só é necessário um ano. Altere o laço de renderização na vista para o seguinte código.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -357,7 +363,7 @@ A questão agora é como diferenciar entre hotéis com a mesma classificação. 
                 }
     ```
 
-3. Altere o método **Seguinte** no controlador doméstico, para encaminhar o componente do ano da última data de renovação.
+1. Altere o método **Seguinte** no controlador doméstico, para encaminhar o componente do ano da última data de renovação.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -389,7 +395,7 @@ A questão agora é como diferenciar entre hotéis com a mesma classificação. 
         }
     ```
 
-4. Altere a função **deslocalizada** na vista para visualizar o texto de renovação.
+1. Altere a função **deslocalizada** na vista para visualizar o texto de renovação.
 
     ```javascript
             <script>
@@ -412,7 +418,7 @@ A questão agora é como diferenciar entre hotéis com a mesma classificação. 
             </script>
     ```
 
-5. Execute a aplicação. Procure num termo comum, como "pool" ou "view", e verifique se os hotéis com a mesma classificação são agora exibidos em ordem descendente de data de renovação.
+1. Execute a aplicação. Procure num termo comum, como "pool" ou "view", e verifique se os hotéis com a mesma classificação são agora exibidos em ordem descendente de data de renovação.
 
     ![Encomendando na data da renovação](./media/tutorial-csharp-create-first-app/azure-search-orders-renovation.png)
 
@@ -431,13 +437,13 @@ Para apresentar resultados baseados na distância geográfica, são necessários
         Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
     ```
 
-2. O filtro acima _não_ ordena os resultados com base na distância, apenas remove os outliers. Para encomendar os resultados, introduza uma definição **OrderBy** que especifique o método geodistância.
+1. O filtro acima _não_ ordena os resultados com base na distância, apenas remove os outliers. Para encomendar os resultados, introduza uma definição **OrderBy** que especifique o método geodistância.
 
     ```cs
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Embora os resultados foram devolvidos pela Azure Cognitive Search usando um filtro de distância, a distância calculada entre os dados e o ponto especificado _não_ é devolvida. Recalcule este valor na vista, ou controlador, se quiser exibi-lo nos resultados.
+1. Embora os resultados foram devolvidos pela Azure Cognitive Search usando um filtro de distância, a distância calculada entre os dados e o ponto especificado _não_ é devolvida. Recalcule este valor na vista, ou controlador, se quiser exibi-lo nos resultados.
 
     O seguinte código calculará a distância entre dois pontos lat/lon.
 
@@ -460,7 +466,7 @@ Para apresentar resultados baseados na distância geográfica, são necessários
         }
     ```
 
-4. Agora tens de juntar estes conceitos. No entanto, estes snippets de código são tão longe quanto o nosso tutorial vai, a construção de uma app baseada em mapas é deixada como um exercício para o leitor. Para levar este exemplo mais longe, considere inserir um nome de cidade com um raio, ou localizar um ponto num mapa, e selecionar um raio. Para investigar mais aprofundadamente estas opções, consulte os seguintes recursos:
+1. Agora tens de juntar estes conceitos. No entanto, estes snippets de código são tão longe quanto o nosso tutorial vai, a construção de uma app baseada em mapas é deixada como um exercício para o leitor. Para levar este exemplo mais longe, considere inserir um nome de cidade com um raio, ou localizar um ponto num mapa, e selecionar um raio. Para investigar mais aprofundadamente estas opções, consulte os seguintes recursos:
 
 * [Documentação do Azure Maps](../azure-maps/index.yml)
 * [Encontre um endereço utilizando o serviço de pesquisa Azure Maps](../azure-maps/how-to-search-for-address.md)
@@ -492,7 +498,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
     ```
 
-2. O perfil de pontuação seguinte aumenta significativamente a pontuação, se um parâmetro fornecido inclui uma ou mais das listas de tags (a que chamamos "amenities"). O ponto-chave deste perfil é que _deve_ ser fornecido um parâmetro, contendo texto. Se o parâmetro estiver vazio ou não for fornecido, será lançado um erro.
+1. O perfil de pontuação seguinte aumenta significativamente a pontuação, se um parâmetro fornecido inclui uma ou mais das listas de tags (a que chamamos "amenities"). O ponto-chave deste perfil é que _deve_ ser fornecido um parâmetro, contendo texto. Se o parâmetro estiver vazio ou não for fornecido, será lançado um erro.
  
     ```cs
             {
@@ -510,7 +516,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
         }
     ```
 
-3. Neste terceiro exemplo, a classificação dá um impulso significativo à pontuação. A última data renovada também aumentará a pontuação, mas apenas se esses dados forem dentro de 730 dias (2 anos) da data atual.
+1. Neste terceiro exemplo, a classificação dá um impulso significativo à pontuação. A última data renovada também aumentará a pontuação, mas apenas se esses dados forem dentro de 730 dias (2 anos) da data atual.
 
     ```cs
             {
@@ -547,7 +553,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 1. Abra o ficheiro index.cshtml e substitua a &lt; secção do corpo pelo seguinte &gt; código.
 
-    ```cs
+    ```html
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -653,7 +659,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
     </body>
     ```
 
-2. Abra o ficheiro SearchData.cs e substitua a classe **SearchData** pelo seguinte código.
+1. Abra o ficheiro SearchData.cs e substitua a classe **SearchData** pelo seguinte código.
 
     ```cs
     public class SearchData
@@ -692,7 +698,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
     }
     ```
 
-3. Abra o arquivo hotels.css e adicione as seguintes classes HTML.
+1. Abra o arquivo hotels.css e adicione as seguintes classes HTML.
 
     ```html
     .facetlist {
@@ -722,7 +728,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
     using System.Linq;
     ```
 
-2.  Para este exemplo, precisamos da chamada inicial para **Index** para fazer um pouco mais do que apenas devolver a vista inicial. O método procura agora até 20 comodidades para exibir na vista.
+1. Para este exemplo, precisamos da chamada inicial para **Index** para fazer um pouco mais do que apenas devolver a vista inicial. O método procura agora até 20 comodidades para exibir na vista.
 
     ```cs
         public async Task<ActionResult> Index()
@@ -752,7 +758,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
         }
     ```
 
-3. Precisamos de dois métodos privados para salvar as facetas para armazenamento temporário, e recuperá-las do armazenamento temporário e povoar um modelo.
+1. Precisamos de dois métodos privados para salvar as facetas para armazenamento temporário, e recuperá-las do armazenamento temporário e povoar um modelo.
 
     ```cs
         // Save the facet text to temporary storage, optionally saving the state of the check boxes.
@@ -790,7 +796,7 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
         }
     ```
 
-4. Temos de definir os parâmetros **OrderBy** e **ScoringProfile,** se necessário. Substitua o método **índice existente (modelo SearchData)** com o seguinte.
+1. Temos de definir os parâmetros **OrderBy** e **ScoringProfile,** se necessário. Substitua o método **índice existente (modelo SearchData)** com o seguinte.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -947,15 +953,15 @@ Vamos olhar para três exemplos de perfis de pontuação, e considerar como cada
 
 1. Execute a aplicação. Você deve ver um conjunto completo de comodidades na vista.
 
-2. Para encomendar, a seleção de "Por Classificação numérica" vai dar-lhe o pedido numérico que já implementou neste tutorial, com data de renovação a decidir entre hotéis de igual classificação.
+1. Para encomendar, a seleção de "Por Classificação numérica" vai dar-lhe o pedido numérico que já implementou neste tutorial, com data de renovação a decidir entre hotéis de igual classificação.
 
-![Encomendar "praia" com base na classificação](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
+   ![Encomendar "praia" com base na classificação](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-3. Agora tente o perfil "Por amenidades". Faça várias seleções de comodidades e verifique se os hotéis com essas comodidades são promovidos na lista de resultados.
+1. Agora tente o perfil "Por amenidades". Faça várias seleções de comodidades e verifique se os hotéis com essas comodidades são promovidos na lista de resultados.
 
-![Encomendando "praia" com base no perfil](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
+   ![Encomendando "praia" com base no perfil](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-4. Experimente o "By Renovated date/Rating profile" para ver se consegue o que espera. Só os hotéis recentemente renovados devem ter um aumento _de frescura._
+1. Experimente o "By Renovated date/Rating profile" para ver se consegue o que espera. Só os hotéis recentemente renovados devem ter um aumento _de frescura._
 
 ### <a name="resources"></a>Recursos
 
@@ -971,7 +977,7 @@ Considere os seguintes takeaways deste projeto:
 * É natural que alguns resultados sejam encomendados por ordem ascendente (por exemplo, distância de um ponto), e alguns em ordem descendente (por exemplo, classificação do hóspede).
 * Os perfis de pontuação podem ser definidos quando as comparações numéricas não estão disponíveis, ou não são inteligentes o suficiente, para um conjunto de dados. Marcar cada resultado ajudará a encomendar e mostrar os resultados de forma inteligente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Você completou esta série de tutoriais C# - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
 

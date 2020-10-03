@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421186"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665332"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -24,6 +24,7 @@ Para partilhar uma visão personalizada no Azure Time Series Insights Explorer, 
 Azure Time Series Insights Explorer suporta parâmetros de consulta de URL para especificar pontos de vista na experiência diretamente do URL. Por exemplo, ao utilizar apenas o URL, pode especificar um ambiente de destino, um predicado de pesquisa e um intervalo de tempo pretendido. Quando um utilizador seleciona o URL personalizado, a interface fornece uma ligação diretamente a esse ativo no portal Azure Time Series Insights. Aplicam-se as políticas de acesso a dados.
 
 > [!TIP]
+>
 > * Ver a demonstração gratuita da [Série de Tempos Azure](https://insights.timeseries.azure.com/samples)Insights .
 > * Leia a documentação do [Azure Time Series Insights Explorer.](./time-series-insights-explorer.md)
 
@@ -55,14 +56,14 @@ Por exemplo, `&relativeMillis=3600000` apresenta os 60 segundos de dados mais re
 
 Os valores aceites correspondem ao menu de **tempo insights** explorer da Série de Tempo Azure e incluem:
 
-* `1800000`(Últimos 30 minutos)
-* `3600000`(Últimos 60 minutos)
-* `10800000`(Últimas 3 horas)
-* `21600000`(Últimas 6 horas)
-* `43200000`(Últimas 12 horas)
-* `86400000`(Últimas 24 horas)
-* `604800000`(Últimos 7 dias)
-* `2592000000`(Últimas 30 horas)
+* `1800000` (Últimos 30 minutos)
+* `3600000` (Últimos 60 minutos)
+* `10800000` (Últimas 3 horas)
+* `21600000` (Últimas 6 horas)
+* `43200000` (Últimas 12 horas)
+* `86400000` (Últimas 24 horas)
+* `604800000` (Últimos 7 dias)
+* `2592000000` (Últimas 30 horas)
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 
@@ -87,7 +88,7 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica ter
 
 | Pares(s) | Descrição |
 | --- | --- |
-| `multiChartStack=false` | `true`é ativado por padrão assim passar `false` para empilhar. |
+| `multiChartStack=false` | `true` é ativado por padrão assim passar `false` para empilhar. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  É `false` por padrão, por isso a passagem `true` permite esta funcionalidade. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = `days` , , , , . `hours` `minutes` `seconds` `milliseconds` .  Capitalize sempre a unidade. </br> Defina o número de unidades passando o inteiro desejado para **o timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. |
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-000
 > Consulte o Explorer ao vivo [usando o](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ) exemplo URL acima.
 
-O URL acima descreve e exibe a vista paratizada do Azure Time Series Insights Explorer. 
+O URL acima descreve e exibe a vista paratizada do Azure Time Series Insights Explorer.
 
 * Os predicados parametrizados.
 
@@ -133,7 +134,7 @@ O URL acima descreve e exibe a vista paratizada do Azure Time Series Insights Ex
 
   [![A vista de gráfico completo compartilhado.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [consultar os dados utilizando C#](time-series-insights-query-data-csharp.md).
 

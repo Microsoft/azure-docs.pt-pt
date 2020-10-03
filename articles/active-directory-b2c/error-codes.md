@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664856"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Ative Directory B2C
 
@@ -34,7 +34,7 @@ Os seguintes erros podem ser devolvidos pelo serviço Azure Ative Directory B2C.
 | `AADB2C90013` | O tipo de resposta solicitado {0} » »» fornecido no pedido não é apoiado. |
 | `AADB2C90014` | O modo de resposta solicitado {0} » fornecido no pedido não é apoiado. |
 | `AADB2C90016` | O tipo de afirmação do cliente solicitado {0} ' ' não corresponde ao tipo esperado {1} '. |
-| `AADB2C90017` | A afirmação do cliente fornecida no pedido é inválida:{0} |
+| `AADB2C90017` | A afirmação do cliente fornecida no pedido é inválida: {0} |
 | `AADB2C90018` | O id ' do cliente {0} especificado no pedido não está registado no inquilino {1} '. |
 | `AADB2C90019` | O recipiente-chave com id {0} ' in tenant ' ' não tem uma chave {1} válida. Razão: {2} . |
 | `AADB2C90021` | O perfil técnico {0} ' ' não existe na política ' ' do inquilino {1} {2} '. |
@@ -73,7 +73,8 @@ Os seguintes erros podem ser devolvidos pelo serviço Azure Ative Directory B2C.
 | `AADB2C90085` | O serviço encontrou um erro interno. Por favor, reauthentica e tente de novo. |
 | `AADB2C90086` | O grant_type fornecido {0} não é suportado. |
 | `AADB2C90087` | A subvenção concedida não foi emitida para esta versão do objetivo do protocolo. |
-| `AADB2C90088` | A subvenção concedida não foi emitida para este ponto final. Valor Real : {0} e Valor Esperado :{1} |
+| `AADB2C90088` | A subvenção concedida não foi emitida para este ponto final. Valor Real : {0} e Valor Esperado : {1} |
+| `AADB2C90091` | Cancelamento do utilizador. |
 | `AADB2C90092` | O pedido fornecido com identificação {0} ' ' é desativado para o inquilino {1} '. Por favor, ative a aplicação e tente novamente. |
 | `AADB2C90107` | O pedido com identificação {0} ' ' não pode obter um sinal de identificação também porque o âmbito aberto não foi fornecido no pedido ou o pedido não está autorizado para o mesmo. |
 | `AADB2C90108` | O passo de orquestração {0} ' ' não especifica um CpimIssuerTechnicalProfileReferenceId quando se esperava. |

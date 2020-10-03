@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611168"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665876"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -551,7 +551,9 @@ Quando um utilizador seleciona o botão **'Iniciar'** pela primeira vez, o `sign
 
 Neste momento, um código de autorização protegido pelo PKCE é enviado para o ponto final de token protegido pelo CORS e é trocado por fichas. Um token de ID, token de acesso e token de atualização são recebidos pela sua aplicação e processados por *msal.js*, e as informações contidas nos tokens estão em cache.
 
-O token de ID contém informações básicas sobre o utilizador, como o seu nome de exibição. Se planeia utilizar quaisquer dados fornecidos pelo token de ID, o seu servidor back-end *deve* validá-lo para garantir que o token foi emitido a um utilizador válido para a sua aplicação. O token refresh tem uma vida útil limitada e expira após 24 horas. O token refresh pode ser usado para adquirir silenciosamente novos tokens de acesso.
+O token de ID contém informações básicas sobre o utilizador, como o seu nome de exibição. Se planeia utilizar quaisquer dados fornecidos pelo token de ID, o seu servidor back-end *deve* validá-lo para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
+
+O token de acesso tem uma vida útil limitada e expira após 24 horas. O token refresh pode ser usado para adquirir silenciosamente novos tokens de acesso.
 
 O SPA que criou nestas chamadas tutoriais `acquireTokenSilent` e/ou `acquireTokenPopup` para adquirir um *token* de acesso usado para consultar a API do Microsoft Graph para obter informações sobre o perfil do utilizador. Se precisar de uma amostra que valide o token de ID, consulte a aplicação de amostra [activa-directório-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) no GitHub. A amostra utiliza uma API web ASP.NET para validação de fichas.
 
@@ -647,7 +649,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Se quiser mergulhar mais profundamente no desenvolvimento de aplicações de página única javaScript na plataforma de identidade da Microsoft, consulte a nossa série de cenários multi-partes:
 

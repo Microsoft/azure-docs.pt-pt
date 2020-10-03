@@ -8,26 +8,27 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: ac5322b93fc5f804292cfbff2c2e7eeb79b5989f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098425"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667884"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelação de dados em Azure Time Series Insights Gen2
 
 Este artigo descreve como trabalhar com o Modelo da Série De Tempo em Azure Time Series Insights Gen2. Detalha vários cenários de dados comuns.
 
 > [!TIP]
+>
 > * Leia mais sobre o [Modelo série de tempo.](concepts-model-overview.md)
 > * Saiba mais sobre a navegação do [explorador da Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>de Instâncias
 
-O explorador Azure Time Series Insights suporta as operações **Desematada Create**, **READ**, **UPDATE**e **DELETE** dentro do navegador. 
+O explorador Azure Time Series Insights suporta as operações **Desematada Create**, **READ**, **UPDATE**e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -57,7 +58,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ### <a name="edit-a-single-instance"></a>Editar um único caso
 
-1. Selecione a instância e selecione o ícone **de edição** ou **lápis**. 
+1. Selecione a instância e selecione o ícone **de edição** ou **lápis**.
 1. Faça as alterações necessárias e **selecione Guardar**.
 
     [![Editar um único caso.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
@@ -75,7 +76,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ## <a name="hierarchies"></a>Hierarquias
 
-O explorador Azure Time Series Insights suporta operações hierárquicas **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador. 
+O explorador Azure Time Series Insights suporta operações hierárquicas **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -117,7 +118,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ### <a name="delete-a-hierarchy"></a>Eliminar uma hierarquia
 
-1. Selecione a hierarquia e selecione o ícone **de eliminação** ou **de lixo**. 
+1. Selecione a hierarquia e selecione o ícone **de eliminação** ou **de lixo**.
 
     [![Elimine uma hierarquia selecionando o botão Eliminar.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
@@ -125,7 +126,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ## <a name="types"></a>Tipos
 
-O explorador Azure Time Series Insights suporta as operações tipo **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador. 
+O explorador Azure Time Series Insights suporta as operações tipo **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -136,7 +137,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
     [![Painel de modelos de séries de tempo.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
 
 1. **Selecione + Adicione** para exibir o Adicionar um novo **tipo** popup modal.
-1. Introduza propriedades e variáveis para o seu tipo. Uma vez introduzido, **selecione Save**. 
+1. Introduza propriedades e variáveis para o seu tipo. Uma vez introduzido, **selecione Save**.
 
     [![Configurações de configuração para adicionar um tipo.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
 
@@ -166,10 +167,10 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 1. Confirme a eliminação selecionando **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre o Modelo série de tempo, leia [modelação de dados](./concepts-model-overview.md).
+* Para obter mais informações sobre o Modelo série de tempo, leia [modelação de dados](./concepts-model-overview.md).
 
-- Para saber mais sobre a Gen2, leia [visualize dados no explorador da Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Para saber mais sobre a Gen2, leia [visualize dados no explorador da Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
 
-- Para aprender sobre as formas JSON suportadas, leia [as formas JSON suportadas.](./time-series-insights-send-events.md#supported-json-shapes)
+* Para aprender sobre as formas JSON suportadas, leia [as formas JSON suportadas.](./time-series-insights-send-events.md#supported-json-shapes)

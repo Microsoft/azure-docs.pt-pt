@@ -7,18 +7,15 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 30587fac7d7be37d7595a78502b7999adee9a30f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191152"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665315"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos Azure VM sem disco temporário local 
 Este artigo fornece respostas a perguntas frequentes (FAQ) sobre tamanhos Azure VM que não têm um disco temporário local (ou seja, nenhum disco temporário local). Para obter mais informações sobre estes tamanhos VM, consulte [especificações para séries Dv4 e Dsv4 (Cargas de trabalho de finalidade geral)](dv4-dsv4-series.md) ou [especificações para sérieS Ev4 e Esv4 (Trabalhos de Trabalho Otimizados de Memória)](ev4-esv4-series.md).
-
-> [!IMPORTANT]
-> Os tamanhos VM da série Dv4, Dsv4, Ev4 e Esv4 estão agora em Visualização Pública. Para se inscrever para Pré-visualização Pública, preencha este [Formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ## <a name="what-does-no-local-temp-disk-mean"></a>O que significa nenhum disco temporário local? 
 Tradicionalmente, temos tido tamanhos VM (por exemplo, Standard_D2s_v3, Standard_E48_v3) que incluem um pequeno disco local (ou seja, um D: Drive). Agora com estes novos tamanhos VM, esse pequeno disco local já não existe; no entanto, ainda pode anexar Standard HDD, Premium SSD ou Ultra SSD.
@@ -38,7 +35,7 @@ Se a sua carga de trabalho necessitar de um disco temporário local, também tem
 | Esv3 | Edsv4 |    Esv4 | 
 
 ## <a name="can-i-resize-a-vm-size-that-has-a-local-temp-disk-to-a-vm-size-with-no-local-temp-disk"></a>Posso redimensionar um tamanho VM que tem um disco temporário local para um tamanho VM sem disco temporário local?  
-Não. As únicas combinações permitidas para a redimensionamento são: 
+N.º As únicas combinações permitidas para a redimensionamento são: 
 
 1. VM (com disco temporário local) -> VM (com disco temporário local); e 
 2. VM (sem disco temporário local) -> VM (sem disco temporário local). 
@@ -55,7 +52,7 @@ Se a imagem personalizada do SO aponta para o disco temporário local, a imagem 
 ## <a name="have-questions-or-feedback"></a>Tem perguntas ou comentários?
 Preencha o [formulário de feedback]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximas etapas 
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com VMs Azure sem disco temporário local. Para obter mais informações sobre estes tamanhos VM, consulte os seguintes artigos:
 
 - [Especificações para séries Dv4 e Dsv4 (Carga de Trabalho para Fins Gerais)](dv4-dsv4-series.md)

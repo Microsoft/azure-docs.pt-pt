@@ -4,17 +4,17 @@ description: Use funcionalidades como análise de armazenamento, registo de regi
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031488"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667916"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -256,6 +256,14 @@ O serviço de armazenamento gera automaticamente iDs de pedido de servidor.
 >
 >
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+A amostra de código abaixo demonstra como usar um ID de pedido de cliente personalizado. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 Se a Biblioteca do Cliente de Armazenamento lançar uma **StorageException** no cliente, a propriedade **RequestInformation** contém um objeto **RequestResult** que inclui uma propriedade **ServiceRequestID.** Também pode aceder a um objeto **RequestResult a** partir de uma instância **OperaçãoContexto.**
 
 A amostra de código abaixo demonstra como definir um valor personalizado **do ClientRequestId** anexando um objeto **OperationContext** o pedido ao serviço de armazenamento. Também mostra como recuperar o valor **do ServerRequestId** a partir da mensagem de resposta.
@@ -291,6 +299,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>Carimbos de Data/Hora
 Também pode utilizar os relógios para localizar entradas de registos relacionados, mas tenha cuidado com qualquer distorção do relógio entre o cliente e o servidor que possa existir. Procure mais ou menos 15 minutos para combinar as entradas do lado do servidor com base no tempotamp no cliente. Lembre-se que os metadados blob para as métricas que contêm métricas indicam o intervalo de tempo para as métricas armazenadas na bolha. Este intervalo de tempo é útil se tiver muitas métricas para o mesmo minuto ou hora.
@@ -358,13 +368,19 @@ As possíveis razões para o cliente responder lentamente incluem ter um número
 
 Para os serviços de mesa e fila, o algoritmo Nagle também pode causar uma alta **média de E2ELatency** em comparação com **a AverageServerLatency**: para mais informações, consulte o algoritmo do post [Nagle não é amigável para pedidos pequenos.](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no espaço de nome **System.Net.** Deverá fazê-lo antes de efetivar quaisquer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta as ligações que já estão abertas. O exemplo a seguir vem do **método Application_Start** numa função de trabalhador.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
+
+---
 
 Deverá verificar os registos do lado do cliente para ver quantos pedidos o seu pedido de cliente está a apresentar e verificar se existem estrangulamentos de desempenho relacionados com a NET no seu cliente, tais como CPU, recolha de lixo .NET, utilização da rede ou memória. Como ponto de partida para a resolução de aplicações de clientes .NET, consulte [Debugging, Tracing e Profiling](https://msdn.microsoft.com/library/7fe0dd2y).
 
@@ -594,6 +610,12 @@ Para contornar a questão javaScript, pode configurar a Partilha de Recursos de 
 
 A amostra de código que se segue mostra como configurar o seu serviço blob para permitir que o JavaScript em execução no domínio Contoso aceda a uma bolha no seu serviço de armazenamento de bolhas:
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +631,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>Falha de rede
 Em algumas circunstâncias, os pacotes de rede perdidos podem levar ao serviço de armazenamento devolvendo HTTP 404 mensagens ao cliente. Por exemplo, quando a sua aplicação ao cliente está a excluir uma entidade do serviço de mesa, vê o cliente lançar uma exceção de armazenamento reportando uma mensagem de estado "HTTP 404 (Não Encontrado)" do serviço de mesa. Quando investiga a tabela no serviço de armazenamento de mesa, vê que o serviço eliminou a entidade conforme solicitado.
@@ -806,7 +830,7 @@ Também pode utilizar a funcionalidade Application Insights para Azure DevOps co
 
 Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a análise no Azure Storage, consulte estes recursos:
 

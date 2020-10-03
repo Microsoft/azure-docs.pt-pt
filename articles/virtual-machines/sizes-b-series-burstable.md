@@ -3,17 +3,17 @@ title: Série B rebentada - Azure Virtual Machines
 description: Descreve a série B dos tamanhos Azure VM rebentado.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.author: sttsinar
+ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653422"
+ms.locfileid: "91666641"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -21,12 +21,14 @@ Os VMs da série B são ideais para cargas de trabalho que não necessitam de um
 
 A série B vem nos seguintes tamanhos VM:
 
+[Unidade Azure Compute (ACU)](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): Varia*<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>
 [Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 <br>
+*Os VMs da série B são rebentados e, portanto, os números de ACU variam consoante as cargas de trabalho e a utilização do núcleo.
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | CpU Base Perf de VM | Max CPU Perf de VM | Créditos Iniciais | Créditos bancários/hora | Créditos Max Banked | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -150,6 +152,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

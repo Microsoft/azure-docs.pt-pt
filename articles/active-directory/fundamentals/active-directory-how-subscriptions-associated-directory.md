@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426100"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666437"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -50,7 +50,7 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
   - Se tiveres cofres chave, eles ficarão inacessíveis e terás de os arranjar depois da associação.
   - Se tiver identidades geridas para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve ree capacitá-las ou recriá-las após a associação
   - Se tiver um Azure Stack registado, terá de re-registrá-lo após associação
-  - Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
+  - Para obter mais informações, consulte [transferir uma subscrição do Azure para um diretório AD Azure diferente.](../../role-based-access-control/transfer-subscription.md)
 
 - Inscreva-se usando uma conta que:
 
@@ -93,9 +93,9 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [o Register Azure Stack com Azure](/azure-stack/operator/azure-stack-registration).
 
-- Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
+- Para obter mais informações, consulte [transferir uma subscrição do Azure para um diretório AD Azure diferente.](../../role-based-access-control/transfer-subscription.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 

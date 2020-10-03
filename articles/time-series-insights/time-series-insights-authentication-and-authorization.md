@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 9e032b8bb2dd8c82e8b076517f4309baae41c6f9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320324"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665820"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -56,7 +56,7 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>Concessão de acesso a dados
+### <a name="granting-data-access"></a>Conceder acesso aos dados
 
 1. Para o ambiente Azure Time Series Insights, selecione **Políticas de Acesso a Dados** e selecione **Add**.
 
@@ -110,7 +110,7 @@ Para realizar consultas autenticadas contra o [Azure Time Series Insights REST A
 
 Os cabeçalhos de pedido necessários são descritos abaixo.
 
-| Cabeçalho de pedido exigido | Description |
+| Cabeçalho de pedido exigido | Descrição |
 | --- | --- |
 | Autorização | Para autenticar com a Azure Time Series Insights, um token OAuth 2.0 Bearer válido deve ser passado no cabeçalho **de autorização.** |
 
@@ -122,7 +122,7 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 
-| Cabeçalho de pedido opcional | Description |
+| Cabeçalho de pedido opcional | Descrição |
 | --- | --- |
 | Tipo de conteúdo | só `application/json` é suportado. |
 | x-ms-cliente-pedido-id | Um pedido de identificação do cliente. O serviço regista este valor. Permite que o serviço rastreie a operação através dos serviços. |
@@ -131,7 +131,7 @@ Os cabeçalhos de pedido opcionais são descritos abaixo.
 
 Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 
-| Cabeçalho de resposta | Description |
+| Cabeçalho de resposta | Descrição |
 | --- | --- |
 | Tipo de conteúdo | Só `application/json` é apoiado. |
 | x-ms-request-id | ID de pedido gerado pelo servidor. Pode ser usado para contactar a Microsoft para investigar um pedido. |
@@ -160,7 +160,7 @@ Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de u
 | `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | Gen1 |
 | `storeType=<storeType>` | Para ambientes Gen2 com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Gen2 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Para o código de amostra que chama a Gen1 Azure Time Series Insights API, leia [os dados da Consulta Gen1 utilizando C#](./time-series-insights-query-data-csharp.md).
 

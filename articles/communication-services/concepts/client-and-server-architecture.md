@@ -1,20 +1,20 @@
 ---
-title: Arquitetura de clientes e servidores
+title: Arquitetura de cliente e servidor
 titleSuffix: An Azure Communication Services concept document
 description: Conheça a arquitetura dos Serviços de Comunicação.
 author: mikben
 manager: mikben
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 38d6b131c972b4fd890af53624fdd6a36b3ecb6c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938142"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666947"
 ---
 # <a name="client-and-server-architecture"></a>Arquitetura de Clientes e Servidores
 
@@ -43,13 +43,13 @@ Para análise de informação [adicional, as melhores práticas de gestão de id
 
 As bibliotecas de clientes Azure Communications JavaScript podem permitir aplicações web com rica interação de texto, voz e vídeo. A aplicação interage diretamente com os Serviços de Comunicação Azure através da biblioteca do cliente para aceder ao plano de dados e fornecer comunicação de texto, voz e vídeo em tempo real. Um fluxo de arquitetura de amostra pode ser encontrado abaixo:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagrama mostrando o navegador para navegador Arquitetura para Serviços de Comunicação.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagrama mostrando o acesso do utilizador à arquitetura simbólica.":::
 
 ## <a name="native-app-communication"></a>Comunicação de aplicativos nativo
 
 Muitos cenários são melhor servidos com aplicações nativas. O Azure Communication Services suporta tanto a comunicação de navegador-para-app como a comunicação app-to-app.  Ao construir uma experiência de aplicação nativa, ter notificações push permitirá que os utilizadores recebam chamadas mesmo quando a aplicação não está em execução. Os Serviços de Comunicação Azure facilitam as notificações de push integradas ao Google Firebase, ao Serviço de Notificações Apple Push e às Notificações push do Windows. Um fluxo de arquitetura de amostra pode ser encontrado abaixo:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagrama mostrando Arquitetura de Serviços de Comunicação para comunicação de aplicações nativas.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagrama mostrando o acesso do utilizador à arquitetura simbólica.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voz e SMS sobre a rede pública de telefonia comutado (PSTN)
 
@@ -58,7 +58,7 @@ Comunicar através do sistema telefónico pode aumentar drasticamente o alcance 
 > [!Note]
 > Durante a pré-visualização pública, o fornecimento de números de telefone dos EUA está disponível para clientes com endereços de faturação localizados nos EUA e Canadá. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagrama mostrando a arquitetura PSTN dos Serviços de Comunicação.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagrama mostrando o acesso do utilizador à arquitetura simbólica.":::
 
 Para obter mais informações sobre soluções PSTN e SMS, consulte [Plan your PSTN and SMS solution](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,16 +66,16 @@ Para obter mais informações sobre soluções PSTN e SMS, consulte [Plan your P
 
 A Azure Communication Services suporta a comunicação humano-sistema apesar dos canais de texto e voz, com serviços que acedem diretamente ao plano de dados dos Serviços de Comunicação Azure. Por exemplo, você pode ter um bot atender chamadas telefónicas recebidas ou participar em um chat web. A Azure Communication Services fornece bibliotecas de clientes que permitem estes cenários para ligar e conversar. Um fluxo de arquitetura de amostra pode ser encontrado abaixo:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagrama mostrando a arquitetura bot dos Serviços de Comunicação.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagrama mostrando o acesso do utilizador à arquitetura simbólica.":::
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Pode querer trocar dados arbitrários entre os utilizadores, por exemplo, para sincronizar uma realidade mista partilhada ou uma experiência de jogo. O plano de dados em tempo real utilizado para comunicação de texto, voz e vídeo está disponível diretamente para si de duas formas:
 
 - **Chamar a biblioteca de clientes** - Os dispositivos numa chamada têm acesso a APIs para envio e receção de dados pelo canal de chamadas. Esta é a forma mais fácil de adicionar comunicação de dados a uma interação existente.
 - **STUN/TURN** - Azure Communication Services disponibiliza os serviços STUN e TURN compatíveis com as normas. Isto permite-lhe construir uma camada de transporte fortemente personalizada em cima destes primitivos padronizados. Pode autoriar o seu próprio cliente em conformidade com padrões ou utilizar bibliotecas de código aberto, como [o WinRTC.](https://github.com/microsoft/winrtc)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criação de fichas de acesso ao utilizador](../quickstarts/access-tokens.md)
@@ -85,5 +85,5 @@ Para obter mais informações, veja os seguintes artigos:
 - Saiba mais [sobre a autenticação](../concepts/authentication.md)
 - Conheça as [soluções PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
 
-- [Adicione chat à sua app](../quickstarts/chat/get-started.md)
-- [Adicione chamada de voz para a sua app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Adicionar o chat à aplicação](../quickstarts/chat/get-started.md)
+- [Adicionar chamadas de voz à sua aplicação](../quickstarts/voice-video-calling/getting-started-with-calling.md)

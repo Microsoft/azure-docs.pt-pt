@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 932b9f84e9f17555f364ae504967678ee1d7ce97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947403"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665213"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
 
@@ -52,7 +52,7 @@ Apoiamos até Full HD 1080p nos SDKs nativos (iOS, Android). Para Web (JS) SDK a
 Os quartos são um conjunto de APIs e SDKs que permitem adicionar facilmente interações de áudio, vídeo, partilha de ecrã, PSTN e SMS ao seu website ou aplicação nativa.
 Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar o iD de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos" 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Começa com a chamada](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
