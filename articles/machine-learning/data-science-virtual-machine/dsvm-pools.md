@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144775"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708973"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas virtuais de ciência de dados
 
 Neste artigo, você vai aprender a criar um conjunto compartilhado de Data Science Virtual Machines (DSVMs) para uma equipe. Os benefícios da utilização de um pool partilhado incluem uma melhor utilização de recursos, uma partilha e colaboração mais fáceis e uma gestão mais eficaz dos recursos DSVM.
 
-Você pode usar muitos métodos e tecnologias para criar um conjunto de DSVMs. Este artigo centra-se em piscinas para máquinas virtuais interativas (VMs). Uma infraestrutura de computação gerida alternativa é a Azure Machine Learning Compute. Para obter mais informações, consulte [Criar metas de computação com Python SDK](../how-to-create-attach-compute-sdk.md).
+Você pode usar muitos métodos e tecnologias para criar um conjunto de DSVMs. Este artigo centra-se em piscinas para máquinas virtuais interativas (VMs). Uma infraestrutura de computação gerida alternativa é a Azure Machine Learning Compute. Para obter mais informações, consulte [Criar cluster de cálculo.](../how-to-create-attach-compute-cluster.md)
 
 ## <a name="interactive-vm-pool"></a>Piscina VM interativa
 
@@ -55,7 +55,7 @@ O [script que monta a partilha de Ficheiros Azure](https://raw.githubusercontent
 
 A balança de máquina virtual define o suporte a autoscaling. Pode definir regras sobre quando criar instâncias adicionais e quando reduzir as instâncias. Por exemplo, pode reduzir para zero casos para economizar nos custos de utilização de hardware na nuvem quando os VMs não são usados de todo. As páginas de documentação dos conjuntos de escala de máquinas virtuais fornecem [passos detalhados para a autoscalagem.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma identidade comum](dsvm-common-identity.md)
 * [Armazenar credenciais de segurança para aceder a recursos na nuvem](dsvm-secure-access-keys.md)

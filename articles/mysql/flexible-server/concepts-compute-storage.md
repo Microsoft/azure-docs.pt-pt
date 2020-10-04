@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 67c924c350fa2bc69f724d44a1b43c7e878e493a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940525"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708684"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -20,10 +20,10 @@ ms.locfileid: "90940525"
 
 Pode criar uma Base de Dados Azure para o MySQL Flexible Server num dos três níveis de computação diferentes: Burstable, General Purpose e Memory Optimized. Os níveis de cálculo são diferenciados pelas séries B, séries D e E utilizadas pela VM SKU. A escolha do nível e tamanho do cálculo determina a memória e vCores disponíveis no servidor. A mesma tecnologia de armazenamento é usada em todos os níveis de computação. Todos os recursos são a provisionados ao nível do servidor MySQL. Um servidor pode ter uma ou muitas bases de dados.
 
-| Recurso / Nível | **Rebentado** | **Finalidade Geral** | **Memória Otimizada** |
+| Recurso / Nível | **Rebentado** | **Fins Gerais** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Série das VMs| Série B | Série Ddsv4 | Série Edsv4|
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memória por vCore | Variável | 4 GiB | 8 GiB * |
 | Tamanho do armazenamento | 5 GiB a 16 TiB | 5 GiB a 16 TiB | 5 GiB a 16 TiB |
 | Período de retenção de backup da base de dados | 1 a 35 dias | 1 a 35 dias | 1 a 35 dias |
@@ -52,7 +52,7 @@ As especificações detalhadas dos tipos de servidores disponíveis são as segu
 | B1s                  | 1      | 1                 |  
 | B1ms                 | 1      | 2                 | 
 | B2s                  | 2      | 4                 |  
-| **Finalidade Geral**  |        |                   | 
+| **Fins Gerais**  |        |                   | 
 | D2ds_v4              | 2      | 8                 |  
 | D4ds_v4              | 4      | 16                | 
 | D8ds_v4              | 8      | 32                | 
@@ -113,7 +113,7 @@ Para saber mais sobre o máximo eficaz IOPS por tamanho de computação, utiliza
 | B1s                  | 320                 |
 | B1ms                 | 640                 |
 | B2s                  | 1280                | 
-| **Finalidade Geral**  |                     |
+| **Fins Gerais**  |                     |
 | D2ds_v4              | 3200                |
 | D4ds_v4              | 6400                |
 | D8ds_v4              | 12800               |
@@ -162,7 +162,7 @@ Se quiser otimizar o custo do servidor, pode considerar as seguintes dicas:
 - Pare o servidor quando não estiver a ser utilizado.
 - Reduza o período de retenção de backup se não for necessária uma maior retenção de cópias de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um servidor MySQL no portal](quickstart-create-server-portal.md).
 - Conheça as [limitações de serviço.](concepts-limitations.md)

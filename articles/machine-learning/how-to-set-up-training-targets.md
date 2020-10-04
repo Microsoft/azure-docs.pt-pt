@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535098"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708242"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configure e submeta os treinos
 
@@ -31,9 +31,7 @@ Tudo o que precisa de fazer é definir o ambiente para cada alvo de cálculo den
 * Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
 * [O Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * [Um espaço de trabalho de aprendizagem automática Azure,](how-to-manage-workspace.md)`ws`
-* Um alvo computacional, `my_compute_target` .  Criar um alvo de computação com:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* Um alvo computacional, `my_compute_target` .  [Criar um alvo de computação](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>O que é uma configuração de execução de script?
 Um [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) é usado para configurar as informações necessárias para submeter uma corrida de treino como parte de uma experiência.
@@ -94,7 +92,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 Para obter mais informações e detalhes sobre ambientes, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
   
-### <a name="local-compute-target"></a>Alvo de computação local
+### <a name="local-compute-target"></a><a name="local"></a>Alvo de computação local
 
 Se o seu alvo de cálculo for a sua **máquina local,** é responsável por garantir que todos os pacotes necessários estão disponíveis no ambiente Python onde o script é executado.  Utilize `python.user_managed_dependencies` para utilizar o seu ambiente python atual (ou o Python no caminho que especificar).
 
@@ -119,6 +117,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 Se não especificar um ambiente, será criado um ambiente padrão para si.
@@ -171,7 +173,7 @@ Consulte estes cadernos como exemplos de configurações para vários cenários 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
 * Veja como formar modelos com estruturas ML específicas, tais como [Scikit-learn,](how-to-train-scikit-learn.md) [TensorFlow](how-to-train-tensorflow.md)e [PyTorch](how-to-train-pytorch.md).

@@ -1,17 +1,17 @@
 ---
 title: Migrar uma base de dados - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve como extrair uma base de dados PostgreSQL num ficheiro de script e importar os dados para a base de dados-alvo a partir desse ficheiro.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: f86c2f9500f7512c6ba3337b6fac2839bbd91976
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 080f444d50dcdf17be15d940002b745624b2f6a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901494"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708531"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar a sua base de dados PostgreSQL utilizando exportação e importação
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
@@ -56,6 +56,6 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Para migrar uma base de dados PostgreSQL utilizando o despejo e restaurar, consulte [migrar a sua base de dados PostgreSQL utilizando o despejo e restaurar](howto-migrate-using-dump-and-restore.md).
 - Para obter mais informações sobre bases de dados migratórias para a Base de Dados Azure para PostgreSQL, consulte o [Guia de Migração da Base de Dados.](https://aka.ms/datamigration)

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967554"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708871"
 ---
 # <a name="about-keys"></a>Acerca de chaves
 
@@ -47,7 +47,7 @@ As teclas protegidas pelo HSM (também designadas por teclas HSM) são processad
 - Os cofres utilizam HSMs validados **FIPS 140-2 para** proteger as chaves HSM na infraestrutura de backend HSM partilhada. 
 - As piscinas HSM geridas utilizam módulos HSM validados **FIPS 140-2 Nível 3** para proteger as suas chaves. Cada piscina HSM é uma instância isolada de inquilino único com o seu próprio domínio de [segurança](../managed-hsm/security-domain.md) proporcionando um completo isolamento criptográfico de todas as outras piscinas HSM que partilham a mesma infraestrutura de hardware.
 
-Estas chaves estão protegidas em piscinas HSM de um único inquilino. Pode importar uma chave RSA, CE e simétrica, em forma macia ou exportando de um dispositivo HSM suportado. Também pode gerar chaves em piscinas HSM. Quando importa as teclas HSM utilizando as teclas utilizando o método descrito na [especificação BYOK (traga a sua própria chave),](../keys/byok-specification.md)permite material de transporte seguro em piscinas de HSM geridos. 
+Estas chaves estão protegidas em piscinas HSM de um único inquilino. Pode importar uma chave RSA, CE e simétrica, em forma macia ou exportando de um dispositivo HSM suportado. Também pode gerar chaves em piscinas HSM. Quando importa as chaves HSM utilizando o método descrito na [especificação BYOK (traga](../keys/byok-specification.md)a sua própria chave), permite material chave de transporte seguro em piscinas geridas de HSM. 
 
 Para obter mais informações sobre as fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
@@ -215,9 +215,9 @@ As seguintes permissões podem ser concedidas, por base principal de utilizador/
 
 Para obter mais informações sobre o trabalho com as teclas, consulte [as operações key in the Key Vault REST API reference](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - [Sobre o Key Vault](../general/overview.md)
-- [Sobre o HSM gerido](../managed-hsm/overview.md)
+- [Acerca do HSM Gerido](../managed-hsm/overview.md)
 - [Acerca de segredos](../secrets/about-secrets.md)
 - [Acerca de certificados](../certificates/about-certificates.md)
 - [Visão geral da API do Key Vault REST](../general/about-keys-secrets-certificates.md)

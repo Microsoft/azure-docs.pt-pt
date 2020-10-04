@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Connect with C# - Azure Database for PostgreSQL - Single Server'
 description: Este quickstart fornece uma amostra de código C# (.NET) que pode utilizar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: c176caf4bd2bac68b1994b5eef51ebc2f7e7be4b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cfa7a6e7e2de11978709fd662dcbfaa2085a0716
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903852"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710418"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize .NET (C#) para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -298,6 +298,6 @@ namespace Driver
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

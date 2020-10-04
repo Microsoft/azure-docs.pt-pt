@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317757"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708440"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas do Azure Stream Analytics
 
@@ -25,23 +25,23 @@ Alguns tipos de saídas [suportam a partição,](#partitioning)e [os tamanhos](#
 
 | Tipo de saída | Criação de partições | Segurança | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Utilizador do Azure Ative Directory </br> MSI|
-|[Base de Dados SQL do Azure](sql-database-output.md)|Sim, precisa de ativar.|Auth utilizador SQL </br> MSI (Pré-visualização)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|Auth utilizador SQL|
-|[Armazenamento de bolhas e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Chave de acesso|
-|[Azure Event Hubs](event-hubs-output.md)|Yes|Chave de acesso|
-|[Power BI](power-bi-output.md)|No|Utilizador do Azure Ative Directory </br> MSI|
-|[Armazenamento de tabelas do Azure](table-storage-output.md)|Yes|Chave da conta|
-|[Filas do Azure Service Bus](service-bus-queues-output.md)|Yes|Chave de acesso|
-|[Tópicos de ônibus de serviço Azure](service-bus-topics-output.md)|Yes|Chave de acesso|
-|[BD do Cosmos para o Azure](azure-cosmos-db-output.md)|Yes|Chave de acesso|
-|[Funções do Azure](azure-functions-output.md)|Yes|Chave de acesso|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sim|Utilizador do Azure Ative Directory </br> MSI|
+|[Base de Dados SQL do Azure](sql-database-output.md)|Sim, opcional.|Auth utilizador SQL </br> MSI (Pré-visualização)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Sim|Auth utilizador SQL|
+|[Armazenamento de bolhas e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Sim|MSI </br> Chave de acesso|
+|[Azure Event Hubs](event-hubs-output.md)|Sim, precisa definir a coluna da chave de partição na configuração de saída.|Chave de acesso|
+|[Power BI](power-bi-output.md)|Não|Utilizador do Azure Ative Directory </br> MSI|
+|[Armazenamento de tabelas do Azure](table-storage-output.md)|Sim|Chave da conta|
+|[Filas do Azure Service Bus](service-bus-queues-output.md)|Sim|Chave de acesso|
+|[Tópicos de ônibus de serviço Azure](service-bus-topics-output.md)|Sim|Chave de acesso|
+|[BD do Cosmos para o Azure](azure-cosmos-db-output.md)|Sim|Chave de acesso|
+|[Funções do Azure](azure-functions-output.md)|Sim|Chave de acesso|
 
 ## <a name="partitioning"></a>Criação de partições
 
 Stream Analytics suporta divisórias para todas as saídas, exceto para Power BI. Para obter mais informações sobre as chaves de partição e o número de autores de saída, consulte o artigo para o tipo de saída específico em que está interessado. Todos os artigos de saída estão ligados na secção anterior.  
 
-O número de escritores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (ver [INTO)](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)na sua consulta, o que pode ser útil para alcançar uma topologia de emprego desejada. Se o adaptador de saída não estiver dividido, a falta de dados numa partição de entrada causa um atraso até ao tempo de chegada tardio. Nesses casos, a produção é fundida a um único escritor, o que pode causar estrangulamentos no seu oleoduto. Para saber mais sobre a política de chegada tardia, consulte considerações de [ordem de eventos Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Além disso, para uma afinação mais avançada das divisórias, o número de escritores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (ver [INTO)](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)na sua consulta, o que pode ser útil para alcançar uma topologia de trabalho desejada. Se o adaptador de saída não estiver dividido, a falta de dados numa partição de entrada causa um atraso até ao tempo de chegada tardio. Nesses casos, a produção é fundida a um único escritor, o que pode causar estrangulamentos no seu oleoduto. Para saber mais sobre a política de chegada tardia, consulte considerações de [ordem de eventos Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
@@ -80,7 +80,7 @@ Estas propriedades da janela de loteamento só são suportadas pela versão API 
           ],
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 >

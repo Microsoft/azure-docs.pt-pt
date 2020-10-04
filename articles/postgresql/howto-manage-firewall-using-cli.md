@@ -1,19 +1,19 @@
 ---
 title: Gerir regras de firewall - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: Este artigo descreve como criar e gerir regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único utilizando a linha de comando Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 17a41030adeb302f2c85b1bd4576caad9e723544
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: cd96a4e8af5faab618f3302c423675b2dadca79a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489763"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710860"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerir regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único usando Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor PostgreSQL a partir de um endereço IP específico ou intervalo de endereços IP específicos. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral das regras de firewall do Azure Database para as regras de firewall postgreSQL, consulte [a Base de Dados Azure para as regras de firewall do Servidor PostgreSQL](concepts-firewall-rules.md).
@@ -79,7 +79,7 @@ az postgres server firewall-rule delete --resource-group myresourcegroup --serve
 ```
 Após o sucesso, não há saída. Após falha, o texto da mensagem de erro é devolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Da mesma forma, pode utilizar um navegador web para criar e gerir a [Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md).
 - Conheça mais sobre a [Base de Dados Azure para as regras de firewall do Servidor PostgreSQL](concepts-firewall-rules.md).
 - Acesso mais seguro ao seu servidor através da [criação e gestão de pontos finais de serviço de Rede Virtual e regras utilizando o Azure CLI](howto-manage-vnet-using-cli.md).

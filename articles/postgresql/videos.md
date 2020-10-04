@@ -1,17 +1,17 @@
 ---
 title: Base de Dados Azure para Vídeos PostgreSQL
 description: Esta página lista o conteúdo de vídeo relevante para a aprendizagem da Base de Dados Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 3cf1767d35100dd0133d2df7e61d884fa1bf4738
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f89635a74b82cfc34d55a662de8f7372aabd3162
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461974"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708140"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Base de Dados Azure para vídeos PostgreSQL
 

@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646680"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710656"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta da aplicação Power BI
 
-Este artigo descreve como criar e publicar uma oferta de aplicação Power BI ao Microsoft [AppSource.](https://appsource.microsoft.com/)
+Este artigo descreve como criar e publicar uma oferta de aplicação Power BI ao [Microsoft AppSource.](https://appsource.microsoft.com/)
 
 Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
@@ -55,10 +55,10 @@ Esta página mostra uma representação visual dos passos necessários para publ
 
 Inclui links para realizar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de projeto)](update-existing-offer.md#delete-a-draft-offer)
-- Se a oferta for ao vivo - [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval))
-- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação)](update-existing-offer.md#cancel-publishing)
+- Se a oferta for um rascunho - [Eliminar oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo - [Pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval)
+- Se ainda não concluiu a publicação - [Cancele a publicação](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
@@ -73,7 +73,7 @@ Ao publicar a sua oferta no mercado com o Partner Center, deve conectá-la ao se
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se o seu sistema CRM não estiver listado acima, utilize [a Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [o Ponto Final https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de chumbo do cliente. Em seguida, exporte os dados para o seu sistema crm.
+    > Se o seu sistema CRM não estiver nesta lista, utilize [a Tabela Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [o ponto final HTTPS](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de chumbo do cliente. Em seguida, exporte os dados para o seu sistema crm.
 
 2. Ligue a sua oferta ao destino principal ao publicar no Partner Center.
 3. Confirme se a ligação ao destino de chumbo está configurada corretamente. Depois de publicá-lo no Partner Center, validaremos a ligação e enviaremos um teste. Enquanto pré-visualiza a oferta antes de entrar em direto, também pode testar a sua ligação de chumbo tentando comprar a oferta no ambiente de pré-visualização.
@@ -81,10 +81,10 @@ Ao publicar a sua oferta no mercado com o Partner Center, deve conectá-la ao se
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (certifique-se de que o seu bloqueador pop-up está desligado)
+- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
+- [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
+- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -202,7 +202,7 @@ Fornecer pelo menos um e até três documentos de marketing relacionados em form
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
@@ -218,7 +218,7 @@ Estes logótipos são utilizados em diferentes locais da listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333839"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708259"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
@@ -273,7 +273,7 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Crie um Azure Machine Learning Compute como seu alvo de computação e submeta o seu treino. Consulte [Metas de cálculo create com Python SDK](how-to-create-attach-compute-sdk.md#amlcompute) para obter instruções. Também pode achar útil o [exemplo de cadernos.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
+1. Crie um Azure Machine Learning Compute como seu alvo de computação e submeta o seu treino. Consulte [Criar e gerir os clusters de cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md) para obter instruções. Também pode achar útil o [exemplo de cadernos.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
 
 1. Baixe a explicação no seu caderno Jupyter local.
 
@@ -302,7 +302,7 @@ Depois de descarregar as explicações no seu caderno Jupyter local, pode utiliz
 
 Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente com as suas previsões e explicações.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Exploração de Dados| Apresenta uma visão geral do conjunto de dados juntamente com os valores de previsão.|
 |Importância Global|Os agregados apresentam valores importantes de pontos de dados individuais para mostrar as características importantes do modelo no topo do K (configurável K). Ajuda a compreender o comportamento geral do modelo subjacente.|
@@ -316,7 +316,7 @@ Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente
 
 Pode carregar o enredo de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais em qualquer um dos enredos globais.
 
-|Lote|Description|
+|Lote|Descrição|
 |----|-----------|
 |Importância Local|Mostra as características importantes k (configurável K) para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente num ponto de dados específico.|
 |Exploração de Perturbação (e se análise)|Permite alterações aos valores de característica do ponto de dados selecionados e observa alterações resultantes ao valor de previsão.|
@@ -548,7 +548,7 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 
    Para eliminar um serviço web implantado, utilize `service.delete()` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre a interpretação do modelo](how-to-machine-learning-interpretability.md)
 

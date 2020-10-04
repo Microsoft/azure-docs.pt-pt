@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290091"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707783"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações Azure Cosmos DB NoSQL
 
-Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma variedade de parceiros integradores de sistemas experientes e ferramentas para apoiar as suas soluções DB Azure Cosmos. 
+Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma variedade de parceiros integradores de sistemas experientes e ferramentas para apoiar as suas soluções DB Azure Cosmos. Este artigo lista os parceiros que têm soluções ou serviços que utilizam a Azure Cosmos DB. Esta lista muda ao longo do tempo, a Microsoft não é responsável por quaisquer alterações ou atualizações feitas às soluções destes parceiros.
 
-## <a name="systems-integrator-partners"></a>Parceiros integradores de sistemas
+## <a name="systems-integrator-and-tooling-partners"></a>Integradores de Sistemas e parceiros de ferramentas
 
 |**Parceiro**  |**Capacidades & experiência**  |**Países/regiões apoiados**  |
 |---------|---------|---------|
@@ -48,7 +48,7 @@ Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma 
 | [Incycle Software](https://www.incyclesoftware.com/) | Migração NoSQL, arquitetura serverless, desenvolvimento de aplicações| E.U.A.|
 | [Rio Orion](https://www.orioninc.com/) | Personalização, Retalho (inventário), Analytics Operacional (Faísca), IoT, Desenvolvimento de App| EUA|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte o [site do Microsoft Partner](https://partner.microsoft.com/).
 

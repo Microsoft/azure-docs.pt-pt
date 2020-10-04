@@ -1,5 +1,5 @@
 ---
-title: Como adquirir software no AppSource Mercado Azure
+title: Como comprar software no Microsoft AppSource
 description: Passos para alguém comprar software no AppSource Mercado Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032848"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708038"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
 
 O Microsoft [AppSource](https://appsource.microsoft.com/) permite agora que os clientes subscrevam as aplicações SaaS que são oferecidas pelos parceiros da Microsoft. Os clientes podem encontrar aplicações web certificadas na loja e podem gerir os custos, upgrades, downgrades e cancelamentos num único local usando o Admin Center da Microsoft. Este artigo descreve como pode comprar uma aplicação na loja.
 
-O AppSource fornece-lhe uma seleção de aplicações para escolher, incluindo gratuitas, testes e subscrições pagas. Este artigo descreve como as subscrições pagas podem ser compradas através do AppSource.
+O AppSource fornece-lhe uma seleção de aplicações para escolher, incluindo testes gratuitos e subscrições pagas. Este artigo descreve como as subscrições pagas podem ser compradas através do AppSource.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -51,7 +51,7 @@ Para comprar ofertas SaaS, você precisa:
 
 Depois de receber o pedido, pode levar vários segundos para ser confirmado. Receberá um link para configurar a subscrição do SaaS na página, bem como um e-mail confirmando a compra e o link para completar a configuração.
 
-1. Na página **'Confirmação da Encomenda',** selecione **Configure**. Em alternativa, pode utilizar o link Configuração enviado no e-mail de confirmação.
+1. Na página **'Confirmação da Encomenda',** selecione **Configure**. Ou pode utilizar o link de Configuração enviado no e-mail de confirmação, em vez disso.
 1. Fornecimento completo e configuração no site do fornecedor de software.
 
     > [!Note]
@@ -63,6 +63,6 @@ Depois de receber o pedido, pode levar vários segundos para ser confirmado. Rec
 
 Para produtos empresariais, [contacte aqui.](/office365/admin/contact-support-for-business-products?tabs=phone)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [documentação do Mercado Comercial](partner-center-portal/commercial-marketplace-overview.md) para obter mais informações.
+- [Documentação do cliente do mercado da Microsoft](/marketplace/)

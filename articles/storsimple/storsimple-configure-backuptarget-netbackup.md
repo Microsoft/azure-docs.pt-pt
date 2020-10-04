@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184011"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710928"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como alvo de backup com NetBackup
 
@@ -92,10 +92,10 @@ As tabelas a seguir mostram a orientação inicial do modelo-arquitectura do dis
 
 | Capacidade de armazenamento       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Capacidade de armazenamento local | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Capacidade de armazenamento em nuvem | &gt;200 TiB\* | &gt;500 TiB\* |
+| Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Capacidade de armazenamento em nuvem | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
+\* O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
 
 **Capacidades StorSimple para backups primários e secundários**
 
@@ -132,7 +132,7 @@ A figura a seguir mostra uma arquitetura em que os backups iniciais e os restaur
 
 É importante dimensionar o seu volume de alto desempenho para que possa lidar com a sua capacidade de capacidade de retenção e requisitos de desempenho.
 
-![StorSimple como um diagrama lógico de backup secundário](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagrama que mostra uma arquitetura em que backups iniciais e restaura visam um alto volume de desempenho.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Passos lógicos de backup de alvo secundário
 
@@ -259,7 +259,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 | Requisito GFS |   | 38 |   |
 | Quota adicional  | 4  |   | 42 requisitos totais de GFS  |
 
-\*O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
+\* O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
 
 ## <a name="set-up-netbackup-storage"></a>Configurar o armazenamento NetBackup
 
@@ -403,7 +403,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Anualmente cheio |Disco StorSimple (a longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
 
-\*A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
+\* A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Calendário de exemplo GFS: Rotação GFS semanal, mensal e horário anual
@@ -478,7 +478,7 @@ Depois de definir as piscinas iniciais do disco, precisa definir três política
 | Requisito GFS  |     |     | 38 |
 | Quota adicional  | 4  |    | 42 requisitos totais de GFS |
 
-\*O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
+\* O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple fotos em nuvem
 
@@ -544,7 +544,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

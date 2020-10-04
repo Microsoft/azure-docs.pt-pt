@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653592"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708956"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -137,6 +137,7 @@ Dependendo da API que utiliza, um item Azure Cosmos pode representar um document
 | Comprimento máximo do valor da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade da corda | Sem limite prático |
 | Comprimento máximo do valor da propriedade numérica | IEEE754 de dupla precisão 64 bits |
+| Nível máximo de nidificação para objetos/matrizes incorporados | 128 |
 | Valor máximo de TTL |2147483647|
 
 Não existem restrições às cargas de produtos como o número de propriedades e a profundidade de nidificação, exceto as restrições de comprimento na chave de partição e valores de ID, e a restrição global de tamanho de 2 MB. Pode ter de configurar a política de indexação de recipientes com estruturas de item grandes ou complexas para reduzir o consumo de RU. Veja [itens de modelação em Cosmos DB](how-to-model-partition-example.md) para um exemplo do mundo real, e padrões para gerir itens grandes.
@@ -247,7 +248,7 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 
   Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB, [distribuição global](distribute-data-globally.md) e [partição](partitioning-overview.md) e [produção a provisionada.](request-units.md)
 

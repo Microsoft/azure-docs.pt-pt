@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: b2c994d23e63f9e2118cd3e6571c5dcc0449a367
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601100"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710605"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -26,6 +26,8 @@ Cada pedido deve incluir a sua chave de acesso e um ponto final HTTP. O ponto fi
 Lembre-se que o Text Analytics é apátrida para que não existam ativos de dados para gerir. O seu texto é carregado, analisado após a receção, e os resultados são devolvidos imediatamente ao pedido de chamada.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,8 +106,8 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 5. Cole em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
 
-  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
+  + [Deteção linguística](text-analytics-how-to-language-detection.md)  
+  + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
   + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
 
@@ -114,12 +116,12 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
    No Carteiro, a resposta é exibida na janela seguinte para baixo, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Veja também 
 
  [Visão geral da análise de texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Detetar idioma](text-analytics-how-to-language-detection.md)

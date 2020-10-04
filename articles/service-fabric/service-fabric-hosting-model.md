@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011672"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708701"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicações fornecidos pela Azure Service Fabric, e descreve as diferenças entre os modelos **processo partilhado** e **processo exclusivo.** Descreve como uma aplicação implementada se apresenta num nó de Tecido de Serviço e a relação entre réplicas (ou instâncias) do serviço e o processo de anfitrião de serviço.
@@ -30,19 +30,19 @@ Para entender o modelo de hospedagem, vamos percorrer um exemplo. Digamos que te
 Digamos que temos um cluster de três nós, e criamos um tecido de **aplicação:/App1** do tipo 'MyAppType'. *application* Dentro deste tecido de **aplicação:/App1,** criamos um tecido de **serviço:/App1/ServiceA** do tipo 'MyServiceType'. Este serviço tem duas divisórias (por exemplo, **P1** e **P2),** e três réplicas por partição. O diagrama seguinte mostra a visão desta aplicação à medida que acaba implantada num nó.
 
 
-![Diagrama de vista do nó da aplicação implantada][node-view-one]
+![Diagrama que mostra a visão desta aplicação à medida que acaba implantada num nó.][node-view-one]
 
 
 O Service Fabric ativou o 'MyServicePackage', que iniciou o 'MyCodePackage', que está a alojar réplicas de ambas as divisórias. Todos os nós do cluster têm a mesma visão, porque escolhemos o número de réplicas por partição para ser igual ao número de nós no cluster. Vamos criar outro serviço, **tecido:/App1/ServiceB,** no tecido da **aplicação:/App1**. Este serviço tem uma divisória (por exemplo, **P3),** e três réplicas por partição. O seguinte diagrama mostra a nova vista sobre o nó:
 
 
-![Diagrama de vista do nó da aplicação implantada][node-view-two]
+![Diagrama que mostra a nova vista no nó.][node-view-two]
 
 
 O Tecido de Serviço colocou a nova réplica para partição **P3** do tecido de **serviço:/App1/ServiceB** na ativação existente de 'MyServicePackage'. Agora, vamos para a 20 vamos criar outro tecido de **aplicação:/App2** do tipo 'MyAppType'. Dentro **do tecido:/App2,** crie um tecido de **serviço:/App2/ServiceA**. Este serviço tem duas divisórias **(P4** e **P5),** e três réplicas por partição. O diagrama a seguir mostra a nova vista do nó:
 
 
-![Diagrama de vista do nó da aplicação implantada][node-view-three]
+![Diagrama que mostra a nova vista do nó.][node-view-three]
 
 
 O Service Fabric ativa uma nova cópia do 'MyServicePackage', que inicia uma nova cópia do 'MyCodePackage'. Réplicas de ambos os tecidos de **serviço:/App2/ServiceA** **(P4** e **P5**) são colocadas nesta nova cópia 'MyCodePackage'.
@@ -157,7 +157,7 @@ Agora, digamos que criamos uma aplicação, **tecido:/SpecialApp**. Dentro **do 
 Num dado nó, ambos os serviços têm duas réplicas cada. Como utilizamos o modelo De Processo Exclusivo para criar os serviços, o Service Fabric ativa uma nova cópia do 'MyServicePackage' para cada réplica. Cada ativação de 'MultiTypeServicePackage' inicia uma cópia de 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas um dos 'MyCodePackageA' ou 'MyCodePackageB' acolhe a réplica para a qual foi ativada 'MultiTypeServicePackage'. O diagrama a seguir mostra a vista do nó:
 
 
-![Diagrama da visão do nó da aplicação implantada][node-view-five]
+![Diagrama que mostra a vista do nó.][node-view-five]
 
 
 Na ativação de 'MultiTypeServicePackage' para a réplica da partição **P1** do tecido de **serviço:/SpecialApp/ServiceA,**'MyCodePackageA' está a alojar a réplica. 'MyCodePackageB' está a funcionar. Da mesma forma, na ativação de 'MultiTypeServicePackage' para a réplica da partição **P3** do tecido de **serviço:/SpecialApp/ServiceB**, 'MyCodePackageB' está a alojar a réplica. 'MyCodePackageA' está em execução. Assim, quanto maior for o número de *CodePackages* (registando *diferentesTipos de Serviço)* por *ServicePackage,* maior é a utilização de recursos redundantes. 
@@ -174,7 +174,7 @@ No exemplo anterior, pode pensar-se que se o 'MyCodePackageA' registar tanto 'My
 
 A Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que falsificam subprocessos. Um exemplo do motivo pelo qual o seu não suportado é [o CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocesso não suportado, e as fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um token de cancelamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 [Embale uma aplicação][a4] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a5]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.

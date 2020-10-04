@@ -3,16 +3,16 @@ title: Controlos de conformidade regulamentar da política Azure para a base de 
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para a Base de Dados Azure para PostgreSQL. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
 ms.date: 09/16/2020
 ms.topic: sample
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7e72699eefce362a11a66f2547fd8c81ff1215a3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b86d0e193d6bf250afadcec99c9839442ffb8114
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986656"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708888"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Controlos de conformidade regulamentar da política Azure para a base de dados Azure para PostgreSQL
 
@@ -23,7 +23,7 @@ Pode atribuir os incorporados a um controlo de **segurança** individualmente pa
 
 [!INCLUDE [azure-policy-compliancecontrols-postgresql](../../includes/policy/standards/byrp/microsoft.dbforpostgresql.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

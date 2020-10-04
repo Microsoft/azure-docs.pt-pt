@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537938"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708327"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutorial: Azure Ative Directy integração única (SSO) com AcquireIO
 
@@ -134,15 +134,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Do lado esquerdo do menu, clique na **App Store.**
 
-     ![Configuração AcquireIO](./media/acquireio-tutorial/config01.png)
+     ![Screenshot que destaca a App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Desloque-se até ao **Ative Directory** e clique em **Instalar**.
 
-    ![Configuração AcquireIO](./media/acquireio-tutorial/config02.png)
+    ![Screenshot que realça a secção Ative Directory e o botão Instalar.](./media/acquireio-tutorial/config02.png)
 
 1. No pop-up ative directory, execute os seguintes passos:
 
-    ![Configuração AcquireIO](./media/acquireio-tutorial/config03.png)
+    ![Screnshot que mostra o ecrã do Ative Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Clique em **Copiar** para copiar o URL de resposta para o seu exemplo e cole-o na caixa de texto **URL de resposta** na secção de **configuração SAML básica** no portal Azure.
 
@@ -162,7 +162,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na AcquireIO, devem s
 
 1. A partir do lado esquerdo do menu, clique em **Perfis** e navegue para **Adicionar Perfil**.
 
-     ![Configuração AcquireIO](./media/acquireio-tutorial/config04.png)
+     ![Screenshot que destaca perfis no menu no lado esquerdo do ecrã, bem como a opção Adicionar Perfil.](./media/acquireio-tutorial/config04.png)
 
 1. No pop-up do **cliente Add,** execute os seguintes passos:
 

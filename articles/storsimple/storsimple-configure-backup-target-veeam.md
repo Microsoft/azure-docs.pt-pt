@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183986"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710350"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de backup com Veeam
 
@@ -274,7 +274,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 
 1.  Na consola Veeam Backup and Replication, em **Repository Tools,** vá para a **Infraestrutura de Backup**. Clique no direito **repositórios de backup**e, em seguida, selecione **Adicionar Repositório de Backup**.
 
-    ![Consola de gestão veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Screenshot que mostra a consola de gestão Veeam e destaca a opção Add Backup Repository.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  Na nova caixa de diálogo **do Repositório de Reserva, insira** um nome e descrição para o repositório. Selecione **Seguinte**.
 
@@ -295,7 +295,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 
 6.  Na caixa de diálogo **do novo repositório de backup,** selecione o **serviço Enable vPower NFS na** caixa de verificação do servidor de montagem (recomendado). Selecione **Seguinte**.
 
-    ![Consola de gestão veeam, página de repositório de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Screenshot que mostra a consola de gestão Veeam onde pode adicionar um novo repositório de backup.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Reveja as definições e, em seguida, selecione **Seguinte**.
 
@@ -335,19 +335,19 @@ Para o cenário de alvo de backup primário, crie um trabalho diário com o seu 
 
 2.  Na caixa de diálogo **New Backup Job,** insira um nome e descrição para o trabalho diário de backup.
 
-    ![Consola de gestão Veeam, nova página de trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Screenshot da consola de gestão Veeam onde adiciona o nome e a descrição.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Selecione uma máquina virtual para voltar a fazer.
 
-    ![Consola de gestão Veeam, nova página de trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Screenshot que mostra a consola de gestão Veeam onde seleciona a máquina virtual.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-4.  Selecione os valores que deseja para o **repositório**de **backup** e backup . Selecione um valor para **restaurar pontos para manter no disco** de acordo com as definições de RPO e RTO para o seu ambiente em armazenamento localmente anexado. Selecione **Avançado**.
+4.  Selecione os valores que deseja para o **repositório**de **backup** e backup . Selecione um valor para **restaurar pontos para manter no disco** de acordo com as definições de RPO e RTO para o seu ambiente em armazenamento localmente anexado. Selecione **Avançadas**.
 
     ![Consola de gestão Veeam, nova página de trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
 5. Na caixa de diálogo **De Definições Avançadas,** no separador **Cópia de Segurança,** selecione **Incremental**. Certifique-se de que as **cópias de segurança sintéticas sintéticas são eliminadas periodicamente.** Selecione a **caixa de cópias de segurança completa ativas para criar periodicamente.** No **ativo de cópia de segurança completa**, selecione o Weekly em dias **selecionados** caixa de verificação para sábado.
 
-    ![Consola de gestão Veeam, nova página de definições avançadas de trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Screenshot que mostra a consola de gestão Veeam, especificamente a nova página de definições avançadas de trabalho de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. No separador **Armazenamento,** certifique-se de que a caixa **de verificação de deduplica de dados inline** enable está limpa. Selecione a caixa **de verificação de blocos de ficheiros de troca de exclusão** e selecione a caixa de verificação **de blocos de ficheiros excluídos.** Desacompindo o **nível de compressão** a **nenhum**. Para um desempenho equilibrado e deduplica, desaplique a **otimização do armazenamento** para **o alvo LAN**. Selecione **OK**.
 
@@ -408,11 +408,11 @@ Rotação GFS horário semanal, mensal e anual
 
 1.  Na consola de backup e replicação do Veeam, selecione **Backup & Replication**. Clique no **botão direito Backup**e, em seguida, selecione **VMware** ou **Hyper-V,** dependendo do seu ambiente.
 
-    ![Consola de gestão Veeam, nova página de trabalho de cópia de cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Screenshot que mostra a consola de gestão Veeam com as opções VMware e Hyper-V que pode selecionar.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  Na caixa de diálogo de trabalho de cópia de cópia de cópia de cópia de cópia de cópia de cópia de cópia de **cópia,** insira um nome e descrição para o trabalho.
 
-    ![Consola de gestão Veeam, nova página de trabalho de cópia de cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Screenshot que mostra a consola de gestão Veeam onde você insira o nome e descrição para o trabalho.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Selecione os VMs que pretende processar. Selecione a partir de backups e, em seguida, selecione a cópia de segurança diária que criou anteriormente.
 
@@ -422,13 +422,13 @@ Rotação GFS horário semanal, mensal e anual
 
 5.  Selecione o seu repositório de reserva e desaponte um valor para **restaurar pontos para manter**. Certifique-se de selecionar os **seguintes pontos de restauro para fins de arquivo.** Defina a frequência de backup e, em seguida, selecione **Advanced**.
 
-    ![Consola de gestão Veeam, nova página de trabalho de cópia de cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Screenshot que mostram onde define a frequência de reserva.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Especificar as seguintes definições avançadas:
 
     * Na conta **manutenção,** desligue o guarda de corrupção do nível de armazenamento.
 
-    ![Consola de gestão Veeam, nova página de definições avançadas de cópia de cópia de backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot que mostra o separador Manutenção na consola de gestão Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * No **separador Armazenamento,** certifique-se de que a desduplicação e a compressão estão desligadas.
 
@@ -516,7 +516,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

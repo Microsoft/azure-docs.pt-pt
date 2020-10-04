@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815781"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708344"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -78,9 +78,9 @@ Ao publicar a sua oferta no mercado com o Partner Center, pode conectá-la opcio
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
+- [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
 - [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
 **Selecione Guardar o projeto** antes de continuar.
@@ -194,7 +194,7 @@ Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
@@ -242,7 +242,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados da pesquisa do Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados da pesquisa do Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -252,7 +252,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como esta oferta aparece no portal Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -263,7 +263,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados de pesquisa do portal Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados de pesquisa do portal Azure.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -362,7 +362,7 @@ Descreva o que torna este plano único, bem como diferenças entre planos dentro
 
 Aqui está um exemplo dos detalhes do plano Azure Marketplace (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra detalhes do plano Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -372,7 +372,7 @@ Aqui está um exemplo dos detalhes do plano Azure Marketplace (quaisquer preços
 
 <br>Aqui está um exemplo dos detalhes do plano do portal Azure (quaisquer preços listados são apenas para fins e não se destinam a refletir os custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra os detalhes do plano do portal Azure.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -413,7 +413,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 **Nome de utilizador admin para o registo do contentor Azure**: Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Descrição de chamada
 
@@ -421,7 +421,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 <br>**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra o ecrã da chave de acesso no portal Azure.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -429,7 +429,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 2. Nome de utilizador
 3. Palavra-passe
 
-**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Note que depois do nome estar definido, não pode ser alterado. Use um nome único para cada oferta na sua conta.
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagem para novas versões da sua oferta
 
@@ -448,7 +448,7 @@ Certifique-se de que utiliza a [sintaxe](../../iot-edge/module-composition.md#de
 Por exemplo, se o módulo ContosoModule ouve as entradas nos contosoInput e os dados de saída no ContosoOutput, faz sentido definir as seguintes duas rotas predefinidos:
 
 - #1 nome: ToContosoModule
-- Valor #1: FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint ("/modules/ContosoModule/inputs/ContosoInput")
+- Valor #1: FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")
 - #2 nome: FromContosoModuleToCloud
 - Valor #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
@@ -490,6 +490,6 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

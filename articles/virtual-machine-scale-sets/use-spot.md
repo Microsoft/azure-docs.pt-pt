@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072745"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709049"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
@@ -163,8 +163,7 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **Q:**  A autoescalação funciona com ambas as políticas de despejo (deallocate e delete)?
 
-**A:** Recomenda-se que desemote a sua política de despejo para eliminar quando utilizar a autoescala. Isto porque os casos de negociação são contados contra a sua capacidade de contar na escala definida. Ao utilizar a autoescala, é provável que atinja a contagem de casos de alvo rapidamente devido às situações de despejo e desalojados. 
-
+**A:** Recomenda-se que desemote a sua política de despejo para eliminar quando utilizar a autoescala. Isto porque os casos de negociação são contados contra a sua capacidade de contar na escala definida. Ao utilizar a autoescala, é provável que atinja a contagem de casos de alvo rapidamente devido às situações de despejo e desalojados. Além disso, as suas operações de escala podem ser afetadas por despejos à vista. Por exemplo, as instâncias VMSS podem ficar abaixo da contagem de min definida devido a vários despejos de pontos durante as operações de escala. 
 
 **Q:** Que canais suportam Spot VMs?
 
@@ -186,6 +185,6 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](/answers/topics/azure-spot.html). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte a [página de preços da escala de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre os preços.

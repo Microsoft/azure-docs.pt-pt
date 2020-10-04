@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo fornece informações sobre alta disponibilidade na Base de Dados Azure para PostgreSQL - Servidor Único
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884438"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707936"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Servidor Único
 O serviço Azure Database for PostgreSQL – Single Server proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99% de tempo de 99,99%.](https://azure.microsoft.com/support/legal/sla/postgresql) A Azure Database for PostgreSQL fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for PostgreSQL pode recuperar rapidamente da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação de aplicação ao utilizar este serviço.
@@ -49,7 +49,7 @@ Aqui estão alguns cenários de manutenção planeados:
 O tempo de inatividade não planeado pode ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, um novo servidor de base de dados é automaticamente a provisionado em segundos. O armazenamento remoto é automaticamente anexado ao novo servidor de base de dados. O motor PostgreSQL executa a operação de recuperação utilizando ficheiros WAL e base de dados e abre o servidor de base de dados para permitir que os clientes se conectem. As transações não autorizadas perdem-se e têm de ser novamente julgadas pelo pedido. Embora não seja possível evitar um tempo de inatividade não planeado, a Base de Dados Azure para PostgreSQL atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana. 
 
 
-:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vista de Alta Disponibilidade em Azure PostgreSQL":::
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vista de Elastic Scaling em Azure PostgreSQL":::
 
 1. Servidores Azure PostgreSQL com capacidades de escala rápida.
 2. Gateway que funciona como um proxy para encaminhar as ligações do cliente para o servidor de base de dados adequado
@@ -77,7 +77,7 @@ Eis alguns cenários de falha que exigem que a ação do utilizador recupere:
 
 A Azure Database for PostgreSQL fornece uma capacidade de reinício rápido dos servidores de base de dados, armazenamento redundante e encaminhamento eficiente a partir do Gateway. Para uma proteção adicional de dados, pode configurar cópias de segurança para serem geo-replicadas, e também implementar uma ou mais réplicas de leitura noutras regiões. Com capacidades inerentes de elevada disponibilidade, a Azure Database for PostgreSQL protege as suas bases de dados das interrupções mais comuns, e oferece uma indústria líder, apoiada por financiamento, [99,99% do SLA de uptime.](https://azure.microsoft.com/support/legal/sla/postgresql) Todas estas capacidades de disponibilidade e fiabilidade permitem ao Azure ser a plataforma ideal para executar as suas aplicações críticas de missão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Conheça as [regiões de Azure](../availability-zones/az-overview.md)
 - Saiba como [lidar com erros de conectividade transitórios](concepts-connectivity.md)
 - Saiba como [replicar os seus dados com réplicas lidas](howto-read-replicas-portal.md)

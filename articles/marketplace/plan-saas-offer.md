@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420443"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708123"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -57,7 +57,7 @@ O _Get it now (Free)_, Free _trial_, and Sell _through Microsoft_ listing option
 
 Estes requisitos técnicos adicionais aplicam-se apenas à opção de listagem _Sell através_ da Microsoft (transactable):
 
-- Azure AD com uma única gestão de identidade (SSO) e autenticação é necessária. Para obter orientações [detalhadas, consulte a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](azure-ad-saas.md)
+- A AZure AD com uma única gestão de identidade e autenticação de assinatura (SSO) é necessária para o utilizador de compra aceder à página de aterragem. Para obter orientações [detalhadas, consulte a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](azure-ad-saas.md)
 - Tem de utilizar as [APIs de Realização saaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) para integrar-se com o Azure Marketplace e o Microsoft AppSource. É necessário expor um serviço que possa interagir com a subscrição do SaaS para criar, atualizar e eliminar uma conta de utilizador e um plano de serviço. As alterações da API crítica devem ser suportadas dentro de 24 horas. As alterações não críticas da API serão lançadas periodicamente. Diagramas e explicações detalhadas que descrevem a utilização dos campos recolhidos estão disponíveis em documentação para as [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Deve criar pelo menos um plano para a sua oferta. O seu plano tem um preço baseado no modelo de preços que seleciona antes de publicar: _taxa fixa_ ou _por utilizador._ Mais detalhes sobre [os planos](#plans) são fornecidos mais tarde neste artigo.
 - O cliente pode cancelar a sua oferta a qualquer momento.
@@ -90,7 +90,7 @@ Se estiver a criar uma oferta transacionável, terá de recolher as seguintes in
   > [!NOTE]
   > Se a editora tiver duas ou mais contas diferentes no Partner Center, devem ser utilizados dois ou mais IDs de aplicações AD Azure diferentes, cada um para uma das contas. Cada conta de parceiro no Partner Center deve usar um ID de aplicação AD AZure único para todas as ofertas saaS que são publicadas através desta conta.
 
-## <a name="test-drives"></a>Test drives
+## <a name="test-drives"></a>Versões de teste
 Pode optar por ativar um test drive para a sua aplicação SaaS. Os test drives dão aos clientes acesso a um ambiente pré-configurado por um número fixo de horas. Pode ativar as unidades de teste para qualquer opção de publicação, no entanto esta funcionalidade tem requisitos adicionais. Para saber mais sobre test drives, veja [o que é um test drive?](what-is-test-drive.md) Para obter informações sobre a configuração de diferentes tipos de test drives, consulte a [configuração técnica do test drive](test-drive-technical-configuration.md).
 
 > [!TIP]
@@ -100,7 +100,7 @@ Pode optar por ativar um test drive para a sua aplicação SaaS. Os test drives 
 
 Tem de ligar a sua oferta ao seu sistema de gestão de relacionamento com o cliente (CRM) para recolher informações do cliente. O cliente será solicitado permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e loja online onde encontraram a sua oferta, serão enviados para o sistema CRM que configuraste. O mercado comercial suporta uma variedade de sistemas CRM, juntamente com a opção de usar uma tabela Azure ou configurar um ponto final HTTPS utilizando o Power Automate.
 
-Pode adicionar ou modificar uma ligação CRM a qualquer momento durante ou após a criação da oferta. Para obter orientações detalhadas, consulte [a gestão do Lead para o mercado comercial.](lead-management-for-cloud-marketplace.md)
+Pode adicionar ou modificar uma ligação CRM a qualquer momento durante ou após a criação da oferta. Para obter orientações detalhadas, consulte [os leads do Cliente da sua oferta de mercado comercial.](partner-center-portal/commercial-marketplace-get-customer-leads.md)
 
 ## <a name="selecting-an-online-store"></a>Selecionando uma loja online
 
@@ -194,7 +194,7 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 Um público de pré-visualização pode aceder à sua oferta antes de ser publicado ao vivo nas lojas online de forma a testar a funcionalidade de ponta a ponta antes de a publicar ao vivo. Na página de **audiência de pré-visualização,** pode definir um público de pré-visualização limitado. Esta definição não está disponível se optar por processar transações de forma independente em vez de vender a sua oferta através da Microsoft. Em caso afirmativo, pode saltar esta secção e ir a [oportunidades de venda adicionais.](#additional-sales-opportunities)
 
 > [!NOTE]
-> Um público de pré-visualização difere de um plano privado. Um plano privado é aquele que disponibiliza apenas para um público específico que escolher. Isto permite-lhe negociar um plano personalizado com clientes específicos. Para mais detalhes, consulte a secção seguinte: Planos.
+> Um público de pré-visualização difere de um plano privado. Um plano privado é aquele que disponibiliza apenas para um público específico que escolher. Isto permite-lhe negociar um plano personalizado com clientes específicos. Para mais informações, consulte a secção seguinte: Planos.
 
 Pode enviar convites para endereços de e-mail da Conta Microsoft (MSA) ou do Azure Ative Directory (Azure AD). Adicione até 10 endereços de e-mail manualmente ou importe até 20 com um ficheiro .csv. Se a sua oferta já estiver ao vivo, ainda pode definir um público de pré-visualização para testar quaisquer alterações ou atualizações da sua oferta.
 
@@ -241,7 +241,7 @@ Pode optar por optar por canais de marketing e vendas suportados pela Microsoft.
 
 - **Co-vender com**a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)
 - [Melhores práticas de listagem de ofertas](gtm-offer-listing-best-practices.md)

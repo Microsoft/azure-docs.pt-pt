@@ -1,17 +1,17 @@
 ---
 title: Cenários de Loja de Consultas - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve alguns cenários para a Loja de Consultas na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad646e39e9b6a87611dc2f40330a77fe70c92c27
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768355"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710554"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de utilização para a Loja de Consultas
 
@@ -57,5 +57,5 @@ Algumas cargas de trabalho não têm consultas dominantes que você pode sintoni
  
 Se estiver a controlar o código de aplicação, poderá considerar reescrever a camada de acesso aos dados para utilizar procedimentos armazenados ou consultas paramoporadas. No entanto, esta situação também pode ser melhorada sem alterações de aplicação, forçando a parametrização de consultas para toda a base de dados (todas as consultas) ou para os modelos de consulta individual com o mesmo haxixe de consulta. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [melhores práticas para usar a Loja de Consultas](concepts-query-store-best-practices.md)

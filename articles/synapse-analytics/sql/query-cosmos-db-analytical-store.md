@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 028f47fcfb4a6a4d94d672e950b4c37d739e672b
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 9d36cee1ebf9f58991db6fd40fd6aa9422546b61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597315"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710758"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos utilizando o sql sem servidor em Azure Synapse Link (pré-visualização)
 
-O SQL sem servidor (anteriormente SEM servidor SQL) permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [a Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
+O synapse SQL sem servidor (anteriormente SQL on demand) permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
 
 > [!NOTE]
 > O suporte para consulta da loja analítica Azure Cosmos DB com o sql sem servidor está atualmente em pré-visualização fechada. 
@@ -27,7 +27,7 @@ Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-tr
 
 Neste artigo, você aprenderá a escrever uma consulta usando o sql sem servidor que irá consultar dados de recipientes DB Azure Cosmos que estão ativados synapse Link. Você pode então aprender mais sobre a construção de vistas sem servidor SQL sobre os recipientes DB Azure Cosmos e conectá-los aos modelos Power BI [neste](./tutorial-data-analyst.md) tutorial. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para suportar a consulta e análise de dados na loja analítica Azure Cosmos DB, o SQL sem servidor utiliza a seguinte `OPENROWSET` sintaxe:
 
@@ -245,7 +245,7 @@ As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de
 | Booleano | bit |
 | Número inteiro | bigint |
 | Decimal | float |
-| String | varchar (colagem de base de dados UTF8) |
+| Cadeia | varchar (colagem de base de dados UTF8) |
 | Data (cadeia formatada ISO) | varchar(30) |
 | Data (semente de tempo unix) | bigint |
 | Nulo | `any SQL type` 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036935"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710384"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como alvo de backup com Backup Exec
 
@@ -92,10 +92,10 @@ As tabelas a seguir mostram a orientação inicial do modelo-arquitectura do dis
 
 | Capacidade de armazenamento       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Capacidade de armazenamento local | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Capacidade de armazenamento em nuvem | &gt;200 TiB\* | &gt;500 TiB\* |
+| Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Capacidade de armazenamento em nuvem | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
+\* O tamanho do armazenamento não pressupõe nenhuma deduplicação ou compressão.
 
 **Capacidades StorSimple para backups primários e secundários**
 
@@ -261,7 +261,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 | Requisito GFS |   | 38 |   |
 | Quota adicional  | 4  |   | 42 requisitos totais de GFS  |
 
-\*O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
+\* O multiplicador GFS é o número de cópias que precisa de proteger e reter para satisfazer os seus requisitos de política de backup.
 
 ## <a name="set-up-backup-exec-storage"></a>Configurar o armazenamento do Backup Exec
 
@@ -376,7 +376,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Anualmente cheio |Disco StorSimple (a longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
 
-\*A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
+\* A capacidade total inclui 17 TiB de discos StorSimple e 1 TiB do volume raid local.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Calendário de exemplo GFS: Rotação GFS semanal, mensal e horário anual
@@ -409,15 +409,15 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 
 4.  Na lista de drop-down **de Armazenamento,** selecione o volume StorSimple onde pretende que o trabalho de arquivo armazene os dados.
 
-    ![Consola de gestão backup Exec, propriedades de definições de backup e opções duplicadas](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Screenshot que mostra a lista onde precisa de selecionar Armazenamento.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  **Selecione Verificar**e, em seguida, selecione os **dados não verifique os dados desta** caixa de verificação de trabalho.
 
-    ![Consola de gestão backup Exec, propriedades de definições de backup e opções duplicadas](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Screenshot que mostra onde seleciona a não verificação de dados para esta opção de trabalho.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Selecione **OK**.
 
-    ![Consola de gestão backup Exec, propriedades de definições de backup e opções duplicadas](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Screenshot que mostra as propriedades de definição de backup.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  Na coluna **Backup,** adicione um novo estágio. Para a fonte, utilize **incremental**. Para o alvo, escolha o volume StorSimple onde o trabalho de backup incremental é arquivado. Repita os passos 1-6.
 
@@ -487,7 +487,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

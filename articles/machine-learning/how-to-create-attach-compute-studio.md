@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898104"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708400"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
 
 Neste artigo, aprenda a criar e gerir alvos de computação no estúdio Azure Machine.  Também pode criar e gerir alvos de computação com:
 
-* [Azure Machine Learning Learning SDK,](how-to-create-attach-compute-sdk.md) 
-* A [extensão do CLI](reference-azure-machine-learning-cli.md#resource-management) para a aprendizagem automática Azure
+* Extensão Azure Machine Learning Learning SDK ou CLI para aprendizagem automática Azure
+  * [Instância de computação](how-to-create-manage-compute-instance.md)
+  * [Cluster computacional](how-to-create-attach-compute-cluster.md)
+  * [Aglomerado de serviçoS Azure Kubernetes](how-to-create-attach-kubernetes.md)
+  * [Outros recursos computacional](how-to-attach-compute-targets.md)
 * A [extensão do Código VS](how-to-manage-resources-vscode.md#compute-clusters) para Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Siga os passos anteriores para ver a lista de alvos de computação. Em seguida,
 
 1. Se não tiver alvos de cálculo,  **selecione Criar** no meio da página.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Criar alvo de cálculo":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Ver lista de alvos de computação":::
 
 1. Se vir uma lista de recursos de computação, selecione **+Novo** acima da lista.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Selecione novo":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Ver lista de alvos de computação":::
 
 
 1. Preencha o formulário para o seu tipo de cálculo:
@@ -74,14 +77,14 @@ Siga os passos anteriores para ver a lista de alvos de computação. Em seguida,
 
 1. Ver o estado da operação de criação selecionando o alvo do cálculo na lista:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Ver estado do cálculo a partir de uma lista":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Ver lista de alvos de computação":::
 
 
 ### <a name="compute-instance"></a>Instância de computação
 
 Use os [passos acima](#portal-create) para criar a instância de computação.  Em seguida, preencha o formulário da seguinte forma:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Criar uma nova instância computacional":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Ver lista de alvos de computação":::
 
 
 |Campo  |Descrição  |
@@ -107,7 +110,7 @@ Crie um cluster de computação de nó único ou multi-nós para a sua formaçã
 |Número máximo de nós | Número máximo de nós que pretende providenciar. O cálculo irá autodimensionar-se automaticamente para um máximo desta contagem de nós quando um trabalho é submetido. |
 |Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual**e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](how-to-enable-virtual-network.md#compute-instance) para vnet.   Também anexar [identidades geridas](#managed-identity) para conceder acesso a recursos     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurar identidade gerida
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurar identidade gerida
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
@@ -160,7 +163,7 @@ Utilize os [passos acima](#portal-create) para anexar um cálculo.  Em seguida, 
 1. __Selecione Anexar__. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de um alvo ser criado e ligado ao seu espaço de trabalho, utiliza-o na [configuração de execução](how-to-set-up-training-targets.md) com um `ComputeTarget` objeto:
 

@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 74586222bbd92b2d6182b34b4667cda0bc599b93
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662777"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709534"
 ---
 > [!NOTE]
 > Para detetar informações de saúde protegidas (PHI), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
 >
-> Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
-As seguintes categorias de entidades são devolvidas quando envia pedidos para o `/v3.1-preview.1/entities/recognition/pii` ponto final.
+As seguintes categorias de entidades são devolvidas quando envia pedidos para o `/v3.1-preview.2/entities/recognition/pii` ponto final.
 
 | Categoria   | Subcategoria | Descrição                          | Versão do modelo inicial | Notas |
 |------------|-------------|--------------------------------------|------------------------|---|
@@ -36,7 +36,7 @@ As seguintes categorias de entidades são devolvidas quando envia pedidos para o
 | E-mail | N/D | Endereços de e-mail. | `2019-10-01` | Também devolvido `domain=phi` com.   |
 | URL | N/D | URLs para sites. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | IP | N/D | Endereços IP de rede. | `2019-10-01` | Também devolvido `domain=phi` com. |
-| Data e Hora | N/D | Datas e horas do dia. | `2019-10-01` |  | 
+| DateTime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
 | Data e Hora | Data | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Idades. | `2019-10-01` | | |

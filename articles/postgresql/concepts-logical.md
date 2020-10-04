@@ -1,17 +1,17 @@
 ---
 title: Descoding lógica - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve a descodagem lógica e o wal2json para a captura de dados de alteração na Base de Dados Azure para PostgreSQL - Servidor Único
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903900"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708616"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
  
@@ -56,7 +56,7 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 
 2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Confirme o reinício":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Começar a descodição lógica
@@ -162,7 +162,7 @@ SELECT pg_drop_replication_slot('test_slot');
 > Se parar de descodição lógica, mude azure.replication_support para `replica` ou `off` . Os detalhes do WAL retidos são `logical` mais verbosos, e devem ser desativados quando a descodão lógica não estiver a ser utilizada. 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Visite a documentação postgres para [saber mais sobre a descodagem lógica.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html)
 * Contacte a [nossa equipa](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se tiver dúvidas sobre descodição lógica.

@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493384"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708747"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
 
-Este artigo descreve como utilizar a pré-visualização melhorada da gestão do utilizador no portal Azure Ative Directory (Azure AD). As páginas **de todos os utilizadores** e **utilizadores eliminados** foram atualizadas para fornecer mais informações e facilitar a procura de utilizadores. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo descreve como utilizar a pré-visualização das melhorias de gestão do utilizador no portal Azure Ative Directory (Azure AD). As páginas **de todos os utilizadores** e **utilizadores eliminados** foram atualizadas para fornecer mais informações e facilitar a procura de utilizadores. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As alterações na pré-visualização incluem:
 
 - Propriedades de utilizador mais visíveis, incluindo ID de objeto, estado de sincronização de diretório, tipo de criação e emitente de identidade
 - A pesquisa agora permite pesquisa combinada de nomes, e-mails e iDs de objetos
-- Filtragem melhorada por tipo de utilizador (membro e convidado), estado de sincronização de diretório e tipo de criação
+- Filtragem melhorada por tipo de utilizador (membro, convidado, nenhum), estado de sincronização de diretório, tipo de criação, nome da empresa e nome de domínio
+- Novas capacidades de triagem em propriedades como nome e nome principal do utilizador
+- Um novo total de utilizadores conta que atualiza com pesquisas ou filtros
 
 > [!NOTE]
 > Esta pré-visualização não está disponível para inquilinos Azure AD B2C.
@@ -66,7 +68,7 @@ Seguem-se as propriedades do utilizador visualizadas na página **de Todos os ut
 - Estado do convite: O estado do convite para um utilizador convidado.
 - Correio: O e-mail do utilizador.
 
-   ![novas propriedades do utilizador apresentadas em Todos os utilizadores e páginas de utilizadores eliminados](./media/users-search-enhanced/user-properties.png)
+![novas propriedades do utilizador apresentadas em Todos os utilizadores e páginas de utilizadores eliminados](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>Página de utilizadores eliminados
 
@@ -96,22 +98,36 @@ As capacidades de filtragem foram melhoradas para fornecer mais opções de filt
 
 Seguem-se as propriedades filtrais na página **de Todos os utilizadores:**
 
-- Tipo de utilizador - Membro ou convidado
-- Estado sincronizado do diretório - Sim
-- Tipo de criação - Convite, Email verificado, Conta Local
+- Tipo de utilizador: Membro, convidado, nenhum
+- Estado sincronizado do diretório: Sim, não
+- Tipo de criação: Convite, Email verificado, Conta Local
 - Estado de convite – Aceitação pendente, Aceite
-- Unidade administrativa - Selecione esta opção para restringir o âmbito dos utilizadores que vê a uma única unidade administrativa. Para mais informações, consulte [a pré-visualização da gestão de unidades administrativas.](directory-administrative-units.md)
+- Nome de domínio: Introduza um nome de domínio
+- Nome da empresa: Introduza um nome da empresa
+- Unidade administrativa: Selecione esta opção para restringir o âmbito dos utilizadores que vê a uma única unidade administrativa. Para mais informações, consulte [a pré-visualização da gestão de unidades administrativas.](directory-administrative-units.md)
 
-## <a name="filtering-deleted-users-list"></a>Filtragem Lista de utilizadores eliminados
+### <a name="filtering-deleted-users-list"></a>Filtragem Lista de utilizadores eliminados
 
 A página **de utilizadores eliminados** tem filtros adicionais não na página **de Todos os utilizadores.** Seguem-se as propriedades filtrais na página dos **utilizadores eliminados:**
 
-- Tipo de utilizador - Membro ou convidado
-- Estado sincronizado do diretório - Sim
-- Tipo de criação - Convite, Email verificado, Conta Local
-- Estado de convite – Aceitação pendente, Aceite
-- Data de eliminação - Últimos 7, 14 ou 30 dias
-- Data de supressão permanente - Últimos 7, 14 ou 30 dias
+- Tipo de utilizador: Membro, convidado, nenhum
+- Estado sincronizado do diretório: Sim, não
+- Tipo de criação: Convite, Email verificado, Conta Local
+- Estado do convite: Aceitação pendente, Aceite
+- Data de eliminação: Últimos 7, 14 ou 30 dias
+- Nome de domínio: Introduza um nome de domínio
+- Nome da empresa: Introduza um nome da empresa
+- Data de supressão permanente: Últimos 7, 14 ou 30 dias
+
+## <a name="user-list-sorting"></a>Classificação da lista de utilizadores
+
+Pode agora ordenar pelo nome e nome principal do utilizador nas páginas **de Todos os utilizadores** e **utilizadores Eliminados.** Também pode ordenar por data de eliminação na lista **de Utilizadores Eliminados.**
+
+## <a name="user-list-counts"></a>Contagem da lista de utilizadores
+
+Pode ver o número total de utilizadores nas páginas **de Todos os utilizadores** e **utilizadores Eliminados.** À medida que pesquisa ou filtra as listas, a contagem é atualizada para refletir o número total de utilizadores encontrados.
+
+![A ilustração da lista de utilizadores conta na página de Todos os utilizadores](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
@@ -121,10 +137,8 @@ O que acontece com as capacidades a granel para utilizadores e hóspedes? | As o
 O que aconteceu com a coluna Source? | A coluna **Fonte** foi substituída por outras colunas que fornecem informações semelhantes, permitindo ao mesmo tempo filtrar esses valores de forma independente. Exemplos incluem **tipo de Criação,** **Diretório sincronizado** e **emitente de identidade.**
 O que aconteceu com a coluna User Name? | A coluna **Nome do Utilizador** ainda está lá, mas foi renomeada para Nome Principal do **Utilizador.** Isto reflete melhor a informação contida naquela coluna. Também notará que o nome principal do utilizador completo está agora apresentado para os hóspedes B2B. Isto coincide com o que se obtém no Ms Graph.  
 Por que só posso fazer uma pesquisa de "começa com" e não uma pesquisa de "contém"? | Existem algumas limitações que nos impedem de permitir que você realize uma pesquisa "contém". Ouvimos o feedback, por isso fiquem atentos.
-Por que não posso separar as colunas? | Existem algumas limitações que nos impedem de lhe permitir separar as colunas. Ouvimos o feedback, por isso fiquem atentos.
-Por que só posso filtrar a coluna sincronizada do **Diretório** por Sim? | Existem algumas limitações que nos impedem de permitir que você filtrar esta propriedade pelo valor No. Ouvimos o feedback, por isso fiquem atentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Operações de utilizador
 

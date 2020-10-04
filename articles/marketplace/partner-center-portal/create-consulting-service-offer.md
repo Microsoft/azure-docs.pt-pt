@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398019"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709075"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -76,10 +76,10 @@ Ao publicar a sua oferta no mercado com o Partner Center, _deve_ conectá-la a u
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
-- [Perguntas frequentes de gestão de chumbo)](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erros comuns de configuração de chumbo](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado)
+- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
+- [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
+- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -141,12 +141,12 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Indústrias
 5. Nome da oferta
 6. Resumo
-7. Description
+7. Descrição
 8. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustra como esta oferta aparece no Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -156,7 +156,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Indústrias
 5. Nome da oferta
 6. Resumo
-7. Description
+7. Descrição
 8. Screenshots/vídeos
 9. Documentos
 
@@ -174,7 +174,7 @@ O nome:
 
 Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -202,7 +202,7 @@ Adicione até três (mas pelo menos um) documentos PDF comprovativos para a sua 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato .png. Imagens desfocadas serão rejeitadas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
@@ -247,7 +247,7 @@ Aqui você definirá elementos como preços, mercado e uma chave privada.
 
 Depois de ter completado todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
 
-1. Quando estiver pronto para publicar a sua oferta de serviço de consultoria, clique em **'Revisão' e publique.**
+1. Quando estiver pronto para publicar a sua oferta de serviço de consultoria, selecione **Review e publique.**
 2. Reveja os detalhes na página final de submissão.
 3. Se necessário, escreva uma nota à equipa de certificação se acreditar que algum dos detalhes da sua oferta requer explicação.
 4. Quando estiver pronto, **selecione Submeter.**

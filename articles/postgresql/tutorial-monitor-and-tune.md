@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Monitor e sintonização - Base de Dados Azure para PostgreSQL - Servidor Único'
 description: Este tutorial percorre a monitorização e afinação na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895080"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705286"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitor e tune Azure Database for PostgreSQL - Single Server
 
@@ -52,7 +52,7 @@ A vista [Query Performance Insight](concepts-query-performance-insight.md) no po
 
 2. O separador **Consultas de execução longa** mostra as cinco principais consultas por duração média para cada execução, agregadas em intervalos de 15 minutos. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Página de destino do Query Performance Insight":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Parâmetros do servidor do Arquivo de Consultas":::
 
    Pode ver mais consultas ao selecionar no menu pendente **Número de Consultas**. Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
 
@@ -64,7 +64,7 @@ A vista [Query Performance Insight](concepts-query-performance-insight.md) no po
 
 6. Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de espera do Query Performance Insight":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Parâmetros do servidor do Arquivo de Consultas":::
 
 ### <a name="permissions"></a>Permissões
 As permissões **Proprietário**ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
@@ -75,7 +75,7 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 
 1. Abra as **Recomendações de Desempenho** a partir da secção **Suporte + resolução de problemas** da barra de menus da página do portal do Azure do servidor PostgreSQL.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Página de destino das Recomendações de Desempenho":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Parâmetros do servidor do Arquivo de Consultas":::
 
 2. Selecione **Analisar** e escolha uma base de dados. Esta ação permitirá iniciar a análise.
 
@@ -85,12 +85,12 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 
 5. As recomendações mostrarão informações sobre a **Base de Dados**, a **Tabela**, a **Coluna** e o **Tamanho do Índice** relevantes.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultado das Recomendações de Desempenho":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Parâmetros do servidor do Arquivo de Consultas":::
 
 6. Para implementar uma recomendação, copie o texto da consulta e execute-o no cliente escolhido.
 
 ### <a name="permissions"></a>Permissões
 As permissões **Proprietário** ou **Contribuidor** necessárias para executar a análise que utiliza a funcionalidade Recomendações de Desempenho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.

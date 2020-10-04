@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446778"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707744"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -28,18 +28,31 @@ Num ciclo de vida típico de desenvolvimento de modelos, você pode:
 Os recursos de cálculo que utiliza para os seus alvos de cálculo estão ligados a um [espaço de trabalho.](concept-workspace.md) Os recursos de cálculo que não a máquina local são partilhados pelos utilizadores do espaço de trabalho.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Metas de computação de formação
-
-A Azure Machine Learning tem um suporte variado em diferentes recursos compute.  Também pode anexar o seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
+A Azure Machine Learning tem um suporte variado em diferentes alvos de computação. Um ciclo de vida típico de desenvolvimento de modelos começa com dev/experimentação em uma pequena quantidade de dados. Nesta fase, recomendamos a utilização de um ambiente local. Por exemplo, o seu computador local ou um VM baseado na nuvem. À medida que aumenta a sua formação em conjuntos de dados maiores, ou realiza treino distribuído, recomendamos a utilização do Azure Machine Learning Compute para criar um cluster único ou multi-nós que se autoescala cada vez que submete uma corrida. Também pode anexar o seu próprio recurso compute, embora o suporte para vários cenários possa variar conforme descrito abaixo:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Saiba mais sobre [a utilização de um alvo de computação para a formação de modelos.](how-to-set-up-training-targets.md)
+Saiba mais sobre como submeter uma corrida de [treino a um alvo de computação](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Destinos de implementação
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Metas de cálculo para inferência
 
 Os seguintes recursos computacional podem ser utilizados para hospedar a sua implementação de modelo.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+Ao realizar inferência, a Azure Machine Learning cria um recipiente Docker que acolhe o modelo e os recursos associados necessários para a sua utilização. Este recipiente é então utilizado num dos seguintes cenários de implantação:
+
+* Como um __serviço web__ que é usado para inferência em tempo real. As implementações de serviço web utilizam um dos seguintes alvos de computação:
+
+    * [Computador local](how-to-attach-compute-targets.md#local)
+    * [Instância de computação do Azure Machine Learning](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
+    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
+    * Funções Azure (pré-visualização). A implementação para as funções Azure depende apenas da Aprendizagem automática Azure para construir o recipiente Docker. A partir daí, é implantado utilizando funções Azure. Para obter mais informações, consulte [Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)](how-to-deploy-functions.md).
+
+* Como um ponto final __de inferência de lote__ que é usado periodicamente para processar lotes de dados. As inferências do lote utilizam [o cluster de cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md).
+
+* Para um __dispositivo IoT__ (pré-visualização). A implantação num dispositivo IoT depende apenas da Azure Machine Learning para construir o recipiente Docker. A partir daí, é implantado utilizando a Azure IoT Edge. Para obter mais informações, consulte [implementar como um módulo IoT Edge (pré-visualização)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Saiba [onde e como implementar o seu modelo num alvo de computação.](how-to-deploy-and-where.md)
 
@@ -49,9 +62,10 @@ Saiba [onde e como implementar o seu modelo num alvo de computação.](how-to-de
 Um recurso de computação gerido é criado e gerido pela Azure Machine Learning. Este cálculo está otimizado para trabalhos de aprendizagem automática. Azure Machine Learning compute clusters e [compute instances](concept-compute-instance.md) são os únicos computas geridos. 
 
 Pode criar casos de cálculo de aprendizagem automática Azure ou clusters de cálculo a partir de:
-* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
-* Portal do Azure
-* Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true)
+* [Estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md)
+* Python SDK e CLI:
+    * [Instância de computação](how-to-create-manage-compute-instance.md)
+    * [Cluster computacional](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (pré-visualização)
 * Modelo de gestor de recursos. Para um modelo de exemplo, consulte o [modelo de computação de aprendizagem de máquinas Azure.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)
 * Extensão de aprendizagem [automática para o Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +82,7 @@ Quando criados estes recursos computacional são automaticamente parte do seu es
 
 
 > [!NOTE]
-> Quando um cluster de computação está inativo, ele escala automaticamente para 0 nós, para que não pague quando não está em uso.  Uma *instância*computacional , no entanto, está sempre ligado e não autoescala.  Deve [parar a instância de cálculo](concept-compute-instance.md#managing-a-compute-instance) quando não estiver a usá-lo para evitar custos adicionais. 
+> Quando um cluster de computação está inativo, ele escala automaticamente para 0 nós, para que não pague quando não está em uso.  Uma *instância*computacional , no entanto, está sempre ligado e não autoescala.  Deve [parar a instância de cálculo](how-to-create-manage-compute-instance.md#manage) quando não estiver a usá-lo para evitar custos adicionais. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
 
@@ -120,7 +134,7 @@ Consulte aqui para saber mais sobre [o Isolamento na Nuvem Pública do Azure.](h
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Você cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)

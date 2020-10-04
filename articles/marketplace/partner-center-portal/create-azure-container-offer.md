@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649263"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709109"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentor do Azure no Azure Marketplace
 
@@ -80,10 +80,10 @@ Ao publicar a sua oferta no mercado comercial com o Partner Center, pode conect�
 
 Aqui estão alguns recursos adicionais de gestão de chumbo:
 
-- [Visão geral da gestão de chumbo](commercial-marketplace-get-customer-leads.md)
-- [FAQs de gestão de oportunidades potenciais](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erros de configuração comuns de oportunidades potenciais](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado)
+- [O cliente lidera a partir da sua oferta de mercado comercial](commercial-marketplace-get-customer-leads.md)
+- [Questões comuns sobre gestão de chumbo](../lead-management-faq.md#common-questions-about-lead-management)
+- [Erros de configuração de chumbo de resolução de problemas](../lead-management-faq.md#publishing-config-errors)
+- [Visão geral da gestão de chumbo](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Certifique-se de que o seu bloqueador pop-up está desligado).
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -122,7 +122,7 @@ Para utilizar o Contrato Padrão, selecione o contrato padrão para o mercado co
 
 ##### <a name="your-own-terms-and-conditions"></a>Seus próprios termos e condições
 
-Para fornecer os seus próprios termos e condições personalizados, insira-os na caixa **de Termos e Condições.** Pode introduzir uma quantidade ilimitada de caracteres de texto nesta caixa. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
+Para fornecer os seus próprios termos e condições personalizados, insira-os na caixa **de Termos e Condições.** Pode introduzir um número ilimitado de caracteres de texto nesta caixa. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
 **Selecione Guardar o rascunho** antes de continuar para a secção seguinte, Ofereça a listagem.
 
@@ -180,7 +180,7 @@ Deve fornecer o nome, e-mail e número de telefone para um **contacto de suporte
 
 Na secção **de contato de apoio,** forneça o **site de Apoio** onde os parceiros possam encontrar apoio para a sua oferta com base no facto de a oferta estar disponível no Global Azure, Azure Government, ou ambos.
 
-Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials** ) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
+Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials**) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
@@ -190,7 +190,7 @@ Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing 
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas serão rejeitadas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
@@ -223,19 +223,19 @@ Os exemplos a seguir mostram como os campos de listagem de oferta aparecem em di
 
 Isto mostra a página **de listagem de ofertas** no Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Ilustra a página de listagem de oferta no Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft." :::
 
 Isto mostra os resultados da pesquisa no Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustra os resultados da pesquisa no Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 Isto mostra a página **de listagem de Ofertas** no portal Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustra a página de listagem de Ofertas no portal Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 Isto mostra os resultados da pesquisa no portal Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra os resultados da pesquisa no portal Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 ## <a name="preview"></a>Pré-visualizar
 
@@ -328,11 +328,11 @@ Os exemplos a seguir mostram como os campos de listagem do plano aparecem em dif
 
 Estes são os campos no Azure Marketplace ao visualizar detalhes do plano:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustra os campos que vê ao ver detalhes do plano no Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 Estes são detalhes do plano no portal Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra detalhes do plano no portal Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 ### <a name="plan-availability"></a>Disponibilidade do plano
 
@@ -363,11 +363,11 @@ Nome do **Registo do Contentor Azure** – Forneça o nome do Registo do [Conten
 
 **Nome de utilizador Admin para o Registo do Contentor Azure** – Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) ligado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 **Palavra-passe para o Registo do Contentor Azure** – Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [espetáculo](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra o menu 'Chave de Acesso'.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
 **Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fadfac3fe9e66c3a05e2cceed19def607ff72c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539288"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>Tutorial: Azure Ative Directory integração única (SSO) com 123FormBuilder SSO
 
@@ -133,7 +133,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Para configurar um único sinal de **sSO 123FormBuilder,** vá para [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) e execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/123formbuilder-tutorial/submit.png) 
+    ![Screenshot que mostra o ecrã de configuração SSO SAML - Fornecedor de Identidade.](./media/123formbuilder-tutorial/submit.png) 
 
     a. Na caixa de texto **por e-mail,** digite o e-mail do utilizador como `B.Simon@Contoso.com` .
 

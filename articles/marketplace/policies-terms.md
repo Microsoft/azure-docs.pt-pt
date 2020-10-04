@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52b9a67ee8c11011ea04f7414a3d978f5860c0ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974839"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708072"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 
@@ -27,9 +27,9 @@ As ofertas no mercado comercial devem cumprir as nossas políticas e termos. Atu
 
 - [Commercial marketplace certification policies](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) (Políticas de certificação do marketplace comercial)
 - [Políticas de revisão do Microsoft AppSource e Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
-- [Azure Marketplace participation policies](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context) (Políticas de participação do Azure Marketplace)
+- [Azure Marketplace participation policies (Políticas de participação do Azure Marketplace)](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
 - [Termos do Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Próximas etapas
 
-Visite a página [de guia de publicação do mercado comercial.](marketplace-publishers-guide.md)
+- [O que é o mercado comercial da Microsoft?](overview.md)

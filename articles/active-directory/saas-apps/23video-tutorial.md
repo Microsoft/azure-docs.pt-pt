@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc2aba6241ef498cd6802c7490e46552e7737ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538842"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708820"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Tutorial: Integrar 23 Vídeos com Diretório Ativo Azure
 
@@ -138,11 +138,11 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em 23 Vídeo.
 
 3. Na secção **Utilizadores,** clique em **Configurar**.
 
-    ![Atribuir Utilizador](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Screenshot que realça a secção de Utilizadores.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Clique **em Adicionar um novo utilizador.**
 
-    ![Atribuir Utilizador](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Screenshot que realça o Adicionar um novo botão de utilizador.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. No **Convidar alguém a aderir a esta** secção do site, execute os seguintes passos:
 

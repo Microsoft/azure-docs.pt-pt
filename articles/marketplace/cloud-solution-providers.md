@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400745"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708599"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa fornecedor de solução de nuvem
 
-Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [lojas online de marketplace comercial,](comparing-appsource-azure-marketplace.md)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
+Este artigo explica como configurar a sua oferta para estar disponível para o programa Cloud Solution Provider (CSP). Além de publicar as suas ofertas através de [lojas online de marketplace comercial,](overview.md#commercial-marketplace-online-stores)também pode vender através do programa CSP para chegar a milhões de clientes qualificados da Microsoft que o programa serve.
 
 Pode configurar ofertas novas ou existentes para disponibilidade no programa CSP numa base de opt-in, o que permite aos parceiros da CSP vender os seus produtos e criar soluções agregadas para os clientes.
 
@@ -60,7 +60,7 @@ Escolha entre três opções:
 
 Ao escolher esta opção, você autoriza quais os parceiros no programa CSP elegíveis para revender a sua oferta.
 
-Para autorizar parceiros, clique em **Select CSP Partners** e aparece um menu que lhe permite pesquisar pelo nome de parceiro ou ID do CSP Azure Ative Directory (AAD).
+Para autorizar parceiros, **selecione Parceiros CSP** e aparece um menu que lhe permite pesquisar pelo nome de parceiro ou ID do inquilino CSP Azure Ative(Azure AD).
 
 ![Selecione menu CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ Uma tabela que mostra a lista de parceiros selecionados aparece na página de au
 Se esta oferta não for publicada, terá de publicar a sua oferta para a disponibilizar aos seus parceiros selecionados.
 
 >[!NOTE]
->Se autorizar um parceiro no programa CSP numa determinada região, pode vender a oferta a qualquer cliente que pertença a essa região em particular. Consulte [o programa Cloud Solution Provider mercados regionais e moeda](https://docs.microsoft.com/partner-center/regional-authorization-overview) para obter mais informações sobre como as ofertas da CSP são classificadas em regiões.
+>Se autorizar um parceiro no programa CSP numa determinada região, pode vender a oferta a qualquer cliente que pertença a essa região em particular. Para obter mais informações sobre como as ofertas da CSP são classificadas em regiões, consulte [o programa Cloud Solution Provider mercados regionais e moeda.](https://docs.microsoft.com/partner-center/regional-authorization-overview)
 
 Se estiver a atualizar a lista de CSP de uma oferta já publicada, adicione os parceiros adicionais e selecione **o público do Sync CSP**.
 
@@ -147,7 +147,7 @@ Se a sua oferta for atualmente **Opção 2: Parceiros específicos no programa C
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
 
- Se a sua oferta for atualmente **Opção 2: Parceiros específicos no programa CSP que seleciono** e gostaria de navegar para a **Opção 3: Sem parceiros no programa CSP,** só poderá navegar para essa opção se os parceiros do programa CSP que tinha previamente autorizado não terem revendido a sua oferta para clientes finais. Por favor, use as seguintes instruções para criar um pedido:
+ Se a sua oferta for atualmente **Opção 2: Parceiros específicos no programa CSP que seleciono** e gostaria de navegar para a **Opção 3: Sem parceiros no programa CSP,** só poderá navegar para essa opção se os parceiros do programa CSP que tinha previamente autorizado não terem revendido a sua oferta para clientes finais. Utilize as seguintes instruções para criar um pedido:
 
 1. Aceda à [página de pedido de apoio.](https://aka.ms/marketplacepublishersupport) Os primeiros menus suspensos são automaticamente preenchidos para si.
 
@@ -170,14 +170,11 @@ Para ajudar os parceiros no programa Cloud Solution Provider a representar mais 
 
 ### <a name="partner-center-csp-channel"></a>Canal CSP do Centro Parceiro
 
-Se optou pelo canal CSP no Partner Center, os editores devem introduzir um URL que hospeda materiais de marketing relevantes e informações de contacto de canal para o canal CSP no módulo de listagem de ofertas:
+Se optou pelo canal CSP no Partner Center, os editores devem introduzir um URL que acolhe materiais de marketing relevantes e informações de contacto de canais no âmbito do módulo de listagem de ofertas.
 
 ![Informações colaterais do Centro Parceiro CSP](media/marketplace-publishers-guide/pc-csp-channel.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
-Visite o [Azure Marketplace e o AppSource Publisher Guide.](marketplace-publishers-guide.md)
-
-Para saber mais sobre os serviços GTM do marketplace, consulte [os serviços Go-to-market.](https://partner.microsoft.com/reach-customers/gtm)
-
-Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar a sua oferta.
+- Saiba mais sobre [os serviços Go-to-market.](https://partner.microsoft.com/reach-customers/gtm)
+- Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar a sua oferta.

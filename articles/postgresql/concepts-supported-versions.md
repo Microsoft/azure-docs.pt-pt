@@ -1,18 +1,18 @@
 ---
 title: Versões suportadas - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve as versões pósgresas suportadas e pequenas na Base de Dados Azure para PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1640395b3a73116c27894a2b3f2b95b8bd5bb2eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084165"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707919"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versões principais pós-SQL suportadas
 A Microsoft tem como objetivo suportar as versões n-2 do motor PostgreSQL na Base de Dados Azure para PostgreSQL - Single Server. As versões seriam a versão principal atual em Azure (n) e as duas versões principais anteriores (-2).
@@ -41,5 +41,5 @@ As atualizações automáticas para as principais versões não são suportadas.
 ### <a name="version-syntax"></a>Sintaxe da versão
 Antes da versão 10 do PostgreSQL, a [política de versão PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma _atualização de versão importante_ como um aumento no primeiro _ou_ segundo número. Por exemplo, 9.5 a 9.6 foi considerado uma _grande_ atualização de versão. A partir da versão 10, apenas uma alteração no primeiro número é considerada uma grande atualização de versão. Por exemplo, 10.0 a 10.1 é uma _pequena_ atualização de lançamento. A versão 10 a 11 é uma _grande_ atualização de versão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre extensões postgresQL suportadas, consulte [o documento de extensões](concepts-extensions.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538659"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708807"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Azure Ative Directy integração única (SSO) com 8x8
 
@@ -147,11 +147,11 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
 1. A partir da página inicial clique **em Gestão de Identidade.**
 
-    ![Gestor de Configuração 8x8](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Screenshot que destaca o azulejo de Gestão de Identidade.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Verifique **o signo único ligado (SSO)** e, em seguida, selecione **Microsoft Azure AD**.
 
-    ![Gestor de Configuração 8x8](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Screenshot que realça as opções de Signo Único (SSO) e Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Copie os três URLs e assine o certificado de assinatura a partir do **set up Single Sign-On com** a página SAML em Ad AZure na secção De Definições SAML do Microsoft **Azure AD** em 8x8 Configuration Manager.
 
@@ -173,23 +173,23 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
 1. Selecione **Mgr de Conta de Escritório Virtual** no Painel de Aplicações.
 
-    ![Configurar no lado da app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Screenshot que destaca o azulejo da Conta de Escritório Virtual Mgr.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Selecione **conta Negócio** para gerir e clicar No botão **'Iniciar'.**
 
-    ![Configurar no lado da app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Screenshot que realça a opção Negócio e o botão Iniciar.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Clique no separador **CONTAS** na lista de menus.
 
-    ![Configurar no lado da app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Screenshot que realça o separador CONTAS na lista de menus.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Clique **em 'S sign's Single On** na lista de Contas.
 
-    ![Configurar no lado da app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Screenshot que realça a opção Single Sign On.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Selecione **single sign on** sob métodos de autenticação e clique em **SAML**.
 
-    ![Configurar no lado da app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Screenshot que realça o SAML sob single sign on.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. Na placa **única SAML na** secção, execute os seguintes passos:
 

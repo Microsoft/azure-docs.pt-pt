@@ -1,17 +1,17 @@
 ---
 title: Continuidade do negócio - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve a continuidade do negócio (ponto no tempo de restauração, interrupção do centro de dados, geo-restauro, réplicas) ao utilizar a Base de Dados Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612021"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710911"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
@@ -19,16 +19,20 @@ Esta visão geral descreve as capacidades que a Base de Dados Azure para Postgre
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Características que pode usar para proporcionar continuidade ao negócio
 
-A Azure Database for PostgreSQL fornece funcionalidades de continuidade de negócios que incluem cópias de segurança automatizadas e a capacidade de os utilizadores iniciarem o geo-restauro. Cada um tem características diferentes para o tempo estimado de recuperação (ERT) e a perda de dados potenciais. Estima-se que o tempo de recuperação (ERT) seja estimado para que a base de dados esteja totalmente funcional após um pedido de restauro/falha. Assim que compreenderes estas opções, podes escolher entre elas e usá-las juntas para diferentes cenários. À medida que desenvolve o seu plano de continuidade de negócio, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa de compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder ao recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
+À medida que desenvolve o seu plano de continuidade de negócio, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa de compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder ao recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
 
-A tabela a seguir compara o ERT e o RPO pelas funcionalidades disponíveis:
+A Azure Database for PostgreSQL fornece funcionalidades de continuidade de negócios que incluem backups geo-redundantes com a capacidade de iniciar o geo-restauro, e implantar réplicas de leitura em uma região diferente. Cada um tem características diferentes para o tempo de recuperação e a perda de dados potenciais. Com a funcionalidade [Geo-restauro,](concepts-backup.md) um novo servidor é criado usando os dados de backup que são replicados a partir de outra região. O tempo total que leva para restaurar e recuperar depende do tamanho da base de dados e da quantidade de registos para recuperar. O tempo geral para estabelecer o servidor varia de poucos minutos a poucas horas. Com [réplicas lidas,](concepts-read-replicas.md)os registos de transações das primárias são assíncronos transmitidos para a réplica. O desfasamento entre o primário e a réplica depende da latência entre os sites e também da quantidade de dados a transmitir. Em caso de falha no local primário, como falha na zona de disponibilidade, a promoção da réplica proporciona um RTO mais curto e uma redução da perda de dados. 
 
-| **Capacidade** | **Básica** | **Finalidade Geral** | **Com otimização de memória** |
+A tabela a seguir compara RTO e RPO num cenário típico:
+
+| **Capacidade** | **Básica** | **Fins Gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
-| Geo-restauro a partir de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Geo-restauro a partir de backups geo-replicados | Não suportado | RTO - Varia <br/>RPO < 1 h | RTO - Varia <br/>RPO < 1 h |
+| Réplicas de leitura | RTO - Minutos <br/>RPO < 5 min | RTO - Minutos <br/>RPO < 5 min| RTO - Minutos <br/>RPO < 5 min|
 
-Também pode considerar a utilização de [réplicas de leitura.](concepts-read-replicas.md)
+> [!IMPORTANT]
+> As RTO e RPO esperadas aqui mencionadas são apenas para fins de referência. Não são oferecidos SLAs para estas métricas.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de utilizador ou aplicação
 
@@ -60,7 +64,7 @@ Você pode usar réplicas de leitura de região cruzada para melhorar o seu plan
 Por padrão, a Base de Dados Azure para PostgreSQL não move ou armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [cópias de segurança automatizadas na Base de Dados Azure para PostgreSQL](concepts-backup.md). 
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).
 - Saiba mais sobre [réplicas de leitura na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).

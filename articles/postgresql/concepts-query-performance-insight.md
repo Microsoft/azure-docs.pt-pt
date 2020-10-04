@@ -1,17 +1,17 @@
 ---
 title: Insight de Desempenho de Consulta - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve a funcionalidade De Insight de Desempenho de Consulta na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906535"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710265"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -40,12 +40,12 @@ A tabela abaixo da tabela dá mais detalhes sobre as consultas de longa duraçã
 
 Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consulta Performance Insight aguarda estatísticas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de insight de desempenho de consulta longas consultas":::
 
 ## <a name="considerations"></a>Considerações
 * O Insight de Desempenho da Consulta não está disponível para [réplicas de leitura](concepts-read-replicas.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.
 
 

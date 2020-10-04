@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461566"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708378"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
@@ -68,7 +68,7 @@ Neste momento, pode continuar a executar células no seu caderno Jupyter.
 Para uma experiência de desenvolvimento remoto em destaque, você precisará de alguns pré-requisitos:
 
 * [Extensão SSH remota do código do estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instância computacional ativada pelo SSH. Para obter mais informações, [consulte o guia Criar um conjunto de casos de computação.](concept-compute-instance.md#create)
+* Instância computacional ativada pelo SSH. Para obter mais informações, [consulte o guia Criar um conjunto de casos de computação.](how-to-create-manage-compute-instance.md)
 
 > [!NOTE]
 > Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não estiver presente. PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho.
@@ -150,7 +150,7 @@ Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a ab
 
 A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância computacional como computação remota do Código do Estúdio Visual para [depurar interativamente o teu código.](how-to-debug-visual-studio-code.md)
 

@@ -1,17 +1,17 @@
 ---
 title: Segurança na Base de Dados Azure para PostgreSQL - Servidor Único
 description: Uma visão geral das funcionalidades de segurança na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375796"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710486"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -38,7 +38,7 @@ As regras de firewall IP concedem acesso a servidores com base no endereço IP o
 Os pontos finais do serviço de rede virtual estendem a sua conectividade de rede virtual sobre a espinha dorsal do Azure. Utilizando regras de rede virtuais, pode ativar a sua Base de Dados Azure para servidor PostgreSQL para permitir ligações a partir de sub-redes selecionadas numa rede virtual. Para obter mais informações, consulte a [visão geral](concepts-data-access-and-security-vnet.md)do ponto final do serviço de rede virtual .
 
 ### <a name="private-ip"></a>IP privado
-O Private Link permite-lhe ligar-se à sua Base de Dados Azure para servidor Single PostgreSQL em Azure através de um ponto final privado. O Azure Private Link essencialmente traz serviços Azure dentro da sua Rede Virtual privada (VNet). Os recursos PaaS podem ser acedidos usando o endereço IP privado como qualquer outro recurso no VNet. Para mais informações,consulte a [visão geral](concepts-data-access-and-security-private-link.md) do link privado
+O Private Link permite-lhe ligar-se à sua Base de Dados Azure para servidor Single PostgreSQL em Azure através de um ponto final privado. O Azure Private Link essencialmente traz os serviços do Azure dentro da sua Rede Privada Virtual (VNet). Os recursos de PaaS podem ser acedidos através do endereço IP privado, como qualquer outro recurso na VNet. Para mais informações,consulte a [visão geral](concepts-data-access-and-security-private-link.md) do link privado
 
 
 ## <a name="access-management"></a>Gestão de acesso
@@ -54,7 +54,10 @@ Pode optar pela [Advanced Threat Protection](concepts-data-access-and-security-t
 
 [O registo de auditoria](concepts-audit.md) está disponível para acompanhar a atividade nas suas bases de dados. 
 
+## <a name="migrating-from-oracle"></a>Migrando do Oráculo
 
-## <a name="next-steps"></a>Próximos passos
+A Oracle suporta a Encriptação de Dados Transparente (TDE) para encriptar dados de tabela e espaço de mesa. Em Azure para PostgreSQL, os dados são automaticamente encriptados em várias camadas. Consulte a secção "At-rest" nesta página e consulte também vários tópicos de Segurança, incluindo [chaves geridas pelo cliente](./concepts-data-encryption-postgresql.md) e [encriptação dupla da Infraestrutura.](./concepts-infrastructure-double-encryption.md) Pode também considerar a utilização da extensão [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) que é suportada em [Azure para PostgreSQL](./concepts-extensions.md).
+
+## <a name="next-steps"></a>Próximas etapas
 - Ativar regras de firewall para [IPs](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)
 - Saiba mais sobre [a autenticação do Azure Ative Directory](concepts-aad-authentication.md) na Base de Dados Azure para PostgreSQL

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647654"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708191"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
@@ -80,7 +80,7 @@ O seu perfil de editor inclui o nome da empresa e o ID MPN. Se ainda não o fez,
     
 1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros**de  >  **Definições**de Definições .
 
-Criou agora uma conta comercial no Partner Center. Para mais informações, consulte [a visão geral do mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
+Criou agora uma conta comercial no Partner Center. Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Criar uma conta utilizando as inscrições existentes no Microsoft Partner Center
 
@@ -129,7 +129,7 @@ Depois de iniciar sposição, termine de configurar a sua conta fazendo o seguin
     
 1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros**de  >  **Definições**de Definições .
 
-Criou agora uma conta comercial no Partner Center. Para mais informações, consulte [a visão geral do mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
+Criou agora uma conta comercial no Partner Center. Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>E se eu já estiver matriculado num programa de desenvolvimento?
 
@@ -157,7 +157,7 @@ Depois de iniciar sposição no Partner Center, termine de configurar a sua cont
     
 1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros**de  >  **Definições**de Definições .
 
-Criou agora uma conta comercial no Partner Center. Para mais informações, consulte [a visão geral do mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
+Criou agora uma conta comercial no Partner Center. Para obter ajuda na adição de editores, consulte [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Para editores que se mudaram do Portal do Parceiro Cloud
 
@@ -188,6 +188,7 @@ Utilizadores adicionais do mesmo inquilino do Azure Ative Directory podem adicio
 
 Depois de concluído este processo, pode gerir a editora recém-criada indo para a conta de marketplace comercial que está listada no painel esquerdo. Se não vir a conta do mercado comercial, refresque a página. A nova editora aparece na lista dos **Editores.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
+- [O que é o mercado comercial da Microsoft?](../overview.md)
 - [Gerir a sua conta de mercado comercial no Partner Center](./manage-account.md)

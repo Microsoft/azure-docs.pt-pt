@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: f66ed9a7d26a0c2d7def7d17820379b8e3460460
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 77b75b1134bbc8366478b1f9f4d14e86e9684f70
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373079"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709539"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorias de entidades apoiadas no Text Analytics API v3
 
@@ -27,7 +27,7 @@ Utilize este artigo para encontrar as categorias de entidades que podem ser devo
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal"></a>[Pessoal](#tab/personal)
+#### <a name="pii"></a>[RIO PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 
@@ -37,6 +37,6 @@ Utilize este artigo para encontrar as categorias de entidades que podem ser devo
 
 ***
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como utilizar o reconhecimento de entidade nomeada em análise de texto](how-tos/text-analytics-how-to-entity-linking.md)

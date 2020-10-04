@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405059"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709021"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -242,7 +242,7 @@ Forneça informações de contacto para que a Microsoft possa utilizar quando ho
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
@@ -547,7 +547,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados da pesquisa do Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados da pesquisa do Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -558,7 +558,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo dos detalhes do plano Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustra detalhes do plano Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -568,7 +568,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustra como esta oferta aparece no portal Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -579,7 +579,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados de pesquisa do portal Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados de pesquisa do portal Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -589,7 +589,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo dos detalhes do plano do portal Azure:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustra os detalhes do plano do portal Azure.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 

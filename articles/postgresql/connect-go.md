@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Connect with Go - Azure Database for PostgreSQL - Single Server'
 description: Este quickstart fornece uma amostra de linguagem de programação Go que pode usar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 21ae18b239eaa5f9e894d76bc143161b2d536638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 26bbbff1dd826a41369fea9700139adbcb743d0d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902017"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710435"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use o idioma Go para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -333,6 +333,6 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

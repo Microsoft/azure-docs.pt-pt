@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294230"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710299"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -75,6 +75,9 @@ Para obter mais informações sobre a recolha de dados do sistema operativo dos 
     
 > [!NOTE] 
 > Se configurar as métricas dos hóspedes para serem enviadas para um espaço de trabalho log Analytics, as métricas aparecem sob o recurso do espaço de trabalho Log Analytics e começarão a mostrar dados **apenas** depois de criar uma regra de alerta que os monitoriza. Para o fazer, siga os passos para [configurar um alerta de métricas para os registos](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
+
+> [!NOTE] 
+> Monitorizar uma métrica de hóspedes para várias máquinas virtuais com uma única regra de alerta não é suportado por alertas métricos atualmente. Pode conseguir isso com uma [regra de alerta de registo.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) Para tal, certifique-se de que as métricas dos hóspedes são recolhidas num espaço de trabalho do Log Analytics e crie uma regra de alerta de registo no espaço de trabalho.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Não consigo encontrar a métrica para alertar
 
@@ -252,7 +255,13 @@ Por exemplo:
     - Eu gostaria de atualizar a primeira condição, e apenas monitorizar transações onde a dimensão **ApiName** é igual *a "GetBlob"*
     - Como tanto as **métricas de Transações** como **de SucessoE2ELatency** suportam uma dimensão **ApiName,** vou precisar de atualizar ambas as condições, e ter ambas especificar a dimensão **ApiName** com um valor *"GetBlob".*
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Definição do período e frequência da regra de alerta
 
-## <a name="next-steps"></a>Passos seguintes
+Recomendamos a escolha de uma *granularidade agregada (Período)* maior do que a *Frequência de avaliação,* para reduzir a probabilidade de faltar à primeira avaliação de séries temporais adicionadas nos seguintes casos:
+-   Regra de alerta métrico que monitoriza múltiplas dimensões – Quando uma nova combinação de valor de dimensão é adicionada
+-   Regra de alerta métrico que monitoriza múltiplos recursos – Quando um novo recurso é adicionado ao âmbito
+-   Regra de alerta métrico que monitoriza uma métrica que não é emitida continuamente (métrica escassa) – Quando a métrica é emitida após um período superior a 24 horas em que não foi emitida
+
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações gerais sobre alertas e notificações, consulte [problemas de resolução de problemas nos alertas do Monitor Azure](alerts-troubleshoot.md).

@@ -1,18 +1,18 @@
 ---
 title: Gere uma cadeia de conexão com PowerShell - Base de Dados de Azure para PostgreSQL
 description: Este artigo fornece um exemplo Azure PowerShell para gerar uma cadeia de ligação para a ligação à Base de Dados Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: a8e82c1863fde7a7580300606949e00a34c4e58c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 29641bdc3696f0722ca430dde912768071fd9b16
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909905"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708174"
 ---
 # <a name="how-to-generate-an-azure-database-for-postgresql-connection-string-with-powershell"></a>Como gerar uma base de dados Azure para cadeia de conexão PostgreSQL com PowerShell
 
@@ -46,7 +46,7 @@ Os valores válidos para o `Client` parâmetro incluem:
 * Ruby
 * WebApp
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Personalize a Base de Dados de Azure para parâmetros de servidor PostgreSQL utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)
