@@ -6,21 +6,21 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/16/2020
+ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075927"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707562"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
 Em cenários de streaming de tempo, realizar operações nos dados contidos nas janelas temporais é um padrão comum. O Stream Analytics tem suporte nativo para funções de janela, permitindo aos desenvolvedores autoriar trabalhos complexos de processamento de fluxo com o mínimo de esforço.
 
-Existem quatro tipos de janelas temporais à escolha: [**Tumbling,**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) [**Hopping,**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics) [**Sliding**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)e [**Janelas de Sessão.**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)  Utilize as funções de janela na cláusula [**GRUPO BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta nos seus trabalhos stream Analytics. Também pode agregar eventos em várias janelas utilizando a [função **Windows().** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)
+Existem cinco tipos de janelas temporais à escolha: [**Tumbling,**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) [**Hopping,**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics) [**Sliding,**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) [**Session**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)e Windows [**Snapshot.**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics)  Utilize as funções de janela na cláusula [**GRUPO BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta nos seus trabalhos stream Analytics. Também pode agregar eventos em várias janelas utilizando a [função **Windows().** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)
 
-Todas as operações [de vitral](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) resultam no **final** da janela. A saída da janela será um único evento com base na função agregada utilizada. O evento de saída terá o carimbo de tempo da extremidade da janela e todas as funções de janela são definidas com um comprimento fixo. 
+Todas as operações [de vitral](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) resultam no **final** da janela. Note que quando iniciar um trabalho de análise de fluxo, pode especificar a *hora de início de saída do Trabalho* e o sistema irá automaticamente recolher eventos anteriores nos fluxos de entrada para a saída da primeira janela no momento especificado; por exemplo, quando começar com a opção *Now,* começará a emitir dados imediatamente. A saída da janela será um único evento com base na função agregada utilizada. O evento de saída terá o carimbo de tempo da extremidade da janela e todas as funções de janela são definidas com um comprimento fixo. 
 
 ![Conceitos de funções de janela stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -30,7 +30,7 @@ As funções de janela de tropeçar são usadas para segmentar um fluxo de dados
 ![Janela de caindo stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Janela hopping
-As funções de janela de salto avançam um período fixo no tempo. Pode ser mais fácil pensar que são Janelas em cascata que podem sobrepor-se, de forma a que os eventos possam pertencer a mais do que um conjunto de resultados de Janela de salto. Para fazer uma janela Hopping da mesma forma que uma janela de tropeçar, especifique o tamanho do lúpulo para ser o mesmo que o tamanho da janela. 
+As funções de janela de salto avançam um período fixo no tempo. Pode ser fácil pensar neles como janelas caindo que podem sobrepor-se e ser emitidas mais frequentemente do que o tamanho da janela. Os eventos podem pertencer a mais de um conjunto de resultados da janela Hopping. Para fazer uma janela Hopping da mesma forma que uma janela de tropeçar, especifique o tamanho do lúpulo para ser o mesmo que o tamanho da janela. 
 
 ![Janela de salto stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
@@ -57,7 +57,7 @@ As janelas instantâneas agrupam eventos que têm a mesma hora de tensão. Ao co
 
 ![Janela snapshot stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

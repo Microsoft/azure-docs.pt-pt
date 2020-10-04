@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538438"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integração do Diretório Ativo Azure com a Acadia
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com acadia, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações de assinatura única do domínio de Acadia e URLs](common/idp-intiated.png)
+    ![Screenshot que mostra os elementos de ecrã necessários para configurar a aplicação no modo iniciado pelo IDP.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
@@ -164,7 +164,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Acadia**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Acadia.**
 

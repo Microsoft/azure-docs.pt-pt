@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único - Azure CLI'
 description: Este tutorial mostra como criar, configurar e consultar a sua primeira Base de Dados Azure para PostgreSQL - Servidor Único utilizando o Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: c1ab057c34a89bfa39a298805216af89b2327622
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500781"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710214"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único usando Azure CLI 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
@@ -51,7 +51,7 @@ O exemplo seguinte cria um servidor com o nome `mydemoserver` no seu grupo de re
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_2`mapas para Basic, Gen 5 e 2 vCores.
++ `--sku-name B_Gen5_2` mapas para Basic, Gen 5 e 2 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -211,7 +211,7 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, aprendeu a utilizar a CLI (interface de linha de comandos) do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar um servidor da Base de Dados do Azure para PostgreSQL

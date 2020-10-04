@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116092"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704553"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -75,7 +75,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se estiver a utilizar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Se estiver a utilizar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Caixa de diálogo do Graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -159,7 +159,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     a. clique em **Editar** o ícone para abrir **o diálogo & Desemabros de Atributos do Utilizador.**
 
-      ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Screenshot que realça o ícone editar usado para abrir a caixa de diálogo Atributos & Do Utilizador.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. No diálogo **de reclamações do utilizador Manage,** adicione o atributo de ficha SAML clicando em **Adicionar nova reclamação**.
 
@@ -189,7 +189,7 @@ Para atualizar uma função existente, execute os seguintes passos:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se estiver a utilizar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a utilizar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo do Graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -227,7 +227,7 @@ Para eliminar uma função existente, execute os seguintes passos:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se estiver a utilizar vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a utilizar vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo do Graph Explorer, com a consulta para obter a lista de diretores de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -263,7 +263,7 @@ Para eliminar uma função existente, execute os seguintes passos:
     > [!NOTE]
     > A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

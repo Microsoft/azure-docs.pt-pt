@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886092"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710061"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática Azure
 
@@ -75,8 +75,8 @@ Se não necessitar de uma loja de dados, escreva ficheiros para a `./outputs` pa
 
 * **Para guardar o ficheiro escrito como registos no histórico de execução,** escreva ficheiros para `./logs` pasta. Os registos são carregados em tempo real, pelo que este método é adequado para transmitir atualizações ao vivo a partir de uma execução remota.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [o acesso aos dados das suas datastores.](how-to-access-data.md)
 
-* Saiba mais sobre a criação de alvos de computação com o [Python SDK](how-to-create-attach-compute-sdk.md) ou usar [o estúdio.](how-to-create-attach-compute-studio.md)
+* Saiba mais sobre [criar metas de computação para formação e implementação de modelos](how-to-create-attach-compute-studio.md)

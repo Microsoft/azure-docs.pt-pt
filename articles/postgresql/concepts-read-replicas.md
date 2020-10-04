@@ -1,17 +1,17 @@
 ---
 title: Ler réplicas - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve a funcionalidade de réplica de leitura na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530945"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710520"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -83,7 +83,7 @@ A pedido, introduza a palavra-passe para a conta de utilizador.
 ## <a name="monitor-replication"></a>Monitorizar a replicação
 A Azure Database for PostgreSQL fornece duas métricas para monitorização da replicação. As duas métricas são **Max Lag Através de Réplicas** e Replica **Lag**. Para aprender a ver estas métricas, consulte o **Monitor uma** secção réplica do artigo de réplica [de leitura](howto-read-replicas-portal.md).
 
-A métrica **Max Lag Across Replicas** mostra o desfasamento nos bytes entre a réplica primária e a réplica mais atrasada. Esta métrica está disponível apenas no servidor primário.
+A métrica **Max Lag Across Replicas** mostra o desfasamento nos bytes entre a réplica primária e a réplica mais atrasada. Esta métrica está disponível apenas no servidor primário, e só estará disponível se pelo menos uma das réplicas de leitura estiver ligada à primária.
 
 A métrica **Replica Lag** mostra o tempo desde a última transação reproduzida. Se não houver transações no seu servidor primário, a métrica reflete este desfasamento temporal. Esta métrica está disponível apenas para servidores de réplicas. O Lag de réplica é calculado a partir da `pg_stat_wal_receiver` vista:
 
@@ -141,6 +141,9 @@ Uma vez que tenha decidido que quer falhar para uma réplica,
     
 Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
+### <a name="disaster-recovery"></a>Recuperação após desastre
+
+Quando há um grande evento de desastre, como a disponibilidade de zonas ou falhas regionais, você pode realizar uma operação de recuperação de desastres promovendo a sua réplica de leitura. A partir do portal UI, pode navegar para o servidor de réplicas de leitura. Em seguida, clique no separador de replicação e pode parar a réplica para promovê-la para ser um servidor independente. Em alternativa, pode utilizar o [CLI Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) para parar e promover o servidor de réplicas.
 
 ## <a name="considerations"></a>Considerações
 
@@ -189,6 +192,6 @@ Se parar a replicação entre um servidor primário e uma réplica de leitura, a
 ### <a name="deleted-primary-and-standalone-servers"></a>Servidores primários e autónomos eliminados
 Quando um servidor primário é eliminado, todas as suas réplicas de leitura tornam-se servidores autónomos. As réplicas são reiniciadas para refletir esta mudança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [criar e gerir réplicas de leitura no portal Azure.](howto-read-replicas-portal.md)
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)
