@@ -2,17 +2,17 @@
 title: Lidar com erros de conectividade transitórios - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba como lidar com erros de conectividade transitórios para a Base de Dados Azure para PostgreSQL - Servidor Único.
 keywords: conexão pós-quadrado,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 026a0edf24d349c4b445d6229d3b1ad73decf87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c70c82615df111f265604ff0984aa452d68565f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82097834"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704355"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Processamento de erros de conectividade transitórios da Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -44,6 +44,6 @@ Quando o seu programa comunicar com a Azure Database para PostgreSQL através de
 
 Certifique-se de testar a sua lógica de relículo. Por exemplo, tente executar o seu código enquanto escala os recursos de computação do seu servidor Azure Database para o servidor PostgreSQL. A sua aplicação deve tratar do breve tempo de paragem que se encontra durante esta operação sem problemas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Resolver problemas de ligação à Base de Dados do Azure para PostgreSQL](howto-troubleshoot-common-connection-issues.md)

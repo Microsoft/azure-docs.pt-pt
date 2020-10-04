@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar servidor - Azure CLI - Azure Database for PostgreSQL - servidor único'
 description: Neste guia de arranque rápido, irá criar uma Base de Dados Azure para o servidor PostgreSQL utilizando o Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 182226a0bb97c9239f1c0d0dc6e7d4d2b8bdbb1c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798878"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705267"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
 
@@ -137,7 +137,7 @@ O cliente [psql](https://www.postgresql.org/docs/current/static/app-psql.html) �
 > ```
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se não precisar destes recursos para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte comando. 
 
 ```azurecli-interactive
@@ -150,7 +150,7 @@ Se apenas pretender eliminar o servidor recém-criado, pode executar o [comando 
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados utilizando exportação e importação](./howto-migrate-using-export-and-import.md)
 > 

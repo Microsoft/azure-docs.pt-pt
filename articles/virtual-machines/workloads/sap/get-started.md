@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 450bd87c6dd1f55c58f4c8a620dbddcfdf42ec7f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 15581178dc1c00b6905763e8552062869f8378ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596534"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704961"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -83,6 +83,7 @@ Nesta secção pode encontrar informações sobre como configurar o SSO com a ma
 ## <a name="change-log"></a>Alterar Registo
 
 - 09/30/2020: Alteração da [alta disponibilidade de SAP HANA em VMs Azure em RHEL](./sap-hana-high-availability-rhel.md), HA para escala SAP [HANA com ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e [Criação de Pacemaker na RHEL em Azure](./high-availability-guide-rhel-pacemaker.md) para adaptar as instruções para RHEL 8.1
+- 09/29/2020: Tornar mais óbvias as restrições e recomendações em torno da utilização do PPG no artigo Grupos de colocação de [proximidade Azure para uma latência ótima da rede com aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 
 - 09/28/2020: Adicionar um novo guia de operação de armazenamento para SAP HANA usando ficheiros Azure NetApp com o documento [volumes NFS v4.1 em Ficheiros Azure NetApp para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 09/23/2020: Adicionar novos SKUs certificados para HLI em [SKUs disponíveis para HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/20/2020: Alterações nos [documentos Considerações para máquinas virtuais Azure DBMS implantação para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), [SQL Server Azure Virtual Machines DBMS implantação para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver), [Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle), IBM [Db2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) para se adaptar a nova sugestão de configuração que recomenda a separação de binários DBMS e binários SAP em diferentes discos Azure. Adicionando também recomendações ultra disco aos diferentes guias.

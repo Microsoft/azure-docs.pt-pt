@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040083"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704859"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar a Política de Grupo num domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -90,7 +90,7 @@ Existem dois Objetos de Política de Grupo (GPOs) incorporados num domínio geri
 
 1. A ferramenta Do Editor de Gestão de Políticas de Grupo abre-se para permitir a personalização do GPO, como *políticas de conta:*
 
-    ![Personalize o GPO para configurar as definições necessárias](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Screenshot do Editor de Gestão de Políticas de Grupo.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Quando terminar, escolha **'>', guarde** para guardar a política. Os computadores atualizam a Política de Grupo por predefinição a cada 90 minutos e aplicam as alterações efetuadas.
 
@@ -116,7 +116,7 @@ Para agrupar definições de políticas semelhantes, muitas vezes criaSGOs adici
 
     Quando terminar, escolha **'>', guarde** para guardar a política. Os computadores atualizam a Política de Grupo por predefinição a cada 90 minutos e aplicam as alterações efetuadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre as definições de Política de Grupo disponíveis que possa configurar utilizando a Consola de Gestão de Políticas de Grupo, consulte [itens de preferência de Gestão de Políticas de Grupo][group-policy-console].
 

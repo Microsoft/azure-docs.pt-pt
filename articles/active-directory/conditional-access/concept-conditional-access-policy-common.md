@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024388"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705063"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional comuns
 
@@ -38,18 +38,18 @@ Mais informações sobre contas de acesso de emergência e por que são importan
 * [Exigir MFA para gestão Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir MFA para todos os utilizadores](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Estas quatro políticas, quando configuradas em conjunto, imitam a funcionalidade ativada por [incumprimentos de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
+\* Estas quatro políticas, quando configuradas em conjunto, imitam a funcionalidade ativada por [incumprimentos de segurança](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Políticas adicionais
 
-* [Acesso condicional baseado no risco (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Acesso condicional baseado no risco de acesso (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Acesso Condicional baseado no risco do utilizador (requer Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Exigir localização fidedigna para o registo com MFA](howto-conditional-access-policy-registration.md)
 * [Bloquear acesso por localização](howto-conditional-access-policy-location.md)
 * [Pedir dispositivo conforme](howto-conditional-access-policy-compliant-device.md)
 * [Bloquear o acesso, exceto aplicações específicas](howto-conditional-access-policy-block-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Simular o sinal no comportamento utilizando a ferramenta Acesso Condicional E se a ferramenta.](troubleshoot-conditional-access-what-if.md)
 

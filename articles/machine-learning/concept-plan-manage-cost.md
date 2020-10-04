@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276072"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704733"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -69,7 +69,7 @@ Com a mudança constante de dados, é necessário treino e reciclagem de modelos
 
 Os utilizadores do Azure Machine Learning podem utilizar o cluster de cálculo Azure Machine Learning, também chamado AmlCompute. A AmlCompute suporta uma variedade de opções de GPU e CPU. O AmlCompute está hospedado internamente em nome da sua subscrição pela Azure Machine Learning. Fornece a mesma segurança de nível empresarial, conformidade e governação na escala de nuvem Azure IaaS.
 
-Como estas piscinas de computação estão dentro da infraestrutura IaaS da Azure, você pode implantar, escalar e gerir a sua formação com os mesmos requisitos de segurança e conformidade que o resto da sua infraestrutura.  Estas implementações ocorrem na sua subscrição e obedecem às suas regras de governação. Saiba mais sobre [o cálculo Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
+Como estas piscinas de computação estão dentro da infraestrutura IaaS da Azure, você pode implantar, escalar e gerir a sua formação com os mesmos requisitos de segurança e conformidade que o resto da sua infraestrutura.  Estas implementações ocorrem na sua subscrição e obedecem às suas regras de governação. Saiba mais sobre [o cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configurar agrupamentos de formação para autoscaling
 
@@ -122,9 +122,9 @@ Outra forma de economizar em recursos computacional é a Azure Reserved VM Insta
 A azure Machine Learning Compute suporta casos reservados inerentemente. Se comprar uma instância reservada de um ano ou três anos, aplicaremos automaticamente desconto contra o seu computo gerido Azure Machine Learning.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre:
 * [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)
 * [Gestão de custos com análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* Crie o computo Azure Machine Learning com [ADK](how-to-create-attach-compute-sdk.md#amlcompute) ou em [estúdio.](how-to-create-attach-compute-studio.md#amlcompute)
+* Crie o computo Azure Machine Learning com [ADK](how-to-create-attach-compute-cluster.md) ou em [estúdio.](how-to-create-attach-compute-studio.md#amlcompute)

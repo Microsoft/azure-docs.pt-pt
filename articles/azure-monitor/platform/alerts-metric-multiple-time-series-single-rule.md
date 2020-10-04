@@ -4,14 +4,14 @@ description: Alerta à escala usando uma regra de alerta único para séries de 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186998"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704485"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorize várias séries de tempo numa única regra de alerta métrico
 
@@ -175,6 +175,11 @@ Ao criar uma regra de alerta métrico, a estimativa de preços fornecida baseia-
 
 Por exemplo, uma regra de alerta pode mostrar uma estimativa de preço elevado se alavancar a característica multidimensional, e um grande número de combinações de valores de dimensão são selecionadas, resultando na monitorização de muitas séries de tempo. Mas a taxa real para essa regra de alerta pode ser menor se não todas as séries de tempo resultantes das combinações de valores de dimensão realmente têm dados para avaliar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Número de séries de tempo monitorizadas por uma única regra de alerta
+
+Para evitar custos excessivos, cada regra de alerta pode monitorizar até 5000 séries de tempo por padrão. Para levantar este limite da sua subscrição, abra um bilhete de apoio.
+
+
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a monitorização em escala utilizando alertas métricos e [limiares dinâmicos.](alerts-dynamic-thresholds.md)

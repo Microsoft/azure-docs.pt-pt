@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722743"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704604"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -58,7 +58,7 @@ Para aceder ao modelo de livro para o relatório geral de segurança, complete o
 1. Selecione o seu domínio gerido, como *aaddscontoso.com*
 1. A partir do menu do lado esquerdo, escolha **Monitoring > Workbooks**
 
-    ![Selecione a opção de menu de livros de trabalho no portal Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot que hightlights onde selecionar o Relatório geral de segurança e o Relatório de Atividade da Conta.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Escolha o **Relatório geral de segurança**.
 1. A partir dos menus suspensos no topo do livro, selecione a sua subscrição Azure e, em seguida, um espaço de trabalho do Azure Monitor.
@@ -108,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 

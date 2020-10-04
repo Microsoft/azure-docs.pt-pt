@@ -1,17 +1,17 @@
 ---
 title: Criar utilizadores - Azure Database for PostgreSQL - Single Server
 description: Este artigo descreve como pode criar novas contas de utilizador para interagir com uma Base de Dados Azure para PostgreSQL - Servidor Único.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: 1ae627a7ee1a7e2a704cc17cc8ec9ccc9846c109
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1dbbdde03d1c24882be298d8c81362744debeecf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829310"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704944"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -23,7 +23,7 @@ Se quiser aprender como criar e gerir os utilizadores de subscrição Azure e se
 
 Quando criou a sua Base de Dados Azure para PostgreSQL, forneceu um nome de utilizador e senha de administração do servidor. Para mais informações, pode seguir o [Quickstart](quickstart-create-server-database-portal.md) para ver a abordagem passo a passo. Uma vez que o nome de utilizador do administrador do servidor é um nome personalizado, pode localizar o nome de utilizador do administrador do servidor escolhido a partir do portal Azure.
 
-A Base de Dados Azure para o servidor PostgreSQL é criada com as 3 funções padrão definidas. Pode ver estas funções executando o comando:`SELECT rolname FROM pg_roles;`
+A Base de Dados Azure para o servidor PostgreSQL é criada com as 3 funções padrão definidas. Pode ver estas funções executando o comando: `SELECT rolname FROM pg_roles;`
 
 - azure_pg_admin
 - azure_superuser
@@ -82,7 +82,7 @@ A conta de utilizador de administração do servidor pode ser usada para criar u
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação: [Criar e gerir a Base de Dados Azure para regras de firewall PostgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 

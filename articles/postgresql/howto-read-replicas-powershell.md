@@ -1,18 +1,18 @@
 ---
 title: Gerir réplicas de leitura - Azure PowerShell - Base de Dados Azure para PostgreSQL
 description: Saiba como configurar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL usando PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539457"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704808"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL usando PowerShell
 
@@ -104,7 +104,7 @@ Para eliminar um servidor primário, pode executar o `Remove-AzPostgreSqlServer`
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Reinicie a base de dados do Azure para o servidor PostgreSQL utilizando o PowerShell](howto-restart-server-powershell.md)

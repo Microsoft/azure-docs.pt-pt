@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d6820e890607ff16230ecf48e8318e6d1119a3a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309103"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707511"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -141,10 +141,11 @@ O resultado é devolvido imediatamente. Pode transmitir os resultados para uma a
 
 ### <a name="example-responses"></a>Respostas de exemplo
 
-A versão 3 fornece pontos finais separados para a ligação NER e entidade. As respostas para ambas as operações estão abaixo. 
+A versão 3 fornece pontos finais separados para a ligação geral do NER, PII e entidade. As respostas para ambas as operações estão abaixo. 
 
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
+Exemplo de uma resposta geral do NER:
 ```json
 {
   "documents": [
@@ -198,6 +199,44 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
 ```
 #### <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-preview)
 
+Exemplo de uma resposta PII:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+Exemplo de uma resposta de ligação da Entidade:
 ```json
 {
   "documents": [
@@ -244,7 +283,6 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
   "modelVersion": "2020-02-01"
 }
 ```
-
 ---
 
 
@@ -256,7 +294,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidade que liga usan
 * Os pedidos de CORREIO são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e links web, para cada ID do documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
