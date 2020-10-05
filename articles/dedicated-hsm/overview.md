@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90970209"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o Azure Dedicated HSM?
@@ -87,7 +87,7 @@ Este é um serviço altamente especializado. Por isso, recomendamos que compreen
 
 Os [guias de integração gemalto](https://safenet.gemalto.com/partners/microsoft/) ajudam-no a facilitar o fornecimento de HSMs num ambiente de rede virtual existente. Existem também guias para ajudá-lo a determinar como configurar a sua arquitetura de implantação.
 
-* [Alta disponibilidade](high-availability.md)
+* [Elevada disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Redes](networking.md)
 * [Suportabilidade](supportability.md)

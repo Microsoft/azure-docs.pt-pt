@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9acc3f91a91527e96f450d825d06f6b909e15d
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707973"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729156"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps
 
-My Apps é um portal baseado na web que permite a um utilizador com uma conta de trabalho ou escola em Azure Ative Direy (Azure AD) visualizar e iniciar aplicações baseadas na nuvem a que o administrador da AD Azure lhes concedeu acesso. 
+My Apps é um portal baseado na web que permite a um utilizador com uma conta de trabalho ou escola em Azure Ative Direy (Azure AD) visualizar e iniciar aplicações baseadas na nuvem a que o administrador da AD Azure lhes concedeu acesso. As minhas Apps são acedidas através de um navegador web em [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
 Para saber mais sobre a utilização do Azure AD como fornecedor de identidade para uma aplicação, consulte o [What is Application Management in AD.](what-is-application-management.md) Para se atualizar rapidamente, confira a [Série Quickstart em Gestão de Aplicações](view-applications-portal.md).
 

@@ -3,16 +3,16 @@ title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: df3403fea47f31481f4b3c6d1292749d69f2f584
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369183"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728544"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
-Aprenda a criar uma [especificação de modelo](template-specs.md) com um [modelo ligado.](linked-templates.md#linked-template) Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Este artigo mostra-lhe como criar uma especificação de modelo para embalar um modelo principal e seus modelos ligados usando a nova `relativePath` propriedade do recurso de [implantação](/azure/templates/microsoft.resources/deployments).
+Aprenda a criar uma [especificação de modelo](template-specs.md) com um [modelo ligado.](linked-templates.md#linked-template) Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Este artigo mostra-lhe como criar uma especificação de modelo para embalar um modelo principal e seus modelos ligados usando a `relativePath` propriedade do recurso de [implantação](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -2,21 +2,21 @@
 title: Visão geral das especificações do modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448819"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728476"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
-Uma especificação de modelo é um novo tipo de recurso para armazenar um modelo de Gestor de Recursos Azure (modelo ARM) em Azure para posterior implantação. Este tipo de recurso permite-lhe partilhar modelos ARM com outros utilizadores na sua organização. Tal como qualquer outro recurso Azure, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para partilhar a especificação do modelo.
+Uma especificação de modelo é um tipo de recurso para armazenar um modelo de gestor de recursos Azure (modelo ARM) em Azure para posterior implantação. Este tipo de recurso permite-lhe partilhar modelos ARM com outros utilizadores na sua organização. Tal como qualquer outro recurso Azure, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para partilhar a especificação do modelo.
 
-**Microsoft.Resources/templateSpecs** é o novo tipo de recurso para especificações de modelo. Consiste num modelo principal e em qualquer número de modelos ligados. O Azure armazena de forma segura as especificações do modelo em grupos de recursos. Versão de suporte de especificações [de modelo.](#versioning)
+**Microsoft.Resources/templateSpecs** é o tipo de recurso para especificações de modelo. Consiste num modelo principal e em qualquer número de modelos ligados. O Azure armazena de forma segura as especificações do modelo em grupos de recursos. Versão de suporte de especificações [de modelo.](#versioning)
 
 Para implementar a especificação do modelo, utiliza ferramentas Azure padrão como PowerShell, Azure CLI, portal Azure, REST e outros SDKs e clientes suportados. Usa os mesmos comandos que o modelo.
 
@@ -336,7 +336,7 @@ Para obter mais informações sobre as especificações do modelo de ligação, 
 
 Quando cria uma especificação de modelo, fornece-se um número de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o número de versão que pretendem utilizar ao implementá-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para criar e implementar uma especificação de modelo, consulte [Quickstart: Criar e implementar a especificação do modelo](quickstart-create-template-specs.md).
 

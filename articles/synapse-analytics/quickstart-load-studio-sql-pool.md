@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 142309f75d3b7c93204bb9eaa8e5e0254f879c43
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91568905"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Quickstart: Carregamento a granel com Sinapse SQL

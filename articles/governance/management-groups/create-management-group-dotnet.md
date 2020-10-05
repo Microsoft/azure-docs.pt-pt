@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 138998fdc23fd8a296ca50093e2952017888041f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91604684"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Quickstart: Criar um grupo de gestão com .NET Core
@@ -125,7 +125,7 @@ Os comandos anteriores utilizam as seguintes informações:
 
 O resultado é um novo grupo de gestão no grupo de gestão de raiz.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 - Elimine o novo grupo de gestão através do portal.
 

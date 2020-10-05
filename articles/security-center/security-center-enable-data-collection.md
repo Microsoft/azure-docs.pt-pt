@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
 ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91447258"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
@@ -73,7 +73,7 @@ Para selecionar um espaço de trabalho criado pelo Security Center:
 1. Na **configuração do espaço de trabalho predefinido,** selecione Use workspace(s) criado pelo Centro de Segurança.
     :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Habilitação automática do agente Log Analytics"::: 
 
-1. Clique em **Save** (Guardar).<br>
+1. Clique em **Guardar**.<br>
     O Security Center cria um novo grupo de recursos e espaço de trabalho predefinido nessa geolocalização, e liga o agente a esse espaço de trabalho. A convenção de nomeação para o espaço de trabalho e grupo de recursos é:<br>
    **Espaço de trabalho: DefaultWorkspace-[subscrição-ID]-[geo] <br> Grupo de Recursos: DefaultResourceGroup-[geo]**
 
@@ -299,7 +299,7 @@ Pode instalar manualmente o agente Log Analytics, para que o Security Center pos
     Para obter mais informações sobre as razões pelas quais o Security Center não consegue monitorizar com sucesso VMs e computadores inicializados para provisão automático, consulte [problemas de saúde do agente de monitorização](security-center-troubleshooting-guide.md#mon-agent).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo mostrou-lhe como funciona a recolha de dados e o provisionamento automático no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [FAQ do Centro de Segurança do Azure](faq-general.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

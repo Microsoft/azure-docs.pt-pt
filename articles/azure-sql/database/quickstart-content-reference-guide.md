@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: cd1880f58d4ef457cdc411e065588204a5ad6672
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91448762"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Começar com bases de dados individuais na Base de Dados Azure SQL
@@ -51,7 +51,7 @@ Os seguintes módulos Microsoft Learn ajudam-no a aprender gratuitamente sobre a
 - [Desenvolver e configurar uma aplicação ASP.NET que consulta uma base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 - [Proteja a sua base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Encontre uma [lista de funcionalidades suportadas de alto nível na Base de Dados Azure SQL](features-comparison.md).
 - Saiba como tornar a sua [base de dados mais segura.](secure-database-tutorial.md)

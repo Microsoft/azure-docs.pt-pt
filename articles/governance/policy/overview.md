@@ -4,10 +4,10 @@ description: O Azure Policy é um serviço no Azure utilizado para criar, atribu
 ms.date: 09/22/2020
 ms.topic: overview
 ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91538961"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
@@ -173,7 +173,7 @@ Para obter mais informações sobre a definição de atribuições através do p
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 

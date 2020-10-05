@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91567643"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL através do portal Azure
@@ -78,7 +78,7 @@ Siga estes passos para retomar a piscina SQL.
 
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados na sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado. 
 
@@ -89,7 +89,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e clique na sua piscina SQL.
 
-    ![Limpar os recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
+    ![Limpar recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
 
 1. Para interromper a computação, clique no botão **Pausar**. 
 

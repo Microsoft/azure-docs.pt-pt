@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87387341"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics partilhou metadados
@@ -54,7 +54,7 @@ Para mais informações, consulte [a base de dados partilhada Azure Synapse Anal
 
 Se um objeto de metadados for eliminado ou alterado com o Spark, as alterações são captadas e propagadas para o motor a pedido do SQL. A sincronização é assíncronia e as alterações refletem-se no motor SQL após um curto atraso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre as bases de dados de metadados partilhados da Azure Synapse Analytics](database.md)
 - [Saiba mais sobre as tabelas de metadados partilhados da Azure Synapse Analytics](table.md)

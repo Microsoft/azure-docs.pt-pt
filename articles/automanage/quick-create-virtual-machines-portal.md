@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
 ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91445796"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
@@ -102,7 +102,7 @@ Pare rapidamente de utilizar a auto-gestão Azure para máquinas virtuais desati
 1. Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se criou um novo grupo de recursos para experimentar a Azure Automanage para máquinas virtuais e já não precisa, pode eliminar o grupo de recursos. A eliminação do grupo também elimina o VM e todos os recursos do grupo de recursos.
 
@@ -113,7 +113,7 @@ A Azure Automanage cria grupos de recursos predefinidos para armazenar recursos 
 1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, permitiu que a Azure Automanage para VMs. 
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
 ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91533900"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS 
@@ -194,7 +194,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo de Ges
     * Especifique **4 (TiB)** como o tamanho da piscina. 
     * Utilize o tipo **Auto** QoS.
 
-5. Clique em **Create** (Criar).
+5. Clique em **Criar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -399,7 +399,7 @@ Os seguintes snippets de código mostram como configurar um VNet e criar um volu
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -460,7 +460,7 @@ Utilize o portal Azure, PowerShell ou o Azure CLI para eliminar o grupo de recur
 
 ---
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 > [!div class="nextstepaction"]
 > [Hierarquia de armazenamento de ficheiros Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)   

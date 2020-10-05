@@ -4,10 +4,10 @@ description: Compreenda como o serviço Azure Blueprints lhe permite criar, defi
 ms.date: 09/30/2020
 ms.topic: overview
 ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91614262"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
@@ -126,10 +126,10 @@ Existem as seguintes limitações para determinados campos:
 
 |Objeto|Campo|Personagens permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Planta|Nome|letras, números, hífens e períodos|48|
+|Planta|Name|letras, números, hífens e períodos|48|
 |Planta|Versão|letras, números, hífens e períodos|20|
-|Atribuição do esquema|Nome|letras, números, hífens e períodos|90|
-|Artefacto de planta|Nome|letras, números, hífens e períodos|48|
+|Atribuição do esquema|Name|letras, números, hífens e períodos|90|
+|Artefacto de planta|Name|letras, números, hífens e períodos|48|
 
 ## <a name="video-overview"></a>Descrição geral em vídeo
 

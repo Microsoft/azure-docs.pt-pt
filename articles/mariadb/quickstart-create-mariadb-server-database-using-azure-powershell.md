@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 3715b3eb00a1ccb549bf77d14ce33969f9a7eda1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87502261"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MariaDB utilizando PowerShell
@@ -75,7 +75,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 O valor do parâmetro **Sku** segue os ** \_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
 
-- `-Sku B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
+- `-Sku B_Gen5_1` mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 - `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -208,8 +208,8 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
     |    **Definição**    |            **Valor Sugerido**            |                      **Descrição**                       |
     | ----------------- | ----------------------------------------- | ---------------------------------------------------------- |
     | Nome da Ligação   | A Minha Ligação                             | Especificar uma etiqueta para esta ligação                        |
-    | Método de Ligação | Standard (TCP/IP)                         | Utilizar o protocolo TCP/IP para ligar à Azure Database for MariaDB |
-    | Nome de anfitrião          | `mydemoserver.mariadb.database.azure.com` | Nome do servidor que já observou                           |
+    | Connection Method (Método de ligação) | Standard (TCP/IP)                         | Utilizar o protocolo TCP/IP para ligar à Azure Database for MariaDB |
+    | Hostname (Nome do anfitrião)          | `mydemoserver.mariadb.database.azure.com` | Nome do servidor que já observou                           |
     | Porta              | 3306                                      | A porta padrão para MariaDB                                 |
     | Nome de utilizador          | myadmin@mydemoserver                      | O login de administração do servidor que já observou                |
     | Palavra-passe          | *************                             | Use a palavra-passe da conta de administração que configuraste anteriormente      |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
 ms.openlocfilehash: 822e9dc237dd6f4d73e1860c6a0b240fb94c3105
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947559"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
@@ -57,7 +57,7 @@ Para criar manualmente um novo módulo _de insegurança azureiot para_ um dispos
 1. Clique no seu dispositivo e, em seguida, em **Adicionar identidade do módulo**.
 1. No campo Nome de Identidade do **Módulo,** insira **a azureiotsecurity**.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ## <a name="verify-creation-of-a-module-twin"></a>Verifique a criação de um módulo gémeo
 

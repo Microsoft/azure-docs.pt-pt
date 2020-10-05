@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90978608"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Quickstart: Implementar o servidor FHIR open source usando o portal Azure
@@ -43,7 +43,7 @@ Depois de preencher os detalhes, pode iniciar a implantação.
 
 Uma vez concluída a implementação, pode apontar o seu navegador `https://SERVICENAME.azurewebsites.net/metadata` para obter uma declaração de capacidade. Levará um minuto ou mais para o servidor responder pela primeira vez.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém os recursos aprovisionados, selecione **Delete resource group**, em seguida, confirme o nome do grupo de recursos para eliminar.
 

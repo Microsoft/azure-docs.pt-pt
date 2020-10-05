@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90968854"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API
@@ -82,7 +82,7 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
    
    **Corpo de pedido**
 
@@ -171,7 +171,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
    
    **Corpo de pedido**
     
@@ -203,7 +203,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -238,7 +238,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -281,7 +281,7 @@ Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta n
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -340,7 +340,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -421,7 +421,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -511,7 +511,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.
 
     Se tiver alguma identidade gerida atribuída ao utilizador ou sistema atribuído ao VM como identificado no `identity` valor da resposta, salte para o passo 5 que lhe mostre como reter a identidade gerida atribuída ao sistema, adicionando uma identidade gerida atribuída ao utilizador no seu VM.
 
@@ -533,7 +533,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        |
  
    **Corpo de pedido**
 
@@ -565,7 +565,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -601,7 +601,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -640,7 +640,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -681,7 +681,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.
  
    Se tiver gerido as identidades atribuídas ao VM, estão listadas na resposta no `identity` valor.
 
@@ -704,7 +704,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -736,7 +736,7 @@ Para remover uma identidade atribuída ao utilizador para um VM, a sua conta nec
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-   |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        | 
+   |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        | 
 
    **Corpo de pedido**
 
@@ -766,7 +766,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido. | 
+|*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
 **Corpo de pedido**
 
@@ -793,7 +793,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.| 
+|*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.| 
 
 **Corpo de pedido**
 

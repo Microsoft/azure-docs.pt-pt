@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91569765"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Regras da porta dianteira Azure Condições de jogo do motor
@@ -51,7 +51,7 @@ Identifica os pedidos com base em argumentos definidos para o método de pedido 
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="query-string"></a>Cadeias de consulta
 
@@ -104,7 +104,7 @@ Identifica os pedidos que utilizam um cabeçalho específico no pedido.
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="request-method"></a>Método de pedido
 

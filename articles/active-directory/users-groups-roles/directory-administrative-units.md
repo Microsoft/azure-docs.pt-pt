@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91447898"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas em Diretório Ativo Azure
@@ -98,7 +98,7 @@ gestão administrativa do licenciamento do grupo   |    Suportado  |    Suportad
 
 As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No centro de administração microsoft 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados, mas pode navegar em outros utilizadores no portal AD AD, PowerShell e outros serviços da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gestão de AUs](roles-admin-units-manage.md)
 - [Gerir utilizadores em AUs](roles-admin-units-add-manage-users.md)

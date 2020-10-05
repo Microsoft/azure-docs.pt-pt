@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91447676"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página geral do Centro de Segurança Azure
@@ -49,7 +49,7 @@ O **painel Insights** oferece itens personalizados para o seu ambiente, incluind
 - As recomendações ativas com mais recursos impactados
 - Publicações recentes de blogs por especialistas do Azure Security Center
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta página introduziu a página geral do Centro de Segurança. Para obter informações relacionadas, consulte:
 

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 25c3f875717c9c064af0ce27bdab735db67d2f5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947323"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Quickstart: Criar uma Base de Dados Azure para PostgreSQL - Servidor Flexível no portal Azure
@@ -41,11 +41,11 @@ Para criar uma Base de Dados do Azure para o servidor PostgreSQL, siga os passos
 
 3. Selecione a opção de implementação **do servidor flexível.**
 
-   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Selecione Azure Database para postgreSQL - Opção de implementação flexível do servidor":::
+   :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
 4. Preencha o formulário Básico com as **seguintes** informações:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="Criar um servidor":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-create-basics.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
     Definição|Valor sugerido|Descrição
     ---|---|---
@@ -58,23 +58,23 @@ Para criar uma Base de Dados do Azure para o servidor PostgreSQL, siga os passos
     Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
     Computação e armazenamento | **Final geral**, **4 vCores**, **512 GB**, **7 dias** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar**. *Finalidade Geral*, *4 vCores*, *512 GB*e *7 dias* são os valores padrão para o **nível de Computação**, **vCore,** **Armazenamento**e Período **de Retenção de Backup**. Pode deixar os sliders como está ou ajustá-los. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="O painel de preços":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
     
 5. Opções de configuração de rede
 
     No separador 'Rede', pode escolher como o seu servidor é acessível. A Base de Dados do Azure para o PostgreSQL cria uma firewall ao nível do servidor. Impede que as aplicações e ferramentas externas se liguem ao servidor e a quaisquer bases de dados no mesmo, a menos que crie uma regra de firewall para abrir a firewall aos endereços IP específicos. Recomendamos tornar o servidor acessível ao público:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="O painel de networking":::
+    :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
     E, em seguida, restringi-lo ao seu próprio endereço IP cliente:
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Selecione Adicionar o endereço IP do cliente atual":::
+    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
 6. Selecione **Review + crie** para rever as suas seleções. Selecione **Criar** para aprovisionar o servidor. Esta operação poderá demorar alguns minutos.
 
 7. Na barra de ferramentas, selecione o ícone **Notificações** (um sino) para monitorizar o processo de implementação. Uma vez concluída a implementação, pode selecionar **Afixar ao dashboard**, o que cria um mosaico para este servidor no dashboard do portal do Azure como um atalho para a página **Descrição geral** do servidor. Selecionar **Ir para recurso** abre a página **Descrição geral** do servidor.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="O painel de notificações":::
+    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
    Por predefinição, é criada uma base de dados **postgres** no servidor. A base de dados [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. (A outra base de dados predefinida é **azure_maintenance**. A sua função é separar os processos de serviço geridos das ações dos utilizadores. Não pode aceder a esta base de dados.)
 
@@ -88,7 +88,7 @@ Quando cria a Base de Dados do Azure para o servidor PostgreSQL, também é cria
 
 Abra a página **Descrição Geral** do servidor. Anote o **Nome do servidor** e o **Nome de início de sessão de administrador do servidor**. Coloque o cursor sobre cada campo e o símbolo de cópia é apresentado à direita do texto. Selecione o símbolo de cópia conforme necessário para copiar os valores.
 
- :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="A página geral do servidor":::
+ :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
 ## <a name="connect-to-the-postgresql-database-using-psql"></a>Ligar à base de dados do PostgreSQL com psql
 
@@ -143,7 +143,7 @@ Estão disponíveis diversas aplicações para ligar à sua Base de Dados do Azu
 
 Ligou-se ao servidor da Base de Dados do Azure para PostgreSQL através do psql e criou uma base de dados de utilizador em branco.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode limpar os recursos que criou no Início Rápido de duas formas. Pode eliminar o grupo de recursos do Azure, que inclui todos os recursos no grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas o recurso do servidor.
 
@@ -162,7 +162,7 @@ Para eliminar o servidor criado recentemente:
 
 2. Na página **Descrição geral**, selecione **Eliminar**.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="O botão Eliminar":::
+    :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
 3. Confirme o nome do servidor que quer eliminar e veja as bases de dados incluídas que são afetadas. Insira o nome do seu servidor na caixa de texto, tal como o exemplo, **mydemoserver**. Selecione **Eliminar**.
 

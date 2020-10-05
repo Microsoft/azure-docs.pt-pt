@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço de Backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377425"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729071"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -28,7 +28,7 @@ Verifique se a partilha de ficheiros do Azure já está protegida no mesmo cofre
 
 ### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync"></a>Posso proteger as Partilhas de Ficheiros ligadas a um Grupo de Sincronização no Azure File Sync?
 
-Yes. Está ativada a proteção das ações de ficheiros Azure ligadas a Grupos de Sincronização.
+Sim. Está ativada a proteção das ações de ficheiros Azure ligadas a Grupos de Sincronização.
 
 ### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer o back up de ações de ficheiros, selecionei uma Conta de Armazenamento para descobrir as ações de ficheiros nela. No entanto, não os protegi. Como posso proteger estas ações com qualquer outro cofre?
 
@@ -40,11 +40,11 @@ Se a conta de armazenamento já estiver registada com um cofre ou outras ações
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso mudar o Cofre para o qual apoio as minhas ações?
 
-Yes. No entanto, terá de parar a [proteção da parte do ficheiro](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, de não [registar](manage-afs-backup.md#unregister-a-storage-account) esta Conta de Armazenamento e, em seguida, protegê-la de um cofre diferente.
+Sim. No entanto, terá de parar a [proteção da parte do ficheiro](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, de não [registar](manage-afs-backup.md#unregister-a-storage-account) esta Conta de Armazenamento e, em seguida, protegê-la de um cofre diferente.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger duas partilhas de ficheiros diferentes da mesma Conta de Armazenamento em cofres diferentes?
 
-Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.
+N.º As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.
 
 ## <a name="backup"></a>Backup
 
@@ -60,7 +60,7 @@ Se a partilha de ficheiros estiver no estado de apagamento suave, é necessário
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Posso restaurar a partir de cópias de segurança se tiver parado a proteção numa partilha de ficheiros do Azure?
 
-Yes. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a proteção, poderá restaurar a partir de todos os pontos de restauro existentes.
+Sim. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a proteção, poderá restaurar a partir de todos os pontos de restauro existentes.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se eu cancelar um trabalho de restauro?
 
@@ -70,11 +70,28 @@ Se uma função de restauro em curso for cancelada, o processo de restauro para 
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Posso utilizar o PowerShell para configurar/gerir/restaurar as cópias de segurança das ações do Ficheiro Azure?
 
-Yes. Consulte a documentação detalhada [aqui.](backup-azure-afs-automation.md)
+Sim. Consulte a documentação detalhada [aqui.](backup-azure-afs-automation.md)
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Posso aceder às fotos tiradas pelo Azure Backups e montá-las?
 
 Todas as imagens tiradas pelo Azure Backup podem ser acedidas através da visualização de imagens no portal, PowerShell ou CLI. Para saber mais sobre os Ficheiros Azure, consulte [a visão geral das fotos de partilha para ficheiros Azure](../storage/files/storage-snapshots-files.md).
+
+### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>O que acontece depois de mudar uma parte de ficheiro suspensa para uma subscrição diferente?
+
+Uma vez que uma partilha de ficheiros é transferida para uma subscrição diferente, é considerada como uma nova partilha de ficheiros pela Azure Backup. Seguem-se os passos recomendados:
+ 
+Cenário: Digamos que tem uma partilha de ficheiros FS1 na subscrição S1 e está protegido através do cofre V1. Agora quer mover a sua parte do ficheiro para a subscrição S2.
+ 
+1.  Mover a conta de armazenamento e a partilha de ficheiros desejadas (FS1) para uma subscrição diferente (S2).
+2.  No cofre V1, acionar a proteção contra o gatilho com a eliminação da operação de dados para FS1.
+3.  Desagregar a conta de armazenamento que hospeda FS1 do cofre V1.
+4.  Reconfigure a cópia de segurança para fS1, agora transferida para S2, com um cofre (V2) na subscrição S2. 
+ 
+Por favor, note que depois de reconfigurar a cópia de segurança com v2, as imagens que foram tiradas com V1 deixarão de ser geridas pela Azure Backup e, portanto, terá de apagar essas imagens manualmente de acordo com o seu requisito.
+
+### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Posso mover a minha parte de ficheiros de apoio para um grupo de recursos diferente?
+ 
+Sim, pode mover a sua partilha de ficheiros com apoio para um grupo de recursos diferente. No entanto, terá de reconfigurar a cópia de segurança para a partilha de ficheiros, uma vez que seria tratada como um novo recurso pela Azure Backup. Além disso, os instantâneos que foram criados antes da mudança do grupo de recursos, deixarão de ser geridos pelo backup do Azure . Por isso, terá de apagar as imagens manualmente de acordo com o seu requisito.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para reforços?
 
@@ -155,6 +172,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo valor **Retenuso Till** especificado no momento da tomada do backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure](troubleshoot-azure-files.md)

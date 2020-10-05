@@ -9,13 +9,13 @@ ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: dd36bb18e84ea299195b77286887a3b279f81469
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90903586"
 ---
-# <a name="introduction-to-the-sample-app"></a>Introdução à aplicação da amostra
+# <a name="introduction-to-the-sample-app"></a>Introdução à aplicação de exemplo
 
 ::: zone pivot="programming-language-csharp"
 Esta série de quickstarts usa uma aplicação de amostra composta por dois microserviços para mostrar como implementar uma aplicação .NET Core Steeltoe para o serviço Azure Spring Cloud. Você usará as capacidades da Azure Spring Cloud, tais como a descoberta de serviços, o servidor config, os registos, as métricas e o rastreio distribuído.

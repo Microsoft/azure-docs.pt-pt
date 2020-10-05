@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947479"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Azure Stream Analytics Cluster (Pré-visualização)
@@ -23,9 +23,9 @@ Os clusters Stream Analytics são faturados por Unidades de Streaming (SUs) que 
 
 ## <a name="what-are-stream-analytics-clusters"></a>O que são clusters Stream Analytics
 
-Os clusters Stream Analytics são alimentados pelo mesmo motor que alimenta os empregos stream Analytics em funcionamento num ambiente multi-inquilino. O único inquilino, cluster dedicado tem as seguintes características:
+Os clusters do Stream Analytics são alimentados pelo mesmo motor que alimenta os trabalhos do Stream Analytics em execução num ambiente de vários inquilinos. O cluster dedicado de inquilino único tem as seguintes funcionalidades:
 
-* Inquilino solteiro hospedado sem barulho de outros inquilinos. Os seus recursos são verdadeiramente "isolados" e têm um melhor desempenho quando há explosão no trânsito.
+* Alojamento de inquilino único sem ruído de outros inquilinos. Os recursos estão verdadeiramente “isolados” e têm melhor desempenho quando há picos de tráfego.
 
 * Dimensione o seu cluster entre 36 a 216 SUs à medida que o seu uso de streaming aumenta ao longo do tempo.
 

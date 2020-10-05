@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948418"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Quickstart: Criar um trabalho Azure Stream Analytics em Visual Studio Code (pré-visualização)
@@ -68,7 +68,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados que são co
    |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu hub IoT.   |
 
-   ![Criar um hub IoT](./media/quick-create-visual-studio-code/create-iot-hub.png)
+   ![Criar um hub IoT](./media/quick-create-visual-studio-code/create-iot-hub.png)
 
 4. Selecione **Seguinte: Definir tamanho e escala**.
 
@@ -259,7 +259,7 @@ Após a compilação, pode encontrar os dois modelos gerados do Gestor de Recurs
 
 5. Para visualizar os resultados, abra o armazenamento de bolhas na extensão do Código do Estúdio Visual ou no portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não forem necessários, apague o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A eliminação do trabalho evita cobrar as unidades de streaming que o trabalho consome. 
 

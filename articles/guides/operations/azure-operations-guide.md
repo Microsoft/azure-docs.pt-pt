@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91397815"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
@@ -126,7 +126,7 @@ Serviços de ligação em rede tanto no interior do Azure como entre o Azure e o
 
 - DNS fornecido pelo Azure
 
-- Traffic Manager do Azure
+- Gestor de Tráfego do Azure
 
 - Rede de Entrega de Conteúdos do Azure
 
@@ -471,7 +471,7 @@ Existem várias opções para implantar uma rede virtual.
 
 - [Interface de Linha de Comandos (CLI)](../../virtual-network/quick-create-cli.md)
 
-- Modelos de gestor de recursos Azure
+- Modelos do Azure Resource Manager
 
 > **Quando utilizar:** Sempre que estiver a trabalhar com VMs em Azure, trabalhará com redes virtuais. Isto permite segmentar os seus VMs em sub-redes públicas e privadas similares nos centros de dados no local.
 >

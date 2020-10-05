@@ -8,17 +8,17 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90903768"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
 Azure Database for PostgreSQL é um serviço de base de dados relacional na nuvem da Microsoft com base no motor [de base de dados PostgreSQL Community Edition](https://www.postgresql.org/) (disponível sob a licença GPLv2). A Base de Dados do Azure para PostgreSQL oferece:
 
-- Alta disponibilidade incorporada.
+- Elevada disponibilidade incorporada.
 - Proteção de dados utilizando cópias de segurança automáticas e restauro pontual por um período máximo de 35 dias.
 - Manutenção automatizada para hardware subjacente, sistema operativo e motor de base de dados para manter o serviço seguro e atualizado.
 - Desempenho previsível, com preços pay as you go inclusivos.
@@ -43,7 +43,7 @@ A azure Database for PostgreSQL powered by the PostgreSQL community edition est�
 
 A azure Database for PostgreSQL Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizaçãos de bases de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para alta disponibilidade incorporada com 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária de PostgreSQL 9.5, 9,6, 10 e 11. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
-A opção de implementação do Servidor Único oferece três níveis de preços: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) para obter mais detalhes.
+A opção de implementação Servidor Único oferece três escalões de preço: Básico, Fins Geral e Otimizada para Memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) para obter mais detalhes.
 
 Os servidores individuais são mais adequados para aplicações nativas em nuvem concebidas para lidar com remendos automatizados sem a necessidade de controlo granular na programação de remendos e configurações de configuração postgreSQL personalizadas.
 
@@ -64,12 +64,12 @@ Para obter uma visão geral detalhada do modo de implementação flexível do se
 
 ### <a name="azure-database-for-postgresql--hyperscale-citus"></a>Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
 
-A opção Hyperscale (Citus) escala horizontalmente as consultas em várias máquinas utilizando o fragmento. O seu motor de consulta paraleliza as consultas SQL recebidas nestes servidores para respostas mais rápidas em grandes conjuntos de dados. Serve aplicações que requerem maior escala e desempenho, geralmente cargas de trabalho que se aproximam -- ou já ultrapassam - 100 GB de dados.
+A opção Hyperscale (Citus) dimensiona horizontalmente as consultas em múltiplos computadores através da fragmentação. O seu motor de consulta paraleliza consultas SQL de entrada nestes servidores para obter respostas mais rápidas em grandes conjuntos de dados. É adequado a aplicações que exigem um maior dimensionamento e desempenho, cargas de trabalho que geralmente se aproximam ou já excederam 100 GB de dados.
 
-A opção de implantação Hyperscale (Citus) oferece:
+A opção de implementação Hyperscale (Citus) fornece:
 
-- Escala horizontal em várias máquinas usando o fragmento
-- Paralelização de consultas através destes servidores para respostas mais rápidas em grandes conjuntos de dados
+- Dimensionamento horizontal em múltiplos computadores através da fragmentação
+- Paralelização de consultas nestes servidores para obter respostas mais rápidas em grandes conjuntos de dados
 - Excelente suporte para aplicações de múltiplos inquilinos, análise operacional em tempo real e elevadas cargas de trabalho de débito transacional
   
 As aplicações construídas para PostgreSQL podem executar consultas distribuídas em Hiperescala (Citus) com bibliotecas de [conexão](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) padrão e alterações mínimas.

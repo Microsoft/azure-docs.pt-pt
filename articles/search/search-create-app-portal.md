@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91399827"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
@@ -61,7 +61,7 @@ O assistente fornece um layout básico para resultados de pesquisa renderizados 
 
 1. Em Descrição, escolha um campo que forneça detalhes que possam ajudar alguém a decidir se deve clicar nesse documento em particular.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configure os resultados para os dados da amostra" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="página de origem de dados para dados de amostra" border="false":::
 
 ## <a name="add-a-sidebar"></a>Adicione uma barra lateral
 
@@ -83,7 +83,7 @@ As sugestões são ativadas em definições de campo específicas. O assistente 
 
 A imagem que se segue mostra opções no assistente, justtaposa com uma página renderizada na aplicação. Pode ver como as seleções de campo são usadas e como "Show Field Name" é usado para incluir ou excluir a rotulagem dentro da sugestão.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Configuração de sugestão de consulta":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="página de origem de dados para dados de amostra":::
 
 ## <a name="create-download-and-execute"></a>Criar, transferir e executar
 
@@ -95,10 +95,10 @@ A imagem que se segue mostra opções no assistente, justtaposa com uma página 
 
 O índice subjacente é composto por dados fictícios gerados que foram duplicados entre documentos, e as descrições às vezes não correspondem à imagem. Pode esperar uma experiência mais coesa quando criar uma app baseada nos seus próprios índices.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Executar a aplicação":::
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="página de origem de dados para dados de amostra":::
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

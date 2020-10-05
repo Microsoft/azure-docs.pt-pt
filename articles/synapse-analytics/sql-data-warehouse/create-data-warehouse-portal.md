@@ -12,10 +12,10 @@ ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91568958"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
@@ -178,7 +178,7 @@ A Azure Synapse Analytics usa t-SQL como linguagem de consulta. Para abrir uma j
 
    ![Consultar dbo.dimCustomer](./media/create-data-warehouse-portal/query-customer.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado.
 
@@ -190,7 +190,7 @@ Siga estes passos para limpar os recursos que já não precisa.
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione a sua piscina SQL.
 
-   ![Limpar os recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Limpar recursos](./media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. Para parar o cálculo, selecione o **botão Pausa.** Quando a piscina SQL é pausada, vê-se um botão **Resume.** Para retomar o cálculo, **selecione Resume**.
 

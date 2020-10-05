@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91369220"
+ms.locfileid: "91728782"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -27,7 +27,7 @@ Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://a
 
 ## <a name="create-template-spec"></a>Criar especificação de modelo
 
-A especificação do modelo é um novo tipo de recurso chamado **Microsoft.Resources/templateSpecs**. Para criar a especificação do seu modelo, pode utilizar a Azure PowerShell, Azure CLI ou um modelo ARM. Em todas as opções, você precisa de um modelo ARM que é embalado dentro da especificação do modelo.
+A especificação do modelo é um tipo de recurso chamado **Microsoft.Resources/templateSpecs**. Para criar a especificação do seu modelo, pode utilizar a Azure PowerShell, Azure CLI ou um modelo ARM. Em todas as opções, você precisa de um modelo ARM que é embalado dentro da especificação do modelo.
 
 Com PowerShell e CLI, o modelo ARM é passado como parâmetro para o comando. Com o modelo ARM, o modelo ARM para embalar dentro da especificação do modelo está incorporado na definição de especificação do modelo.
 

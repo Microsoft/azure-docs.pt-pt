@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
-ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/05/2020
+ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535105"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728663"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -50,7 +50,7 @@ Para uma Base de Dados SQL, a redundância de armazenamento de backup pode ser c
 > Atualmente, o armazenamento redundante de zona só está disponível em [determinadas regiões.](../../storage/common/storage-redundancy.md#zone-redundant-storage) 
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure.  
+> O dissibilamento de armazenamento de backup configurável para a Base de Dados Azure SQL está atualmente disponível apenas em visualização pública na região do Sudeste Asiático Azure. Esta funcionalidade ainda não está disponível para o nível Hyperscale. 
 
 ### <a name="backup-usage"></a>Utilização de backup
 
@@ -453,7 +453,7 @@ Para impor os requisitos de residência de dados a nível organizacional, estas 
 Saiba como atribuir políticas utilizando o [portal Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) ou [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - As cópias de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres porque protegem os seus dados de corrupção acidental ou eliminação. Para conhecer as outras soluções de continuidade de negócios da SQL Database, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Obtenha mais informações sobre como [restaurar uma base de dados a um ponto no tempo, utilizando o portal Azure](recovery-using-backups.md).

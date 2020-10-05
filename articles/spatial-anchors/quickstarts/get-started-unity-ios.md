@@ -9,10 +9,10 @@ ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 630e90069cd1b9735dbaec4c0d825be71df7e69c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91539374"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação iOS da Unidade com âncoras espaciais Azure

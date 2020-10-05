@@ -7,10 +7,10 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377332"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para iOS.
@@ -47,7 +47,7 @@ Adicione os Serviços de Comunicação Azure Chamando a biblioteca do cliente e 
 5. Abra o separador **Definições** de Construção do editor de definições do projeto e percorra para a secção **Caminhos de Busca.** Adicione uma nova entrada **de Caminhos de Busca-Quadro** para o diretório contendo o **AzureCommunicationCalling.framework**.
     1. Adicione outra entrada dos Caminhos de Busca-Quadro apontando para a pasta que contém as dependências.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot mostrando a atualização dos caminhos de pesquisa de quadro dentro do XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot mostrando a janela do Novo Projeto dentro do Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Solicitar acesso ao microfone
 
@@ -192,7 +192,7 @@ func endCall()
 
 Pode construir e executar a sua aplicação no simulador iOS selecionando **Product**  >  **Run** ou utilizando o atalho de teclado (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Olhar final e sensação da app de arranque rápido":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Screenshot mostrando a janela do Novo Projeto dentro do Xcode.":::
 
 Pode fazer uma chamada VOIP de saída, fornecendo um ID do utilizador no campo de texto e tocando no botão **'Chamada'.** Ligar `8:echo123` liga-o a um robô echo, isto é ótimo para começar e verificar se os seus dispositivos de áudio estão a funcionar. 
 

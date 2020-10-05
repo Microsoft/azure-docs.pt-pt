@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: reconhecimento de colunas, biometria de voz
 ms.openlocfilehash: cfb16d95c0de7fabb7e939e53903f0a611f749e9
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91362559"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Começar com o Reconhecimento de Colunas

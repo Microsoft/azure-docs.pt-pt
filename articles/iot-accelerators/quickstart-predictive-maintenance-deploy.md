@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91541854"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada na cloud para executar uma análise de manutenção preditiva nos meus dispositivos ligados
@@ -76,7 +76,7 @@ A simulação é executada através do conjunto de dados completos para 148 cicl
 
 Pode parar a simulação a qualquer momento mas, se clicar em **Iniciar Simulação**, a simulação partirá novamente do início do conjunto de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser explorar ainda mais, deixe o acelerador de soluções de Manutenção Preditiva implementado.
 
@@ -84,7 +84,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou o acelerador de soluções de Manutenção Preditiva e executou uma simulação.
 

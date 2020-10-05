@@ -13,15 +13,15 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90604126"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
-AZure AD é um sistema de Gestão de Identidade e Acesso (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas. 
+O Azure AD é um sistema de Gestão de Identidades e Acessos (IAM). Fornece um único local para armazenar informações sobre identidades digitais. Pode configurar as suas aplicações de software para utilizar o Azure AD como o local onde as informações do utilizador são armazenadas. 
 
 O Azure AD deve ser configurado para integrar-se com uma aplicação. Por outras palavras, precisa de saber que aplicações a estão a usar como sistema de identidade. O processo de manter a Azure AD ciente destas aplicações, e como deve lidar com elas, é conhecido como gestão de aplicações.
 

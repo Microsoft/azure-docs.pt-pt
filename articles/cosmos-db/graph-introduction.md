@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409617"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
@@ -106,7 +106,7 @@ As bases de dados de gráficos são frequentemente incluídas na categoria NoSQL
 
 Vamos utilizar um gráfico de exemplo para compreender como as consultas podem ser expressadas no Gremlin. A imagem seguinte apresenta uma aplicação empresarial que gere dados sobre os utilizadores, interesses e dispositivos sob a forma de um gráfico.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Base de dados de exemplo a mostrar pessoas, dispositivos e interesses" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Arquitetura de gráficos do Azure Cosmos DB" border="false"::: 
 
 Este gráfico tem os seguintes tipos *de vértice* (estes também são chamados de "rótulo" em Gremlin):
 

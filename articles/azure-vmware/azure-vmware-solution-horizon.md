@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 60207b0ed9e1df805ac667752b55f14a693ec25c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91492570"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729054"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -84,7 +84,7 @@ Cada nuvem privada Azure / SDDC é capaz de lidar com 4.000 sessões de desktop 
 
 Dado o limite máximo de nuvem privada Azure / SDDC, recomendamos uma arquitetura de implantação onde os Servidores de Ligação Horizonte e os Gateways de Acesso Unificados de VMware (UAGs) estão a funcionar dentro da Rede Virtual Azure. Isto efetivamente transforma cada nuvem privada Azure / SDDC em um bloco. Isto, por sua vez, maximiza a escalabilidade da Horizon em execução na Azure VMware Solution.
 
-A ligação da Rede Virtual Azure às nuvens privadas Azure /SDDCs deve ser configurada com o Caminho Rápido ExpressPath. O diagrama seguinte mostra uma implantação básica da cápsula Horizon.
+A ligação da Rede Virtual Azure às nuvens privadas Azure /SDDCs deve ser configurada com ExpressRoute FastPath. O diagrama seguinte mostra uma implantação básica da cápsula Horizon.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="As diferenças entre Horizonte na Solução VMware Azure e Nuvem Horizon em Azure" border="false":::
 
@@ -92,7 +92,7 @@ A ligação da Rede Virtual Azure às nuvens privadas Azure /SDDCs deve ser conf
 
 Esta secção estabelece a arquitetura da rede a um nível elevado para escalar horizonte na Solução VMware Azure com alguns exemplos de implementação comuns. O foco aqui é especificamente em elementos críticos de networking.
 
-### <a name="single-horizon-pd-on-azure-vmware-solution"></a>PD Horizonte Único na Solução VMware Azure
+### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Cápsula Single Horizon na Solução VMware Azure
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="As diferenças entre Horizonte na Solução VMware Azure e Nuvem Horizon em Azure" border="false":::
 
