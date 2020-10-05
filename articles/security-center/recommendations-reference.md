@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
 ms.openlocfilehash: 93085cdc33ac713288bb9783fbe229f011ea6160
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91438868"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
@@ -170,7 +170,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**A transferência segura para contas de armazenamento deve ser ativada**|A transferência segura é uma opção que obriga a sua conta de armazenamento a aceitar pedidos apenas a partir de ligações seguras (HTTPS). HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camadas de rede, tais como o homem no meio, a escuta e o sequestro de sessão.<br>(Política relacionada: Deve ser ativada a transferência segura para contas de armazenamento)|Alto|N|Conta de armazenamento|
 |**Os dados sensíveis nas suas bases de dados SQL devem ser classificados**|A descoberta de dados de dados de base de dados Azure SQL & classificação fornece capacidades para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Uma vez classificados os seus dados, pode utilizar a auditoria da Base de Dados Azure SQL para auditar o acesso e monitorizar os dados sensíveis. O Azure SQL Database também permite funcionalidades avançadas de proteção de ameaças que criam alertas inteligentes baseados em alterações nos padrões de acesso aos dados sensíveis.<br>(Política relacionada: [Pré-visualização]: Os dados sensíveis nas bases de dados SQL devem ser classificados)|Alto|N|SQL|
 |**As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure**|Utilize o novo Gestor de Recursos Azure para as suas contas de armazenamento para fornecer melhorias de segurança tais como: controlo de acesso mais forte (RBAC), melhor auditoria, implementação e governação baseadas em gestores de recursos, acesso a identidades geridas, acesso a cofre chave para segredos, e autenticação e suporte baseados em Azure para tags e grupos de recursos para uma gestão mais fácil da segurança.<br>(Política relacionada: As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure)|Baixo|N|Conta de armazenamento|
-|**O acesso público à conta de armazenamento deve ser proibido**|O público anónimo lê o acesso a contentores e bolhas no Azure Storage é uma forma conveniente de partilhar dados, mas pode apresentar riscos de segurança. Para evitar violações de dados causadas por acesso anónimo não gasto, a Microsoft recomenda impedir o acesso do público a uma conta de armazenamento, a menos que o seu cenário o exija.<br>(Política relacionada: O acesso público à conta de armazenamento deve ser proibido)|Médio|Y|Conta de armazenamento|
+|**O acesso público à conta de armazenamento deve ser proibido**|O público anónimo lê o acesso a contentores e bolhas no Azure Storage é uma forma conveniente de partilhar dados, mas pode apresentar riscos de segurança. Para evitar violações de dados causadas por acesso anónimo não gasto, a Microsoft recomenda impedir o acesso do público a uma conta de armazenamento, a menos que o seu cenário o exija.<br>(Política relacionada: O acesso público à conta de armazenamento deve ser proibido)|Médio|S|Conta de armazenamento|
 |**A encriptação transparente de dados nas bases de dados SQL deve ser ativada**|Permitir encriptação de dados transparentes para proteger os dados em repouso e cumprir os requisitos de conformidade.<br>(Política relacionada: A encriptação transparente de dados nas bases de dados SQL deve ser ativada)|Baixo|**S**|SQL|
 |**A avaliação da vulnerabilidade deve ser ativada na Base de Dados SQL**|A avaliação de vulnerabilidades pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados.<br>(Política relacionada: A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL)|Alto|**S**|SQL|
 |**A avaliação da vulnerabilidade deve ser ativada em casos geridos pela SQL**|A avaliação de vulnerabilidades pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados.<br>(Política relacionada: A avaliação da vulnerabilidade deve ser ativada em casos geridos do SQL)|Alto|**S**|SQL|
@@ -212,7 +212,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 ||||
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações, consulte o seguinte:
 
 * [O módulo Microsoft Learn sobre como analisar as recomendações feitas pelo Security Center](https://docs.microsoft.com/learn/modules/identify-threats-with-azure-security-center/)

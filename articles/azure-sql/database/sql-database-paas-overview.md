@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91617235"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
@@ -210,7 +210,7 @@ A SQL Database suporta aplicações de construção com Python, Java, Node.js, P
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Posso controlar quando ocorre o tempo de inatividade?
 
-Não. O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
+N.º O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
 
 
 

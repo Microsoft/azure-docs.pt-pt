@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91566827"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?

@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: a52f88f5ca325027cbac53d2c7e927bcf30da994
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948215"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para PostgreSQL - Servidor Flexível
@@ -21,7 +21,7 @@ ms.locfileid: "90948215"
 
 O servidor flexível é um serviço gerido que utiliza para executar, gerir e escalar bases de dados postgreSQL altamente disponíveis na nuvem. Pode utilizar modelos ARM para obter um servidor flexível PostgreSQL para implementar vários servidores ou várias bases de dados num servidor.
 
-O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta Azure. Utiliza funcionalidades de gestão, como controlo de acessos, fechaduras e tags, para proteger e organizar os seus recursos após a implantação.
+O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta do Azure. Pode utilizar funcionalidades de gestão, como controlo de acesso, bloqueios e etiquetas, para proteger e organizar os seus recursos após a implementação.
 
 Para saber mais sobre os modelos do Gestor de Recursos Azure, consulte [a visão geral da implementação do modelo](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
@@ -214,7 +214,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Mantenha este grupo de recursos, servidor e base de dados única se quiser ir aos [próximos passos](#next-steps). Os próximos passos mostram-lhe como conectar e consultar a sua base de dados utilizando diferentes métodos.
 

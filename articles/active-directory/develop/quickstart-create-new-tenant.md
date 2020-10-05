@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91575984"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino

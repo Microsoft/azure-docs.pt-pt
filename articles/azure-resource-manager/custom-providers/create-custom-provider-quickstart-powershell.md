@@ -8,10 +8,10 @@ ms.devlang: azurepowershell
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9c921541cc1f27eb7a9af186c25346f101ba65d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91349026"
 ---
 # <a name="quickstart-create-an-azure-custom-resource-provider-with-azure-powershell"></a>Quickstart: Criar um fornecedor de recursos personalizados Azure com a Azure PowerShell
@@ -83,7 +83,7 @@ Para obter informações sobre uma associação, utilize o [cmdlet get-AzCustomP
 Get-AzCustomProviderAssociation -Scope $resourceId -Name MyAssoc
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se os recursos criados neste artigo não forem necessários, pode eliminá-los executando os seguintes exemplos.
 

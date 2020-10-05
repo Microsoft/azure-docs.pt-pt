@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.openlocfilehash: 76cc09ab5283e10e8f25af3aba4278ec6cca4838
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91333278"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação web Node.js com insights de aplicação Azure
@@ -118,7 +118,7 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
 Para saber mais sobre a monitorização Node.js, consulte os [AppInsights adicionais Node.js documentação.](../app/nodejs.md)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para fazê-lo siga os passos abaixo.
 

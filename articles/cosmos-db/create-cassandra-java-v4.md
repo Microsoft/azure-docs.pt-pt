@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 076cb892740b99971400fbc34f60dc1083554555
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90532210"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB Cassandra API (v4 Driver)
@@ -215,13 +215,13 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Ver os dados no Data Explorer - Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-java/view-data-explorer-java-app.png" alt-text="Ver e copiar um nome de utilizador no portal do Azure, página Cadeia de ligação":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

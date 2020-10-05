@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86274174"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Quickstart: Use SQL a pedido
@@ -80,7 +80,7 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 );
 ```
 
-## <a name="query-csv-files"></a>Ficheiros CSV de consulta
+## <a name="query-csv-files"></a>Consultar ficheiros CSV
 
 A imagem a seguir é uma pré-visualização do ficheiro a ser consultado:
 

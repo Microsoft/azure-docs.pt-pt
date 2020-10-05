@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
 ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631567"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando a Azure PowerShell
@@ -148,7 +148,7 @@ Copie o valor **relativo do Nome Denas.** O nome DNS do seu perfil de Gestor de 
 3. Copie o nome DNS do seu perfil de Gestor de Tráfego *(http://<* nome* relativo>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
 4. Verifique se a aplicação web ainda está disponível.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar, elimine os grupos de recursos, aplicações web e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

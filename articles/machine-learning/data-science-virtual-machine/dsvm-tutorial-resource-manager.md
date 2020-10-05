@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
 ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90883153"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual de ciência de dados Ubuntu usando um modelo ARM
@@ -77,7 +77,7 @@ Quando executar o comando acima, insira:
 
 Para ver a sua Máquina Virtual de Ciência de Dados:
 
-1. Vá ao [portal Azure](https://portal.azure.com)
+1. Aceda ao [Portal do Azure](https://portal.azure.com)
 1. Inicie sessão.
 1. Escolha o grupo de recursos que acabou de criar.
 
@@ -87,7 +87,7 @@ Verá as informações do Grupo de Recursos:
 
 Clique no recurso Máquina Virtual para ir à sua página de informações. Aqui pode encontrar informações sobre o VM, incluindo detalhes de conexão.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não quiser utilizar esta máquina virtual, elimine-a. Uma vez que o DSVM está associado a outros recursos, como uma conta de armazenamento, provavelmente irá querer eliminar todo o grupo de recursos que criou. Pode eliminar o grupo de recursos utilizando o portal clicando no botão **Eliminar** e confirmando. Ou, pode eliminar o grupo de recursos do CLI com:
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
 ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91285337"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
@@ -52,7 +52,7 @@ O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio c
 
 Utilize o Azure Maps Android SDK para criar aplicações de mapeamento móvel.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exemplos de mapas em um dispositivo móvel":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
 
 ## <a name="services-in-azure-maps"></a>Serviços no Azure Maps
 
@@ -78,7 +78,7 @@ Para saber mais sobre o serviço, consulte a documentação do [serviço de Mobi
 
 O [serviço de renderização V2](https://docs.microsoft.com/rest/api/maps/renderv2) que está agora em Preview introduz uma nova versão do [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). A API Get Map Tile V2 permite agora que os clientes solicitem azulejos de estrada Azure Maps, azulejos meteorológicos ou os azulejos de mapas criados com o Azure Maps Creator. Recomenda-se que utilize o novo Get Map Tile V2 API.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemplo de um mapa do serviço render V2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
 
 Para mais detalhes, leia a [documentação do serviço render V2.](https://docs.microsoft.com/rest/api/maps/renderv2)
 
@@ -88,7 +88,7 @@ Para saber mais sobre o serviço de renderização V1 que está em GA (Disponibi
 
 Os serviços de rota podem ser utilizados para calcular os horários estimados de chegada (AE) para cada rota solicitada. As APIs da Rota consideram fatores, como informações de tráfego em tempo real e dados históricos de tráfego, como as velocidades típicas da estrada no dia da semana e hora do dia solicitados. As APIs devolvem as rotas mais curtas ou rápidas disponíveis para vários destinos de cada vez em sequência ou em ordem otimizada, com base no tempo ou na distância. O serviço permite que os desenvolvedores calculem direções em vários modos de viagem, tais como carro, caminhão, bicicleta, ou passeio, e veículo elétrico. O serviço também considera inputs, como a hora de partida, restrições de peso ou transporte de materiais perigosos.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exemplo de um mapa do serviço Rota":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
 
 O serviço Route oferece funcionalidades avançadas de conjunto, tais como:
 
@@ -102,7 +102,7 @@ Para mais informações sobre as capacidades de encaminhamento, leia a [document
 
 O serviço de Pesquisa ajuda os desenvolvedores a procurar endereços, lugares, listas de negócios por nome ou categoria, e outras informações geográficas. Além disso, os serviços podem reverter endereços [de geocódigo](https://en.wikipedia.org/wiki/Reverse_geocoding) e atravessar ruas com base em latitudes e longitudes.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exemplo de uma pesquisa em um mapa":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
 
 O serviço De pesquisa também fornece funcionalidades avançadas, tais como:
 
@@ -204,7 +204,7 @@ Além disso, o Azure Maps oferece um [conveniente controlo de mapas JavaScript](
 
 O Azure Maps visual para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais em cima de um mapa. Estima-se que mais de 80% dos dados do negócio têm um contexto de localização. O visual Azure Maps oferece uma solução sem código para obter informações sobre como este contexto de localização se relaciona e influencia os dados do seu negócio.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop com o Azure Maps visualizando dados de negócio":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Mapa de exemplo da mudança de população criado usando Azure Maps Web SDK":::
 
 Para mais informações, consulte a Obtenção começou com a documentação [visual do Azure Maps Power BI.](power-bi-visual-getting-started.md)
 

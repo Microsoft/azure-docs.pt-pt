@@ -12,10 +12,10 @@ ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: scottwhi
 ms.openlocfilehash: 6e0e0cc2513b1c2a5f89e61984331399ebae269a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87320447"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Quickstart: Obtenha insights de imagem usando a API e Java de Pesquisa Visual Bing

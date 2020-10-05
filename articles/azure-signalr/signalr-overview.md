@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 92da400616ace9f24da121d81798d5ebd9222e35
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88921890"
 ---
 # <a name="what-is-azure-signalr-service"></a>O que é o Serviço Azure SignalR?

@@ -10,10 +10,10 @@ ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 04bbab477f20ec25ccb0e975dad2b30a511346d2
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667763"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
@@ -68,7 +68,7 @@ As identidades geridas para o seu espaço de trabalho Azure Synapse podem já te
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma piscina SQL](quickstart-create-sql-pool-studio.md) 
 * [Criar uma piscina Apache Spark](quickstart-create-apache-spark-pool-portal.md)

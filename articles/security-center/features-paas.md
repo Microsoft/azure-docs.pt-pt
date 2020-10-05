@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91613633"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recursos para serviços Azure PaaS <a name="paas-services"></a>
@@ -43,7 +43,7 @@ A tabela abaixo mostra a disponibilidade de funcionalidades do Centro de Seguran
 |Aplicação de Funções do Azure|✔|-|-|
 |Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
-|Azure Load Balancer|✔|-|-|
+|Balanceador de Carga do Azure|✔|-|-|
 |Azure Logic Apps|✔|-|-|
 |Base de Dados SQL do Azure|✔|✔|✔|
 |Instância Gerida do Azure SQL|✔|✔|✔|

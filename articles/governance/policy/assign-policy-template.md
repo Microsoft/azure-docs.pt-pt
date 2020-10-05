@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89651433"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo ARM
@@ -72,13 +72,13 @@ Alguns recursos adicionais:
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize os _VMs de auditoria que não utilizem_ a atribuição de política de discos geridos que criou.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Screenshot dos detalhes de conformidade na página De Conformidade de Política." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Botão para implantar o modelo ARM para atribuir uma Política de Azure ao Azure." border="false":::
 
 Se houver recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
 Para mais informações, consulte [como funciona a conformidade.](./how-to/get-compliance-data.md#how-compliance-works)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição criada, siga estes passos:
 
@@ -86,9 +86,9 @@ Para remover a atribuição criada, siga estes passos:
 
 1. Clique com o direito nos _VMs de auditoria que não utilizam_ a atribuição de política de discos geridos e selecione a atribuição de **Eliminar**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Screenshot de usar o menu de contexto para eliminar uma atribuição da página Compliance." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Botão para implantar o modelo ARM para atribuir uma Política de Azure ao Azure." border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, atribuiu uma definição de política incorporada a um âmbito e avaliou o seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são.
 

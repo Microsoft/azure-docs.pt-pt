@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
 ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322755"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Utilize Node.js para ligar e consultar dados da conta API API da Azure Cosmos DB SQL
@@ -177,7 +177,7 @@ Agora volte ao portal Azure para obter os detalhes da cadeia de ligação da sua
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** da navegação esquerda e, em seguida, selecione **'Teclas de leitura'.** Utilize os botões de cópia no lado direito do ecrã para copiar a URI e a Chave Primária para o ficheiro _app.js_ no passo seguinte.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, painel Chaves":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="O Data Explorer no portal do Azure, painel Adicionar Contentor":::
 
 2. Em Abrir o ficheiro _config.js._
 

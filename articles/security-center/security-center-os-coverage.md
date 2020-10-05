@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
 ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91449939"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
@@ -57,7 +57,7 @@ As máquinas virtuais que funcionam num serviço de nuvem também são suportada
 
 A proteção para os VMs que residem em Azure Stack também é suportada. Para obter mais informações sobre a integração do Security Center com o Azure Stack, consulte [a bordo das suas máquinas virtuais Azure Stack para o Security Center](quickstart-onboard-machines.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como o [Security Center recolhe dados utilizando o Agente De Análise de Registos.](security-center-enable-data-collection.md)
 - Saiba como o [Security Center gere e salvaguarda dados.](security-center-data-security.md)

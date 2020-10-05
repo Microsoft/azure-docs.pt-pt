@@ -10,13 +10,13 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90889041"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
 Neste arranque rápido, aprenda a embarcar Azure Sentinel. 
 
@@ -37,7 +37,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 - Para ativar o Azure Sentinel, precisa de permissões de colaboradores para a subscrição em que reside o espaço de trabalho Azure Sentinel. 
 - Para utilizar o Azure Sentinel, precisa de permissões de colaborador ou leitor no grupo de recursos a que pertence o espaço de trabalho.
 - Podem ser necessárias permissões adicionais para ligar fontes de dados específicas.
-- Azure Sentinel é um serviço pago. Para obter informações sobre preços consulte [Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+- O Azure Sentinel é um serviço pago. Para obter informações sobre preços consulte [Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## <a name="enable-azure-sentinel"></a>Ativar sentinela Azure <a name="enable"></a>
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91654468"
 ---
 Para criar um projeto visual Studio para o desenvolvimento de aplicativos móveis cross-platform .NET com Xamarin, você precisa:
@@ -83,7 +83,7 @@ Instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e refira o SDK
 
 1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione todos os projetos: **helloworld,** **helloworld. Android**, **helloworld.iOS**e **helloworld. UWP**.
 
-1. Selecione **Install** (Instalar).
+1. Selecione **Instalar**.
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 

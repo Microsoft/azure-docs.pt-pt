@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906360"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Quickstart: Criar uma resposta automática a um alerta de segurança específico utilizando um modelo de Gestor de Recursos Azure (modelo ARM)
@@ -77,14 +77,14 @@ Utilize o portal Azure para verificar se a automatização do fluxo de trabalho 
     >[!TIP]
     > Se tiver muitas automatizações de fluxo de trabalho na sua subscrição, utilize o filtro por opção **nome.** 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine a automatização do fluxo de trabalho utilizando o portal Azure.
 
 1. A partir [do portal Azure,](https://portal.azure.com) **Abrir Centro de Segurança.**
 1. A partir da barra de menu superior, selecione o ícone do filtro e selecione a subscrição específica na qual implementou a nova automatização do fluxo de trabalho.
 1. Da barra lateral do Security Center, abra **a automatização do fluxo de trabalho** e encontre a automatização a ser eliminada.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Passos para a remoção de uma automatização do fluxo de trabalho" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Lista de automações configuradas" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Selecione a caixa de verificação para que o item seja eliminado.
 1. A partir da barra de ferramentas, **selecione Delete**.
 

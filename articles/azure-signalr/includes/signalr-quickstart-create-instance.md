@@ -8,10 +8,10 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: f738daab7ddcf0403f546e7c9ffeaeccb66bc6b7
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91355653"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Criar uma instância do Azure SignalR Service

@@ -7,10 +7,10 @@ ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322058"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
@@ -136,14 +136,14 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-sessão), versão 2004|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-sessão), versão 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Yes|No|No|
-|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Yes|No|No|
-|Windows 7 Enterprise|Yes|Yes|No|No|
-|Windows Server 2019|Yes|Yes|No|No|
-|Windows Server 2016|Yes|Yes|Yes|Yes|
-|Windows Server 2012 R2|Yes|Yes|No|Não|
+|Windows 10 Enterprise (multi-sessão), versão 2004|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multi-sessão), versão 1909|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multi-sessão), versão 1903|Sim|Sim|Não|Não|
+|Windows 10 Enterprise (multi-sessão), versão 1809|Sim|Sim|Não|Não|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|
+|Windows Server 2019|Sim|Sim|Não|Não|
+|Windows Server 2016|Sim|Sim|Sim|Sim|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 

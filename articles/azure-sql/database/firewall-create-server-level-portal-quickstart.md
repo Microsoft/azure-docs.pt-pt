@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
 ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91335046"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Quickstart: Criar uma regra de firewall ao nível do servidor utilizando o portal Azure
@@ -64,7 +64,7 @@ Siga estes passos para criar uma regra de firewall IP de nível de servidor para
 
 Utilizando o SQL Server Management Studio ou outra ferramenta à sua escolha, pode agora ligar-se ao servidor e às suas bases de dados a partir deste endereço IP utilizando a conta de administração do servidor criada anteriormente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, pretender eliminar os recursos que criou neste arranque rápido, utilize os seguintes passos.
 

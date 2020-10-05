@@ -5,34 +5,34 @@ ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91372277"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
-O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta Azure. Utiliza funcionalidades de gestão, como controlo de acessos, fechaduras e tags, para proteger e organizar os seus recursos após a implantação.
+O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta do Azure. Pode utilizar funcionalidades de gestão, como controlo de acesso, bloqueios e etiquetas, para proteger e organizar os seus recursos após a implementação.
 
 Para saber mais sobre os modelos do Gestor de Recursos Azure, consulte [a visão geral da implementação do modelo](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Camada de gestão consistente
 
-Quando um utilizador envia um pedido de qualquer uma das ferramentas Azure, APIs ou SDKs, o Gestor de Recursos recebe o pedido. Autentica e autoriza o pedido. O Gestor de Recursos envia o pedido para o serviço Azure, que toma a ação solicitada. Como todos os pedidos são tratados através da mesma API, você vê resultados e capacidades consistentes em todas as diferentes ferramentas.
+Quando um utilizador envia um pedido de uma das ferramentas, APIs ou SDKs do Azure, o Resource Manager recebe o pedido. Autentica e autoriza o pedido. O Resource Manager envia o pedido para o serviço do Azure, que efetua a ação pedida. Uma vez que todos os pedidos são processados pela mesma API, vê resultados e capacidades consistentes em todas as ferramentas.
 
-A imagem a seguir mostra o papel que o Azure Resource Manager desempenha no tratamento dos pedidos do Azure.
+A imagem seguinte mostra a função do Azure Resource Manager no processamento de pedidos do Azure.
 
 ![Modelo de pedido do Resource Manager](./media/overview/consistent-management-layer.png)
 
-Todas as capacidades disponíveis no portal também estão disponíveis através de PowerShell, Azure CLI, REST APIs e Cliente SDKs. A funcionalidade inicialmente lançada através de APIs será representada no portal dentro de 180 dias do lançamento inicial.
+Todas as capacidades disponíveis no portal estão também disponíveis no PowerShell, CLI do Azure, APIs REST e SDKs de cliente. A funcionalidade inicialmente lançada através de APIs será representada no portal dentro de 180 dias do lançamento inicial.
 
 ## <a name="terminology"></a>Terminologia
 
 Se é a primeira vez que utiliza o Azure Resource Manager, existem alguns termos com os quais poderá não estar familiarizado.
 
-* **recurso** - Um item manejável que está disponível através do Azure. Máquinas virtuais, contas de armazenamento, aplicações web, bases de dados e redes virtuais são exemplos de recursos. Grupos de recursos, subscrições, grupos de gestão e tags são também exemplos de recursos.
-* **grupo de recursos** - um contentor que retém recursos relacionados para uma solução do Azure. O grupo de recursos inclui os recursos que pretende gerir como um grupo. Decide que recursos pertencem a um grupo de recursos com base no que faz mais sentido para a sua organização. Consulte [grupos de recursos](#resource-groups).
+* **recurso** - Um item manejável que está disponível através do Azure. Máquinas virtuais, contas de armazenamento, aplicações Web, bases de dados e redes virtuais são exemplos de recursos. Grupos de recursos, subscrições, grupos de gestão e tags são também exemplos de recursos.
+* **grupo de recursos** - Um contentor que detém recursos relacionados para uma solução Azure. O grupo de recursos inclui os recursos que pretende gerir como um grupo. Decide que recursos pertencem a um grupo de recursos com base no que faz mais sentido para a sua organização. Consulte [grupos de recursos](#resource-groups).
 * **fornecedor de recursos** - Um serviço que fornece recursos Azure. Por exemplo, um fornecedor comum de recursos é o Microsoft.Compute, que fornece o recurso de máquina virtual. Microsoft.Storage é outro fornecedor comum de recursos. Consulte [os fornecedores e tipos de recursos.](resource-providers-and-types.md)
 * **Modelo de Gestor de Recursos** - Um ficheiro JavaScript Object Notation (JSON) que define um ou mais recursos para implantar num grupo de recursos, subscrição, grupo de gestão ou inquilino. O modelo pode ser utilizado para implementar os recursos de forma consistente e repetida. Consulte [a visão geral da implementação do modelo](../templates/overview.md).
 * **sintaxe declarativa** - sintaxe que permite afirmar "Aqui está o que pretendo criar" sem ter de escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No ficheiro, é possível definir as propriedades da infraestrutura de implementação para o Azure.  Consulte [a visão geral da implementação do modelo](../templates/overview.md).
@@ -41,19 +41,19 @@ Se é a primeira vez que utiliza o Azure Resource Manager, existem alguns termos
 
 Com o Gestor de Recursos, pode:
 
-* Gerencie a sua infraestrutura através de modelos declarativos em vez de scripts.
+* Gerir a sua infraestrutura através de modelos declarativos, em vez de scripts.
 
-* Implemente, gerencie e monitorize todos os recursos para a sua solução como um grupo, em vez de lidar com estes recursos individualmente.
+* Implemente, faça a gestão e monitorize todos os recursos da sua solução como grupo, em vez de processar esses recursos individualmente.
 
-* Reimplantar a sua solução ao longo do ciclo de vida do desenvolvimento e ter confiança que os seus recursos são implantados num estado consistente.
+* Volte a implementar a sua solução ao longo do ciclo de vida de desenvolvimento, tendo a confiança de que os seus recursos são implementados num estado consistente.
 
-* Defina as dependências entre recursos para que sejam implantados na ordem correta.
+* Defina as dependências entre os recursos, para que sejam implementados na ordem correta.
 
 * Aplicar o controlo de acesso a todos os serviços porque o controlo de acesso baseado em funções Azure (Azure RBAC) está nativamente integrado na plataforma de gestão.
 
-* Aplique etiquetas em recursos para organizar logicamente todos os recursos na sua subscrição.
+* Aplique etiquetas a recursos para organizar logicamente todos os recursos na sua subscrição.
 
-* Esclareça a faturação da sua organização visualizando os custos de um grupo de recursos que partilham a mesma etiqueta.
+* Clarifique a faturação da sua organização ao ver os custos de um grupo de recursos com a mesma etiqueta.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
@@ -63,7 +63,7 @@ O Azure fornece quatro níveis de âmbito: grupos de [gestão,](../../governance
 
 Pode aplicar as definições de gestão em qualquer um destes níveis de âmbito. O nível que selecionar determina o quanto a definição é aplicada. Os níveis inferiores herdam as definições de níveis mais altos. Por exemplo, quando aplica uma [política](../../governance/policy/overview.md) à subscrição, a política é aplicada a todos os grupos de recursos e recursos na sua subscrição. Quando se aplica uma política ao grupo de recursos, essa política é aplicada ao grupo de recursos e a todos os seus recursos. No entanto, outro grupo de recursos não tem essa atribuição política.
 
-Você pode implementar modelos para inquilinos, grupos de gestão, subscrições ou grupos de recursos.
+Pode implementar modelos em inquilinos, grupos de gestão, subscrições ou grupos de recursos.
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

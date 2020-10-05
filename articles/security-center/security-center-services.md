@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91439413"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
@@ -105,7 +105,7 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 > A deteção da Proteção de Pontos Finais do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v3.0 ou mais recente).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como o [Security Center recolhe dados e o Agente de Análise de Registos.](security-center-enable-data-collection.md)
 - Saiba como o [Security Center gere e salvaguarda dados.](security-center-data-security.md)

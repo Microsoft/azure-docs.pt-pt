@@ -4,10 +4,10 @@ description: Aprenda as funcionalidades e benefícios da Azure VMware Solution p
 ms.topic: overview
 ms.date: 05/04/2020
 ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91574467"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é o Azure VMware Solution?
@@ -26,7 +26,7 @@ Azure VMware Solution nuvens privadas e clusters são construídos a partir de u
 
 Novas nuvens privadas são implantadas através do portal Azure ou Azure CLI.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 [!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 

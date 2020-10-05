@@ -4,10 +4,10 @@ description: Utilize a Grelha de Eventos Azure e um modelo de Gestor de Recursos
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91598357"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Quickstart: Route Blob storage events to web endpoint usando um modelo ARM
@@ -77,7 +77,7 @@ Quando envia o ficheiro para o armazenamento da Azure Blob, o Event Grid envia u
 
 ![Ver resultados](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
 ).
@@ -88,5 +88,5 @@ Para obter mais informações sobre os modelos do Gestor de Recursos Azure, cons
 
 * [Documentação do Gestor de Recursos Azure](../azure-resource-manager/index.yml)
 * [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/)
-* [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+* [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelos de grelha de eventos Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

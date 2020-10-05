@@ -13,10 +13,10 @@ ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90894434"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
@@ -48,7 +48,7 @@ A lista atual de nova documentação está disponível no [What's new in Cogniti
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
+|[Serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
 |[API de Reconhecimento de Altifalantes](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de Reconhecimento de Orador") (Pré-visualização)|A API de Reconhecimento de Altifalantes fornece algoritmos para identificação e verificação de altifalantes.|
 |[Discurso de Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Voz do Bing") (Aposentação)|A API do Discurso Bing proporciona-lhe uma forma fácil de criar funcionalidades ativadas pela fala nas suas aplicações.|
 |[Discurso do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de Voz") (Reforma)|Tradutor Speech é um serviço de tradução automática.|

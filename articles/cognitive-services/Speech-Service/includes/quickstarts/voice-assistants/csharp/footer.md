@@ -11,10 +11,10 @@ ms.date: 03/20/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 63e7522c3dce48307bc5407071703ced4e8cd815
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88925438"
 ---
 > [!div class="nextstepaction"]

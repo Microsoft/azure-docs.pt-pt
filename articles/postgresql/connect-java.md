@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88545442"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Use Java e JDBC com base de dados Azure para PostgreSQL

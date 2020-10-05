@@ -9,10 +9,10 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
 ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896270"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use o Ruby para ligar e consultar dados na Base de Dados Azure para o MySQL

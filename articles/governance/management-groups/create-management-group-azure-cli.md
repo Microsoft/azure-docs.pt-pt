@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f07ae46c95f9ab9cc1ad973204ac5c50320fdf46
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237400"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Quickstart: Criar um grupo de gestão com o Azure CLI
@@ -49,7 +49,7 @@ Nos exemplos anteriores, o novo grupo de gestão é criado no âmbito do grupo d
 az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o grupo de gestão acima criado, utilize o comando [az-grupo de gestão de conta:](/cli/azure/account/management-group#az-account-management-group-delete)
 

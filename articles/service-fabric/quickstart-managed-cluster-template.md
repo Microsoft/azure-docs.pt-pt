@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91410506"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Quickstart: Implementar um cluster gerido por tecido de serviço (pré-visualização) com um modelo de Gestor de Recursos Azure
@@ -68,7 +68,7 @@ Assim que a implementação estiver concluída, encontre o valor do Explorador d
 > [!NOTE]
 > Pode encontrar a saída da implementação no Portal Azure no separador de implementações do grupo de recursos.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos para o seu cluster gerido por Tecido de Serviço. Para eliminar o grupo de recursos através do portal:
 

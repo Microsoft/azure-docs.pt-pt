@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Apache Hive in Azure HDInsight com Apache Zeppelin'
-description: Neste arranque rápido, aprende-se a usar o Apache Zeppelin para fazer consultas à Apache Hive.
+title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
+description: Neste arranque rápido, aprende-se a usar o Apache Zeppelin para executar consultas de Colmeia Apache.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,53 +9,53 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79367929"
 ---
-# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas de Hive Apache em Azure HDInsight com Apache Zeppelin
+# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Quickstart: Execute consultas apache hive em Azure HDInsight com Apache Zeppelin
 
-Neste arranque rápido, aprende-se a usar o Apache Zeppelin para executar consultas [apache hive](https://hive.apache.org/) em Azure HDInsight. Os clusters de consulta interativa HDInsight incluem os cadernos [Apache Zeppelin](https://zeppelin.apache.org/) que pode usar para executar consultas interativas da Hive.
+Neste arranque rápido, você aprende a usar Apache Zeppelin para executar consultas [apache Hive](https://hive.apache.org/) em Azure HDInsight. Os clusters de consultas interativas HDInsight incluem cadernos [Apache Zeppelin](https://zeppelin.apache.org/) que você pode usar para executar consultas interativas de Hive.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um cluster de consulta interativa HDInsight. Consulte [o cluster Create](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Certifique-se de escolher o tipo de cluster **de consulta interativa.**
+Um cluster de consulta interativa HDInsight. Consulte [criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Certifique-se de escolher o tipo de cluster **de consulta interativa.**
 
-## <a name="create-an-apache-zeppelin-note"></a>Crie uma Nota Apache Zeppelin
+## <a name="create-an-apache-zeppelin-note"></a>Criar uma Nota De Zeppelin Apache
 
-1. Substitua-a `CLUSTERNAME` com o nome `https://CLUSTERNAME.azurehdinsight.net/zeppelin`do seu cluster no seguinte URL . Em seguida, introduza o URL num navegador web.
+1. `CLUSTERNAME`Substitua-o pelo nome do seu cluster no seguinte URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Em seguida, insira o URL num navegador web.
 
-2. Introduza o nome de utilizador e a palavra-passe do seu cluster. A partir da página zeppelin, você pode criar uma nova nota ou abrir notas existentes. **A HiveSample** contém algumas consultas de colmeia.  
+2. Insira o nome de utilizador e a palavra-passe do seu cluster. A partir da página zeppelin, pode criar uma nova nota ou abrir notas existentes. **HiveSample** contém algumas consultas de hive amostra.  
 
-    ![HDInsight Interactive Query Zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    ![HDInsight Interactive Query zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
 
-3. Selecione **Criar uma nova nota.**
+3. **Selecione Criar nova nota**.
 
-4. A partir do novo diálogo de **nota Criar,** digitar ou selecionar os seguintes valores:
+4. A partir do **diálogo de notas nova,** escreva ou selecione os seguintes valores:
 
-    - Nota Nome: Introduza um nome para a nota.
-    - Intérprete predefinido: Selecione **jdbc** da lista de lançamentos.
+    - Nota: Introduza um nome para a nota.
+    - Intérprete predefinido: Selecione **jdbc** da lista de drop-down.
 
 5. Selecione **Criar Nota**.
 
-6. Introduza a seguinte consulta da Colmeia na secção de código e, em seguida, prima **Shift + Enter**:
+6. Introduza a seguinte consulta de Colmeia na secção de código e, em seguida, prima **Shift + Enter**:
 
     ```hive
     %jdbc(hive)
     show tables
     ```
 
-    ![HDInsight Interactive Query Zeppelin executa consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    ![HDInsight Interactive Query zeppelin executa consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
 
-    A declaração **%jdbc (colmeia)** na primeira linha diz ao caderno para usar o intérprete Hive JDBC.
+    A declaração **de %jdbc (colmeia)** na primeira linha diz ao caderno para usar o intérprete Hive JDBC.
 
-    A consulta deve devolver uma mesa de colmeia chamada **colmeia.**
+    A consulta deve devolver uma mesa de colmeia chamada **hivesmpletable**.
 
-    Seguem-se duas consultas adicionais da Hive que pode correr contra a **colmeia:**
+    Seguem-se duas consultas adicionais de Colmeia que pode correr contra **o hivesampletable:**
 
     ```hive
     %jdbc(hive)
@@ -68,7 +68,7 @@ Um cluster de consulta interativa HDInsight. Consulte [o cluster Create](../hado
     limit ${total_count=10}
     ```
 
-    Comparando com a colmeia tradicional, os resultados da consulta voltam mais rápido.
+    Comparando com a Colmeia tradicional, os resultados da consulta devem voltar mais rápido.
 
 ### <a name="additional-examples"></a>Exemplos adicionais
 
@@ -98,7 +98,7 @@ Um cluster de consulta interativa HDInsight. Consulte [o cluster Create](../hado
     INTO TABLE log4jLogs;
     ```
 
-1. Insira um único disco. Execute o código abaixo no Caderno Zeppelin:
+1. Insira um único registo. Execute o código abaixo no Caderno Zeppelin:
 
     ```hql
     %jdbc(hive)
@@ -106,17 +106,17 @@ Um cluster de consulta interativa HDInsight. Consulte [o cluster Create](../hado
     VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
     ```
 
-Reveja o manual de [linguagem da Colmeia](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) para obter sintaxe adicional.
+Reveja o [manual de linguagem Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) para obter sintaxe adicional.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
+Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a usar Apache Zeppelin para executar consultas apache hive em Azure HDInsight. Para saber mais sobre as consultas da Hive, o próximo artigo irá mostrar-lhe como executar consultas com o Visual Studio.
+Neste quickstart, você aprendeu a usar Apache Zeppelin para executar consultas apache Hive em Azure HDInsight. Para saber mais sobre as consultas da Hive, o próximo artigo irá mostrar-lhe como executar consultas com o Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure HDInsight e execute consultas apache hive usando ferramentas de data lake para estúdio visual](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
+> [Conecte-se ao Azure HDInsight e executar consultas de Colmeia Apache usando ferramentas do Lago de Dados para Estúdio Visual](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)

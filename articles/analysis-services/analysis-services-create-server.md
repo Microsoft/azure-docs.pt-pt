@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89230785"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
@@ -47,7 +47,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou, navegue para **todos os**  >  **serviços de análise para** ver se o seu servidor está pronto. Os servidores suportam modelos tabulares nos níveis de compatibilidade 1200 e mais elevados. O nível de compatibilidade do modelo é especificado no Visual Studio ou SSMS.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do servidor, clique em **Eliminar**. 
 

@@ -8,10 +8,10 @@ ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 8e41e20752e4203bf9916813b86cd901f4f75c09
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90708228"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o Azure CLI (pré-visualização)
@@ -77,7 +77,7 @@ myapim       myResourceGroup   Central US  https://myapim.azure-api.net       20
 
 Quando o seu serviço de gestão API estiver online, está pronto para usá-lo. Comece com o tutorial para [importar e publicar a sua primeira API.](import-and-publish.md)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group#az-group-delete) para remover o grupo de recursos e a instância do serviço de gestão da API.
 

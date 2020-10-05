@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409396"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer uma base de dados de grafos do Azure Cosmos DB com a consola do Gremlin
@@ -65,11 +65,11 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 
    Para o valor dos anfitriões, copie o valor **Gremlin URI** a partir da página **'Vista Geral':**
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Ver e copiar o valor do URI do Gremlin na página Descrição Geral no portal do Azure":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB a partir da consola Apache Gremlin":::
 
    Para o valor da palavra-passe, copie a **chave principal** da página **Chaves:**
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Ver e copiar a sua chave primária no portal Azure, página Chaves":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB a partir da consola Apache Gremlin":::
 
    O ficheiro remote-secure.yaml deve ter o seguinte aspeto:
 
@@ -315,7 +315,7 @@ Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

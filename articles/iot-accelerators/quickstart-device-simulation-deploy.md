@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "65467853"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Início Rápido: implementar e executar uma solução de dispositivo de IoT no Azure
@@ -22,7 +22,7 @@ Este início rápido mostra como implementar a Simulação de Dispositivo de IoT
 
 Para concluir este início rápido, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="deploy-device-simulation"></a>Implementar a Simulação do Dispositivo
 
@@ -44,7 +44,7 @@ Selecione a **Subscrição** e a **Região** que quer utilizar para implementar 
 
 Selecione a caixa para implementar um hub IoT para utilizar com a sua solução de simulação de dispositivo. Pode sempre alterar o hub IoT que a simulação utilizará mais tarde.
 
-Clique em **Criar** para começar a fornecer a sua solução. Este processo demora, pelo menos, cinco minutos a ser executado:
+Clique em **Criar** para começar a arê-lo. Este processo demora, pelo menos, cinco minutos a ser executado:
 
 ![Detalhes da solução de Simulação de Dispositivos](./media/quickstart-device-simulation-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Quando o processo de aprovisionamento estiver concluído, pode iniciar sessão n
 
 ![Abrir a Simulação de Dispositivo](./media/quickstart-device-simulation-deploy/choosenew.png)
 
-Clique **Em Aceitar** o pedido de permissões, o dashboard de solução de simulação de dispositivo solução exibe no seu navegador.
+Clique **em Aceitar** o pedido de permissões, o painel de instrumentos de solução de simulação do dispositivo aparece no seu navegador.
 
 Quando aberto pela primeira vez, verá o dashboard Simulação de Dispositivo com um guia **Introdução**. Clique no primeiro mosaico para abrir uma simulação de exemplo. Se fechar o guia **Introdução**, pode abrir a **Simulação Simples de Exemplo** a partir do dashboard ao clicar no respetivo bloco:
 

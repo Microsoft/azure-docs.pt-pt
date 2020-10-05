@@ -8,10 +8,10 @@ ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90057424"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Quickstart: Criar uma nova instância de serviço de gestão API da Azure usando o Código do Estúdio Visual
@@ -59,7 +59,7 @@ Neste momento, está pronto para importar e publicar a sua primeira API. Pode fa
 
 ![Recém-criado exemplo de Gestão de API no painel de extensão da API Management do código VS](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, remova a instância de Gestão da API clicando à direita e selecionando **Open in Portal** para eliminar o serviço de [Gestão API](get-started-create-service-instance.md#clean-up-resources) e o seu grupo de recursos.
 
@@ -67,7 +67,7 @@ Em alternativa, pode selecionar **eliminar a Gestão da API** apenas para elimin
 
 ![Eliminar instância de Gestão de API do Código VS](./media/vscode-create-service-instance/vscode-apim-delete.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Importar e publicar a sua primeira API](import-and-publish.md)

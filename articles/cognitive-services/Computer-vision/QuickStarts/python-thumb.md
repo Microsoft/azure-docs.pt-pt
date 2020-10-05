@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
 ms.openlocfilehash: c415e8e9c07ca991b32576ebf9daa109a500dbff
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88505840"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Quickstart: Gere uma miniatura utilizando a API e a Python da Visão Computacional

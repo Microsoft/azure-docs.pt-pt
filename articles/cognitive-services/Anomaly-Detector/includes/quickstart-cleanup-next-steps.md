@@ -1,5 +1,5 @@
 ---
-title: Próximos passos para quickstarts do Detetor de Anomalias
+title: Próximos passos para o detetor de anomalias quickstarts
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/19/2019
 ms.author: aahi
 ms.openlocfilehash: eb00d680e6312bb7f380e27d2fa6bb6fe34fa616
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "74482998"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -20,7 +20,7 @@ ms.locfileid: "74482998"
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao grupo de recursos.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -28,7 +28,7 @@ Conceitos:
 
 * [O que é a API do Detetor de Anomalias?](../overview.md)
 * [Métodos de deteção de anomalias](../how-to/identify-anomalies.md)
-* [Boas práticas ao utilizar a API do Detetor de Anomalias.](../concepts/anomaly-detection-best-practices.md) 
+* [Melhores práticas ao utilizar a API do Detetor de Anomalias.](../concepts/anomaly-detection-best-practices.md) 
 
 Tutoriais:
 

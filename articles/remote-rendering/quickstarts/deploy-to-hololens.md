@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
 ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88796804"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Quickstart: Implementar a amostra de unidade para hololens

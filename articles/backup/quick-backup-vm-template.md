@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: e64aa10d8ddadd367d04b2b480770a99f3ece1dc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88826536"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Quickstart: Apoie uma máquina virtual em Azure com um modelo ARM
@@ -71,7 +71,7 @@ O modelo cria um VM e permite voltar a ser o VM. Depois de implementar o modelo,
 
 Para monitorizar o trabalho de backup, consulte [monitorar o trabalho de reserva](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisar de fazer o reforço do VM, pode limpá-lo.
 

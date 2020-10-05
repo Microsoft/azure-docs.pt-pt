@@ -6,10 +6,10 @@ ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
 ms.openlocfilehash: 88a3876757c3f51d1fc70692976987560ee1b991
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961640"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
@@ -38,7 +38,7 @@ Para mostrar todas as versões Python suportadas, executar o seguinte comando na
 az webapp list-runtimes --linux | grep PYTHON
 ```
 
-Em vez disso, pode executar uma versão não suportada do Python construindo a sua própria imagem de contentor. Para obter mais informações, consulte [a utilização de uma imagem personalizada do Docker.](tutorial-custom-container.md?pivots=container-linux)
+Em vez disso, pode executar uma versão não suportada do Python construindo a sua própria imagem de contentor. Para obter mais informações, veja [Utilizar uma imagem personalizada do Docker](tutorial-custom-container.md?pivots=container-linux).
 
 ## <a name="set-python-version"></a>Definir versão Python
 
@@ -156,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir definições](configure-common.md#configure-app-settings) de aplicações fora do seu código de aplicação. Em seguida, pode acessá-los usando o padrão [os.environ.](https://docs.python.org/3/library/os.html#os.environ) Por exemplo, para aceder a uma configuração de aplicação chamada `WEBSITE_SITE_NAME` , use o seguinte código:
+No Serviço de Aplicações, pode [configurar as definições da aplicação](configure-common.md#configure-app-settings) fora do código da aplicação. Em seguida, pode acessá-los usando o padrão [os.environ.](https://docs.python.org/3/library/os.html#os.environ) Por exemplo, para aceder a uma definição da aplicação chamada `WEBSITE_SITE_NAME`, utilize o seguinte código:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -177,7 +177,7 @@ As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação 
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
+## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -202,4 +202,4 @@ As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação 
 > [Tutorial: Implantação do repositório de contentores privados](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+> [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)

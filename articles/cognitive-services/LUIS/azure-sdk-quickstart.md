@@ -9,10 +9,10 @@ keywords: Azure, inteligência artificial, ai, processamento de linguagem natura
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327298"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Quickstart: Language Understanding (LUIS) SDK bibliotecas de clientes para criar e consultar a sua app LUIS
@@ -35,7 +35,7 @@ A Compreensão da Linguagem (LUIS) permite-lhe aplicar o processamento de lingua
 [!INCLUDE [LUIS development with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode eliminar a aplicação do [portal LUIS](https://www.luis.ai) e eliminar os recursos do Azure do [portal Azure.](https://portal.azure.com/)
 

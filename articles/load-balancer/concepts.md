@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
 ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91629034"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algoritmo do balançador de carga Azure

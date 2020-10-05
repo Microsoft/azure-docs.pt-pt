@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
 ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86231272"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
@@ -27,21 +27,21 @@ Neste arranque rápido, utiliza-se o CLI Azure para definir um trabalho stream A
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-your-environment"></a>Preparar o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
-1. Inicia sessão.
+1. Inicie sessão.
 
-   Inicie sessão utilizando o comando [de login az](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local do CLI.
+   Inicie sessão com o comando [az login](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local da CLI.
 
     ```azurecli
     az login
     ```
 
-    Siga os passos apresentados no seu terminal para completar o processo de autenticação.
+    Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
 2. Instale a extensão da CLI do Azure.
 
-   Ao trabalhar com referências de extensão para o Azure CLI, deve primeiro instalar a extensão.  As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que ainda não foram enviados como parte do núcleo CLI.  Para saber mais sobre extensões, incluindo atualização e desinstalação, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+   Para trabalhar com referências de extensão da CLI do Azure, terá primeiro de instalar a extensão.  As extensões da CLI do Azure dão-lhe acesso a comandos experimentais e de pré-lançamento que ainda não foram enviados como parte do núcleo da CLI.  Para saber mais sobre as extensões, incluindo a atualização e a desinstalação, veja [Utilizar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
    Instale a [extensão para Stream Analytics](/cli/azure/ext/stream-analytics/stream-analytics) executando o seguinte comando:
 
@@ -266,7 +266,7 @@ az stream-analytics job start
     --output-start-mode JobStartTime
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 

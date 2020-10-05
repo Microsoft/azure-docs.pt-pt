@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906135"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando PowerShell
@@ -216,7 +216,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Selecione a ligação para ligar ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

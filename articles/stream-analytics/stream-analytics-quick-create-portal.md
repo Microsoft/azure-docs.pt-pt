@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90901067"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
@@ -114,7 +114,7 @@ Nesta secção, irá configurar uma entrada de dispositivo IoT Hub para o trabal
    |---------|---------|---------|
    |Alias de entrada  |  IoTHubInput   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Subscrição   |  \<Your subscription\> |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
-   |Hub IoT  |  MyASAIotHub |  Insira o nome do Hub IoT que criou na secção anterior. |
+   |IoT Hub  |  MyASAIotHub |  Insira o nome do Hub IoT que criou na secção anterior. |
 
 4. Mantenha as outras opções com os valores predefinidos e selecione **Guardar** para guardar as definições.  
 
@@ -176,7 +176,7 @@ Nesta secção, irá configurar uma entrada de dispositivo IoT Hub para o trabal
 
    ![Saída transformada](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, o trabalho stream Analytics e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 

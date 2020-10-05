@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
 ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303331"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes de SMS java para enviar mensagens SMS.

@@ -14,10 +14,10 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322891"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
@@ -436,7 +436,7 @@ O gasoduto cria automaticamente a pasta de saída no recipiente de **bolhas adft
 2. Na lista de pastas, selecione **output**.
 3. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para eliminar programáticamente a fábrica de dados, adicione as seguintes linhas de código ao programa: 
 

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642270"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Quickstart: Criar e implementar recursos de funções Azure a partir de um modelo ARM
@@ -117,7 +117,7 @@ Na saída, copie o URL do gatilho HTTP. Utilize isto para testar a sua função 
 
 1. Após a publicação concluída, copie o URL do **site**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Copiar o URL do site a partir do resumo da publicação":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Escolha um alvo de publicação existente":::
 
 1. Apêndi-se o `/api/<FUNCTION_NAME>?name=Functions` caminho, onde `<FUNCTION_NAME>` está o nome da sua função. O URL que chama a sua função de gatilho HTTP está no seguinte formato:
 

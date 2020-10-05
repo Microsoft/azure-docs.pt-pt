@@ -4,10 +4,10 @@ description: Envie dados de eventos de uma fonte para os manipuladores com a Azu
 ms.topic: overview
 ms.date: 09/24/2020
 ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91326508"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?

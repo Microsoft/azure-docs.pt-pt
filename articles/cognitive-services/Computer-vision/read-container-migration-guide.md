@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
 ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91530464"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
@@ -89,7 +89,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 | 30000 |   120000 |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89011468"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
@@ -245,7 +245,7 @@ Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
 Console.WriteLine();
 ```
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 A amostra limpa os recursos que criou eliminando a fila. A eliminação da fila também elimina todas as mensagens que contém.
 

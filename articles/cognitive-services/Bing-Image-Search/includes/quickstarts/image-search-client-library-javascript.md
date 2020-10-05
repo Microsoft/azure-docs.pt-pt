@@ -10,10 +10,10 @@ ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 72c520b0ff135e9f48cd74f0024197ae8606f206
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91376959"
 ---
 Utilize este quickstart para fazer a sua primeira pesquisa de imagem utilizando a biblioteca do cliente Bing Image Search, que é um invólucro para a API e contém as mesmas funcionalidades. Esta aplicação JavaScript simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
@@ -93,7 +93,7 @@ O código-fonte desta amostra está disponível no [GitHub](https://github.com/A
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)

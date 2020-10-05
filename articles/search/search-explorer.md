@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91398413"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Quickstart: Use o explorador de pesquisa para executar consultas no portal
@@ -41,7 +41,7 @@ Antes de começar, deve ter o seguinte:
 
     Ou use o **separador de explorador de pesquisa** incorporado num índice aberto:
 
-   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Separador de explorador de pesquisa" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="unspecified-query"></a>Consulta não especificada
 
@@ -53,9 +53,9 @@ Sintaxe equivalente para uma procura vazia é `*` ou `search=*` .
    search=*
    ```
 
-   **Resultados**
+   **Results**
    
-   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Exemplo de consulta não qualificada ou vazia" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="free-text-search"></a>Pesquisa de texto gratuita
 
@@ -67,11 +67,11 @@ Note que quando fornece critérios de pesquisa, tais como termos de consulta ou 
    Seattle apartment "Lake Washington" miele OR thermador appliance
    ```
 
-   **Resultados**
+   **Results**
 
    Você pode usar Ctrl-F para pesquisar dentro de resultados para termos de interesse específicos.
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Exemplo de consulta de texto gratuito" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Contagem de documentos correspondentes 
 
@@ -81,9 +81,9 @@ Adicione **$count=verdade** para obter o número de fósforos encontrados num í
    $count=true
    ```
 
-   **Resultados**
+   **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Contagem de documentos correspondentes em índice" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Limite os campos nos resultados da pesquisa
 
@@ -93,9 +93,9 @@ Adicione [**$select**](search-query-odata-select.md) para limitar os resultados 
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
    ```
 
-   **Resultados**
+   **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restringir campos nos resultados de pesquisa" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Devolva o próximo lote de resultados
 
@@ -105,9 +105,9 @@ A Azure Cognitive Search devolve os 50 melhores jogos com base no ranking de pes
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
-   **Resultados**
+   **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Devolva o próximo lote de resultados de pesquisa" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expressões de filtro (maiores do que, menos do que, iguais)
 
@@ -117,9 +117,9 @@ Utilize o parâmetro [**$filter**](search-query-odata-filter.md) quando pretende
    search=seattle condo&$filter=beds gt 3&$count=true
    ```
    
-   **Resultados**
+   **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filtrar por critérios" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 ## <a name="order-by-expressions"></a>Expressões ordenadas
 
@@ -129,9 +129,9 @@ Adicione [**$orderby**](search-query-odata-orderby.md) para classificar resultad
    search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
    ```
    
-   **Resultados**
+   **Results**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Alterar a sequência de ordenação" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
 Expressões **$filter** e **$orderby** são construções OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -149,7 +149,7 @@ Neste quickstart, utilizou **o Explorador de Pesquisa** para consultar um índic
 
 + As expressões de consulta e filtro são articuladas numa sintaxe suportada pela Azure Cognitive Search. O padrão é uma [sintaxe simples,](/rest/api/searchservice/simple-query-syntax-in-azure-search)mas pode opcionalmente usar [Lucene completo](/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [As expressões de filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe OData.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

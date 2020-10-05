@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 164ba4767e0154154e5b3dc864265ba1505859d0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91653150"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novidades para Azure Key Vault

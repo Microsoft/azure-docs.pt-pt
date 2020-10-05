@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948184"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Quickstart: Explore a demonstração do Metrics Advisor com dados de exemplo
@@ -44,14 +44,14 @@ Clique na amostra - Custo/Receita - Feed de dados *cidade/categoria.* Você ver�
 * Registos de quando o feed de dados foi atualizado.   
 * Informações e configurações de feed de dados.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Vista de feed de dados" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Lista de dados da amostra" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Ver visualizações e configurações de séries de tempo
 
 Clique na métrica de *custos* na amostra - Custo/Receita - Feed de dados *cidade/categoria.* Você verá as séries de tempo associadas cortadas por dimensões, com visualizações de acordo com os dados métricos históricos. A banda azul em torno dos dados métricos representa a gama de valor esperada dos modelos de machine learning do Metrics Advisor. Os pontos que caem fora desta banda serão marcados como pontos vermelhos, que são anomalias detetadas. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Visualização da série" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Lista de dados da amostra" lightbox="../media/series-visualization.png":::
 
 A deteção de anomalias é configurável afinando as **configurações de deteção** no lado esquerdo da página de detalhes métricos. Vários métodos de deteção de anomalias estão disponíveis e pode combiná-los. Pode ainda experimentar diferentes sensibilidades, indicação de direções e outras configurações. A **ligação de configuração Avançada** na parte inferior das configurações de **deteção** permite criar configurações de deteção mais complexas e personalizadas, que podem ser usadas em grupos ou séries individuais. 
 
@@ -59,7 +59,7 @@ Também é possível sintonizar a deteção de anomalias fornecendo feedback ao 
 
 Na parte inferior do painel de **feedback Add,** há uma ligação do hub de **incidentes**, que irá direcioná-lo para a página de análise de incidentes e analisar a causa do incidente.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Ligação incidente" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Lista de dados da amostra" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Explore os resultados da deteção de anomalias e realize análises de causa de raiz
 
@@ -67,7 +67,7 @@ Quando clicar no link do hub de **incidentes** a partir de uma anomalia, verá u
 
 A secção **de Diagnóstico** mostra uma árvore do incidente, juntamente com várias guias para diagnosticar o incidente.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnóstico de incidente" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Lista de dados da amostra" lightbox="../media/incident-diagnostic.png":::
 
 Ao identificar a causa do incidente, pode tomar medidas e mitigar o problema antes que a situação piore. Também pode explorar mais insights clicando nas outras funcionalidades de diagnóstico fornecidas. 
 

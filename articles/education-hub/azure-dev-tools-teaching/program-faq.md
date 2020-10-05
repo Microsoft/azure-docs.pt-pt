@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89567814"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Perguntas frequentes sobre o Centro de Educação
@@ -54,7 +54,7 @@ O Azure for Students fornece acesso a todos os produtos Azure que se destinam ex
 
 ### <a name="can-i-apply-any-of-my-100-credit-toward-azure-marketplace-offers"></a>Posso aplicar algum dos meus 100 dólares de crédito para as ofertas do Azure Marketplace?
 
-Não. Não pode aplicar o seu crédito às ofertas do Azure Marketplace. No entanto, muitos parceiros do Azure Marketplace oferecem testes gratuitos ou planos de nível livre para as suas soluções.
+N.º Não pode aplicar o seu crédito às ofertas do Azure Marketplace. No entanto, muitos parceiros do Azure Marketplace oferecem testes gratuitos ou planos de nível livre para as suas soluções.
 
 ## <a name="azure-for-students-starter"></a>Azure for Students Starter
 
@@ -214,7 +214,7 @@ A Education Hub Store está disponível nas seguintes línguas: Árabe, Chinês 
 
 ### <a name="if-our-students-download-software-through-the-azure-dev-tools-for-teaching-program-do-they-get-unlimited-use-of-the-software"></a>Se os nossos alunos descarregarem software através do programa Azure Dev Tools for Teaching, eles recebem uso ilimitado do software?
 
-Yes. Os estudantes recebem uso ilimitado de software para promover os seus esforços de aprendizagem e pesquisa.
+Sim. Os estudantes recebem uso ilimitado de software para promover os seus esforços de aprendizagem e pesquisa.
 
 ### <a name="if-our-students-create-viable-apps-and-products-using-azure-dev-tools-for-teaching-software-can-they-sell-them-commercially"></a>Se os nossos alunos criarem aplicações e produtos viáveis utilizando o software Azure Dev Tools for Teaching, podem vendê-los comercialmente?
 
@@ -222,7 +222,7 @@ Geralmente, não. Os estudantes não podem vender aplicativos e produtos feitos 
 
 ### <a name="do-i-have-unlimited-use-of-the-software-through-the-azure-dev-tools-for-teaching-program"></a>Tenho uso ilimitado do software através do programa Azure Dev Tools for Teaching?
 
-Yes. Se um docente estiver matriculado num curso aprovado, é elegível para instalar o software Azure Dev Tools for Teaching no seu computador pessoal para uso não comercial.
+Sim. Se um docente estiver matriculado num curso aprovado, é elegível para instalar o software Azure Dev Tools for Teaching no seu computador pessoal para uso não comercial.
 
 ### <a name="how-do-i-access-my-visual-studio-enterprise-benefit"></a>Como acesso ao meu benefício visual Studio Enterprise?
 
@@ -232,7 +232,7 @@ Uma vez aprovado, poderá iniciar sôms no [portal Visual Studio](https://my.vis
 
 ### <a name="does-microsoft-azure-dev-tools-for-teaching-include-microsoft-office"></a>As ferramentas de dev do Microsoft Azure Dev incluem o Microsoft Office?
 
-Não. O foco da Microsoft Azure Dev Tools for Teaching é fornecer aos departamentos, docentes e alunos as ferramentas necessárias para expandir especificamente o seu estudo de desenvolvimento e teste de software. Por isso, fornecemos tecnologias como Windows Server, Visual Studio .NET, SQL Server e Platform SDK.
+N.º O foco da Microsoft Azure Dev Tools for Teaching é fornecer aos departamentos, docentes e alunos as ferramentas necessárias para expandir especificamente o seu estudo de desenvolvimento e teste de software. Por isso, fornecemos tecnologias como Windows Server, Visual Studio .NET, SQL Server e Platform SDK.
 
 ### <a name="does-azure-dev-tools-for-teaching-include-azure-credit"></a>As ferramentas Azure Dev para o ensino incluem o Crédito Azure?
 
@@ -240,7 +240,7 @@ Não, a sua subscrição microsoft Azure Dev Tools for Teaching não inclui o cr
 
 ### <a name="do-students-need-an-office-365-or-active-directory-account-to-access-azure-dev-tools-for-teaching"></a>Os alunos precisam de uma conta do Office 365 ou do Ative Directory para aceder às Ferramentas de Ensino do Azure Dev?
 
-Não. Os estudantes não precisam de uma conta do Escritório 365. Se os alunos tiverem acesso à sua conta Ative Directory, usam as mesmas credenciais para iniciar scontabilidade no software.
+N.º Os estudantes não precisam de uma conta do Escritório 365. Se os alunos tiverem acesso à sua conta Ative Directory, usam as mesmas credenciais para iniciar scontabilidade no software.
 
 Se os estudantes não utilizarem o Ative Directory, devem criar uma [Conta Microsoft](https://account.microsoft.com/account) (se ainda não tiverem uma) utilizando o mesmo endereço de e-mail que os fornece.
 

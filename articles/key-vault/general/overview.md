@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89421650"
 ---
 # <a name="about-azure-key-vault"></a>Acerca do Azure Key Vault
@@ -78,7 +78,7 @@ Como uma loja segura em Azure, Key Vault tem sido usado para simplificar cenári
 
 O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de Eventos e no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - [Início Rápido: Criar um Azure Key Vault com a CLI](../secrets/quick-create-cli.md)

@@ -9,10 +9,10 @@ ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91540470"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure

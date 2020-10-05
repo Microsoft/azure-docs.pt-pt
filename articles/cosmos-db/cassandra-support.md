@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90602817"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
@@ -44,33 +44,33 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 
 |Comando  |Suportado |
 |---------|---------|
-| ascii  | Yes |
-| bigint  | Yes |
-| blob  | Yes |
-| boolean  | Yes |
-| counter  | Yes |
-| data  | Yes |
-| decimal  | Yes |
-| double  | Yes |
-| float  | Yes |
-| frozen  | Yes |
-| inet  | Yes |
-| int  | Yes |
-| lista  | Yes |
-| set  | Yes |
-| smallint  | Yes |
-| texto  | Yes |
-| hora  | Yes |
-| carimbo de data/hora  | Yes |
-| timeuuid  | Yes |
-| tinyint  | Yes |
-| tuple  | Yes |
-| uuid  | Yes |
-| varchar  | Yes |
-| varint  | Yes |
-| tuples | Yes | 
-| udts  | Yes |
-| mapa | Yes |
+| ascii  | Sim |
+| bigint  | Sim |
+| blob  | Sim |
+| boolean  | Sim |
+| counter  | Sim |
+| data  | Sim |
+| decimal  | Sim |
+| double  | Sim |
+| float  | Sim |
+| frozen  | Sim |
+| inet  | Sim |
+| int  | Sim |
+| lista  | Sim |
+| set  | Sim |
+| smallint  | Sim |
+| texto  | Sim |
+| hora  | Sim |
+| carimbo de data/hora  | Sim |
+| timeuuid  | Sim |
+| tinyint  | Sim |
+| tuple  | Sim |
+| uuid  | Sim |
+| varchar  | Sim |
+| varint  | Sim |
+| tuples | Sim | 
+| udts  | Sim |
+| mapa | Sim |
 
 ## <a name="cql-functions"></a>Funções de CQL
 
@@ -78,10 +78,10 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 
 |Comando  |Suportado |
 |---------|---------|
-| Token * | Yes |
-| ttl | Yes |
-| tempo de escrita | Yes |
-| elenco | No |
+| Token * | Sim |
+| ttl | Sim |
+| tempo de escrita | Sim |
+| elenco | Não |
 
 \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` não é apoiado.
 
@@ -90,34 +90,34 @@ Funções agregadas:
 
 |Comando  |Suportado |
 |---------|---------|
-| min | Yes |
-| max | Yes |
-| avg | Yes |
-| count | Yes |
+| min | Sim |
+| max | Sim |
+| avg | Sim |
+| count | Sim |
 
 Funções de conversão blob:
  
 |Comando  |Suportado |
 |---------|---------|
-| typeAsBlob(valor)   | Yes |
-| blobAsType(valor) | Yes |
+| typeAsBlob(valor)   | Sim |
+| blobAsType(valor) | Sim |
 
 
 UUID e funções timeuuid:
  
 |Comando  |Suportado |
 |---------|---------|
-| dateOf()  | Yes |
-| now()  | Yes |
-| minTimeuuid()  | Yes |
-| unixTimestampOf()  | Yes |
-| toDate(timeuuid)  | Yes |
-| toTimestamp(timeuuid)  | Yes |
-| toUnixTimestamp(timeuuid)  | Yes |
-| toDate(carimbo de data/hora)  | Yes |
-| toUnixTimestamp(carimbo de data/hora)  | Yes |
-| toTimestamp(data)  | Yes |
-| toUnixTimestamp(data) | Yes |
+| dateOf()  | Sim |
+| now()  | Sim |
+| minTimeuuid()  | Sim |
+| unixTimestampOf()  | Sim |
+| toDate(timeuuid)  | Sim |
+| toTimestamp(timeuuid)  | Sim |
+| toUnixTimestamp(timeuuid)  | Sim |
+| toDate(carimbo de data/hora)  | Sim |
+| toUnixTimestamp(carimbo de data/hora)  | Sim |
+| toTimestamp(data)  | Sim |
+| toUnixTimestamp(data) | Sim |
 
 
   
@@ -127,59 +127,59 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 
 |Comando  |Suportado |
 |---------|---------|
-| PERMITIR A FILTRAGEM | Yes |
+| PERMITIR A FILTRAGEM | Sim |
 | ALTERAR O ESPAÇO DE CHAVES | N/A (serviço PaaS, replicação gerida internamente)|
-| ALTERAR VISTA MATERIALIZADA | No |
-| ALTERAR PAPEL | No |
-| ALTER TABLE | Yes |
-| TIPO ALTER | No |
-| UTILIZADOR ALTER | No |
+| ALTERAR VISTA MATERIALIZADA | Não |
+| ALTERAR PAPEL | Não |
+| ALTER TABLE | Sim |
+| TIPO ALTER | Não |
+| UTILIZADOR ALTER | Não |
 | LOTE | Sim (apenas lote não enólogo)|
 | ARMAZENAMENTO COMPACTO | N/A (serviço PaaS) |
-| CRIAR AGREGADO | No | 
-| CRIAR ÍNDICE PERSONALIZADO (SASI) | No |
+| CRIAR AGREGADO | Não | 
+| CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CRIAR FUNÇÃO | No |
-| CRIAR KEYSPACE (definições de replicação ignoradas) | Yes |
-| CRIAR VISTA MATERIALIZADA | No |
-| CREATE TABLE | Yes |
-| CRIAR GATILHO | No |
-| CRIAR TIPO | Yes |
-| CRIAR PAPEL | No |
-| CREATE USER (Deprecado em Apache Cassandra nativo) | No |
-| DELETE | Yes |
-| EXCLUIR (transações leves com IF CONDITION)| Yes |
-| AGREGADO DE DROP | No |
-| FUNÇÃO DE QUEDA | No |
-| DROP INDEX | Yes |
-| DROP KEYSPACE | Yes |
-| VISTA MATERIALIZADA GOTA | No |
-| PAPEL DE DROP | No |
-| MESA DE LANÇAMENTO | Yes |
-| DETONADOR DE QUEDA | No | 
-| TIPO DE GOTA | Yes |
-| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | No |
-| CONCESSÃO | No |
-| INSERT | Yes |
-| INSIRA (transações leves com IF CONDITION)| Yes |
-| PERMISSÕES DE LISTA | No |
-| FUNÇÕES DE LISTA | No |
-| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | No |
-| REVOGAÇÃO | No |
-| SELECIONAR | Yes |
-| SELECT (transações leves com IF CONDITION)| No |
-| UPDATE | Yes |
-| ATUALIZAÇÃO (transações leves com IF CONDITION)| No |
-| TRUNCATO | No |
-| USE | Yes |
+| CRIAR FUNÇÃO | Não |
+| CRIAR KEYSPACE (definições de replicação ignoradas) | Sim |
+| CRIAR VISTA MATERIALIZADA | Não |
+| CREATE TABLE | Sim |
+| CRIAR GATILHO | Não |
+| CRIAR TIPO | Sim |
+| CRIAR PAPEL | Não |
+| CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
+| DELETE | Sim |
+| EXCLUIR (transações leves com IF CONDITION)| Sim |
+| AGREGADO DE DROP | Não |
+| FUNÇÃO DE QUEDA | Não |
+| DROP INDEX | Sim |
+| DROP KEYSPACE | Sim |
+| VISTA MATERIALIZADA GOTA | Não |
+| PAPEL DE DROP | Não |
+| MESA DE LANÇAMENTO | Sim |
+| DETONADOR DE QUEDA | Não | 
+| TIPO DE GOTA | Sim |
+| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
+| CONCESSÃO | Não |
+| INSERT | Sim |
+| INSIRA (transações leves com IF CONDITION)| Sim |
+| PERMISSÕES DE LISTA | Não |
+| FUNÇÕES DE LISTA | Não |
+| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
+| REVOGAÇÃO | Não |
+| SELECIONAR | Sim |
+| SELECT (transações leves com IF CONDITION)| Não |
+| UPDATE | Sim |
+| ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |
+| TRUNCATO | Não |
+| USE | Sim |
 
 ## <a name="json-support"></a>Suporte JSON
 |Comando  |Suportado |
 |---------|---------|
-| SELECIONE JSON | Yes |
-| INSERIR JSON | Yes |
-| fromJson() | No |
-| toJson() | No |
+| SELECIONE JSON | Sim |
+| INSERIR JSON | Sim |
+| fromJson() | Não |
+| toJson() | Não |
 
 
 ## <a name="cassandra-api-limits"></a>Limites da API para Cassandra
@@ -196,7 +196,7 @@ A API para Cassandra do Azure Cosmos DB é uma plataforma de serviço gerida. N�
 
 Pode abrir uma concha nativa hospedada de Cassandra (CQLSH v5.0.1) diretamente do Data Explorer no [portal Azure](data-explorer.md) ou do [explorador Azure Cosmos.](https://cosmos.azure.com/) Antes de ativar a concha CQL, tem de ativar a função [Desatado](enable-notebooks.md) na sua conta (se ainda não estiver ativada, será solicitada ao clicar em `Open Cassandra Shell` ). Consulte a nota realçada em [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md) for supported Azure Regions.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH&quot;:::
 
 Também pode ligar-se à API Cassandra em Azure Cosmos DB utilizando o CQLSH instalado numa máquina local. Vem com Apache Cassandra 3.1.1 e funciona fora da caixa definindo as variáveis ambientais. As seguintes secções incluem as instruções para instalar, configurar e ligar à Cassandra API em Azure Cosmos DB, no Windows ou Linux utilizando o CQLSH.
 
@@ -220,7 +220,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra

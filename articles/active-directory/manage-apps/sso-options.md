@@ -12,10 +12,10 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90604211"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
@@ -41,7 +41,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicação | Quando utilizar |
+| Método de inscrição único | Tipos de aplicações | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e no local | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|

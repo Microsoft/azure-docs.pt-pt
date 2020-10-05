@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91001024"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Quickstart: Provisão e ativação de um HSM gerido utilizando O Azure CLI
@@ -111,7 +111,7 @@ Por favor, guarde o ficheiro de domínio de segurança e os pares de chaves RSA 
 
 Depois de descarregar com sucesso o domínio de segurança, o seu HSM estará em estado ativo e pronto para utilizar.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 

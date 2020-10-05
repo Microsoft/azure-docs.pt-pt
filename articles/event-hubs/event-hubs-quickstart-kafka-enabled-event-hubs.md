@@ -4,10 +4,10 @@ description: 'Quickstart: Este artigo fornece informações sobre como transmiti
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 612a7515c14b77569b34c91d9b43413353b4d0e8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90061552"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Centros de Eventos utilizando o protocolo Kafka
@@ -102,5 +102,5 @@ Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka par
 
 Se o cluster Kafka dos Hubs de Eventos tiver eventos, começará agora a recebê-los do consumidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 

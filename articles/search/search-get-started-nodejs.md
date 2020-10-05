@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91400609"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Node.js usando APIs REST
@@ -64,7 +64,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 Todos os pedidos requerem uma chave API no cabeçalho de cada pedido enviado ao seu serviço. Uma chave válida estabelece confiança, por pedido, entre o pedido de envio do pedido e o serviço que o trata.
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 Comece por abrir uma consola Powershell ou outro ambiente no qual instalou Node.js.
 
@@ -473,7 +473,7 @@ Deve ver uma série de mensagens descrevendo as ações que estão a ser tomadas
 
 Abra a **visão geral** do seu serviço de pesquisa no portal Azure. Selecione o separador **Índices.** Devia ver algo como o seguinte:
 
-:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Screenshot do portal Azure, Visão geral do serviço de pesquisa, separador Índices" border="false":::
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 No próximo passo, irá adicionar dados ao indexar. 
 
@@ -691,7 +691,7 @@ A classe **AzureSearchClient** encapsula a configuração, URLs e pedidos http b
 
 O comportamento geral da `run` função é eliminar o índice de Pesquisa Cognitiva Azure se existir, criar o índice, adicionar alguns dados e realizar algumas consultas.  
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

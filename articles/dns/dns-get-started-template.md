@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89647896"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Quickstart: Crie uma zona de DNS Azure e grave usando um modelo ARM
@@ -87,11 +87,11 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 1. O grupo de recursos deve conter os seguintes recursos vistos aqui:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupo de recursos de implementação de zona DE DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
 1. Selecione a zona DNS com o sufixo de ** <span>azurequickstart.</span> org** para verificar se a zona é criada corretamente com um registo **A** referindo o valor de **1.2.2.3.4** e **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Implantação da zona de DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
 1. Copie um dos nomes do servidor de nomes do passo anterior.
 
@@ -109,11 +109,11 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
    Deve ver algo como a seguinte imagem:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="ZONA DNS nslookup":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
 O nome de anfitrião **www<span>.2lwynbseszpam.azurequickstart.</span> org** resolve para **1.2.3.4** e **1.2.3.5**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com a zona DNS, elimine o grupo de recursos. Isto remove a zona de DNS e todos os recursos conexos.
 
@@ -123,7 +123,7 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um:
 * Zona DNS

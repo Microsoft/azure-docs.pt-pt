@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
 ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87133083"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizer

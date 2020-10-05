@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
 ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91666539"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Quickstart: Explore o ambiente de demonstração da Azure Time Series Insights Gen2
@@ -122,7 +122,7 @@ Agora que completou o quickstart, limpe os recursos que criou:
 1. A partir do menu esquerdo no [portal Azure](https://portal.azure.com), selecione **Todos os recursos**e localize o seu grupo de recursos Azure Time Series Insights Gen2.
 1. Ou elimina todo o grupo de recursos (e todos os recursos contidos no mesmo) selecionando **Eliminar** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Estás pronto para criar o teu próprio ambiente Azure Time Series Insights Gen2. Para começar:
 

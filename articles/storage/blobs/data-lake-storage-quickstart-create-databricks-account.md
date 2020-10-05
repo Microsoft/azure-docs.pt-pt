@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
 ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86109778"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
@@ -50,7 +50,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
-    |**Nível de preços**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
 3. A criação da conta demora alguns minutos. Para monitorizar o estado de funcionamento, veja a barra de progresso no topo.
 
@@ -191,7 +191,7 @@ Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalh
 
 Se não encerrar manualmente o cluster para automaticamente, desde que tenha selecionado a caixa de verificação **Terminate after minutes of \_ \_ inactivity** enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados numa conta de armazenamento com o Data Lake Storage Gen2 ativado.
 

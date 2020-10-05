@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
 ms.openlocfilehash: 8afceb19af0d177415d0b68b5d38f19d18835af5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87291766"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Quickstart: Use a biblioteca de clientes Text Analytics para a Ruby

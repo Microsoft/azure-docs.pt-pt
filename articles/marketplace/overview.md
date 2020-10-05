@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: overview
 ms.date: 10/01/2020
 ms.openlocfilehash: 91ae1ce8cb61a0bbc4907c21f0e5e6b869cedb85
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91654322"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o mercado comercial da Microsoft?

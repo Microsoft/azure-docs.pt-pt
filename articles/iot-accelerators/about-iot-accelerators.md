@@ -10,10 +10,10 @@ ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
 ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91542500"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são os aceleradores de soluções IoT do Azure?
@@ -99,7 +99,7 @@ Pode implementar o acelerador de soluções de Monitorização Remota nas seguin
 
 O custo de funcionamento de um acelerador de solução é o custo combinado [de funcionamento dos serviços Azure subjacentes.](https://azure.microsoft.com/pricing) Verá os detalhes dos serviços do Azure utilizados ao escolher as suas opções de implementação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar um dos aceleradores de soluções de IoT, veja os inícios rápidos:
 

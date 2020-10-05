@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Verifique a ortografia com o REST API e PHP - Bing Spell Check'
+title: 'Quickstart: Verifique a ortografia com a API REST e PHP - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como uma simples aplicação PHP envia um pedido para a API bing spell check e devolve uma lista de correções sugeridas.
+description: Este quickstart mostra como uma simples aplicação PHP envia um pedido para a API de Verificação ortográfica de Bing e devolve uma lista de correções sugeridas.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.openlocfilehash: 44dc3f16128913f76369ad645a32e91f38272546
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83869865"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Verifique a ortografia com a API de Verificação ortográfica Bing Check REST e PHP
 
-Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido php envia um pedido à API e devolve uma lista de correções sugeridas. 
+Utilize este arranque rápido para fazer a sua primeira chamada para a API Bing Spell Check REST. Esta simples aplicação PHP envia um pedido à API e devolve uma lista de correções sugeridas. 
 
-Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,13 +30,13 @@ Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
-## <a name="get-bing-spell-check-rest-api-results"></a>Obtenha bing spell verifique os resultados da API REST
+## <a name="get-bing-spell-check-rest-api-results"></a>Obtenha bing spell check resultados API
 
 1. Crie um novo projeto PHP no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
-4. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
-5. Execute o programa.
+4. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+5. Executar o programa.
     
     ```php
     <?php
@@ -96,9 +96,9 @@ Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful 
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Faça a sua aplicação iniciando um servidor web e navegando para o seu ficheiro.
+Execute a sua aplicação iniciando um servidor web e navegando para o seu ficheiro.
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -145,4 +145,4 @@ Faça a sua aplicação iniciando um servidor web e navegando para o seu ficheir
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check Referência V7 da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

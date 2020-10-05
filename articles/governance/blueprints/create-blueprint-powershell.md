@@ -4,10 +4,10 @@ description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, d
 ms.date: 08/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: 339cd4628cda5f469a783db02c10f86259c93941
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89051513"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Definir e atribuir uma planta Azure com PowerShell
@@ -379,7 +379,7 @@ Uma vez que uma planta é publicada usando PowerShell, é atribuível a uma subs
      > [!IMPORTANT]
      > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis por atribuir funções e permissões suficientes ou a atribuição do projeto falhará.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 

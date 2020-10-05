@@ -9,10 +9,10 @@ ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
 ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85254706"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
@@ -30,7 +30,7 @@ Para criar uma Máquina Virtual Ubuntu 18.04 Data Science, tem de ter uma subscr
 
 Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência de Dados Ubuntu 18.04:
 
-1. Vá ao [portal Azure.](https://portal.azure.com) Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
+1. Aceda ao [portal do Azure](https://portal.azure.com). Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
 1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04"
 
 1. Na janela seguinte, **selecione Criar**.
@@ -85,30 +85,30 @@ Se configurar o seu VM com autenticação SSH, pode recorrer às credenciais de 
 
 ### <a name="x2go"></a>X2Go
 
-O Linux VM já está a provisionado com o X2Go Server e pronto para aceitar ligações com o cliente. Para ligar ao ambiente de trabalho gráfico Linux VM, complete o seguinte procedimento no seu cliente:
+O Linux VM já está a provisionado com o X2Go Server e pronto para aceitar ligações com o cliente. Para se ligar ao ambiente de trabalho gráfico da VM do Linux, conclua o seguinte procedimento no seu cliente:
 
-1. Faça o download e instale o cliente X2Go para a sua plataforma cliente a partir de [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+1. Transfira e instale o X2Go Client na sua plataforma de cliente a partir do [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Tome nota do endereço IP público da máquina virtual, que pode encontrar no portal Azure abrindo a máquina virtual que criou.
 
    ![Endereço IP da máquina Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-1. Executar o cliente X2Go. Se a janela "New Session" não aparecer automaticamente, vá a Session -> New Session.
+1. Execute o X2Go Client. Se a janela "New Session" não aparecer automaticamente, vá a Session -> New Session.
 
 1. Na janela de configuração resultante, introduza os seguintes parâmetros de configuração:
-   * **Separador de sessão:**
-     * **Anfitrião**: Introduza o endereço IP do seu VM, que fez notar anteriormente.
-     * **Início de sessão**: Introduza o nome de utilizador no Linux VM.
-     * **Porta SSH**: Deixe-o a 22, o valor predefinido.
-     * **Tipo de Sessão**: Altere o valor para **XFCE**. Atualmente, o Linux VM suporta apenas o ambiente de trabalho XFCE.
-   * **Separador de mídia**: Pode desligar o suporte de som e a impressão do cliente se não precisar de os utilizar.
+   * **Separador Sessão**:
+     * **Anfitrião**: Introduza o endereço IP da sua VM, que anotou anteriormente.
+     * **Iniciar sessão**: introduza o nome de utilizador na VM do Linux.
+     * **Porta SSH**: deixe-a em 22, o valor predefinido.
+     * **Tipo de Sessão**: Altere o valor para **XFCE**. Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
+   * **Separador Multimédia**: pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
    * **Pastas partilhadas**: Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
 
    ![Configuração X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.
 1. Clique na caixa no painel direito da janela X2Go para trazer o ecrã de login para o seu VM.
-1. Introduza a palavra-passe para o seu VM.
+1. Introduza a palavra-passe da sua VM.
 1. Selecione **OK**.
-1. Poderá ter de dar permissão ao X2Go para contornar a sua firewall para terminar a ligação.
+1. Talvez seja necessário conceder permissão ao X2Go para ignorar a firewall para concluir a ligação.
 1. Deverá agora ver a interface gráfica do seu Ubuntu DSVM. 
 
 

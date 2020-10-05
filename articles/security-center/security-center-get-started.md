@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91447174"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Quickstart: Criação do Centro de Segurança Azure
@@ -35,7 +35,7 @@ Para ativar o Azure Defender numa subscrição, deve ser-lhe atribuída a funç�
 
 ## <a name="open-security-center-for-the-first-time"></a>Centro de Segurança Aberto pela primeira vez
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 1. A partir do menu do portal, selecione **Security Center**. 
 
@@ -94,7 +94,7 @@ Com o agente implantado nas suas máquinas, o Security Center pode fornecer reco
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste quickstart, permitiu que o Azure Defender e fornecesse o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]

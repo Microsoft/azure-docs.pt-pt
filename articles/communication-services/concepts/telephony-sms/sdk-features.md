@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 95a7ae951edab8e75894b0e9aa85029a54a50acb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91664924"
 ---
 # <a name="sms-client-library-overview"></a>Descrição geral da biblioteca de cliente de SMS
@@ -39,7 +39,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 | Monitorização        | Monitorize o uso das mensagens enviadas e recebidas                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | Chamada PSTN      | Adicione as capacidades de chamada PSTN ao seu número gratuito de portagens (pré-visualização privada)                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Começar com o envio de SMS](../../quickstarts/telephony-sms/send.md)

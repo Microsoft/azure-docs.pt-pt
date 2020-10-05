@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87025596"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
@@ -80,7 +80,7 @@ Os dispositivos que são Azure AD unidos ou híbridoS Azure AD juntaram-se para 
    - Windows Hello
 - **A azure AD juntou-se ou híbrido Azure AD ad adsumo uma** conta organizacional em Azure AD garantido com um ou mais dos seguintes dispositivos.
    - Palavra-passe
-   - Windows Hello para Empresas
+   - Windows Hello para empresas
 
 ## <a name="provisioning"></a>Aprovisionamento
 

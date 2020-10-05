@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.openlocfilehash: 7f4849c75b36b1663416ad1a97e3264fabcdaa67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86201727"
 ---
 # <a name="getting-started"></a>Introdução
@@ -60,7 +60,7 @@ Azure Databricks é uma plataforma de análise baseada em Apache Spark com uma c
 1. Instalar os Serviços Cognitivos big data
     * Crie uma nova biblioteca no seu espaço de trabalho databricks  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
-    * Insira as seguintes coordenadas maven: `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` Repositório:`https://mmlspark.azureedge.net/maven`  
+    * Insira as seguintes coordenadas maven:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` Repositório: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Instale a biblioteca num cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>

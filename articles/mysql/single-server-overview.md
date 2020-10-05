@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91564787"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único da Base de Dados do Azure para MySQL
@@ -22,7 +22,7 @@ ms.locfileid: "91564787"
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo de implementação de servidor único. Para saber mais sobre o modo de implementação flexível do servidor, consulte a [visão geral do servidor flexível](flexible-server/index.yml). Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizações da base de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para proporcionar 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária do MySQL 5.6, 5.7 e 8.0. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/) 
 

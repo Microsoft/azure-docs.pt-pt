@@ -9,10 +9,10 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 96826cbd7ea021f3596b3f92a484a05089aa9318
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91336671"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Node.js (v4)
@@ -138,7 +138,7 @@ Pode verificar se o segredo se foi com o comando secreto do [programa az keyvaul
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
 

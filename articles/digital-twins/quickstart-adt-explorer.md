@@ -8,10 +8,10 @@ ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
 ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91372617"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
@@ -62,7 +62,7 @@ Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar co
 
 Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página do portal Azure dos detalhes da Autenticação para registo de aplicações. Há um destaque em torno de um botão 'Adicionar uma plataforma'" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Na página *de plataformas configurar* que se segue, selecione *Web*.
 Preencha os detalhes da configuração da seguinte forma:
@@ -73,7 +73,7 @@ Preencha os detalhes da configuração da seguinte forma:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="A página de plataformas Configure, destacando as informações descritas acima no ecrã":::
+        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -81,7 +81,7 @@ Preencha os detalhes da configuração da seguinte forma:
 
 Agora tem uma configuração web configurada que o ADT Explorer irá utilizar. O separador autenticação no portal Azure deve refletir isso. Depois de verificar as secções abaixo, *acerte Save*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Página do portal Azure dos detalhes da Autenticação para registo de aplicações. Existem destaques em torno de uma secção de plataforma Web com um URI de redirecionamento de http://localhost:3000 , e Implicit Grant sendo ativado para acesso a tokens. O botão Guardar também está destacado.":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
 
 ### <a name="run-and-configure-adt-explorer"></a>Executar e configurar o Explorador ADT
 
@@ -95,11 +95,11 @@ Em seguida, inicie a aplicação executando `npm run start` .
 
 Após alguns segundos, uma janela do navegador será aberta e a aplicação aparecerá no navegador.
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 Se *premir* o botão Sinal na parte superior da janela (mostrado na imagem abaixo) para configurar o ADT Explorer para trabalhar com a instância que configura. 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 Insira as informações importantes que recolheu anteriormente na secção [Pré-Requisitos:](#prerequisites)
 * ID da Aplicação (cliente)
@@ -139,21 +139,21 @@ Para este arranque rápido, os ficheiros do modelo já foram escritos e validado
 
 Na caixa *MODEL VIEW,* bata no ícone *Upload a Model.*
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Na caixa Model View, destaca-se o ícone do meio. Mostra uma seta apontando para uma nuvem." lightbox="media/quickstart-adt-explorer/upload-model.png":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. Na caixa de seletor de ficheiros que aparece, navegue para a pasta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/modelos* no repositório descarregado.
 2. Selecione *Room.js* e *Floor.js*e bata OK. (Pode fazer o upload dos outros modelos se quiser, mas não serão usados neste arranque rápido.)
 3. Siga o diálogo popup pedindo-lhe para assinar na sua conta Azure.
 
 >[!NOTE]
->Se vir a seguinte mensagem de erro: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Um popup a ler 'Error: Error fetching models: ClientAuthError: Error opening popup window. Isto pode acontecer se estiver a usar IE ou se os popups estiverem bloqueados no navegador.' com um botão Close na parte inferior" border="false"::: 
+>Se vir a seguinte mensagem de erro: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." border="false"::: 
 > Tente desativar o seu bloqueador popup ou utilizar um browser diferente.
 
 O ADT Explorer irá agora enviar estes ficheiros de modelo para a sua instância Azure Digital Twins. Devem aparecer na caixa *MODEL VIEW,* exibindo os seus nomes amigáveis e iDs de modelo completo. Pode clicar nas bolhas de informação do *Modelo ver* para ver o código DTDL por trás.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Uma vista da caixa 'Model View' com duas definições de modelo listadas no interior, Piso (dtmi:exemplo:Piso;1) e Quarto (dtmi:exemplo:Quarto;1). Destaca-se o ícone 'Ver modelo' que mostra uma letra 'i' num círculo." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -177,7 +177,7 @@ Nesta secção, você irá carregar gémeos pré-criados que estão ligados a um
 
 Na caixa *GRAPH VIEW,* bata no ícone *Import Graph.*
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Na caixa Graph View, destaca-se um ícone. Mostra uma seta apontando para uma nuvem." lightbox="media/quickstart-adt-explorer/import-graph.png":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
 Na caixa de seletor de ficheiros, navegue na pasta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
 
@@ -187,7 +187,7 @@ Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Realçando o ícone Guardar no painel de pré-visualização do gráfico" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -197,7 +197,7 @@ O ADT Explorer irá agora utilizar o ficheiro carregado para criar os gémeos e 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: Importar bem sucedido. 49 gémeos importados. 50 relações importadas." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -207,7 +207,7 @@ O ADT Explorer irá agora utilizar o ficheiro carregado para criar os gémeos e 
 
 O gráfico foi agora enviado para o ADT Explorer. Para ver o gráfico, bata no botão *'Executar Consulta'* na caixa *GRAPH EXPLORER,* perto da parte superior da janela do Explorador ADT. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Um botão de leitura 'Run Consulta' perto do topo da janela é realçado" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Isto irá executar a consulta predefinitiva para selecionar e exibir todos os gémeos digitais. O ADT Explorer recuperará todos os gémeos e relações do serviço e desenhará o gráfico definido por eles na caixa *GRAPH VIEW.*
 
@@ -215,7 +215,7 @@ Isto irá executar a consulta predefinitiva para selecionar e exibir todos os g�
 
 Agora, pode ver o gráfico carregado do cenário da amostra:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista da caixa 'Graph View' com um gráfico duplo no interior. Um círculo com a marca «piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «sala1»; um círculo com a marca «piso 0» é ligado por uma seta com a etiqueta «contém» a um círculo com a indicação de sala0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
 
 Os círculos (gráficos "nós") representam gémeos digitais, e as linhas representam relacionamentos. Você verá que o twin *Floor0* contém *Quarto0,* e o twin *Floor1* contém *Sala1.*
 
@@ -229,7 +229,7 @@ Aqui estão as propriedades do *Quarto0:*
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Destaque em torno da caixa 'Property Explorer' mostrando propriedades para o Room0, incluindo (entre outros) um campo de $dtId de 'Room0', um campo de temperatura de 70, e um campo de humidade de 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -241,7 +241,7 @@ Aqui estão as propriedades da *Sala1:*
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Destaque em torno da caixa 'Property Explorer' mostrando propriedades para a Sala1, incluindo (entre outros) um campo de $dtId de 'Room1', um campo de temperatura de 80, e um campo de humidade de 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -265,7 +265,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Lembre-se de ver as propriedades gémeas anteriormente que *o Quarto0* tem uma temperatura de **70** e *a Sala1* tem uma temperatura de **80**. Como resultado, apenas _**a Sala 1**_ aparece nos resultados aqui.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Resultados da consulta de propriedade, mostrando apenas o Quarto1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Outros operadores de comparação *<* *>* (, *=* , , , ou *!=*) também são apoiados na consulta acima. Você pode tentar ligar estes valores diferentes, ou diferentes propriedades gémeas na consulta para experimentar responder às suas próprias perguntas.
@@ -280,7 +280,7 @@ As propriedades desta lista são editáveis. Selecione o valor de temperatura de
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="A caixa 'Property Explorer' mostra propriedades para o Room0. O valor da temperatura é uma caixa editável que mostra 76, e há um destaque em torno do ícone Save." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -298,7 +298,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Agora que a temperatura da *Sala0* foi alterada de **70** para **76,** ambos os gémeos devem aparecer no resultado.
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Resultados da consulta de propriedade, mostrando tanto o Quarto0 como o Quarto1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>Rever e contextualizar aprendizagens
 
@@ -313,7 +313,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Embora neste arranque rápido, tenha feito a atualização de temperatura manualmente, é comum na Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Isto permite-lhe construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente, e usar consultas para obter informações sobre o que está a acontecer no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Isto irá desligar a ligação à aplicação ADT Explorer no navegador, e deixará de ser capaz de ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 

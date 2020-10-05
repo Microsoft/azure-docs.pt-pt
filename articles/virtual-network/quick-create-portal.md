@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86082442"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
@@ -32,7 +32,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. A partir do menu do portal Azure, **selecione Criar um recurso**. A partir do Mercado Azure, **selecione rede**Virtual de Rede  >  **Virtual network**.
+1. No menu do portal do Azure, selecione **Criar um recurso**. A partir do Mercado Azure, **selecione rede**Virtual de Rede  >  **Virtual network**.
 
 1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
@@ -57,7 +57,7 @@ Crie duas VMs na rede virtual:
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-1. A partir do menu do portal Azure, **selecione Criar um recurso**.
+1. No menu do portal do Azure, selecione **Criar um recurso**.
 
 1. A partir do Azure Marketplace, **selecione Compute**  >  **Windows Server 2019 Datacenter**. Selecione **Criar**.
 
@@ -70,17 +70,17 @@ Crie duas VMs na rede virtual:
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior. |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira *o myVm1*. |
-    | Região | Selecione **East US**. |
+    | Region | Selecione **East US**. |
     | Opções de disponibilidade | Incumprimento de **não necessidade de redundância de infraestrutura**. |
     | Imagem | Padrão para **o Centro de Dados 2019 do Windows Server 2019**. |
     | Tamanho | Predefinição para **Standard DS1 v2**. |
     | **Conta de administrador** |  |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
-    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reintrodua senha. |
-    | **Regras da porta de entrada** |  |
-    | Portos de entrada pública | Selecione **Deixe as portas selecionadas.** |
-    | Selecione portas de entrada | Insira *HTTP (80)* e *RDP (3389)*. |
+    | **Regras portuárias de entrada** |  |
+    | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
+    | Selecione as portas de entrada | Insira *HTTP (80)* e *RDP (3389)*. |
     | **Poupe dinheiro** |  |
     | Já tem uma licença do Windows? | Predefinição para **Nº**. |
 
@@ -93,11 +93,11 @@ Crie duas VMs na rede virtual:
     | Definição | Valor |
     | ------- | ----- |
     | Rede virtual | Predefinição da **minha Rede Virtual**. |
-    | Subrede | Predefinição **da myVirtualSubnet (10.1.0.0/24)**. |
+    | Sub-rede | Predefinição **da myVirtualSubnet (10.1.0.0/24)**. |
     | IP público | Predefinição para **(novo) myVm-ip**. |
     | Grupo de segurança de rede NIC | Predefinição ao **Básico**. |
-    | Portos de entrada pública | Predefinição para **Permitir portas selecionadas**. |
-    | Selecione portas de entrada | Predefinição para **HTTP** e **RDP**.
+    | Portas de entrada públicas | Predefinição para **Permitir portas selecionadas**. |
+    | Selecione as portas de entrada | Predefinição para **HTTP** e **RDP**.
 
 1. Selecione **Seguinte: Gestão**.
 
@@ -112,9 +112,9 @@ Crie duas VMs na rede virtual:
     | Desempenho | Predefinição da **Norma**. |
     | Replicação | Predefinição do **armazenamento localmente redundante (LRS)**. |
 
-1. Selecione **OK,** em seguida, **selecione Review + create**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+1. Selecione **OK,** em seguida, **selecione Review + create**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
@@ -137,7 +137,7 @@ Depois de criar *o myVm1,* ligue-se à internet.
 
     A página **'Ligar'** abre.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o ficheiro RDP. Se lhe for pedido, selecione **Ligar**.
 
@@ -148,7 +148,7 @@ Depois de criar *o myVm1,* ligue-se à internet.
 
 1. Selecione **OK**.
 
-1. Pode receber um aviso de certificado quando iniciar sação. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Pode receber um aviso de certificado quando iniciar sação. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.
 
@@ -218,7 +218,7 @@ Quando terminar de usar a rede virtual e os VMs, elimine o grupo de recursos e t
 
 1. Introduza *o myResourceGroup* para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as definições de rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual.](manage-virtual-network.md)
 

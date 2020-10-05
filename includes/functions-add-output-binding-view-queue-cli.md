@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90606560"
 ---
 Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Também pode ver a fila no CLI Azure, conforme descrito nos seguintes passos:

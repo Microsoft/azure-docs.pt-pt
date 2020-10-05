@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
 ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896161"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para o servidor MySQL
@@ -66,7 +66,7 @@ Mais Azure Database para amostras de modelos MySQL pode ser encontrado na galeri
 
 Selecione o seguinte link para implementar o modelo de servidor Azure Database para o servidor MySQL no portal Azure:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 Na **Base de Dados de Azure de implementação para o MySQL com** a página VNet:
 
@@ -76,7 +76,7 @@ Na **Base de Dados de Azure de implementação para o MySQL com** a página VNet
 
 3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador**e **Palavra-passe de Login do Administrador**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Implementar base de dados Azure para MySQL com janela VNet, modelo de arranque rápido Azure, portal Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Desdobre-se para Azure":::
 
 4. Altere as outras definições predefinidos se quiser:
 
@@ -181,7 +181,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

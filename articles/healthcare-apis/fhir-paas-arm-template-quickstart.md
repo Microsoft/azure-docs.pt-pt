@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 09/14/2020
 ms.openlocfilehash: 393678342ad1e8e6e2ff5d3c38dab68ce29ee7e7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91711722"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Quickstart: Use um modelo ARM para implantar API Azure para FHIR
@@ -226,7 +226,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo ARM, consulte:
 

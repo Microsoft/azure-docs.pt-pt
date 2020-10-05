@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83652273"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure
@@ -30,14 +30,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. A partir do menu do portal Azure, ou da página **Inicial,** selecione **Criar um recurso**.
+1. A partir do menu do portal Azure, ou na página **Inicial,** selecione **Criar um recurso**.
 2. Na caixa Pesquisar, introduza **Key Vault**.
 3. Na lista de resultados, selecione **Key Vault**.
 4. Na secção Key Vault, selecione **Criar**.
 5. Na secção **Criar cofre de chaves**, forneça as seguintes informações:
-    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, usamos **Contoso-abóbada2.** 
+    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, **usamos Contoso-vault2.** 
     - **Subscrição**: selecione uma subscrição.
-    - No **Grupo de Recursos,** escolha **Criar novos** e insira um nome de grupo de recursos.
+    - No **Grupo de Recursos,** escolha **Criar novo** e insira um nome de grupo de recursos.
     - No menu pendente **Localização**, selecione uma localização.
     - Deixe as outras opções com os valores predefinidos.
 6. Depois de fornecer as informações acima, selecione **Criar**.
@@ -53,9 +53,9 @@ Nesta altura, a sua conta do Azure é a única autorizada a realizar as operaç�
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe **chama-se ExemploPassword** e armazenamos o valor do **hVFkk965BuUv** na seleção.
+Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe chama-se **ExemploPassword** e armazenamos o valor de **hVFkk965BuUv** na sua.
 
-1. Nas páginas de propriedades do Cofre chave, selecione **Segredos**.
+1. Nas páginas das propriedades do Cofre-Chave, selecione **Secrets**.
 2. Clique em **Gerar/Importar**.
 3. No ecrã **Criar um segredo**, selecione os seguintes valores:
     - **Opções de carregamento**: Manual.
@@ -65,15 +65,15 @@ Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adiciona
 
 Depois de receber a mensagem de que o segredo foi criado com êxito, pode clicar no mesmo na lista. 
 
-## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar um segredo do Cofre chave
+## <a name="retrieve-a-secret-from-key-vault"></a>Recupere um segredo do Cofre de Chaves
 
 Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
 
 ![Propriedades do segredo](../media/quick-create-portal/current-version-hidden.png)
 
-Ao clicar no botão "Mostrar valor secreto" no painel direito, pode ver o valor escondido. 
+Ao clicar no botão "Mostrar Valor Secreto" no painel direito, pode ver o valor oculto. 
 
-![Valor secreto apareceu](../media/quick-create-portal/current-version-shown.png)
+![O valor secreto apareceu](../media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -85,10 +85,10 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criaste um Cofre chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste arranque rápido, criaste um Cofre-Chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Cofre chave Azure](../general/overview.md)
-- Consulte o guia do desenvolvedor do Cofre de [Chaves Azure](../general/developers-guide.md)
-- Rever [as melhores práticas do Cofre de Chaves Azure](../general/best-practices.md)
+- Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
+- Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
+- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)
