@@ -1,5 +1,5 @@
 ---
-title: Biblioteca de clientes Bing Visual Search Python quickstart
+title: Bing Visual Search Python biblioteca cliente quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,21 +9,21 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80550003"
 ---
-Use este quickstart para começar a obter insights de imagem do serviço bing visual search, usando a biblioteca cliente Python. Embora a Bing Visual Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
+Utilize este quickstart para começar a obter insights de imagem do serviço de Pesquisa Visual Bing, utilizando a biblioteca do cliente Python. Embora a Bing Visual Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch)  |  [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Pitão](https://www.python.org/) 2.x ou 3.x
 * Recomenda-se a utilização de um [ambiente virtual.](https://docs.python.org/3/tutorial/venv.html) Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv).
-* A biblioteca de clientes bing visual search para Python. Pode instalá-lo com os seguintes comandos:
+* A biblioteca de clientes Bing Visual Search para Python. Pode instalá-lo com os seguintes comandos:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
@@ -48,7 +48,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
     )
     from msrest.authentication import CognitiveServicesCredentials
     ```
-2. Crie variáveis para a sua chave de subscrição, ID de Configuração Personalizada e a imagem que pretende carregar. 
+2. Crie variáveis para a sua chave de subscrição, ID de configuração personalizada e a imagem que pretende carregar. 
     
     ```python
     subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
@@ -65,7 +65,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
 
 ## <a name="send-the-search-request"></a>Enviar o pedido de pesquisa
 
-1. Com o ficheiro de `VisualSearchRequest()`imagem aberto, serialize, e passe-o como parâmetro `knowledge_request` para o `visual_search()`.
+1. Com o ficheiro de imagem aberto, `VisualSearchRequest()` serialize, e passe-o como `knowledge_request` parâmetro para o `visual_search()` .
 
     ```python
     with open(image_path, "rb") as image_fd:
@@ -76,7 +76,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
         result = client.images.visual_search(image=image_fd, knowledge_request=knowledge_request)
     ```
 
-2. Se algum resultado for devolvido, imprima-os, as etiquetas e as ações na primeira etiqueta.
+2. Se os resultados forem devolvidos, imprima-os, as etiquetas e as ações na primeira etiqueta.
 
     ```python
     if not result:

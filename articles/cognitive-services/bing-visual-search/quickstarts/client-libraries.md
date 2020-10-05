@@ -13,10 +13,10 @@ ms.date: 03/26/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 311508e2bcddbb312a2c373617d15ca7e2b326ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91326847"
 ---
 # <a name="quickstart-use-the-bing-visual-search-client-library"></a>Quickstart: Use a biblioteca do cliente Bing Visual Search

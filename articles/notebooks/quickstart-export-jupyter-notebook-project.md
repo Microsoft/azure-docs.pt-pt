@@ -4,10 +4,10 @@ description: Exporte rapidamente um projeto jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90030451"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
@@ -98,7 +98,7 @@ O GitHub fornece uma forma gratuita e apoiada por controlo de fontes para armaze
 1. [Crie um repositório GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para armazenar os seus cadernos. 
 1. [Adicione os seus ficheiros](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) ao repositório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre Python no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Saiba mais sobre Azure Machine Learning e Jupyter Notebooks](../machine-learning/how-to-run-jupyter-notebooks.md)

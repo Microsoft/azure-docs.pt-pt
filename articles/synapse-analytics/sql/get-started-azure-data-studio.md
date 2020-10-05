@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87059560"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
@@ -54,7 +54,7 @@ Escolha a **autenticação do Windows**, **Diretório Ativo Azure,** ou **SQL Lo
 
 Para utilizar o **SQL Login** como tipo de autenticação, adicione os parâmetros username/password:
 
-* **Utilizador:** Utilizador do servidor no formulário`<User>`
+* **Utilizador:** Utilizador do servidor no formulário `<User>`
 * **Senha:** Palavra-passe associada ao utilizador
 
 Para utilizar o Azure Ative Directory, tem de escolher o tipo de autenticação necessário.

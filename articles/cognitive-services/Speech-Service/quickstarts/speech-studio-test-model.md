@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
 ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89565808"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Teste um modelo usando um arquivo áudio no Speech Studio

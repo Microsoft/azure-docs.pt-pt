@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85299199"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Ligue uma aplicação Go à API da Azure Cosmos DB para a MongoDB
@@ -75,7 +75,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `todo.go`.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Ligar a aplicação Go ao Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)encapsula a cadeia de ligação para Azure Cosmos DB, que é passada usando uma variável ambiental (detalhes na secção seguinte). A ligação é inicializada utilizando [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) a qual a instância é `clientOptions` passada. [ `Ping` a função](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) é invocada para confirmar a conectividade bem sucedida (é uma estratégia de falha-rápido)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsula a cadeia de ligação para Azure Cosmos DB, que é passada usando uma variável ambiental (detalhes na secção seguinte). A ligação é inicializada utilizando [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) a qual a instância é `clientOptions` passada. [ `Ping` a função](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) é invocada para confirmar a conectividade bem sucedida (é uma estratégia de falha-rápido)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -96,7 +96,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `todo.go`.
 ```
 
 > [!NOTE] 
-> A [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) utilização da configuração é importante, sem a qual obterá o seguinte erro de conectividade:`unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
+> A [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) utilização da configuração é importante, sem a qual obterá o seguinte erro de conectividade: `unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
 >
 
 ### <a name="create-a-todo-item"></a>Criar um `todo` item
@@ -145,7 +145,7 @@ func list(status string) {
     }
 ```
 
-[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find)é usado para procurar documentos com base no filtro e o resultado é convertido em uma fatia de`Todo`
+[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find) é usado para procurar documentos com base no filtro e o resultado é convertido em uma fatia de `Todo`
 
 ```go
     todoCollection := c.Database(database).Collection(collection)
@@ -199,9 +199,9 @@ func update(todoid, newStatus string) {
     }
 ```
 
-### <a name="delete-a-todo"></a>Eliminar a`todo`
+### <a name="delete-a-todo"></a>Eliminar a `todo`
 
-A `todo` é eliminada com base na sua e é `_id` encapsulada sob a forma de um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) exemplo. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)é invocado para apagar o documento.
+A `todo` é eliminada com base na sua e é `_id` encapsulada sob a forma de um [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) exemplo. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) é invocado para apagar o documento.
 
 ```go
 func delete(todoid string) {
@@ -327,7 +327,7 @@ A CLI do Azure apresenta informações semelhantes ao exemplo seguinte.
 "RUayjYjixJDWG5xTqIiXjC..."
 ```
 
-## <a name="configure-the-application"></a>Configure a aplicação 
+## <a name="configure-the-application"></a>Configurar a aplicação 
 
 <a name="devconfig"></a>
 ### <a name="export-the-connection-string-mongodb-database-and-collection-names-as-environment-variables"></a>Exporte a cadeia de ligação, a base de dados mongoDB e os nomes de recolha como variáveis ambientais. 
@@ -340,7 +340,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 > A `ssl=true` opção é importante devido aos requisitos da Cosmos DB. Para obter mais informações, consulte [os requisitos de cadeia de ligação](connect-mongodb-account.md#connection-string-requirements).
 >
 
-Para a `MONGODB_CONNECTION_STRING` variável ambiente, substitua os espaços reservados `<COSMOSDB_ACCOUNT_NAME>` para e`<COSMOSDB_PASSWORD>`
+Para a `MONGODB_CONNECTION_STRING` variável ambiente, substitua os espaços reservados `<COSMOSDB_ACCOUNT_NAME>` para e `<COSMOSDB_PASSWORD>`
 
 1. `<COSMOSDB_ACCOUNT_NAME>`: O nome da conta DB Azure Cosmos que criou
 2. `<COSMOSDB_PASSWORD>`: A chave da base de dados extraída no passo anterior
@@ -354,7 +354,7 @@ Pode escolher os seus valores preferidos `MONGODB_DATABASE` para e `MONGODB_COLL
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Para criar uma`todo`
+Para criar uma `todo`
 
 ```bash
 ./todo --create "Create an Azure Cosmos DB database account"
@@ -366,7 +366,7 @@ Se for bem sucedido, deverá ver uma saída com o MongoDB `_id` do documento rec
 added todo ObjectID("5e9fd6befd2f076d1f03bd8a")
 ```
 
-Criar outro`todo`
+Criar outro `todo`
 
 ```bash
 ./todo --create "Get the MongoDB connection string using the Azure CLI"
@@ -422,7 +422,7 @@ Para ver, consultar e trabalhar com os dados do utilizador criados no passo ante
 
 Na caixa de pesquisa superior, **insira Azure Cosmos DB**. Quando a sua folha de conta Cosmos abrir, selecione a sua conta Cosmos. Na navegação à esquerda, selecione **Data Explorer**. Expanda a coleção no painel Coleções e, em seguida, pode ver os documentos na coleção, consultar os dados e, ainda, criar e executar UDFs, acionadores e procedimentos armazenados. 
 
-:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="O Data Explorer a mostrar o documento recentemente criado":::
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="O Data Explorer a mostrar o documento recentemente criado&quot;:::
 
 
 Excluir um `todo` uso é ID
@@ -443,7 +443,7 @@ O `todo` que acabou de apagar não deve estar presente.
 +----------------------------+--------------------------------+-----------+
 |             ID             |          DESCRIPTION           |  STATUS   |
 +----------------------------+--------------------------------+-----------+
-| "5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
+| &quot;5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
 |                            | string using the Azure CLI     |           |
 +----------------------------+--------------------------------+-----------+
 ```

@@ -8,10 +8,10 @@ ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89494295"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
@@ -129,8 +129,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
-| Definição da Imagem     | No                   | Yes          | Yes                  |
+| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
+| Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../articles/role-based-access-control/role-assignments-portal.md)
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte **Gerir os recursos** da galeria utiliza
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Posso mover a minha imagem existente para a galeria de imagens partilhada?
  
-Yes. Existem 3 cenários baseados nos tipos de imagens que pode ter.
+Sim. Existem 3 cenários baseados nos tipos de imagens que pode ter.
 
  Cenário 1: Se tiver uma imagem gerida, então pode criar uma definição de imagem e versão de imagem a partir dela. Para obter mais informações, consulte **Migrar de uma imagem gerida para uma versão de imagem** utilizando o [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) ou [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 

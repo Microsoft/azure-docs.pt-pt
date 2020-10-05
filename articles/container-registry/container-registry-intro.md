@@ -7,10 +7,10 @@ ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 6951dfe3eecc8764dda9788393a7348e9267cef8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86248871"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure

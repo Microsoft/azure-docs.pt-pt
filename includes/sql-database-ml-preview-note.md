@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/27/2020
 ms.author: garye
 ms.openlocfilehash: 235aa6b50ef413dacb461320e50dceac7cce460d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84014201"
 ---
 > [!IMPORTANT]

@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: d700c2f2b4df01da577b67dafab989b655bdb58d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91331085"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
@@ -38,7 +38,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 Criará o gateway de aplicações utilizando os separadores na página **Criar um gateway de aplicações.**
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
 
 2. Selecione **Networking** e, em seguida, selecione **Application Gateway** na lista **em destaque.**
 
@@ -146,7 +146,7 @@ Para fazer isto, vai:
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
 2. Selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Windows Server 2016.
 3. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
@@ -217,7 +217,7 @@ Embora o IIS não seja obrigado a criar o gateway de aplicações, instalou-o ne
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Ao eliminar o grupo de recursos, também remove o gateway de aplicação e todos os recursos relacionados.
 

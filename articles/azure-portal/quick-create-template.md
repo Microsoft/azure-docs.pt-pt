@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
 ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85560491"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Quickstart: Criar um dashboard no portal Azure utilizando um modelo ARM
@@ -20,7 +20,7 @@ Um dashboard no portal Azure é uma visão focada e organizada dos seus recursos
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ O painel de instrumentos que cria na parte seguinte deste quickstart requer um V
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). O modelo para este artigo é muito longo para mostrar aqui. Para ver o modelo, consulte [azuredeploy.js.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json) Um recurso Azure é definido no modelo, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Crie um dashboard no portal Azure.
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). O modelo para este artigo é muito longo para mostrar aqui. Para ver o modelo, consulte [azuredeploy.js.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json) Um recurso Azure é definido no modelo, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Crie um dashboard no portal Azure.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -90,7 +90,7 @@ O portal Azure foi usado para implantar o modelo. Além do portal do Azure, tamb
 
 Verifique se o dashboard foi criado com sucesso e se pode ver dados do VM.
 
-1. No portal Azure, selecione **Dashboard**.
+1. No portal do Azure, selecione **Dashboard**.
 
     ![Navegação do portal Azure para painel](media/quick-create-template/navigate-to-dashboards.png)
 

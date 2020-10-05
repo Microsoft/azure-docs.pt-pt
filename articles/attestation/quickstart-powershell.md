@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89421293"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
@@ -228,7 +228,7 @@ Para obter a amostra do certificado do signatário da apólice, consulte [exempl
 
 Para obter mais informações sobre os cmdlets e seus parâmetros, consulte [os cmdlets Azure Attestation PowerShell](/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Atestar um enclave SGX usando amostras de código](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442163"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Quickstart: Configurar uma aplicação para expor uma API web
@@ -95,7 +95,7 @@ Para adicionar o âmbito de `Employees.Write.All` exemplo, siga os passos na sec
 
 Se tiver adicionado com sucesso ambos os âmbitos de exemplo descritos nas secções anteriores, eles aparecerão no painel **de API expondo um** painel API do registo de aplicações da API da web, semelhante a esta imagem:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot do painel De exposição de API mostrando dois âmbitos expostos.":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Um registo de aplicações expõe um painel de API no portal Azure":::
 
 Como mostrado na imagem, a cadeia completa de um âmbito é a concatenação do **ID URI** de aplicação da sua Web API e o **nome**scope do âmbito .
 

@@ -10,10 +10,10 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
 ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91336195"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -355,7 +355,7 @@ Este código chama a função [BlobURL.delete](https://docs.microsoft.com/javasc
 
 Neste ponto, você pode lançar a página e experimentar para obter uma sensação de como o armazenamento de bolhas funciona. Se ocorrerem erros (por exemplo, quando tentar listar ficheiros antes de criar o recipiente), o painel **de estado** mostrará a mensagem de erro recebida. Também pode definir pontos de rutura no código JavaScript para examinar os valores devolvidos pelas APIs de armazenamento.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção Pré-Requisitos.
 

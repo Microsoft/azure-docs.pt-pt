@@ -12,10 +12,10 @@ ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89008646"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Visão geral do Lago Delta da Fundação Linux
@@ -564,7 +564,7 @@ deltaTable.history.show(false)
 
 Resultados em:
 
-|versão|          carimbo de data/hora|userId|userName|operation|                                                operaçãoParametros| trabalho|caderno|clusterId|readVersão|isolamentoLevel|isBlindAppend|
+|versão|          carimbo de data/hora|userId|userName|operation|                                                operaçãoParametros| tarefa|bloco de notas|clusterId|readVersão|isolamentoLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
 |      4|2020-04-25 00:36:27|  nulo|    nulo|    FUSÃO|                       [predicado -> (oldData.`ID` = `ID` novosData.]]|nulo|    nulo|     nulo|          3|          nulo|        false|
 |      3|2020-04-25 00:36:08|  nulo|    nulo|   DELETE|[predicado -> ["(% `ID` CAST(2 AS BIGINT)) = CAST(0 AS BIGINT)]]]]]]]|nulo|    nulo|     nulo|          2|          nulo|        false|
@@ -903,7 +903,7 @@ spark.sql(s"DESCRIBE HISTORY delta.`$deltaTablePath`").show()
 
 Resultados em:
 
-|versão|          carimbo de data/hora|userId|userName|       operation| operaçãoParametros| trabalho|caderno|clusterId|readVersão|isolamentoLevel|isBlindAppend|
+|versão|          carimbo de data/hora|userId|userName|       operation| operaçãoParametros| tarefa|bloco de notas|clusterId|readVersão|isolamentoLevel|isBlindAppend|
 |-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
 |      5|2020-04-25 00:37:09|  nulo|    nulo|ATUALIZAÇÃO DE STREAMING|[outputMode -> Ap...|nulo|    nulo|     nulo|          4|          nulo|         true|
 |      4|2020-04-25 00:36:27|  nulo|    nulo|           FUSÃO|[predicado -> (ol...|nulo|    nulo|     nulo|          3|          nulo|        false|

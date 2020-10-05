@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85100763"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é Azure Data Box Gateway?
@@ -49,7 +49,7 @@ O Data Box Gateway possui os benefícios seguintes:
 
 O Data Box Gateway possui as seguintes funções:
 
-|Funcionalidade |Description  |
+|Funcionalidade |Descrição  |
 |---------|---------|
 |Velocidade     | Transferência de dados e largura de banda totalmente automatizadas e altamente otimizadas.|
 |Protocolos suportados     | Suporte para protocolos SMB e NFS standard de ingestão de dados. <br> Para obter mais informações sobre as versões suportadas, aceda a [Requisitos de sistema do Data Box Gateway](data-box-gateway-system-requirements.md).|
@@ -64,7 +64,7 @@ O Data Box Gateway possui as seguintes funções:
 
 O dispositivo virtual do Data Box Gateway tem as seguintes especificações:
 
-| Especificações                                          | Description              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  |Mínimo de 8 GB|

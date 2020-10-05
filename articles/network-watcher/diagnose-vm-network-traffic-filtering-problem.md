@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84709220"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
@@ -44,7 +44,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Nome|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os requisitos de complexidade definidos.|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os requisitos de complexidade definidos.|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
     |Localização| Selecione **E.U.A. Leste**.|
@@ -61,18 +61,18 @@ Para testar a comunicação de rede com o Observador de Rede, deve primeiro ativ
 
 Se já tiver um observador de rede ativado em pelo menos uma região, salte para o [fluxo IP de utilização verificar](#use-ip-flow-verify).
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Filtro**, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Ative um observador de rede na região E.U.A. Leste, uma vez que é a região onde a VM foi implementada num passo anterior. Selecione **Regiões**, para expandir e, em seguida, selecione **...** à direita de **E.U.A. Leste**, conforme apresentado na seguinte imagem:
 
     ![Ativar o Observador de Rede](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Selecione **Ativar o Observador de Rede**.
+3. Selecione **Ativar Observador de Rede**.
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
 Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego.
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços, ** *Filtro*, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços, ** *Filtro*, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Selecione **Verificação do fluxo de IP**, em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme apresentado na imagem que se segue:
 
@@ -101,7 +101,7 @@ Agora que sabe quais as regras de segurança que estão a permitir ou a recusar 
 1. Para determinar o motivo pelo qual as regras nos passos 3 a 5 de **Utilizar a verificação do fluxo IP** permitem ou recusam a comunicação, reveja as regras de segurança efetivas para a interface de rede na VM. Na caixa de pesquisa na parte superior do portal, introduza *myvm*. Quando a interface de rede **myvm** (ou qualquer que seja o nome da interface de rede) for apresentada nos resultados da pesquisa, selecione-a.
 2. Selecione **Regras de segurança efetivas** em **SUPORTE + RESOLUÇÃO DE PROBLEMAS**, conforme apresentado na seguinte imagem:
 
-    ![Regras de segurança efetivas](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
+    ![Regras de segurança em vigor](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
     No passo 3 para **Utilizar a verificação do fluxo IP**, aprendeu que o motivo pelo qual foi autorizada a comunicação se deve à regra **AllowInternetOutbound**. Pode ver na imagem anterior que o **DESTINO** para a regra é **Internet**. No entanto, não é claro como 13.107.21.200, o endereço testado no passo 3 de **Utilizar a verificação do fluxo IP**, está relacionado com **Internet**.
 3. Selecione a regra **AllowInternetOutBound** e, em seguida, selecione **Destino**, conforme apresentado na seguinte imagem:

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
 ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91325883"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
@@ -57,7 +57,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
 
 Pode desatribuição de utilizadores ou grupos utilizando o mesmo procedimento. Selecione o utilizador ou grupo que pretende não assinar e, em seguida, selecione **Remover**. Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode manter o seu inquilino de teste limpo. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
@@ -65,9 +65,9 @@ Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode 
 
 Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
 > [!div class="nextstepaction"]
-> [Configurar um único sinal baseado em SAML](add-application-portal-setup-sso.md)
+> [Configurar o início de sessão único baseado em SAML](add-application-portal-setup-sso.md)
 
 OU
 
 > [!div class="nextstepaction"]
-> [Configurar um único sign-on baseado no OIDC](add-application-portal-setup-oidc-sso.md)
+> [Configurar o início de sessão único baseado em OIDC](add-application-portal-setup-oidc-sso.md)

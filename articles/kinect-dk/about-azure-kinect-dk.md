@@ -1,5 +1,5 @@
 ---
-title: Sobre Azure Kinect DK
+title: Acerca do Azure Kinect DK
 description: Visão geral das ferramentas e serviços integrados do kit de desenvolvimento Azure Kinect (DK).
 author: tesych
 ms.author: tesych
@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 06/26/2019
 keywords: azul, kinect, visão geral, dev kit, DK, dispositivo, profundidade, body tracking, fala, serviços cognitivos, SDKs, SDK, firmware
 ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277992"
 ---
-# <a name="about-azure-kinect-dk"></a>Sobre Azure Kinect DK
+# <a name="about-azure-kinect-dk"></a>Acerca do Azure Kinect DK
 
  ![Azure Kinect DK](./media/index/device-image.jpg)
 
-Azure Kinect DK é um kit de desenvolvimento com sensores avançados de IA que fornecem modelos sofisticados de visão computacional e de fala.  Kinect contém um sensor de profundidade, conjunto de microfone espacial com uma câmara de vídeo, e sensor de orientação como um pequeno dispositivo em um com vários modos, opções e kits de desenvolvimento de software (SDKs). Está disponível para compra na [loja online da Microsoft.](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq)
+O Azure Kinect DK é um kit de programador com sensores de IA avançados que fornece modelos de voz e de imagem digitalizada sofisticados.  O Kinect contém um sensor de profundidade, uma matriz de microfones espacial com uma câmara de vídeo e um sensor de orientação sob a forma de um pequeno dispositivo tudo em um com vários modos, opções e Software Development Kits (SDKs). Está disponível para compra na [loja online da Microsoft.](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq)
 
 O ambiente de desenvolvimento do Azure Kinect DK consiste nos seguintes múltiplos SDKs:
 
@@ -81,7 +81,7 @@ O Speech SDK permite serviços de fala ligados ao Azure.
 
 - Conversão de voz em texto
 - Tradução de voz
-- Texto em Voz
+- Conversão de Texto em Voz
 
 >[!NOTE]
 >O Azure Kinect DK não tem altifalantes.

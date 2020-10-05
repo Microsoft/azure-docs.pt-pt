@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar o pacote De Grá
 ms.date: 06/16/2020
 ms.topic: quickstart
 ms.openlocfilehash: cc15b9fe75913ca47a14001a27e1e3c37d9ea71a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84899685"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Go

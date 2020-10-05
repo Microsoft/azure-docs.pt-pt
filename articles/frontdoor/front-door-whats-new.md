@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: duau
 ms.openlocfilehash: e402a87ae441ed98a9da93f8b9e347c38c48126f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89398822"
 ---
 # <a name="whats-new-in-azure-front-door"></a>O que há de novo na Porta da Frente Azure?
@@ -36,6 +36,6 @@ A Azure Front Door é atualizada de forma contínua. Para se manter atualizado c
 | Motor de Regras (Pré-visualização) | Personalize como os pedidos http são tratados no limite. Para mais informações, consulte a [visão geral do Motor de Regras.](front-door-rules-engine.md) |Abril de 2020 |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a Porta frontal Azure, veja [o que é a Porta frontal Azure?](front-door-overview.md)

@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86515058"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Quickstart: Use o Código do Estúdio Visual para ligar e consultar 
@@ -47,7 +47,7 @@ ms.locfileid: "86515058"
 
 Certifique-se de que instalou o mais recente [Código do Estúdio Visual](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações sobre a instalação da extensão mssql, consulte instalar o [Código do Estúdio Visual](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e o [mssql para Código de Estúdio Visual ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Código de estúdio visual configurar
+## <a name="configure-visual-studio-code"></a>Configurar o Visual Studio Code
 
 ### <a name="macos"></a>**macOS**
 
@@ -82,7 +82,7 @@ Obtenha a informação de ligação necessária para ligar à Base de Dados Azur
 
 ## <a name="set-language-mode-to-sql"></a>Definir modo do idioma para SQL
 
-No Código do Estúdio Visual, deite o modo de linguagem para **SQL** para permitir comandos mssql e T-SQL IntelliSense.
+No Código do Estúdio Visual, deite o modo de linguagem para **SQL**  para permitir comandos mssql e T-SQL IntelliSense.
 
 1. Abra uma nova janela do Visual Studio Code.
 
@@ -191,7 +191,7 @@ Executar a seguinte declaração [DELETE](https://docs.microsoft.com/sql/t-sql/s
 
 2. Prima **Ctrl** + **Shift** + **E** para eliminar a linha especificada na `Product` tabela.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ligar e consultar o SQL Server Management Studio, consulte [quickstart: Use SQL Server Management Studio para ligar a uma base de dados na Base de Dados Azure SQL e dados de consulta](connect-query-ssms.md).
 - Para ligar e consultar utilizando o portal Azure, consulte [Quickstart: Utilize o editor de consulta SQL no portal Azure para ligar e consultar dados](connect-query-portal.md).

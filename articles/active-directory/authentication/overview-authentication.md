@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87035116"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
@@ -23,7 +23,7 @@ ms.locfileid: "87035116"
 Uma das principais características de uma plataforma de identidade é verificar, ou *autenticar,* credenciais quando um utilizador assina um dispositivo, aplicação ou serviço. No Azure Ative Directory (Azure AD), a autenticação envolve mais do que apenas a verificação de um nome de utilizador e palavra-passe. Para melhorar a segurança e reduzir a necessidade de assistência ao balcão de ajuda, a autenticação AZure AD inclui os seguintes componentes:
 
 * Reposição personalizada de palavra-passe
-* Autenticação Multifator do Azure
+* Multi-Factor Authentication do Azure
 * Integração híbrida para escrever alterações de palavra-passe de volta ao ambiente no local
 * Integração híbrida para impor políticas de proteção de senhas para um ambiente no local
 * Autenticação sem palavra-passe
@@ -50,9 +50,9 @@ A redefinição da palavra-passe de autosserviço funciona nos seguintes cenári
 
 Quando um utilizador atualiza ou reinicia a sua palavra-passe utilizando a palavra-passe de autosserviço, essa palavra-passe também pode ser escrita de volta para um ambiente de Ative Directory no local. O writeback da palavra-passe garante que um utilizador pode usar imediatamente as suas credenciais atualizadas com dispositivos e aplicações no local.
 
-## <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
+## <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
-A autenticação multi-factor é um processo em que um utilizador é solicitado durante o processo de inscrição para uma forma adicional de identificação, como introduzir um código no seu telemóvel ou fornecer uma digitalização de impressões digitais.
+A autenticação multifator é um processo no qual é pedido a um utilizador uma forma adicional de identificação durante o início de sessão, tal como a introdução de um código no respetivo telemóvel ou a análise de impressões digitais.
 
 Se utilizar apenas uma palavra-passe para autenticar um utilizador, deixa um vetor inseguro para o ataque. Se a palavra-passe é fraca ou foi exposta em outro lugar, é realmente o utilizador que está a iniciar sessão com o nome de utilizador e a palavra-passe, ou é um intruso? Quando se precisa de uma segunda forma de autenticação, a segurança é aumentada, uma vez que este fator adicional não é algo que seja fácil para um intruso obter ou duplicar.
 

@@ -9,10 +9,10 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: b9ff7397ad29ac681e21c32608ade9c6ce557c37
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89488631"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Quickstart: Azure Key Vault certifica biblioteca de clientes para Python
@@ -162,7 +162,7 @@ Pode verificar se o certificado é eliminado com o certificado de comando Azure 
 
 Uma vez eliminado, um certificado permanece em estado de aussitado mas recuperável por um tempo. Se voltar a executar o código, utilize um nome de certificado diferente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se também quiser experimentar [segredos](../secrets/quick-create-python.md) e [chaves,](../keys/quick-create-python.md)pode reutilizar o Key Vault criado neste artigo.
 

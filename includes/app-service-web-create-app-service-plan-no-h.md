@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,13 +9,13 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: add73e1399b11d4bd8f039c72bb4e5e9f2b82cfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82085250"
 ---
-Na Cloud Shell, crie um [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest) plano de Serviço de Aplicações com o comando.
+Na Cloud Shell, crie um plano de Serviço de Aplicações com o [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest) comando.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
 

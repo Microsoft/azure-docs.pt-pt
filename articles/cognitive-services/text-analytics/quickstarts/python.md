@@ -12,10 +12,10 @@ ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
 ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90527246"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Utilização da API Python REST para chamar o Serviço Cognitivo text Analytics 
@@ -354,7 +354,7 @@ pprint(entities)
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Veja também 
 
  [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

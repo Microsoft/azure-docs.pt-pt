@@ -10,10 +10,10 @@ zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
 ms.date: 07/16/2020
 ms.openlocfilehash: 6d03870a24e25327b43c14e57715cdaea23e700d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87132903"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Obtenha uma resposta da base de conhecimento

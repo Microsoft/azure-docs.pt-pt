@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: 76640d00343cf2d58aa128550e2001779d80d6f2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81400906"
 ---
-## <a name="additional-language-and-platform-support"></a>Suporte adicional de linguagem e plataforma
+## <a name="additional-language-and-platform-support"></a>Suporte adicional de idiomas e plataformas
 
-Se clicou neste separador, provavelmente não viu um início rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/OS.
+Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/SISTEMA.
 
-| Idioma | Quickstarts Adicionais | Exemplos de código |
+| Linguagem | Quickstarts adicionais | Exemplos de código |
 |--|--|--|
-| C# | [Do microfone,][1-mic] [do arquivo][1-file] | [.NET Framework][dotnet], [.NET Core,][netcore] [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
-| C++ | [Do microfone,][2-mic] [do arquivo][2-file] | [Windows,][cpp-windows] [Linux,][cpp-linux] [macOS][cpp-mac] |
-| Java | [Do microfone,][3-mic] [do arquivo][3-file] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Navegador a partir de mic][js-browser], [Node.js de arquivo][js-node] | [Windows, Linux, macOS][js-code] |
-| Objective-C | [iOS do mic,][obj-iOS-qck] [macOS do mic][obj-macOS-qck] | [iOS,][obj-iOS] [macOS][obj-macOS] |
-| Python | [Do microfone,][4-mic] [do arquivo][4-file] | [Windows, Linux, macOS][python] |
-| Swift | [iOS do mic,][swift-iOS-qck] [macOS do mic][swift-macOS-qck] | [iOS,][swift-iOS] [macOS][swift-macOS] |
+| C# | [A partir de microfone][1-mic], [De arquivo][1-file] | [.Net Framework][dotnet], [.NET Core][netcore], [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
+| C++ | [A partir de microfone][2-mic], [De arquivo][2-file] | [Windows][cpp-windows], [Linux,][cpp-linux] [macOS][cpp-mac] |
+| Java | [A partir de microfone][3-mic], [De arquivo][3-file] | [Android][java-android], [JRE][java-jre] |
+| JavaScript | [Navegador a partir de microfone][js-browser],Node.js de [ arquivo][js-node] | [Windows, Linux, macOS][js-code] |
+| Objective-C | [iOS do mic][obj-iOS-qck], [macOS do mic][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
+| Python | [A partir de microfone][4-mic], [De arquivo][4-file] | [Windows, Linux, macOS][python] |
+| Swift | [iOS do mic][swift-iOS-qck], [macOS do mic][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
 
 [1-mic]: ../../../../quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp
 [1-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-csharp

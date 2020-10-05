@@ -13,10 +13,10 @@ ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
 ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318845"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
@@ -102,7 +102,7 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
     <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
@@ -2446,7 +2446,7 @@ Depois de uma chamada bem sucedida, deverá ver a seguinte resposta. Para obter 
 * [Saiba como a API conta caracteres](character-counts.md)
 * [Personalizar e melhorar a tradução](customization.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Referência API tradutor v3](reference/v3-0-reference.md)
 * [Suporte de idiomas](language-support.md)

@@ -1,5 +1,5 @@
 ---
-title: Serviços cognitivos para big data
+title: Serviços Cognitivos para Macrodados
 description: Aprenda a aproveitar os Serviços Cognitivos Azure em grandes conjuntos de dados usando Python, Java e Scala. Com serviços cognitivos para big data pode incorporar continuamente melhorando, modelos inteligentes diretamente em computações Apache Spark &trade; e SQL.
 services: cognitive-services
 author: mhamilton723
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
 ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86201793"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Serviços Cognitivos Azure para Big Data
@@ -36,13 +36,13 @@ Os Serviços Cognitivos para Big Data podem utilizar serviços de qualquer regi�
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Imagem Digitalizada")| O serviço De Visão De Computador fornece-lhe acesso a algoritmos avançados para processar imagens e devolver informações. |
-|[Rostos](https://docs.microsoft.com/azure/cognitive-services/face/ "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais. |
+|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais. |
 
 ### <a name="speech"></a>Voz
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço Discurso fornece acesso a funcionalidades como reconhecimento de voz, síntese de fala, tradução da fala e verificação e identificação de oradores.|
+|[Serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço Discurso fornece acesso a funcionalidades como reconhecimento de voz, síntese de fala, tradução da fala e verificação e identificação de oradores.|
 
 ### <a name="decision"></a>Decisão
 

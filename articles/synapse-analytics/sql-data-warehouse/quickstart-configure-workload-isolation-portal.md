@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85213045"
 ---
 # <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Quickstart: Configurar o isolamento da carga de trabalho da piscina da Synapse SQL utilizando um grupo de carga de trabalho no portal Azure
@@ -99,5 +99,5 @@ Siga estes passos para limpar os recursos.
 
 Para utilizar o `DataLoads` grupo de carga de trabalho, é necessário criar um [classificador](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de carga de trabalho para encaminhar os pedidos para o grupo de carga de trabalho.  Continue a criar tutorial [de classificação de carga de trabalho](quickstart-create-a-workload-classifier-portal.md) para criar um classificador de carga de trabalho para `DataLoads` .
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Consulte o artigo Gerir e monitorizar a [Gestão da Carga de Trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) para obter detalhes sobre como monitorizar as cargas de trabalho para a gestão da carga de trabalho.

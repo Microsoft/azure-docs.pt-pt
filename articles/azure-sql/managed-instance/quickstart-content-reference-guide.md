@@ -13,10 +13,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
 ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84708574"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Começando com Azure SQL Managed Instance

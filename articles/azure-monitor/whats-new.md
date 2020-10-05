@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
 ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91325662"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
@@ -192,7 +192,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 - [Registos de recursos do Archive Azure para a conta de armazenamento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de evento de registo de atividade azure](platform/activity-log-schema.md)
-- [Registo de atividades do Azure](platform/activity-log.md)
+- [Log de atividades Azure](platform/activity-log.md)
 - [Amostras de CLI monitor Azure](samples/cli-samples.md)
 - [Amostras de PowerShell monitor Azure Monitor](samples/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
@@ -200,7 +200,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 - [Registos de recursos do Azure](platform/resource-logs.md)
 - [Recolher e analisar o registo de atividades do Azure no Azure Monitor](./platform/activity-log.md)
 - [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos](platform/diagnostic-settings.md)
+- [Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes](platform/diagnostic-settings.md)
 - [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Descrição geral dos registos de plataforma Azure](platform/platform-logs-overview.md)
 - [Stream Azure plataforma registra para um centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)

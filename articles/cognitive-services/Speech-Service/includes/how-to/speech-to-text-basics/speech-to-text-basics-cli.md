@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/08/2020
 ms.author: trbye
 ms.openlocfilehash: 905eacc3751b3d5d6c66a2fdb0e1391a747ab895
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327127"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o CLI do Discurso nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.

@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
 ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90561655"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?

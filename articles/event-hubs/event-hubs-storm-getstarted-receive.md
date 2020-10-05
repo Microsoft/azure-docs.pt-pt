@@ -4,10 +4,10 @@ description: 'Quickstart: Este artigo fornece informações sobre como receber e
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87087582"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Quickstart: Receber eventos de Centros de Eventos usando a Tempestade Apache
@@ -234,7 +234,7 @@ Este tutorial utiliza uma instalação [HDInsight Storm,][HDInsight Storm] que v
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs][Event Hubs overview]
-* [Criar um centro de eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Links -->

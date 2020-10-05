@@ -10,10 +10,10 @@ ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84763929"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
@@ -22,9 +22,9 @@ Este artigo introduz o portal Azure, identifica elementos de página do portal e
 
 ## <a name="what-is-the-azure-portal"></a>O que é o portal do Azure?
 
-O portal do Azure é uma consola unificada baseada na Web que constitui uma alternativa às ferramentas de linha de comandos. Com o portal Azure, pode gerir a sua subscrição Azure utilizando uma interface gráfica do utilizador. Você pode construir, gerir e monitorizar tudo, desde simples aplicações web até implementações complexas em nuvem. Crie dashboards personalizados para uma visão organizada dos recursos. Configure opções de acessibilidade para uma experiência ideal.
+O portal do Azure é uma consola unificada baseada na Web que constitui uma alternativa às ferramentas de linha de comandos. Com o portal do Azure, pode gerir a sua subscrição do Azure através de uma interface gráfica de utilizador. Pode criar, gerir e monitorizar tudo, desde aplicações Web simples a implementações na cloud complexas. Crie dashboards personalizados para uma vista organizada dos recursos. Configure opções de acessibilidade para uma experiência ideal.
 
-O portal Azure foi concebido para resiliência e disponibilidade contínua. Tem presença em todos os datacenteres da Azure. Esta configuração torna o portal Azure resiliente a falhas individuais do datacenter e evita abrandamentos de rede por estar perto dos utilizadores. O portal Azure atualiza continuamente e não necessita de tempo de inatividade para atividades de manutenção.
+O portal Azure foi concebido para resiliência e disponibilidade contínua. Tem presença em todos os datacenteres da Azure. Esta configuração torna o portal Azure resiliente a falhas individuais do datacenter e evita abrandamentos de rede por estar perto dos utilizadores. O portal do Azure é atualizado continuamente e não requer nenhum tempo de inatividade para atividades de manutenção.
 
 ## <a name="azure-portal-menu"></a>Menu do portal Azure
 
@@ -64,7 +64,7 @@ A figura abaixo rotula os elementos básicos do portal Azure, cada um dos quais 
 
 ![Screenshot mostrando menu de portal expandido](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|Chave|Description
+|Chave|Descrição
 |:---:|---|
 |1|Cabeçalho de página. Aparece no topo de cada página do portal e detém elementos globais.|
 |2| Procura global. Utilize a barra de pesquisa para encontrar rapidamente um recurso específico, um serviço ou documentação.|

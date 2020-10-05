@@ -10,10 +10,10 @@ ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89319547"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
@@ -108,6 +108,6 @@ Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os
 - [Ubuntu](create-upload-ubuntu.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como criar uma [Galeria de Imagens Partilhadas.](tutorial-custom-images.md)

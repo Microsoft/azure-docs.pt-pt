@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: a7e47ebd9695b57163aacdfa5faf3ad82fc7e12d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85805966"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se só quer que o nome do pacote seja iniciado por conta própria, `pip install azure-cognitiveservices-speech` corra.
@@ -78,14 +78,14 @@ import azure.cognitiveservices.speech as speechsdk
 
 1. Descarregue e instale a versão mais recente suportada do [Python](https://www.python.org/downloads/) para a sua plataforma, de 3.5 a 3.8.
    - Os utilizadores do Windows certifiquem-se de selecionar "Adicionar Python ao seu PATH" durante o processo de instalação.
-1. Descarregue e instale [o Código do Estúdio Visual.](https://code.visualstudio.com/Download)
+1. Transfira e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  **extensões de preferências**de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
 
    ![Instale a extensão Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Também a partir do Código do Estúdio Visual, instale o pacote Speech SDK Python a partir da linha de comando integrada:
    1. Abra um terminal (a partir dos menus suspensos, **Terminal**  >  **Novo Terminal)**
-   1. No terminal que abre, entre no comando`python -m pip install azure-cognitiveservices-speech`
+   1. No terminal que abre, entre no comando `python -m pip install azure-cognitiveservices-speech`
 
 Se é novo no Código do Estúdio Visual, consulte a [documentação](https://code.visualstudio.com/docs)mais extensa do Código do Estúdio Visual . Para mais informações sobre Visual Studio Code e Python, consulte [o tutorial visual Studio Code Python](https://code.visualstudio.com/docs/python/python-tutorial).
 

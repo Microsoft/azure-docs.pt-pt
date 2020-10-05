@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: b84db9eee473b14f2ba078ed1be77f6165a5f3b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81422370"
 ---
 ## <a name="additional-language-and-platform-support"></a>Suporte adicional de idiomas e plataformas
 
 Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/SISTEMA.
 
-| Idioma    | Exemplos de código                                                                                   |
+| Linguagem    | Exemplos de código                                                                                   |
 |-------------|------------------------------------------------------------------------------------------------|
 | C#          | [.Net Framework][dotnet], [.NET Core][netcore], [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
 | C++         | [Windows][cpp-windows], [Linux,][cpp-linux] [macOS][cpp-mac]                                   |

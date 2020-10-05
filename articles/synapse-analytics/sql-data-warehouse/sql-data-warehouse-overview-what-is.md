@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85200958"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
@@ -23,7 +23,7 @@ ms.locfileid: "85200958"
 >Explore a [documentação Azure Synapse (pré-visualização de espaços de trabalho).](../overview-what-is.md)
 >
 
-Azure Synapse é um serviço de análise que reúne armazenamento de dados da empresa e análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para necessidades imediatas de BI e machine learning.
+Azure Synapse é um serviço de análise que reúne armazenamento de dados da empresa e análise de Big Data. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. O Azure Synapse Analytics junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e apresentar dados mais para as suas necessidades imediatas de BI e de machine learning.
 
 Azure Synapse tem quatro componentes:
 
@@ -48,9 +48,9 @@ O armazenamento de dados é um componente chave de uma solução de big data bas
 
 ![Solução de armazém de dados](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-Numa solução de dados da cloud, os dados são ingeridos em arquivos de macrodados a partir de várias origens. Uma vez num arquivo de macrodados, os algoritmos do Hadoop, do Spark e de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool Synapse SQL utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas T-SQL padrão para trazer os dados para as mesas de bilhar Synapse SQL.
+Numa solução de dados na cloud, os dados são ingeridos em arquivos de macrodados de várias origens. Assim que estiverem num arquivo de macrodados, o Hadoop, o Spark e os algoritmos de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool Synapse SQL utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas T-SQL padrão para trazer os dados para as mesas de bilhar Synapse SQL.
 
-A piscina Sinaapse SQL armazena dados em tabelas relacionais com armazenamento de colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Em comparação com os sistemas de bases de dados tradicionais, as consultas de análise terminam em segundos em vez de minutos ou horas em vez de dias.
+A piscina Sinaapse SQL armazena dados em tabelas relacionais com armazenamento de colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Comparativamente aos sistemas de bases de dados tradicionais, as consultas de análise são concluídas em segundos em vez de minutos, ou horas em vez de dias.
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 

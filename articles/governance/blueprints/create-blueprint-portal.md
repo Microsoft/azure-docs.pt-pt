@@ -4,10 +4,10 @@ description: Neste arranque rápido, você usa Azure Blueprints para criar, defi
 ms.date: 08/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: bb9aeb4d4b96227f7bf7296854c56df4058fbe69
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89648656"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Definir e atribuir uma planta no portal
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, crie um novo projeto chamado **MyBlueprint** para configurar funções e atribuições políticas para a subscrição. Em seguida, adicione um novo grupo de recursos e crie um modelo de Gestor de Recursos e atribuição de funções no novo grupo de recursos.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **definições** de Planta a partir da página à esquerda e selecione o botão + Criar o **botão de planta** no topo da página.
 
@@ -48,7 +48,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    1. **Selecione Adicione** para adicionar este artefacto à planta.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Screenshot das opções de artefacto de atribuição de funções para adicionar a uma definição de planta." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
    > [!NOTE]
    > A maioria dos artefactos suporta parâmetros. Um parâmetro que é atribuído a um valor durante a criação do projeto é um _parâmetro estático._ Se o parâmetro for atribuído durante a atribuição da planta, é um _parâmetro dinâmico._ Para obter mais informações, consulte [os parâmetros do Plano.](./concepts/parameters.md)
@@ -143,11 +143,11 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    1. **Selecione Adicione** para adicionar este artefacto à planta.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Screenshot das opções de artefacto do modelo do gestor de recursos para adicionar a uma definição de planta." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que cada artefacto tem ** _x_ fora de _parâmetros y_ povoados** na coluna **Parâmetros.** Os parâmetros dinâmicos são definidos durante cada atribuição do esquema.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Screenshot de uma definição de planta completa com cada tipo de artefacto." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. Agora que todos os artefactos planeados foram adicionados, **selecione Save Draft** na parte inferior da página.
 
@@ -175,11 +175,11 @@ Na [Criação de uma planta,](#create-a-blueprint)não forneceu uma descrição 
 
    1. **Selecione Adicione** para adicionar este artefacto à planta.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Screenshot das opções de artefactos de segunda função para adicionar a uma definição de planta." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Note que a atribuição de funções recentemente adicionada mostra **1 em 1 parâmetros povoados**. Significa que é um parâmetro estático.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Screenshot da segunda definição de planta concluída com o artefacto adicional de atribuição de funções." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. **Selecione Save Draft** agora que foi atualizado.
 
@@ -218,7 +218,7 @@ Depois de publicado um projeto, pode ser atribuído a uma subscrição. Atribua 
 
    1. Selecione **Criar** na parte inferior da página.
 
-      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Screenshot da janela de subscrição Criar e opções para a nova subscrição." border="false":::
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
       > [!IMPORTANT]
       > A nova subscrição é criada imediatamente após a seleção **criar Criar**.
@@ -234,7 +234,7 @@ Depois de publicado um projeto, pode ser atribuído a uma subscrição. Atribua 
 
 1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para obter mais informações, consulte [o bloqueio de recursos da Blueprints.](./concepts/resource-locking.md)
 
-   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Screenshot da atribuição de bloqueio e opções de identidade geridas para a atribuição do projeto." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. Sob **Identidade Gerida,** deixe o padrão do **Sistema atribuído**.
 
@@ -265,11 +265,11 @@ Agora que a planta foi atribuída a uma subscrição, verifique o progresso da i
 
 1. Na lista de plantas, clique com o botão direito no que já atribuiu e selecione **Ver detalhes da atribuição**.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Screenshot do menu de contexto de atribuição de plantas com a opção 'Ver detalhes da atribuição' selecionada." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Screenshot do botão 'Criar planta' na página definições de Blueprint." border="false":::
 
 1. Na página **de atribuição do Blueprint,** valide que todos os artefactos foram implantados com sucesso e que não houve erros durante a implementação. Se ocorrerem [erros, consulte as plantas de resolução de problemas](./troubleshoot/general.md) para obter passos para determinar o que correu mal.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
@@ -291,7 +291,7 @@ Se já não precisar de uma atribuição de planta, remova-a de uma subscrição
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **versões Publicado,** selecione a versão que pretende eliminar e, em seguida, **selecione Eliminar Esta Versão**. Além disso, não podes apagar uma planta até teres apagado toda a definição de planta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o portal Azure. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

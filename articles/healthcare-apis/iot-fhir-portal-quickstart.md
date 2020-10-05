@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
 ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89594378"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Quickstart: Implementar o Conector Azure IoT para FHIR (pré-visualização) utilizando o portal Azure
@@ -185,7 +185,7 @@ Pode ver os recursos de observação baseados em FHIR criados pela Azure IoT Con
 > [!TIP]
 > Certifique-se de que o seu utilizador tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o controlo de acesso baseado em funções Azure (Azure RBAC)](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode eliminar uma instância do Conector Azure IoT para fHIR removendo o grupo de recursos associado, ou o AZure API associado para o serviço FHIR, ou o Conector Azure IoT para a própria instância FHIR. 
 
@@ -193,7 +193,7 @@ Para remover diretamente um Conector Azure IoT para a instância FHIR, selecione
 
 [![Eliminar a instância do conector IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de arranque rápido, implementou o Conector Azure IoT para a funcionalidade FHIR no seu API Azure para recurso FHIR. Selecione a partir dos próximos passos para saber mais sobre o Conector Azure IoT para FHIR:
 

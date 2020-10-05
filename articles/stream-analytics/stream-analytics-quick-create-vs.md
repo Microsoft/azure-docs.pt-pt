@@ -7,10 +7,10 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87337483"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio
@@ -44,7 +44,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados, que são p
    |---------|---------|---------|
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
-   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
+   |Region  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica onde pode hospedar o seu Hub IoT. Utilize o local mais próximo dos seus utilizadores. |
    |Nome do hub IoT  | MyASAIotHub  |   Selecione um nome para o seu Hub IoT.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
@@ -112,7 +112,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
-   |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
+   |Alias de Entrada  |  Entrada   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada adequada: Fluxo de Dados ou Dados de Referência.   |
    |Origem  |  IoT Hub |  Escolha a origem de entrada adequada.   |
    |Recurso  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
@@ -132,7 +132,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
    |Alias de Saída  |  Saída   |  Introduza um nome para identificar a saída da tarefa.   |
-   |Sink   |  Blob Storage |  Escolha o sink adequado.    |
+   |Sink   |  Armazenamento de Blobs |  Escolha o sink adequado.    |
    |Recurso  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
    |Subscrição  |  \<Your subscription\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.   |
@@ -192,7 +192,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
    ![Ver resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 

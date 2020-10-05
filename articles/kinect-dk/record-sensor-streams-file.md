@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: azul, kinect, record, play back, reader, matroska, mkv, streams, profundidade, rgb, câmera, cor, imu, áudio, sensor
 ms.openlocfilehash: 3dab147b593bf012bd6cd9c95d0195e84a2cbcf1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277976"
 ---
 # <a name="quickstart-record-azure-kinect-sensor-streams-to-a-file"></a>Quickstart: Gravar fluxos de sensores Azure Kinect para um ficheiro
@@ -40,7 +40,7 @@ Este quickstart assume:
 
 Pode utilizar o [Azure Kinect Viewer](azure-kinect-viewer.md) para reproduzir uma gravação.
 
-1. Lançamento[`k4aviewer.exe`](azure-kinect-viewer.md)
+1. Lançamento [`k4aviewer.exe`](azure-kinect-viewer.md)
 2. Desdobre o **separador 'Gravação Aberta'** e abra a gravação.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -48,4 +48,4 @@ Pode utilizar o [Azure Kinect Viewer](azure-kinect-viewer.md) para reproduzir um
 Agora que aprendeu a gravar fluxos de sensores para um ficheiro, é hora de
 
 > [!div class="nextstepaction"]
-> [Construa a sua primeira aplicação Azure Kinect](build-first-app.md)
+> [Criar a sua primeira aplicação do Azure Kinect](build-first-app.md)

@@ -4,10 +4,10 @@ description: Este quickstart mostra como adicionar pares de perguntas e resposta
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84331394"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker
@@ -16,7 +16,7 @@ Uma vez criada uma base de conhecimento, adicione pares de perguntas e respostas
 
 <a name="qna-table"></a>
 
-|Par|Perguntas|Resposta|Metadata|
+|Par|Perguntas|Resposta|Metadados|
 |--|--|--|--|
 |N.º 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |N.º 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -43,7 +43,7 @@ A atual base de conhecimento tem o QnA Maker a resolver os pares QnA. Estes pare
 
 Quando esta URL foi importada, apenas uma pergunta com uma resposta foi criada. Neste procedimento, adicione perguntas adicionais.
 
-1. A partir da página **Editar,** use a caixa de texto de pesquisa acima dos pares de perguntas e respostas, para encontrar a pergunta`How large a knowledge base can I create?`
+1. A partir da página **Editar,** use a caixa de texto de pesquisa acima dos pares de perguntas e respostas, para encontrar a pergunta `How large a knowledge base can I create?`
 
 1. Na coluna **'Perguntas',** selecione **+ Adicione frases alternativas** e adicione cada nova frase, fornecida na tabela seguinte.
 
@@ -103,7 +103,7 @@ Editou a sua base de conhecimentos para suportar mais perguntas e forneceu pares
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obter respostas com o Postman ou cURL](get-answer-from-knowledge-base-using-url-tool.md)

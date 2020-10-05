@@ -9,10 +9,10 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: cd8a5751c018b9b3b3b2ef96765545f2edab685b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89489209"
 ---
 # <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Quickstart: Azure Key Vault secreta biblioteca de clientes para Python
@@ -160,7 +160,7 @@ Pode verificar se o segredo foi removido com o comando Azure CLI [az keyvault se
 
 Uma vez apagado, um segredo permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, use um nome secreto diferente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se também quiser experimentar [certificados](../certificates/quick-create-python.md) e [chaves,](../keys/quick-create-python.md)pode reutilizar o Cofre-Chave criado neste artigo.
 

@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86122086"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
@@ -122,7 +122,7 @@ Existem duas versões do serviço Azure Migrate.
 
     Para aceder aos projetos existentes no portal Azure, procure e selecione **Azure Migrate.** O dashboard **Azure Migrate** tem uma notificação e uma ligação para aceder a projetos antigos da Azure Migrate.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Experimente os nossos tutoriais para avaliar [VMware VMs,](tutorial-prepare-vmware.md) [Hiper-VMs,](tutorial-prepare-hyper-v.md)ou [servidores físicos.](tutorial-prepare-physical.md)
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

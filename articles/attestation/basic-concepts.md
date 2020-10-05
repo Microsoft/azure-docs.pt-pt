@@ -8,13 +8,13 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237287"
 ---
-# <a name="basic-concepts"></a>Conceitos Básicos
+# <a name="basic-concepts"></a>Basic Concepts (Conceitos Básicos)
 
 Abaixo estão alguns conceitos básicos relacionados com a Microsoft Azure Attestation.
 
@@ -36,7 +36,7 @@ Os fornecedores de atestados são criados com uma política de predefinição pa
 
 A Azure Attestation fornece um fornecedor predefinido em cada região. Os clientes podem optar por utilizar o fornecedor padrão para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Os fornecedores predefinidos são acessíveis por qualquer utilizador Azure AD e a política associada a um fornecedor predefinido não pode ser alterada.
 
-| Região | Atestar Uri | 
+| Region | Atestar Uri | 
 |--|--|
 | Sul do Reino Unido | https://shareduks.uks.attest.azure.net | 
 | E.U.A. Leste 2 | https://sharedeus2.eus2.attest.azure.net | 

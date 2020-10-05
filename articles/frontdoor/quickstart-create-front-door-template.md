@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90529392"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Quickstart: Criar uma porta frontal usando um modelo ARM
@@ -95,9 +95,9 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 1. Selecione a Porta frontal que criou anteriormente e clique no link **anfitrião Frontend.** O link abrirá um navegador web redirecionando-o para o seu Backend FQDN que definiu durante a criação.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Visão geral do portal da porta da frente":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Saída de implementação do powerShell do gestor de recursos da porta da frente":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar do serviço Porta da Frente, elimine o grupo de recursos. Isto remove a Porta da Frente e todos os recursos relacionados.
 

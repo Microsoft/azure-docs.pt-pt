@@ -4,10 +4,10 @@ description: Neste quickstart, você usa a API REST para criar um grupo de gest�
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237406"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Quickstart: Criar um grupo de gestão com REST API
@@ -79,7 +79,7 @@ Nos exemplos anteriores, o novo grupo de gestão é criado no âmbito do grupo d
   }
   ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o grupo de gestão acima criado, utilize os [Grupos de Gestão - Eliminar](/rest/api/resources/managementgroups/delete) ponto final:
 

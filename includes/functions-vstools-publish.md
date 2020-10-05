@@ -9,17 +9,17 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: db6f5927e1cbdb3527014ccbb277c7ec20b02600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84231607"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
 1. Na **Escolha um alvo de publicação,** utilize as opções de publicação especificadas no quadro seguinte: 
 
-    | Opção      | Description                                |
+    | Opção      | Descrição                                |
     | ------------ |  -------------------------------------------------- |
     | **Plano de Consumo de Funções Azure** | Crie uma aplicação de função num ambiente em nuvem Azure que funciona num [plano de Consumo.](../articles/azure-functions/functions-scale.md#consumption-plan) Quando utiliza um plano de consumo, paga-se apenas pelas execuções da aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados. Se correr num plano que não seja um plano de consumo, tem de gerir o [escalonamento da sua aplicação de função.](../articles/azure-functions/functions-scale.md)| 
     | **Criar Novo** | Uma nova aplicação de função, com recursos relacionados, é criada no Azure. <br/>Se escolher **Select Existing**, todos os ficheiros da aplicação de função existente em Azure são substituídos por ficheiros do projeto local. Utilize esta opção apenas quando republicar as atualizações para uma aplicação de função existente. |
@@ -37,9 +37,9 @@ ms.locfileid: "84231607"
     | **Nome** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Aceite este nome ou insira um novo nome. Os caracteres válidos são: `a-z` `0-9` , e `-` . |
     | **Subscrição** | A sua subscrição | A subscrição do Azure que deve utilizar. Aceite esta subscrição ou selecione uma nova da lista de drop-down. |
     | **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** | Nome do seu grupo de recursos |  O grupo de recursos para criar a sua aplicação de função. Selecione um grupo de recursos existente da lista de drop-down ou escolha **Novo** para criar um novo grupo de recursos.|
-    | **[Plano de Hospedagem](../articles/azure-functions/functions-scale.md)** | Nome do seu plano de hospedagem | Selecione **Novo** para configurar um plano sem servidor. Certifique-se de escolher o **Consumo** em **Tamanho**. Quando publica o seu projeto numa aplicação de função que funciona num [plano de Consumo,](../articles/azure-functions/functions-scale.md#consumption-plan)paga apenas para execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados. Se correr num plano diferente do **Consumo,** tem de gerir o [escalonamento da sua aplicação de função.](../articles/azure-functions/functions-scale.md)  |
+    | **[Plano de Alojamento](../articles/azure-functions/functions-scale.md)** | Nome do seu plano de hospedagem | Selecione **Novo** para configurar um plano sem servidor. Certifique-se de escolher o **Consumo** em **Tamanho**. Quando publica o seu projeto numa aplicação de função que funciona num [plano de Consumo,](../articles/azure-functions/functions-scale.md#consumption-plan)paga apenas para execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados. Se correr num plano diferente do **Consumo,** tem de gerir o [escalonamento da sua aplicação de função.](../articles/azure-functions/functions-scale.md)  |
     | **Localização** | Localização do serviço de aplicações | Escolha uma **Localização** numa [região](https://azure.microsoft.com/regions/) próxima ou noutros serviços a que as suas funções acedam. |
-    | **[Armazenamento do Azure](../articles/storage/common/storage-account-create.md)** | Conta de armazenamento para fins gerais | Uma conta de Armazenamento Azure é exigida pelo tempo de funcionamento das Funções. Selecione **Novo** para configurar uma conta de armazenamento para fins gerais. Também pode escolher uma conta existente que satisfaça os requisitos da [conta de armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements)  |
+    | **[Storage do Azure](../articles/storage/common/storage-account-create.md)** | Conta de armazenamento para fins gerais | Uma conta de Armazenamento Azure é exigida pelo tempo de funcionamento das Funções. Selecione **Novo** para configurar uma conta de armazenamento para fins gerais. Também pode escolher uma conta existente que satisfaça os requisitos da [conta de armazenamento.](../articles/azure-functions/functions-scale.md#storage-account-requirements)  |
 
     ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
@@ -51,6 +51,6 @@ ms.locfileid: "84231607"
     
 1.  No separador Publicar, escolha **Gerir no Cloud Explorer.** Isto abre a nova aplicação de função Azure recurso no Cloud Explorer. 
     
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Mensagem de publicação bem-sucedida":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Criar um perfil de publicação":::
     
     O Cloud Explorer permite-lhe utilizar o Visual Studio para visualizar os conteúdos do site, iniciar e parar a aplicação de funções, e navegar diretamente para funcionar os recursos da aplicação no Azure e no portal Azure. 

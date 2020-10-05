@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.openlocfilehash: 2ebba2bb957a1c05fd591181f0a784ed778c6c57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91333380"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicações da empresa para funções personalizadas no Azure Ative Directory
@@ -119,7 +119,7 @@ Para delegar a capacidade de autorizar o acesso à aplicação para provisioname
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permissões
 
-Permissão | Description
+Permissão | Descrição
 ---------- | -----------
 microsoft.diretório/aplicaçãoPolicies/allProperties/read | Leia todas as propriedades sobre as políticas de aplicação.
 microsoft.diretório/aplicaçãoPolicies/allProperties/update | Atualize todas as propriedades sobre as políticas de aplicação.

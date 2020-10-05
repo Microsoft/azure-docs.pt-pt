@@ -8,10 +8,10 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 08/31/2020
 ms.openlocfilehash: 04b0ef0d6a480270b1f0a3546319b2608d638677
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89265512"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Criar um live stream Azure Media Services com OBS
@@ -205,7 +205,7 @@ A saída que criou está agora disponível para streaming a pedido, desde que o 
 1. Selecione **Update Player**.
 1. Selecione o ícone **Reproduzir** no vídeo para ver o ativo a pedido.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 > [!IMPORTANT]
 > Parem os serviços! Depois de completar os passos neste quickstart, não se esqueça de parar o evento ao vivo e o ponto final de streaming, ou será cobrado pelo tempo que continuarem a correr. Para parar o evento ao vivo, consulte o procedimento [stop the broadcast,](#stop-the-broadcast) passos 2 e 3.

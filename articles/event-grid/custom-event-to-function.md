@@ -4,10 +4,10 @@ description: 'Quickstart: Use Azure Event Grid e Azure CLI ou portal para public
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91324435"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Quickstart: Encaminhe eventos personalizados para uma função Azure com grade de evento
@@ -26,7 +26,7 @@ Antes de subscrever o tópico personalizado, crie uma função para lidar com os
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selecione o gatilho da grelha de eventos":::
 3. Na página **Nova Função,** insira um nome para a função e selecione **Criar Função**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Página nova da função":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Selecione o gatilho da grelha de eventos":::
 4. Utilize a página **Código + Teste** para ver o código existente para a função e atualizá-lo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -88,7 +88,7 @@ Subscreva um tópico do Event Grid para comunicar ao Event Grid os eventos que p
     
         O lote pode dar-lhe alta produção. Para **eventos Max por lote,** desemote o número máximo de eventos que uma subscrição incluirá num lote. O tamanho do lote preferido define o limite superior preferido do tamanho do lote em bytes de quilo, mas pode ser ultrapassado se um único evento for maior do que este limiar.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Ativar o loteamento":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Selecione o gatilho da grelha de eventos":::
     6. Na página **'Criar Subscrição de** Eventos', selecione **Criar**.
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o seu tópico
@@ -175,7 +175,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 
 ![Início de gatilho de função bem-sucedida](./media/custom-event-to-function/successful-function.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 
 1. Selecione **Grupos de Recursos** no menu esquerdo. Se não o vir no menu esquerdo, selecione **Todos os Serviços** no menu esquerdo e selecione **Grupos de Recursos**. 

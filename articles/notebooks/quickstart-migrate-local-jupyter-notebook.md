@@ -4,10 +4,10 @@ description: Transfira rapidamente um caderno Jupyter para Azure Notebooks Previ
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85832122"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Quickstart: Migrar um caderno jupyter local em Azure Notebooks Preview
@@ -48,7 +48,7 @@ Este quickstart demonstra migrar um bloco de notas do seu computador local ou de
 
    Mais uma vez, se o seu caderno estiver num repositório gitHub, siga os passos no [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md) em vez disso.
 
-   - Se utilizar **o From Computer,** arraste e deixe cair os ficheiros *.ipynb* no popup ou selecione **Choose Files**, em seguida, navegue e selecione os ficheiros que pretende importar. Em seguida, selecione **Carregar**. Os ficheiros carregados têm o mesmo nome que os ficheiros locais. Não é necessário carregar o conteúdo de nenhuma pasta *.ipynb_checkpoints.*
+   - Se utilizar **o From Computer,** arraste e deixe cair os ficheiros *.ipynb* no popup ou selecione **Choose Files**, em seguida, navegue e selecione os ficheiros que pretende importar. Em seguida, selecione **Carregar**. Os ficheiros carregados têm o mesmo nome que os ficheiros locais. Não é necessário carregar o conteúdo de nenhuma *pasta .ipynb_checkpoints.*
 
      ![Upload do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 

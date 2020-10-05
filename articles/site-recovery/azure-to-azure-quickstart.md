@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135699"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Quickstart: Criar recuperação de desastres para uma região secundária de Azure para um Azure VM
@@ -38,7 +38,7 @@ Os passos seguintes permitem a replicação de VM para um local secundário.
 1. Para visualizar as definições de replicação, selecione **Rever + Iniciar a replicação**. Se precisar de alterar quaisquer predefinições, selecione **Definições Avançadas**.
 1. Para iniciar o trabalho que permite a replicação VM **selecione Iniciar a replicação**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Ative a replicação.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Ativar a replicação.":::
 
 ## <a name="verify-settings"></a>Verificar as definições
 
@@ -48,7 +48,7 @@ Após o fim do trabalho de replicação, pode verificar o estado de replicação
 1. Em **Operações** selecione **recuperação de desastres**.
 1. Para ver os detalhes de replicação da **visão geral,** selecione **Essentials**. Mais detalhes são mostrados na **Saúde e estado,** **prontidão failover,** e no mapa de **vista da Infraestrutura.**
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Estado de replicação.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Ativar a replicação.":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -65,9 +65,9 @@ Para desativar a replicação, faça estes passos:
 1. A partir do **Resumo,** selecione **Replicação de Desativação.**
 1. Para desinstalar a extensão de recuperação do site, aceda às extensões de **definições**do VM  >  **Extensions**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Desativar a replicação.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Ativar a replicação.":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, replicou uma única VM numa região secundária. Em seguida, confiem de replicação para vários VMs Azure.
 
