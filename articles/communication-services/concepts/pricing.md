@@ -10,10 +10,10 @@ ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91460939"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços

@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705814"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Quickstart: Criar um ponto final privado usando um modelo ARM
@@ -91,7 +91,7 @@ Ligue-se ao VM _myVm{uniqueid}_ da internet da seguinte forma:
 
 5. Selecione **OK**.
 
-6. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+6. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 7. Depois de aparecer o ambiente de trabalho em VM, minimize-o para voltar ao seu ambiente de trabalho local.
 
@@ -101,7 +101,7 @@ Aqui está como ligar ao servidor SQL Database a partir do VM usando o ponto fin
 
 1.  No Ambiente de Trabalho Remoto do _myVM{uniqueid}_, abra o PowerShell.
 2.  Introduza o seguinte: nslookup sqlserver{uniqueid}.database.windows.net. 
-    Receberá uma mensagem semelhante a esta:
+    Irá receber uma mensagem semelhante a esta:
 
     ```
       Server:  UnKnown

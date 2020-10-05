@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 06/03/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 84b3b592f46124dcd5b4e59775361c243dc67754
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91534680"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Mude o modelo com APIs REST

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 2f41aac085fef62e0356a93a07823f21d7ba3667
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91448347"
 ---
 # <a name="introduction-to-azure-defender-for-iot"></a>Introdução ao Azure Defender para IoT
@@ -56,7 +56,7 @@ As equipas da SecOps podem:
 - Integre o Azure Defender para IoT com fluxos de trabalho SOC existentes e ferramentas de segurança de terceiros, tais como Splunk, IBM QRadar e ServiceNow
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre Azure Defender para IoT no Azure Security Center. Para obter mais informações, consulte:
 

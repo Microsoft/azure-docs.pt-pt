@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
 ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89299155"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Quickstart: Criar um perfil de Gestor de Tráfego usando um modelo ARM
@@ -103,7 +103,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
     ```
 1. Executar o comando do Passo 2 novamente em um PowerShell local. Desta vez, deves arranjar o outro NameHost para o outro ponto final. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar do perfil do Gestor de Tráfego, elimine o grupo de recursos. Isto remove o perfil do Gestor de Tráfego e todos os recursos relacionados.
 

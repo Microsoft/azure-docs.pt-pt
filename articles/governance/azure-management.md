@@ -4,10 +4,10 @@ description: Panorâmica das áreas de gestão das aplicações e recursos da Az
 ms.date: 09/09/2020
 ms.topic: overview
 ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89662124"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gestão Azure?

@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
 ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86535845"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Quickstart: Construa uma app Go com o `gocql` cliente para gerir os dados da Azure Cosmos DB Cassandra API
@@ -128,7 +128,7 @@ func DropKeySpaceIfExists(keyspace string, session *gocql.Session) {
 }
 ```
 
-`CreateKeySpace`função é usada para criar o `keyspace` ( `user_profile` )
+`CreateKeySpace` função é usada para criar o `keyspace` ( `user_profile` )
 
 ```go
 const createKeyspace = "CREATE KEYSPACE %s WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 }"
@@ -158,7 +158,7 @@ func CreateUserTable(keyspace, table string, session *gocql.Session) {
 
 Uma vez criado o espaço-chave e a tabela, invocamos operações CRUD (parte de `operations\crud.go` ). 
 
-`InsertUser`é usado para criar um `User` . Define a informação do utilizador (ID, nome e cidade) como os argumentos de consulta usando[`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
+`InsertUser` é usado para criar um `User` . Define a informação do utilizador (ID, nome e cidade) como os argumentos de consulta usando [`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
 
 ```go
 const createQuery = "INSERT INTO %s.%s (user_id, user_name , user_bcity) VALUES (?,?,?)"
@@ -172,7 +172,7 @@ func InsertUser(keyspace, table string, session *gocql.Session, user model.User)
 }
 ```
 
-`FindUser`é usado para procurar um utilizador `model\user.go` () usando um ID de utilizador específico enquanto [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) liga os atributos do utilizador (devolvido por Cassandra) a variáveis individuais `userid` (, , , - é `name` `city` apenas uma das formas em que você pode usar o resultado obtido como resultado da consulta de pesquisa
+`FindUser` é usado para procurar um utilizador `model\user.go` () usando um ID de utilizador específico enquanto [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) liga os atributos do utilizador (devolvido por Cassandra) a variáveis individuais `userid` (, , , - é `name` `city` apenas uma das formas em que você pode usar o resultado obtido como resultado da consulta de pesquisa
 
 ```go
 const selectQuery = "SELECT * FROM %s.%s where user_id = ?"
@@ -193,7 +193,7 @@ func FindUser(keyspace, table string, id int, session *gocql.Session) model.User
 }
 ```
 
-`FindAllUsers`é usado para buscar todos os utilizadores. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap)é usado como abreviatura para obter todas as informações do utilizador sob a forma de uma fatia de `map` s. Pense em cada um `map` como pares de valor-chave onde o nome da coluna (por exemplo, `user_id` ) é a chave juntamente com o seu respetivo valor.
+`FindAllUsers` é usado para buscar todos os utilizadores. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap) é usado como abreviatura para obter todas as informações do utilizador sob a forma de uma fatia de `map` s. Pense em cada um `map` como pares de valor-chave onde o nome da coluna (por exemplo, `user_id` ) é a chave juntamente com o seu respetivo valor.
 
 ```go
 const findAllUsersQuery = "SELECT * FROM %s.%s"
@@ -254,7 +254,7 @@ go run main.go
 
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Ver os dados no Data Explorer - Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Ver e copiar detalhes da página de string de ligação no portal Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -264,7 +264,7 @@ go run main.go
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos com a Cassandra API, e executou uma aplicação Go que cria uma base de dados e um recipiente Cassandra. Pode agora importar dados adicionais na sua conta DB Azure Cosmos. 
 

@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar a gema de Gráfi
 ms.date: 07/12/2020
 ms.topic: quickstart
 ms.openlocfilehash: 9763e2e9ec49d6fb4ea37fac12578ab23b7b5363
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87102107"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Ruby
@@ -89,9 +89,9 @@ Com o script Ruby guardado e pronto a ser usado, é hora de experimentar uma con
 
 Em cada chamada `argQuery` para, existem variáveis que são usadas que você precisa substituir por seus próprios valores:
 
-- `{tenantId}`- Substitua-o pela sua ID do seu inquilino
-- `{clientId}`- Substitua pelo ID do cliente do seu principal de serviço
-- `{clientSecret}`- Substitua pelo segredo do cliente do seu diretor de serviço
+- `{tenantId}` - Substitua-o pela sua ID do seu inquilino
+- `{clientId}` - Substitua pelo ID do cliente do seu principal de serviço
+- `{clientSecret}` - Substitua pelo segredo do cliente do seu diretor de serviço
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
 1. Altere os diretórios para a pasta do projeto onde criou os `Gemfile` `argClient.rb` ficheiros e ficheiros.

@@ -7,10 +7,10 @@ ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
 zone_pivot_groups: programming-languages-set-six
 ms.openlocfilehash: dccdec0888f2968fb7089c4ff80c9338215de135
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89055997"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Quickstart: Biblioteca de clientes personalizado
@@ -34,7 +34,7 @@ Começa com a biblioteca de clientes Personalizer. Siga estes passos para instal
 [!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

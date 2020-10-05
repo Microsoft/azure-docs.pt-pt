@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89071725"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Quickstart: Implementar firewall Azure com Zonas de Disponibilidade - modelo ARM
@@ -78,7 +78,7 @@ Explore os recursos que foram criados com a firewall.
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma firewall num modelo, consulte [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar, pode remover o grupo de recursos, firewall e todos os recursos relacionados executando o `Remove-AzResourceGroup` comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* corra:
 

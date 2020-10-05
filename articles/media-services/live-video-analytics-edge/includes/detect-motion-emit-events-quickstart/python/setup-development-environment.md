@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: be983a643b45847d2a44db018b1383aa56ab2302
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88691195"
 ---
 1. Clone o repo a partir deste local: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python .

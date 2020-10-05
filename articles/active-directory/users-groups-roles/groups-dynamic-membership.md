@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88797110"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
@@ -135,7 +135,7 @@ Para as propriedades utilizadas para as regras do dispositivo, consulte [regras 
 
 A tabela que se segue lista todos os operadores apoiados e a sua sintaxe para uma única expressão. Os operadores podem ser utilizados com ou sem o prefixo hífen (-) prefixo.
 
-| Operador | Syntax |
+| Operador | Sintaxe |
 | --- | --- |
 | Não é igual |-ne |
 | Igual a |-eq |
@@ -213,7 +213,7 @@ Seguem-se exemplos de regras de adesão devidamente construídas com múltiplas 
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedência dos operadores
+### <a name="operator-precedence"></a>Precedência de operadores
 
 Todos os operadores estão listados abaixo por ordem de precedência do mais alto para o mais baixo. Os operadores na mesma linha têm igual precedência:
 

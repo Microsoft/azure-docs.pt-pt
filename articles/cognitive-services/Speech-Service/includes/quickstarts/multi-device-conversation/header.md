@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ms.openlocfilehash: 22448f064e1104f7f3eddd8bd8fe97f649e09579
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76264523"
 ---
-Neste arranque rápido, aprenderá a usar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para criar uma nova conversa multi-dispositivo com suporte de tradução, bem como juntar-se a uma conversa existente.
+Neste arranque rápido, aprenderás a usar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) do Discurso para criar uma nova conversa multi-dispositivo com suporte de tradução, bem como juntar-te a uma conversa existente.

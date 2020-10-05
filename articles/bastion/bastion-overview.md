@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 09/01/2020
 ms.author: cherylmc
 ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89291879"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
@@ -47,7 +47,7 @@ As seguintes funcionalidades estão disponíveis:
 * **Proteção contra a varredura da porta:** Como não precisa de expor as suas máquinas virtuais à Internet pública, os seus VMs estão protegidos contra a verificação por portas por utilizadores fraudulentos e maliciosos localizados fora da sua rede virtual.
 * **Proteja-se contra explorações de dia zero. Endurecimento em apenas um lugar:** Azure Bastion é um serviço PaaS totalmente gerido pela plataforma. Como está no perímetro da sua rede virtual, não precisa de se preocupar em endurecer cada uma das máquinas virtuais da sua rede virtual. A plataforma Azure protege contra explorações de zero dias mantendo o Bastião Azure endurecido e sempre atualizado para si.
 
-## <a name="whats-new"></a><a name="new"></a>Novidades
+## <a name="whats-new"></a><a name="new"></a>O que há de novo?
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade Azure Bastion na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion)
 

@@ -6,10 +6,10 @@ ms.date: 09/25/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91369220"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
@@ -340,7 +340,7 @@ Agora pode implementar a especificação do modelo. Implementar a especificaçã
 
 Se quiser permitir que outros utilizadores da sua organização implementem o seu espectro de modelos, tem de lhes conceder acesso de leitura. Pode atribuir a função Reader a um grupo AD Azure para o grupo de recursos que contém especificações de modelo que pretende partilhar. Para obter mais informações, consulte [Tutorial: Conceder a um grupo acesso aos recursos da Azure utilizando a Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar o recurso que implementou neste arranque rápido, elimine ambos os grupos de recursos que criou.
 

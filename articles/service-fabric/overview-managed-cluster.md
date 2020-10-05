@@ -4,10 +4,10 @@ description: Os clusters geridos pela Service Fabric são uma evolução do mode
 ms.topic: overview
 ms.date: 09/28/2020
 ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91410496"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Clusters geridos por tecido de serviço (pré-visualização)
@@ -59,8 +59,8 @@ Os clusters geridos do Service Fabric estão disponíveis tanto em SKUs Básicos
 | Contagem de nó min (exemplo VM) | 3 | 5 |
 | Contagem de nó máximo por tipo de nó | 100 | 100 |
 | Contagem de tipo de nó máximo | 1 | 20 |
-| Adicionar/remover tipos de nó | No | Yes |
-| Redundância entre zonas | No | Yes |
+| Adicionar/remover tipos de nó | Não | Sim |
+| Redundância entre zonas | Não | Sim |
 
 ## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Roteiro de funcionalidade de cluster gerido de tecido de serviço
 Como esta é uma versão de pré-visualização antecipada dos clusters geridos por Service Fabric existem algumas lacunas a ter em conta. Estas funcionalidades ficarão disponíveis em futuras versões. 

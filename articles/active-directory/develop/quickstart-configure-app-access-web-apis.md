@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442316"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
@@ -59,7 +59,7 @@ Uma vez registado tanto a sua app de clientes como a API web e expôs a API cria
 
 Depois de adicionar permissões à sua API, deverá consultar as permissões selecionadas sob **permissões configuradas.** A imagem que se segue mostra o exemplo *Funcionários.Read.Todas as* permissões delegadas adicionadas ao registo da aplicação do cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Permissões configuradas painel no portal Azure mostrando a permissão recém-adicionada":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
 
 Também pode notar a permissão *user.Read* para a API do Gráfico microsoft. Esta permissão é adicionada automaticamente quando regista uma aplicação no portal Azure.
 
@@ -78,7 +78,7 @@ Configure a permissão delegada no Microsoft Graph para permitir que a sua aplic
 1. Selecione **permissões delegadas**. O Microsoft Graph expõe muitas permissões, com as mais utilizadas mostradas no topo da lista.
 1. Sob **permissões Selecione,** selecione as seguintes permissões:
 
-    | Permissão       | Description                                         |
+    | Permissão       | Descrição                                         |
     |------------------|-----------------------------------------------------|
     | `email`          | Ver o endereço de e-mail dos utilizadores                           |
     | `offline_access` | Manter o acesso aos dados a que lhe deu acesso |
@@ -136,11 +136,11 @@ Pode adicionar o conjunto completo das permissões de uma API ou permissões ind
 
 O **consentimento administrativo do botão {seu inquilino}** permite que um administrador conceda consentimento administrativo às permissões configuradas para o pedido. Quando seleciona o botão, é mostrado um diálogo solicitando que confirme a ação de consentimento.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botão de consentimento administrativo de concessão destacado no painel de permissões configurados no portal Azure":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
 
 Após a concessão do consentimento, as permissões que requerem o consentimento administrativo são mostradas como tendo o consentimento concedido:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configure tabela de permissões no portal Azure mostrando o consentimento administrativo concedido para os Ficheiros.Leia.Toda a permissão":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagrama de linha mostrando uma API web com âmbitos expostos à direita e uma aplicação de cliente à esquerda com esses âmbitos selecionados como permissões":::
 
 O botão **de consentimento administrativo Grant** é *desativado* se não for administrador ou se não tiver sido configurada nenhuma autorização para a aplicação. Se tiver permissões que tenham sido concedidas mas ainda não configuradas, o botão de consentimento administrativo solicita-lhe que manuseie estas permissões. Pode adicioná-las a permissões configuradas ou removê-las.
 

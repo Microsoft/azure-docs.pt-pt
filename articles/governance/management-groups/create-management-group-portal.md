@@ -4,10 +4,10 @@ description: Neste quickstart, você usa o portal Azure para criar um grupo de g
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89661742"
 ---
 # <a name="quickstart-create-a-management-group"></a>Quickstart: Criar um grupo de gestão
@@ -39,11 +39,11 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
    - O **ID do Grupo de Gestão** é o identificador único do diretório que é usado para submeter comandos neste grupo de gestão. Este identificador não é editável após a criação, pois é usado em todo o sistema Azure para identificar este grupo. O [grupo de gestão de raiz](./overview.md#root-management-group-for-each-directory) é automaticamente criado com um ID que é o ID do Diretório Ativo Azure. Para todos os outros grupos de gestão, atribua uma identificação única.
    - O campo de nome de exibição é o nome que é apresentado dentro do portal Azure. Um nome de exibição separado é um campo opcional ao criar o grupo de gestão e pode ser alterado a qualquer momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot das opções do Add Management Group para criar um novo grupo de gestão.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot da página de grupos de gestão mostrando grupos de gestão de crianças e subscrições.":::
 
 1. Selecione **Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o grupo de gestão criado, siga estes passos:
 
@@ -54,7 +54,7 @@ Para remover o grupo de gestão criado, siga estes passos:
 1. Encontre o grupo de gestão acima criado, selecione-o e, em seguida, selecione **Detalhes** ao lado do nome.
    Em seguida, **selecione Eliminar** e confirmar a solicitação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou um grupo de gestão para organizar a sua hierarquia de recursos. O grupo de gestão pode realizar subscrições ou outros grupos de gestão.
 

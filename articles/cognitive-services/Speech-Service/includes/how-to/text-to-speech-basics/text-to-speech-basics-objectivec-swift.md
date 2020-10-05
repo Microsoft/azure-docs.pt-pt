@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
 ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91332529"
 ---
 Pode sintetizar o discurso a partir de texto utilizando o SDK do discurso para Swift e Objective-C.

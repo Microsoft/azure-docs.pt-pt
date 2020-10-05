@@ -9,10 +9,10 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91440248"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
@@ -175,7 +175,7 @@ Para aprender a implementar a solução, consulte a aplicação de análise de v
 
 [A análise de vídeo ao vivo](https://github.com/Azure/live-video-analytics) fornece uma plataforma para você construir aplicações de vídeo inteligentes que atravessam a borda e a nuvem. A plataforma oferece a capacidade de capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser de vídeo ou vídeo, para os serviços Azure. Os serviços Azure podem estar a funcionar na nuvem ou na borda. Pode utilizar a plataforma para melhorar as soluções IoT com análise de vídeo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a construir uma solução de retalho:
 

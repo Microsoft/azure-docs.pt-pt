@@ -7,10 +7,10 @@ ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88078585"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Quickstart: Construa e empurre imagens de contentores de Java para o registo do contentor de Azure
@@ -20,7 +20,7 @@ Este quickstart mostra-lhe como construir uma aplicação Java contentorizada e 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os seus [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-* A [Interface de Linha de Comandos (CLI) do Azure](/cli/azure/overview).
+* [A Interface de Linha de Comando Azure (CLI)](/cli/azure/overview).
 * Um Java Development Kit (JDK) suportado. Para mais informações sobre os JDKs que estão disponíveis para serem utilizados quando se programa no Azure, veja <https://aka.ms/azure-jdks>.
 * Ferramenta de construção [Maven](http://maven.apache.org) da Apache (versão 3 ou superior).
 * Um cliente [Git](https://git-scm.com).

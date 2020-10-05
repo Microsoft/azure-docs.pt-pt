@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
 ms.openlocfilehash: 039e5b94bbd9d3b6c3edcb92eff88e7a9931205d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91448738"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
@@ -72,7 +72,7 @@ Para obter informações sobre preços, veja [Preços do Front Door](https://azu
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade Azure Front Door na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

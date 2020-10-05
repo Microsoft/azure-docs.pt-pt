@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90054403"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Desconfiem dos grupos Microsoft 365 para expirar no Azure Ative Directory
@@ -67,9 +67,9 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 5. Selecione **Guardar** para guardar as definições de expiração quando terminar.
 
-Já está! Neste arranque rápido, definiu com sucesso a política de expiração para os grupos microsoft 365 selecionados.
+Já está. Neste arranque rápido, definiu com sucesso a política de expiração para os grupos microsoft 365 selecionados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="to-remove-the-expiration-policy"></a>Para remover a política de expiração
 
@@ -82,7 +82,7 @@ Já está! Neste arranque rápido, definiu com sucesso a política de expiraçã
 1. Selecione **Azure Ative Directory**  >  **Groups**  >  **General**. 
 2. Definir **Os utilizadores podem criar grupos Microsoft 365 em portais Azure** para **No**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a expiração, incluindo instruções powerShell e restrições técnicas, consulte o seguinte artigo:
 

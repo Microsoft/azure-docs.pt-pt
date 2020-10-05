@@ -12,10 +12,10 @@ ms.date: 05/08/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: 3afc19e93e400894a66e659d79d834b8a83132a2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87319291"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Quickstart: Envie um pedido de pesquisa para a API de Pesquisa de Entidade Bing usando Java
@@ -95,7 +95,7 @@ Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful
     //...
     ```
 
-2. Criar um novo `StringBuilder` . Utilize um novo `InputStreamReader` como parâmetro quando instantaneamente ler a resposta `BufferedReader` da API.  
+2. Criar um novo `StringBuilder` . Utilize um novo `InputStreamReader` como parâmetro quando instantaneamente ler a resposta  `BufferedReader` da API.  
     
     ```java
     //...

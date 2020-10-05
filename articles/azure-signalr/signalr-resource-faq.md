@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91405127"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
@@ -44,7 +44,7 @@ Pode [verificar o código de origem.](https://github.com/Azure/azure-signalr/blo
 
 ## <a name="can-i-configure-the-transports-available-in-azure-signalr-service-on-the-server-side-with-aspnet-core-signalr-for-example-can-i-disable-websocket-transport"></a>Posso configurar os transportes disponíveis no Serviço Azure SignalR do lado do servidor com ASP.NET Core SignalR? Por exemplo, posso desativar o transporte WebSocket?
 
-Não.
+N.º
 
 O Serviço Azure SignalR fornece os três transportes que ASP.NET o Core SignalR suporta por padrão. Não é configurável. O Serviço Azure SignalR tratará de ligações e transportes para todas as ligações do cliente.
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87001961"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
@@ -70,7 +70,7 @@ Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades em 
 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Data   |
+    | Data da Última Assistência | Nenhum          | Date   |
     | Nome do Cliente     | Nenhum          | Cadeia |
 
 1. **Selecione Guardar** para guardar as suas alterações:
@@ -120,7 +120,7 @@ Para publicar um modelo de dispositivo:
 
 1. No modelo publicar este dispositivo para o diálogo **da aplicação,** selecione **Publicar**. 
 
-Depois de publicar um modelo de dispositivo, é visível na página **dispositivos.** Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade do dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado sem ver versão. Depois de escoar quaisquer alterações, **selecione Publicar** para empurrar essas alterações para fora para o seu operador.
+Depois de publicar um modelo de dispositivo, é visível na página **dispositivos.** Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade do dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado sem ver versão. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 

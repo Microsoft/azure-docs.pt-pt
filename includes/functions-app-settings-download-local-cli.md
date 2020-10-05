@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
 ms.openlocfilehash: e10de8093bf152b75cc6f262a142ff07c3d5b0d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "72329541"
 ---
-Já criou uma aplicação de função em Azure, juntamente com a conta de Armazenamento necessária. A cadeia de ligação para esta conta é armazenada de forma segura nas definições da aplicação em Azure. Neste artigo, escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de descarregar as definições da aplicação para o ficheiro local.settings.json. 
+Já criou uma aplicação de função em Azure, juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o local.settings.jsno ficheiro. 
 
-A partir da raiz do projeto, execute o seguinte comando de Ferramentas Core funções `<APP_NAME>` Azure para descarregar definições para local.settings.json, substituindo com o nome da sua app de funções do artigo anterior:
+A partir da raiz do projeto, executar o seguinte comando Azure Functions Core Tools para descarregar definições para local.settings.jsligado, substituindo `<APP_NAME>` pelo nome da sua aplicação de função do artigo anterior:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
 ```
 
-Talvez precise sintetizar na sua conta Azure.
+Talvez precise de se inscrever na sua conta Azure.
 
 > [!IMPORTANT]  
-> Este comando substitui quaisquer definições existentes com valores da sua aplicação de funções no Azure.  
+> Este comando substitui quaisquer definições existentes com valores da sua aplicação de função em Azure.  
 >
-> Como contém segredos, o ficheiro local.settings.json nunca é publicado, e deve ser excluído do controlo de origem.  
+> Como contém segredos, o local.settings.jsem ficheiro nunca é publicado, e deve ser excluído do controlo de fontes.  
 > 
 
-Você precisa `AzureWebJobsStorage`do valor , que é o string de conexão da conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.
+Precisa do valor `AzureWebJobsStorage` , que é a cadeia de ligação da conta de armazenamento. Utilize esta ligação para verificar se a ligação de saída funciona como esperado.

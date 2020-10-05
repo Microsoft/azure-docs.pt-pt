@@ -11,13 +11,13 @@ ms.custom:
 - mvc
 - device-developer
 ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90017528"
 ---
-# <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento do dispositivo central IoT
+# <a name="iot-central-device-development-overview"></a>Descrição geral do desenvolvimento de dispositivos do IoT Central
 
 *Este artigo aplica-se aos desenvolvedores de dispositivos.*
 

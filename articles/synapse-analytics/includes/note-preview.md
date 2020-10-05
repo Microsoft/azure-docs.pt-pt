@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/05/2020
 ms.author: jrasnick
 ms.openlocfilehash: e6518b30b60d78609f17728e1614d82d6e4b8f4d
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89669690"
 ---
 > [!IMPORTANT]

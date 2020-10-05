@@ -14,17 +14,17 @@ ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90031930"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configurar o seu motor de regras
 
 Este tutorial mostra como criar uma configuração do Motor de Regras e a sua primeira regra tanto no portal Azure como no CLI. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Configurar o motor de regras utilizando o portal.
 > - Configure Regras Motor usando Azure CLI
@@ -98,7 +98,7 @@ Neste tutorial, ficará a saber como:
 
 Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true)   
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Nos passos anteriores, configura a configuração do motor de regras e associou às suas regras de encaminhamento. Se já não pretender a configuração do Motor das Regras associada à porta da frente, pode remover a configuração executando os seguintes passos:
 
@@ -108,11 +108,11 @@ Nos passos anteriores, configura a configuração do motor de regras e associou 
 
 1. Desmarque todas as regras de encaminhamento esta configuração do Motor de Regra está associada e clique em guardar.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Associação de regras de encaminhamento":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Regras de encaminhamento associado":::
 
 1. Agora pode eliminar a configuração do Motor de Regra da porta da frente.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Eliminar configuração do motor de regra":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Regras de encaminhamento associado":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

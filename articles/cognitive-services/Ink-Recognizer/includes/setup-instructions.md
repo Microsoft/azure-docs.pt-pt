@@ -6,10 +6,10 @@ ms.subservice: ink-recognizer
 ms.topic: include
 ms.date: 06/20/2019
 ms.openlocfilehash: ede1fb4bd2a9a6e6536959053e3ca4d8e4a82f87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327370"
 ---
 >[!NOTE]

@@ -12,10 +12,10 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 4cbf79abaf915e7f6e055f5bcb0d8f09de026ad5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85604867"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>O que é a API de Pesquisa Web Bing?
@@ -30,7 +30,7 @@ Quer ver como funciona? Experimente a nossa [demonstração da API de Pesquisa n
 
 Bing Web Search não só lhe dá acesso a respostas instantâneas. Também fornece funcionalidades e funcionalidades adicionais que lhe permitem personalizar os resultados de pesquisa para os seus utilizadores.
 
-| Funcionalidade | Description |
+| Funcionalidade | Descrição |
 |---------|-------------|
 | [Sugerir termos de pesquisa em tempo real](../bing-autosuggest/get-suggested-search-terms.md) | Melhore a sua experiência de aplicação utilizando a API de Sugestão Automática do Bing para apresentar os termos de pesquisa sugeridos, à medida que estão a ser escritos. |
 | [Filtrar e restringir os resultados por tipo de conteúdo](filter-answers.md) | Personalize e refine os resultados de pesquisa com filtros e parâmetros de consulta para páginas da web, imagens, vídeos, pesquisa segura e muito mais. |

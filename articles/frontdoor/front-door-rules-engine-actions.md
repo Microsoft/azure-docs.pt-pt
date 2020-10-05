@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91569773"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do Motor de Regras do Azure Front Door
@@ -35,9 +35,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada com regras de correspondência e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada com regras de correspondência e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -47,9 +47,9 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada e a regra corresponde ao cabeçalho especificado na regra, o cabeçalho é eliminado da resposta. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada e a regra corresponde ao cabeçalho especificado na regra, o cabeçalho é eliminado da resposta. | Cadeia
 
 ## <a name="route-configuration-overrides"></a>Substituições da configuração de rotas 
 

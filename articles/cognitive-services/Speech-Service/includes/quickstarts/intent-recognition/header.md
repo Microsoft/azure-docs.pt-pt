@@ -6,19 +6,19 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: 8d70d282ffb1a39f9ffb3eb6addf694ac9d0d060
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81422300"
 ---
-Neste arranque rápido, utilizará o serviço [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) e o Language Understanding (LUIS) para reconhecer as intenções a partir de dados áudio captados a partir de um microfone. Especificamente, você usará o SDK de discurso para capturar o discurso, e um domínio pré-construído do LUIS para identificar intençãos de automação doméstica, como ligar e apagar uma luz. 
+Neste arranque rápido, você usará o serviço [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) e o serviço language understanding (LUIS) para reconhecer as intenções de dados áudio capturados a partir de um microfone. Especificamente, você usará o Speech SDK para capturar o discurso, e um domínio pré-construído da LUIS para identificar intenções para a domótica, como acender e desligar uma luz. 
 
-Depois de satisfazer alguns pré-requisitos, reconhecer a fala e identificar as intenções de um microfone dá apenas alguns passos:
+Depois de satisfazer alguns pré-requisitos, reconhecer a fala e identificar intenções de um microfone apenas dá alguns passos:
 
 > [!div class="checklist"]
 >
-> * Crie `SpeechConfig` um objeto a partir da sua chave de subscrição e região.
-> * Crie `IntentRecognizer` um `SpeechConfig` objeto utilizando o objeto de cima.
-> * Utilizando `IntentRecognizer` o objeto, inicie o processo de reconhecimento para uma única expressão.
-> * Inspecione `IntentRecognitionResult` os devolvidos.
+> * Crie um `SpeechConfig` objeto a partir da sua chave de subscrição e região.
+> * Crie um `IntentRecognizer` objeto utilizando o objeto de `SpeechConfig` cima.
+> * Utilizando o `IntentRecognizer` objeto, inicie o processo de reconhecimento para uma única expressão.
+> * Inspecione o `IntentRecognitionResult` devolvido.

@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
 ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87322147"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
@@ -21,7 +21,7 @@ Este início rápido orienta-o ao longo da ligação da instância do App Center
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+Para concluir este guia de início rápido, precisa de:
 
 - Uma subscrição do Azure.
 - Uma aplicação iOS, Android, Xamarin, Universal Windows ou React Native
@@ -81,7 +81,7 @@ Quando a aplicação estiver a enviar eventos personalizados e o App Center a re
      | **Grupo de Recursos**     | Um grupo de recursos novo ou um já existente a partir do menu | O grupo de recursos no qual vai criar o recurso novo do Application Insights |
    | **Localização** | Uma localização a partir do menu | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
-3. Clique em **Create** (Criar).
+3. Clique em **Criar**.
 
 Se a sua aplicação suportar várias plataformas (iOS, Android, etc.), é melhor criar recursos do Application Insights separados, um para cada plataforma.
 
@@ -150,7 +150,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    * **Livros**, para combinar visualizações e textos num relatório partilhável.
    * **Coortes**, para dar o nome e guardar grupos de utilizadores ou eventos específicos, para que outras ferramentas de análise possam referenciá-los facilmente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não quiser continuar a utilizar o Application Insights com o App Center, desative a exportação no App Center e elimine o recurso do Application Insights. Desta forma, o Application Insights deixa de lhe cobrar o recurso.
 

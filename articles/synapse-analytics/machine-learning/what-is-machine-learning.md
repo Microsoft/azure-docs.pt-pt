@@ -10,10 +10,10 @@ ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: b72c20cd67aa4792b5e2a2f96dc39e78301c9219
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91543475"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)
@@ -76,7 +76,7 @@ Os modelos treinados em Azure Synapse ou fora do Azure Synapse podem ser facilme
 
 * Outra opção para os modelos de machine learning de pontuação em Azure Synapse é aproveitar as Piscinas Apache Spark para Azure Synapse. Dependendo das bibliotecas utilizadas para treinar os modelos, pode utilizar uma experiência de código para executar a pontuação do seu lote.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](../get-started.md)
 * [Criar uma área de trabalho](../get-started-create-workspace.md)

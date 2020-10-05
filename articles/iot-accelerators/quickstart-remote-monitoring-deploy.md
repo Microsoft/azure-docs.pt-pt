@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91540239"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitorização remota baseada na cloud
@@ -127,7 +127,7 @@ Para fechar o incidente, navegue para a página **Manutenção**, selecione o al
 
 O valor na coluna de estado muda para **Fechado**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planear avançar para os tutoriais, deixe o acelerador de soluções de Monitorização Remota implementado.
 
@@ -138,7 +138,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou o acelerador de soluções de Monitorização Remota e concluiu uma tarefa de monitorização com os dispositivos simulados na implementação predefinida da Contoso.
 

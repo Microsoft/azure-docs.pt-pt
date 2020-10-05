@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: marsma
 ms.openlocfilehash: 99ca8e45da27f5bce5258d55f46bcfa25b358239
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87311551"
 ---
 > [!IMPORTANT]

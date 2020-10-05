@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
 ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89292984"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
@@ -47,7 +47,7 @@ O administrador Hadoop pode configurar o controlo de acesso baseado em funções
 
 Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.apache.org/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante a filtragem ao nível da linha e do nível da coluna (mascaramento de dados). E filtra os dados sensíveis de utilizadores não autorizados.
 
-### <a name="auditing"></a>Auditoria
+### <a name="auditing"></a>Auditing (Auditoria)
 
 A auditoria do acesso a recursos de cluster é necessária para rastrear o acesso não autorizado ou não intencional dos recursos. É tão importante como proteger os recursos do cluster do acesso não autorizado.
 

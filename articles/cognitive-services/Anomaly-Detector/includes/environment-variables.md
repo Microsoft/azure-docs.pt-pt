@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 06/30/2020
 ms.author: aahi
 ms.openlocfilehash: 4a44df3f2108421c73c161d8f2df37330b9c2d14
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85980225"
 ---
 ### <a name="create-an-environment-variable"></a>Criar uma variável ambiental
@@ -22,8 +22,8 @@ ms.locfileid: "85980225"
 
 Utilizando a sua chave e ponto final a partir do recurso que criou, crie duas variáveis ambientais para a autenticação:
 
-* `ANOMALY_DETECTOR_KEY`- A chave de recursos para autenticar os seus pedidos.
-* `ANOMALY_DETECTOR_ENDPOINT`- O ponto final de recurso para o envio de pedidos de API. Vai ficar assim: 
+* `ANOMALY_DETECTOR_KEY` - A chave de recursos para autenticar os seus pedidos.
+* `ANOMALY_DETECTOR_ENDPOINT` - O ponto final de recurso para o envio de pedidos de API. Terá o seguinte aspeto: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Utilize as instruções para o seu sistema operativo.

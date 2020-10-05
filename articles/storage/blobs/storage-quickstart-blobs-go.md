@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68726462"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: carregar, transferir e listar blobs através de Go
@@ -24,7 +24,7 @@ Neste início rápido, vai aprender a utilizar a linguagem de programação Go p
 
 Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
  
-* [Ir 1.8 ou acima](https://golang.org/dl/)
+* [Ir 1,8 ou mais](https://golang.org/dl/)
 * [Azure Storage Blob SDK for Go,](https://github.com/azure/azure-storage-blob-go/)utilizando o seguinte comando:
 
     ```
@@ -32,7 +32,7 @@ Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
     ``` 
 
     > [!NOTE]
-    > Certifique-se de `Azure` que capitaliza o URL para evitar problemas de importação relacionados com casos ao trabalhar com o SDK. Também capitalize `Azure` nas suas declarações de importação.
+    > Certifique-se de que capitaliza `Azure` no URL para evitar problemas de importação relacionados com casos ao trabalhar com o SDK. Também capitalize `Azure` nas suas declarações de importação.
     
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) utilizado neste início rápido é uma aplicação Go básica.  
@@ -207,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Transferir o blob
 
-Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma ligação falhar durante a leitura, irá fazer pedidos adicionais para restabelecer uma ligação e continuar a leitura. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
+Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma ligação falhar durante a leitura, fará pedidos adicionais para restabelecer uma ligação e continuar a leitura. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
 
 O código seguinte transfere o blob com a função **Download**. O conteúdo do blob é escrito numa memória intermédia e apresentado na consola.
 

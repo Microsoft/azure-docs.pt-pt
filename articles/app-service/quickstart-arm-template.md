@@ -9,10 +9,10 @@ ms.date: 05/25/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: e577616e0976ca050a55c8524e68129545ed1912
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89653598"
 ---
 # <a name="create-app-service-app-using-an-azure-resource-manager-template"></a>Crie uma aplicação de Serviço de Aplicações usando um modelo de Gestor de Recursos Azure
@@ -120,11 +120,11 @@ Para implementar uma pilha de idiomas diferente, atualize `linuxFxVersion` com v
 
 Procure `http://<app_name>.azurewebsites.net/` e verifique se foi criado.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implementar a partir do Git local](deploy-local-git.md)

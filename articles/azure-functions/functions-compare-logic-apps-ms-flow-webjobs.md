@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91403080"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choose the right integration and automation services in Azure (Escolher os serviços de integração e automatização certos no Azure)
@@ -34,7 +34,7 @@ A Power Automamate capacita qualquer trabalhador de escritório para realizar in
 
 A tabela a seguir ajuda-o a determinar se o Power Automamate ou o Logic Apps são os melhores para uma determinada integração:
 
-|  | Power Automate | Logic Apps |
+|  | Power Automate | Aplicações Lógicas |
 | --- | --- | --- |
 | **Utilizadores** |Trabalhadores do escritório, utilizadores empresariais, administradores do SharePoint |Integradores e programadores profissionais, profissionais de TI |
 | **Cenários** |Gestão personalizada |Integrações avançadas |
@@ -51,7 +51,7 @@ Nas Funções do Azure, vai desenvolver orquestrações ao escrever código e ut
 
 Pode combinar serviços ao criar uma orquestração, chamar funções de aplicações lógicas e chamar aplicações lógicas de funções. Selecione como criar cada orquestração com base nas capacidades dos serviços ou nas suas preferências pessoais. A tabela que se segue enumera algumas das principais diferenças entre estes:
 
-|  | Funções Duráveis | Logic Apps |
+|  | Funções Duráveis | Aplicações Lógicas |
 | --- | --- | --- |
 | **Desenvolvimento** | Baseado em código (imperativo) | Baseado no estruturador (declarativo) |
 | **Conetividade** | [Cerca de uma dúzia de tipos de encadernação incorporados,](functions-triggers-bindings.md#supported-bindings)código de escrita para encadernações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), Pacote de [Integração Empresarial para cenários B2B,](../logic-apps/logic-apps-enterprise-integration-overview.md) [construa conectores personalizados](../logic-apps/custom-connector-overview.md) |

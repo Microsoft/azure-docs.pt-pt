@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815866"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utilize o portal Azure para restringir o acesso à importação/exportação de discos geridos com ligações privadas
@@ -52,7 +52,7 @@ Terá de observar a rede virtual do VM a que os seus discos estão ligados. A re
 
 Quando o seu recurso tiver sido criado, navegue diretamente para ele.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot do botão de recurso Go no portal":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto final privado
 
@@ -61,13 +61,13 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 1. A partir do seu recurso de acesso ao disco, selecione **ligações de ponto final privados**.
 1. Selecione **+ ponto final privado.**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Screenshot da lâmina de visão geral para o seu recurso de acesso ao disco. Destacam-se as ligações privadas de ponto final.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 1. Selecionar um grupo de recursos
 1. Preencha o nome e selecione a mesma região em que o seu recurso de acesso ao disco foi criado.
 1. Selecione **Seguinte: >de recursos **
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot do fluxo de trabalho de criação de ponto final privado, primeira lâmina. Se não selecionar a região apropriada, poderá encontrar problemas mais tarde.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 1. Na lâmina **de recurso,** selecione **Connect to a Azure resource in my directy**.
 1. Para **tipo de recurso** selecione **Microsoft.Compute/diskAccesses**
@@ -75,7 +75,7 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 1. Deixe o **sub-recurso target** como **discos**
 1. Selecione **seguinte : Configuração >**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Screenshot do fluxo de trabalho de criação de ponto final privado, segunda lâmina. Com todos os valores destacados (tipo de recurso, recurso, sub-recurso alvo)":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 1. Selecione a rede virtual para a quais pretende limitar a exportação de discos, outras redes virtuais não poderão exportar o seu disco.
 
@@ -85,7 +85,7 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 1. Selecione a sub-rede apropriada
 1. Selecione **Rever + criar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Screenshot do fluxo de trabalho de criação de ponto final privado, terceira lâmina. Rede virtual e sub-rede enfatizadas.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Ativar o ponto final privado no seu disco
 
@@ -94,7 +94,7 @@ Agora que tem um recurso de acesso ao disco, pode usá-lo para lidar com o acess
 1. Selecione **o ponto final privado (através do acesso ao disco)** e selecione o acesso ao disco que criou anteriormente.
 1. Selecione **Guardar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Screenshot da lâmina de rede de disco gerida. Destacando a seleção de pontos finais privados, bem como o acesso ao disco selecionado. Guardar isto configura o seu disco para este acesso.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Screenshot da lâmina de criação de acesso ao disco. Preencha o nome pretendido, selecione uma região, selecione um grupo de recursos e proceda":::
 
 Já completou a configuração de Links Privados que pode utilizar ao importar/exportar o seu disco gerido.
 

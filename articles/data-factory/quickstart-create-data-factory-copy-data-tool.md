@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/10/2020
 ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84735201"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilize a ferramenta Dados de Cópia para copiar dados
@@ -36,7 +36,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Vá ao [portal Azure.](https://portal.azure.com) 
+1. Aceda ao [portal do Azure](https://portal.azure.com). 
 1. A partir do menu do portal Azure, **selecione Criar uma**Fábrica de  >  Dados de**Analytics**  >  **Análise de**Recursos:
 
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -111,7 +111,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
     ![Página "Implementação concluída"](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. A aplicação muda para o **separador Monitor.** Veja o estado do pipeline neste **Refresh** separador. Clique no link em **PIPELINE NAME** para ver detalhes de execução de atividade ou reexecur o pipeline. 
+1. A aplicação muda para o **separador Monitor.** Vê o estado do oleoduto nesta conta. Selecione **Refresh** para refrescar a lista. Clique no link em **PIPELINE NAME** para ver detalhes de execução de atividade ou reexecur o pipeline. 
    
     ![Atualizar o gasoduto](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
 

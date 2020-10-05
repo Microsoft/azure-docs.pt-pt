@@ -4,10 +4,10 @@ description: Este quickstart mostra como usar o Live Video Analytics no IoT Edge
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89569016"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Quickstart: Detect motion, gravar vídeo para media services
@@ -846,7 +846,7 @@ Em seguida, pode utilizar o portal Azure para reproduzir o vídeo que gravou.
 > [!NOTE]
 > Uma vez que o vídeo simulado ao vivo começa quando ativa o gráfico, os valores da hora do dia não são relevantes e não são expostos através deste atalho do jogador. O tutorial sobre gravação e reprodução contínua de vídeo mostra como pode exibir os tempos de tensão.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine os recursos criados neste arranque rápido.
 

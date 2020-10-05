@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: duau
 ms.openlocfilehash: 7a347d5cd72fcf955dae0aa8319632fdb43d3bf7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89400267"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Criar um perfil de Gestor de Tráfego utilizando o portal Azure
@@ -85,7 +85,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
     | Definição | Valor |
     | ------- | ------|
     | Tipo | Selecione **ponto final Azure**. |
-    | Nome | Insira *o meuPrimaryEndpoint*. |
+    | Name | Insira *o meuPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **o Serviço de Aplicações**. |
     | Recurso de destino | **Selecione Escolha um serviço de aplicações**Leste  >  **EUA.** |
     | Prioridade | Selecione **1**. Todo o tráfego vai para este ponto final quando é saudável. |
@@ -98,7 +98,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
     | Definição | Valor |
     | ------- | ------|
     | Tipo | Selecione **ponto final Azure**. |
-    | Nome | Insira *o meu Ponto Desemover.* |
+    | Name | Insira *o meu Ponto Desemover.* |
     | Tipo de recurso de destino | Selecione **o Serviço de Aplicações**. |
     | Recurso de destino | **Selecione Escolha um serviço de aplicações**West  >  **Europe**. |
     | Prioridade | Selecione **2**. Todo o tráfego vai para este ponto final se o ponto final principal não for saudável. |
@@ -137,11 +137,11 @@ Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de 
 
 O ponto final principal não está disponível, por isso foste encaminhado para o ponto final de falha.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar, elimine os grupos de recursos, aplicações web e todos os recursos relacionados. Para tal, selecione cada item individual do seu painel de instrumentos e **selecione Delete** no topo de cada página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um perfil de Gestor de Tráfego. Permite-lhe direcionar o tráfego de utilizadores para aplicações web de alta disponibilidade. Para saber mais sobre o tráfego de encaminhamento, continue para os tutoriais do Traffic Manager.
 

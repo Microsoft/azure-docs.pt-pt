@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/25/2020
 ms.author: duau
 ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566879"
 ---
 # <a name="what-is-azure-expressroute"></a>O que é o Azure ExpressRoute?
@@ -44,7 +44,7 @@ Cada circuito ExpressRoute consiste em duas ligações a dois routers de borda m
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços da Microsoft Cloud
 As ligações ExpressRoute permitem o acesso aos seguintes serviços:
 * Serviços do Microsoft Azure
-* Serviços Microsoft 365
+* Serviços do Microsoft 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -91,7 +91,7 @@ Pode comprar circuitos ExpressRoute para uma vasta gama de larguras de banda. As
 * 100 Mbps
 * 200 Mbps
 * 500 Mbps
-* 1 Gbps
+* 1 Gbps
 * 2 Gbps
 * 5 Gbps
 * 10 Gbps

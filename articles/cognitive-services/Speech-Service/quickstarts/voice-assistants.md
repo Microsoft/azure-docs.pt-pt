@@ -13,10 +13,10 @@ ms.author: travisw
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-voice-assistants
 ms.openlocfilehash: 6e13864aa46ff1871aa18d8d33296b21b99d7047
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88925442"
 ---
 # <a name="quickstart-create-a-custom-voice-assistant"></a>Quickstart: Criar um assistente de voz personalizado

@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88607590"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentor e itens a partir do portal Azure
@@ -67,20 +67,20 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
 > [!NOTE]
 > As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade**:
 > - Aplicar Desconto de Escalão Gratuito
-> - Geodusiunância
+> - Georredundância
 > - Escritas de várias regiões
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="O painel Bases de dados do portal do Azure":::
 
 1. Selecione **Rever + criar**. Pode ignorar as secções **Rede** e **Etiquetas**.
 
 1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel de Notificações do portal do Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel Bases de dados do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="A página da conta do Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="O painel Bases de dados do portal do Azure":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Adicione uma base de dados e um recipiente 
@@ -91,7 +91,7 @@ Pode utilizar o Data Explorer no portal Azure para criar uma base de dados e um 
     
     Pode ser necessário rolar para a direita para ver a janela **do Recipiente Adicionar.**
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="O Data Explorer no portal do Azure, painel Adicionar Contentor":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="O painel Bases de dados do portal do Azure":::
     
 1.  No painel de **recipiente Adicionar,** introduza as definições para o novo recipiente.
     
@@ -113,7 +113,7 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
 
 1. No **Data Explorer,** expanda a base **de dados ToDoList** e expanda o recipiente **de Itens.** Em seguida, selecione **Itens**e, em seguida, selecione **Novo Item**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Criar documentos novos no Data Explorer no portal do Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="O painel Bases de dados do portal do Azure":::
    
 1. Adicione a seguinte estrutura ao documento no lado direito do painel **documento:**
 
@@ -129,7 +129,7 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
 
 1. Selecione **Guardar**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copie em dados json e selecione Guardar no Data Explorer no portal Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="O painel Bases de dados do portal do Azure":::
    
 1. Selecione **Novo Documento** novamente, e crie e guarde outro documento com um `id` exclusivo , e quaisquer outras propriedades e valores que pretenda. Os seus documentos podem ter qualquer estrutura, porque a Azure Cosmos DB não impõe qualquer esquema nos seus dados.
 

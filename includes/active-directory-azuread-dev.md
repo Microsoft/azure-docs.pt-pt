@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,10 +15,10 @@ ms.date: 01/24/2020
 ms.author: ryanwi
 ms.custom: include file
 ms.openlocfilehash: ebd8c1d794293ead55374865057424e15e6f7d7a
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86277761"
 ---
 > [!IMPORTANT]

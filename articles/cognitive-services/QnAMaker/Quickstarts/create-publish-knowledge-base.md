@@ -4,10 +4,10 @@ description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a pa
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89535854"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
@@ -64,7 +64,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Adicione a pergunta como texto e a resposta formatada com marcação.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço QnA Maker":::
 
     O símbolo de `*` marcação, é usado para pontos de bala. É `\n` usado para uma nova linha.
 
@@ -81,7 +81,7 @@ No canto superior direito, **selecione Save and train** para guardar suas ediç�
 
     `How many Azure services are used by a knowledge base?`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Introduza um exemplo de consulta do utilizador na caixa de texto.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço QnA Maker":::
 
 1. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as suas alterações na base de conhecimento antes de publicar a sua base de conhecimento.
 
@@ -131,7 +131,7 @@ Quando se faz alterações na base de conhecimento e se republica, não precisa 
 
     O chat bot responde com uma resposta da sua base de conhecimento.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Introduza uma consulta do utilizador no chat web de teste.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço QnA Maker":::
 
 ## <a name="what-did-you-accomplish"></a>O que conseguiu?
 
@@ -141,7 +141,7 @@ Depois de publicar a base de conhecimento, criou um bot e testou o bot.
 
 Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou limpar o conteúdo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
