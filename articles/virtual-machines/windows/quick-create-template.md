@@ -9,10 +9,10 @@ ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
 ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649674"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual do Windows utilizando um modelo ARM
@@ -60,7 +60,7 @@ Vários recursos são definidos no modelo:
     - **Grupo de recursos**: selecione um grupo de recursos existente a partir do drop-down, ou selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK**.
     - **Localização**: selecione uma localização.  Por exemplo, **E.U.A. Central**.
     - **Nome de utilizador Admin**: fornecer um nome de utilizador, como *azureuser*.
-    - **Senha de administração**: forneça uma palavra-passe para a conta de administração. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Senha de administração**: forneça uma palavra-passe para a conta de administração. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Prefixo da etiqueta DNS**: introduza um identificador único para utilizar como parte da etiqueta DNS.
     - **Versão Windows OS**: selecione qual a versão do Windows que pretende executar no VM.
     - **Tamanho VM**: selecione o [tamanho](../sizes.md) a utilizar para o VM.

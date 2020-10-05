@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realize uma pesquisa de notícias com Ruby e a Bing News Search REST API'
+title: 'Quickstart: Realize uma pesquisa de notícias com a Ruby e a Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar um pedido para a API de pesquisa de notícias bing news usando Ruby, e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido para a Bing News Search REST API usando a Ruby, e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ad52116e11f9d89bf55a23692ae4e27f53b51319
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873409"
 ---
-# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando Ruby e a Bing News Search REST API
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Quickstart: Realize uma pesquisa de notícias usando a Ruby e a Bing News Search REST API
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação Ruby envia uma consulta de pesquisa para a API e processa a resposta JSON.
 
-Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 
-O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+O código-fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ O código fonte desta amostra está disponível no [GitHub](https://github.com/A
     require 'json'
     ```
 
-2. Crie variáveis para o ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```ruby
     accessKey = "enter key here"
@@ -64,7 +64,7 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json-response"></a>Processar e imprimir a resposta json
+## <a name="process-and-print-the-json-response"></a>Processar e imprimir a resposta JSON
 
 Após a resposta ser recebida, analise o JSON e, em seguida, imprima tanto o corpo de resposta como os seus cabeçalhos.
 
@@ -80,7 +80,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 

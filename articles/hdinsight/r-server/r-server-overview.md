@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85849916"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os Serviços ML em Azure HDInsight
@@ -58,12 +58,12 @@ Os serviços ML em HDInsight proporcionam os seguintes benefícios:
 
 As seguintes funcionalidades estão incluídas nos Serviços ML em HDInsight.
 
-| Categoria de recurso | Description |
+| Categoria de recurso | Descrição |
 |------------------|-------------|
 | Ativado por R | [Pacotes R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas em R, com uma distribuição de código aberto de R, e infraestruturas de tempo de execução para execução de scripts. |
 | Ativado por python | [Módulos Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções escritas em Python, com uma distribuição de código aberto de Python, e infraestruturas de tempo de execução para execução de scripts.
 | [Modelos pré-treinados](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Para análise visual e análise de sentimento de texto, pronto para marcar dados que fornece. |
-| [Implantar e consumir](r-server-operationalize.md) | `Operationalize`o seu servidor e implementar soluções como um serviço web. |
+| [Implantar e consumir](r-server-operationalize.md) | `Operationalize` o seu servidor e implementar soluções como um serviço web. |
 | [Execução remota](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Inicie sessões remotas no cluster ML Services na sua rede a partir da sua estação de trabalho do cliente. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opções de armazenamento de dados para serviços ML em HDInsight
@@ -82,7 +82,7 @@ Pode ligar-se ao Microsoft ML Server no nó de borda utilizando um browser ou SS
 
 Os seus scripts R podem utilizar qualquer um dos mais de 8000 pacotes R de código aberto. Também pode utilizar as rotinas paralelas e distribuídas da biblioteca ScaleR. Os scripts são executados no nó de borda dentro do intérprete R nesse nó. Exceto para etapas que chamam scaler funções com um contexto de cálculo de Redução de Mapa (RxHadoopMR) ou Spark (RxSpark). As funções funcionam de forma distribuída através dos nós de dados que estão associados aos dados. Para obter mais informações sobre opções de contexto, consulte [opções de contexto computacional para serviços ML em HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>`Operationalize`um modelo
+## <a name="operationalize-a-model"></a>`Operationalize` um modelo
 
 Quando a modelação dos seus dados estiver concluída, `operationalize` o modelo para fazer previsões para novos dados, quer a partir do Azure, quer no local. Este processo é conhecido como pontuação. A pontuação pode ser feita em HDInsight, Azure Machine Learning ou no local.
 

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/19/2020
 ms.openlocfilehash: f38b8de37e84cd8a65c5a5caadf8d3b6b71ce455
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88587077"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é o Azure App Configuration?
@@ -51,7 +51,7 @@ A Configuração de Aplicações complementa [o Azure Key Vault](https://azure.m
 
 A forma mais fácil de adicionar uma loja de Configuração de Aplicações à sua aplicação é através de uma biblioteca de clientes fornecida pela Microsoft. Os seguintes métodos estão disponíveis para se conectar com a sua aplicação, dependendo da sua língua e enquadramento escolhidos
 
-| Linguagem e enquadramento de programação | Como se ligar |
+| Linguagem e enquadramento de programação | Como ligar |
 |---|---|
 | .NET Core e ASP.NET Core | Fornecedor de configuração de aplicativos para .NET Core |
 | .NET Quadro e ASP.NET | Construtor de configuração de aplicativos para .NET |

@@ -6,10 +6,10 @@ ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
 ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87927033"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é o Service Fabric Mesh?

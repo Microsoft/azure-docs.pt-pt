@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947475"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Quickstart: Criar um cluster Azure Stream Analytics dedicado usando o portal Azure
@@ -30,7 +30,7 @@ Nesta secção, cria-se um recurso de cluster Stream Analytics.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **Criar um recurso**. Na caixa de pesquisa *do Marketplace,* escreva e selecione **o cluster Stream Analytics**. Em seguida, **selecione Adicionar**.
+1. Selecione **Criar um recurso**. Na caixa de pesquisa *do Marketplace,* escreva e selecione **o cluster Stream Analytics**. Em seguida, selecione **Adicionar**.
 
    :::image type="content" source="./media/create-cluster/search-result.png" alt-text="Stream Analytics resultado de pesquisa de cluster.":::
 

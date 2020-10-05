@@ -15,13 +15,13 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91278333"
 ---
-# <a name="storage-hierarchy-of-azure-netapp-files"></a>Hierarquia de armazenamento de ficheiros Azure NetApp
+# <a name="storage-hierarchy-of-azure-netapp-files"></a>Hierarquia de armazenamento do Azure NetApp Files
 
 Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um conjunto para capacidade aprovisionada.  Para configurar um conjunto de capacidade, precisa de ter uma conta NetApp. Compreender a hierarquia de armazenamento ajuda-o a configurar e gerir os recursos do Azure NetApp Files.
 
@@ -93,4 +93,4 @@ O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp,
 - [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Considerações de desempenho para o Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 - [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
-- [Gerir um pool manual de capacidade QoS](manage-manual-qos-capacity-pool.md)
+- [Gerir um conjunto de capacidade QoS manual](manage-manual-qos-capacity-pool.md)

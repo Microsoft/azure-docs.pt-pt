@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91319049"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma app toda com Xamarin usando a conta API API da Azure Cosmos DB SQL
@@ -91,7 +91,7 @@ Regresse ao portal do Azure para obter as informações de chaves da API e copie
 
 1. No [portal do Azure](https://portal.azure.com/), na sua conta da API de SQL do Azure Cosmos DB, na navegação da esquerda, clique em **Chaves** e em **Chaves de leitura/escrita**. Vai utilizar os botões de copiar no lado direito do ecrã para copiar o URI e a Chave Primária para o ficheiro APIKeys.cs no próximo passo.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, painel Chaves":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 2. No Visual Studio 2019 ou no Visual Studio for Mac, abra o ficheiro APIKeys.cs na pasta azure-cosmos-db-sql-xamarin-start-start/src/ToDoItems.Core/Helpers.
 
@@ -109,7 +109,7 @@ Regresse ao portal do Azure para obter as informações de chaves da API e copie
 
 Esta solução demonstra como criar uma aplicação de lista de tarefas com a API de SQL do Azure Cosmos BD e o Xamarin.Forms. A aplicação tem dois separadores. O primeiro contém uma vista de lista que mostra itens de afazeres que ainda não foram concluídos. O segundo apresenta os itens de afazeres que foram concluídos. Para além de poder ver os itens de afazeres que ainda não foram concluídos no primeiro separador, também pode adicionar itens novos, editar já existentes e marcar itens como concluídos.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copie os dados json e clique em Guardar no Data Explorer no portal do Azure":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 O código na solução ToDoItems contém:
 
@@ -172,33 +172,33 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 1. Primeiro, selecione a plataforma que quer segmentar ao clicar no menu pendente realçado e selecionar ToDoItems.iOS, para iOS, ou ToDoItems.Android, para Android.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Selecionar uma plataforma para depurar no Visual Studio para Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 2. Para começar a depurar a aplicação, prima cmd+Enter ou clique no botão de reprodução.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Começar a depurar no Visual Studio para Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 3. Quando o simulador do iOS ou o emulador do Android forem iniciados, a aplicação mostrará dois separadores, na parte inferior do ecrã, para iOS, e na parte superior, para Android. O primeiro mostra os itens de afazeres que não estão concluídos e o segundo os que já o estão.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Iniciar o ecrã da aplicação de tarefas":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 4. Para concluir um item de afazer no iOS, deslize-o para a esquerda > toque no botão **Concluir**. Para concluir um item de afazer no Android, prima-o > toque no botão de conclusão.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Concluir um item de afazer":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 5. Para editar um item de afazer > toque no item > é apresentado um ecrã novo, que lhe permite introduzir valores novos. Tocar no botão Guardar aplicará as alterações no Azure Cosmos DB.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Editar item de afazer":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 6. Para adicionar um item de afazer > toque no botão **Adicionar**, no canto superior direito do ecrã principal > é apresentada uma página de edição em branco nova.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Adicionar item de afazer":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

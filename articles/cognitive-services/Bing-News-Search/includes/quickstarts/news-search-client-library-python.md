@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: c1bd0d86a3fd9d19d67d84b9b05955421373e01e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79503882"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes bing news search para Python. Embora a Bing News Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing News Search para Python. Embora a Bing News Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Pitão](https://www.python.org/) 2.x ou 3.x
 
-Recomenda-se utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html) para o desenvolvimento da sua pitão. Pode instalar e inicializar o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Tem de instalar um virtualenv para python 2.7. Pode criar um ambiente virtual com:
+Recomenda-se a utilização de um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html) para o seu desenvolvimento de pitões. Pode instalar e inicializar o ambiente virtual com o [módulo venv.](https://pypi.python.org/pypi/virtualenv) Tem de instalar um virtualenv para Python 2.7. Pode criar um ambiente virtual com:
 
 ```console
 python -m venv mytestenv
 ```
 
-Pode instalar as dependências da biblioteca de clientes bing News Search com este comando:
+Pode instalar as dependências da biblioteca de clientes Bing News Search com este comando:
     
 ```console
 python -m pip install azure-cognitiveservices-search-newssearch
@@ -55,7 +55,7 @@ python -m pip install azure-cognitiveservices-search-newssearch
     client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
-2. Envie uma consulta de pesquisa para a API de Pesquisa de Notícias, guarde a resposta.
+2. Envie uma consulta de pesquisa para a API de Pesquisa de Notícias, armazene a resposta.
 
     ```python
     news_result = client.news.search(query=search_term, market="en-us", count=10)

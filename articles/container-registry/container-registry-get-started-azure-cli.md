@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
 ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87486549"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo privado de contentores utilizando o CLI Azure
@@ -87,7 +87,7 @@ O exemplo a seguir enumera os repositórios no seu registo:
 az acr repository list --name <registry-name> --output table
 ```
 
-Saída:
+Resultado:
 
 ```
 Result
@@ -101,7 +101,7 @@ O exemplo a seguir enumera as etiquetas no repositório **hello-world.**
 az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
-Saída:
+Resultado:
 
 ```
 Result

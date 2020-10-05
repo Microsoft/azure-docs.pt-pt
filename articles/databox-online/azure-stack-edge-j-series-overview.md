@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318602"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>O que é o Azure Stack Edge Pro R?
@@ -26,7 +26,7 @@ Este artigo fornece-lhe uma visão geral da solução Azure Stack Edge Pro R, ca
 
 Azure Stack Edge Pro R tem as seguintes capacidades:
 
-|Funcionalidade |Description  |
+|Funcionalidade |Descrição  |
 |---------|---------|
 |Hardware acidentado| Hardware de classe de servidor acidentado projetado para ambientes agressivos. Dispositivo contido num caso de trânsito portátil. |
 |Gerido em nuvem     |O dispositivo e o serviço são geridos através do portal Azure.|

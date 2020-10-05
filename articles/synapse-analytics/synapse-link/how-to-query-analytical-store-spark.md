@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91287734"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interaja com a Azure Cosmos DB usando Apache Spark in Azure Synapse Link (pré-visualização)
@@ -35,11 +35,11 @@ Antes de conhecer as duas opções possíveis para consultar a loja analítica A
 
 A diferença de experiência está em torno de se as mudanças de dados subjacentes no contentor DB Azure Cosmos devem ser automaticamente refletidas na análise realizada na Spark. Quando um Spark DataFrame é registado ou uma tabela Spark é criada contra a loja analítica de um recipiente, os metadados em torno da imagem atual dos dados na loja analítica são recolhidos à Spark para um pushdown eficiente da análise subsequente. É importante notar que, uma vez que a Spark segue uma política de avaliação preguiçosa, a menos que seja invocada uma ação no Spark DataFrame ou numa consulta SparkSQL contra a tabela Spark, os dados reais não são recolhidos da loja analítica do recipiente subjacente.
 
-No caso de **carregamento para o DataFrame de Faísca,** os metadados recolhidos são cached ao longo do tempo de vida da sessão Spark e, portanto, as ações subsequentes invocadas no DataFrame são avaliadas contra o instantâneo da loja analítica no momento da criação do DataFrame.
+No caso do **carregamento para o DataFrame do Spark**, os metadados obtidos são colocados em cache durante a duração da sessão do Spark e, portanto, as ações subsequentes invocadas no DataFrame são avaliadas relativamente ao instantâneo do arquivo analítico no momento da criação do DataFrame.
 
-Por outro lado, no caso de **criar uma tabela Spark,** os metadados do estado da loja analítica não estão em cache na Spark e são recarregados em todas as execuções de consultas SparkSQL contra a tabela Spark.
+Por outro lado, no caso da **criação de uma tabela do Spark**, os metadados do estado do arquivo analítico não são colocados em cache no Spark e são recarregados em cada execução de consulta SQL do Spark na tabela do Spark.
 
-Assim, pode escolher entre carregar para o Spark DataFrame e criar uma tabela Spark com base na questão de saber se pretende que a sua análise Spark seja avaliada com uma imagem fixa da loja analítica ou contra a última imagem da loja analítica, respectivamente.
+Assim sendo, pode escolher entre o carregamento para o DataFrame do Spark e a criação de uma tabela do Spark consoante queira que a análise do Spark seja avaliada relativamente a um instantâneo fixo do arquivo analítico ou ao instantâneo mais recente do arquivo analítico, respetivamente.
 
 > [!NOTE]
 > Para consultar a Azure Cosmos DB API das contas da Mongo DB, saiba mais sobre a [representação total](../../cosmos-db/analytical-store-introduction.md#analytical-schema) do esquema de fidelidade na loja analítica e sobre os nomes de propriedade estendidos a serem usados.
@@ -86,7 +86,7 @@ create table call_center using cosmos.olap options (
 ```
 
 > [!NOTE]
-> Se tiver cenários em que o esquema do contentor Azure Cosmos DB subjacente muda ao longo do tempo; e se pretender que o esquema atualizado reflita automaticamente nas consultas contra a tabela Spark, pode fazê-lo definindo a `spark.cosmos.autoSchemaMerge`  opção para `true` as opções de tabela Spark.
+> Se tiver cenários em que o esquema do contentor do Azure Cosmos DB subjacente muda ao longo do tempo e quiser que o esquema atualizado se reflita automaticamente nas consultas da tabela do Spark, poderá consegui-lo ao definir a opção `spark.cosmos.autoSchemaMerge` como `true` nas opções da tabela do Spark.
 
 
 ## <a name="write-spark-dataframe-to-azure-cosmos-db-container"></a>Escreva O Quadro de Dados de Faíscas para o recipiente DB do Azure Cosmos

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88191261"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Use o CLI Azure para criar um espaço de nome de ônibus de serviço e uma fila
@@ -23,7 +23,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][free ac
 Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após a placar no portal Azure. Para mais detalhes sobre a Azure Cloud Shell, consulte [a visão geral da Azure Cloud Shell](../cloud-shell/overview.md). Também pode [instalar](/cli/azure/install-azure-cli) e utilizar o Azure PowerShell na sua máquina. 
 
 ## <a name="provision-resources"></a>Recursos de aprovisionamento
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lance Azure Cloud Shell selecionando o ícone mostrado na imagem seguinte. Mude para o modo **Bash** se o CloudShell estiver no modo **PowerShell.** 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Lançar Cloud Shell":::

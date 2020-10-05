@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realizar uma pesquisa de notícias com php e a Bing News Search REST API'
+title: 'Quickstart: Realize uma pesquisa de notícias com PHP e a Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar um pedido para a API de pesquisa de notícias bing news usando PHP, e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido à API de Pesquisa de Notícias Bing usando PHP e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ecdcfc7d90f61443cc6947680df9bbf9d9b9514e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873235"
 ---
-# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando PHP e a Bing News Search REST API
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Quickstart: Realize uma pesquisa de notícias usando PHP e a Bing News Search REST API
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação PHP envia uma consulta de pesquisa para a API e exibe a resposta JSON.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação PHP envia uma consulta de pesquisa para a API e apresenta a resposta JSON.
 
-Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,18 +30,18 @@ Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Para mais informações, consulte [Preços dos Serviços Cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Para mais informações, consulte [preços dos serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Para executar esta aplicação, siga estes passos:
 
-1. Ative o suporte http seguro no seu `php.ini` ficheiro descodendo a `;extension=php_openssl.dll` linha, conforme descrito no comentário de código.
+1. Ativar o suporte HTTP seguro no seu `php.ini` ficheiro desacomprometindo a `;extension=php_openssl.dll` linha, conforme descrito no comentário de código.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-5. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
-6. Execute o programa.
+5. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+6. Executar o programa.
 
 ```php
 <?php
@@ -103,7 +103,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 

@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-js
 ms.date: 06/21/2019
 ms.openlocfilehash: 13baface2bce9e98f08e37b8a16ba1e2b435205a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91281614"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Quickstart: Utilize Node.js para controlar um dispositivo ligado a um hub Azure IoT
@@ -159,7 +159,7 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
     ![Saída quando há uma mudança no cliente simulado](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

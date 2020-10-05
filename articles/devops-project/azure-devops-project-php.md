@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233793"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Criar um pipeline CI/CD para PHP com Azure DevOps Starter
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
  DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma organização gratuita de novos Azure DevOps ou utilizar uma organização existente. DevOps Projects também cria recursos Azure na subscrição Azure da sua escolha.
 
-1. Inscreva-se no [portal Microsoft Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
 1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
@@ -110,7 +110,7 @@ Se não tiver uma subscrição do Azure, pode obter uma gratuitamente através [
 
 1. À direita, **selecione Ver ver as versões** para exibir um histórico de lançamentos.
 
-1. Selecione a elipse (...) ao lado de uma das suas versões e, em seguida, selecione **Abrir**. Estão disponíveis vários menus para explorar nesta vista, como um resumo de versões, itens de trabalho associados e testes.
+1. Selecione a elipse (...) ao lado de uma das suas versões e, em seguida, selecione  **Abrir**. Estão disponíveis vários menus para explorar nesta vista, como um resumo de versões, itens de trabalho associados e testes.
 
 1. Selecione **Consolidações**. Esta visão mostra compromissos de código que estão associados à implementação específica. 
 

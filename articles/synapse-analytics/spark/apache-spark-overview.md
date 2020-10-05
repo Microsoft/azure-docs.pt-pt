@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87498927"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Faísca Apache em Azure Synapse Analytics
@@ -26,7 +26,7 @@ Apache Spark é uma estrutura de processamento paralela que suporta o processame
 
 ## <a name="what-is-apache-spark"></a>O que é Apache Spark
 
-Apache Spark fornece primitivos para a computação de cluster in-memory. Os trabalhos do Spark podem carregar e colocar os dados em cache na memória e consultá-los repetidamente. A computação na memória é muito mais rápida do que as aplicações baseadas em discos. Spark também se integra com várias linguagens de programação para permitir manipular conjuntos de dados distribuídos como coleções locais. Não é necessário estruturar tudo como operações de mapa e redução.
+Apache Spark fornece primitivos para a computação de cluster in-memory. Um trabalho do Spark pode carregar e colocar em cache dados na memória e consultá-los repetidamente. A computação dentro da memória é muito mais rápida do que as aplicações baseadas em disco. Spark também se integra com várias linguagens de programação para permitir manipular conjuntos de dados distribuídos como coleções locais. Não é necessário estruturar tudo como operações de mapa e redução.
 
 ![MapReduce tradicional vs. Faísca](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
@@ -41,7 +41,7 @@ As piscinas spark em Azure Synapse oferecem um serviço Spark totalmente gerido.
 | Suporte para Azure Data Lake Storage Generation 2| As piscinas spark em Azure Synapse podem usar Azure Data Lake Storage Generation 2, bem como armazenamento BLOB. Para obter mais informações sobre o armazenamento do Data Lake, consulte [a visão geral do armazenamento do Lago de Dados Azure.](../../data-lake-store/data-lake-store-overview.md) |
 | Integração com IDEs de terceiros | O Azure Synapse fornece um plugin IDE para [o IntelliJ IDEA do JetBrains](https://www.jetbrains.com/idea/) que é útil para criar e submeter candidaturas a uma piscina spark. |
 | Bibliotecas Anaconda pré-carregadas |As piscinas de faíscas em Azure Synapse vêm com bibliotecas Anaconda pré-instaladas. O [Anaconda](https://docs.continuum.io/anaconda/) fornece cerca de 200 bibliotecas de Machine Learning, análise de dados, visualização, etc. |
-| Escalabilidade | As piscinas Apache Spark in Azure Synapse podem ter a Escala Automática ativada, de modo que as piscinas escalam adicionando ou removendo os nós conforme necessário. Além disso, as piscinas Spark podem ser encerradas sem perda de dados, uma vez que todos os dados são armazenados no Armazenamento Azure ou no Armazenamento do Lago de Dados. |
+| Escalabilidade | As piscinas Apache Spark in Azure Synapse podem ter a Escala Automática ativada, de modo que as piscinas escalam adicionando ou removendo os nós conforme necessário. Além disso, os conjuntos do Spark podem ser encerrados sem perda de dados, uma vez que todos os dados estão armazenados no Armazenamento do Azure ou no Data Lake Storage. |
 
 As piscinas de faíscas em Azure Synapse incluem os seguintes componentes que estão disponíveis nas piscinas por padrão.
 
@@ -68,11 +68,11 @@ As piscinas de faíscas no Synapse Analytics permitem os seguintes cenários-cha
 
 ### <a name="data-engineeringdata-preparation"></a>Engenharia de Dados/Preparação de Dados
 
-O Apache Spark inclui muitas funcionalidades linguísticas para apoiar a preparação e o processamento de grandes volumes de dados para que possa ser tornado mais valioso e depois consumido por outros serviços dentro do Synapse Analytics. Isto é ativado através de vários idiomas (C#, Scala, PySpark, Spark SQL) e forneceu bibliotecas para processamento e conectividade.
+O Apache Spark inclui muitas funcionalidades de linguagem para suportar a preparação e o processamento de grandes volumes de dados, para que possam tornar-se mais relevantes e, em seguida, serem consumidos por outros serviços no Synapse Analytics. Isto é ativado através de vários idiomas (C#, Scala, PySpark, Spark SQL) e forneceu bibliotecas para processamento e conectividade.
 
 ### <a name="machine-learning"></a>Machine Learning
 
-Apache Spark vem com [MLlib,](https://spark.apache.org/mllib/)uma biblioteca de machine learning construída em cima de Spark que você pode usar a partir de uma piscina de faíscas em Synapse Analytics. As piscinas de faíscas em Synapse Analytics também incluem Anaconda, uma distribuição Python com uma variedade de pacotes para a ciência de dados, incluindo machine learning. Quando combinado com suporte incorporado para cadernos, você tem um ambiente para criar aplicações de machine learning.
+Apache Spark vem com [MLlib,](https://spark.apache.org/mllib/)uma biblioteca de machine learning construída em cima de Spark que você pode usar a partir de uma piscina de faíscas em Synapse Analytics. Os conjuntos do Spark no Synapse Analytics também incluem o Anaconda, uma distribuição de Python com uma seleção de pacotes para ciência de dados, incluindo machine learning. Quando combinado com o suporte incorporado para blocos de notas, tem um ambiente para criar aplicações de machine learning.
 
 ## <a name="where-do-i-start"></a>Por onde começo
 

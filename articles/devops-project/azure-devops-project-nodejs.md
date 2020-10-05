@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318624"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um gasoduto CI/CD em Pipelines Azure para Node.js com arranque Azure DevOps
@@ -186,7 +186,7 @@ Nos dois passos anteriores, adicionou um Gatsby gerado PWA ao seu repo git e edi
 
 3. Após alguns minutos, os seus gasodutos de construção e libertação devem terminar e o seu PWA deve ser colocado num recipiente. Clique no link de ponto final da **Aplicação** a partir do painel de instrumentos acima e deverá ver um projeto de arranque Gatsby para blogs.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa dos recursos. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 

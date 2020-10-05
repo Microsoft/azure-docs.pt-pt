@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
 ms.openlocfilehash: 3cc8e836d39a38f950e15d31aeb3e3acdca45acc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84045495"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Criar e gerir recursos Azure SQL com o portal Azure

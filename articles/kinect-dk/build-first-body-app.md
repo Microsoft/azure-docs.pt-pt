@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azul, sensor, sdk, corpo, rastreamento, articulação, aplicação, primeiro
 ms.openlocfilehash: bdf8ee7a14bf59a151dfa316b11159830b4f63b8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277980"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>Quickstart: Construir uma aplicação de rastreio corporal Azure Kinect
@@ -21,7 +21,7 @@ Começar com o Body Tracking SDK? Este quickstart vai pôr-te a funcionar com o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Configurar Azure Kinect DK](set-up-azure-kinect-dk.md)
+- [Configurar o Azure Kinect DK](set-up-azure-kinect-dk.md)
 - [Configurar o Body Tracking SDK](body-sdk-setup.md)
 - Caminhe como construir o seu primeiro quickstart [de aplicação Azure Kinect.](build-first-app.md)
 - Familiarize-se com as seguintes funções SDK sensor:
@@ -49,7 +49,7 @@ O rastreio do corpo usa um único cabeçalho, `k4abt.h` . Inclua este cabeçalho
 
 A sua primeira aplicação de rastreio de corpo pressupõe um único dispositivo Azure Kinect ligado ao PC.
 
-O rastreio do corpo baseia-se no Sensor SDK. Para utilizar o rastreio do corpo, primeiro tem de abrir e configurar o dispositivo. Utilize a função [k4a_device_open](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) para abrir o dispositivo e, em seguida, configurá-lo com um objeto [k4a_device_configuration_t.](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) Para obter melhores resultados, ajuste o modo de profundidade para `K4A_DEPTH_MODE_NFOV_UNBINNED` ou `K4A_DEPTH_MODE_WFOV_2X2BINNED` . O localizador do corpo não funcionará se o modo de profundidade estiver definido para `K4A_DEPTH_MODE_OFF` ou `K4A_DEPTH_MODE_PASSIVE_IR` .
+O rastreio do corpo baseia-se no Sensor SDK. Para utilizar o rastreio do corpo, primeiro tem de abrir e configurar o dispositivo. Utilize a função [k4a_device_open](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) para abrir o dispositivo e, em seguida, configurá-lo com um objeto [k4a_device_configuration_t.](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) Para obter melhores resultados, ajuste o modo de profundidade para `K4A_DEPTH_MODE_NFOV_UNBINNED` ou `K4A_DEPTH_MODE_WFOV_2X2BINNED` . O localizador do corpo não funcionará se o modo de profundidade estiver definido para  `K4A_DEPTH_MODE_OFF` ou `K4A_DEPTH_MODE_PASSIVE_IR` .
 
 Pode encontrar mais informações sobre como encontrar e abrir o dispositivo [nesta página.](find-then-open-device.md)
 
@@ -244,4 +244,4 @@ int main()
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Obtenha resultados de rastreio corporal](get-body-tracking-results.md)
+>[Obter resultados de deteção de movimentos](get-body-tracking-results.md)

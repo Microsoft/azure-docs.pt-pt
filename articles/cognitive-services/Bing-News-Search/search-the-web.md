@@ -12,10 +12,10 @@ ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85602759"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>O que é a API de Pesquisa de Notícias do Bing?
@@ -28,11 +28,11 @@ Esteja ciente de que a API de Pesquisa de Notícias Bing fornece apenas resultad
 
 Embora a API de Pesquisa de Notícias Bing encontre e devolva artigos de notícias relevantes, fornece várias funcionalidades para a recuperação de notícias inteligentes e focadas na web.
 
-|Funcionalidade  |Description  |
+|Funcionalidade  |Descrição  |
 |---------|---------|
 |[Sugerir e usar termos de pesquisa](concepts/search-for-news.md#suggest-and-use-search-terms)     | Melhore a sua experiência de pesquisa utilizando [a API Bing Autosuggest](../bing-autosuggest/get-suggested-search-terms.md) para exibir termos de pesquisa sugeridos à medida que são dactilografados.         |
 |[Receba notícias gerais](concepts/search-for-news.md#get-general-news)     | Encontre notícias enviando uma consulta de pesquisa para a API de Pesquisa de Notícias Bing e recebendo uma lista de artigos de notícias relevantes.           |
-|[As principais notícias de hoje](concepts/search-for-news.md#get-todays-top-news)      | Receba as principais notícias do dia, em todas as categorias.       |
+|[Notícias principais de hoje](concepts/search-for-news.md#get-todays-top-news)      | Receba as principais notícias do dia, em todas as categorias.       |
 |[Notícias por categoria](concepts/search-for-news.md)     | Procure notícias em categorias específicas.        | 
 |[Notícias de manchete](concepts/search-for-news.md)     | Procure manchetes de topo em todas as categorias.         |
 
@@ -50,7 +50,7 @@ Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/
 
 Para começar rapidamente com o seu primeiro pedido de API, experimente um quickstart para a [REST API](quickstart.md) ou um dos [SDKs.](sdk.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * A secção de referência [de API v7 de pesquisa de notícias Bing News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contém definições e informações sobre os pontos finais, cabeçalhos, respostas API e parâmetros de consulta que pode utilizar para solicitar resultados de pesquisa baseados na imagem.
 * Os [Requisitos de apresentação e utilização do Bing](./useanddisplayrequirements.md) especificam as utilizações aceitáveis do conteúdo e as informações obtidas por meio das APIs de Pesquisa do Bing.

@@ -9,17 +9,17 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78244987"
 ---
 ## <a name="create-the-virtual-network"></a>Criar a rede virtual
 
 Nesta secção, irá criar uma rede virtual e uma sub-rede.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso > rede > rede virtual** ou procurar rede **Virtual** na caixa de pesquisa.
+1. No canto superior esquerdo do ecrã, selecione **Criar um recurso > Redes > Rede virtual** ou procure **Rede virtual** na caixa de pesquisa.
 
 2. Na **Criação de rede virtual,** insira ou selecione esta informação no **separador Básicos:**
 
@@ -29,7 +29,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | **Selecione Criar novo,** **\<resource-group-name>** insira, em seguida, selecione OK ou selecione um existente **\<resource-group-name>** com base em parâmetros. |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Inserir **\<virtual-network-name>**                                    |
+    | Name             | Inserir **\<virtual-network-name>**                                    |
     | Region           | Selecione **\<region-name>** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.

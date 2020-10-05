@@ -9,28 +9,28 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: 7a9fab8ba8bb9d21c9284cbf14bc67226d2ef9d3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80289743"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes bing video search para Python. Enquanto o Bing Video Search tem uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) com anotações adicionais e funcionalidades.
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing Video Search para Python. Enquanto a Bing Video Search tem uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente fornece uma maneira fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) com anotações adicionais e características.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Pitão](https://www.python.org/) 2.x ou 3.x
-- A biblioteca de clientes bing video search para python
+- A biblioteca de clientes Bing Video Search para python
 
-Recomenda-se que utilize um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html)python. Pode instalar e inicializar um ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para Python 2.7 com:
+Recomenda-se que utilize um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html)de pitão. Pode instalar e inicializar um ambiente virtual com o [módulo venv.](https://pypi.python.org/pypi/virtualenv) Instale virtualenv para Python 2.7 com:
 
 ```console
 python -m venv mytestenv
 ```
 
-Instale a biblioteca de clientes bing video search com:
+Instale a biblioteca do cliente Bing Video Search com:
 
 ```console
 cd mytestenv
@@ -64,7 +64,7 @@ client = VideoSearchAPI(endpoint, CognitiveServicesCredentials(subscription_key)
 
 ## <a name="send-a-search-request-and-get-a-response"></a>Envie um pedido de pesquisa e obtenha uma resposta
 
-1. Use `client.videos.search()` com a sua consulta de pesquisa para enviar um pedido para a API de Pesquisa de Vídeo Bing, e obter uma resposta.
+1. Use `client.videos.search()` com a sua consulta de pesquisa para enviar um pedido para a API de Pesquisa de Vídeo Bing e obter uma resposta.
 
     ```python
     video_result = client.videos.search(query="SwiftKey")
@@ -86,9 +86,9 @@ client = VideoSearchAPI(endpoint, CognitiveServicesCredentials(subscription_key)
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma única página web app](../../tutorial-bing-video-search-single-page-app.md)
+> [Criar uma aplicação web de uma página única](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Veja também 
 
 - [O que é a API de Pesquisa de Vídeos do Bing?](../../overview.md)
-- [Serviços cognitivos .NET Amostras SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+- [Serviços cognitivos .NET SDK amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

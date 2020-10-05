@@ -5,10 +5,10 @@ ms.service: log-analytics
 ms.topic: include
 ms.date: 08/14/2018
 ms.openlocfilehash: e8f93a1c16481f00d78a2d335020b2eb91d80ce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67122556"
 ---
 >[!NOTE]

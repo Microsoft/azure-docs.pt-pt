@@ -5,10 +5,10 @@ ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87873675"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Python
@@ -56,7 +56,7 @@ Para permitir que python consulta Azure Resource Graph, a biblioteca deve ser ad
    > [!NOTE]
    > Se o Python estiver instalado para todos os utilizadores, estes comandos devem ser executados a partir de uma consola elevada.
 
-1. Valide que as bibliotecas foram instaladas. `azure-mgmt-resourcegraph`deve ser **2.0.0** ou superior, `azure-mgmt-resource` deve ser **9.0.0** ou superior, e `azure-cli-core` deve ser **2.5.0** ou superior.
+1. Valide que as bibliotecas foram instaladas. `azure-mgmt-resourcegraph` deve ser **2.0.0** ou superior, `azure-mgmt-resource` deve ser **9.0.0** ou superior, e `azure-cli-core` deve ser **2.5.0** ou superior.
 
    ```bash
    # Check each installed library
@@ -125,7 +125,7 @@ Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de e
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se desejar remover as bibliotecas instaladas do seu ambiente Python, pode fazê-lo utilizando o seguinte comando:
 

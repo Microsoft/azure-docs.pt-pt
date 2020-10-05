@@ -6,10 +6,10 @@ ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
 ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88034991"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Quickstart: Criar modelos de gestor de recursos Azure com Código de Estúdio Visual
@@ -20,7 +20,7 @@ Para completar este arranque rápido, precisa do [Código do Estúdio Visual,](h
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-arm-template"></a>Crie um modelo ARM
+## <a name="create-an-arm-template"></a>Criar um modelo ARM
 
 Crie e abra com o Visual Studio Code um novo ficheiro nomeado *azuredeploy.jsem*. Introduza `arm` o editor de código, que inicia os cortes do Azure Resource Manager para andaimes com um modelo ARM.
 

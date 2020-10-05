@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91289485"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
@@ -68,7 +68,7 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configurar o acesso a administradores sql para o espaço de trabalho
 
-1. Vá ao [portal Azure](https://portal.azure.com)
+1. Aceda ao [Portal do Azure](https://portal.azure.com)
 2. Navegue para o seu espaço de trabalho
 3. Ir para **Definições**  >  **Administrador Ativo Diretório**
 4. Selecione **Definir Administrador**

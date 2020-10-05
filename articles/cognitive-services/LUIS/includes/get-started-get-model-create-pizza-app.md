@@ -11,15 +11,15 @@ ms.topic: include
 ms.custom: include file
 ms.author: roy-har
 ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84466933"
 ---
 Crie a aplicação de pizza.
 
-1. Selecione [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) para trazer a página do GitHub para o `pizza-app-for-luis.json` ficheiro.
+1. Selecione [pizza-app-for-luis-v6.js](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) para apresentar a página do GitHub para o `pizza-app-for-luis.json` ficheiro.
 1. Clique com o botão à direita ou durante um longo toque no botão **Raw** e selecione **Guarde** o link para guardar `pizza-app-for-luis.json` o computador.
 1. Inscreva-se no [portal LUIS.](https://www.luis.ai)
 1. Selecione [As Minhas Apps](https://www.luis.ai/applications).
@@ -44,7 +44,7 @@ Você deve ver a página **Intenções** com uma lista das intenções na aplica
 ## <a name="add-an-authoring-resource-to-the-pizza-app"></a>Adicione um recurso de autoria à app Pizza
 
 1. Selecione **MANAGE**.
-1. Selecione **Recursos Azure**.
+1. Selecione **Recursos do Azure**.
 1. Selecione **o recurso de autoria.**
 1. Selecione **Alterar recurso de autoria**.
 
@@ -65,7 +65,7 @@ Para encontrar estes valores:
 
 1. Na página **Intenções,** selecione **MANAGE**.
 1. A partir da página Configurações de **Aplicações,** grave o **ID da aplicação.**
-1. Selecione **Recursos Azure**.
+1. Selecione **Recursos do Azure**.
 1. Selecione **o recurso de autoria.**
 1. A partir do **separador Recursos de Autoria,** grave a **Chave Primária**. Este valor é a sua chave de autoria.
 1. Grave o **URL endpoint**. Este valor é o seu ponto final de autoria.

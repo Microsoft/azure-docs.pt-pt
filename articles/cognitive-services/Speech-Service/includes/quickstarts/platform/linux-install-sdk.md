@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: gelecaro
 ms.openlocfilehash: d9f49b2ca51174d22dde45f849749886ccffd393
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82980178"
 ---
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
-O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e ficheiros de cabeçalho sandados podem ser descarregados como um ficheiro de alcatrão a partir de https://aka.ms/csspeech/linuxbinary .
+O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e ficheiros de cabeçalho necessários podem ser descarregados como um ficheiro de alcatrão a partir de https://aka.ms/csspeech/linuxbinary .
 
 Transfira e instale o SDK da seguinte forma:
 

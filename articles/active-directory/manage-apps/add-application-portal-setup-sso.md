@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91305788"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
@@ -53,20 +53,20 @@ Para configurar um único sinal de inscrição para uma aplicação:
 
 1. Selecione **SAML** para abrir a página de configuração SSO. Neste exemplo, a aplicação que estamos a configurar para sSO é o GitHub. Depois de configurar o GitHub, os seus utilizadores podem inscrever-se no GitHub usando as suas credenciais do seu inquilino AZure AD.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="A screenshot mostra a página de configuração de assinatura única no GitHub.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="A screenshot mostra a página configurar de assinatura única no portal AD Azure.":::
 
 1. O processo de configuração de uma aplicação para utilizar o Azure AD para SSO baseado em SAML varia consoante a aplicação. Há uma ligação com a orientação para o GitHub. Para encontrar guias para outras aplicações, consulte [Tutoriais para integrar aplicações SaaS com O Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/saas-apps/)
 1. Siga o guia para configurar o SSO para a aplicação. Muitas aplicações têm requisitos específicos de subscrição para a funcionalidade SSO. Por exemplo, o GitHub requer uma subscrição da Enterprise.
     > [!TIP]
     > Para saber mais sobre as opções de configuração SAML, consulte o [sign-on único baseado em Configure SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="O Screenshot mostra a opção de inscrição única na subscrição enterprise da página de preços do GitHub.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="A screenshot mostra a página configurar de assinatura única no portal AD Azure.":::
 
 > [!TIP]
 > Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar com esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 

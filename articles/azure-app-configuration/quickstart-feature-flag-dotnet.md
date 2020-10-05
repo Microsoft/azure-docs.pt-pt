@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
 ms.openlocfilehash: 17817a5730678ae708c92c99093e7b859e05f8fe
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90983863"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação .NET Framework
@@ -51,7 +51,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
 
 1. In **Create a new project**, filter on the **Console** project type and click on Console **App (.NET Framework)**. Clique em **Seguinte**.
 
-1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** **selecione .NET Framework 4.8** ou superior. Clique em **Create** (Criar).
+1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** **selecione .NET Framework 4.8** ou superior. Clique em **Criar**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
@@ -122,7 +122,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
 
     ![App com bandeira de recurso ativada](./media/quickstarts/dotnet-app-feature-flag.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

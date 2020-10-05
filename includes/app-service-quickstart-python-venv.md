@@ -9,10 +9,10 @@ ms.date: 09/24/2020
 ms.author: kraigb
 ms.custom: include file
 ms.openlocfilehash: 99ad12696a6e5b06b8227d307e1d074364bf5ee0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91264559"
 ---
 # <a name="bash"></a>[Bash](#tab/bash)

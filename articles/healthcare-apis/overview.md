@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/03/2020
 ms.author: matjazl
 ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87843441"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>O que é Azure API para &reg; FHIR?

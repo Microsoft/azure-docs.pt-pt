@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91323679"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
@@ -67,7 +67,7 @@ O Centro de Segurança Azure permite-lhe reforçar a sua postura de segurança. 
 
 O Security Center ajuda-o a **identificar subscrições de TI shadow.** Ao olhar para as subscrições rotuladas **não abrangidas** pelo seu dashboard, pode saber imediatamente quando há subscrições recém-criadas e certificar-se de que estão cobertas pelas suas políticas e protegidas pelo Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política do Centro de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página de gestão de políticas":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
@@ -75,13 +75,13 @@ O Security Center descobre continuamente novos recursos que estão a ser impleme
 
 Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Pontuação segura do Centro de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página de gestão de políticas":::
 
 ### <a name="network-map"></a>Mapa de rede
 
 Uma das ferramentas mais poderosas que o Security Center fornece para monitorizar continuamente o estado de segurança da sua rede é o **mapa da Rede.** O mapa permite-lhe ver a topologia das suas cargas de trabalho, para que possa ver se cada nó está devidamente configurado. Pode ver como os seus nós estão ligados, o que o ajuda a bloquear ligações indesejadas que podem potencialmente facilitar o rastejar por um intruso ao longo da sua rede.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa da rede do Centro de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página de gestão de políticas":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando os controlos recomendados
@@ -92,7 +92,7 @@ Desta forma, o Security Center permite-lhe não só definir políticas de segura
 
 As recomendações ajudam-no a reduzir a superfície de ataque em cada um dos seus recursos. Isto inclui máquinas virtuais Azure, servidores não-Azure e serviços Azure PaaS, como contas DE SQL e Armazenamento e muito mais - onde cada tipo de recurso é avaliado de forma diferente e tem os seus próprios padrões.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação do Centro de Segurança":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página de gestão de políticas":::
 
 ## <a name="protect-against-threats"></a>Proteger contra ameaças
 
@@ -100,7 +100,7 @@ A proteção contra ameaças do Security Center permite-lhe detetar e prevenir a
 
 A proteção contra ameaças do Security Center inclui análises de cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e que tipo de impacto teve nos seus recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página de gestão de políticas":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração com o Microsoft Defender Proteção avançada de ameaças
 

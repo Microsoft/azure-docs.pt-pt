@@ -14,10 +14,10 @@ ms.date: 08/26/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3c74cceb1f0142a53b8222472d0adad8629a1ebf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90978105"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando o Azure CLI
@@ -212,7 +212,7 @@ Copie o valor **relativo do Nome Denas.** O nome DNS do seu perfil de Gestor de 
 3. Copie o nome DNS do seu perfil de Gestor de Tráfego *(http://<* nome* relativo>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
 4. Verifique se a aplicação web ainda está disponível.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar, elimine os grupos de recursos, aplicações web e todos os recursos relacionados usando [o grupo AZ delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 

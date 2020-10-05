@@ -7,10 +7,10 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90985226"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
@@ -69,7 +69,7 @@ Nesta secção, implementa a sua aplicação Node.js para o Azure utilizando o C
 
 1. No explorador de **SERVIÇO DE APLICAÇÃO AZURE** do Código VS, selecione o ícone de seta azul para cima para implementar a sua aplicação para o Azure. (Também pode invocar o mesmo comando a partir da Paleta de **Comando** **(Ctrl** + **Shift** + **P)** digitando 'implementar para a web app' e escolhendo o Serviço de **Aplicações Azure: Implementar para a Web App).**
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.":::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
         
 1. Escolha a pasta *nodejs-docs-hello-world.*
 
@@ -95,9 +95,9 @@ Nesta secção, implementa a sua aplicação Node.js para o Azure utilizando o C
 
     ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
 
-1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho "nodejs-docs-hello-world" para (nome da aplicação)"**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
 
-1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir "Hello World!"
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!"
 
 1. Se implementar para o Windows, deve primeiro definir o número de versão Node.js para a aplicação web:
 
@@ -141,7 +141,35 @@ Pode visualizar a saída de registo (chamadas `console.log` para) a partir da ap
 
 1. Quando solicitado, opte por ativar a registo e reiniciar a aplicação. Uma vez reiniciada a aplicação, a janela de saída do Código VS abre-se com uma ligação ao fluxo de registo. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do pedido do Código do Estúdio Visual para ativar o registo e reiniciar a aplicação com o botão Sim selecionado.":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
+        
+1. Escolha a pasta *nodejs-docs-hello-world.*
+
+1. Escolha uma opção de criação baseada no sistema operativo para o qual pretende implementar:
+
+    - Linux: Escolha **Criar nova Aplicação Web**
+    - Windows: Escolha **Criar nova Aplicação Web... Avançado**
+
+1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
+
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+
+1. Se direcionar o Windows, siga as indicações adicionais:
+    1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
+    1. Selecione **Windows** para o sistema operativo.
+    1. **Selecione Crie um novo plano de Serviço de Aplicações**e, em seguida, insira um nome para o plano (como), `AppServiceQS-plan` em seguida, selecione **F1 Grátis** para o nível de preços.
+    1. Escolha **Skip por agora** quando solicitado sobre Insights de Aplicação.
+    1. Escolha uma região perto de si ou perto de recursos a que deseje aceder.
+
+1. Depois de responder a todas as solicitações, o CÓDIGO VS mostra os recursos Azure que estão a ser criados para a sua aplicação no pop-up de notificação.
+
+    Ao implementar para o Linux, selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor Linux alvo.
+
+    ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
+
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!":::
 
 1. Após alguns segundos, a janela de saída mostra uma mensagem indicando que está ligado ao serviço de streaming de registos. Pode gerar mais atividade de saída refrescando a página no navegador.
 
@@ -263,7 +291,35 @@ code .
 
 No explorador **AZURE APP SERVICE,** selecione o ícone de seta azul para cima para implementar a sua aplicação para Azure.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot do menu Azure App Service em Visual Studio Code com a seta de implantação azul selecionada.":::
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
+        
+1. Escolha a pasta *nodejs-docs-hello-world.*
+
+1. Escolha uma opção de criação baseada no sistema operativo para o qual pretende implementar:
+
+    - Linux: Escolha **Criar nova Aplicação Web**
+    - Windows: Escolha **Criar nova Aplicação Web... Avançado**
+
+1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
+
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+
+1. Se direcionar o Windows, siga as indicações adicionais:
+    1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
+    1. Selecione **Windows** para o sistema operativo.
+    1. **Selecione Crie um novo plano de Serviço de Aplicações**e, em seguida, insira um nome para o plano (como), `AppServiceQS-plan` em seguida, selecione **F1 Grátis** para o nível de preços.
+    1. Escolha **Skip por agora** quando solicitado sobre Insights de Aplicação.
+    1. Escolha uma região perto de si ou perto de recursos a que deseje aceder.
+
+1. Depois de responder a todas as solicitações, o CÓDIGO VS mostra os recursos Azure que estão a ser criados para a sua aplicação no pop-up de notificação.
+
+    Ao implementar para o Linux, selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor Linux alvo.
+
+    ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
+
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!":::
 
 > [!TIP]
 > Também pode ser implantado a partir da Paleta de **Comando** (CTRL + SHIFT + P) digitando 'implementar para a web app' e executando o **Serviço de Aplicações Azure: Implementar para** o comando da Web App.
@@ -280,11 +336,67 @@ No explorador **AZURE APP SERVICE,** selecione o ícone de seta azul para cima p
 
 1. Selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor alvo. A sua aplicação é então implementada.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot da solicitação para atualizar a sua configuração no servidor alvo com o botão sim selecionado.":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
+        
+1. Escolha a pasta *nodejs-docs-hello-world.*
+
+1. Escolha uma opção de criação baseada no sistema operativo para o qual pretende implementar:
+
+    - Linux: Escolha **Criar nova Aplicação Web**
+    - Windows: Escolha **Criar nova Aplicação Web... Avançado**
+
+1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
+
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+
+1. Se direcionar o Windows, siga as indicações adicionais:
+    1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
+    1. Selecione **Windows** para o sistema operativo.
+    1. **Selecione Crie um novo plano de Serviço de Aplicações**e, em seguida, insira um nome para o plano (como), `AppServiceQS-plan` em seguida, selecione **F1 Grátis** para o nível de preços.
+    1. Escolha **Skip por agora** quando solicitado sobre Insights de Aplicação.
+    1. Escolha uma região perto de si ou perto de recursos a que deseje aceder.
+
+1. Depois de responder a todas as solicitações, o CÓDIGO VS mostra os recursos Azure que estão a ser criados para a sua aplicação no pop-up de notificação.
+
+    Ao implementar para o Linux, selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor Linux alvo.
+
+    ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
+
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!":::
 
 1. Quando a implementação começar, é-lhe solicitado que atualize o seu espaço de trabalho para que as implementações posteriores direcionem automaticamente a mesma App Service Web App. Escolha **Sim** para garantir que as suas alterações são implementadas na aplicação correta.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot do pedido para atualizar o seu espaço de trabalho com o botão sim selecionado.":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
+        
+1. Escolha a pasta *nodejs-docs-hello-world.*
+
+1. Escolha uma opção de criação baseada no sistema operativo para o qual pretende implementar:
+
+    - Linux: Escolha **Criar nova Aplicação Web**
+    - Windows: Escolha **Criar nova Aplicação Web... Avançado**
+
+1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
+
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+
+1. Se direcionar o Windows, siga as indicações adicionais:
+    1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
+    1. Selecione **Windows** para o sistema operativo.
+    1. **Selecione Crie um novo plano de Serviço de Aplicações**e, em seguida, insira um nome para o plano (como), `AppServiceQS-plan` em seguida, selecione **F1 Grátis** para o nível de preços.
+    1. Escolha **Skip por agora** quando solicitado sobre Insights de Aplicação.
+    1. Escolha uma região perto de si ou perto de recursos a que deseje aceder.
+
+1. Depois de responder a todas as solicitações, o CÓDIGO VS mostra os recursos Azure que estão a ser criados para a sua aplicação no pop-up de notificação.
+
+    Ao implementar para o Linux, selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor Linux alvo.
+
+    ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
+
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!":::
 
 > [!TIP]
 > Certifique-se de que a sua aplicação está a ouvir na porta fornecida pela variável ambiente PORT: `process.env.PORT` .
@@ -314,7 +426,35 @@ A janela de saída do código VS abre-se com uma ligação ao fluxo de registo.
 
 ![Ver Registos de Streaming](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do pedido do Código VS para ativar a gravação de ficheiros e reiniciar a aplicação web, com o botão sim selecionado.":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.&quot;:::
+        
+1. Escolha a pasta *nodejs-docs-hello-world.*
+
+1. Escolha uma opção de criação baseada no sistema operativo para o qual pretende implementar:
+
+    - Linux: Escolha **Criar nova Aplicação Web**
+    - Windows: Escolha **Criar nova Aplicação Web... Avançado**
+
+1. Digite um nome globalmente único para a sua aplicação web e prima **Enter**. O nome deve ser único em toda a Azure e usar apenas caracteres alfanuméricos ('A-Z', 'a-z', e '0-9') e hífenes ('-').
+
+1. Se apontar para o Linux, selecione uma versão Node.js quando solicitado. Recomenda-se uma versão **LTS.**
+
+1. Se direcionar o Windows, siga as indicações adicionais:
+    1. Selecione **Criar um novo grupo de recursos**e, em seguida, insira um nome para o grupo de recursos, como `AppServiceQS-rg` .
+    1. Selecione **Windows** para o sistema operativo.
+    1. **Selecione Crie um novo plano de Serviço de Aplicações**e, em seguida, insira um nome para o plano (como), `AppServiceQS-plan` em seguida, selecione **F1 Grátis** para o nível de preços.
+    1. Escolha **Skip por agora** quando solicitado sobre Insights de Aplicação.
+    1. Escolha uma região perto de si ou perto de recursos a que deseje aceder.
+
+1. Depois de responder a todas as solicitações, o CÓDIGO VS mostra os recursos Azure que estão a ser criados para a sua aplicação no pop-up de notificação.
+
+    Ao implementar para o Linux, selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor Linux alvo.
+
+    ![Solicitação para atualizar a configuração no servidor Linux alvo](media/quickstart-nodejs/server-build.png)
+
+1. Selecione **Sim** quando solicitado com **Sempre implemente o espaço de trabalho &quot;nodejs-docs-hello-world&quot; para (nome da aplicação)&quot;**. Selecionar **Sim** diz ao Código VS para direcionar automaticamente a mesma App Service Web App com implementações subsequentes.
+
+1. Se implementar para o Linux, **selecione Browse Website** na solicitação para ver a sua aplicação web recentemente implantada uma vez concluída a implementação. O navegador deve exibir &quot;Hello World!":::
 
 Após alguns segundos, verá uma mensagem indicando que está ligado ao serviço de streaming de registos. Refresque a página algumas vezes para ver mais atividade.
 

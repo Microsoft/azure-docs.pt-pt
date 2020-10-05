@@ -10,37 +10,37 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79371074"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Quickstart: Consulta Apache HBase em Azure HDInsight com HBase Shell
 
-Neste arranque rápido, aprende-se a usar a Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela.
+Neste arranque rápido, aprende-se a utilizar o Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um aglomerado Apache HBase. Consulte [o cluster Create](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Certifique-se de que escolhe o tipo de cluster **HBase.**
+* Um aglomerado Apache HBase. Consulte [criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Certifique-se de que escolhe o tipo de cluster **HBase.**
 
-* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-a-table-and-manipulate-data"></a>Criar uma tabela e manipular dados
 
 Para a maioria das pessoas, os dados são apresentados no formato de tabela:
 
-![Dados tabulares HDInsight Apache HBase](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+![Dados tabulares hdInsight Apache HBase](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
 
-Em HBase (uma implementação do [Cloud BigTable),](https://cloud.google.com/bigtable/)os mesmos dados parecem:
+Na HBase (uma implementação do [Cloud BigTable),](https://cloud.google.com/bigtable/)os mesmos dados parecem:
 
-![HDInsight Apache HBase BigTable dados](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+![HdInsight Apache HBase BigTable dados](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
 
-Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a Apache HBase Shell para criar tabelas HBase, inserir dados e consultar dados.
+Pode utilizar o SSH para ligar aos clusters HBase e, em seguida, utilizar a Apache HBase Shell para criar tabelas HBase, inserir dados e dados de consulta.
 
-1. Utilize `ssh` o comando para se ligar ao seu cluster HBase. Edite o comando `CLUSTERNAME` abaixo substituindo pelo nome do seu cluster e, em seguida, introduza o comando:
+1. Utilize `ssh` o comando para ligar ao seu cluster HBase. Edite o comando abaixo substituindo `CLUSTERNAME` pelo nome do seu cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -52,19 +52,19 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a A
     hbase shell
     ```
 
-3. Use `create` o comando para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
+3. Utilize `create` o comando para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Utilize `list` o comando para listar todas as tabelas em HBase. Introduza o seguinte comando:
+4. Utilize `list` o comando para listar todas as tabelas na Base H. Introduza o seguinte comando:
 
     ```hbase
     list
     ```
 
-5. Utilize `put` o comando para inserir valores numa coluna especificada numa linha especificada numa determinada tabela. Introduza o seguinte comando:
+5. Utilize `put` o comando para inserir valores numa coluna especificada numa linha especificada numa tabela específica. Introduza o seguinte comando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,33 +73,33 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a A
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Utilize `scan` o comando para `Contacts` digitalizar e devolver os dados da tabela. Introduza o seguinte comando:
+6. Utilize `scan` o comando para digitalizar e devolver os dados da `Contacts` tabela. Introduza o seguinte comando:
 
     ```hbase
     scan 'Contacts'
     ```
 
-7. Use `get` o comando para recolher o conteúdo de uma linha. Introduza o seguinte comando:
+7. Use `get` o comando para obter o conteúdo de uma linha. Introduza o seguinte comando:
 
     ```hbase
     get 'Contacts', '1000'
     ```
 
-    Vê-se resultados `scan` semelhantes como usar o comando porque só há uma linha.
+    Vês resultados semelhantes como usar o `scan` comando porque só há uma linha.
 
-8. Utilize `delete` o comando para eliminar um valor celular numa tabela. Introduza o seguinte comando:
+8. Utilize `delete` o comando para eliminar o valor celular numa tabela. Introduza o seguinte comando:
 
     ```hbase
     delete 'Contacts', '1000', 'Office:Address'
     ```
 
-9. Use `disable` o comando para desativar a mesa. Introduza o seguinte comando:
+9. Utilize `disable` o comando para desativar a mesa. Introduza o seguinte comando:
 
     ```hbase
     disable 'Contacts'
     ```
 
-10. Use `drop` o comando para largar uma mesa da Base H. Introduza o seguinte comando:
+10. Use `drop` o comando para deixar cair uma mesa da Base H. Introduza o seguinte comando:
 
     ```hbase
     drop 'Contacts'
@@ -111,17 +111,17 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a A
     exit
     ```
 
-Para obter mais informações sobre o esquema de tabela HBase, consulte [Introdução ao Design De Schema Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Para obter mais comandos HBase, consulte o artigo [Guia de referência Apache HBase](https://hbase.apache.org/book.html#quickstart).
+Para obter mais informações sobre o esquema de tabela HBase, consulte [Introdução ao Apache HBase Schema Design](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Para obter mais comandos HBase, consulte o artigo [Guia de referência Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
 Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a usar a Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela. Para saber mais sobre os dados armazenados na HBase, o próximo artigo irá mostrar-lhe como executar consultas com a Apache Spark.
+Neste arranque rápido, aprendeu a usar o Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela. Para saber mais sobre os dados armazenados na HBase, o próximo artigo irá mostrar-lhe como executar consultas com Apache Spark.
 
 > [!div class="nextstepaction"]
 > [Utilizar o Apache Spark para ler e escrever dados do Apache HBase](../hdinsight-using-spark-query-hbase.md)

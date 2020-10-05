@@ -4,10 +4,10 @@ description: Descreve os três serviços de mensagens Azure - Azure Event Grid, 
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87460410"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços de mensagens Azure - Event Grid, Event Hubs e Service Bus
@@ -52,7 +52,7 @@ O Event Grid está profundamente integrado nos serviços do Azure e pode ser int
 
 A Grade de Eventos suporta a inscrição para eventos que não são entregues a um ponto final.
 
-Tem as seguintes características:
+Tem as seguintes caraterísticas:
 
 * dinamicamente dimensionável
 * baixo custo
@@ -63,7 +63,7 @@ Tem as seguintes características:
 
 Os Hubs de Eventos do Azure são um pipeline de macrodados. Facilita a captura, retenção e reprodução de dados de transmissão de telemetria e eventos. Os dados podem ter várias origens em simultâneo. Os Hubs de Eventos permitem que os dados de telemetria e eventos sejam disponibilizados a diversos serviços de análises e infraestruturas de processamento de transmissões em fluxo. Está disponível como fluxos de dados ou lotes de eventos integrados. Este serviço proporciona uma solução única que permite a obtenção de dados rápida para processamento em tempo real, bem como a reprodução repetida dos dados não processados armazenados. Pode capturar os dados de transmissão em fluxo num ficheiro para processamento e análise.
 
-Tem as seguintes características:
+Tem as seguintes caraterísticas:
 
 * baixa latência
 * capacidade para receber e processar milhões de eventos por segundo
@@ -75,7 +75,7 @@ O Service Bus destina-se a aplicações empresariais tradicionais. Estas aplica�
 
 O Service Bus é um sistema de mensagens mediadas. Armazena as mensagens num "mediador" (por exemplo, uma fila) até que a parte consumidora esteja preparada para recebê-las.
 
-Tem as seguintes características:
+Tem as seguintes caraterísticas:
 
 * entrega de mensagens assíncrona fiável (mensagens empresariais como serviço) que requer consulta
 * funcionalidades de mensagens avançadas, como FIFO, processamento por lotes/sessões, transações, mensagens não entregues, controlo temporal, encaminhamento e filtragem e deteção de duplicados

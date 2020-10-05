@@ -9,20 +9,20 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "75692561"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Criar uma conta de armazenamento para o Anfitrião do Processador de Eventos
 O Anfitrião do Processador de Eventos é um agente inteligente que simplifica a receção de eventos provenientes dos Hubs de Eventos ao gerir pontos de verificação persistentes e receções em paralelo. Para o ponto de verificação, o Anfitrião do Processador de Eventos requer uma conta de armazenamento. O exemplo seguinte mostra como criar uma conta de armazenamento e como obter as chaves de acesso:
 
-1. A partir do menu do portal Azure, **selecione Criar um recurso**.
+1. No menu do portal do Azure, selecione **Criar um recurso**.
 
     ![Criar um item de menu de recursos, portal Microsoft Azure](./media/event-hubs-create-storage/create-resource.png)
 
-2. Selecione **Storage**  >  **a conta de armazenamento**.
+2. Selecione **Armazenamento** > **Conta de armazenamento**.
    
     ![Selecione a conta de Armazenamento, portal Microsoft Azure](./media/event-hubs-create-storage/select-storage-account.png)
 

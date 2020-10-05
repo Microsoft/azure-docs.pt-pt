@@ -6,10 +6,10 @@ ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
 ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85557321"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Quickstart: Criar e implementar modelos ARM utilizando o portal Azure
@@ -29,11 +29,11 @@ Criar um modelo ARM de raiz não é uma tarefa fácil, especialmente se for novo
 Muitos desenvolvedores de modelos experientes usam este método para gerar modelos quando tentam implementar recursos Azure que eles não estão familiarizados. Para obter mais informações sobre modelos de exportação utilizando o portal, consulte [os grupos de recursos de exportação para os modelos](../management/manage-resource-groups-portal.md#export-resource-groups-to-templates). A outra maneira de encontrar um modelo de trabalho é a partir de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/).
 
 1. Num navegador web, vá ao [portal Azure](https://portal.azure.com) e inscreva-se.
-1. A partir do menu do portal Azure, **selecione Criar um recurso**.
+1. No menu do portal do Azure, selecione **Criar um recurso**.
 
     ![Selecione Criar um recurso a partir do menu do portal Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Selecione **Storage**  >  **a conta de armazenamento**.
+1. Selecione **Armazenamento** > **Conta de armazenamento**.
 
     ![Criar uma conta de armazenamento do Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 1. Introduza as seguintes informações:

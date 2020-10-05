@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 609b62312329b3a8f9f16d15458a0a47f5eb377f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115217"
 ---
 Pode utilizar consultas no Data Explorer para recuperar e filtrar os seus dados.
@@ -23,11 +23,11 @@ Pode utilizar consultas no Data Explorer para recuperar e filtrar os seus dados.
    
 1. Para alterar a consulta, **selecione Editar Filtro,** substitua a consulta predefinida com `ORDER BY c._ts DESC` , e, em seguida, **selecione 'Aplicar Filtro'**.
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Consulta padrão no Data Explorer é SELECT * FROM c":::
 
    A consulta modificada exibe os documentos em ordem descendente com base no seu carimbo de tempo, pelo que agora o seu segundo documento está listado primeiro. 
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Alteração da consulta para ORDER BY c._ts DESC e clicar em Aplicar Filtro":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Consulta padrão no Data Explorer é SELECT * FROM c":::
 
 Se estiver familiarizado com a sintaxe SQL, pode introduzir quaisquer [consultas SQL](../articles/cosmos-db/sql-api-sql-query.md) suportadas na caixa predicado de consulta. Também pode utilizar o Data Explorer para criar procedimentos armazenados, UDFs e gatilhos para lógica de negócio do lado do servidor. 
 

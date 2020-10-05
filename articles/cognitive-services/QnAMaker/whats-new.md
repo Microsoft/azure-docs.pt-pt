@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
 ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87836883"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
@@ -35,7 +35,7 @@ Saiba as novidades com o QnA Maker.
 
 ### <a name="may-2020"></a>Maio de 2020
 
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](concepts/role-based-access-control.md)
+* [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](concepts/role-based-access-control.md)
 * [Edição de texto rico](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) para respostas
 
 ### <a name="march-2020"></a>Março de 2020

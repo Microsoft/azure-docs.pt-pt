@@ -10,13 +10,13 @@ ms.date: 06/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 39f88ab8b735438f60d8e20513ea5cbda43d41ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947411"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Planeie a sua solução de telefonia e SMS
+# <a name="plan-your-telephony-and-sms-solution"></a>Planear a solução de telefonia e SMS
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -42,7 +42,7 @@ A Azure Communication Services proporciona uma excelente flexibilidade para os d
 
 Os planos disponíveis dependem do país e do tipo de número de telefone que está a operar. O diagrama abaixo representa o fluxo de decisão: Os planos disponíveis dependem do país e do tipo de número de telefone que você está operando dentro.
 
-<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
+<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Diagrama mostrando como tomar uma decisão sobre os seus números de telefone."::: -->
 
 Antes de selecionar um tipo de número de telefone, vamos rever o plano internacional de numeragem de telefone.
 
@@ -67,19 +67,19 @@ Aqui estão alguns exemplos que o ajudarão a entender melhor o plano de numera�
 
 Um número de telefone regional nos EUA:
 
-:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Exemplo de um número de telefone regional nos EUA":::
+:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Diagrama mostrando como tomar uma decisão sobre os seus números de telefone.":::
 
 Um número de telefone regional no Canadá:
 
-:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Exemplo de um número de telefone regional no Canadá":::
+:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Diagrama mostrando como tomar uma decisão sobre os seus números de telefone.":::
 
 Um número gratuito na região da América do Norte:
 
-:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Exemplo de um número gratuito de portagens na América do Norte":::
+:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Diagrama mostrando como tomar uma decisão sobre os seus números de telefone.":::
 
 Um número de telemóvel no Reino Unido:
 
-:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Exemplo de um número de telemóvel no Reino Unido":::
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Diagrama mostrando como tomar uma decisão sobre os seus números de telefone.":::
 
 Em seguida, vamos rever os tipos específicos de números de telefone disponíveis nos Serviços de Comunicação Azure.
 

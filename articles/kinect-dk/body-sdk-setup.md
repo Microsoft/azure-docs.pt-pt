@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azul, sensor, acesso, profundidade, sdk, corpo, rastreamento, articulação, configuração, cuda, nvidia
 ms.openlocfilehash: 2cf4c1097730f88fc4bd66c28e1bdddd7fea8640
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277985"
 ---
 # <a name="quickstart-set-up-azure-kinect-body-tracking"></a>Quickstart: Configurar o rastreio do corpo de Azure Kinect
@@ -34,11 +34,11 @@ Descarregue e instale Visual C++ Redistributable para Visual Studio 2015.
 
 ## <a name="set-up-hardware"></a>Configurar hardware
 
-### <a name="set-up-azure-kinect-dk"></a>[Configurar Azure Kinect DK](set-up-azure-kinect-dk.md)
+### <a name="set-up-azure-kinect-dk"></a>[Configurar o Azure Kinect DK](set-up-azure-kinect-dk.md)
 
 Lance o [Azure Kinect Viewer](azure-kinect-viewer.md) para verificar se o seu Azure Kinect DK está configurado corretamente.
 
-## <a name="download-the-body-tracking-sdk"></a>Descarregue o Body Tracking SDK
+## <a name="download-the-body-tracking-sdk"></a>Transferir o Body Tracking SDK
  
 1. Selecione o link para [descarregar o Body Tracking SDK](body-sdk-download.md)
 2. Instale o Body Tracking SDK no seu PC.
@@ -47,7 +47,7 @@ Lance o [Azure Kinect Viewer](azure-kinect-viewer.md) para verificar se o seu Az
 
 Lance o **Azure Kinect Body Tracking Viewer** para verificar se o SDK de rastreio do corpo está configurado corretamente. O espectador está instalado com o instalador SDK MSI. Pode encontrá-lo no menu inicial ou em `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe` .
 
-Se não tiver uma GPU suficientemente poderosa e ainda quiser testar o resultado, pode lançar o **Azure Kinect Body Tracking Viewer** na linha de comando pelo seguinte comando:`<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
+Se não tiver uma GPU suficientemente poderosa e ainda quiser testar o resultado, pode lançar o **Azure Kinect Body Tracking Viewer** na linha de comando pelo seguinte comando: `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
 
 Se tudo estiver configurado corretamente, deve aparecer uma janela com uma nuvem de ponto 3D e corpos rastreados.
 
@@ -61,5 +61,5 @@ Pode encontrar os exemplos sobre como usar o corpo que rastreia o SDK [aqui.](ht
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Construa a sua primeira aplicação de rastreio de corpo](build-first-body-app.md)
+>[Criar a sua primeira aplicação de deteção de movimentos](build-first-body-app.md)
 

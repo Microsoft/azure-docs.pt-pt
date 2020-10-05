@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,16 +9,16 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67184495"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Criar um tópico com o portal do Azure
 1. Na página **Service Bus Namespace,** selecione **Tópicos** no menu esquerdo.
 2. Selecione **+ Tópico** na barra de ferramentas. 
-4. Insira um **nome** para o tópico. Deixe as outras opções com os valores predefinidos.
+4. Insira um **nome** para o tema. Deixe as outras opções com os valores predefinidos.
 5. Selecione **Criar**.
 
     ![Criar tópico](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
@@ -27,10 +27,10 @@ ms.locfileid: "67184495"
 1. Selecione o **tópico** que criou na secção anterior. 
     
     ![Selecione tópico](./media/service-bus-create-topics-subscriptions-portal/select-topic.png)
-2. Na página Tópico de **Ônibus de Serviço,** selecione **Subscrições** do menu esquerdo e, em seguida, selecione **+ Subscrição** na barra de ferramentas. 
+2. Na página **Tópico do Autocarro de Serviço,** selecione **Subscrições** do menu esquerdo e, em seguida, selecione **+ Subscrição** na barra de ferramentas. 
     
     ![Adicionar botão de subscrição](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
-3. Na página **de subscrição Criar,** introduza **S1** para **nome** para a subscrição e, em seguida, selecione **Criar**. 
+3. Na página **de subscrição Criar,** insira **S1** para **o nome** da subscrição e, em seguida, selecione **Criar**. 
 
     ![Criar página de subscrição](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
-4. Repita o passo anterior duas vezes para criar subscrições chamadas **S2** e **S3**.
+4. Repita o passo anterior duas vezes para criar subscrições denominada **S2** e **S3**.

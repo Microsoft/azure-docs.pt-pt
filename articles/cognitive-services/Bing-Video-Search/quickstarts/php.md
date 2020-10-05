@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Procure vídeos usando a REST API e PHP - Bing Video Search'
+title: 'Quickstart: Procure vídeos utilizando a API REST e PHP - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar pedidos de pesquisa de vídeo para a API de pesquisa de vídeo bing usando PHP
+description: Utilize este quickstart para enviar pedidos de pesquisa de vídeo para a API de pesquisa de vídeo Bing usando PHP
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83849625"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Procure vídeos usando a API e PHP de pesquisa de vídeo bing
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Procure vídeos utilizando a API e PHP de pesquisa de vídeo Bing
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação PHP envia uma consulta de pesquisa de vídeo HTTP para a API, e exibe a resposta JSON. O código de exemplo é escrito para funcionar sob PHP 5.6.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação PHP envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. O código de exemplo está escrito para funcionar em PHP 5.6.
 
-Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,11 +33,11 @@ Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful 
 
 A [API da Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de vídeo a partir do motor de busca do Bing.
 
-1. Ative o suporte http seguro no seu `php.ini` ficheiro descodendo a `;extension=php_openssl.dll` linha, conforme descrito no seguinte código.
+1. Ativar o suporte HTTP seguro no seu `php.ini` ficheiro desacomprometindo a `;extension=php_openssl.dll` linha, conforme descrito no código seguinte.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
 3. Adicione o código indicado abaixo.
-4. Substitua o valor `$accessKey` por uma chave de acesso válida para a sua subscrição. Para o `$endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
-5. Execute o programa.
+4. Substitua o valor `$accessKey` por uma chave de acesso válida para a sua subscrição. Pelo `$endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+5. Executar o programa.
 
 ```php
 <?php
@@ -214,6 +214,6 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Veja também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)

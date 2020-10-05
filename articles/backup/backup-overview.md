@@ -1,14 +1,14 @@
 ---
-title: O que é o Azure Backup?
+title: O que é o Backup do Azure?
 description: Fornece uma visão geral do serviço Azure Backup, e como contribui para a sua estratégia de continuidade e recuperação de desastres (BCDR).
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
 ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90968330"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço Azure Backup?

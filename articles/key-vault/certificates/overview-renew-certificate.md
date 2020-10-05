@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
 ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88588808"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renove os seus certificados Azure Key Vault

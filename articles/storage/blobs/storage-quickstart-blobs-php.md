@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835753"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
@@ -173,7 +173,7 @@ Obtenha o conteúdo dos blobs com o método **getBlob()**. O código seguinte ap
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()**. Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
 
 ```PHP

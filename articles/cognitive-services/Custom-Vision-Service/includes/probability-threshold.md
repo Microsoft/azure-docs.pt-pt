@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68423565"
 ---
-Note o slider do limiar de **probabilidade** no painel esquerdo do separador **Performance.** Este é o nível de confiança que uma previsão deve ter para ser considerada correta (para efeitos de cálculo da precisão e da recolha). 
+Note o slider **do limiar de probabilidade** no painel esquerdo do **separador Desempenho.** Este é o nível de confiança que uma previsão deve ter para ser considerada correta (para efeitos de cálculo da precisão e da recordação). 
 
-Quando interpreta as chamadas de previsão com um limiar de alta probabilidade,&mdash;tendem a devolver resultados com alta precisão em detrimento da recuperação, as classificações detetadas estão corretas, mas muitas permanecem por detetar. Um limiar de baixa&mdash;probabilidade faz o oposto que a maioria das classificações reais são detetadas, mas há mais falsos positivos dentro desse conjunto. Com isto em mente, deve definir o limiar de probabilidade de acordo com as necessidades específicas do seu projeto. Mais tarde, quando estiver a receber os resultados da previsão do lado do cliente, deve utilizar o mesmo valor de probabilidade que utilizou aqui.
+Quando interpreta chamadas de previsão com um limiar de alta probabilidade, tendem a devolver resultados com alta precisão em detrimento da recuperação &mdash; das classificações detetadas, mas muitas permanecem indetectadas. Um limiar de baixa probabilidade faz com que &mdash; a maioria das classificações reais sejam detetadas, mas há mais falsos positivos dentro desse conjunto. Com isto em mente, deve definir o limiar de probabilidade de acordo com as necessidades específicas do seu projeto. Mais tarde, quando estiver a receber os resultados da previsão do lado do cliente, deve utilizar o mesmo valor limiar de probabilidade que utilizou aqui.

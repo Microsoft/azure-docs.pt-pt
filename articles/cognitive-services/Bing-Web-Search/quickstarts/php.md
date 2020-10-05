@@ -1,7 +1,7 @@
 ---
 title: 'Guia de Início Rápido: Executar uma pesquisa com o PHP – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar pedidos para a API de pesquisa web bing web usando PHP, e receber uma resposta JSON
+description: Utilize este quickstart para enviar pedidos para a Bing Web Search REST API usando PHP, e receba uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873831"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing. Este pedido node.js envia um pedido de pesquisa para a API, e mostra a resposta JSON. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa web Bing. Esta Node.js aplicação envia um pedido de pesquisa à API, e mostra a resposta JSON. Embora esta aplicação esteja escrita em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 
 ## <a name="enable-secure-http-support"></a>Ativar o suporte HTTP seguro
 
-Antes de começarmos, localize php.ini e não comente esta linha:
+Antes de começarmos, localize php.ini e descompromeça esta linha:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,13 +41,13 @@ Antes de começarmos, localize php.ini e não comente esta linha:
 
 ## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis
 
-1. Crie um novo projeto PHP no seu IDE ou editor preferido. Adicione as etiquetas de abertura e fecho: `<?php` e `?>` .
+1. Crie um novo projeto PHP no seu IDE ou editor preferido. Adicione etiquetas de abertura e fecho: `<?php` e `?>` .
 
-2. Para o `$endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+2. Pelo `$endpoint` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso. 
 
 3. Confirme que o `$endpoint` valor está correto e substitua o valor por uma chave de `$accesskey` subscrição válida da sua conta Azure. 
 
-4. Opcionalmente, personalize a consulta de pesquisa substituindo o valor por `$term` .
+4. Opcionalmente, personalize a consulta de pesquisa substituindo o valor de `$term` .
 
 ```php
 $accessKey = 'enter key here';
@@ -57,7 +57,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## <a name="construct-a-request"></a>Construir um pedido
 
-Este código declara uma função chamada `BingWebSearch` que é usada para construir pedidos para a API de Pesquisa Web bing. Exige três argumentos: `$url`, `$key` e `$query`.
+Este código declara uma função chamada `BingWebSearch` que é usada para construir pedidos para a API de Pesquisa Web Bing. Exige três argumentos: `$url`, `$key` e `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -159,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.  
 
@@ -288,6 +288,6 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de pesquisa web bing Web API](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicação de pesquisa web de pesquisa web Bing Web API](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]
