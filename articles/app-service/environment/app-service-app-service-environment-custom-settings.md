@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f9dd63df6d743f12fa7addb3c814e763d37dc61f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708769"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713278"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Configurações de configuração personalizadas para Ambientes de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
@@ -71,8 +71,8 @@ O App Service Environment funciona como um sistema de caixa preta onde não é p
     }
 ],
 ```
+Isto irá encriptar o tráfego interno da rede no seu ASE entre as extremidades dianteiras e os trabalhadores, encriptar o ficheiro de página e também encriptar os discos dos trabalhadores. Após o cluster de encriptação internaSeçãoSetting está ativado, pode haver um impacto no desempenho do seu sistema. Quando fizer a alteração para ativar o InternalEncrypation, o seu ASE ficará instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode demorar algumas horas a ser concluída, dependendo do número de ocorrências que tem no seu ASE. Recomendamos vivamente que não o ative num ASE durante a sua utilização. Se precisar de o ativar num ASE ativamente utilizado, recomendamos vivamente que desvie o tráfego para um ambiente de reserva até que a operação esteja concluída. 
 
-Após o cluster de encriptação internaSeçãoSetting está ativado, pode haver um impacto no desempenho do seu sistema. Quando fizer a alteração para ativar o InternalEncrypation, o seu ASE ficará instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode demorar algumas horas a ser concluída, dependendo do número de ocorrências que tem no seu ASE. Recomendamos vivamente que não o ative num ASE durante a sua utilização. Se precisar de o ativar num ASE ativamente utilizado, recomendamos vivamente que desvie o tráfego para um ambiente de reserva até que a operação esteja concluída. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desativar TLS 1.0 e TLS 1.1
 

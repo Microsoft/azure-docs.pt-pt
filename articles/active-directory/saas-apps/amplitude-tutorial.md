@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545479"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutorial: Azure Ative Directy integração única (SSO) com amplitude
 
@@ -141,15 +141,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **Administrador plano** a partir da barra de navegação esquerda.
 
-    ![Configurar um único sign-on](./media/amplitude-tutorial/configure1.png)
+    ![O screenshot mostra o menu Amplitude com o Plan Admin selecionado.](./media/amplitude-tutorial/configure1.png)
 
 1. Selecione **os metadados do Diretório Ativo Microsoft Azure** da **Integração SSO**.
 
-    ![Configurar um único sign-on](./media/amplitude-tutorial/configure2.png)
+    ![O Screenshot mostra o painel de Admin do Plano com o link de metadados do Diretório Ativo microsoft Azure chamado.](./media/amplitude-tutorial/configure2.png)
 
 1. Na secção **set Up Single Sign-On,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/amplitude-tutorial/configure3.png)
+    ![A screenshot mostra a secção de inscrição única com valores descritos neste passo.](./media/amplitude-tutorial/configure3.png)
 
     a. Abra o **Metdata Xml** descarregado do portal Azure no bloco de notas, cole o conteúdo na caixa de texto do **Microsoft Azure Ative Metadata.**
 

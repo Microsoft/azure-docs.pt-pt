@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550262"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Diretório Ativo Azure com Serviços de Gestão de Atendimento
 
@@ -128,11 +128,11 @@ Para configurar o Azure AD com os Serviços de Gestão de Atendimento, execute o
 
 1. Clique na **autenticação SAML** na **secção de gestão de segurança.**
 
-    ![Configuração de Serviços de Gestão de Atendimento](./media/attendancemanagementservices-tutorial/user1.png)
+    ![A screenshot mostra a autenticação SAML selecionada numa página que utiliza caracteres não latinos.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Efetue os seguintes passos:
 
-    ![Configuração de Serviços de Gestão de Atendimento](./media/attendancemanagementservices-tutorial/user2.png)
+    ![A screenshot mostra a janela onde pode executar as tarefas descritas neste passo.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Selecione **A autenticação SAML**.
 
@@ -176,7 +176,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure um único sinal de aces
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Serviços de Gestão de Atendimento**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Serviços de Gestão de Atendimento.**
 
@@ -206,15 +206,15 @@ Para permitir que os utilizadores da Azure AD inscrevam-se nos Serviços de Gest
 
 1. Clique na **gestão do utilizador** na **secção de gestão de Segurança.**
 
-    ![Adicionar Empregado](./media/attendancemanagementservices-tutorial/user5.png)
+    ![A screenshot mostra a gestão do utilizador selecionada numa página que utiliza caracteres não latinos.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Clique em **início de sessão de novas regras**.
 
-    ![Adicionar Empregado](./media/attendancemanagementservices-tutorial/user3.png)
+    ![A screenshot mostra a seleção da opção mais.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. Na secção **de informação OBCiD,** execute os seguintes passos:
 
-    ![Adicionar Empregado](./media/attendancemanagementservices-tutorial/user4.png)
+    ![A screenshot mostra a janela onde pode executar as tarefas descritas.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. Na caixa de texto **OBCiD,** escreva o e-mail do utilizador como `BrittaSimon\@contoso.com` .
 

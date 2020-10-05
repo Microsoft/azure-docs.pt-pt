@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549620"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 4. Na secção **De Configuração Básica SAML,** execute os seguintes passos, se desejar configurar a aplicação no modo iniciado pelo **IDP:**
 
-    ![ArcGIS Enterprise Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![ArcGIS Enterprise Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 1. Selecione **Configurações de EDIÇÃO >Organização.**
 
-    ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure1.png)
+    ![A screenshot mostra o separador ArcGIS Enterprise Organization com definições de Edição chamadas.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Selecione o separador **Segurança**.
 
-    ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure2.png)
+    ![A screenshot mostra o separador de Segurança selecionado.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Desloque-se até aos Logins da Empresa através da secção **SAML** e selecione **SET ENTERPRISE LOGIN**.
 
-    ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure3.png)
+    ![O Screenshot mostra logins da Empresa via SAML onde pode selecionar set Enterprise Login.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. Na secção **'Fornecedor de Identidade' set,** execute os seguintes passos:
 
-    ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure4.png)
+    ![A screenshot mostra o Fornecedor de Identidade Definido onde executa os passos descritos aqui.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Por favor, forneça um nome como **Azure Ative Directory Test** na caixa de texto **Name.**
 
@@ -158,7 +158,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     c. Clique em **Mostrar definições avançadas** e copie o valor **de ID** da Entidade e cole-o na caixa de texto **identifier** na secção **Domínio Empresarial e URLs arcgis** no portal Azure.
     
-    ![Configuração da empresa ArcGIS](./media/arcgisenterprise-tutorial/configure5.png)
+    ![A screenshot mostra onde obter a Entidade I D e atualizar o fornecedor de identificação.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. CLIQUE **EM UPDATE IDENTITY PROVIDER**.
 
@@ -193,7 +193,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **ArcGIS Enterprise**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, escreva e selecione **ArcGIS Enterprise**.
 

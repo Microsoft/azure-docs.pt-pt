@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358377"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716066"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,9 +44,9 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
     No local, a integração dos Serviços de Domínio do Diretório Ativo (DS AD) com a Azure Files fornece os métodos para armazenar dados de diretórios, disponibilizando-os aos utilizadores e administradores da rede. A segurança é integrada com DS AD através da autenticação de logon e controlo de acesso a objetos no diretório. Com uma única rede, os administradores podem gerir dados de diretório e organização em toda a sua rede, e os utilizadores de rede autorizados podem aceder a recursos em qualquer parte da rede. A DS AD é comumente adotada por empresas em ambientes no local e as credenciais de DS AD são usadas como identidade para controlo de acesso. Para obter mais informações, consulte a [visão geral dos serviços de domínio do diretório ativo.](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
 
--   **Controlo de acesso baseado em funções Azure (Azure RBAC)**
+-   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)**
 
-    O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode gerir o acesso aos recursos, concedendo aos utilizadores o menor número de permissões necessárias para executar os seus trabalhos. Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (Azure RBAC) em Azure?](../../role-based-access-control/overview.md)
+    O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o Azure RBAC, pode gerir o acesso aos recursos, concedendo aos utilizadores o menor número de permissões necessárias para executar os seus trabalhos. Para obter mais informações sobre o Azure RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ## <a name="common-use-cases"></a>Casos de utilização comuns
 
@@ -144,7 +144,7 @@ A Azure Files suporta a preservação de diretórios ou ACLs de nível de fichei
 ## <a name="pricing"></a>Preços
 Não existe qualquer taxa adicional de serviço para permitir a autenticação baseada na identidade sobre a SMB na sua conta de armazenamento. Para obter mais informações sobre preços, consulte [os preços dos Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [os preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre os Ficheiros Azure e a autenticação baseada na identidade sobre a SMB, consulte estes recursos:
 
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)

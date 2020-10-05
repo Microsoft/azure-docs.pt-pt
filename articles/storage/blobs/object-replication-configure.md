@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707922"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715627"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
@@ -37,7 +37,7 @@ Uma conta de armazenamento pode servir como a conta de origem de até duas conta
 
 Ao configurar a replicação de objetos, cria uma política de replicação na conta de destino através do fornecedor de recursos de armazenamento Azure. Após a criação da política de replicação, o Azure Storage atribui-lhe um ID de política. Em seguida, deve associar essa política de replicação à conta de origem utilizando o ID da política. A identificação da política nas contas de origem e de destino deve ser a mesma para que a replicação ocorra.
 
-Para configurar uma política de replicação de objetos para uma conta de armazenamento, deve ser-lhe atribuída a função **de Contribuinte de** Gestor de Recursos Azure, alargada ao nível da conta de armazenamento ou superior. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do Controlo de Acesso Baseado em Papéis (RBAC) do Azure.
+Para configurar uma política de replicação de objetos para uma conta de armazenamento, deve ser-lhe atribuída a função **de Contribuinte de** Gestor de Recursos Azure, alargada ao nível da conta de armazenamento ou superior. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configure a replicação do objeto quando tiver acesso a ambas as contas de armazenamento
 
@@ -65,19 +65,19 @@ Para criar uma política de replicação no portal Azure, siga estes passos:
 
     A imagem a seguir mostra filtros que restringem quais as bolhas que são copiadas como parte de uma regra de replicação.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot mostrando filtros para uma regra de replicação":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
 1. Por predefinição, o âmbito de cópia está definido para copiar apenas novos objetos. Para copiar todos os objetos do recipiente ou copiar objetos a partir de uma data e hora personalizadas, selecione o link **de alteração** e configuure o âmbito de cópia do par do recipiente.
 
     A imagem a seguir mostra um âmbito de cópia personalizado que copia objetos a partir de uma data e hora especificadas.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mostrando o alcance de cópia personalizado para a replicação do objeto":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
 1. **Selecione Guardar e aplicar** para criar a política de replicação e começar a replicar dados.
 
 Depois de configurar a replicação de objetos, o portal Azure apresenta a política e regras de replicação, como mostra a imagem seguinte.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot mostrando a política de replicação de objetos no portal Azure":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Se não tiver permissões na conta de armazenamento de origem, pode configurar a replicação de objetos na conta de destino e fornecer um ficheiro JSON que contenha a definição de política a outro utilizador para criar a mesma política na conta de origem. Por exemplo, se a conta de origem estiver num inquilino AD AD diferente da conta de destino, então pode usar esta abordagem para configurar a replicação de objetos.
 
-Tenha em mente que deve ser atribuída a função **de Contribuinte** de Recursos Azure, ao nível da conta de armazenamento de destino ou superior, a fim de criar a política. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do Controlo de Acesso Baseado em Papéis (RBAC) do Azure.
+Tenha em mente que deve ser atribuída a função **de Contribuinte** de Recursos Azure, ao nível da conta de armazenamento de destino ou superior, a fim de criar a política. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 A tabela seguinte resume quais os valores a utilizar para o ID da política e iDs de regra no ficheiro JSON em cada cenário.
 
@@ -284,7 +284,7 @@ Para configurar a replicação de objetos na conta de destino com um ficheiro JS
 1. Selecione **regras de replicação do upload**.
 1. Faça o upload do ficheiro JSON. O portal Azure exibe a política e as regras que serão criadas, como mostra a imagem seguinte.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot mostrando como carregar um ficheiro JSON para definir uma política de replicação":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
 1. Selecione **Upload** para criar a política de replicação na conta de destino.
 
@@ -293,7 +293,7 @@ Em seguida, pode descarregar um ficheiro JSON contendo a definição de polític
 1. Navegue para as definições **de replicação do Objeto** para a conta de destino no portal Azure.
 1. Selecione o botão **Mais** ao lado da política que deseja descarregar e, em seguida, selecione **Baixar as regras**, como mostrado na imagem seguinte.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot mostrando como baixar regras de replicação para um ficheiro JSON":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
 1. Guarde o ficheiro JSON no seu computador local para partilhar com outro utilizador para configurar a política na conta de origem.
 
@@ -396,7 +396,7 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da replicação do objeto](object-replication-overview.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

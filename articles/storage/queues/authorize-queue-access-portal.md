@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088676"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715514"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados da fila no portal Azure
 
@@ -24,11 +24,11 @@ Quando acede aos dados da fila utilizando o [portal Azure,](https://portal.azure
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Permissões necessárias para aceder aos dados da fila
 
-Dependendo da forma como pretende autorizar o acesso aos dados da fila no portal Azure, necessitará de permissões específicas. Na maioria dos casos, estas permissões são fornecidas através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
+Dependendo da forma como pretende autorizar o acesso aos dados da fila no portal Azure, necessitará de permissões específicas. Na maioria dos casos, estas permissões são fornecidas através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações sobre o Azure RBAC, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Use a chave de acesso à conta
 
-Para aceder aos dados da fila com a chave de acesso à conta, tem de ter uma função Azure que inclui a ação RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este papel de Azure pode ser um papel incorporado ou personalizado. As funções incorporadas que suportam **o Microsoft.Storage/storageAstas/listkeys/ação** incluem:
+Para aceder aos dados da fila com a chave de acesso à conta, tem de ter uma função Azure que inclui a ação Azure RBAC **Microsoft.Storage/storageAcounts/listkeys/action**. Este papel de Azure pode ser um papel incorporado ou personalizado. As funções incorporadas que suportam **o Microsoft.Storage/storageAstas/listkeys/ação** incluem:
 
 - A função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) de recursos Azure
 - O papel de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) do Gestor de Recursos Azure
@@ -74,11 +74,11 @@ Ao navegar para uma fila, o portal Azure indica se está a utilizar a chave de a
 
 Se estiver a autenticar utilizando a chave de acesso à conta, verá a **Chave de Acesso** especificada como o método de autenticação no portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot mostrando o utilizador que atualmente acede às filas com a chave da conta":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
 
 Para mudar para a conta Azure AD, clique no link realçado na imagem. Se tiver as permissões apropriadas através das funções Azure que lhe são atribuídas, poderá prosseguir. No entanto, se não tiver as permissões certas, verá uma mensagem de erro como a seguinte:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Erro mostrado se a conta AD Azure não suporta acesso":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
 
 Note que não aparecem filas na lista se a sua conta AZure AD não tiver permissões para as visualizar. Clique no **Switch para aceder ao** link chave para utilizar novamente a chave de acesso para autenticação.
 
@@ -86,15 +86,15 @@ Note que não aparecem filas na lista se a sua conta AZure AD não tiver permiss
 
 Se estiver a autenticar utilizando a sua conta Azure AD, verá **a Conta de Utilizador AZure AD** especificada como o método de autenticação no portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot mostrando o utilizador atualmente a aceder a filas com conta AZure AD":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
 
 Para mudar para a utilização da chave de acesso à conta, clique no link realçado na imagem. Se tiver acesso à chave da conta, poderá prosseguir. No entanto, se não tiver acesso à tecla da conta, o portal Azure apresenta uma mensagem de erro.
 
 As filas não estão listadas no portal se não tiver acesso às chaves da conta. Clique no link **'Conta de Utilizador AD' Azure** para utilizar novamente a sua conta Azure AD para autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md)
-- [Conceder acesso a contentores e filas Azure com RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](../common/storage-auth-aad-rbac-cli.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através da CLI do Azure)
-- [Grant access to Azure blob and queue data with RBAC using PowerShell](../common/storage-auth-aad-rbac-powershell.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através do PowerShell)
+- [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-portal.md)
+- [Utilize o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-cli.md)
+- [Utilize o módulo Azure PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-powershell.md)

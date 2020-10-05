@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335386"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715448"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -94,7 +94,7 @@ Seguem-se considerações para a escolha de um nível.
     Para lojas standard tier, os primeiros 200.000 pedidos por dia estão incluídos na taxa diária. Os pedidos adicionais são contabilizados como excesso de idade.
 
 - **Contrato de nível**de serviço : O nível padrão tem uma disponibilidade de SLA de 99,9%. O nível livre não tem SLA.
-- **Características de segurança**: Ambos os níveis incluem funcionalidade de segurança básica, incluindo encriptação com teclas geridas pela Microsoft, autenticação via HMAC ou Azure Ative Directory, suporte RBAC e identidade gerida. O standard tier oferece uma funcionalidade de segurança mais avançada, incluindo suporte private link e encriptação com chaves geridas pelo cliente.
+- **Funcionalidades de segurança**: Ambos os níveis incluem funcionalidade de segurança básica, incluindo encriptação com teclas geridas pela Microsoft, autenticação via HMAC ou Azure Ative Directory, suporte Azure RBAC e identidade gerida. O standard tier oferece uma funcionalidade de segurança mais avançada, incluindo suporte private link e encriptação com chaves geridas pelo cliente.
 - **Custo**: As lojas standard têm uma taxa de utilização diária. Há também uma taxa de excesso de pedidos para além da atribuição diária. Não há custo para usar uma loja de nível livre.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Posso atualizar uma loja do nível Livre para o nível Standard? Posso desvalorizar uma loja do nível Standard para o nível Livre?
@@ -130,6 +130,6 @@ Subscreva os [nossos anúncios GitHub repo](https://github.com/Azure/AppConfigur
 
 Pode contactar-nos diretamente no [GitHub.](https://github.com/Azure/AppConfiguration/issues)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Sobre a Configuração da Aplicação Azure](./overview.md)

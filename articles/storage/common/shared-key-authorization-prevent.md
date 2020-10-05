@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088804"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715118"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -67,7 +67,7 @@ Siga estes passos para criar uma métrica que rastreie os pedidos feitos com Cha
 
 Depois de configurar a métrica, os pedidos para a sua conta de armazenamento começarão a aparecer no gráfico. A imagem que se segue mostra pedidos que foram autorizados com Chave Partilhada ou feitos com um token SAS. Os pedidos são agregados por dia nos últimos 30 dias.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot mostrando pedidos agregados autorizados com Chave Partilhada":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot mostrando como configurar a métrica para sum transações feitas com Chave Partilhada ou SAS":::
 
 Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos autorizados com Chave Partilhada são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Em **detalhes de categoria**, na secção de **registo,** escolha **StorageRead,** **StorageWrite**e **StorageDelete** para registar todos os pedidos de dados para o serviço selecionado.
 1. Nos **detalhes do Destino**, selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como configurar a métrica para sum transações feitas com Chave Partilhada ou SAS":::
 
 Pode criar uma definição de diagnóstico para cada tipo de recurso de Armazenamento Azure na sua conta de armazenamento.
 
@@ -133,7 +133,7 @@ Para não permitir a autorização da Chave Partilhada para uma conta de armazen
 1. Localizar a **definição de configuração** em **Definições**.
 1. Definir **Permitir o acesso partilhado da chave** a **Desativados**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot mostrando como desativar o acesso da Chave Partilhada para conta":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot mostrando como configurar a métrica para sum transações feitas com Chave Partilhada ou SAS":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -218,8 +218,8 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 | Explorador do Storage do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Suportado. Para obter informações sobre como autorizar comandos PowerShell para operações de blob ou fila com Azure AD, consulte [comandos Run PowerShell com credenciais AD AD para aceder a dados blob](../blobs/authorize-active-directory-powershell.md) ou [executar comandos PowerShell com credenciais AD AD Aure para aceder a dados de fila](../queues/authorize-active-directory-powershell.md). |
 | CLI do Azure | Suportado. Para obter informações sobre como autorizar comandos Azure CLI com Azure AD para acesso a dados de blob e fila, consulte [comandos Run Azure CLI com credenciais AD AD para aceder a dados de blob ou fila](authorize-data-operations-cli.md). |
-| Azure IoT Hub | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
-| Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a essas contas através do controlo de acesso baseado em funções (RBAC). Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
+| Hub IoT do Azure | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
+| Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
@@ -245,7 +245,7 @@ Quando estiver a avaliar o tráfego na sua conta de armazenamento, tenha em ment
 
 Quando o acesso da Chave Partilhada é proibido para a conta de armazenamento durante a pré-visualização, as assinaturas de acesso partilhada que os recursos de fila, tabela ou ficheiros Azure continuam a ser permitidas. Esta limitação aplica-se tanto aos tokens SAS de serviço como aos tokens SAS da conta. Ambos os tipos de SAS são autorizados com Chave Partilhada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Autorizar o acesso aos dados no Azure Storage](storage-auth.md)
 - [Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory](storage-auth-aad.md)

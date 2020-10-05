@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a278204da556b41bd663b8b5c9ff5152e16017cc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522361"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715875"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Tutorial: Integrar Alertas com Diretório Ativo Azure
 
@@ -108,11 +108,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Clique nas **definições** de Conta a partir do painel de navegação esquerdo.
 
-    ![Configuração de AlertaOps](./media/alertops-tutorial/configure1.png)
+    ![A screenshot mostra o menu AlertOps com definições de conta chamadas.](./media/alertops-tutorial/configure1.png)
 
 5. Na página Definições de **Subscrição** selecione **SSO** e execute os seguintes passos:
 
-    ![Configuração de AlertaOps](./media/alertops-tutorial/configure2.png)
+    ![A screenshot mostra a janela definições de subscrição de S S Com valores introduzidos como descrito neste passo.](./media/alertops-tutorial/configure2.png)
 
     a. Selecione Use a caixa de verificação **SSO (SSO) de** utilização única.
 
@@ -164,15 +164,15 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 2. Clique nos **Utilizadores** a partir do painel de navegação esquerdo.
 
-    ![Configuração de AlertaOps](./media/alertops-tutorial/user1.png)
+    ![A screenshot mostra o menu AlertOps com os Utilizadores chamados.](./media/alertops-tutorial/user1.png)
 
 3. Selecione **Adicionar Utilizador**.
 
-    ![Configuração de AlertaOps](./media/alertops-tutorial/user2.png)
+    ![A screenshot mostra a janela do Utilizador com o botão Adicionar Utilizador.](./media/alertops-tutorial/user2.png)
 
 4. No diálogo **do Utilizador Adicionar,** execute os seguintes passos:
 
-    ![Configuração de AlertaOps](./media/alertops-tutorial/user3.png)
+    ![A screenshot mostra o painel de utilizadores add com valores introduzidos como descrito neste passo.](./media/alertops-tutorial/user3.png)
 
     a. Na caixa de texto **'Nome do Utilizador de Início** de Sessão', insira o nome de utilizador do utilizador como o **Brittasimon**.
 

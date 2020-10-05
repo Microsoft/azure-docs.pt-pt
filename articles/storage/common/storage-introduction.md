@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653805"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714983"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -111,7 +111,7 @@ O Azure Storage oferece vários tipos de contas de armazenamento. Cada tipo supo
 
 Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta os seguintes métodos de autorização:
 
-- **Integração do Azure Ative Directory (Azure AD) para dados de bolhas e filas.** O Azure Storage suporta a autenticação e autorização com a Azure AD para os serviços Blob e Queue através do controlo de acesso baseado em funções (RBAC). É recomendada a autorização de pedidos com Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md).
+- **Integração do Azure Ative Directory (Azure AD) para dados de bolhas e filas.** O Azure Storage suporta a autenticação e autorização com a Azure AD para os serviços Blob e Queue via Azure role-based access control (Azure RBAC). É recomendada a autorização de pedidos com Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md).
 - **Autorização Azure AD sobre SMB para Ficheiros Azure.** O Azure Files suporta a autorização baseada na identidade sobre o SMB (Server Message Block) através dos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS) ou nos locais Serviços de Domínio do Diretório Ativo (pré-visualização). Os seus VMs windows unidos ao domínio podem aceder a ações de ficheiros Azure usando credenciais Azure AD. Para obter mais informações, consulte [o suporte de autenticação baseado em identidade do Azure Files para aceder](../files/storage-files-active-directory-overview.md) e planear uma [implementação de Ficheiros Azure](../files/storage-files-planning.md#identity).
 - **Autorização com Chave Partilhada.** A Azure Storage Blob, Ficheiros, Fila e Serviços de Tabela apoiam a autorização com Chave Partilhada. Um cliente que utilize a autorização Da Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada.](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)
 - **Autorização utilizando assinaturas de acesso partilhado (SAS).** Uma assinatura de acesso partilhado (SAS) é uma cadeia que contém um símbolo de segurança que pode ser anexado ao URI para um recurso de armazenamento. O símbolo de segurança encapsula constrangimentos como permissões e o intervalo de acesso. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 
@@ -176,6 +176,6 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 - [Ferramentas de cliente de armazenamento Azure](../storage-explorers.md)
 - [Ferramentas de Programação do Azure](https://azure.microsoft.com/tools/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para se levantar e funcionar com os principais serviços de Armazenamento Azure, consulte [Criar uma conta de armazenamento](storage-account-create.md).

@@ -7,16 +7,16 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577803"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715077"
 ---
-# <a name="azure-iot-model-repository"></a>Repositório de modelo Azure IoT
+# <a name="azure-iot-model-repository"></a>Repositório de modelos do Azure IoT
 
-O repositório do modelo Azure IoT permite aos construtores de dispositivos gerir e partilhar modelos de dispositivos IoT Plug e Play. Os modelos do dispositivo são documentos JSON LD definidos utilizando a [Linguagem de Modelação Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Os modelos armazenados no serviço de repositório de modelos podem ser partilhados com desenvolvedores de soluções, quer privadamente através do controlo de acessos, quer publicamente sem exigir qualquer autenticação para integrar e desenvolver a solução IoT Plug e Play cloud.
+O repositório de modelos do Azure IoT permite que os construtores de dispositivos façam a gestão e partilhem modelos de dispositivos IoT Plug and Play. Os modelos do dispositivo são documentos JSON LD definidos utilizando a [Linguagem de Modelação Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Os modelos armazenados no serviço de repositório de modelos podem ser partilhados com desenvolvedores de soluções, quer privadamente através do controlo de acessos, quer publicamente sem exigir qualquer autenticação para integrar e desenvolver a solução IoT Plug e Play cloud.
 
 > [!NOTE]
 > Os construtores de dispositivos podem optar por implementar modelos de dispositivos IoT Plug e Play diretamente num dispositivo, utilizar módulos ou num módulo IoT Edge.
@@ -48,7 +48,7 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Para visualizar um modelo público utilizando o CLI, consulte o comando Azure CLI [Get Model.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true)
@@ -118,7 +118,7 @@ Para visualizar uma empresa ou modelo partilhado utilizando a API REST, consulte
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Para visualizar um modelo da empresa ou um modelo partilhado utilizando o CLI, consulte o comando Azure CLI [Get Model.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true)
@@ -164,22 +164,22 @@ Para carregar um modelo utilizando a API REST, consulte a [API Do Modelo](https:
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
 Para carregar um modelo utilizando o CLI, consulte o comando Azure CLI [Criar um modelo.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true)
 
 ### <a name="publish-a-model"></a>Publicar um modelo
 
-Para publicar um modelo, devem ser cumpridos os seguintes requisitos:
+Para publicar um modelo, os seguintes requisitos têm de ser cumpridos:
 
-1. A sua organização precisa de ser membro da [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) para publicar um modelo. Para criar uma conta de centro de parceiros, consulte [a criação de uma conta Partner Center](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Depois da aprovação da sua conta, pode publicar os seus modelos. Para mais informações, consulte o [Centro de Parceiros FAQ.](https://support.microsoft.com/help/4340639/partner-center-account-faqs)
+1. A sua organização precisa de ser membro do [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) para publicar modelos. Para criar uma conta do centro de parceiros, veja [Criar uma conta do centro de parceiros](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Uma vez aprovada a conta, poderá publicar os modelos. Para obter mais informações, veja as [FAQs do Centro de Parceiros](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
 2. O utilizador deve ser membro do papel de *Editor* do repositório.
 
 Os modelos criados e publicados pelos utilizadores dentro da sua organização são visíveis como *modelos publicados.* Estes modelos são públicos e podem ser encontrados por qualquer pessoa sob **modelos públicos.**
 
-Para publicar um modelo utilizando o portal:
+Para publicar um modelo com o portal:
 
 1. Inscreva-se no [portal de repositório do modelo Azure IoT](https://aka.ms/iotmodelrepo).
 
@@ -231,6 +231,6 @@ Poderá encontrar os seguintes tópicos úteis ao trabalhar com a Azure AD:
 
 - Para aprender a obter um token JWT da AD AZure para usar ao ligar para ASPis de REST, consulte [Adquirir um símbolo da AD AZure para autorizar pedidos de uma aplicação do cliente.](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 O próximo passo sugerido é rever a [arquitetura IoT Plug and Play](concepts-architecture.md).

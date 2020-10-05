@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275069"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713700"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gerir e encontrar dados do Azure Blob com índice blob (pré-visualização)
 
@@ -196,7 +196,7 @@ A seguinte regra de gestão do ciclo de vida da amostra aplica-se ao bloqueio de
 
 Pode autorizar o acesso ao índice blob utilizando uma das seguintes abordagens:
 
-- Utilizando o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança Azure Ative (Azure AD). A Microsoft recomenda a utilização do Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações sobre a utilização do Azure AD com operações de [bolhas, consulte o Acesso autorizado a bolhas e filas utilizando o Azure Ative Directory](../common/storage-auth-aad.md).
+- Utilizando o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um diretor de segurança Azure Ative (Azure AD). A Microsoft recomenda a utilização do Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações sobre a utilização do Azure AD com operações de [bolhas, consulte o Acesso autorizado a bolhas e filas utilizando o Azure Ative Directory](../common/storage-auth-aad.md).
 - Utilizando uma assinatura de acesso partilhado (SAS) para delegar o acesso ao índice blob. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [Grant acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
 - Utilizando as chaves de acesso à conta para autorizar operações com Chave Partilhada. Para mais informações, consulte [Autorizar com chave partilhada.](/rest/api/storageservices/authorize-with-shared-key)
 
@@ -205,7 +205,7 @@ As etiquetas de índice blob são um sub-recurso para os dados do blob. Um utili
 ### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 Os chamadores que usam uma [identidade AD AZure](../common/storage-auth-aad.md) podem ter as seguintes permissões para operar em etiquetas de índice blob.
 
-|   Operações blob  |  Ação RBAC   |
+|   Operações blob  |  Ação Azure RBAC   |
 |--------------------|----------------|
 | Encontre Blobs por Tags | Microsoft.Storage/storageAcounts/blobServices/containers/blobs/filter/action |
 | Definir tags blob      | Microsoft.Storage/storageAcounts/blobServices/containers/blobs/tags/write |
@@ -308,7 +308,7 @@ As tags de índice blob apenas suportam tipos de dados de cadeia e consultam os 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>As etiquetas de índice blob e as etiquetas do Gestor de Recursos Azure estão relacionadas?
 Não, as etiquetas do Gestor de Recursos ajudam a organizar recursos de controlo do avião, tais como subscrições, grupos de recursos e contas de armazenamento. As etiquetas de índice blob fornecem gestão de objetos e descobertas em recursos de planos de dados, tais como bolhas dentro de uma conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para um exemplo de como utilizar o índice blob, consulte [o índice de blob utilizar para gerir e encontrar dados](storage-blob-index-how-to.md).
 

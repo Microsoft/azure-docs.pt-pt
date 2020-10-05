@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018198"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714244"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -99,13 +99,13 @@ Para adicionar e verificar um certificado de raiz ou intermédio ao seu grupo de
 
 1. Na página do **certificado Primário,** faça o upload do seu certificado X.509 primário. Esta é a sua raiz ou certificado intermédio:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Screenshot do certificado primário":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Adicione uma imagem de grupo de inscrição X.509":::
 
-1. Utilize o **código de verificação** para gerar um código de verificação na ferramenta que está a utilizar. Em seguida, **selecione Verifique** para carregar o certificado de verificação.
+1. Clique **em Gerar código de verificação** para gerar um código para a ferramenta que está a usar para gerar o certificado de verificação. Em seguida, **selecione Verifique** para carregar o certificado de verificação.
 
 1. Quando a verificação for bem sucedida, vê a seguinte confirmação:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Screenshot do certificado primário verificado":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Adicione uma imagem de grupo de inscrição X.509":::
 
 Verificar a propriedade do certificado garante que a pessoa que faz o upload do certificado tem a chave privada do certificado.
 
@@ -147,7 +147,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
 1. Copie a chave primária do grupo do grupo de inscrição **SAS-IoT-Devices:**
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Chave primária do grupo SAS-IoT-Devices":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Adicione uma imagem de grupo de inscrição X.509":::
 
 1. Utilize o `az iot central device compute-device-key` comando para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo a partir do passo anterior. As iDs do dispositivo devem ser minúsculas:
 
@@ -276,7 +276,7 @@ Toda a comunicação do dispositivo com o IoT Hub utiliza as seguintes opções 
 
 A tabela a seguir resume como o dispositivo Azure IoT Central apresenta o mapa nas características do IoT Hub:
 
-| Azure IoT Central | Azure IoT Hub |
+| Azure IoT Central | Hub IoT do Azure |
 | ----------- | ------- |
 | Telemetria | Mensagens dispositivo-a-nuvem |
 | Propriedade | Propriedades reportadas de twin dispositivo |
@@ -299,7 +299,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, pode 
 
 Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar a troca de credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

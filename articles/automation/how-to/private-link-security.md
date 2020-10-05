@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714361"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation (pré-visualização)
 
@@ -53,7 +53,7 @@ Como parte do lançamento de pré-visualização, uma conta Automation não pode
 
 ### <a name="webhook-scenario"></a>Cenário Webhook
 
-Você pode começar os runbooks fazendo um POST no URL webhook. Por exemplo, o URL parece:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Você pode começar os runbooks fazendo um POST no URL webhook. Por exemplo, o URL parece: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Cenário de configuração do estado (agentesvc)
 
@@ -85,8 +85,8 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
-    | Nome | Insira o seu *PrivateEndpoint*. |
-    | Região | Selecione **A Sua Região**. |
+    | Name | Insira o seu *PrivateEndpoint*. |
+    | Region | Selecione **A Sua Região**. |
     |||
 
 4. Selecione **Seguinte: Recurso**.
@@ -108,17 +108,17 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
 
     | Definição | Valor |
     | ------- | ----- |
-    |**NETWORKING**| |
+    |**REDES**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Subrede | Selecione *mySubnet*. |
-    |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
-    |Zona privada de DNS |Selecione *(Novo)privatelink.azure-automation.net* |
+    | Sub-rede | Selecione *mySubnet*. |
+    |**INTEGRAÇÃO DE DNS PRIVADO**||
+    |Integrar com zona DNS privada |Selecione **Sim**. |
+    |Zona DNS Privada |Selecione *(Novo)privatelink.azure-automation.net* |
     |||
 
-8. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+8. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-9. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+9. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 No **Centro de Ligação Privada (Pré-visualização)**, selecione **pontos finais privados** para visualizar o seu recurso de ligação privada.
 
@@ -128,7 +128,7 @@ Selecione o recurso para ver todos os detalhes. Isto cria um novo ponto final pr
 
 Da mesma forma, um nome de domínio totalmente qualificado (FQDN) único é criado para a Configuração do Estado (agentsvc) e para o tempo de trabalho do Trabalhador Runbook Híbrido (jrds). Cada um deles é atribuído um IP separado do seu VNet e o estado de **Ligação** aparece conforme **aprovado.**
 
-Se o consumidor de serviço tiver permissões de RBAC no recurso Automation, pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do fornecedor de Automação, não é necessária qualquer ação do prestador de serviços e a ligação é automaticamente aprovada.
+Se o consumidor de serviço tiver permissões Azure RBAC no recurso Automation, pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do fornecedor de Automação, não é necessária qualquer ação do prestador de serviços e a ligação é automaticamente aprovada.
 
 ## <a name="set-public-network-access-flags"></a>Definir bandeiras de acesso à rede pública
 
@@ -160,6 +160,6 @@ Pode utilizar as seguintes opções para configurar as definições de DNS para 
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

@@ -3,12 +3,12 @@ title: Ligue as máquinas híbridas ao Azure à escala
 description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc utilizando um principal de serviço.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5976e2ff9aef5f68d119a5fdf5f7d4d4345287a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254946"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713420"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ligue as máquinas híbridas ao Azure à escala
 
@@ -67,7 +67,7 @@ Os valores das seguintes propriedades são utilizados com parâmetros passados `
 > Certifique-se de usar a propriedade principal do **serviço ApplicationId,** não a propriedade **ID.**
 >
 
-A **função de azure connected machine onboarding** contém apenas as permissões necessárias para embarcar numa máquina. Pode atribuir a permissão principal do serviço para permitir que o seu âmbito inclua um grupo de recursos ou uma subscrição. Para adicionar atribuição de funções, consulte [adicionar ou remover atribuições de funções utilizando o RBAC Azure e o portal Azure](../../role-based-access-control/role-assignments-portal.md) ou [Adicionar ou remover atribuições de funções utilizando Azure RBAC e Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+A **função de azure connected machine onboarding** contém apenas as permissões necessárias para embarcar numa máquina. Pode atribuir a permissão principal do serviço para permitir que o seu âmbito inclua um grupo de recursos ou uma subscrição. Para adicionar atribuição de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md) ou [adicionar ou remover atribuições de funções Azure usando Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instale o agente e ligue-se ao Azure
 
@@ -137,7 +137,7 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835447"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714377"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Azure Storage Explorer
 
@@ -42,11 +42,11 @@ Recomendamos a utilização da autenticação Azure AD sempre que possível.
 
 Esta secção descreve as duas tecnologias baseadas em AD Azure que podem ser usadas para garantir os seus recursos de armazenamento.
 
-#### <a name="role-based-access-control-rbac"></a>Controlo de acesso baseado em funções (RBAC)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
-[O controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões do RBAC podem ser geridas a partir do portal Azure.
+[O controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões azure podem ser geridas a partir do portal Azure.
 
-O Storage Explorer suporta o acesso do RBAC a Contas de Armazenamento, Blobs e Filas. Se precisar de acesso a Ações de Ficheiros ou Tabelas, terá de atribuir funções RBAC que concedam permissão para listar chaves de conta de armazenamento.
+O Storage Explorer suporta o acesso do Azure RBAC a Contas de Armazenamento, Blobs e Filas. Se precisar de acesso a Ações ou Tabelas de Ficheiros, terá de atribuir funções Azure que concedam permissão para listar chaves de conta de armazenamento.
 
 #### <a name="access-control-lists-acls"></a>Listas de controlo de acesso (ACL)
 
@@ -77,11 +77,11 @@ Ao utilizar o SAS no Storage Explorer, recomendamos as seguintes diretrizes:
 
 ### <a name="storage-account-keys"></a>Chaves de contas de armazenamento
 
-As chaves da conta de armazenamento concedem acesso ilimitado aos serviços e recursos dentro de uma conta de armazenamento. Por esta razão, recomendamos limitar a utilização de chaves para aceder a recursos no Storage Explorer. Utilize funcionalidades RBAC ou SAS para fornecer acesso.
+As chaves da conta de armazenamento concedem acesso ilimitado aos serviços e recursos dentro de uma conta de armazenamento. Por esta razão, recomendamos limitar a utilização de chaves para aceder a recursos no Storage Explorer. Utilize funcionalidades Azure RBAC ou SAS para fornecer acesso.
 
-Algumas funções da RBAC concedem permissão para recuperar chaves de conta de armazenamento. Os indivíduos com estas funções podem efetivamente contornar permissões concedidas ou negadas pelo RBAC. Recomendamos não conceder esta permissão a menos que seja necessário.
+Algumas funções da Azure concedem permissão para recuperar chaves de conta de armazenamento. Os indivíduos com estas funções podem efetivamente contornar permissões concedidas ou negadas pela Azure RBAC. Recomendamos não conceder esta permissão a menos que seja necessário.
 
-O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves**). Algumas funcionalidades não suportam o RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
+O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves**). Algumas funcionalidades não suportam o Azure RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
 
 Se tiver de utilizar as chaves para aceder aos seus recursos de armazenamento, recomendamos as seguintes orientações:
 
@@ -100,6 +100,6 @@ Ao permitir o acesso público a um recipiente de bolhas, recomendamos as seguint
 - **Não permita o acesso do público a um recipiente de bolhas que possa conter quaisquer dados potencialmente sensíveis.** Certifique-se de que o seu recipiente blob está livre de todos os dados privados.
 - **Não carrede dados potencialmente sensíveis para um recipiente de bolhas com acesso blob ou contentor.** 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Recomendações de segurança](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)

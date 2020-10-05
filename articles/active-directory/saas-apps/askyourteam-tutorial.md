@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549426"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutorial: Azure Ative Directory integração única (SSO) com AskYourTeam
 
@@ -131,19 +131,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique na **Organização My.**
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![A screenshot mostra a ligação My Organization.](./media/askyourteam-tutorial/user1.png)
 
 1. Clique em **Integrações**.
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![A screenshot mostra a ligação Integrações.](./media/askyourteam-tutorial/configure1.png)
 
 1. Clique em **Configurações de Edição**.
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![A screenshot mostra a mensagem Sign-On única com um botão de definições de edição.](./media/askyourteam-tutorial/configure2.png)
 
 1. Na página editar a **integração única de sinais,** execute os seguintes passos: 
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![A screenshot mostra editar a integração sign-on única onde pode introduzir os valores para este passo.](./media/askyourteam-tutorial/configure3.png)
 
     a. Na caixa de texto URL de serviço único de inscrição do **SAML,** cole o valor URL de **login** que copiou do portal Azure.
 
@@ -168,15 +168,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique na **Organização My.**
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![A screenshot mostra a ligação My Organization onde inicia esta tarefa.](./media/askyourteam-tutorial/user1.png)
 
 1. Clique **nos Utilizadores** e selecione **Novo Utilizador.**
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![A screenshot mostra a ligação dos Utilizadores com o Novo Utilizador.](./media/askyourteam-tutorial/user2.png)
 
 1. Na nova secção **de utilizadores,** execute os seguintes passos:
 
-    ![Configuração AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![A screenshot mostra uma secção de Novo Utilizador onde introduz as informações do utilizador.](./media/askyourteam-tutorial/user3.png)
 
     1. Na caixa de texto do **primeiro nome,** insira o primeiro nome do utilizador.
 

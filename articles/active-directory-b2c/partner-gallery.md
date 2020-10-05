@@ -1,7 +1,7 @@
 ---
 title: Galeria ISV Partner para Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Saiba como se integrar com os nossos parceiros ISV para adaptar a sua experiência de utilizador final às suas necessidades. A nossa rede de parceiros alarga as nossas capacidades de solução; ativar a autenticação do MFA, a autenticação segura do cliente, o controlo de acesso baseado em funções; combater a fraude através da verificação de identidade.
+description: Saiba como se integrar com os nossos parceiros ISV para adaptar a sua experiência de utilizador final às suas necessidades. A nossa rede de parceiros alarga as nossas capacidades de solução; ativar a autenticação do cliente, a autenticação segura do cliente, o controlo de acesso baseado em funções; combater a fraude através da verificação de identidade.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706700"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713177"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
-A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o ajudar a construir experiências de utilizador final sem emenda. Com o Azure AD B2C, pode integrar-se com parceiros ISV para permitir métodos de autenticação multi-factor, ativar a autenticação segura do cliente (SCA), realizar o Controlo de Acesso Baseado em Fun e combater a fraude através da verificação e impermeabilização de identidade. Use as nossas amostras detalhadas para aprender a integrar aplicações com os parceiros ISV listados abaixo.
+A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o ajudar a construir experiências de utilizador final sem emenda. Com o Azure AD B2C, pode integrar-se com parceiros ISV para permitir métodos de autenticação multi-factor, ativar a Autenticação Segura do Cliente (SCA), realizar controlo de acesso baseado em funções e combater a fraude através da verificação e impermeabilização de identidade. Use as nossas amostras detalhadas para aprender a integrar aplicações com os parceiros ISV listados abaixo.
 
 >[!NOTE]
 >O [site comunitário Azure Ative Directory B2C no GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) também fornece políticas personalizadas de amostra da comunidade.
@@ -43,7 +43,7 @@ A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o a
 | ![logotipo](./media/partner-gallery/typingdna-logo.png) | [A Digitação deDNA](./partner-typingdna.md) é um fornecedor de verificação de identidade e de impermeabilização com base no padrão de dactilografia do utilizador, fornece soluções de verificação de ID que forçam a autenticação de vários fatores e ajuda a cumprir os requisitos da SCA para a Diretiva 2 dos Serviços de Pagamento (PSD2). |
 | ![logotipo](./media/partner-gallery/whoiam-logo.png) | [A WhoIAM](./partner-whoiam.md) é uma aplicação do Sistema de Gestão de Identidade de Marca (BRIMS) que permite às organizações verificarem a sua base de utilizadores por voz, SMS e e-mail. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Selecione um parceiro na tabela acima para aprender a integrar a sua solução com a Azure AD B2C.
 

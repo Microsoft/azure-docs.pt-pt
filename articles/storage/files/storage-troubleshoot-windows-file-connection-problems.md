@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598033"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715986"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
@@ -26,7 +26,7 @@ Este artigo lista problemas comuns relacionados com os Ficheiros Azure do Micros
 
 Quando tentar montar uma partilha de ficheiros, poderá receber o seguinte erro:
 
-- Ocorreu o erro de sistema 5. Acesso negado.
+- Ocorreu o erro de sistema 5. O acesso é negado.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não encriptado
 
@@ -173,7 +173,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
-Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no **controlo de acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte [como garantir a sua conta de armazenamento com o Controle de Acesso Baseado em Fun (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no **controlo de acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte [Como garantir a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure

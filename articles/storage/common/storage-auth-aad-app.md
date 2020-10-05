@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280256"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714767"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -31,7 +31,7 @@ A aplicação da amostra proporciona uma experiência de ponta a ponta que mostr
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Atribuir um papel a um diretor de segurança da AD Azure
 
-Para autenticar um princípio de segurança da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (RBAC) para esse diretor de segurança. O Azure Storage define funções incorporadas que englobam permissões para contentores e filas. Quando o papel do RBAC é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com o RBAC.](storage-auth-aad-rbac.md)
+Para autenticar um princípio de segurança a partir da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (Azure RBAC) para esse principal de segurança. O Azure Storage define funções incorporadas que englobam permissões para contentores e filas. Quando o papel de Azure é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com a Azure RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registe o seu pedido junto de um inquilino da AD Azure
 
@@ -46,7 +46,7 @@ A imagem a seguir mostra configurações comuns para registar uma aplicação we
 
 Depois de ter registado a sua candidatura, verá o ID da aplicação (ou ID do cliente) em **Definições:**
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot mostrando o ID do cliente":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
 Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
@@ -59,13 +59,13 @@ Em seguida, conceda permissões à sua candidatura para ligar para as APIs de Ar
 1. A **pedido a API permissões** de painéis, em **que tipo de permissões a sua aplicação requer?** **Delegated permissions** Esta opção é selecionada por padrão.
 1. Em **Permissões**, selecione a caixa de verificação ao lado **user_impersonation**, em seguida, selecione o botão **'Adicionar permissões'.**
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mostrando permissões para armazenamento API":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
 1. Em seguida, conceda o consentimento administrativo para estas permissões clicando **no consentimento de administração grant para o Diretório Predefinido**.
 
 O painel **de permissões da API** mostra agora que a sua aplicação AD AZure registada tem acesso tanto às APIs de Armazenamento microsoft como a Azure Storage, e esse consentimento é concedido para o diretório predefinido. As permissões são concedidas automaticamente ao Microsoft Graph quando regista a sua aplicação pela primeira vez com a Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot mostrando permissões de API para aplicação registada":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
 ### <a name="create-a-client-secret"></a>Criar um segredo de cliente
 
@@ -87,7 +87,7 @@ Em seguida, configurar o fluxo de subvenção implícita para a sua aplicação.
 1. Na secção **Gerir,** selecione a **definição de Autenticação.**
 1. Na secção **de concessão implícita,** selecione a caixa de verificação para permitir fichas de ID, como mostra a seguinte imagem:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot mostrando como ativar configurações para fluxo de subvenção implícito":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de clientes para aquisição simbólica
 
@@ -127,7 +127,7 @@ Para solicitar o token, necessitará dos seguintes valores a partir do registo d
 
 Para executar a amostra de código, crie uma conta de armazenamento dentro da mesma subscrição que o seu Diretório Ativo Azure. Em seguida, crie um recipiente dentro dessa conta de armazenamento. O código de amostra criará uma bolha de bloco neste recipiente.
 
-Em seguida, atribua explicitamente a **função de Contribuinte de Dados blob de armazenamento** à conta de utilizador sob a qual irá executar o código de amostra. Para obter instruções sobre como atribuir esta função no portal Azure, consulte [o Acesso ao Bloco de Contas e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac-portal.md).
+Em seguida, atribua explicitamente a **função de Contribuinte de Dados blob de armazenamento** à conta de utilizador sob a qual irá executar o código de amostra. Para obter instruções sobre como atribuir esta função no portal Azure, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso aos dados de bolhas e filas](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
 > Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
@@ -288,8 +288,8 @@ No ficheiro *HomeController.cs,* atualize o URI que faz referência à bolha de 
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md)
+- [Gerir direitos de acesso aos dados de armazenamento com o Azure RBAC](storage-auth-aad-rbac.md)
 - [Autenticar acesso a bolhas e filas com diretório ativo Azure e identidades geridas para recursos Azure](storage-auth-aad-msi.md)

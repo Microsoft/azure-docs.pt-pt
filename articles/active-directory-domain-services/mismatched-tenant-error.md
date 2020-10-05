@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223487"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713007"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelo Azure Ative Directory Domain Services
 
@@ -28,11 +28,11 @@ Este artigo explica por que o erro ocorre e como resolvê-lo.
 
 Um erro de diretório desajustado ocorre quando um domínio gerido AZure AD DS e rede virtual pertencem a dois inquilinos AD Azure diferentes. Por exemplo, você pode ter um domínio gerido chamado *aaddscontoso.com* que funciona no inquilino AD Azure de Contoso. No entanto, a rede virtual Azure para domínio gerido faz parte do inquilino da AD Fabrikam Azure.
 
-O Azure utiliza o controlo de acesso baseado em funções (RBAC) para limitar o acesso aos recursos. Quando você ativa Azure AD DS em um inquilino AZURE AD, as hashes credenciais são sincronizadas para o domínio gerido. Esta operação requer que você seja um administrador inquilino para o diretório AZure AD, e o acesso às credenciais deve ser controlado.
+O controlo de acesso baseado em funções Azure (Azure RBAC) é utilizado para limitar o acesso aos recursos. Quando você ativa Azure AD DS em um inquilino AZURE AD, as hashes credenciais são sincronizadas para o domínio gerido. Esta operação requer que você seja um administrador inquilino para o diretório AZure AD, e o acesso às credenciais deve ser controlado.
 
 Para implantar recursos para uma rede virtual Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual em que você implementa o domínio gerido.
 
-Para que o RBAC funcione de forma consistente e segura o acesso a todos os recursos que o Azure AD usa, o domínio gerido e a rede virtual devem pertencer ao mesmo inquilino AD AZure.
+Para que o Azure RBAC funcione de forma consistente e segura no acesso a todos os recursos que a Azure AD usa, o domínio gerido e a rede virtual devem pertencer ao mesmo inquilino AD AZure.
 
 Aplicam-se as seguintes regras para as implantações:
 
@@ -64,6 +64,6 @@ As duas opções seguintes resolvem o erro de diretório desajustado:
 * Em primeiro lugar, [elimine o domínio gerido](delete-aadds.md) do seu diretório AD Azure existente. Em seguida, [crie um domínio gerido de substituição](tutorial-create-instance.md) no mesmo diretório AD Azure que a rede virtual que pretende utilizar. Quando estiver pronto, junte todas as máquinas previamente unidas ao domínio eliminado ao domínio gerido recriado.
 * [Mover a assinatura Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contendo a rede virtual para o mesmo diretório AD Azure que o domínio gerido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre problemas de resolução de problemas com a Azure AD DS, consulte o [guia de resolução de problemas](troubleshoot.md).

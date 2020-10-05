@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937650"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714905"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Permitir a auto-produção de máquinas virtuais através da Política Azure
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 > As contas de teste gratuitas não têm acesso às máquinas virtuais utilizadas neste tutorial. Por favor, atualize para uma subscrição Pay-As-You-Go.
 
 > [!IMPORTANT]
-> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessária a seguinte permissão Azure RBAC para ativar a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -64,7 +64,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 > Levará algum tempo para que essa política comece a produzir efeitos sobre os VMs atualmente no grupo de recursos ou na subscrição.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximas etapas 
 
 Aprenda outra forma de ativar a auto-produção do Azure para máquinas virtuais através do portal Azure. 
 
