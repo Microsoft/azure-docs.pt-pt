@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar o módulo Gráfi
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4cc7eb524060f2a797077f38321ae9ce6c9cf267
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056419"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando a Azure PowerShell
@@ -88,7 +88,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
 > [!NOTE]
-> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, então note que `Search-AzGraph` o CMDlet predefini às subscrições no contexto padrão. Para ver a lista de IDs de subscrição que fazem parte do contexto padrão executar isto `(Get-AzContext).Account.ExtendedProperties.Subscriptions` Se pretender pesquisar em todas as subscrições a que tem acesso, pode-se definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, então note que `Search-AzGraph` o CMDlet predefini às subscrições no contexto padrão. Para ver a lista de IDs de subscrição que fazem parte do contexto padrão executar isto `(Get-AzContext).Account.ExtendedProperties.Subscriptions` Se pretender pesquisar em todas as subscrições a que tem acesso, pode-se definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 

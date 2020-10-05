@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ce5611a92e9899d64ff2117385af008c37c22c5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88682323"
 ---
 Como parte dos pré-requisitos para este arranque rápido, descarregou o código de amostra para uma pasta. Siga estes passos para examinar e editar o código de amostra.

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 84a456b1efeb73459a8bae33222f0716175fb956
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88682224"
 ---
 * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita se](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ainda não tiver uma.

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: f4e26d74ff0922841d2ceb2ce4eb06b96c697a9f
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88719106"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extraia dados de formulário utilizando a API REST com cURL
@@ -45,7 +45,7 @@ Para treinar um modelo de Reconhecimento de Formulários com os documentos no se
 
 1. `<Endpoint>`Substitua-o pelo ponto final que obteve com a subscrição do Form Recogniser.
 1. `<subscription key>`Substitua-a pela chave de subscrição que copiou do passo anterior.
-1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```bash

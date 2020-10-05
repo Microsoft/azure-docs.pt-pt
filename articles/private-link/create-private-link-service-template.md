@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
 ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705253"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Quickstart: Criar um serviço de ligação privada usando um modelo ARM
@@ -88,7 +88,7 @@ Ligue-se ao VM _myConsumerVm{uniqueid}_ da internet da seguinte forma:
 
 5.  Selecione **OK**.
 
-6.  Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+6.  Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 7.  Depois de aparecer o ambiente de trabalho em VM, minimize-o para voltar ao seu ambiente de trabalho local.
 

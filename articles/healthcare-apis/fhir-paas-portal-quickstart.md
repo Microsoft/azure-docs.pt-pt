@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851941"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Quickstart: Implementar AZure API para FHIR usando o portal Azure
@@ -37,13 +37,13 @@ Você pode encontrar Azure API para FHIR digitando "FHIR" na caixa de pesquisa:
 
 Selecione **Criar** para criar uma nova API Azure para conta FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Criar Azure API para conta FHIR":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Pesquisa de APIs de Cuidados de Saúde":::
 
 ## <a name="enter-account-details"></a>Inserir detalhes da conta
 
 Selecione um grupo de recursos existente ou crie um novo, escolha um nome para a conta e, finalmente, clique em **Rever + criar**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Novos detalhes da api dos cuidados de saúde":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Pesquisa de APIs de Cuidados de Saúde":::
 
 Confirme a criação e aguarde a implantação da FHIR API.
 
@@ -51,7 +51,7 @@ Confirme a criação e aguarde a implantação da FHIR API.
 
 Também pode clicar em **Seguinte: Definições adicionais** para visualizar as definições de autenticação. A configuração padrão para a API Azure para FHIR é [usar o Azure RBAC para atribuir funções de plano de dados](configure-azure-rbac.md). Quando configurado neste modo, a "Autoridade" para o serviço FHIR será definida para o inquilino do Diretório Ativo Azure da subscrição:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Definições de autenticação predefinido":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Pesquisa de APIs de Cuidados de Saúde":::
 
 Note que a caixa para introduzir IDs de objetos permitidos está acinzentada, uma vez que usamos O RBAC Azure para configurar atribuições de funções neste caso.
 
@@ -61,7 +61,7 @@ Se desejar configurar o serviço FHIR para utilizar um inquilino externo ou secu
 
 Para validar que a nova conta FHIR API é anteada, obter uma declaração de capacidade apontando um navegador para `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata` .
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode eliminar o grupo de recursos, a Azure API para fHIR, e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém a API Azure para a conta FHIR, selecione **Delete resource group**, em seguida, confirme o nome do grupo de recursos para eliminar.
 

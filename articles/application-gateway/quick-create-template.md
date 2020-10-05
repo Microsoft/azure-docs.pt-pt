@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961691"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo ARM
@@ -77,7 +77,7 @@ Embora o IIS não seja necessário para criar o gateway de aplicações, está i
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 

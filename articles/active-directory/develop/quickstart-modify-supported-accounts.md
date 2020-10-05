@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91258018"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Modificar as contas suportadas por uma aplicação

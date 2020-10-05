@@ -16,10 +16,10 @@ ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88607213"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
@@ -53,8 +53,8 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e insira o **myResourceGroupLB** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
@@ -154,7 +154,7 @@ Nesta secção, pode:
 
 Nesta secção, irá criar uma rede virtual e uma sub-rede.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso > rede > rede virtual** ou procurar rede **Virtual** na caixa de pesquisa.
+1. No canto superior esquerdo do ecrã, selecione **Criar um recurso > Redes > Rede virtual** ou procure **Rede virtual** na caixa de pesquisa.
 
 2. Na **Criação de rede virtual,** insira ou selecione esta informação no **separador Básicos:**
 
@@ -164,8 +164,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Name             | Insira **myVNet**                                    |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -218,7 +218,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
@@ -227,8 +227,8 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | **Conta de administrador** |  |
     | Nome de utilizador | Insira um nome de utilizador |
     | Palavra-passe | Introduza uma senha |
-    | Confirmar palavra-passe | Senha de reentrada |
-    | **Regras da porta de entrada** |  |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
+    | **Regras portuárias de entrada** |  |
     | Portas de entrada públicas | Selecione **Nenhum** |
 
 3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
@@ -239,7 +239,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
-    | Subrede | **myBackendSubnet** |
+    | Sub-rede | **myBackendSubnet** |
     | IP público | Selecione **Nenhuma**. |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas  **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
@@ -267,7 +267,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -332,8 +332,8 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **digite o myResourceGroupLB** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic** |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
@@ -345,7 +345,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
 
 4. No **separador 'Rever + criar',** selecione **Criar.**   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um equilibrador de carga básico" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um balanceador de carga standard" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -360,7 +360,7 @@ Nesta secção, configura:
 
 Nesta secção, irá criar uma rede virtual e uma sub-rede.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso > rede > rede virtual** ou procurar rede **Virtual** na caixa de pesquisa.
+1. No canto superior esquerdo do ecrã, selecione **Criar um recurso > Redes > Rede virtual** ou procure **Rede virtual** na caixa de pesquisa.
 
 2. Na **Criação de rede virtual,** insira ou selecione esta informação no **separador Básicos:**
 
@@ -370,8 +370,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Name             | Insira **myVNet**                                    |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -504,7 +504,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Conjunto de disponibilidade** |
     | Conjunto de disponibilidade | Selecione **Criar novo**. </br> Insira **o mySilabilitySet** no **nome**. </br> Selecione **OK** |
     | Imagem | **Windows Server 2019 Datacenter** |
@@ -513,7 +513,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | **Conta de administrador** |  |
     | Nome de utilizador | Insira um nome de utilizador |
     | Palavra-passe | Introduza uma senha |
-    | Confirmar palavra-passe | Senha de reentrada |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
 
 3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
   
@@ -523,7 +523,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
-    | Subrede | Selecione **myBackendSubnet** |
+    | Sub-rede | Selecione **myBackendSubnet** |
     | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede NIC | Selecione **Avançado**|
     | Configure grupo de segurança de rede | Selecione **Criar novo**. </br> No **grupo de segurança**de rede Create , insira **o myNSG** em **Nome**. </br> De acordo com **as regras de entrada**, selecione **+Adicione uma regra de entrada**. </br> Nas  **gamas portuárias Destination**, insira **80**. </br> Sob **Prioridade**, insira **100**. </br> Em **Nome**, insira **myHTTPRule** </br> Selecione **Adicionar** </br> Selecione **OK** |
@@ -547,7 +547,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 

@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: e6c18df2d90f8d6efc9425f2d9fdff057e06ad51
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88719121"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout usando a API do Reconhecimento de Formulários REST com Python

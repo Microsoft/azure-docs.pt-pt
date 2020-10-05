@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88234946"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Python SDK e Azure Cosmos DB
@@ -157,11 +157,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Ver e verificar a saída":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
     
 4. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Ver os dados no Data Explorer":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

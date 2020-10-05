@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
 ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88246389"
 ---
 Começa com a biblioteca de clientes Bing Autosuggest para o Go. Siga estes passos para instalar a biblioteca e experimente os nossos exemplos para tarefas básicas.
@@ -217,7 +217,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [O que é a Sugestão Automática do Bing?](../../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

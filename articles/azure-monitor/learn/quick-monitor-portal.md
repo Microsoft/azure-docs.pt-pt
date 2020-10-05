@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
 ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88080954"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
@@ -101,7 +101,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 Para saber mais, visite o repositório do GitHub para o nosso [SDK de JavaScript de open source](https://github.com/Microsoft/ApplicationInsights-JS).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para fazê-lo siga os passos abaixo.
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

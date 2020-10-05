@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 01/15/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b083b7d593a18d16bb2952663c5c16d76d3ef064
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68669791"
 ---
 > [!div class="op_single_selector"]

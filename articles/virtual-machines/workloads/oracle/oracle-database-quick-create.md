@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/28/2020
 ms.author: kegorman
 ms.openlocfilehash: 5a94fa917625a32c0ae8b47a4d1a380e3f18d053
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91274695"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure
@@ -350,7 +350,7 @@ Pode iniciar sessão utilizando a conta **SYS** e verificar como caixa de verifi
 
 ![Screenshot da página de login do Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Uma vez terminada a exploração da sua primeira base de dados Oracle em Azure e o VM já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group) para remover o grupo de recursos, VM e todos os recursos relacionados.
 

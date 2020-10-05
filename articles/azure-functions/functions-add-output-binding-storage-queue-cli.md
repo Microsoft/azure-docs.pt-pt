@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87852638"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de linha de comando
@@ -115,7 +115,7 @@ mvn azure-functions:deploy
 
 1. Volte a examinar a fila de armazenamento, tal como descrito na secção anterior, para verificar se contém a nova mensagem escrita na fila.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de terminar, use o seguinte comando para eliminar o grupo de recursos e todos os seus recursos contidos para evitar incorrer em custos adicionais.
 

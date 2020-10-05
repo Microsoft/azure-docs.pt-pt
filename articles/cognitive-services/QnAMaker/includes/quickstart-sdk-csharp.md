@@ -4,10 +4,10 @@ description: Este quickstart mostra como começar com a biblioteca cliente do Qn
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88246120"
 ---
 Utilize a biblioteca cliente QnA Maker para .NET para:
@@ -116,7 +116,7 @@ Utilize o método [GenerateAnswer](/dotnet/api/microsoft.azure.cognitiveservices
 Estes snippets de código mostram-lhe como fazer o seguinte com a biblioteca cliente QnA Maker para .NET:
 
 * [Autenticar o cliente de autoria](#authenticate-the-client-for-authoring-the-knowledge-base)
-* [Criar uma base de dados de conhecimento](#create-a-knowledge-base)
+* [Criar uma base de conhecimento](#create-a-knowledge-base)
 * [Atualizar uma base de dados de conhecimento](#update-a-knowledge-base)
 * [Descarregue uma base de conhecimento](#download-a-knowledge-base)
 * [Publicar uma base de dados de conhecimento](#publish-a-knowledge-base)

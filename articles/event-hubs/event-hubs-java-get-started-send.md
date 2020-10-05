@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 5ca03883cf7daa66e94fd78df9e03535fe6f51e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88934009"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)

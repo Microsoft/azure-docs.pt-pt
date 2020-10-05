@@ -10,10 +10,10 @@ ms.custom: mvc, devx-track-js
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303102"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração Node.js (pré-visualização)
@@ -164,7 +164,7 @@ Agora use a sua aplicação de cliente RDP e ligue-se ao representante de servi�
 
 ![O cliente RDP conecta-se à aplicação de procuração local de serviço](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

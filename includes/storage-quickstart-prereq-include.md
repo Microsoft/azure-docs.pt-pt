@@ -9,10 +9,10 @@ ms.date: 02/27/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b250374cf9827fe8971c1ba02d087ae1a6ce7854
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78206928"
 ---
 Para aceder ao Azure Storage, precisará de uma subscrição do Azure. Se ainda não tiver uma subscrição, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.

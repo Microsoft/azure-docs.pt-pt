@@ -18,30 +18,30 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68989683"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início Rápido: Transferir um relatório de auditoria no portal do Azure
 
-Neste arranque rápido, você aprende a descarregar um ficheiro CSV dos registos de auditoria para o seu inquilino nas últimas 24 horas. Você pode baixar até 250.000 registos do portal Azure. Os registos são classificados pela mais recente, por isso, por padrão, obtém-se os mais recentes 250.000 registos. 
+Neste arranque rápido, você aprende a baixar um ficheiro CSV dos registos de auditoria para o seu inquilino nas últimas 24 horas. Você pode baixar até 250.000 registos a partir do portal Azure. Os registos são classificados pela mais recente, por padrão, obtém-se os mais recentes 250.000 registos. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário:
 
 * Um inquilino do Azure Active Directory. 
-* Um utilizador, que está no papel de Administrador de **Segurança,** **Leitor de Segurança,** ou **Administrador Global** para o inquilino. Além disso, qualquer utilizador no inquilino pode aceder aos seus próprios registos de auditoria.
+* Um utilizador, que esteja no **cargo de Administrador de Segurança,** Leitor de **Segurança**ou **Administrador Global** para o arrendatário. Além disso, qualquer utilizador no inquilino pode aceder aos seus próprios registos de auditoria.
 
 ## <a name="quickstart-download-an-audit-report"></a>Início Rápido: Transferir um relatório de auditoria
 
-1. Navegue para o [portal Azure.](https://portal.azure.com)
+1. Navegue até ao [portal Azure.](https://portal.azure.com)
 2. Selecione **Azure Active Directory** no painel de navegação esquerdo e utilize o botão **Trocar diretório** para selecionar o Active Directory.
 3. No dashboard, selecione **Azure Active Directory** e, em seguida, selecione **Registos de auditoria**. 
 4. Escolha **últimas 24 horas** no filtro pendente **Intervalo de datas** e selecione **Aplicar** para ver os registos de auditoria das últimas 24 horas. 
-5. Selecione o botão **Descarregamento,** selecione **CSV** como formato de ficheiro e especifique um nome de ficheiro para descarregar um ficheiro CSV contendo os registos filtrados. 
+5. Selecione o botão **Descarregar,** selecione **CSV** como formato de ficheiro e especifique um nome de ficheiro para descarregar um ficheiro CSV contendo os registos filtrados. 
 
 ![Relatórios](./media/quickstart-download-audit-report/download-audit-logs.png)
 

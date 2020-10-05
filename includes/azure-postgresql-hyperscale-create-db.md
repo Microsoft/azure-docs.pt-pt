@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
@@ -9,10 +9,10 @@ ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "74973424"
 ---
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -38,7 +38,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
    > A palavra-passe de administração do servidor que especifica aqui é necessária para iniciar sessão no servidor e nas suas bases de dados. Lembre-se ou grave estas informações para utilização posterior.
 
 5. Clique **no grupo de servidores Configure**. Deixe as definições inalteradas nessa secção e clique em **Guardar**.
-6. Clique **em seguida : >de rede** na parte inferior do ecrã.
+6. Clique **em seguida : >de rede ** na parte inferior do ecrã.
 
 7. No **separador 'Rede',** clique no botão de rádio **ponto final público.**
    ![Ponto final público selecionado](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)

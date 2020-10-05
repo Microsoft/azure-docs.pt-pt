@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: c133a309cc85ffcfb69be2ae7bbb614cbb540f2e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87847147"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-powershell"></a>Quickstart: Implementar o servidor FHIR open source usando PowerShell
@@ -52,7 +52,7 @@ $metadata.RawContent
 
 Levará um minuto ou mais para o servidor responder pela primeira vez.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine o grupo de recursos com os seguintes passos:
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: e969520e226999bc2b104fb4f757619832eaa165
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88944470"
 ---
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local

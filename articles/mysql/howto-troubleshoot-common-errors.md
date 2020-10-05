@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88720254"
 ---
 # <a name="common-errors"></a>Erros comuns

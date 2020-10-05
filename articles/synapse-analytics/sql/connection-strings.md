@@ -11,10 +11,10 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
 ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91289383"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Cadeias de ligação para Synapse SQL (pré-visualização)

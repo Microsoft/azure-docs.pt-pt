@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88031829"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo de contentores Azure utilizando o portal Azure
@@ -31,7 +31,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 No **separador Básicos,** introduza valores para **o grupo de Recursos** e nome do **registo.** O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Para este início rápido, crie um novo grupo de recursos na localização `West US` com o nome `myResourceGroup`, e para o **SKU**, selecione "Básico".
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Criar registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navegue para o registo de contentores no portal":::
 
 Aceite valores predefinidos para as definições restantes. Em seguida, **selecione Rever + criar**. Depois de rever as definições, selecione **Criar**.
 
@@ -39,7 +39,7 @@ Neste quickstart você cria um registo *Básico,* que é uma opção otimizada p
 
 Quando a mensagem **de implementação tiver sido bem sucedida,** selecione o registo do contentor no portal. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Visão geral do registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navegue para o registo de contentores no portal":::
 
 Tome nota do nome do registo e do valor do **servidor Login**. Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
 
@@ -63,9 +63,9 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 ## <a name="list-container-images"></a>Listar imagens de contentor
 
-Para listar as imagens no seu registo, navegue para o seu registo no portal e selecione **Repositórios,** selecione o repositório **hello-world** com o que `docker push` criou.
+Para listar as imagens no seu registo, navegue para o seu registo no portal e selecione **Repositórios,** selecione o repositório  **hello-world** com o que `docker push` criou.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Listar imagens de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navegue para o registo de contentores no portal":::
 
 Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em **Tags**.
 
@@ -75,7 +75,7 @@ Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em
 
 Para limpar os seus recursos, navegue para o grupo de recursos **myResourceGroup** no portal. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Eliminar grupo de recursos no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Navegue para o registo de contentores no portal":::
 
 
 ## <a name="next-steps"></a>Passos seguintes

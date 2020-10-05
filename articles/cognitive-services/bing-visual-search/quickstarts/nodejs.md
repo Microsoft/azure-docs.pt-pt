@@ -12,10 +12,10 @@ ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
 ms.openlocfilehash: e96ff9173d920208e067988602323626767d9017
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91277097"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem utilizando a API e o Node.js de pesquisa visual Bing Visual

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
 ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91252311"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
@@ -58,7 +58,7 @@ Se ainda não tiver uma aplicação web, use os seguintes passos para definir ex
 
 1. Selecione **Rever + criar,** rever o **Resumo**e, em seguida, selecione **Criar**. Pode levar alguns minutos para a colocação estar completa.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Resumo de revisão para aplicação web":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 Depois da sua implementação estar concluída, crie uma segunda aplicação web. Utilizar o mesmo procedimento com os mesmos valores, com exceção dos seguintes valores:
 
@@ -87,7 +87,7 @@ Configure a Porta Frontal Azure para direcionar o tráfego do utilizador com bas
 
 1. Para **o nome hospedeiro,** insira um nome de anfitrião globalmente único. Este exemplo utiliza *contoso-frontend*. Selecione **Adicionar**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Adicione um anfitrião frontal para Azure Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 Em seguida, crie uma piscina de backend que contenha as suas duas aplicações web.
 
@@ -95,7 +95,7 @@ Em seguida, crie uma piscina de backend que contenha as suas duas aplicações w
 
 1. Para **nomear**, insira *myBackendPool*e, em seguida, selecione **Adicione um backend**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Adicione uma piscina de backend":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 1. Na lâmina de backend Adicionar uma lâmina **de backend,** selecione as seguintes informações e selecione **Adicionar**.
 
@@ -107,7 +107,7 @@ Em seguida, crie uma piscina de backend que contenha as suas duas aplicações w
 
     **Deixe todos os outros campos padrão.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Adicione um anfitrião de backend à sua Porta da Frente":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 1. **Selecione Adicione novamente um backend.** selecione as seguintes informações e **selecione Adicionar**.
 
@@ -121,7 +121,7 @@ Em seguida, crie uma piscina de backend que contenha as suas duas aplicações w
 
 1. **Selecione Adicione** a lâmina de **piscina de backend** para completar a configuração da piscina de backend.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Adicione uma piscina de backend para Azure Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento mapeia o seu anfitrião frontal para a piscina de backend. A regra remete um pedido `contoso-frontend.azurefd.net` para **o myBackendPool**.
 
@@ -129,14 +129,14 @@ Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento ma
 
 1. In **Adicionar uma regra**, para **nome,** *insira o LocalizaçãoRule*. Aceite todos os valores predefinidos e, em seguida, **selecione Adicione** para adicionar a regra de encaminhamento.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Adicione uma regra à sua porta da frente":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
    >[!WARNING]
    > **Deve** certificar-se de que cada um dos anfitriões frontais da porta da frente tem uma regra de encaminhamento com um caminho predefinido `\*` () associado a ela. Ou seja, em todas as suas regras de encaminhamento deve haver pelo menos uma regra de encaminhamento para cada um dos seus anfitriões frontend definidos no caminho padrão `\*` (). Se não o fizer, poderá resultar em que o tráfego do utilizador final não seja corretamente encaminhado.
 
 1. Selecione **Rever + Criar**e, em seguida, **Criar**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Porta frontal Azure configurada":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
 ## <a name="view-azure-front-door-in-action"></a>Ver Azure Front Door em ação
 
@@ -161,9 +161,9 @@ Para testar o failover global instantâneo em ação, experimente os seguintes p
 
 1. Atualize o seu browser. Desta vez, deve ver uma mensagem de erro.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Ambas as instâncias da aplicação web pararam":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de terminar, pode remover todos os itens que criou. A eliminação de um grupo de recursos também elimina o seu conteúdo. Se não pretender usar esta Porta frontal, deve remover recursos para evitar cargas desnecessárias.
 

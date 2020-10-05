@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91294880"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Crie a sua primeira função durável em Python

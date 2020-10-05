@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 655c016b55abdcf4b6f546a1fe16348ec4c83724
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87853369"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Quickstart: Criar um projeto com um ambiente personalizado em Azure Notebooks Preview
@@ -54,7 +54,7 @@ Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, fich
 
    | Operação | Descrição |
    | --- | --- |
-   | Requirements.txt | Os projetos python definem as suas dependências num ficheiro requirements.txt. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto e selecione também a versão Python no drop-down adicional que aparece. Se necessário, **selecione Cancelar** para voltar ao projeto, carregar ou criar o ficheiro, em seguida, voltar ao separador **Ambiente Definições**de Projeto e criar um novo  >  **Environment** passo. Com este passo no lugar, executar um caderno no projeto corre automaticamente`pip install -r <file>` |
+   | Requirements.txt | Os projetos python definem as suas dependências num ficheiro requirements.txt. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto e selecione também a versão Python no drop-down adicional que aparece. Se necessário, **selecione Cancelar** para voltar ao projeto, carregar ou criar o ficheiro, em seguida, voltar ao separador **Ambiente Definições**de Projeto e criar um novo  >  **Environment** passo. Com este passo no lugar, executar um caderno no projeto corre automaticamente `pip install -r <file>` |
    | Script de concha | Utilize para indicar um script de concha de bash (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente. |
    | Ambiente.yml | Um projeto Python que usa conda para gerir um ambiente usa um ficheiro *environments.yml* para descrever dependências. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto. |
 

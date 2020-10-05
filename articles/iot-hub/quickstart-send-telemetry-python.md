@@ -15,10 +15,10 @@ ms.custom:
 - 'Role: Cloud Development'
 ms.date: 06/16/2020
 ms.openlocfilehash: 3df26f78e66aa1806fd13fd1a46444bb5dc79742
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87876228"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Python)
@@ -49,7 +49,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -154,7 +154,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     ![Executar a aplicação back-end](media/quickstart-send-telemetry-python/read-device-to-cloud.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

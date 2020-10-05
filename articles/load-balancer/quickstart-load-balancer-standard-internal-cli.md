@@ -17,10 +17,10 @@ ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: dc6abc51fd0e5669126f1d2f1a977194479db5f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91269884"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio usando Azure CLI
@@ -848,7 +848,7 @@ Pode levar alguns minutos para a máquina virtual ser implantada.
    
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 

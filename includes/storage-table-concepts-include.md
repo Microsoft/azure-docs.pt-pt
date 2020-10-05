@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "77013651"
 ---
 ## <a name="what-is-table-storage"></a>O que é o armazenamento de Tabelas
@@ -31,7 +31,7 @@ O armazenamento de tabelas contém os seguintes componentes:
   As Contas da API de Tabela do Azure Cosmos DB utilizam este formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Pode também endereçar diretamente as tabelas do Azure utilizando este endereço com o protocolo OData. Para obter mais informações, veja [OData.org][OData.org].
-* **Contas:** todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte a [visão geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
+* **Contas:** todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de Armazenamento.](../articles/storage/common/storage-account-overview.md)
 
     Todos os acessos ao Azure Cosmos DB são realizados através de uma conta de API de Tabela. Veja [Criar uma conta da API de Tabela](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para mais detalhes sobre a criação de uma conta de API de Tabela.
 * **Tabela**: uma tabela é uma coleção de entidades. As tabelas não impõem um esquema a entidades, o que significa que uma única tabela pode conter entidades que tenham conjuntos diferentes de propriedades.  

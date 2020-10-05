@@ -10,10 +10,10 @@ ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
 ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88650587"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Encrypt Azure Data Factory com chaves geridas pelo cliente

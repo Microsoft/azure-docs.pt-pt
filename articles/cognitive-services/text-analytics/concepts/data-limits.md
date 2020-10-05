@@ -12,10 +12,10 @@ ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
 ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88258271"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
@@ -77,7 +77,7 @@ O seu limite de tarifa variará em função do seu [nível de preços.](https://
 Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada recurso, ao mesmo tempo.  
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [O que é a API de Análise de Texto](../overview.md)
 * [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684121"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Quickstart: Criar um cofre de serviços de recuperação usando um modelo ARM
@@ -63,7 +63,7 @@ Para implementar o modelo, é necessário o nome **De assinatura,** **grupo de r
 
 1. Para iniciar a implantação do cofre, selecione o botão **'Comprar'.** Após uma implementação bem sucedida, é apresentada uma notificação.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="A colocação do cofre foi um sucesso.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Modelo para criar um cofre de Serviços de Recuperação.":::
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 

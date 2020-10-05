@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723503"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares e tabelas de valor-chave

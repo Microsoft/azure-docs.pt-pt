@@ -12,10 +12,10 @@ ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: dc20b6abaf04b3743218e35d258bc8beab33c542
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91277449"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Java

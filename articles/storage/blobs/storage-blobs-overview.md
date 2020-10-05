@@ -1,6 +1,6 @@
 ---
-title: Sobre o armazenamento blob (objeto) - Armazenamento Azure
-description: O Armazenamento de blobs do Azure armazena grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. O armazenamento blob também suporta o Azure Data Lake Storage Gen2 para análise de big data.
+title: Sobre o armazenamento blob (objeto) - Azure Storage
+description: O Armazenamento de blobs do Azure armazena grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. O armazenamento de blob também suporta a Azure Data Lake Storage Gen2 para análise de big data.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73615749"
 ---
 # <a name="what-is-azure-blob-storage"></a>O que é o armazenamento de Blobs do Azure? 
@@ -21,5 +21,5 @@ ms.locfileid: "73615749"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução ao Armazenamento de blobs do Azure](storage-blobs-introduction.md)
-- [Introdução ao Armazenamento de Lagos De Dados Azure Gen2](../blobs/data-lake-storage-introduction.md)
+- [Introdução ao armazenamento de blobs do Azure](storage-blobs-introduction.md)
+- [Introdução ao Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

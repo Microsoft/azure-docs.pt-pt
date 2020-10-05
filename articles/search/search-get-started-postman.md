@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88929776"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no Carteiro usando APIs REST
@@ -290,7 +290,7 @@ Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pe
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` caminho de URL separa o caminho do URL da cadeia de consulta, enquanto & separa cada par 'name=value' na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: fb577947942ffce640f91daf0050f6796f93222b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91311687"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
@@ -187,7 +187,7 @@ Copie e cole o endereço IP público na barra de endereço do seu navegador.
 
 Ao refrescar o navegador, deverá ver o nome do segundo VM. Isto indica que o gateway de aplicação foi criado com sucesso e pode ligar-se com o backend.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, utilize o `az group delete` comando para eliminar o grupo de recursos. Quando elimina o grupo de recursos, também elimina o gateway de aplicações e todos os seus recursos relacionados.
 

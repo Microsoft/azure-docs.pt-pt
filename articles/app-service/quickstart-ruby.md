@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961343"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar uma App Ruby on Rails no Serviço de Aplicações

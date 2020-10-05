@@ -12,10 +12,10 @@ ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a5e957e21b431ede445fd64774fa4727eda7f803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88922247"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Quickstart: Procure imagens utilizando a API e C de Pesquisa de Imagem de Bing #
@@ -207,10 +207,10 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é a API de Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Detalhes dos preços das APIs de pesquisa de Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Documentação dos Serviços Cognitivos da Azure](https://docs.microsoft.com/azure/cognitive-services)
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

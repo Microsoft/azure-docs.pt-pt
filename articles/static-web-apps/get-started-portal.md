@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
 ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91280572"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Quickstart: Construir a sua primeira aplicação web estática no portal Azure
@@ -51,7 +51,7 @@ Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repos
 
 Depois de assinar com o GitHub, insira a informação do repositório.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Detalhes do repositório":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Secção básica":::
 
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **a minha primeira web-web-static-app** a partir do _repositório_ drop-down
@@ -94,22 +94,22 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 
 1. Selecione **Rever + criar**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Rever criar botão":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Secção básica":::
 
     > [!NOTE]
     > Pode editar o [ficheiro workflow](github-actions-workflow.md) para alterar estes valores depois de criar a aplicação.
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Botão Criar":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Secção básica":::
 
 1. Selecione **Ir para recurso**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Botão Ir para recurso":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Secção básica":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 

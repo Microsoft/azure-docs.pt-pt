@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
 ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88511376"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
@@ -97,7 +97,7 @@ Para criar uma segunda tarefa, repita os passos acima. Introduza outro **ID de T
 
 As tarefas de exemplo que criou serão concluídas em alguns minutos. Para visualizar a saída de uma tarefa concluída, selecione a tarefa e, em seguida, selecione **Ficheiros no nó**. Selecione o ficheiro `stdout.txt` para visualizar a saída padrão da tarefa. Os conteúdos são semelhantes ao seguinte:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot da saída a partir de uma tarefa completa.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot do Serviço de Lote no Mercado Azure.":::
 
 O conteúdo mostra as variáveis de ambiente do Azure Batch que estão definidas no nó. Quando criar os seus próprios trabalhos e as suas próprias tarefas do Batch, pode referenciar estas variáveis de ambiente nas linhas de comandos de tarefas e nas aplicações e scripts executados pelas linhas de comandos.
 

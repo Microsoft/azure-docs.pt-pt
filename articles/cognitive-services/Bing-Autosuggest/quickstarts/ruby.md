@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.openlocfilehash: dc7b929aa139e6d51af25d4689166d2596dda70b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91262897"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Ruby
@@ -151,7 +151,7 @@ Siga este quickstart para aprender a fazer chamadas para a Bing Autosuggest API 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

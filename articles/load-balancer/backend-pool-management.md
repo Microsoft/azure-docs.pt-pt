@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
 ms.openlocfilehash: 81fad1c77b917c1e3eaf7ddd200c3fea83cb0e0a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88589678"
 ---
 # <a name="backend-pool-management"></a>Gestão de piscinas de backend

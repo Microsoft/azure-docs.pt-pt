@@ -9,10 +9,10 @@ ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 060bc1039982cc0a77214d5dbe2a08de7a839c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67184738"
 ---
 Para abrir uma sessão SSH direta com o seu contentor, a sua aplicação deve estar em execução.

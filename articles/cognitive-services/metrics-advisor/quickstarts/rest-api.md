@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: aahi
 ms.openlocfilehash: 2376ea01190d619a5d1b6368a17e55c09806a406
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91253751"
 ---
 # <a name="quickstart-use-the-rest-apis-to-customize-your-solution"></a>Quickstart: Use as APIs REST para personalizar a sua solução
@@ -31,7 +31,7 @@ Utilize o Advisor métrica para executar:
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

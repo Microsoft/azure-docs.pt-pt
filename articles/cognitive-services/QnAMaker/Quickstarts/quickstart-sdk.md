@@ -6,10 +6,10 @@ ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
 ms.openlocfilehash: aae9bce5542dc4c610df91d8176916adc459fe86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91253939"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Quickstart: Biblioteca de clientes QnA Maker
@@ -40,7 +40,7 @@ Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instal
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

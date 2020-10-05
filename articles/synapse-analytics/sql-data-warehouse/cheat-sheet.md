@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136104"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
@@ -65,7 +65,7 @@ Utilize as seguintes estratégias, consoante as propriedades da tabela:
 * Não distribua no formato varchar.
 * As tabelas de dimensões com chaves de hash comuns para tabelas de factos com operações de associação frequentes podem ser distribuídas com hash.
 * Utilize *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar eventuais assimetrias nos dados.
-* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar os movimentos de dados por trás de consultas, monitorizar a transmissão do tempo e baralhar as operações. Esta opção é útil para rever a estratégia de distribuição.
+* Utilize *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar os movimentos de dados por trás de consultas, monitorizar a transmissão do tempo e baralhar as operações. Esta opção é útil para rever a estratégia de distribuição.
 
 Saiba mais sobre as [tabelas replicadas](design-guidance-for-replicated-tables.md) e as [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 

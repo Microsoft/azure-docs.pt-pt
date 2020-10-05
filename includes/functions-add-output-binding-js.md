@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
 ms.openlocfilehash: 098aaba0a357c13a059d3c4042a19715c6b5ad42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78191101"
 ---
 Adicione código que utiliza o `msg` objeto de ligação de saída `context.bindings` para criar uma mensagem de fila. Adicione este código antes da `context.res` declaração.

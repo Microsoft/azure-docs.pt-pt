@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como escrever código Python para capturar d
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: cb7165565516136a8425c4c77748c2e13715edb7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88927872"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capture os dados do Event Hubs no Azure Storage e leia-os utilizando python (versão azure-eventhub 5)

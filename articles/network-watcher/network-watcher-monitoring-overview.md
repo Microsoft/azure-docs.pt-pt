@@ -15,15 +15,15 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76844994"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
-O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. O Network Watcher foi concebido para monitorizar e reparar a saúde da rede dos produtos IaaS (Infraestrutura-as-a-Service), que inclui Máquinas Virtuais, Redes Virtuais, Gateways de Aplicações, Equilibradores de Carga, etc. Nota: Não se destina nem funcionará para monitorização paaS ou análise web. 
+O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. O Network Watcher foi concebido para monitorizar e reparar a saúde da rede de produtos IaaS (Infra-estruturas-as-a-Service), que inclui máquinas virtuais, redes virtuais, gateways de aplicações, equilibradores de carga, etc. Nota: Não se destina e não funcionará para monitorização paaS ou análise web. 
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -95,10 +95,10 @@ Saiba mais sobre os registos de fluxo do NSG ao concluir o tutorial [Registar o 
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ver registos de diagnóstico de recursos de rede
 
-Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver registos de diagnóstico utilizando ferramentas como registos Microsoft Power BI e Azure Monitor. Para saber mais sobre a análise dos registos de diagnóstico da rede Azure, consulte as soluções da [rede Azure nos registos do Monitor Azure.](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
+Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode visualizar registos de diagnóstico utilizando ferramentas como os registos Do Microsoft Power BI e Azure Monitor. Para saber mais sobre a análise dos registos de diagnóstico da rede [Azure, consulte as soluções de rede Azure nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do Observador de Rede
-Quando criar ou atualizar uma rede virtual na subscrição, o Observador de Rede será ativado automaticamente na região da Rede Virtual. Não existe impacto sobre os seus recursos ou custos associados à ativação automática do Observador de Rede. Para mais informações, consulte [Network Watcher criar](network-watcher-create.md).
+## <a name="network-watcher-automatic-enablement"></a>Ativação automática do Observador de Rede
+Quando criar ou atualizar uma rede virtual na subscrição, o Observador de Rede será ativado automaticamente na região da Rede Virtual. Não existe impacto sobre os seus recursos ou custos associados à ativação automática do Observador de Rede. Para obter mais informações, consulte [o Network Watcher criar](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

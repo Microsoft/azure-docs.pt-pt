@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91264291"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo com mapas Azure
@@ -62,7 +62,7 @@ Assim que a sua conta Maps for criada com sucesso, recupere a chave primária qu
 >[!NOTE]
 > Se utilizar a chave de subscrição em vez da chave primária, o seu mapa não renderizará corretamente. Além disso, por razões de segurança, recomenda-se que rode entre as suas teclas primária e secundária. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtenha a chave principal Azure Maps no portal Azure":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Criar a conta do Maps no portal":::
 
 ## <a name="download-the-demo-application"></a>Transferir a aplicação de demonstração
 
@@ -78,10 +78,10 @@ Assim que a sua conta Maps for criada com sucesso, recupere a chave primária qu
 4. Usufrua da experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo da aplicação web de demonstração, procure **restaurantes.**
 5. Desloque o rato sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Repare como o pino correspondente no mapa mostra informações sobre o local. Por motivos de privacidade das empresas privadas, são apresentados nomes e endereços fictícios.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicação web de pesquisa de mapas interativos":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Criar a conta do Maps no portal":::
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 >[!WARNING]
 >Os tutoriais listados na secção [Next Steps](#next-steps) detalham como usar e configurar mapas Azure com a sua conta. Não limpe os recursos criados neste quickstart se pretende continuar para os tutoriais.

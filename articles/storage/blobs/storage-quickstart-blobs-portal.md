@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
 ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88067778"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs com o portal do Azure
@@ -68,7 +68,7 @@ Pode transferir um blob de blocos para apresentar no browser ou guardar no seu s
 1. Navegue para a lista de blobs que carregou na secção anterior.
 1. Selecione as bolhas que pretende eliminar e selecione **Eliminar** na barra de ação superior.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover todos os recursos que criou neste arranque rápido, pode simplesmente apagar o recipiente. Todos os blobs no contentor também serão eliminados.
 

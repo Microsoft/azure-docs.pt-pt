@@ -7,10 +7,10 @@ description: Saiba como a Azure Dev Spaces proporciona uma experiência rápida 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: ad884d5e054f23269b238b791e250c732d70a9b8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88210641"
 ---
 # <a name="what-is-azure-dev-spaces"></a>O que é o Azure Dev Spaces?

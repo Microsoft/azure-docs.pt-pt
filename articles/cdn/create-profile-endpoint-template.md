@@ -13,10 +13,10 @@ ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
 ms.openlocfilehash: aca3c9c52260d3ea2ab8def37566377fa67e712d
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705933"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Quickstart: Criar um perfil de CDN azul e ponto final - modelo ARM

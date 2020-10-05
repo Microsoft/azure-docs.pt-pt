@@ -4,10 +4,10 @@ description: Neste quickstart, você usa a API REST para criar uma atribuição 
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136532"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com a API REST
@@ -55,10 +55,10 @@ O organismo final e de pedido anteriores utiliza as seguintes informações:
 
 REPOUSO API URI:
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
-  - Grupo de gestão:`/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura:`/subscriptions/{subscriptionId}`
+  - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+  - Assinatura: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Recurso:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
+  - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
 
 Corpo de Pedido:
@@ -102,7 +102,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição criada, utilize o seguinte comando:
 
@@ -112,7 +112,7 @@ DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/po
 
 `{scope}`Substitua-o pelo âmbito utilizado quando criou a atribuição de política pela primeira vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 

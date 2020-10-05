@@ -16,10 +16,10 @@ ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
 ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88783819"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?

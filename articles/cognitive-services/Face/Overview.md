@@ -12,10 +12,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
 ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91262489"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
@@ -29,7 +29,7 @@ O serviço Azure Face fornece algoritmos de IA que detetam, reconhecem e analisa
 
 O serviço Face fornece várias funções de análise facial diferentes que são descritas nas seguintes secções.
 
-## <a name="face-detection"></a>Deteção de rostos
+## <a name="face-detection"></a>Deteção facial
 
 O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
 

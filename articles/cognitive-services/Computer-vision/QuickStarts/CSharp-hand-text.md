@@ -12,10 +12,10 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88928246"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Quickstart: Extrair texto utilizando a operação de leitura da API de Visão De Computador 3.0 REST e C #
@@ -401,7 +401,7 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine a solução do Visual Studio. Para tal, abra o Explorador de Ficheiros, navegue para a pasta onde criou a solução do Visual Studio e elimine a pasta.
 

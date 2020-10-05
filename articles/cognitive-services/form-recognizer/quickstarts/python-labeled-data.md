@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: e96940960b6ee131068b77bca4818499377ea3dd
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723504"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python
@@ -40,7 +40,7 @@ Para completar este arranque rápido, você deve ter:
 
 Em seguida, terá de configurar os dados de entrada necessários. A funcionalidade de dados etiquetada tem requisitos especiais de entrada para além do necessário para treinar um modelo personalizado sem etiquetas.
 
-Certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em sub-dobradeiras com base no formato comum. Quando treinar, terá de direcionar a API para uma sub-dobra.
+Certifique-se de que todos os documentos de treino são do mesmo formato. Se tiver formulários em vários formatos, organize-os em subpastas com base no formato comum. Ao preparar, precisará de direcionar a API para uma subpasta.
 
 Para formar um modelo utilizando dados rotulados, necessitará dos seguintes ficheiros como entradas na sub-pasta. Você vai aprender a criar estes ficheiros abaixo.
 
@@ -255,7 +255,7 @@ Para cada formulário de origem, o ficheiro de etiqueta correspondente deve ter 
 Para treinar um modelo com dados rotulados, ligue para a API **[do Modelo Personalizado do Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
 1. `<Endpoint>`Substitua-o pelo URL do ponto final para o seu recurso 'Reconhecimento de Formulário'.
-1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. `<Blob folder name>`Substitua-a pelo nome da pasta no seu recipiente blob onde estão os dados de entrada. Ou, se os seus dados estiverem na raiz, deixe este em branco e retire o `"prefix"` campo do corpo do pedido HTTP.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: mimart
 ms.openlocfilehash: fa4912e08bb7c82595301c46b8f497e3322fbdf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78183942"
 ---
 > [!NOTE]

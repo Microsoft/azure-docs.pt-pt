@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Catálogo de Dados Azure
+title: Introdução ao Catálogo de Dados do Azure
 description: Este artigo fornece uma descrição geral do Catálogo de Dados do Microsoft Azure, incluindo as suas funcionalidades e os problemas que se destina a resolver. O Catálogo de Dados permite a qualquer utilizador registar-se, detetar, compreender e consumir origens de dados.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,15 +7,15 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68736986"
 ---
 # <a name="what-is-azure-data-catalog"></a>O que é o Catálogo de Dados do Azure?
 
-O Azure Data Catalog é um serviço de cloud totalmente gerido. Permite que os utilizadores descubram as fontes de dados de que necessitam e compreendam as fontes de dados que encontram. Ao mesmo tempo, o Catálogo de Dados ajuda as organizações a obter mais valor dos investimentos existentes.
+O Azure Data Catalog é um serviço de nuvem totalmente gerido. Permite que os utilizadores descubram as fontes de dados de que necessitam e compreendam as fontes de dados que encontram. Ao mesmo tempo, o Catálogo de Dados ajuda as organizações a obter mais valor dos investimentos existentes.
 
 Com o Catálogo de Dados, qualquer utilizador (analista, cientista de dados ou programador) pode detetar, compreender e consumir origens de dados. O Catálogo de Dados inclui um modelo de crowdsourcing dos metadados e anotações. É um local central único onde todos os utilizadores de uma organização podem contribuir com o seu conhecimento e criar uma comunidade e cultura de dados.
 
@@ -23,10 +23,10 @@ Com o Catálogo de Dados, qualquer utilizador (analista, cientista de dados ou p
 
 Tradicionalmente, detetar origens de dados empresariais era um processo orgânico com base em conhecimento tribal. Para as empresas que querem obter o máximo valor dos respetivos recursos de informações, esta abordagem coloca vários desafios:
 
-* Os utilizadores podem não saber que existe uma fonte de dados a menos que entrem em contacto com ela como parte de outro processo. Não existe uma localização central onde as origens de dados estão registadas.
+* Os utilizadores podem não saber que existe uma fonte de dados a menos que entrem em contacto com ele como parte de outro processo. Não existe uma localização central onde as origens de dados estão registadas.
 * A menos que os utilizadores saibam qual a localização de uma origem de dados, não poderão ligar-se aos dados através de uma aplicação cliente. As experiências de consumo de dados requerem que os utilizadores saibam qual é o caminho ou cadeia de ligação.
 * A menos que os utilizadores saibam qual a localização da documentação de uma origem de dados, não poderão compreender as utilizações previstas dos dados. A documentação e as origens de dados podem residir numa variedade de locais e ser consumidas através de uma variedade de experiências.
-* Se os utilizadores tiverem perguntas sobre um recurso de informações, têm de localizar o especialista ou equipa responsável pelos dados e contactá-lo offline. Não existe uma ligação explícita entre os dados e os peritos que têm perspetivas sobre a sua utilização.
+* Se os utilizadores tiverem perguntas sobre um recurso de informações, têm de localizar o especialista ou equipa responsável pelos dados e contactá-lo offline. Não existe uma ligação explícita entre os dados e os especialistas que têm perspetivas sobre a sua utilização.
 * A menos que os utilizadores compreendam o processo para pedir acesso à origem de dados, a deteção da origem de dados e a respetiva documentação continua a não ajudá-los a aceder aos dados.
 
 ## <a name="discovery-challenges-for-data-producers"></a>Desafios de deteção para os produtores de dados
@@ -34,7 +34,7 @@ Tradicionalmente, detetar origens de dados empresariais era um processo orgânic
 Embora os consumidores de dados enfrentem os desafios que apresentámos, os utilizadores responsáveis pela produção e manutenção dos recursos de informações enfrentam os seus próprios desafios:
 
 * Anotar origens de dados com metadados descritivos é, geralmente, um desperdício de esforço. As aplicações cliente tendem a ignorar descrições armazenadas na origem de dados.
-* Criar documentação para origens de dados é, geralmente, um desperdício de esforço. Manter a documentação sincronizada com fontes de dados é uma responsabilidade contínua. Os utilizadores podem não ter confiança na documentação que é vista como estando desatualizada.
+* Criar documentação para origens de dados é, geralmente, um desperdício de esforço. Manter a documentação sincronizada com fontes de dados é uma responsabilidade permanente. Os utilizadores podem não ter confiança na documentação que é entendida como estando desatualizada.
 * Criar e manter documentação para origens de dados é complexo e moroso. Assegurar a disponibilidade imediata dessa documentação para todos os utilizadores da origem de dados é ainda mais complexo.
 * Restringir o acesso às origens de dados e garantir que os consumidores de dados sabem como pedir acesso é um desafio contínuo.
 
@@ -46,7 +46,7 @@ O Catálogo de Dados foi concebido para resolver estes problemas e para ajudar a
 
 O Catálogo de Dados fornece um serviço baseado na cloud, no qual uma origem de dados pode ser registada. Os dados permanecem na localização existente, mas uma cópia dos respetivos metadados é adicionada ao Catálogo de Dados, juntamente com uma referência à localização da origem de dados. Os metadados também são indexados para tornar cada origem de dados facilmente detetável através da pesquisa e compreensível para os utilizadores que a detetarem.
 
-Depois de ter sido registada uma fonte de dados, os seus metadados podem então ser enriquecidos. Os metadados podem ser adicionados quer pelo utilizador que os registou ou por outros utilizadores da empresa. Qualquer utilizador pode anotar uma origem de dados, fornecendo as descrições, etiquetas ou outros metadados, como a documentação e os processos para pedir acesso à origem de dados. Estes metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registados a partir da origem de dados.
+Depois de uma fonte de dados ter sido registada, os seus metadados podem então ser enriquecidos. Os metadados podem ser adicionados pelo utilizador que o registou ou por outros utilizadores da empresa. Qualquer utilizador pode anotar uma origem de dados, fornecendo as descrições, etiquetas ou outros metadados, como a documentação e os processos para pedir acesso à origem de dados. Estes metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registados a partir da origem de dados.
 
 Detetar e compreender origens de dados e a sua utilização são o objetivo principal de registar as origens. Os utilizadores empresariais poderão precisar de dados para business intelligence, programação de aplicações, ciência de dados ou para qualquer outra tarefa em que sejam necessários os dados certos. Podem utilizar a experiência de deteção do Catálogo de Dados para encontrar rapidamente os dados que satisfaçam as suas necessidades, compreender os dados para avaliar a adequação dos mesmos ao objetivo em questão e consumir os dados ao abrir a origem de dados na ferramenta que preferirem. 
 
@@ -70,7 +70,7 @@ Para saber mais sobre as funcionalidades do Catálogo de Dados, veja:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar com o Data Catalog:
+Para começar com o Catálogo de Dados:
 
 * [Quickstart: Criar um Catálogo de Dados Azure](data-catalog-get-started.md)
 * [Abra o seu Catálogo de Dados Azure](https://www.azuredatacatalog.com)

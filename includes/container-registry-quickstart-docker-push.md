@@ -9,10 +9,10 @@ ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88031824"
 ---
 ## <a name="push-image-to-registry"></a>Enviar imagem para o registo

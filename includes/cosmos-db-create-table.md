@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,15 +9,15 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 5743d785afb87aef6b3a89af6dc8eb18f66b164d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68854660"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e uma tabela. 
 
-1. Selecione **data Explorer** > **new table**. 
+1. Selecione **data explorer**  >  **nova tabela**. 
     
     A área **Adicionar Tabela** é apresentada na extremidade direita, pelo que poderá ter de se deslocar para a direita para vê-la.
 
@@ -28,7 +28,7 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
     Definição|Valor sugerido|Descrição
     ---|---|---
     ID da tabela|tabela de exemplo|O ID da sua nova tabela. Os nomes das tabelas têm os mesmos requisitos de carateres que os IDs das bases de dados. Os nomes das bases de dados têm de ter entre um e 255 carateres e não podem conter `/ \ # ?` nem espaços à direita.
-    Débito|400 RUs|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.
+    Débito|400 RUs|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde.
 
 3. Selecione **OK**.
 

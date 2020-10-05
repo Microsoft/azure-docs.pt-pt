@@ -1,5 +1,5 @@
 ---
-title: Experimente uma solução para gerir os meus dispositivos IoT industriais - Azure / Microsoft Docs
+title: Experimente uma solução para gerir os meus dispositivos IoT industriais - Azure ! Microsoft Docs
 description: Neste início rápido, vai implementar o acelerador de soluções de Fábrica Ligada de IoT do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "62127468"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução com base na cloud para gerir os meus dispositivos IoT industriais
@@ -26,7 +26,7 @@ Este início rápido mostra como implementar o acelerador de soluções de Fábr
 
 Para concluir este início rápido, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -54,7 +54,7 @@ Na página **Soluções aprovisionadas**, clique no novo acelerador de soluçõe
 
 ![Escolher a nova solução](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Pode ver informações sobre o seu acelerador de soluções Connected Factory na página que aparece. Escolha ir ao acelerador da **Solução** para visualizar o acelerador de soluções Connected Factory:
+Pode ver informações sobre o seu acelerador de solução De Fábrica Conectado na página que aparece. Escolha **Ir ao seu acelerador de solução** para ver o seu acelerador de solução de fábrica conectado:
 
 ![Painel de soluções](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 
@@ -88,19 +88,19 @@ Pode clicar num gráfico para fazer ainda mais análises aos dados.
 
 O painel **Indicadores Chave de Desempenho** apresenta o número de unidades produzidas por hora e a energia (kWh) utilizada por toda a empresa ou pela fábrica/linha de produção/estação que está a ver. Estes valores são agregados de uma vista de estação para o nível de empresa.
 
-[![Indicadores chave de desempenho](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![Principais indicadores de desempenho](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Pode analisar mais detalhadamente os KPIs relativamente a qualquer nível nos dados da hierarquia. Clique no OEE, na disponibilidade, no desempenho ou na percentagem de qualidade. É apresentado um painel de contexto com visualizações que mostram os dados em diferentes períodos de tempo:
 
-[![Detalhe da KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![Detalhe do KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Pode clicar num gráfico para fazer ainda mais análises aos dados.
 
 ### <a name="factory-locations"></a>Localizações de Fábricas
 
-Um painel **Localizações de fábricas** que mostra o estado, a localização e a configuração de produção atual da solução. Quando executar o acelerador de soluções pela primeira vez, o dashboard mostra um conjunto simulado de fábricas. Cada simulação de linha de produção é composta por três servidores OPC UA reais que realizam tarefas simuladas e partilham dados. Para mais informações sobre a OPC UA, consulte as FAQ da [Fábrica Conectada:](iot-accelerators-faq-cf.md)
+Um painel **Localizações de fábricas** que mostra o estado, a localização e a configuração de produção atual da solução. Quando executar o acelerador de soluções pela primeira vez, o dashboard mostra um conjunto simulado de fábricas. Cada simulação de linha de produção é composta por três servidores OPC UA reais que realizam tarefas simuladas e partilham dados. Para obter mais informações sobre a OPC UA, consulte as [FAQ de fábrica conectadas:](iot-accelerators-faq-cf.md)
 
-[![Localizações da fábrica](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Localizações de fábricas](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Pode navegar pela hierarquia da solução e ver os valores de OEE e os KPIs em cada nível:
 
@@ -133,17 +133,17 @@ Pode analisar os dados que provocaram o alarme no dashboard. Se for Administrado
 
 Clique num dos alarmes, no menu pendente **Escolher ação**, selecione **Alerta de reconhecimento** e, em seguida, clique em **Aplicar**:
 
-[![Reconhecer o alarme](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![Reconhecer alarme](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Para analisar mais aprofundadamente os dados do alarme, clique no gráfico no painel Alarmes.
 
-Estes alarmes são gerados por regras que estão especificadas num ficheiro de configuração do acelerador da solução. Estas regras podem gerar alarmes quando os valores do OEE ou do KPI ou os valores do nó opc uA ultrapassam um limiar. Pode definir este valor de limiar.
+Estes alarmes são gerados por regras que estão especificadas num ficheiro de configuração do acelerador da solução. Estas regras podem gerar alarmes quando os valores do OEE ou do KPI ou dos valores dos nóns de UA OPC ultrapassam um limiar. Pode definir este valor de limiar.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser explorar ainda mais, deixe o acelerador de soluções de Fábrica Ligada implementado.
 
-Se já não necessitar do acelerador de solução, elimine-o da página de [soluções Provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-a e, em seguida, clicando em **Eliminar a Solução:**
+Se já não precisar do acelerador de solução, elimine-o da página [de soluções Provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-a e clicando em **Eliminar Solution**:
 
 ![Eliminar solução](media/quickstart-connected-factory-deploy/deletesolution.png)
 

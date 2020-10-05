@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-dps
 author: msebolt
 ms.author: v-masebo
@@ -9,14 +9,14 @@ ms.topic: include
 ms.service: iot-dps
 ms.custom: include file
 ms.openlocfilehash: a843269a321c15e7a2550ab7b7934c18e9609de0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67184380"
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/iot-dps/quick-enroll-device-tpm-java.md)
-> * [C #](../articles/iot-dps/quick-enroll-device-tpm-csharp.md)
+> * [C#](../articles/iot-dps/quick-enroll-device-tpm-csharp.md)
 > * [Node.js](../articles/iot-dps/quick-enroll-device-tpm-node.md)
 > * [Python](../articles/iot-dps/quick-enroll-device-tpm-python.md)

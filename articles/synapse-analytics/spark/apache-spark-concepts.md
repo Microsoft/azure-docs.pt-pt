@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91260143"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark in Azure Synapse Analytics Core Concepts

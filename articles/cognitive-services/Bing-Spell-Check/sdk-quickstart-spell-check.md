@@ -12,10 +12,10 @@ ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e1e05ca9b63bda3373afb8a090118953d89ad8f9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88934230"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Quickstart: Verifique a ortografia com o SDK de verificação ortográfica de Bing para C #

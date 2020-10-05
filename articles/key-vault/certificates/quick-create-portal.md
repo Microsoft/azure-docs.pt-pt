@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91281054"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Definir e recuperar um certificado do Cofre de Chaves Azure usando o portal Azure
@@ -61,7 +61,7 @@ Para adicionar um certificado ao cofre, só precisa dar alguns passos adicionais
     - **Método de Criação de Certificados**: Gerar.
     - **Denominação do certificado**: ExemploCertificado.
     - **Objeto**: CN=ExemploDomain
-    - Deixe as outras opções com os valores predefinidos. Clique em **Create** (Criar).
+    - Deixe as outras opções com os valores predefinidos. Clique em **Criar**.
 
 Uma vez que recebe a mensagem de que o certificado foi criado com sucesso, pode clicar nele na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
 
@@ -72,7 +72,7 @@ Ao clicar no botão "Descarregar em formato CER" ou "Descarregar em formato PFX/
 
 ![Download de certificado](../media/certificates/quick-create-portal/current-version-shown.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais do Key Vault têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não for necessário, elimine o grupo de recursos, que elimina o Key Vault e todos os recursos relacionados. Para eliminar o grupo de recursos através do portal:

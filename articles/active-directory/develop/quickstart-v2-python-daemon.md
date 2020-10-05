@@ -13,10 +13,10 @@ ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
 ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91257746"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
@@ -190,7 +190,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Em que: |Description |
+> | Em que: |Descrição |
 > |---------|---------|
 > | `config["secret"]` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -211,7 +211,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 

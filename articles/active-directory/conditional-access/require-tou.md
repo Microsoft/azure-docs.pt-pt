@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88948866"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem
@@ -105,7 +105,7 @@ Na sua política, desa um set:
 
 1. Na **nova** página, na caixa de texto **Name,** tipo **Exigir TOU para Isabella**.
 
-   ![Nome](./media/require-tou/71.png)
+   ![Name](./media/require-tou/71.png)
 
 1. Na secção **Atribuição,** clique em **Utilizadores e grupos**.
 
@@ -193,7 +193,7 @@ Para testar a sua política, tente entrar no seu [portal Azure](https://portal.a
 
 ![Termos de utilização](./media/require-tou/57.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o utilizador de teste e a política de acesso condicional:
 

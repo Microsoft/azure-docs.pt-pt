@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2019
 ms.openlocfilehash: 41ac1478b1028a847fc0d5e7e70802375e910837
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67184593"
 ---
 > [!NOTE]
-> Para [obter melhores resultados](../articles/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices.md) ao utilizar o API do Detetor de Anomalias, os dados da série de tempo formada jSON devem incluir:
-> * pontos de dados separados pelo mesmo intervalo, não faltando mais de 10% do número esperado de pontos.
+> Para [obter melhores resultados](../articles/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices.md) ao utilizar a API do Detetor de Anomalias, os dados da série de tempo com formato JSON devem incluir:
+> * pontos de dados separados pelo mesmo intervalo, não mais de 10% do número esperado de pontos em falta.
 > * pelo menos 12 pontos de dados se os seus dados não tiverem um padrão sazonal claro.
 > * pelo menos 4 ocorrências de padrão se os seus dados tiverem um padrão sazonal claro. 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: cshoe
 ms.openlocfilehash: cb8f8388dd164f4fc17b81b9b39c6b5a058ca3ff
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88752633"
 ---
 ## <a name="view-the-website"></a>Ver o site

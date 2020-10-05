@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91297152"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Quickstart: Configurar o serviço de fornecimento de dispositivos IoT Hub com um modelo de Gestor de Recursos Azure
@@ -318,7 +318,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
     ```
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, pode utilizar o CLI do Azure para [eliminar um recurso individual][lnk-az-resource-command], como um hub IoT ou um serviço de fornecimento, ou para eliminar um grupo de recursos e todos os seus recursos.
 

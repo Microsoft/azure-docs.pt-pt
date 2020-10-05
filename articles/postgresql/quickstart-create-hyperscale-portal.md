@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91268457"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Quickstart: criar um grupo de servidores Hyperscale (Citus) no portal Azure
@@ -130,7 +130,7 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão **Eliminar** na página **'Vista Geral'** para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final **eliminar.**
 

@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
 ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88816342"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual Azure Data Science para Linux e Windows?
@@ -49,21 +49,21 @@ O DSVM é uma imagem VM personalizada para a Data Science, mas [a Azure Machine 
 As principais diferenças entre estas duas ofertas de produtos são detalhadas abaixo:
 
 
-|Funcionalidade |Ciência dos Dados<br>VM |AzureML<br>Instância computacional  | 
+|Funcionalidade |Ciência dos Dados<br>VM |AzureML<br>Instância de Computação  | 
 |---------|---------|---------|
-| Totalmente gerido | Não        | Yes        |
+| Totalmente gerido | Não        | Sim        |
 |Suporte de Idiomas     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F #       | Python e R        |
 |Sistema Operativo     | Ubuntu<br>Windows         |    Ubuntu     |
-|Opção GPU pré-configurada     |  Yes       |    Yes     |
-|Opção de escala | Yes | Yes |
-|Acesso SSH    | Yes        |    Yes     |
-|Acesso RDP    | Sim        |     No    |
-|Incorporado<br>Cadernos hospedados     |   No<br>(requer uma configuração adicional)      |      Yes   |
-|SSO embutido     | No <br>(requer uma configuração adicional)         |    Yes     |
-|Colaboração Incorporada     | Não         | Yes        |
+|Opção GPU pré-configurada     |  Sim       |    Sim     |
+|Opção de escala | Sim | Sim |
+|Acesso SSH    | Sim        |    Sim     |
+|Acesso RDP    | Sim        |     Não    |
+|Incorporado<br>Cadernos hospedados     |   Não<br>(requer uma configuração adicional)      |      Sim   |
+|SSO embutido     | Não <br>(requer uma configuração adicional)         |    Sim     |
+|Colaboração Incorporada     | Não         | Sim        |
 |Ferramentas pré-instaladas     |  Jupyter (laboratório), RStudio Server, VSCode,<br> Estúdio Visual, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(laboratório)<br> RStudio Server   |
 
-## <a name="sample-use-cases"></a>Casos de utilização de amostras
+## <a name="sample-use-cases"></a>Exemplos de casos de utilização
 
 Abaixo ilustramos alguns casos de uso comum para clientes DSVM.
 
@@ -73,7 +73,7 @@ Você pode usar o DSVM para avaliar ou aprender novas ferramentas de ciência de
 
 ### <a name="deep-learning-with-gpus"></a>Aprendizagem profunda com GPUs
 
-No DSVM, os seus modelos de treino podem usar algoritmos de aprendizagem profunda em hardware que é baseado em unidades de processamento de gráficos (GPUs). Ao tirar partido das capacidades de escala VM da plataforma Azure, o DSVM ajuda-o a utilizar hardware baseado em GPU na nuvem de acordo com as suas necessidades. Pode mudar para um VM baseado em GPU quando estiver a treinar grandes modelos, ou quando precisa de computação de alta velocidade enquanto mantém o mesmo disco de SO. Pode escolher qualquer uma das GPUs da série N com a máquina virtual SKUs com DSVM. Note GPU ativado por máquinas virtuais SKUs não são suportados em contas gratuitas Azure.
+No DSVM, os seus modelos de treino podem usar algoritmos de aprendizagem profunda em hardware que é baseado em unidades de processamento de gráficos (GPUs). Ao tirar partido das capacidades de escala VM da plataforma Azure, o DSVM ajuda-o a utilizar hardware baseado em GPU na nuvem de acordo com as suas necessidades. Pode mudar para uma VM baseada em GPU quando estiver a preparar modelos grandes ou quando precisar de computações de alta velocidade, sem mudar o disco do SO. Pode escolher qualquer uma das GPUs da série N com a máquina virtual SKUs com DSVM. Note GPU ativado por máquinas virtuais SKUs não são suportados em contas gratuitas Azure.
 
 As edições windows do DSVM vêm pré-instaladas com controladores de GPU, quadros e versões gpu de quadros de deep learning. Nas edições Linux, a aprendizagem profunda nas GPUs está ativada nos DSVMs Ubuntu. 
 
@@ -83,7 +83,7 @@ Também pode implementar as edições Ubuntu ou Windows do DSVM para uma máquin
 
 ### <a name="data-science-training-and-education"></a>Formação e educação em ciência de dados
 
-Formadores empresariais e educadores que ensinam aulas de ciência de dados geralmente fornecem uma imagem de máquina virtual. A imagem garante que os alunos têm uma configuração consistente e que as amostras funcionam previsivelmente.
+Os formadores e educadores empresariais que ensinam aulas de ciência de dados geralmente fornecem uma imagem de máquina virtual. A imagem garante que os alunos têm uma configuração consistente e que as amostras funcionam previsivelmente.
 
 O DSVM cria um ambiente a pedido com uma configuração consistente que facilita os desafios de apoio e incompatibilidade. Os casos em que estes ambientes têm de ser criados constantemente, especialmente para aulas de formação mais pequenas, retiram benefícios significativos destas características.
 

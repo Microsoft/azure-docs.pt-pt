@@ -11,10 +11,10 @@ ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91260736"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados

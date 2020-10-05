@@ -5,10 +5,10 @@ ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a160b9bc389bc0c902f9644887aa478f80822e60
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136519"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando Python
@@ -56,7 +56,7 @@ Para permitir que python trabalhe com a Política Azure, a biblioteca deve ser a
    > [!NOTE]
    > Se o Python estiver instalado para todos os utilizadores, estes comandos devem ser executados a partir de uma consola elevada.
 
-1. Valide que as bibliotecas foram instaladas. `azure-mgmt-policyinsights`deve ser **0,5.0** ou superior, `azure-mgmt-resource` deve ser **9.0.0** ou superior, e `azure-cli-core` deve ser **2,5.0** ou superior.
+1. Valide que as bibliotecas foram instaladas. `azure-mgmt-policyinsights` deve ser **0,5.0** ou superior, `azure-mgmt-resource` deve ser **9.0.0** ou superior, e `azure-cli-core` deve ser **2,5.0** ou superior.
 
    ```bash
    # Check each installed library
@@ -95,10 +95,10 @@ Detalhes da atribuição:
 - **display_name** - Mostrar o nome para a atribuição de apólices. Neste caso, está a utilizar _VMs de auditoria sem serviço de discos geridos_.
 - **policy_definition_id** – O caminho de definição de política, baseado no qual está a usar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_. Neste exemplo, a definição de política é um incorporado e o caminho não inclui o grupo de gestão ou informações de subscrição.
 - **âmbito** - Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de políticas é executada. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
-  - Grupo de gestão:`/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura:`/subscriptions/{subscriptionId}`
+  - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+  - Assinatura: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Recurso:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
+  - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 - **descrição** - Uma explicação mais profunda do que a apólice faz ou por que é atribuída a este âmbito.
 
 Criação de atribuição:
@@ -149,7 +149,7 @@ Os resultados assemelham-se ao seguinte exemplo:
 
 Os resultados coincidem com o que vê no **separador** de conformidade de recursos de uma atribuição de políticas na vista do portal Azure.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição criada, utilize o seguinte comando:
 
@@ -170,7 +170,7 @@ print(policyAssignment)
 
 `{scope}`Substitua-o pelo mesmo âmbito que usou para criar a atribuição de políticas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 

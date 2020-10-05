@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 7e0fdbc50dd36e4ea23903a5929735c1c83bd394
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88752934"
 ---
 # <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Quickstart: Construir a sua primeira aplicação web estática usando o Azure CLI

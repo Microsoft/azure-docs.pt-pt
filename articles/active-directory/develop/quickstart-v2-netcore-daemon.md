@@ -13,10 +13,10 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
 ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91257831"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
@@ -193,7 +193,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Em que: | Description |
+> | Em que: | Descrição |
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -210,7 +210,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Em que:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 

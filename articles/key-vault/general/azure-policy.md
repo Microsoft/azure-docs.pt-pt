@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88586074"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault no Azure Policy
@@ -124,7 +124,7 @@ Gere um cofre usado por várias equipas que contém 100 certificados, e quer ter
 
 ### <a name="view-compliance-results"></a>Ver Resultados de Conformidade
 
-1. Volte para a lâmina 'Política' e selecione o separador de conformidade. Clique na atribuição de política para a quais deseja visualizar os resultados de conformidade.
+1. Volte para a lâmina 'Política' e selecione o separador de conformidade. Clique na atribuição de política para a visão dos resultados de conformidade.
 
     ![Visão geral de como funciona o Azure Key Vault](../media/policy-img8.png)
 

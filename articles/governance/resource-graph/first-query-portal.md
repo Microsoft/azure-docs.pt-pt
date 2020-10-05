@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para executar a sua primeira
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056385"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Executar a sua primeira consulta de gráfico de recurso usando O Explorador de Gráficos de Recursos Azure
@@ -31,7 +31,7 @@ Abra o [portal Azure](https://portal.azure.com) para encontrar e utilizar o Expl
    > [!NOTE]
    > Como este exemplo de consulta não fornece um tipo modificador `order by` como, executar esta consulta várias vezes é provável que produza um conjunto diferente de recursos por pedido.
 
-1. Reveja a resposta de consulta no separador **Resultados.** Selecione o separador **Mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e duração da consulta. Erros, se houver, são apresentados sob este separador.
+1. Reveja a resposta de consulta no separador **Resultados.** Selecione o separador **Mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Erros, se houver, são apresentados sob este separador.
 
 1. Atualizar a consulta para `order by` a propriedade **Nome:** `Resources | project name, type | limit 5 | order by name asc` . Em seguida, selecione **'Executar consulta' ( 'Executar'.**
 
@@ -94,7 +94,7 @@ Para fornecer exemplos de consultas de gráficos de recursos e como o Resource G
 
 - [Explorador de gráficos de recurso - painel de amostras #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagem de exemplo para amostra de dashboard #2" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Imagem de exemplo para amostra de dashboard #1" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e gráficos nas imagens do painel de instrumentos acima variam consoante o seu ambiente Azure.

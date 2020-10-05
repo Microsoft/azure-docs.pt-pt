@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649624"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Quickstart: Criar um registo de contentores geo-replicado utilizando um modelo ARM
@@ -62,7 +62,7 @@ Mais amostras de modelo de registo de contentores Azure podem ser encontradas na
 
  3. Se aceitar os termos e condições, selecione **Comprar**. Após a criação do registo com sucesso, recebe uma notificação:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificação do portal":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriedades do modelo":::
 
  O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -74,11 +74,11 @@ Utilize o portal Azure ou uma ferramenta como o Azure CLI para rever as propried
 
 1. Na página **'Vista Geral',** note o **servidor de Login** do registo. Use este URI quando usar o Docker para marcar e empurrar imagens para o seu registo. Para obter informações, consulte [a sua primeira imagem utilizando o Docker CLI](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Visão geral do registo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propriedades do modelo":::
 
 1. Na página **replicações,** confirme as localizações da réplica doméstica e a réplica adicionada através do modelo. Se desejar, adicione mais réplicas nesta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicações de registo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriedades do modelo":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

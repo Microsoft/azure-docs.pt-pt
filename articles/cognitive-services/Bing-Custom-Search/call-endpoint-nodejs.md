@@ -12,10 +12,10 @@ ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 43710407386995bde6d3505286e96b0737e06f08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91309787"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Quickstart: Ligue para o seu ponto final de pesquisa personalizada Bing usando Node.js

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88118795"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Quickstart: Criar um Catálogo de Dados Azure

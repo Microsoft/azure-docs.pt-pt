@@ -13,10 +13,10 @@ ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91258137"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
@@ -43,7 +43,7 @@ Siga estes passos para criar o registo da aplicação:
 1. Insira um **Nome** para a sua inscrição. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 1. Especificar quem pode utilizar a aplicação, por vezes referida como *o público de inscrição*.
 
-    | Tipos de conta suportados | Description |
+    | Tipos de conta suportados | Descrição |
     |-------------------------|-------------|
     | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamado de aplicação *line-of-business* (LOB), esta é uma aplicação **de inquilino único** na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores de *qualquer* inquilino AZure AD possam usar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Isto é conhecido como uma aplicação **multi-inquilino** na plataforma de identidade da Microsoft. |
@@ -59,7 +59,7 @@ Quando o registo termina, o portal Azure exibe o painel **de visão geral** do r
 
 O código da sua aplicação, ou mais tipicamente uma biblioteca de autenticação utilizada na sua aplicação, também utiliza o ID do cliente como um aspeto na validação dos fichas de segurança que recebe da plataforma de identidade.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot do portal Azure num navegador web mostrando o painel de visão geral de um registo de aplicações.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações.":::
 
 ## <a name="add-a-redirect-uri"></a>Adicione um URI de redirecionamento
 
@@ -80,7 +80,7 @@ Para configurar as definições de aplicações com base na plataforma ou dispos
 1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**.
 1. Nas **plataformas Configure,** selecione o azulejo para o seu tipo de aplicação (plataforma) para configurar as suas definições.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot do painel de configuração da Plataforma no portal Azure" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações." border="false":::
 
     | Plataforma | Definições de configuração |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ As credenciais são utilizadas por aplicações confidenciais de clientes que ac
 
 Pode adicionar certificados e segredos de cliente (uma cadeia) como credenciais ao registo confidencial da aplicação do seu cliente.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot do portal Azure mostrando o painel de certificados e segredos em um registo de App":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot do portal Azure num navegador web mostrando ao Registo um painel de aplicações.":::
 
 ### <a name="add-a-certificate"></a>Adicione um certificado
 

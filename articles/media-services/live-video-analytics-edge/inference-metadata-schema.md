@@ -4,10 +4,10 @@ description: Neste artigo, você vai aprender sobre esquema de metadados de infe
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88691952"
 ---
 # <a name="inference-metadata-schema"></a>Esquema de metadados de inferência 
@@ -123,5 +123,5 @@ O exemplo abaixo contém um único evento com alguns tipos de inferência suport
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [contrato de dados gRPC](grpc-data-contract.md)
+- [Contrato de dados gRPC](grpc-data-contract.md)
 - [Contrato de dados HTTP](http-data-contract.md)

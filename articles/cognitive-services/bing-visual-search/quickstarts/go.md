@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: 923c69c12ca8cb7ceb9b570121f661e4c4e6e7f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91298037"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Quickstart: Obtenha insights de imagem usando a API de Pesquisa Visual Bing e Go
@@ -257,7 +257,7 @@ A `Unmarshall` função extrai informações do texto JSON devolvido pela API de
 > [!NOTE]
 > Francesco Giordano contribuiu com o código para este exemplo.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Os resultados identificam imagens semelhantes à imagem contida no corpo DOM. Os campos úteis são `WebSearchUrl` `Name` e.
 

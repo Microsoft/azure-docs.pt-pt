@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: 8ba604fcb8d644f9986547a94dac29f083dd8a10
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723542"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extraia dados de formulário utilizando a API REST com Python
@@ -46,7 +46,7 @@ Primeiro, você precisará de um conjunto de dados de treino em um recipiente de
 
 Para treinar um modelo de Reconhecimento de Formulário com os documentos no seu recipiente de bolhas Azure, ligue para a API **[do Modelo Personalizado do Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
-1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. `<SAS URL>`Substitua-a pelo URL de acesso partilhado do recipiente de armazenamento Azure Blob (SAS). Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. `<subscription key>`Substitua-a pela chave de subscrição que copiou do passo anterior.
 1. `<endpoint>`Substitua-o pelo URL do ponto final para o seu recurso 'Reconhecimento de Formulário'.
 1. `<Blob folder name>`Substitua-a pelo caminho da pasta no armazenamento de bolhas onde os formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.

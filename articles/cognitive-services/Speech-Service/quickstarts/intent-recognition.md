@@ -14,10 +14,10 @@ ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
 keywords: reconhecimento de intenção
 ms.openlocfilehash: 8380db20ca3c4896aa37222dd5db450c9843b5ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91283072"
 ---
 # <a name="get-started-with-intent-recognition"></a>Começar com reconhecimento de intenção

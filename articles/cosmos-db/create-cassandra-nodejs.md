@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91253433"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
@@ -212,11 +212,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 > 
 > Clique duas vezes no ficheiro .crt para o abrir no visor do certificado. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Ver e verificar a saída":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
 >
 > Prima em seguida no assistente de certificado. Selecione Base-64 codificado X.509 (. CER), em seguida, Seguinte.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Ver e verificar a saída":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
 >
 > Selecione Procurar (para localizar um destino) e digite um nome de arquivo.
 > Selecione Seguinte então Terminado.
@@ -237,19 +237,19 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 4. Verifique os resultados como esperado na linha de comandos.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Ver e verificar a saída":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
 
     Prima CTRL+C para parar a execução do programa e feche a janela da consola. 
 
 5. No portal do Azure, abra o **Data Explorer** para consultar, modificar e trabalhar com estes dados novos. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Ver os dados no Data Explorer"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

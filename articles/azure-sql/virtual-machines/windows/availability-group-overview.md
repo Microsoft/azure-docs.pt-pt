@@ -15,10 +15,10 @@ ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.openlocfilehash: 34d76d7c85a478b5e31a692e653752aa1653884c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91293667"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzindo o SQL Server Sempre em grupos de disponibilidade em Máquinas Virtuais Azure
@@ -41,10 +41,10 @@ Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server d
 
 |  | Versão do Servidor do Windows | Versão do servidor SQL | Edição do Servidor SQL | WSFC Quorum Config | DR com Multi-região | Suporte multi-sub-redes | Apoio a um AD existente | DR com a mesma região de várias zonas | Suporte Dist-AG sem domínio AD | Suporte Dist-AG sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[Portal Azure](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testemunha de cloud | No | Yes | Yes | Yes | No | No |
-| **[Azure CLI / PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testemunha de cloud | No | Yes | Yes | Yes | No | No |
-| **[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Testemunha de cloud | No | Yes | Yes | Yes | No | No |
-| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Todos | Todos | Todos | Todos | Yes | Yes | Yes | Yes | Yes | Yes |
+| **[Portal do Azure](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
+| **[Azure CLI / PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
+| **[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
+| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 
 O modelo **SQL Server AlwaysOn Cluster (pré-visualização)** foi removido do Mercado Azure e já não está disponível. 
 

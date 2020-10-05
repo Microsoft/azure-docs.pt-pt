@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: d85b0cd2f9fa7eb81f5c39bd5d163188e3cd7106
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835770"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
@@ -80,7 +80,7 @@ O Data Lake Storage gen2 suporta vários serviços Azure que pode usar para inge
 
 Várias plataformas de código aberto suportam data lake storage gen2. Para obter uma lista completa, consulte [plataformas Open source que suportam a Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acesso multi-protocolo no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

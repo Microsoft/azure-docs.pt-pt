@@ -19,10 +19,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91295979"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
@@ -241,7 +241,7 @@ A regra **DenyAllInBound** é aplicada porque, conforme apresentado no resultado
 
 As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que contém:
 

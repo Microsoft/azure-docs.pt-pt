@@ -8,10 +8,10 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 562185697f8f80fc52b06be80a9f15271f16c0a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961470"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Crie uma aplicação multi-contentor (pré-visualização) utilizando uma configuração Docker Compose

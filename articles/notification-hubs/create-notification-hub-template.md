@@ -11,10 +11,10 @@ ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
 ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684648"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Quickstart: Criar um hub de notificação usando um modelo ARM
@@ -68,7 +68,7 @@ az notification-hub namespace show --resource-group ContosoNotificationsGroup --
 
 ---
 The output looks similar to: null
-:::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::: null
+':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::': null
 ---
 
 ## <a name="clean-up-resources"></a>Limpar recursos

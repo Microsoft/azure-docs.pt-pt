@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91287020"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Quickstart: Criar um novo inquilino no Azure Ative Directory
@@ -55,7 +55,7 @@ Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para 
 
 O novo inquilino é criado com o domínio contoso.onmicrosoft.com.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário utilizando os seguintes passos:
 
 - Certifique-se de que está inscrito no diretório que pretende eliminar através do filtro **de subscrição Do Diretório +** no Portal Azure e que, se necessário, muda para o directório-alvo.

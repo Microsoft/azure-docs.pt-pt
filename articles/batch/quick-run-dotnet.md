@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88921652"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
@@ -237,7 +237,7 @@ foreach (CloudTask task in completedtasks)
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados.
 

@@ -12,13 +12,13 @@ ms.date: 08/14/2020
 ms.author: iainfou
 ms.custom: contperfq1
 ms.openlocfilehash: 2255f2193378d0cc3611680c6aa5f8e0837e99aa
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88245183"
 ---
-# <a name="what-is-azure-active-directory-domain-services"></a>O que é Azure Ative Directory Domain Services?
+# <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 
 A Azure Ative Directory Domain Services (AD DS) fornece serviços de domínio geridos, tais como a adesão de domínio, a política de grupo, o protocolo de acesso ao diretório leve (LDAP) e a autenticação Kerberos/NTLM. Utiliza estes serviços de domínio sem a necessidade de implantar, gerir e remendar controladores de domínio (DCs) na nuvem.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: criar uma primeira instância de Pesquisa Personalizada do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para criar uma instância de Bing personalizada que pode pesquisar domínios e páginas web que você define.
+description: Use este quickstart para criar uma instância Bing personalizada que pode pesquisar domínios e páginas web que você define.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80238860"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início Rápido: criar a sua primeira instância de Pesquisa Personalizada do Bing
 
-Para utilizar a Pesquisa Personalizada do Bing, tem de criar uma instância de pesquisa personalizada que define a vista ou o setor da Web. Esta instância contém os domínios públicos, websites e páginas web que pretende pesquisar, juntamente com quaisquer ajustes de classificação que possa querer. 
+Para utilizar a Pesquisa Personalizada do Bing, tem de criar uma instância de pesquisa personalizada que define a vista ou o setor da Web. Este caso contém os domínios públicos, websites e páginas web que pretende pesquisar, juntamente com quaisquer ajustes de classificação que possa desejar. 
 
-Para criar a instância, utilize o [portal bing Custom Search](https://customsearch.ai). 
+Para criar o caso, utilize o [portal Bing Custom Search](https://customsearch.ai). 
 
-![Uma foto do portal bing custom search](media/blockedCustomSrch.png)
+![Uma imagem do portal bing custom search](media/blockedCustomSrch.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,23 +33,23 @@ Para criar a instância, utilize o [portal bing Custom Search](https://customsea
 
 Para criar uma instância de Pesquisa Personalizada do Bing:
 
-1. Clique em **Começar** na página web do [portal bing Custom Search](https://customsearch.ai) e inicie sessão com a sua conta Microsoft.
+1. Clique em **Iniciar** a página do [portal Bing Custom Search](https://customsearch.ai) e inicie sôs-se na sua conta Microsoft.
 
-2. Clique em **New Instance**e introduza um nome descritivo. Pode alterar o nome da sua instância a qualquer momento.
+2. Clique em **New Instance**e insira um nome descritivo. Pode alterar o nome do seu caso a qualquer momento.
  
 3. No separador **Ativo** em **Experiência de Pesquisa**, introduza o URL de um ou mais sites que pretende incluir na sua pesquisa. 
 
     > [!NOTE]
-    > As instâncias de Pesquisa Personalizada bing apenas devolverão resultados para domínios, e páginas web que são públicas e foram indexadas por Bing.
+    > As instâncias de Pesquisa Personalizada bing apenas devolvem resultados para domínios e páginas web que são públicas e foram indexadas por Bing.
 
-4. Pode utilizar o lado direito do portal bing Custom Search para introduzir uma consulta e examinar os resultados de pesquisa devolvidos pela sua instância de pesquisa. Se não forem devolvidos resultados, tente introduzir um URL diferente.  
+4. Pode utilizar o lado direito do portal Bing Custom Search para introduzir uma consulta e examinar os resultados de pesquisa devolvidos pelo seu caso de pesquisa. Se não forem devolvidos resultados, tente introduzir uma URL diferente.  
 
 5. Clique em **Publicar** para publicar as suas alterações no ambiente de produção e atualizar os pontos finais da instância.
 
-6.  Clique no separador **Produção** em **pontos finais**e copie o seu ID de **Configuração Personalizado**. Você precisa deste ID para ligar para a API de pesquisa personalizada, aditando-a ao `customconfig=` parâmetro de consulta nas suas chamadas.
+6.  Clique no **separador Produção** em **Pontos finais**e copie o **ID de Configuração Personalizada**. Precisa deste ID para ligar para a API de Pesquisa Personalizada, anexando-a ao `customconfig=` parâmetro de consulta nas suas chamadas.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ligue para o seu ponto final de pesquisa personalizada Bing](./call-endpoint-csharp.md)
+> [Quickstart: Ligue para o seu ponto de terminação de pesquisa personalizada Bing](./call-endpoint-csharp.md)

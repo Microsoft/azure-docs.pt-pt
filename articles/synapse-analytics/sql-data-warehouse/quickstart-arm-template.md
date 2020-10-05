@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
 ms.openlocfilehash: 29d4e4d696b34aa493714c870ebb466f491c47fe
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88641879"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Quickstart: Criar uma piscina SQL Azure Synapse Analytics usando um modelo ARM

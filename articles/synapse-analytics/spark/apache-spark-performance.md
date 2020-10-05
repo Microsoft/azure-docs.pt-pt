@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91249472"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark (pré-visualização) no Azure Synapse Analytics

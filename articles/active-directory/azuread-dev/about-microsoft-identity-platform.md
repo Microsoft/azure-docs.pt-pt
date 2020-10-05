@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
 ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88117775"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
