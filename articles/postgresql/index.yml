@@ -3,17 +3,17 @@ title: Documentação da Base de Dados do Azure para PostgreSQL
 summary: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto. É uma base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível, segurança, elevada disponibilidade e escalabilidade dinâmica.
 metadata:
   description: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base no motor de base de dados PostgreSQL de código aberto.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: c14cab875ab017feb913269e277e8b5c12a3ee08
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 4931a50d2258902c551cb276a8b47b129a176551
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90895643"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91704298"
 landingContent:
 - title: Acerca da Base de Dados do Azure para PostgreSQL
   linkLists:

@@ -4,17 +4,17 @@ summary: A Base de Dados do Azure para PostgreSQL - Servidor Flexível (Pré-vis
 metadata:
   title: Base de Dados do Azure para PostgreSQL - Servidor Flexível (Pré-visualização)
   description: A Base de Dados do Azure para PostgreSQL - Servidor Flexível (Pré-visualização) é um serviço de base de dados relacional na cloud da Microsoft criado para programadores que conta com tecnologia PostgreSQL Community Edition.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 7c214662a37083708b0a38148382e16b553145c4
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 215a34c7adcd9f5628bb164deecaf94d2b885b1d
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90929076"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710673"
 landingContent:
 - title: Acerca do Servidor Flexível (Pré-visualização)
   linkLists:

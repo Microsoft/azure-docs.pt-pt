@@ -3,17 +3,17 @@ title: Documentação sobre a Base de Dados do Azure para PostgreSQL de Servidor
 summary: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto.  O servidor único é uma das várias opções de implementação para criação de um servidor postgres. Saiba como utilizar o Servidor Único com os nossos inícios rápidos, tutoriais e exemplos.
 metadata:
   description: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base no motor de base de dados PostgreSQL de código aberto.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90929005"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710160"
 landingContent:
 - title: Acerca do Servidor Único
   linkLists:
