@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f6c815bf6b8be6d280dcdc60401f7a91e171e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 379ae013e9343b14b854386a0a9f486dd2917e94
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542761"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712328"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
 
@@ -90,6 +90,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML.
 
     ![image](common/idp-intiated.png)
+
+    d. Introduza o **URL de inscrição,** tal como `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
 
     > [!Note]
     > Você receberá o **ficheiro de metadados do Fornecedor** de Serviços na secção **Configure Boomi SSO,** que é explicado mais tarde no tutorial. Se os valores de URL **de identificação** e **resposta** não forem automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.
