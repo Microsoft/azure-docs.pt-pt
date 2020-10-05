@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228278"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715148"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -46,7 +46,7 @@ Nota: As contas de armazenamento clássicas não suportam firewalls e redes virt
 
 Note que se tiver Pontos Finais Privados anexados à sua conta de armazenamento, não pode configurar as regras do Grupo de Segurança da Rede (NSG) para sub-redes. 
 
-- [Configure Firewalls de armazenamento Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 - [Como ativar registos de fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -380,13 +380,13 @@ Também pode ativar um Acesso Just-In-Time / Just-Enough-Enough utilizando funç
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD fornece controlo de acesso baseado em funções (RBAC) para controlo de grãos finos sobre o acesso de um cliente aos recursos numa conta de armazenamento.  Use credenciais AZure AD quando possível como uma melhor prática de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design da sua aplicação requer assinaturas de acesso partilhadas para acesso ao armazenamento blob, use credenciais Azure AD para criar uma delegação de utilizador assinaturas de acesso compartilhadas (SAS) quando possível para uma segurança superior.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. O Azure fornece o controlo de acesso baseado em funções (Azure RBAC) para controlo de grãos finos sobre o acesso de um cliente aos recursos numa conta de armazenamento.  Use credenciais AZure AD quando possível como uma melhor prática de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design da sua aplicação requer assinaturas de acesso partilhadas para acesso ao armazenamento blob, use credenciais Azure AD para criar uma delegação de utilizador assinaturas de acesso compartilhadas (SAS) quando possível para uma segurança superior.
 
 - [Como criar e configurar uma instância AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Como configurar o acesso aos dados do Azure Blob e da Fila com o RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Como configurar o acesso aos dados da Azure Blob e da Fila com o Azure RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autorizar o acesso aos dados no Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Criar Definições de Diagnóstico para contas de utilizadores do Azure Ative Di
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Implementar o isolamento utilizando subscrições separadas, grupos de gestão e contas de armazenamento para domínios de segurança individuais, tais como ambiente, sensibilidade aos dados.  Pode restringir a sua Conta de Armazenamento para controlar o nível de acesso às suas contas de armazenamento que as suas aplicações e ambientes empresariais exigem, com base no tipo e subconjunto de redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Você pode controlar o acesso ao Azure Storage via Azure AD RBAC. Também pode configurar private endpoints para melhorar a segurança à medida que o tráfego entre a sua rede virtual e o serviço atravessa a rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública. 
+**Orientação**: Implementar o isolamento utilizando subscrições separadas, grupos de gestão e contas de armazenamento para domínios de segurança individuais, tais como ambiente, sensibilidade aos dados.  Pode restringir a sua Conta de Armazenamento para controlar o nível de acesso às suas contas de armazenamento que as suas aplicações e ambientes empresariais exigem, com base no tipo e subconjunto de redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Você pode controlar o acesso ao Azure Storage via Azure RBAC. Também pode configurar private endpoints para melhorar a segurança à medida que o tráfego entre a sua rede virtual e o serviço atravessa a rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública. 
 
 - [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -486,7 +486,7 @@ Criar Definições de Diagnóstico para contas de utilizadores do Azure Ative Di
 
 - [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Configure Firewalls de armazenamento Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 - [Pontos finais de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
@@ -500,9 +500,9 @@ Criar Definições de Diagnóstico para contas de utilizadores do Azure Ative Di
 
 Além disso, utilize políticas de ponto final do serviço de rede virtual para filtrar o tráfego de rede virtual de saída para contas de Armazenamento Azure sobre o ponto final do serviço, e permitir a exfiltração de dados apenas para contas específicas de Armazenamento Azure.
 
-- [Configure Firewalls de armazenamento Azure e redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Políticas de ponto final de serviço de rede virtual para armazenamento Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Políticas do ponto final de serviço de rede virtual do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Compreender a proteção de dados do cliente em Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do controlo de acesso baseado em funções (RBAC). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas. 
+**Orientação**: O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do controlo de acesso baseado em funções da Azure (Azure RBAC). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas. 
 
 - [Como atribuir funções da Azure para a conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Como configurar o acesso aos dados do Azure Blob e da Fila com o RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Como configurar o acesso aos dados da Azure Blob e da Fila com o Azure RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Como criar e configurar um caso AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -1113,7 +1113,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

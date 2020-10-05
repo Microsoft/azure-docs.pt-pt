@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984265"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713716"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -29,7 +29,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-| Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Azure Resource Manager para melhorias importantes de segurança, incluindo controlo de acesso superior (RBAC) e auditoria, implementação e governação baseadas em gestores de recursos, acesso a identidades geridas, acesso ao Cofre chave Azure para segredos, e autenticação baseada em Azure e autorização para acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que utilizam o modelo clássico de implementação para utilizar o Azure Resource Manager. Para obter mais informações sobre o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Azure Resource Manager para melhorias importantes de segurança, incluindo controlo de acesso baseado em funções superiores a Azure (Azure RBAC) e auditoria, implementação e governação baseadas em recursos, acesso a identidades geridas, acesso ao Cofre chave Azure para segredos, e autenticação baseada em Azure e autorização de acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que utilizam o modelo clássico de implementação para utilizar o Azure Resource Manager. Para obter mais informações sobre o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Ligue a eliminação suave para dados blob | A eliminação suave permite-lhe recuperar dados blob depois de eliminado. Para obter mais informações sobre a eliminação suave, consulte [Soft delete para blobs de armazenamento Azure](storage-blob-soft-delete.md). | - |
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
@@ -40,7 +40,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
 | Utilize o Azure Ative Directory (Azure AD) para autorizar o acesso a dados blob | A Azure AD proporciona uma segurança superior e facilidade de utilização sobre a Chave Partilhada para autorizar pedidos para o armazenamento blob. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md). | - |
-| Tenha em mente o principal de menor privilégio ao atribuir permissões a um diretor de segurança Azure AD via RBAC | Ao atribuir uma função a um utilizador, grupo ou aplicação, conceda a esse principal de segurança apenas as permissões necessárias para que possam desempenhar as suas tarefas. Limitar o acesso aos recursos ajuda a prevenir o uso indevido e malicioso dos seus dados. | - |
+| Tenha em mente o principal de menor privilégio ao atribuir permissões a um diretor de segurança Azure AD via Azure RBAC | Ao atribuir uma função a um utilizador, grupo ou aplicação, conceda a esse principal de segurança apenas as permissões necessárias para que possam desempenhar as suas tarefas. Limitar o acesso aos recursos ajuda a prevenir o uso indevido e malicioso dos seus dados. | - |
 | Utilize uma delegação de utilizadores SAS para conceder acesso limitado aos dados blob aos clientes | Uma delegação de utilizador SAS é protegida com credenciais do Azure Ative Directory (Azure AD) e também pelas permissões especificadas para o SAS. Uma delegação de utilizadores SAS é análoga a um serviço SAS em termos do seu âmbito e função, mas oferece benefícios de segurança sobre o serviço SAS. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
 | Proteja as chaves de acesso à sua conta com cofre de chaves Azure | A Microsoft recomenda a utilização do Azure AD para autorizar pedidos para o Azure Storage. No entanto, se tiver de utilizar a autorização da Chave Partilhada, então proteja as chaves da sua conta com o Cofre da Chave Azure. Podes recuperar as chaves do cofre da chave em tempo de execução, em vez de as guardares com a tua aplicação. Para obter mais informações sobre o Azure Key Vault, consulte [a visão geral do Azure Key Vault](../../key-vault/general/overview.md). | - |
 | Regenerar as chaves da sua conta periodicamente | A rotação das chaves da conta reduz periodicamente o risco de expor os seus dados a atores mal-intencionados. | - |
@@ -49,7 +49,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 | Desativar o público anónimo ler acesso a contentores e bolhas | O público anónimo leu o acesso a um contentor e as suas bolhas concedem acesso apenas a esses recursos a qualquer cliente. Evite permitir o acesso à leitura pública, a menos que o seu cenário o exija. Para aprender a desativar o acesso público anónimo a uma conta de armazenamento, consulte [o público anónimo Configure acesso a contentores e bolhas.](anonymous-read-access-configure.md)  | - |
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
@@ -67,7 +67,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o registo de análises a Azure Storage.](../common/storage-analytics-logging.md) | - |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação de segurança do Azure](https://docs.microsoft.com//azure/security/)
 - [Documentação de desenvolvimento segura.](https://docs.microsoft.com/azure/security/develop/)

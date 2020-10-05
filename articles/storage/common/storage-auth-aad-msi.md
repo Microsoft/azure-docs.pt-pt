@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2927cbe9a586d8e7a35cea1b523122f9c1c3fed7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085642"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713678"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre a biblioteca de clientes Azure Identity para
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Atribuir funções da Azure para acesso aos dados
 
-Quando um diretor de segurança da AZure AD tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função Azure que concede acesso a dados de blob ou fila no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções Azure para direitos de acesso** em Acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Quando um diretor de segurança da AZure AD tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função Azure que concede acesso a dados de blob ou fila no Azure Storage. Para obter informações sobre a atribuição de permissões através do Azure RBAC, consulte a secção intitulada **Atribuir funções Azure para direitos de acesso** em Acesso autorizado a [bolhas e filas Azure utilizando o Azure Ative Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticar o utilizador no ambiente de desenvolvimento
 
@@ -161,8 +161,8 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 > [!NOTE]
 > Para autorizar pedidos contra dados de blob ou fila com a Azure AD, deve utilizar HTTPS para esses pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
-- [Gerir os direitos de acesso aos dados de armazenamento com o RBAC.](storage-auth-aad-rbac.md)
+- [Gerir os direitos de acesso aos dados de armazenamento com o Azure RBAC.](storage-auth-aad-rbac.md)
 - [Utilize a Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).
 - [Executar comandos PowerShell com credenciais AD AD Azure para aceder a dados blob](../blobs/authorize-active-directory-powershell.md)

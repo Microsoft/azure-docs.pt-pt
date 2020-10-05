@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ed587e8ee54aeb36b6790314e849f38b1bab1007
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 286d350493afb1e74f9d2ba6eb445b2c46d995b6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549403"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com SAML SSO para Bambu por resolução GmbH
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com sSO saml para bambu por resolução GmbH, execute
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![SAML SSO para Bambu por resolução GmbH Domain e URLs informações únicas de súmito](common/idp-intiated.png)
+    ![SAML S S O for Bamboo por resolução GmbH Domain e URLs informações únicas de súmis.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com sSO saml para bambu por resolução GmbH, execute
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![SAML SSO para Bambu por resolução GmbH Domain e URLs informações únicas de súmito](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -201,7 +201,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal d
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAML SSO para Bambu por resolução GmbH**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **SAML SSO para Bambu por resolução GmbH**.
 

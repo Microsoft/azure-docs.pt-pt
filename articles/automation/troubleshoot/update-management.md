@@ -5,12 +5,12 @@ services: automation
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359244"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713508"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -226,7 +226,7 @@ Aqui estão as possíveis causas para esta questão:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto em âmbitos selecionados
 
-O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num determinado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceda a um utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num determinado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceder a um utilizador acesso aos recursos do Azure utilizando o portal Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>Consulta da ARG não devolve máquinas esperadas
 
@@ -594,7 +594,7 @@ A implementação de atualizações no Linux por classificação ("atualizaçõe
 
 KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). É atualizado diariamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Se não vir o seu problema ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 

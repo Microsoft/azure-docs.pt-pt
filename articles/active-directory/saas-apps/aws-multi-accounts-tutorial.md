@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 20674f5a793267c3a9e2fa078f95cbf96624df13
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550177"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -30,7 +30,7 @@ A integração da Amazon Web Services (AWS) com a Azure AD proporciona-lhe os se
 
 Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, veja o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
-![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![O diagrama mostra Azure A D com uma aplicação W S ligada a três contas A W S através de I D P iniciado S S O.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
 > Por favor, note que ligar uma aplicação AWS a todas as suas contas AWS não é a nossa abordagem recomendada. Em vez disso, recomendamos que utilize [esta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta AWS para várias instâncias de aplicações AWS em Azure AD. Só deve utilizar esta abordagem se tiver poucas Contas e Funções AWS, este modelo não é escalável à medida que as contas e funções AWS dentro destas contas crescem. Esta abordagem não utiliza a funcionalidade de importação de AWS Role utilizando o Provisioning do Utilizador Azure AD, pelo que tem de adicionar/atualizar/eliminar manualmente as funções. Para outras limitações nesta abordagem, consulte os detalhes abaixo.
@@ -118,7 +118,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 5. A aplicação Amazon Web Services (AWS) espera as afirmações da SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. No **conjunto de Sessão de Inscrição única com página SAML,** clique no botão **Editar** para abrir **atributos do utilizador & o** diálogo Claims.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
@@ -130,9 +130,9 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com adicionar nova reclamação e guardar chamado.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir os valores descritos neste passo.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -200,11 +200,11 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. **Procurar acesso ao administrador** na barra de pesquisa e selecionar a caixa de verificação **AdministratorAccess** e, em seguida, clicar em **Seguinte: Tags**.
 
-    ![Selecione acesso ao administrador](./media/aws-multi-accounts-tutorial/administrator-access.png)
+    ![A screenshot mostra o AdministratorAccess selecionado como um nome de Política.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
 1. Na secção **Adicionar tags (opcional),** execute os seguintes passos:
 
-    ![Selecione acesso ao administrador](./media/aws-multi-accounts-tutorial/config2.png)
+    ![A screenshot mostra o painel de tags Add onde pode adicionar pares de valor de teclas.](./media/aws-multi-accounts-tutorial/config2.png)
 
     a. Na caixa de texto **chave,** insira o nome-chave para ex: Azureadtest.
 
@@ -229,25 +229,25 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Por favor, tome nota do ID de conta para essa conta AWS, quer a partir de propriedades EC2, quer do painel IAM, conforme salientado abaixo:
 
-    ![Selecione acesso ao administrador](./media/aws-multi-accounts-tutorial/aws-accountid.png)
+    ![A imagem mostra onde a conta I D aparece na janela A W S.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
 1. Agora assine no [portal Azure](https://portal.azure.com/) e navegue para **grupos.**
 
 1. Crie novos grupos com o mesmo nome que o IAM Roles criados anteriormente e anotar os **IDs** de objeto destes novos grupos.
 
-    ![Selecione acesso ao administrador](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+    ![A screenshot mostra onde introduzir a conta I D no painel de visão geral. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Assine a partir da conta AWS atual e faça login com outra conta onde pretende configurar um único sinal com Azure AD.
 
 1. Uma vez que todos os papéis são criados nas contas, eles aparecem na lista **de Papéis** para essas contas.
 
-    ![Configuração de funções](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
+    ![A screenshot mostra a lista de Papéis com nome de função, descrição e entidades fidedignas.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
 1. Precisamos capturar todas as Entidades De Papel ARN e Trust para todos os papéis em todas as contas, que precisamos mapear manualmente com a aplicação AD AZure.
 
 1. Clique nas funções para copiar valores **de Role ARN** e **Entidades Fidedignas.** Você precisa destes valores para todos os papéis que você precisa para criar em Azure AD.
 
-    ![Configuração de funções](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+    ![A screenshot mostra o painel resumo com o separador de relações trust selecionado.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Execute o passo acima para todas as funções em todas as contas e guarde todas elas em formato **Role ARN,Entidades Fidedignas** num bloco de notas.
 
@@ -257,11 +257,11 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     b. Precisa de permissões suficientes para criar os papéis. Clique em **modificar permissões** para obter as permissões necessárias.
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![A screenshot mostra a janela de autenticação do Explorador de gráficos com um link de permissões modificar.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Selecione as permissões seguintes da lista (se ainda não as tiver) e clique em "Modificar permissões" 
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![A screenshot mostra três permissões selecionadas: Diretório.AccessAsUser.All, Diretório.Read.All e Diretório.ReadWrite.All.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
     d. Isto irá pedir-lhe para iniciar sessão de novo e aceitar o consentimento. Depois de aceitar o consentimento, inicia sessão no Microsoft Graph Explorer novamente.
 
@@ -271,17 +271,17 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     Se estiver a usar vários diretórios, então pode usar o seguinte padrão, que tem o seu domínio principal nele  `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+    ![A screenshot mostra GET, beta e Run Query selecionados.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
     f. Da lista de diretores de serviços recolhidos, obtenha o que precisa para modificar. Também pode utilizar o Ctrl+F para pesquisar a aplicação a partir de todos os ServicePrincipals listados. Pode utilizar a seguinte consulta utilizando o **ID do Objeto Principal** de Serviço que copiou da página Azure AD Properties para chegar ao respetivo Principal de Serviço.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![A screenshot mostra usando a consulta para obter o objeto principal de serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     exemplo, Extrair a propriedade appRoles do objeto principal do serviço.
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![A screenshot mostra detalhes do objeto principal do serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. Agora precisa de gerar novas funções para a sua aplicação. 
 
@@ -331,7 +331,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     j. Volte para o Microsoft Graph Explorer e altere o método de **GET** para **PATCH**. Remeje o objeto principal de serviço para ter funções desejadas atualizando a propriedade appRoles semelhante à acima mostrada no exemplo. Clique **em 'Executar' para** executar a operação de correção. Uma mensagem de sucesso confirma a criação do papel para a sua aplicação Amazon Web Services.
 
-    ![Caixa de diálogo microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![A screenshot mostra o Graph Explorer com o método Patch selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Depois de o Diretor de Serviço ser corrigido com mais funções, pode atribuir Utilizadores/Grupos às respetivas funções. Isto pode ser feito indo ao portal e navegando para a aplicação Amazon Web Services. Clique no separador **Utilizadores e Grupos** na parte superior.
 
@@ -339,14 +339,14 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Assim que os Grupos forem criados, selecione o grupo e atribua à aplicação.
 
-    ![Configure único add de sign-on](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+    ![Screenshot mostra Adicionar Atribuição com utilizadores e grupos selecionados para abrir o painel de Utilizadores e grupos.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Os grupos aninhados não são apoiados na atribuição de grupos.
 
 1. Para atribuir a função ao grupo, selecione a função e clique no botão **Atribuir** na parte inferior da página.
 
-    ![Configure único add de sign-on](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Screenshot mostra Add Assignment com um grupo selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
     > [!Note]
     > Por favor, note que precisa de refrescar a sua sessão no portal Azure para ver novas funções.
@@ -357,11 +357,11 @@ Nesta secção, testa a configuração de inscrição única AZure AD utilizando
 
 Quando clicar no azulejo amazon Web Services (AWS) no Painel de Acesso, deverá obter a página de aplicação da Amazon Web Services (AWS) com opção de selecionar o papel.
 
-![Configure único add de sign-on](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![A screenshot mostra a página de aplicação A W S, onde pode selecionar uma função.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 Também pode verificar a resposta da SAML para ver as funções serem passadas como reivindicações.
 
-![Configure único add de sign-on](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![A screenshot mostra parte de uma resposta SAML com valores de atributo.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
 Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../active-directory-saas-access-panel-introduction.md)
 

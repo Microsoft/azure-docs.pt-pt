@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548360"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -304,7 +304,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 18. Crie uma nova política para este utilizador.
 
-    ![Screenshot do utilizador Add](./media/amazon-web-service-tutorial/adduser2.png)
+    ![A screenshot mostra a página do utilizador Adicionar onde pode criar uma política para o utilizador.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. **Selecione Fixe diretamente as políticas existentes**.
 
@@ -322,7 +322,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 20. Descarregue as credenciais de utilizador de um utilizador.
 
-    ![Screenshot do utilizador Add](./media/amazon-web-service-tutorial/adduser4.png)
+    ![A screenshot mostra a página do utilizador Adicionar com um botão Download c s v para obter credenciais do utilizador.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copie a chave de acesso ao utilizador **ID** e **a chave de acesso secreta.**
 

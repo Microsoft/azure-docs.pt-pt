@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 7e45537d0a9fbdd738d6a2142b9259a15498e9c9
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503810"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715938"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -92,7 +92,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -124,7 +124,7 @@ As aplicações Azure Functions fornecem as mesmas vidas de serviço [que ASP.NE
 
 Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
 
-## <a name="logging-services"></a>Serviços de registo
+## <a name="logging-services"></a>Serviço de registo
 
 Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado como uma instância de [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) , que está disponível através do pacote [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) NuGet.
 
@@ -306,7 +306,7 @@ Por predefinição, ficheiros de configuração como *appsettings.jsligados* nã
 > [!IMPORTANT]
 > Para aplicações de funções em execução nos planos Consumption ou Premium, as modificações nos valores de configuração utilizados nos gatilhos podem causar erros de escala. Qualquer alteração a estas propriedades pela `FunctionsStartup` classe resulta num erro de arranque de aplicações de função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, veja os seguintes recursos:
 

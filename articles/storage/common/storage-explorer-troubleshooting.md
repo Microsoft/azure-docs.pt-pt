@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534860"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714452"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -21,13 +21,13 @@ O Explorador de Armazenamento do Microsoft Azure é uma aplicação autónoma qu
 
 Este guia resume soluções para problemas que são geralmente vistos no Storage Explorer.
 
-## <a name="rbac-permissions-issues"></a>Emissões de permissões do RBAC
+## <a name="azure-rbac-permissions-issues"></a>Azure RBAC permissões questões
 
-O controlo de acesso baseado em funções [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o RBAC funcione da melhor forma no Storage Explorer.
+O controlo de acesso baseado em funções [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o Azure RBAC funcione da melhor forma no Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como acesso os meus recursos no Storage Explorer?
 
-Se tiver problemas em aceder aos recursos de armazenamento através do RBAC, pode não lhe ter sido atribuído o papel apropriado. As seguintes secções descrevem as permissões que o Storage Explorer atualmente necessita para aceder aos seus recursos de armazenamento. Contacte o seu administrador de conta Azure se não tiver a certeza de que tem as funções ou permissões adequadas.
+Se tiver problemas em aceder aos recursos de armazenamento através do Azure RBAC, pode não lhe ter sido atribuído o papel apropriado. As seguintes secções descrevem as permissões que o Storage Explorer atualmente necessita para aceder aos seus recursos de armazenamento. Contacte o seu administrador de conta Azure se não tiver a certeza de que tem as funções ou permissões adequadas.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"Ler: Lista/Obter Conta de Armazenamento(s)" emissão de permissões
 
@@ -65,7 +65,7 @@ Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos ut
 3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Clique em Seguinte.
 4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Clique em Seguinte. Clique em Ligar.
 
-Para outros tipos de recursos, não temos atualmente uma solução relacionada com o RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
+Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
@@ -175,9 +175,9 @@ Se não conseguir recuperar as suas subscrições depois de iniciar sessão com 
 
 Se não conseguir remover uma conta ou um recurso de armazenamento anexado através da UI, pode eliminar manualmente todos os recursos anexados eliminando as seguintes pastas:
 
-* Janelas:`%AppData%/StorageExplorer`
-* macOS:`/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux:`~/.config/StorageExplorer`
+* Janelas: `%AppData%/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
+* Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Feche o Explorador de Armazenamento antes de eliminar estas pastas.
@@ -405,7 +405,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

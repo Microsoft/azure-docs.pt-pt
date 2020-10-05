@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547788"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714478"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integrar avaliação com diretório ativo Azure
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação de avaliação espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação avaliada espera que **o identificador** de nomes seja mapeado com **o user.mail**, pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra o painel de atributos do utilizador com o ícone de edição realçado.](common/edit-attribute.png)
 
 1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -110,15 +110,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. No topo à direita da página, clique no ícone **Definições** e, em seguida, navegue para **a Configuração**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![A screenshot mostra a ligação de configuração chamada.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. A partir do lado esquerdo do menu, clique no **único sinal de SEML**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![O screenshot mostra as opções de Configuração com a opção de inscrição única SAML realçada.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. Na página de **configuração single Sign-On DO SAML 2.0,** execute os seguintes passos:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![A screenshot mostra a página de configuração de sign-on única SAML 2.0 onde pode editar o Estado de Retransmissão padrão e o login iniciado pelo serviço U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Copie o valor **padrão do Estado do retransmissor** e cole-o na caixa de texto **do Estado de retransmissão** na **Configuração Básica SAML** no portal Azure.
 
@@ -126,7 +126,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 7. Percorra a mesma página em **Identificar utilizadores,** executar os seguintes passos:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![A screenshot mostra identificar os utilizadores onde pode introduzir valores a partir deste passo.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. Na caixa de texto **URL de URL do Fornecedor de Identidade,** cole o valor do URL de **login,** que copiou a partir do portal Azure e clique em **Guardar**.
 
@@ -174,15 +174,15 @@ Para permitir que os utilizadores Azure AD inscrevam-se na Avaliação, devem se
 
 2. No topo direito da página, clique no ícone **Definições** e, em seguida, navegue para o **centro de Administração**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![A screenshot mostra as opções de Definições onde pode selecionar o centro de administração.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. Na barra de ferramentas no topo da página, clique em **Pessoas**e, em seguida, navegue para **Adicionar um novo utilizador**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![O Screenshot mostra a página de Avaliação com Pessoas e Adicione um novo utilizador chamado.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. Na página **'Adicionar' um novo utilizador,** execute os seguintes passos:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![A screenshot mostra a página de utilizador Adicionar uma nova página de utilizador.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. Na caixa de texto **do primeiro nome,** insira o primeiro nome do utilizador como **Britta**.
 

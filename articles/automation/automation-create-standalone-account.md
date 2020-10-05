@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987269"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714639"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -22,7 +22,7 @@ Quando cria uma conta Automation no portal Azure, a conta **Executar Como** é c
 
 * Cria um diretor de serviço em Azure Ative Directory (Azure AD).
 * Cria um certificado.
-* Atribui o Controlo de Acesso Baseado em Funções (RBAC), que gere os recursos do Gestor de Recursos Azure utilizando livros de execução.
+* Atribui a função Colaboradora, que gere os recursos do Gestor de Recursos Azure utilizando runbooks.
 
 Com esta conta criada para si, pode começar rapidamente a construir e a implementar runbooks para suportar as suas necessidades de automação.
 
@@ -74,7 +74,7 @@ Para criar uma conta Azure Automation no portal Azure, complete os seguintes pas
    > [!NOTE]
    > Se optar por não criar a conta Run As selecionando **No** for **Create Azure Run As account**, aparece uma mensagem no painel de Conta Ded automatização adicionar. Apesar de a conta ser criada no portal Azure, a conta não tem uma identidade de autenticação correspondente na subscrição do seu modelo de implementação clássico ou no serviço de diretório de subscrição do Azure Resource Manager. Portanto, a conta Automation não tem acesso a recursos na sua subscrição. Isto impede que quaisquer livros que refiram esta conta sejam capazes de autenticar e executar tarefas contra recursos nesses modelos de implantação.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot de prompt com mensagem 'Você optou por não criar uma Conta Run As.'":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot de prompt 'You's not have permissions to create a Run As account in Azure Ative directy.":::
    >
    > Quando o principal de serviço não é criado, a função contribuinte não é atribuída.
    >
@@ -99,7 +99,7 @@ As contas Classic Run As já não são criadas por padrão quando cria uma conta
 2. Selecione **Azure Classic Run como conta**.
 3. Clique em **Criar** para prosseguir com a Classic Run Como criação de conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a autoria gráfica, consulte [os livros gráficos do Autor na Azure Automation.](automation-graphical-authoring-intro.md)
 * Para começar com os livros powerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).

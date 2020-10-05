@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a30ab4136b1d54e852ddb8fe3d0ed9a4e2bc9149
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485945"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716063"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -85,7 +85,7 @@ Se apenas pretender descarregar ficheiros, verifique se o [Leitor de Dados de Ar
 Se pretender fazer o upload de ficheiros, verifique se uma destas funções foi atribuída ao seu principal de segurança:
 
 - [Contribuinte de Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Proprietário de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Proprietário dos Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Estas funções podem ser atribuídas ao seu principal de segurança em qualquer um destes âmbitos:
 
@@ -94,7 +94,7 @@ Estas funções podem ser atribuídas ao seu principal de segurança em qualquer
 - Grupo de recursos
 - Subscrição
 
-Para aprender a verificar e atribuir funções, consulte [o Acesso ao Grant ao blob Azure e dados de fila com o RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber como verificar e atribuir funções, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se.
@@ -318,6 +318,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 Consulte [Configuração, otimização e resolução de problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

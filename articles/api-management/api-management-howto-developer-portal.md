@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614067"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715458"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da AZure API Management
 
@@ -115,11 +115,11 @@ Pode ter um portal gerido e vários portais auto-hospedados. O conteúdo de todo
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal suporta modelos e/ou é compatível com o Kit de Recursos de DevOps de Gestão de API?
 
-Não.
+N.º
 
 ### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>O conteúdo do portal é guardado com a funcionalidade de backup/restauro na Gestão da API?
 
-Não.
+N.º
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Preciso de permitir a conectividade adicional do VNet para as dependências do portal geridas?
 
@@ -172,7 +172,7 @@ Também pode ativar o CORS manualmente.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Que permissões preciso para editar o portal do desenvolvedor?
 
-Se estiver a ver o `Oops. Something went wrong. Please try again later.` erro ao abrir o portal no modo administrativo, poderá não ter as permissões necessárias (RBAC).
+Se estiver a ver o `Oops. Something went wrong. Please try again later.` erro ao abrir o portal no modo administrativo, poderá não ter as permissões necessárias (Azure RBAC).
 
 Os portais legados requeriam a permissão `Microsoft.ApiManagement/service/getssotoken/action` no âmbito do serviço para permitir o acesso do administrador do utilizador aos `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` portais. O novo portal requer a permissão `Microsoft.ApiManagement/service/users/token/action` no `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` âmbito.
 
@@ -217,12 +217,12 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | No              |
+| Microsoft Internet Explorer | Não              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o novo portal de desenvolvedores:
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569655"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715207"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -22,7 +22,7 @@ A azure Database for MySQL alimentado pela edição comunitária MySQL está dis
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo flexível de implementação do servidor. Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](./../select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Database for MySQL Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizações de configuração do servidor com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores optem pela alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. Os servidores flexíveis também fornecem controlos de otimização de custos melhores com a capacidade de parar/iniciar o seu servidor e skus rebentados, ideais para cargas de trabalho que não necessitam de capacidade de computação completa continuamente. O serviço suporta atualmente a versão comunitária do MySQL 5.7. O serviço está atualmente em pré-visualização, disponível hoje em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -54,7 +54,9 @@ Consulte [conceitos de alta disponibilidade](concepts-high-availability.md) para
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Remendação automatizada com janela de manutenção gerida
 
-O serviço executa patching automatizado do hardware subjacente, sistema operativo e motor de base de dados. O patching inclui atualizações de segurança e software. Para o motor MySQL, as atualizações de versão menores também estão incluídas como parte do lançamento de manutenção planeado. Os utilizadores podem configurar o calendário de remendos para serem geridos pelo sistema ou definir o seu horário personalizado. Durante o programa de manutenção, o patch é aplicado e o servidor pode necessitar de um reinício como parte do processo de remendação para completar a atualização. Com o horário personalizado, os utilizadores podem tornar o seu ciclo de remendos previsível e escolher uma janela de manutenção com o mínimo impacto para o negócio. Em geral, o serviço segue o horário de lançamento mensal como parte da integração e libertação contínuas. 
+O serviço executa patching automatizado do hardware subjacente, sistema operativo e motor de base de dados. O patching inclui atualizações de segurança e software. Para o motor MySQL, as atualizações de versão menores também estão incluídas como parte do lançamento de manutenção planeado. Os utilizadores podem configurar o calendário de remendos para serem geridos pelo sistema ou definir o seu horário personalizado. Durante o programa de manutenção, o patch é aplicado e o servidor pode necessitar de um reinício como parte do processo de remendação para completar a atualização. Com o horário personalizado, os utilizadores podem tornar o seu ciclo de remendos previsível e escolher uma janela de manutenção com o mínimo impacto para o negócio. Em geral, o serviço segue o horário de lançamento mensal como parte da integração e libertação contínuas.
+
+Consulte [a Manutenção Programada](concepts-maintenance.md) para mais detalhes. 
 
 ## <a name="automatic-backups"></a>Backups automáticos
 
@@ -86,6 +88,8 @@ Consulte [os conceitos de Computação e Armazenamento](concepts-compute-storage
 ## <a name="stopstart-server-to-optimize-cost"></a>Servidor stop/start para otimizar o custo
 
 O serviço de servidor flexível permite-lhe parar e iniciar o servidor on-demand para otimizar o custo. A faturação do nível do cálculo é interrompida imediatamente quando o servidor é parado. Isto pode permitir-lhe ter poupanças significativas de custos durante o desenvolvimento, teste e para cargas de trabalho previsíveis de produção limitadas ao tempo. O servidor permanece em estado de paragem durante sete dias, a menos que re-reinicie mais cedo. 
+
+Consulte [os conceitos do Servidor](concept-servers.md) para saber mais. 
 
 ## <a name="enterprise-grade-security-and-privacy"></a>Segurança e privacidade de grau empresarial
 
@@ -122,7 +126,7 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação de um único servidor MySQL, está pronto para:
 
 - Crie o seu primeiro servidor. 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447415"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713787"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -120,7 +120,7 @@ As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](security-center-enable-data-collection.md): aprovisionamento de agente e definições de recolha de dados.
 - [Política de](tutorial-security-policy.md)segurança : uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos monitorizados e recomendados pelo Security Center, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
 - [Notificações por e-mail](security-center-provide-security-contact-details.md): contactos de segurança e definições de notificação.
-- [Nível de preços](security-center-pricing.md): com ou sem Azure Defender, que determina quais as funcionalidades do Centro de Segurança disponíveis para os recursos de âmbito (pode ser especificado para subscrições, grupos de recursos e espaços de trabalho).
+- [Nível de preços](security-center-pricing.md): com ou sem Azure Defender, que determina quais as funcionalidades do Centro de Segurança disponíveis para recursos de âmbito (pode ser especificado para subscrições e espaços de trabalho, ou grupos de recursos que utilizam a API).
 
 > [!NOTE]
 > Especificar um contacto de segurança garante que o Azure consegue contactar a pessoa certa da sua organização se ocorrer um incidente de segurança. Leia [Provide security contact details in Azure Security Center (Fornecer detalhes de contacto de segurança no Centro de Segurança do Azure)](security-center-provide-security-contact-details.md) para obter mais informações sobre como ativar esta recomendação.
@@ -161,7 +161,7 @@ Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados sã
 > A Microsoft compromete-se fortemente a proteger a privacidade e a segurança destes dados. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço. Para obter mais informações sobre o processamento de dados e privacidade, leia [Segurança de Dados do Centro de Segurança do Azure](security-center-data-security.md).
 >
 
-## <a name="onboarding-non-azure-resources"></a>Incluir recursos não Azure
+## <a name="onboard-non-azure-resources"></a>Recursos não-Azure a bordo
 
 O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Leia [os computadores não-Azure](quickstart-onboard-machines.md) a bordo para obter mais informações sobre como embarcar recursos não-Azure.
 
@@ -219,18 +219,16 @@ O exemplo seguinte mostra uma atividade suspeita de RDP em curso:
 
 Esta página mostra informações detalhadas acerca da hora em que ocorreu o ataque, o nome do anfitrião de origem, a VM visada e também lhe disponibiliza passos de recomendação. Em algumas circunstâncias, a informação de origem do ataque pode estar vazia. Leia [Informações da Origem em Falta nos Alertas do Centro de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) para obter mais informações acerca deste tipo de comportamento.
 
-Nesta página, também pode iniciar uma investigação para compreender melhor a linha cronológica do ataque, como este ocorreu, que sistemas estão potencialmente comprometidos, quais as credenciais que foram utilizadas e ver uma representação gráfica da cadeia de ataque completa.
-
 Uma vez identificado o sistema comprometido, pode executar uma [Automatização de Fluxo de Trabalho](workflow-automation.md) que foi previamente criada. Trata-se de uma coleção de procedimentos que podem ser executados a partir do Centro de Segurança uma vez desencadeados por um alerta.
 
-No [Como Alavancar o Azure Security Center & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que podem ajudá-lo a entender como o Security Center pode ser usado em cada uma dessas fases.
+No [Como Alavancar o Azure Security Center & Microsoft Operations Management Suite para um](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) vídeo de Resposta a Incidentes, pode ver algumas demonstrações que mostram como o Security Center pode ser usado em cada uma dessas fases.
 
 > [!NOTE]
 > Leia [Gerir e responder aos alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) para obter mais informações sobre como utilizar as capacidades do Centro de Segurança para o ajudar durante o seu processo de Resposta a Incidentes.
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449766"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714969"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -35,7 +35,7 @@ São os seguintes pré-requisitos para permitir a auto-produção da Azure:
 - Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
 - Automanage não suporta subscrições sandbox neste momento
 
-**Que permissão do RBAC é necessária para permitir a auto-produção?**
+**Qual é a permissão do Azure RBAC para permitir a auto-produção?**
 
 Se estiver a ativar a auto-gestão num VM com uma Conta de Auto-gestão existente, precisa de uma função de Contribuinte para o Grupo de Recursos onde reside o VM.
 
@@ -113,7 +113,7 @@ Se vir o estado como *Falhado,* pode resolver problemas de resolução através 
 Pode arquivar um [bilhete de caso de suporte técnico.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Para a opção **Serviço,** procure e selecione *Automanagem* sob a secção *de Monitorização e Gestão.*
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Tente ativar a auto-produção de máquinas virtuais no portal Azure.
 

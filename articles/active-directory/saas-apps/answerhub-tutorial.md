@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544745"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Diretório Ativo Azure com o AnswerHub
 
@@ -140,7 +140,7 @@ Nesta secção, configurar um único sº de sção para o AnswerHub.
 
 4. No separador **IDP Config,** complete estes passos:
 
-    ![Separador grupos de & utilizadores](./media/answerhub-tutorial/ic785172.png "Configuração SAML")  
+    ![O Screenshot mostra a página AnswerHub com o separador Grupos & dos Utilizadores selecionados.](./media/answerhub-tutorial/ic785172.png "Configuração SAML")  
   
     a. Na caixa de URL de login do **IDP,** cole o **URL de login** que copiou do portal Azure.
   
@@ -195,7 +195,7 @@ Nesta secção, configura o utilizador Britta Simon para utilizar o Azure AD com
 
 1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **AnswerHub**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **AnswerHub**.
 
@@ -231,7 +231,7 @@ Para que os utilizadores de Azure AD entrem no AnswerHub, tem de os adicionar no
 
 4. No painel esquerdo, na secção **Gerir utilizadores,** selecione **Criar ou importar utilizadores**, e, em seguida, selecione **Utilizadores & Grupos**.
 
-   ![Separador grupos de & utilizadores](./media/answerhub-tutorial/ic785175.png "Grupos & utilizadores")
+   ![O Screenshot mostra a página AnswerHub com o separador Grupos & dos Utilizadores selecionados e o link criar ou importar utilizadores chamado.](./media/answerhub-tutorial/ic785175.png "Grupos & utilizadores")
 
 5. Nas caixas apropriadas, insira o **endereço de e-mail,** nome de **utilizador**e **palavra-passe** de uma conta AD Azure válida que pretende adicionar e, em seguida, selecione **Guardar**.
 

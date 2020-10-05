@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fcd59cb3bf42dc843387043d982e6c43d665784d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486846"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716135"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage da Gen1 para a Gen2
 
@@ -98,7 +98,7 @@ Esta tabela compara as capacidades da Gen1 com as da Gen2.
 |Organização de dados|[Espaço hierárquico de nomes](data-lake-storage-namespace.md)<br>Suporte de ficheiros e pastas|[Espaço hierárquico de nomes](data-lake-storage-namespace.md)<br>Suporte de contentores, ficheiros e pastas |
 |Georredundância| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS,](../common/storage-redundancy.md#locally-redundant-storage) [ZRs,](../common/storage-redundancy.md#zone-redundant-storage) [GRS,](../common/storage-redundancy.md#geo-redundant-storage) [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |Autenticação|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)|[Identidade gerida pela AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Principais de serviço](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chave de acesso compartilhado](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
-|Autorização|Gestão - [RBAC](../../role-based-access-control/overview.md)<br>Dados – [ACLs](data-lake-storage-access-control.md)|Gestão – [RBAC](../../role-based-access-control/overview.md)<br>Dados -  [ACLs,](data-lake-storage-access-control.md) [RBAC](../../role-based-access-control/overview.md) |
+|Autorização|Gestão - [Azure RBAC](../../role-based-access-control/overview.md)<br>Dados – [ACLs](data-lake-storage-access-control.md)|Gestão – [Azure RBAC](../../role-based-access-control/overview.md)<br>Dados -  [ACLs](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Encriptação – Dados em repouso|Lado do servidor - com [teclas geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lado do servidor - com [teclas geridas pela Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [geridas pelo cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Suporte VNET|[Integração VNET](../../data-lake-store/data-lake-store-network-security.md)|[Pontos finais de serviço,](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [pontos finais privados](../common/storage-private-endpoints.md)|
 |Experiência de desenvolvedor|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET,](../../data-lake-store/data-lake-store-data-operations-net-sdk.md) [Java,](../../data-lake-store/data-lake-store-get-started-java-sdk.md) [Python,](../../data-lake-store/data-lake-store-data-operations-python.md) [PowerShell,](../../data-lake-store/data-lake-store-get-started-powershell.md) [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Geralmente disponível - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [Java,](data-lake-storage-directory-file-acl-java.md) [Python](data-lake-storage-directory-file-acl-python.md)<br>Pré-visualização pública - [JavaScript,](data-lake-storage-directory-file-acl-javascript.md) [PowerShell,](data-lake-storage-directory-file-acl-powershell.md) [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
@@ -202,7 +202,7 @@ Este é o padrão mais simples.
 
 :heavy_check_mark: O esforço de migração é elevado, mas fornece apoio lado a lado para a Gen1 e a Gen2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Conheça as várias partes da criação de segurança para uma conta de armazenamento. Consulte [o guia de segurança do armazenamento Azure](../common/storage-security-guide.md).
 - Otimize o desempenho da sua Data Lake Store. Consulte [Otimize Azure Data Lake Storage Gen2 para desempenho](data-lake-storage-performance-tuning-guidance.md)

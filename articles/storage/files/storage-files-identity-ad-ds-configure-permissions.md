@@ -7,22 +7,22 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320341"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716016"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
 
 Antes de iniciar este artigo, certifique-se de que preencheu o artigo anterior, [atribua permissões de nível de partilha a uma identidade](storage-files-identity-ad-ds-assign-permissions.md) para garantir que as suas permissões de nível de partilha estão em vigor.
 
-Depois de atribuir permissões de nível de partilha com o RBAC, tem de configurar ACLs do Windows adequados no nível de raiz, diretório ou ficheiro, para tirar partido do controlo de acesso granular. Pense nas permissões de nível de partilha rbac como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Enquanto os ACLs do Windows funcionam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro. Tanto as permissões de nível de partilha como de nível de ficheiro/diretório são aplicadas quando um utilizador tenta aceder a um ficheiro/diretório, por isso, se houver uma diferença entre qualquer um deles, apenas o mais restritivo será aplicado. Por exemplo, se um utilizador tiver acesso de leitura/escrita ao nível do ficheiro, mas apenas ler a nível de partilha, então só pode ler esse ficheiro. O mesmo seria verdade se fosse invertido, e um utilizador tivesse acesso lido/escrito ao nível da partilha, mas apenas lido ao nível do ficheiro, ainda só pode ler o ficheiro.
+Depois de atribuir permissões de nível de partilha com o Azure RBAC, tem de configurar ACLs do Windows adequados no nível de raiz, diretório ou ficheiro, para tirar partido do controlo de acesso granular. Pense nas permissões de nível de partilha do Azure RBAC como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Enquanto os ACLs do Windows funcionam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro. Tanto as permissões de nível de partilha como de nível de ficheiro/diretório são aplicadas quando um utilizador tenta aceder a um ficheiro/diretório, por isso, se houver uma diferença entre qualquer um deles, apenas o mais restritivo será aplicado. Por exemplo, se um utilizador tiver acesso de leitura/escrita ao nível do ficheiro, mas apenas ler a nível de partilha, então só pode ler esse ficheiro. O mesmo seria verdade se fosse invertido, e um utilizador tivesse acesso lido/escrito ao nível da partilha, mas apenas lido ao nível do ficheiro, ainda só pode ler o ficheiro.
 
-## <a name="rbac-permissions"></a>Permissões do RBAC
+## <a name="azure-rbac-permissions"></a>Permissões Azure RBAC
 
-A tabela a seguir contém as permissões DO RBAC relacionadas com esta configuração:
+A tabela a seguir contém as permissões Azure RBAC relacionadas com esta configuração:
 
 
 | Papel incorporado  | Permissão NTFS  | Acesso resultante  |
@@ -116,7 +116,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como utilizar os ICACLs para definir ACLs do Windows e sobre os diferentes tipos de permissões suportadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que a funcionalidade está ativada e configurada, continue para o artigo seguinte, onde monta a sua partilha de ficheiros Azure a partir de um VM unido a domínio.
 

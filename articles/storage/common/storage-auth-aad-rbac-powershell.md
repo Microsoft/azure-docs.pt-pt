@@ -1,7 +1,7 @@
 ---
 title: Use o PowerShell para atribuir uma função Azure para o acesso a dados
 titleSuffix: Azure Storage
-description: Saiba como usar o PowerShell para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções (RBAC). O Azure Storage suporta funções personalizadas incorporadas e Azure para autenticação via Azure AD.
+description: Saiba como utilizar o módulo Azure PowerShell para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções Azure (Azure RBAC). O Azure Storage suporta funções personalizadas incorporadas e Azure para autenticação via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28f5be6d48b673f3148f05e14a92cf906aca4d81
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077046"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715806"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -134,8 +134,8 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
-- [Gerir o acesso aos recursos da Azure utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através da CLI do Azure)
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC no portal do Azure)
+- [Adicione ou remova atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Utilize o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)
+- [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-portal.md)

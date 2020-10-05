@@ -3,12 +3,12 @@ title: Descrição geral do Azure Arc
 description: Saiba o que é o Azure Arc e como ajuda os clientes a permitir a gestão e governação dos seus recursos híbridos com outros serviços e funcionalidades da Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335403"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714148"
 ---
 # <a name="azure-arc-overview"></a>Descrição geral do Azure Arc
 
@@ -56,7 +56,7 @@ A funcionalidade do plano de controlo Azure Arc é oferecida sem custos adiciona
 
 * Pesquisa e indexação através do Gráfico de Recursos Azure.
 
-* Acesso e segurança através do RBAC e subscrições.
+* Acesso e segurança através do Azure RBAC e subscrições.
 
 * Ambientes e automação através de modelos e extensões.
 
@@ -72,7 +72,7 @@ Na atual fase de pré-visualização, a Azure Arc permitiu que kubernetes são o
 
 Na atual fase de pré-visualização, os serviços de dados habilitados a Azure Arc são oferecidos sem custos adicionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os servidores ativados do Arc, consulte a [seguinte visão geral](./servers/overview.md)
 

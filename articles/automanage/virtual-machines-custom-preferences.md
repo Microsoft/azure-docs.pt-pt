@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450313"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715040"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Crie uma preferência personalizada em Azure Automanage para VMs
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 > As contas de teste gratuitas não têm acesso às máquinas virtuais utilizadas neste tutorial. Por favor, atualize para uma subscrição Pay-As-You-Go.
 
 > [!IMPORTANT]
-> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **do proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessária a seguinte permissão Azure RBAC para ativar a autoadministração: função **do proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -96,7 +96,7 @@ Pare rapidamente de utilizar a auto-gestão Azure para máquinas virtuais desati
 1. Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se criou um novo grupo de recursos para experimentar a Azure Automanage para máquinas virtuais e já não precisa, pode eliminar o grupo de recursos. A eliminação do grupo também elimina o VM e todos os recursos do grupo de recursos.
 
@@ -107,7 +107,7 @@ A Azure Automanage cria grupos de recursos predefinidos para armazenar recursos 
 1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 Obtenha as perguntas mais frequentemente respondidas nas nossas FAQ. 
 

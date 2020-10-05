@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671326"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713054"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados no Cofre da Chave Azure
 
@@ -24,7 +24,7 @@ Se é novo nesta funcionalidade, consulte [Integrate Key Vault com Azure Private
 
 ### <a name="symptoms-covered-by-this-article"></a>Sintomas cobertos por este artigo
 
-- As suas consultas de DNS ainda devolvem um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria de usar a funcionalidade de link privado.
+- As suas consultas de DNS ainda devolvem um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria de usar o recurso de links privados.
 - Todos os pedidos feitos por um determinado cliente que está a usar link privado, estão a falhar com intervalos ou erros de rede, e o problema não é intermitente.
 - O cofre tem um endereço IP privado, mas os pedidos ainda obtêm `403` resposta com o código de erro `ForbiddenByFirewall` interno.
 - Está a usar links privados, mas o seu cofre ainda aceita pedidos da Internet pública.
@@ -34,7 +34,7 @@ Se é novo nesta funcionalidade, consulte [Integrate Key Vault com Azure Private
 ### <a name="symptoms-not-covered-by-this-article"></a>Sintomas NÃO cobertos por este artigo
 
 - Há um problema de conectividade intermitente. Num dado cliente, vemos alguns pedidos a funcionar e outros a não funcionar. *Os problemas intermitentes não são normalmente causados por um problema na configuração de links privados; são um sinal de rede ou sobrecarga de clientes.*
-- Está a utilizar e o produto Azure que suporta a BYOK (Bring Your Own Key) ou CMK (Customer Managed Keys), e esse produto não consegue aceder ao cofre da chave. *Veja a outra documentação do produto. Certifique-se de que indica explicitamente o suporte para cofres-chave com a firewall ativada. Contacte o suporte do produto para esse produto específico, se necessário.*
+- Está a utilizar um produto Azure que suporta a BYOK (Bring Your Own Key) ou CMK (Customer Managed Keys), e esse produto não consegue aceder ao cofre da chave. *Veja a outra documentação do produto. Certifique-se de que indica explicitamente o suporte para cofres-chave com a firewall ativada. Contacte o suporte do produto para esse produto específico, se necessário.*
 
 ### <a name="how-to-read-this-article"></a>Como ler este artigo
 
@@ -46,7 +46,7 @@ Vamos começar!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Confirme que o seu cliente funciona na rede virtual
 
-Este guia de resolução de problemas aplica-se às ligações ao cofre chave que se originam do código de aplicação. Exemplos são aplicações e scripts que executam em máquinas virtuais, clusters de tecido de serviço Azure, Azure App Service, Azure Kubernetes Service (AKS) e outros similares.
+Este guia destina-se a ajudá-lo a fixar ligações ao cofre chave originário do código de aplicação. Exemplos são aplicações e scripts que executam em Azure Virtual Machines, clusters de tecido de serviço Azure, Azure App Service, Azure Kubernetes Service (AKS) e outros similares.
 
 Por definição de links privados, a aplicação ou o script devem estar a funcionar em máquina, cluster ou ambiente ligado à Rede Virtual onde o [recurso Private Endpoint](../../private-link/private-endpoint-overview.md) foi implantado. Se a aplicação estiver em execução numa rede arbitrária ligada à Internet, este guia NÃO é aplicável e provavelmente não podem ser utilizados links privados.
 
@@ -128,7 +128,7 @@ Você precisará diagnosticar a resolução do nome de anfitrião, e para isso v
 O endereço IP é o que os VMs e outros dispositivos *que executam na mesma Rede Virtual* utilizarão para ligar ao cofre de chaves. Tome nota do endereço IP, ou mantenha o separador do navegador aberto e não toque nele enquanto faz mais investigações.
 
 >[!NOTE]
-> Se o seu cofre-chave tiver vários pontos finais privados, então terá vários endereços IP privados. Isto só é útil se tiver várias Redes Virtuais a aceder ao mesmo cofre de chaves, cada uma através do seu próprio Ponto Final Privado (o Ponto Final Privado pertence a uma única Rede Virtual). Certifique-se de diagnosticar o problema para a Rede Virtual correta e selecione a ligação de ponto final privado correta no procedimento acima. Além disso, **não** crie vários Pontos Finais Privados para o mesmo Cofre de Chaves na mesma Rede Virtual. Isto não é necessário e constitui uma fonte de confusão.
+> Se o seu cofre-chave tiver vários pontos finais privados, então tem vários endereços IP privados. Isto só é útil se tiver várias Redes Virtuais a aceder ao mesmo cofre de chaves, cada uma através do seu próprio Ponto Final Privado (o Ponto Final Privado pertence a uma única Rede Virtual). Certifique-se de diagnosticar o problema para a Rede Virtual correta e selecione a ligação de ponto final privado correta no procedimento acima. Além disso, **não** crie vários Pontos Finais Privados para o mesmo Cofre de Chaves na mesma Rede Virtual. Isto não é necessário e constitui uma fonte de confusão.
 
 ## <a name="5-validate-the-dns-resolution"></a>5. Validar a resolução do DNS
 
@@ -158,11 +158,11 @@ Linux:
 
 Pode ver que o nome se resolve para um endereço IP público, e não há `privatelink` pseudónimo. O pseudónimo é explicado mais tarde, não se preocupe agora.
 
-Espera-se o resultado acima, independentemente da máquina ser ligada à Rede Virtual ou ser uma máquina arbitrária com ligação à Internet. Isto acontece porque o cofre-chave não tem ligação privada em estado aprovado, e, portanto, não há necessidade do cofre chave para suportar ligações de ligação privadas.
+Espera-se o resultado acima, independentemente da máquina ser ligada à Rede Virtual ou ser uma máquina arbitrária com ligação à Internet. Isto acontece porque o cofre-chave não tem nenhuma ligação privada de ponto final em estado aprovado, e, portanto, não há necessidade do cofre chave para suportar ligações privadas.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>Cofre chave com ligação privada resolvendo a partir de máquina de Internet arbitrária
 
-Quando o cofre-chave tiver uma ou mais ligações privadas de ponto final em estado aprovado e resolver o nome de anfitrião a partir de uma máquina arbitrária ligada à Internet (uma máquina que **não está** ligada à Rede Virtual onde reside o Ponto Final Privado), encontrará isto:
+Quando o cofre-chave tiver uma ou mais ligações privadas de ponto final em estado aprovado e resolver o nome de anfitrião a partir de uma máquina arbitrária ligada à Internet (uma máquina que *não está* ligada à Rede Virtual onde reside o Ponto Final Privado), encontrará isto:
 
 Windows:
 
@@ -229,7 +229,7 @@ A sua subscrição Azure deve ter um recurso [privado da Zona DNS](../../dns/pri
 
 Pode verificar a presença deste recurso indo para a página de subscrição no Portal e selecionando "Recursos" no menu esquerdo. O nome do recurso deve ser `privatelink.vaultcore.azure.net` , e o tipo de recurso deve ser zona privada de **DNS**.
 
-Normalmente, este recurso é criado automaticamente quando cria um Ponto Final Privado utilizando um método típico. Mas há casos em que este recurso não é criado automaticamente e terá de o fazer manualmente. Este recurso pode ter sido acidentalmente apagado também.
+Normalmente, este recurso é criado automaticamente quando cria um Ponto Final Privado utilizando um método típico. Mas há casos em que este recurso não é criado automaticamente e tem de o fazer manualmente. Este recurso pode ter sido acidentalmente apagado também.
 
 Se não tiver este recurso, crie um novo recurso Private DNS Zone na sua subscrição. Lembre-se que o nome deve ser exatamente `privatelink.vaultcore.azure.net` , sem espaços ou pontos adicionais. Se especificar o nome errado, a resolução de nomes explicada neste artigo não funcionará. Para obter mais informações sobre como criar este recurso, consulte [Criar uma zona de DNS privada Azure utilizando o portal Azure](../../dns/private-dns-getstarted-portal.md). Se seguir essa página, pode ignorar a criação da Rede Virtual porque neste momento já deve ter uma. Também pode saltar procedimentos de validação com Máquinas Virtuais.
 
@@ -253,7 +253,7 @@ Para que a resolução do nome do cofre funcione, deve haver um `A` registo com 
 Além disso, o valor do `A` registo (o endereço IP) deve ser [o endereço IP privado do cofre chave](#find-the-key-vault-private-ip-address-in-the-virtual-network). Se encontrar o `A` registo mas contiver o endereço IP errado, deve remover o endereço IP errado e adicionar um novo. Recomenda-se que retire todo o `A` registo e adicione um novo.
 
 >[!NOTE]
-> Sempre que remover ou modificar um `A` registo, a máquina pode ainda resolver o antigo endereço IP porque o valor TTL (Tempo para Viver) pode ainda não estar expirado. Recomenda-se que especifique sempre um valor TTL não inferior a 60 segundos (um minuto) e não superior a 600 segundos (10 minutos). Se especificar um valor demasiado grande, os seus clientes terão problemas em recuperar de falhas.
+> Sempre que remover ou modificar um `A` registo, a máquina pode ainda resolver o antigo endereço IP porque o valor TTL (Tempo para Viver) pode ainda não estar expirado. Recomenda-se que especifique sempre um valor TTL não inferior a 60 segundos (um minuto) e não superior a 600 segundos (10 minutos). Se especificar um valor demasiado grande, os seus clientes podem demorar muito tempo a recuperar de interrupções.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Resolução DNS para mais de uma Rede Virtual
 
@@ -261,15 +261,13 @@ Se existem várias Redes Virtuais e cada um tem o seu próprio recurso Private E
 
 Em cenários mais avançados, existem várias Redes Virtuais com olhando ativado. Neste caso, apenas uma Rede Virtual necessita do recurso Private Endpoint, embora ambos possam ter de estar ligados ao recurso Private DNS Zone. Este cenário não é diretamente abrangido por este documento.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>Facto: o utilizador controla a resolução do DNS
+### <a name="fact-you-have-control-over-dns-resolution"></a>Facto: Tem controlo sobre a resolução do DNS
 
-Se é um estudioso da rede ou uma pessoa curiosa, provavelmente percebeu como funciona a resolução do DNS. Como explicado na [secção anterior,](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)um cofre-chave com ligações privadas terá o pseudónimo `{vaultname}.privatelink.vaultcore.azure.net` no seu registo *público.* O servidor DNS utilizado pela Rede Virtual verificará todos os pseudónimos para um registo de nome *privado,* e se for encontrado, deixará de seguir os pseudónimos de registo público.
+Como explicado na [secção anterior,](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)um cofre-chave com ligações privadas tem o pseudónimo `{vaultname}.privatelink.vaultcore.azure.net` no seu registo *público.* O servidor DNS utilizado pela Rede Virtual utiliza o registo público, mas verifica todos os pseudónimos para um registo *privado,* e se for encontrado, deixará de seguir pseudónimos definidos no registo público.
 
-Por exemplo, considere que a Rede Virtual está ligada a uma Zona Privada de DNS com nome `privatelink.vaultcore.azure.net` , e o registo público de DNS para o cofre-chave tem o pseudónimo `fabrikam.privatelink.vaultcore.azure.net` . Note que o sufixo corresponde exatamente ao nome da Zona DS Privada. Isto significa que a resolução procurará primeiro um `A` registo com nome na Zona Privada de `fabrikam` DNS. Se o `A` registo for encontrado, o seu endereço IP será devolvido na consulta DNS. E esse endereço IP é o endereço IP privado do cofre de chaves.
+Esta lógica significa que se a Rede Virtual estiver ligada a uma Zona Privada de DNS com `privatelink.vaultcore.azure.net` nome, e o registo público de DNS para o cofre-chave tem o pseudónimo `fabrikam.privatelink.vaultcore.azure.net` (note que o sufixo do cofre de porta-chaves corresponde exatamente ao nome da Zona De DNS Privada), então a consulta dns procurará um `A` registo com nome na Zona Privada do `fabrikam` *DNS*. Se o `A` registo for encontrado, o seu endereço IP é devolvido na consulta DNS, e nenhum outro exame é realizado no registo público de DNS.
 
-Como pode ver, toda a resolução do nome está sob o controlo do utilizador.
-
-Existem duas razões para este desenho:
+Como pode ver, a resolução do nome está sob o seu controlo. Os raciocínios para este desenho são:
 
 - Pode ter um cenário complexo que envolve servidores DNS personalizados e integração com redes no local. Nesse caso, é necessário controlar a tradução dos nomes para endereços IP.
 - Pode ter de aceder a um cofre sem ligações privadas. Nesse caso, a resolução do nome de anfitrião da Rede Virtual deve devolver o endereço IP público, o que acontece porque os cofres-chave sem links privados não têm o `privatelink` pseudónimo no registo de nome.

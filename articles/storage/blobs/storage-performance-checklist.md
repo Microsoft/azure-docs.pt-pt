@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85701f3d073b8f743ddf48910822f152420c4fc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001387"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714816"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -66,7 +66,7 @@ Para obter mais informações sobre os alvos de escalabilidade para o serviço d
 Se estiver a aproximar-se do número máximo de contas de armazenamento permitidas para uma determinada combinação subscrição/região, avalie o seu cenário e determine se alguma das seguintes condições se aplica:
 
 - Está a utilizar contas de armazenamento para armazenar discos não geridos e adicionar esses discos às suas máquinas virtuais (VMs)? Para este cenário, a Microsoft recomenda a utilização de discos geridos. Os discos geridos escalam para si automaticamente e sem a necessidade de criar e gerir contas de armazenamento individuais. Para mais informações, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md)
-- Está a utilizar uma conta de armazenamento por cliente, para efeitos de isolamento de dados? Para este cenário, a Microsoft recomenda a utilização de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage permite-lhe agora atribuir funções Azure por cada contentor. Para obter mais informações, consulte [o Acesso ao Grant ao blob Azure e aos dados de fila com o RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md).
+- Está a utilizar uma conta de armazenamento por cliente, para efeitos de isolamento de dados? Para este cenário, a Microsoft recomenda a utilização de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage permite-lhe agora atribuir funções Azure por cada contentor. Para obter mais informações, consulte [o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-portal.md).
 - Está a utilizar várias contas de armazenamento para aumentar as operações de entrada, saída, E/S por segundo (IOPS) ou capacidade? Neste cenário, a Microsoft recomenda que aproveite os limites acrescidos para as contas de armazenamento para reduzir o número de contas de armazenamento necessárias para a sua carga de trabalho, se possível. Contacte [o Suporte Azure](https://azure.microsoft.com/support/options/) para solicitar limites acrescidos para a sua conta de armazenamento. Para obter mais informações, consulte [anunciar contas de armazenamento de maior escala.](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidade e transações
@@ -284,7 +284,7 @@ As bolhas de apêndice são semelhantes às bolhas de bloqueio, na medida em que
 
 As bolhas de página são apropriadas se a aplicação precisar de efetuar gravações aleatórias nos dados. Por exemplo, os discos de máquina virtual Azure são armazenados como bolhas de página. Para obter mais informações, consulte [as bolhas de blocos de compreensão, as bolhas de apêndice e as bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Metas de escalabilidade e desempenho para armazenamento blob](scalability-targets.md)
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

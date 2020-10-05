@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613514"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714940"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -175,17 +175,17 @@ O diagrama que se segue mostra o que acontece quando se tira uma fotografia de u
 
 Pode autorizar o acesso às versões blob utilizando uma das seguintes abordagens:
 
-- Utilizando o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança Azure Ative (Azure AD). A Microsoft recomenda a utilização do Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações sobre a utilização do Azure AD com operações de [bolhas, consulte o Acesso autorizado a bolhas e filas utilizando o Azure Ative Directory](../common/storage-auth-aad.md).
+- Utilizando o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um diretor de segurança Azure Ative (Azure AD). A Microsoft recomenda a utilização do Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações sobre a utilização do Azure AD com operações de [bolhas, consulte o Acesso autorizado a bolhas e filas utilizando o Azure Ative Directory](../common/storage-auth-aad.md).
 - Utilizando uma assinatura de acesso partilhado (SAS) para delegar o acesso às versões blob. Especifique o ID da versão para o tipo de recurso `bv` assinado, representando uma versão blob, para criar um token SAS para operações numa versão específica. Para obter mais informações sobre assinaturas de acesso partilhado, consulte [Grant acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
 - Utilizando as chaves de acesso à conta para autorizar operações contra versões blob com Chave Partilhada. Para mais informações, consulte [Autorizar com chave partilhada.](/rest/api/storageservices/authorize-with-shared-key)
 
 A versão blob foi concebida para proteger os seus dados de eliminação acidental ou maliciosa. Para melhorar a proteção, eliminar uma versão blob requer permissões especiais. As seguintes secções descrevem as permissões necessárias para eliminar uma versão blob.
 
-### <a name="rbac-action-to-delete-a-blob-version"></a>Ação do RBAC para eliminar uma versão blob
+### <a name="azure-rbac-action-to-delete-a-blob-version"></a>A ação do Azure RBAC para eliminar uma versão blob
 
-A tabela que se segue mostra quais as ações do RBAC que suportam a eliminação de uma bolha ou uma versão blob.
+A tabela que se segue mostra quais as ações do Azure RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Descrição | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
+| Descrição | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário dos Dados do Armazenamento de Blobs |
@@ -291,7 +291,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

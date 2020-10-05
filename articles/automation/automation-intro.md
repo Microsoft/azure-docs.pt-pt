@@ -7,12 +7,12 @@ keywords: automação azul, DSC, powershell, configuração do estado, gestão d
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448070"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715969"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automatização do Azure
 
@@ -64,7 +64,7 @@ A Automatização do Azure é composta por um conjunto de recursos partilhados q
 
 ### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-A Azure Automation suporta o controlo de acesso baseado em funções (RBAC) para regular o acesso à conta Automation e aos seus recursos. Para saber mais sobre a configuração do RBAC na sua conta de Automação, livros e empregos, consulte [o controlo de acesso baseado em funções para a Azure Automation](automation-role-based-access-control.md).
+A Azure Automation suporta o controlo de acesso baseado em funções (Azure RBAC) para regular o acesso à conta Automation e aos seus recursos. Para saber mais sobre a configuração do Azure RBAC na sua conta de Automação, livros e empregos, consulte [o controlo de acesso baseado em funções para a Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integração do controlo de origem
 
@@ -86,7 +86,7 @@ A Azure Automation suporta a gestão ao longo do ciclo de vida da sua infraestru
 * **Encontrar alterações** - Identificar alterações que possam causar uma configuração errada e melhorar a conformidade operacional.
 * **Monitor** - Isolar as alterações da máquina que estão a causar problemas e remediar ou acalá-las aos sistemas de gestão.
 * **Proteger** - Máquinas de quarentena se os alertas de segurança forem levantados. Defina requisitos no convidado.
-* **Governar** - Criar o RBAC para equipas. Recupere recursos não utilizados.
+* **Governar** - Criar o Azure RBAC para equipas. Recupere recursos não utilizados.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -94,7 +94,7 @@ A Azure Automation suporta a gestão ao longo do ciclo de vida da sua infraestru
 
 Pode rever os preços associados à Azure Automation na página [de preços.](https://azure.microsoft.com/pricing/details/automation/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar uma conta de Automatização](automation-quickstart-create-account.md)

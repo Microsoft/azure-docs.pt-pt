@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077097"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713400"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -67,7 +67,7 @@ Em seguida, escolha como pretende que os seus comandos obtenham autorização pa
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opção 1: Obter autorização através da utilização do Diretório Ativo Azure (AD)
 
-Com esta abordagem, o sistema garante que a sua conta de utilizador tem as atribuições adequadas de controlo de acesso baseado em funções (RBAC) e permissões ACL. 
+Com esta abordagem, o sistema garante que a sua conta de utilizador tem as atribuições adequadas de controlo de acesso baseado em funções (Azure RBAC) e permissões ACL. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -75,7 +75,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opção 2: Obter autorização utilizando a chave da conta de armazenamento
 
-Com esta abordagem, o sistema não verifica permissões DECC ou ACL.
+Com esta abordagem, o sistema não verifica permissões Azure RBAC ou ACL.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -411,7 +411,7 @@ A tabela seguinte mostra como os cmdlets usados para o mapa de Data Lake Storage
 |Set-AzDataStoreItemOwner<br>Set-AzDataStoreItemPermission<br>Set-AzDataStoreItemAcl|Atualização-AzDataLakeGen2Item|O cmdlet Update-AzDataLakeGen2Item atualiza apenas um item e não recursivamente. Se pretender atualizar novamente, liste os itens utilizando o cmdlet Get-AzDataLakeStoreChildItem e, em seguida, faça o pipeline para o cmdlet Update-AzDataGen2Item.|
 |Teste-AzDataLakeStoreItem|Get-AzDataGen2Item|O cmdlet Get-AzDataLakeGen2Item reportará um erro se o item não existir.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

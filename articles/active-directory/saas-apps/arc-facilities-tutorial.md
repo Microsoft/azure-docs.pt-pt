@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540610"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Tutorial: Azure Ative Directy integração única (SSO) com instalações ARC
 
@@ -84,15 +84,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação ARC Facilities espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra a caixa de diálogo atributos do utilizador com o ícone Edito chamado.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação ARC Facilities espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
     a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
-    ![image](./media/arc-facilities-tutorial/config01.png)
+    ![A Screenshot mostra atributos do utilizador & Reclamações com a caneta ao lado de Grupos devolvidos em reivindicação chamada.](./media/arc-facilities-tutorial/config01.png)
 
-    ![image](./media/arc-facilities-tutorial/config02.png)
+    ![O Screenshot mostra as reclamações do grupo com todos os grupos e o Grupo I D selecionados e o botão Guardar chamado.](./media/arc-facilities-tutorial/config02.png)
 
     b. Selecione **Todos os Grupos** da lista de rádio.
 

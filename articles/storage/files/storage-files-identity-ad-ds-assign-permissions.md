@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320358"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716042"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de partilha a uma identidade
 
@@ -52,7 +52,7 @@ Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal 
 
 ### <a name="powershell"></a>PowerShell
 
-A seguinte amostra powerShell mostra como atribuir um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+A seguinte amostra powerShell mostra como atribuir um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com PowerShell, consulte [adicionar ou remover atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Antes de executar o seguinte script de amostra, substitua os valores do espaço reservado, incluindo os parênteses, pelos seus valores.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-O seguinte comando CLI 2.0 atribui um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+O seguinte comando CLI 2.0 atribui um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com Azure CLI, consulte [adicionar ou remover atribuições de funções Azure utilizando o Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Antes de executar o seguinte script de amostra, lembre-se de substituir os valores do espaço reservado, incluindo os suportes, pelos seus próprios valores.
 
@@ -76,7 +76,7 @@ Antes de executar o seguinte script de amostra, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que atribuiu permissões de nível de partilha, tem de configurar o diretório e as permissões de nível de ficheiro. Continue para o próximo artigo.
 

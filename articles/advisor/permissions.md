@@ -3,12 +3,12 @@ title: Permissões em Azure Advisor
 description: Permissões de aconselhamento e como podem bloquear a sua capacidade de configurar subscrições ou adiar ou rejeitar recomendações.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927390"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712932"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões em Azure Advisor
 
@@ -45,9 +45,9 @@ Quando tentar configurar subscrições ou grupos de recursos no Advisor, poderá
 
 Se receber um erro ao tentar adiar ou rejeitar uma recomendação, poderá não ter permissões suficientes. Certifique-se de que tem pelo menos acesso ao recurso impactado da recomendação que está a adiar ou a despedir. Para resolver este problema, aprenda a [conceder acesso](../role-based-access-control/quickstart-assign-role-user-portal.md)ao utilizador .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
-Este artigo deu uma visão geral de como o Advisor usa o RBAC para controlar as permissões dos utilizadores e como resolver questões comuns. Para saber mais sobre o Conselheiro, consulte:
+Este artigo deu uma visão geral de como o Advisor usa o Azure RBAC para controlar as permissões dos utilizadores e como resolver questões comuns. Para saber mais sobre o Conselheiro, consulte:
 
 - [O que é o Assistente do Azure?](./advisor-overview.md)
 - [Introdução ao Azure Advisor](./advisor-get-started.md)

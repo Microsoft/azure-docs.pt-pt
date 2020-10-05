@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b4d74e7ba869e0438a936817d824e841823d472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826522"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715717"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlos de segurança para armazenamento Azure
 
@@ -55,7 +55,7 @@ Este artigo documenta os controlos de segurança incorporados no Azure Storage.
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Autenticação| Sim | Azure Ative Directory, Chave Partilhada, Ficha de Acesso Partilhada. |
-| Autorização| Sim | Autorização de Apoio via RBAC, POSIX ACLs e Sas Tokens |
+| Autorização| Sim | Autorização de Apoio via Azure RBAC, POSIX ACLs e SAS Tokens |
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
@@ -63,6 +63,6 @@ Este artigo documenta os controlos de segurança incorporados no Azure Storage.
 |---|---|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Versões do Fornecedor de Recursos de Suporte através de APIs do Gestor de Recursos Azure |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../../security/fundamentals/security-controls.md)
