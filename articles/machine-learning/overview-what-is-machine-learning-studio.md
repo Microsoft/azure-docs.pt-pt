@@ -9,10 +9,10 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667440"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
@@ -95,7 +95,7 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 | Projetos de rotulagem de dados | Não suportado | [Suportado](how-to-create-labeling-projects.md) |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Visite o [estúdio,](https://ml.azure.com)ou explore as diferentes opções de autoria com estes tutoriais:  
   + [Use cadernos Python para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)

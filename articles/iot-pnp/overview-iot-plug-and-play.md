@@ -10,10 +10,10 @@ services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91575100"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é o IoT Plug and Play?
@@ -64,7 +64,7 @@ Como construtor de dispositivos, pode desenvolver um produto de hardware IoT que
 > [!Important]
 > Os dispositivos IoT Plug e Play devem utilizar MQTT ou MQTT sobre WebSockets. Outros protocolos, como AMQP ou HTTP, não são válidos para implementar dispositivos IoT Plug e Play.
 
-## <a name="device-certification"></a>Certificação do dispositivo
+## <a name="device-certification"></a>Certificação de dispositivos
 
 O [programa de certificação ioT Plug and Play](howto-certify-device.md) verifica que um dispositivo cumpre os requisitos de certificação IoT Plug and Play. Pode adicionar um dispositivo certificado ao catálogo de [dispositivos Azure IoT certificados.](https://aka.ms/devicecatalog)
 

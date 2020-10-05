@@ -9,10 +9,10 @@ ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 88f4a2bdc8adbf38da0dc9824dea772d94af3467
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667780"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
@@ -103,7 +103,7 @@ Para limites, consulte [os limites da Ligação Privada Azure](../azure-resource
 ## <a name="service-level-agreement"></a>Acordo de Nível de Serviço
 Para sLA, consulte [sLA para Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Criar um ponto final privado utilizando o portal Azure](create-private-endpoint-portal.md)
 - [Quickstart: Criar um serviço de ligação privada utilizando o portal Azure](create-private-link-service-portal.md)

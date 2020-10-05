@@ -4,10 +4,10 @@ description: Este quickstart mostra como começar com live video analytics em Io
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90884934"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
@@ -32,7 +32,7 @@ Depois de completar os passos de configuração, poderá executar um vídeo simu
 
 Este tutorial requer os seguintes recursos Azure:
 
-* Hub IoT
+* IoT Hub
 * Conta de armazenamento
 * Conta Azure Media Services
 * Um Linux VM em Azure, com [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
@@ -679,7 +679,7 @@ Experimente os próximos passos:
 1. Invoque `GraphTopologyList` e observe que o módulo não contém topologias de gráficos.
 1. Invoque `GraphInstanceList` utilizando a mesma carga útil que `GraphTopologyList` . Observe que não são enumeradas instâncias de gráficos.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou neste arranque rápido.
 

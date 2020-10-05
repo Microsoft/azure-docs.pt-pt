@@ -14,10 +14,10 @@ ms.custom:
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87428978"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
@@ -120,7 +120,7 @@ Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso
 
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar uma solução de IoT ponto a ponto, veja os guias de início rápido do Hub IoT:
 

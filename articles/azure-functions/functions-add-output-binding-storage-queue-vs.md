@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84235378"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conecte funções ao Azure Storage usando o Visual Studio
@@ -29,7 +29,7 @@ Antes de começar este artigo, deve:
 
 ## <a name="download-the-function-app-settings"></a>Descarregue as definições da aplicação de funções
 
-No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o ficheiro *local.settings.json.* 
+No [artigo de arranque rápido anterior,](functions-create-first-function-vs-code.md)criou uma aplicação de função em Azure juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o *local.settings.jsno* ficheiro. 
 
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**. 
 
@@ -65,7 +65,7 @@ Depois de definido o encadernação, pode utilizar `name` a ligação para acede
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
@@ -75,7 +75,7 @@ Uma nova fila nomeada `outqueue` é criada na sua conta de armazenamento pelo te
 
 1. No Estúdio Visual a partir do menu **Ver,** selecione **Cloud Explorer**.
 
-1. No **Cloud Explorer,** expanda as suas contas de subscrição e **armazenamento do**Azure, em seguida, expanda a conta de armazenamento utilizada pela sua função. Se não se lembrar do nome da conta de armazenamento, verifique a definição de `AzureWebJobsStorage` cadeia de ligação no ficheiro *local.settings.json.*  
+1. No **Cloud Explorer,** expanda as suas contas de subscrição e **armazenamento do**Azure, em seguida, expanda a conta de armazenamento utilizada pela sua função. Se não se lembrar do nome da conta de armazenamento, verifique a `AzureWebJobsStorage` definição do fio de ligação no *local.settings.jsno* ficheiro.  
 
 1. Expanda o nó **de Filas** e, em seguida, clique duas vezes na fila **nomeada** para ver o conteúdo da fila no Estúdio Visual. 
 

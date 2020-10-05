@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 8/13/2020
 ms.author: crtreasu
 ms.openlocfilehash: 11086108aa59feae06ad1871b8ca0de9eca8e62e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91280907"
 ---
 ## <a name="configure-the-account-information"></a>Configurar a informação da conta

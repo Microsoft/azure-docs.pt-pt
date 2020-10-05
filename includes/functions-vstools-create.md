@@ -9,10 +9,10 @@ ms.date: 06/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 164620bdcee7ac546468354f999dcb3ad96ecf4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84731046"
 ---
 O modelo de projeto Azure Functions no Visual Studio cria um projeto que pode publicar para uma aplicação de função em Azure. Pode utilizar uma aplicação de função para agrupar funções como uma unidade lógica para facilitar a gestão, implementação, escala e partilha de recursos.
@@ -25,7 +25,7 @@ O modelo de projeto Azure Functions no Visual Studio cria um projeto que pode pu
 
 1. Para criar **uma nova definição de aplicação Azure Functions,** utilize os valores no quadro seguinte:
 
-    | Definição      | Valor  | Description                      |
+    | Definição      | Valor  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Tempo de execução das funções** | **Funções Azure v3 <br /> (.NET Core)** | Este valor cria um projeto de função que utiliza a versão 3.x runtime das Funções Azure, que suporta .NET Core 3.x. As Funções do Azure 1.x suportam o .NET Framework. Para obter mais informações, consulte [as versões de tempo de execução do Azure Functions](../articles/azure-functions/functions-versions.md).   |
     | **Modelo de função** | **Acionador HTTP** | Este valor cria uma função desencadeada por um pedido HTTP. |

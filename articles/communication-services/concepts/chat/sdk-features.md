@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91666148"
 ---
 # <a name="chat-client-library-overview"></a>Descrição geral da biblioteca de cliente de chat
@@ -54,7 +54,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                    | Monitorize a qualidade e o estado dos pedidos de API feitos pela sua app e configuure alertas através do portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Características adicionais | Use [APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/) juntamente com a biblioteca de clientes de chat para permitir funcionalidades inteligentes - *tradução linguística & análise de sentimento da mensagem recebida num cliente, conversão de texto para compor uma mensagem enquanto o membro fala, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Começa com o chat](../../quickstarts/chat/get-started.md)

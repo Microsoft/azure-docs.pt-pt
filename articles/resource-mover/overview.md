@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89653622"
 ---
 # <a name="what-is-azure-resource-mover"></a>O que é Azure Resource Mover?
@@ -71,6 +71,6 @@ Utilizando o Resource Mover, pode atualmente mover os seguintes recursos atravé
 - Bases de dados Azure SQL e piscinas elásticas
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](about-move-process.md) sobre os componentes do Resource Mover e o processo de mudança.

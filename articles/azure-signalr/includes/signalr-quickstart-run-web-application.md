@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 2af9c1dfd13d3aeafa7cf1ac76537117ecc15aff
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84317675"
 ---
 ## <a name="run-the-web-application"></a>Execute a aplicação Web
@@ -19,7 +19,7 @@ ms.locfileid: "84317675"
 1. Para simplificar o teste do seu cliente, abra o seu navegador para a nossa aplicação web de página [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/) única. 
 
     > [!NOTE]
-    > A fonte do ficheiro HTML está localizada a [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). E se quiser hospedar o HTML por si mesmo, por favor inicie um servidor HTTP local, como [o servidor http no](https://www.npmjs.com/package/http-server) diretório */docs/demo/chat-v2.* Certifique-se de que a origem é adicionada à `CORS` definição em *local.settings.json* semelhante à amostra.
+    > A fonte do ficheiro HTML está localizada em [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html). E se quiser hospedar o HTML por si mesmo, por favor inicie um servidor HTTP local, como [o servidor http no](https://www.npmjs.com/package/http-server) diretório */docs/demo/chat-v2.* Certifique-se de que a origem é adicionada à `CORS` regulação em *local.settings.js* semelhante à amostra.
     > 
     > ```javascript
     > "Host": {

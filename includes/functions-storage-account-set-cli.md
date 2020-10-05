@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
 ms.openlocfilehash: 4ace70abe0112e0fe27d177c02bcb697746c92cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78262100"
 ---
 ### <a name="set-the-storage-account-connection"></a>Definir a ligação da conta de armazenamento
 
-Abra o ficheiro local.settings.json e `AzureWebJobsStorage`copie o valor de , que é a cadeia de ligação à conta de armazenamento. Desloque a `AZURE_STORAGE_CONNECTION_STRING` variável ambiental à cadeia de ligação utilizando este comando Bash:
+Abra a local.settings.jsno ficheiro e copie o valor de , que é a cadeia de `AzureWebJobsStorage` ligação da conta de Armazenamento. Desaprote `AZURE_STORAGE_CONNECTION_STRING` a variável ambiente para a cadeia de ligação utilizando este comando Bash:
 
 ```bash
 AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
 ```
 
-Quando definir a cadeia `AZURE_STORAGE_CONNECTION_STRING` de ligação na variável ambiente, pode aceder à sua conta de Armazenamento sem ter de fornecer a autenticação de cada vez.
+Quando definir a cadeia de ligação na `AZURE_STORAGE_CONNECTION_STRING` variável ambiente, pode aceder à sua conta de Armazenamento sem ter de fornecer autenticação de cada vez.

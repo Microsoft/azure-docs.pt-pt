@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86276124"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
@@ -43,7 +43,7 @@ Tanto o RDP como o SSH são um protocolo baseado no uso. O elevado uso das sess�
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>Quais as funcionalidades suportadas numa sessão de PDR?
 
-Neste momento, apenas é suportada a cópia/pasta de texto. Funcionalidades como cópia de ficheiro não são suportadas. Por favor, sinta-se livre para partilhar o seu feedback sobre novas funcionalidades na página de Feedback do [Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+Neste momento, apenas está disponível a operação de copiar/colar texto. As funcionalidades como a cópia de ficheiros não são suportadas. Pode partilhar os seus comentários sobre as novas funcionalidades na [página Comentários sobre o Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quais os navegadores suportados?
 
@@ -74,7 +74,7 @@ AZure Bastion suporta atualmente o layout do teclado en-us-qwerty dentro do VM. 
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>O encaminhamento definido pelo utilizador (UDR) é suportado numa sub-rede Azure Bastion?
 
-Não. A UDR não é suportada numa sub-rede Azure Bastion.
+N.º A UDR não é suportada numa sub-rede Azure Bastion.
 Para cenários que incluam tanto o Azure Bastion como o Azure Firewall/Network Virtual Appliance (NVA) na mesma rede virtual, não é necessário forçar o tráfego de uma sub-rede de Bastião Azure para Azure Firewall porque a comunicação entre o Azure Bastion e os seus VMs é privada. Para obter mais informações, consulte [Accessing VMs por trás da Azure Firewall com Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Porque é que recebo uma mensagem de erro "A tua sessão expirou" antes da sessão de Bastião começar?

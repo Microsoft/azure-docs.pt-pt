@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91001029"
 ---
 # <a name="enclave-aware-containers"></a>Contentores conscientes do enclave
@@ -43,7 +43,7 @@ O Quadro do Consórcio Confidencial (CCF) é um quadro de código aberto para a 
 
 Começa com a computação confidencial da Azure e a CCF [aqui](https://github.com/Microsoft/CCF)
 
-### <a name="confidential-inferencing-onnx-runtime"></a>Inferencing confidencial ONNX Runtime
+### <a name="confidential-inferencing-onnx-runtime"></a>Runtime de ONNX de Inferência Confidencial
 
 O tempo de funcionamento ONNX baseado em enclave de código aberto estabelece um canal seguro entre o cliente e o serviço de inferência - garantindo que nem o pedido nem a resposta podem sair do enclave seguro. 
 

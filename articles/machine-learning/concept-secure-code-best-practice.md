@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: larryfr
+ms.author: cgronlun
+author: cjgronlund
 ms.date: 11/12/2019
-ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4bc9a982f6ce77b803a3ba91e050bcda9ec74fed
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147071"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728527"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Melhores práticas de código seguro com Azure Machine Learning
 

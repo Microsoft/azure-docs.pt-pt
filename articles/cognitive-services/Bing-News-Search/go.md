@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Obtenha novidades usando Bing News Search REST API e Go'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart usa a linguagem Go para chamar a API de Pesquisa de Notícias Bing. Os resultados incluem nomes e URLs de fontes noticiosas identificadas pela cadeia de consulta.
+description: Este quickstart usa o idioma Go para chamar a API de Pesquisa de Notícias Bing. Os resultados incluem nomes e URLs de fontes noticiosas identificadas pela cadeia de consulta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83869286"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Quickstart: Obtenha resultados de notícias usando a Bing News Search REST API e Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Quickstart: Obtenha resultados de notícias usando a API e Go Bing News Search REST
 
-Este quickstart usa a linguagem Go para chamar a API de Pesquisa de Notícias Bing. Os resultados incluem nomes e URLs de fontes noticiosas identificadas pela cadeia de consulta.
+Este quickstart usa o idioma Go para chamar a API de Pesquisa de Notícias Bing. Os resultados incluem nomes e URLs de fontes noticiosas identificadas pela cadeia de consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Instale os [binários Go](https://golang.org/dl/).
@@ -29,7 +29,7 @@ Este quickstart usa a linguagem Go para chamar a API de Pesquisa de Notícias Bi
 
 ## <a name="create-a-project-and-import-libraries"></a>Criar um projeto e importar bibliotecas
 
-Crie um novo projeto Go no seu IDE ou editor. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, lidar com o texto `encoding/json` jSON de resultados, e a `go-spew` biblioteca para analisar os resultados da JSON. 
+Crie um novo projeto Go no seu IDE ou editor. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, para lidar com o `encoding/json` texto JSON dos resultados, e a `go-spew` biblioteca para analisar os resultados do JSON. 
 
 ```go
 package main
@@ -46,7 +46,7 @@ import (
 
 ## <a name="create-a-struct-to-format-the-news-search-results"></a>Criar uma estrutura para formatar os resultados da pesquisa de notícias
 
-O `NewsAnswer` struct forma os dados fornecidos na resposta JSON, que é multinível e complexo. A seguinte implementação abrange o essencial:
+Os `NewsAnswer` formatos de estrutura dos dados fornecidos na resposta JSON, que é multinível e complexo. A seguinte implementação abrange o essencial:
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -86,7 +86,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-O código seguinte declara a função principal e atribui as variáveis necessárias. Confirme que o ponto final está correto e, em seguida, substitua o valor por uma chave de `token` subscrição válida da sua conta Azure. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+O código seguinte declara a função principal e atribui as variáveis necessárias. Confirme que o ponto final está correto e, em seguida, substitua o `token` valor por uma chave de subscrição válida da sua conta Azure. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
 ```go
 func main() {
@@ -107,7 +107,7 @@ func main() {
 
 ## <a name="query-and-header"></a>Consulta e cabeçalho
 
-Adicione o fio de consulta e o cabeçalho da chave de acesso.
+Adicione a cadeia de consulta e o cabeçalho da chave de acesso.
 
 ```go
 // Add the query to the request.  
@@ -120,7 +120,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Pedido get
+## <a name="get-request"></a>Pedido GET
 
 Crie o cliente e envie o pedido GET. 
 
@@ -159,7 +159,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa de Notícias Bing. Em seguida, exibe os nós dos resultados com a `go-spew` impressora bonita.
+A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa de Notícias Bing. Em seguida, apresente os nós dos resultados com a `go-spew` impressora bonita.
 
 ```go
 // Create a new answer object 
@@ -178,9 +178,9 @@ spew.Dump(result.Name, result.URL)
 
 ```
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
-A seguinte saída contém o nome e o URL de cada resultado:
+A seguinte saída contém o nome e URL de cada resultado:
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

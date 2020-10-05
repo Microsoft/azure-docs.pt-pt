@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
 ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91705165"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor PostgreSQL utilizando o portal Azure
@@ -145,6 +145,6 @@ Para eliminar o servidor, selecione o botão **Eliminar** na página **'Vista Ge
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Screenshot que mostra Azure Database para PostgreSQL no menu.":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados utilizando exportação e importação](./howto-migrate-using-export-and-import.md)

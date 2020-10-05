@@ -9,10 +9,10 @@ ms.custom: contperfq1
 ms.topic: overview
 ms.date: 08/21/2020
 ms.openlocfilehash: 2cbe0b520156e77308f61a725937ac415cb80473
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88756950"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
@@ -23,7 +23,7 @@ Apache Spark é uma estrutura de processamento paralela que suporta o processame
 
 ## <a name="what-is-apache-spark"></a>O que é o Apache Spark?
 
-O Spark fornece primitivos para a computação de cluster na memória. Os trabalhos do Spark podem carregar e colocar os dados em cache na memória e consultá-los repetidamente. A computação na memória é muito mais rápida do que aplicações baseadas em discos, como a Hadoop, que partilha dados através do sistema de ficheiros distribuídos por Hadoop (HDFS). O Spark também se integra na linguagem de programação Scala, o que lhe possibilita manipular conjuntos de dados distribuídos, como coleções locais. Não é necessário estruturar tudo como operações de mapa e redução.
+O Spark fornece primitivos para a computação de cluster na memória. Uma tarefa do Spark pode carregar e colocar em cache dados na memória e consultá-los repetidamente. A computação na memória é muito mais rápida do que aplicações baseadas em discos, como a Hadoop, que partilha dados através do sistema de ficheiros distribuídos por Hadoop (HDFS). O Spark também se integra na linguagem de programação Scala, o que lhe possibilita manipular conjuntos de dados distribuídos, como coleções locais. Não é necessário estruturar tudo como operações de mapa e redução.
 
 ![MapReduce tradicional vs. Faísca](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 

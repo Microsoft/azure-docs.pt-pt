@@ -11,10 +11,10 @@ ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
 ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667508"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
@@ -93,7 +93,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 
 Se tiver algum número de telefone atribuído ao seu recurso após a eliminação de recursos, os números de telefone serão libertados automaticamente do seu recurso ao mesmo tempo. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido aprendeu a:
 

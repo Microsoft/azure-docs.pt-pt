@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91461194"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Quickstart: Crie um laboratório utilizando o modelo ARM Azure DevTest Labs
@@ -79,7 +79,7 @@ Para executar a implementação automaticamente, clique no botão seguinte.
     > [!IMPORTANT] 
     > Mantenha esta página aberta e siga as instruções na secção seguinte para limpar os recursos para evitar custos de funcionamento do laboratório e do VM em Azure. Se quiser passar pelo próximo tutorial para testar o acesso ao VM no laboratório, limpe os recursos depois de passar por aquele tutorial. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 1. Primeiro, apague o laboratório para que possa eliminar o grupo de recursos. Não poderá apagar o grupo de recursos com um laboratório. Para eliminar o laboratório, **selecione Delete** na barra de ferramentas. 
 
@@ -92,7 +92,7 @@ Para executar a implementação automaticamente, clique no botão seguinte.
  
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Implementar página de modelo":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, criaste um laboratório com um VM. Para saber como aceder ao laboratório, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

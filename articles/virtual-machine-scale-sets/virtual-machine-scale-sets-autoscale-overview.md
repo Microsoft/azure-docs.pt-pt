@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86527409"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
@@ -77,15 +77,15 @@ Quando cria regras de autoescalação para monitorizar uma determinada métrica,
 | Máximo          |
 | Total            |
 | Último             |
-| de palavras            |
+| Contagem            |
 
 As regras de autoescala são então ativadas quando as métricas são comparadas com o seu limiar definido com um dos seguintes operadores:
 
 | Operador                 |
 |--------------------------|
 | Maior que             |
-| Maior que ou igual a |
-| Menor que                |
+| Maior ou igual a |
+| Menor do que                |
 | Menor ou igual a    |
 | Igual a                 |
 | Diferente de             |
@@ -128,7 +128,7 @@ Os exemplos a seguir são cenários que podem beneficiar a utilização de regra
 - Quando há um evento de marketing, promoção ou venda de férias, você pode automaticamente escalar o número de instâncias VM antes da procura antecipada do cliente. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode criar regras de autoescala que utilizem métricas baseadas em hospedeiros com uma das seguintes ferramentas:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)

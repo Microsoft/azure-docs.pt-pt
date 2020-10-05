@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
 ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89433437"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?

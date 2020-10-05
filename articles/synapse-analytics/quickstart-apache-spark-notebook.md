@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91651722"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
@@ -131,7 +131,7 @@ A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente u
 
 11. Cada uma das células que anteriormente executavam tinha a opção de ir ao **History Server** and **Monitor .** Clicar nos links leva-o a diferentes partes da Experiência do Utilizador.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 A Azure Synapse guarda os seus dados no Azure Data Lake Storage. Pode deixar desligar uma instância Spark com segurança quando não estiver a ser utilizada. Você é cobrado para uma piscina Apache Spark Azure Synapse desde que esteja em funcionamento, mesmo quando não está a ser utilizado. 
 

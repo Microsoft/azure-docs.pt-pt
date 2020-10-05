@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667066"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>O que é Azure Time Series Insights Gen2
@@ -87,7 +87,7 @@ Com a introdução destas principais capacidades de IoT industrial, a Azure Time
 | Extensibilidade e integração | A integração do Conector Power BI está disponível diretamente na experiência do utilizador do Time Series Explorer através da opção **Exportação,** permitindo que os clientes exportem as consultas de séries horárias que criam na nossa experiência de utilizador diretamente no ambiente de trabalho Power BI e vejam as suas tabelas de séries de tempo ao lado de outras análises bi. Isto abre a porta a uma nova classe de cenários para empresas industriais de IoT que investiram no Power BI, fornecendo um único painel de vidro sobre a análise de várias fontes de dados, incluindo séries de tempo IoT. |
 | Aplicações personalizadas construídas na plataforma Azure Time Series Insights Gen2 | Azure Time Series Insights Gen2 suporta o [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controlos ricos e acesso simplificado a consultas. Use o SDK para construir aplicações IoT personalizadas em cima da Azure Time Series Insights Gen2 para atender às necessidades do seu negócio. Também pode utilizar as [APIs](./concepts-query-overview.md) de Consulta de Consultas Azure Time Series Gen2 para conduzir dados em aplicações IoT personalizadas. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com o Azure Time Series Insights Gen2:
 

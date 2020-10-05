@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91541514"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
@@ -158,7 +158,7 @@ Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
 Através desta simples tarefa de gestão, duplicou os recursos disponíveis para o serviço de front-end processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para que o mesmo seja executado de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância do serviço é executada no cluster.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Utilize o script de desinstalação (uninstall.sh) fornecido no modelo para eliminar a instância da aplicação do cluster local e anular o registo do tipo de aplicação. Este script demora algum tempo a limpar a instância, pelo que não deve executar o script de instalação imediatamente após este script. Pode utilizar o Service Fabric Explorer para determinar quando a instância foi removida e o tipo de aplicação cujo registo foi anulado.
 
@@ -182,7 +182,7 @@ Se tiver terminado de trabalhar com o cluster, pode remover o certificado do arq
 - No Mac: utilize a aplicação Keychain.
 - No Ubuntu: siga os passos utilizados para ver os certificados e remova o certificado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma aplicação de contentor do Linux num cluster do Service Fabric do Azure, efetuou a ativação pós-falha na aplicação e dimensionou a aplicação no cluster. Para saber mais sobre como trabalhar com contentores do Linux no Service Fabric, avance para o tutorial para aplicações de contentor do Linux.
 

@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87499556"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Quickstart: Criar e gerir aplicações lógicas utilizando o Azure CLI
@@ -25,7 +25,7 @@ Este quickstart mostra-lhe como criar e gerir aplicações lógicas utilizando a
 
 * Uma conta Azure com uma subscrição ativa. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado no seu computador local.
-* A [extensão Logic Apps Azure CLI](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) instalada no seu computador. Para instalar esta extensão, utilize este comando:`az extension add --name logic`
+* A [extensão Logic Apps Azure CLI](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) instalada no seu computador. Para instalar esta extensão, utilize este comando: `az extension add --name logic`
 * Um [grupo de recursos Azure](#example---create-resource-group) para criar a sua aplicação lógica.
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito

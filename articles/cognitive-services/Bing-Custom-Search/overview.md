@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84434571"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é a API de Pesquisa Personalizada do Bing?
@@ -23,7 +23,7 @@ A API de Pesquisa Personalizada Bing permite-lhe criar experiências de pesquisa
 
 ## <a name="features"></a>Funcionalidades
 
-|Funcionalidade  |Description  |
+|Funcionalidade  |Descrição  |
 |---------|---------|
 |[Sugestões personalizadas de pesquisa em tempo real](define-custom-suggestions.md)     | Forneça sugestões de pesquisa que possam ser apresentadas como uma lista de dropdown como o seu tipo de utilizadores.       | 
 |[Experiências de pesquisa de imagem personalizadas](get-images-from-instance.md)     | Permita que os seus utilizadores procurem imagens dos domínios e websites especificados no seu caso de pesquisa personalizado.        |        
@@ -53,7 +53,7 @@ Familiarize-se com o conteúdo de referência para cada um dos pontos finais da 
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [API de Pesquisa Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 - [API de Imagem Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
 - [API de Vídeo Personalizado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
 - [API de Sugestão Automática Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

@@ -1,15 +1,15 @@
 ---
-title: Sobre
+title: Acerca de
 description: Introdução à renderização remota do Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
 ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91650464"
 ---
 # <a name="about-azure-remote-rendering"></a>Acerca do Azure Remote Rendering

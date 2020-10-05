@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89536317"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
@@ -24,13 +24,13 @@ No mundo dos macrodados, muitas vezes, são armazenados dados desorganizados e n
 
 Os macrodados precisam de um serviço que orquestre e operacionalize processos para refinar estes enormes arquivos de dados não processados em informações comerciais acionáveis. O Azure Data Factory é um serviço na cloud gerido criado para estes projetos complexos e híbridos de extract-transform-load (ETL), extract-load-transform (ELT) e integração de dados.
 
-Por exemplo, imagine uma empresa de jogos que recolhe petabytes de registos de jogos que são produzidos por jogos na cloud. A empresa quer analisar estes registos para obter informações sobre as preferências dos clientes, dados demográficos e comportamentos de utilização. Quer também identificar as oportunidades de vendas superiores e vendas cruzadas, desenvolver funcionalidades novas e apelativas, impulsionar o crescimento do negócio e proporcionar uma melhor experiência aos clientes.
+Por exemplo, imagine uma empresa de jogos que recolhe petabytes de registos de jogos que são produzidos por jogos na cloud. A empresa pretende analisar esses registos para obter informações sobre as preferências do cliente, os dados demográficos e o comportamento de utilização. Quer também identificar as oportunidades de vendas superiores e vendas cruzadas, desenvolver funcionalidades novas e apelativas, impulsionar o crescimento do negócio e proporcionar uma melhor experiência aos clientes.
 
 Para analisar estes registos, a empresa tem de utilizar dados de referência, como informações do cliente, informações do jogo, informações de campanhas de marketing, que se encontram num arquivo de dados no local. A empresa quer utilizar estes dados a partir do arquivo de dados no local e combiná-los com os dados de registos adicionais que tem num arquivo de dados na cloud. 
 
-Para extrair insights, espera processar os dados associados utilizando um cluster Spark na nuvem (Azure HDInsight), e publicar os dados transformados num armazém de dados em nuvem, como a Azure Synapse Analytics (ex-SQL Data Warehouse) para facilmente construir um relatório em cima dele. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo com base numa agenda diária. Também quer executá-lo quando são adicionados ficheiros a um contentor de arquivo de blobs.
+Para extrair insights, espera processar os dados associados utilizando um cluster Spark na nuvem (Azure HDInsight), e publicar os dados transformados num armazém de dados em nuvem, como a Azure Synapse Analytics (ex-SQL Data Warehouse) para facilmente construir um relatório em cima dele. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo diariamente. Pretende também executá-lo quando os ficheiros estiverem num contentor de arquivo de blobs.
 
-O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *ETL baseado na nuvem e o serviço de integração de dados que lhe permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados à escala.* Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho orientados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços de computação como Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
+O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *ETL baseado na nuvem e o serviço de integração de dados que lhe permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados à escala.* Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços de computação como Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
 
 Além disso, pode publicar os seus dados transformados em lojas de dados como a Azure Synapse Analytics para aplicações de inteligência empresarial (BI) para consumir. Em última análise, através do Azure Data Factory, os dados não processados podem ser organizados em arquivos de dados com significado e em data lakes para uma melhor tomada de decisões empresariais.
 
@@ -38,7 +38,7 @@ Além disso, pode publicar os seus dados transformados em lojas de dados como a 
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-A Data Factory contém uma série de sistemas interligados que fornecem uma plataforma completa de ponta a ponta para engenheiros de dados.
+O Data Factory contém uma série de sistemas interligados que fornecem uma plataforma ponto a ponto completa para engenheiros de dados.
 
 ### <a name="connect-and-collect"></a>Ligar e recolher
 
@@ -73,7 +73,7 @@ As subscrições do Azure podem ter uma ou várias instâncias do Azure Data Fac
 Estes componentes funcionam em conjunto para fornecer a plataforma na qual pode compor fluxos de trabalho orientados por dados com passos para mover e transformar dados.
 
 ### <a name="pipeline"></a>Pipeline
-Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que realizam uma unidade de trabalho. Em conjunto, as atividades num pipeline executam tarefas. Por exemplo, um pipeline pode conter um grupo de atividades que ingere dados de um blob do Azure e, em seguida, executa uma consulta de Hive num cluster do HDInsight para particionar os dados. 
+Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que executa uma unidade de trabalho. Em conjunto, as atividades num pipeline executam uma tarefa. Por exemplo, um pipeline pode conter um grupo de atividades que ingere dados de um blob do Azure e, em seguida, executa uma consulta de Hive num cluster do HDInsight para particionar os dados. 
 
 A vantagem neste caso é que o pipeline lhe permite gerir as atividades como um conjunto, em vez de individualmente. As atividades num pipeline podem ser encadeadas para funcionar sequencialmente ou podem funcionar de forma independente em paralelo
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: 6198475025ff5222edeeb14cf25634ad2d916a1f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88651442"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o portal Azure
@@ -50,7 +50,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
     |Subscrição    |  A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster. |
     |Grupo de recursos     | Crie um grupo de recursos ou selecione crie um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
     |Nome do cluster   | Introduza um nome globalmente exclusivo. O nome pode consistir em até 59 caracteres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
-    |Região    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Escolha uma região mais próxima de si para um melhor desempenho. |
+    |Region    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Escolha uma região mais próxima de si para um melhor desempenho. |
     |Tipo de cluster| **Selecione Selecionar o tipo de cluster** para abrir uma lista. A partir da lista, selecione **Kafka** como o tipo de cluster.|
     |Versão|A versão padrão para o tipo de cluster será especificada. Selecione a partir da lista de drop-down se desejar especificar uma versão diferente.|
     |Nome de utilizador e palavra-passe de início de sessão do cluster    | O nome de login predefinido é **administrador**. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula, e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' \) . Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|

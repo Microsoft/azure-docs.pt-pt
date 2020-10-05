@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89489940"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Quickstart: Partilhar dados usando a Azure Data Share no portal Azure
@@ -41,7 +41,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
    | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
    | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
    | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-   | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+   | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos.
 
@@ -61,7 +61,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
    ![EnterShareDetails](./media/enter-share-details.png "Insira detalhes de partilha") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Para adicionar Conjuntos de Dados à sua parte, selecione **Adicionar Conjuntos de Dados**. 
 
@@ -79,7 +79,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
    ![AdicionarRecipients](./media/add-recipient.png "Adicionar destinatários") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Se tiver selecionado o tipo de partilha snapshot, pode configurar o calendário de instantâneos para fornecer atualizações dos seus dados ao seu consumidor de dados. 
 
@@ -87,13 +87,13 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione um intervalo de tempo de início e recorrência. 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. No separador 'Rever + Criar', rever os conteúdos, definições, destinatários e definições de sincronização do pacote. Selecione **Criar**.
 
 A sua Azure Data Share foi agora criada e o destinatário da sua Partilha de Dados está agora pronto para aceitar o seu convite.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando o recurso já não for necessário, vá à página de Visão Geral do **Conjunto de Partilha de Dados** e selecione **Eliminar** para o remover.
 

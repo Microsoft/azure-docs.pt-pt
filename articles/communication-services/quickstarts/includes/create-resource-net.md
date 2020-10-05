@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948293"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -127,7 +127,7 @@ Se precisar de criar um grupo de recursos, pode fazê-lo utilizando o [portal Az
 
 A nossa instância do cliente da biblioteca de clientes de Comunicação ``Azure.ResourceManager.Communication.CommunicationManagementClient`` Management pode ser usada para realizar operações sobre recursos de Serviços de Comunicação.
 
-#### <a name="create-a-communication-services-resource"></a>Criar um recurso de Serviços de Comunicação
+#### <a name="create-a-communication-services-resource"></a>Criar um recurso do Communication Services
 
 Ao criar um recurso de Serviços de Comunicação, especificará o nome do grupo de recursos e o nome do recurso. Note que o `Location` imóvel será sempre `global` , e durante a visualização pública o `DataLocation` valor deve ser `UnitedStates` .
 

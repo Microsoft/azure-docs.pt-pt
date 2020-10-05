@@ -9,10 +9,10 @@ ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88585836"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
@@ -87,7 +87,7 @@ Pode optar por criar um ponto final privado para qualquer recurso Azure na utili
 ```console
 az login 
 ```
-### <a name="select-your-azure-subscription"></a>Selecione a sua Subscrição Azure 
+### <a name="select-your-azure-subscription"></a>Selecione a sua subscrição do Azure 
 ```console
 az account set --subscription {AZURE SUBSCRIPTION ID}
 ```
@@ -156,7 +156,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Prestação de serviços | Estado de ponto final privado do consumidor de serviço | Description |
+| Prestação de serviços | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |

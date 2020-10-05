@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91661164"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
@@ -54,7 +54,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL antes de criar o e
     | **Nome do parâmetro do documento** | taskDocument | Nome que se refere ao objeto do Cosmos DB no código. |
     | **Nome da base de dados** | taskDatabase | Nome da base de dados para guardar os documentos. |
     | **Nome da coleção** | tarefaCollecto | Nome da coleção da base de dados. |
-    | **Se o valor for verdadeiro, cria a coleção e a base de dados do Cosmos DB** | Yes | A coleção ainda não existe, como tal, deve ser criada. |
+    | **Se o valor for verdadeiro, cria a coleção e a base de dados do Cosmos DB** | Sim | A coleção ainda não existe, como tal, deve ser criada. |
     | **Ligação à conta do Cosmos DB** | Nova definição | Selecione **Novo**, em seguida, escolha **Azure Cosmos DB Account** e a **conta Base de Dados** que criou anteriormente e, em seguida, selecione **OK**. Cria uma definição da aplicação para a sua ligação de conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
 
 1. Selecione **OK** para criar a ligação.
@@ -160,7 +160,7 @@ Adicionou um enlace com êxito ao acionador de HTTP para armazenar os dados não
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o enlace a uma base de dados do Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-cosmosdb.md).
 

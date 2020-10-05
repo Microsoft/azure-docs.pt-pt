@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
 ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91618272"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
@@ -38,7 +38,7 @@ Se você é novo no Azure SQL, confira o vídeo *What is Azure SQL* da nossa sé
 
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 No mundo atual, impulsionado por dados, impulsionar a transformação digital depende cada vez mais da nossa capacidade de gerir quantidades massivas de dados e aproveitar o seu potencial. Mas as propriedades de dados de hoje são cada vez mais complexas, com dados alojados no local, na nuvem, ou na borda da rede. Os desenvolvedores que estão a construir aplicações inteligentes e imersivas podem encontrar-se limitados por limitações que podem, em última análise, afetar a sua experiência. As limitações decorrentes de plataformas incompatíveis, a inadequada segurança de dados, os recursos insuficientes e as barreiras de desempenho dos preços criam complexidade que pode inibir a modernização e desenvolvimento de aplicações. 
 

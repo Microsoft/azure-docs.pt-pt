@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
 ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89462671"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Quickstart: Implementar um Hub Azure IoT e uma conta de armazenamento usando um modelo ARM
@@ -127,7 +127,7 @@ Agora as variáveis ambientais estão definidas, executar a aplicação a partir
 
 Implementou um modelo ARM para criar um Hub IoT e uma conta de armazenamento, e executou um programa para enviar mensagens para o centro. As mensagens são então automaticamente armazenadas na conta de armazenamento onde podem ser visualizadas.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover os recursos adicionados durante este arranque rápido, inicie sessão no [portal Azure](https://portal.azure.com). Selecione **Grupos de Recursos**e, em seguida, encontre o grupo de recursos utilizado para este arranque rápido. Selecione o grupo de recursos e, em seguida, *selecione Delete*. Eliminará todos os recursos do grupo.
 

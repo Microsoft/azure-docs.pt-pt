@@ -4,10 +4,10 @@ description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, d
 ms.date: 06/02/2020
 ms.topic: quickstart
 ms.openlocfilehash: 3dfb74469bc186c25b918bfe87c7ce6f1930f2e1
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667712"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
@@ -371,7 +371,7 @@ Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita
 az blueprint assignment delete --name 'assignMyBlueprint'
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o Azure CLI. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

@@ -10,10 +10,10 @@ ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87080153"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisão de Azure Linux VM
@@ -44,7 +44,7 @@ Se tem um kernel Linux que não suporta executar nenhum dos agentes, mas deseja 
 - Relatório SSH anfitrião chave impressão digital chave para a plataforma
 - Gestão de Discos de Recursos
 - Formatação e montagem do disco de recursos
-- Consumir e processar`customData`
+- Consumir e processar `customData`
  
 **Redes**
   
@@ -54,7 +54,7 @@ Se tem um kernel Linux que não suporta executar nenhum dos agentes, mas deseja 
 **Kernel**
   
 - Configura UMA virtual (desativação para <de kernel `2.6.37` )
-- Consome entropia Hiper-V para`/dev/random`
+- Consome entropia Hiper-V para `/dev/random`
 - Configura os intervalos de tempo SCSI para o dispositivo radicial (que pode ser remoto)
 
 **Diagnóstico**
@@ -73,7 +73,7 @@ O Agente Linux, e o cloud-init, dependem de alguns pacotes do sistema para funci
 - Python 2.6+
 - AberturaSSL 1.0+
 - OpenSSH 5.3+
-- Utilitários de sistema de ficheiros: `sfdisk` `fdisk` , `mkfs` ,`parted`
+- Utilitários de sistema de ficheiros: `sfdisk` `fdisk` , `mkfs` , `parted`
 - Ferramentas de senha: chpasswd, sudo
 - Ferramentas de processamento de texto: sed, grep
 - Ferramentas de rede: via ip

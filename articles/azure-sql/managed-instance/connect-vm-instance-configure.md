@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: a1f496d59fa626dc8750493591128f7363afa40d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91620261"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Quickstart: Configurar um Azure VM para ligar à Azure SQL Managed Instance
@@ -53,10 +53,10 @@ Os passos seguintes criam uma nova sub-rede no SQL Managed Instance VNet para qu
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor predefinido é bom para este arranque rápido.|
-   | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
-   | **Tabela de rotas** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Grupo de segurança de rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
+   | **Tabela de rotas** | Nenhum | O valor predefinido é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor predefinido é bom para este arranque rápido.|
-   | **Delegação de sub-rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Delegação de sub-rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
 
    ![Nova sub-rede sql de instância gerida para cliente VM](./media/connect-vm-instance-configure/new-subnet.png)
 

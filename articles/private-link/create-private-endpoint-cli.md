@@ -9,10 +9,10 @@ ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e7c098ba06086781306960f76978aac9e4fa06bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87502669"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Quickstart: Criar um ponto final privado usando O Azure CLI
@@ -132,7 +132,7 @@ az network private-endpoint dns-zone-group create \
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *o myVm*.
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
@@ -149,7 +149,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -160,7 +160,7 @@ Nesta secção, irá ligar-se à Base de Dados SQL a partir do VM utilizando o P
 1. No Ambiente de Trabalho Remoto do *myVM,* abra o PowerShell.
 2. Insira myserver.database.windows.net nslookup
 
-   Receberá uma mensagem semelhante a esta:
+   Irá receber uma mensagem semelhante a esta:
 
     ```
     Server:  UnKnown

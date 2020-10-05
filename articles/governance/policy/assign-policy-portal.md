@@ -4,10 +4,10 @@ description: Neste quickstart, você usa o portal Azure para criar uma atribuiç
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89651965"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes
@@ -31,11 +31,11 @@ Neste arranque rápido, cria-se uma atribuição de política e atribui os _VMs 
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Screenshot de selecionar a página atribuições a partir da página De visão geral da política." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Screenshot de selecionar 'Política de atribuição' a partir da página De atribuições." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
 1. Na página **'Política de Atribuição',** desapedace o **Scope** selecionando a elipse e selecionando um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta. Em seguida, utilize o botão **Selecione** na parte inferior da página **'Âmbito'.**
 
@@ -53,7 +53,7 @@ Neste arranque rápido, cria-se uma atribuição de política e atribui os _VMs 
 
 1. Pesquise nas definições de política para encontrar a definição _Auditar VMs que não utilizam discos geridos_. Selecione essa política e, em seguida, utilize o botão **Select.**
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Screenshot de filtragem das definições disponíveis." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Neste exemplo, vamos deixar _Auditar VMs que não utilizam discos geridos_. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
    **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
@@ -68,7 +68,7 @@ Está agora pronto para identificar recursos não conformes para entender o esta
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize os _VMs de auditoria que não utilizem_ a atribuição de política de discos geridos que criou.
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Screenshot dos detalhes de conformidade na página De Conformidade de Política." border="false":::
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
 Se houver recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
@@ -84,7 +84,7 @@ Quando uma condição é avaliada em relação aos seus recursos existentes e re
 \* Os efeitos de Append, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja TRUE.
 Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição criada, siga estes passos:
 
@@ -92,9 +92,9 @@ Para remover a atribuição criada, siga estes passos:
 
 1. Clique com o direito nos _VMs de auditoria que não utilizam_ a atribuição de política de discos geridos e selecione a atribuição de **Eliminar**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Screenshot de usar o menu de contexto para eliminar uma atribuição da página Compliance." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, atribuiu uma definição de política a um âmbito e avaliou o respetivo relatório de conformidade.
 A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são.

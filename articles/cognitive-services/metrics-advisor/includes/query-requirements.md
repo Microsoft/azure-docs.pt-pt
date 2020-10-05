@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631389"
 ---
 Dentro da consulta utilize o `@StartTime` parâmetro para obter dados métricos para um único timetamp. O Metrics Advisor substituirá o parâmetro por uma `yyyy-MM-ddTHH:mm:ss` cadeia de formato quando executa a consulta.

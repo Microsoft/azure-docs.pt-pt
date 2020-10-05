@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ebc0ee2e029e1f349972e3cd7fada46495534d54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252413"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729173"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao Front Door
 Neste tutorial, ficará a saber como adicionar um domínio personalizado ao Front Door. Quando utiliza a Porta Frontal Azure para a entrega da aplicação, é necessário um domínio personalizado se quiser que o seu próprio nome de domínio seja visível no seu pedido de utilizador final. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa.
 
 Depois de criar uma Porta frontal, o anfitrião frontal predefinido, que é uma subdomínio de `azurefd.net` , está incluído no URL para entregar o conteúdo da Porta Frontal a partir do seu backend por padrão (por exemplo, https: \/ /contoso-frontend.azurefd.net/activeusers.htm). Para sua comodidade, o Azure Front Door oferece a opção de associar um domínio personalizado ao anfitrião predefinido. Com esta opção, os seus conteúdos são entregues com um domínio personalizado no seu URL em vez de um nome de domínio pertencente ao Front Door (por exemplo, https:\//www.contoso.com/photo.png). 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Criar um registo DNS CNAME.
 > - Associar o domínio personalizado ao Front Door.
@@ -187,7 +187,7 @@ Por exemplo, o procedimento para a entidade de registo de domínios GoDaddy é o
 8. Selecione **Delete** para eliminar o registo CNAME.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Nos passos anteriores, adicionou um domínio personalizado a um Front Door. Se já não pretender associar o Front Door a um domínio personalizado, poderá executar os passos abaixo para remover o domínio personalizado:
  
@@ -209,4 +209,4 @@ Neste tutorial, ficou a saber como:
 Para aprender a ativar HTTPS para o seu domínio personalizado, continue até ao próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Ativar HTTPS para um domínio personalizado](front-door-custom-domain.md)
+> [Ativar HTTPS para um domínio personalizado](front-door-custom-domain-https.md)

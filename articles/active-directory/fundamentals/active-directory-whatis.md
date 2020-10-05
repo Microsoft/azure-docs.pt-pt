@@ -12,10 +12,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d66e8b15b7af73517a7f838186821248bffeccc
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566114"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
@@ -28,7 +28,7 @@ O Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e aces
 
 Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode utilizar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Microsoft 365.
 
-## <a name="who-uses-azure-ad"></a>Quem usa a Azure AD?
+## <a name="who-uses-azure-ad"></a>Quem utiliza o Azure AD?
 
 A Azure AD destina-se a:
 
@@ -36,7 +36,7 @@ A Azure AD destina-se a:
 
 - **Desenvolvedores de aplicativos.** Como desenvolvedor de aplicações, pode utilizar o Azure AD como uma abordagem baseada em padrões para adicionar um único sign-on (SSO) à sua aplicação, permitindo-lhe trabalhar com as credenciais pré-existentes de um utilizador. O Azure AD também fornece APIs que podem ajudá-lo a construir experiências de aplicações personalizadas usando dados organizacionais existentes. Para começar, inscreva-se para um [teste gratuito de 30 dias do Azure Ative Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Para mais informações, também pode ver [o Azure Ative Directory para programadores.](../develop/index.yml)
 
-- **Microsoft 365, Office 365, Azure ou Dynamics CRM Online.** Como assinante, já está a utilizar o Azure AD. Cada microsoft 365, Office 365, Azure e Dynamics CRM Inquilino online é automaticamente um inquilino AZure AD. Pode começar imediatamente a gerir o acesso às suas aplicações integradas na nuvem.
+- **Microsoft 365, Office 365, Azure ou Dynamics CRM Online.** Como assinante, já está a utilizar o Azure AD. Cada inquilino do Microsoft 365, Office 365, Azure e Dynamics CRM Online é automaticamente um inquilino do Azure AD. Pode começar imediatamente a gerir o acesso às suas aplicações integradas na nuvem.
 
 ## <a name="what-are-the-azure-ad-licenses"></a>Quais são as licenças da AD Azure?
 

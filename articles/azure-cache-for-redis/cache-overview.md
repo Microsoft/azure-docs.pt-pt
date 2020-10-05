@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
 ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631386"
 ---
 # <a name="azure-cache-for-redis"></a>Cache do Azure para Redis

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Envie um pedido de pesquisa para a REST API usando Ruby - Bing Entity Search'
+title: 'Quickstart: Enviar um pedido de pesquisa à API REST usando a Ruby - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para enviar um pedido para a API de Pesquisa de Entidades Bing usando ruby, e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido à API de Pesquisa de Entidade Bing usando a Ruby e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.openlocfilehash: 9699bb0e75aac19a2d5c5c68d07e85b1c17c7cbc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83650181"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa da entidade bing usando ruby
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Quickstart: Envie um pedido de pesquisa para a API de Pesquisa de Entidade Bing usando a Ruby
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidades Bing e veja a resposta JSON. Esta simples aplicação Ruby envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
+Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidade Bing e veja a resposta JSON. Esta simples aplicação Ruby envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. No seu IDE favorito ou editor de código, crie uma notícia do ficheiro Ruby e importe os seguintes pacotes:
+1. No seu IDE favorito ou editor de código, crie um ficheiro Ruby de notícias e importe os seguintes pacotes:
 
     ```ruby
     require 'net/https'
@@ -39,7 +39,7 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
     require 'json'
     ```
 
-2. Crie variáveis para o seu ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu ponto final da API, URL de pesquisa de notícias, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -51,14 +51,14 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
 
 ## <a name="format-and-make-an-api-request"></a>Formatar e fazer um pedido de API
 
-1. Crie a cadeia de parâmetros para o seu pedido, alinhando a sua variável de mercado ao `?mkt=` parâmetro. Codifique a sua consulta e adere-a ao `&q=` parâmetro. Combine o seu anfitrião, caminho e os parâmetros para o seu pedido e lance-os como um objeto URI.
+1. Crie a cadeia de parâmetros para o seu pedido, anexando a variável do seu mercado ao `?mkt=` parâmetro. Codificar a sua consulta e apdicê-la ao `&q=` parâmetro. Combine o seu anfitrião API, o caminho e os parâmetros para o seu pedido, e lance-os como um objeto URI.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
     uri = URI (host + path + params)
     ```
 
-2. Use as variáveis do último passo para criar o pedido. Adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+2. Utilize as variáveis do último passo para criar o pedido. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```ruby
     request = Net::HTTP::Get.new(uri)
@@ -75,7 +75,7 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
     puts JSON::pretty_generate (JSON (response.body))
     ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -140,10 +140,10 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de Pesquisa de Entidades Bing?](../search-the-web.md)
-* [Referência a API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)de Pesquisa de Entidades Bing .
+* [O que é a API de Pesquisa de Entidade Bing?](../search-the-web.md)
+* [Bing Entidade Pesquisa referência API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

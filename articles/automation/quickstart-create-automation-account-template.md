@@ -14,10 +14,10 @@ ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89055435"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Quickstart: Criar uma conta de Automação utilizando o modelo ARM
@@ -104,7 +104,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, abra a conta Automation que acaba de criar. 
 
@@ -116,7 +116,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     ![Conta de automação ligada ao espaço de trabalho Log Analytics](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar deles, desvincular a conta Desvinculação do espaço de trabalho Do Log Analytics e, em seguida, eliminar a conta de Automação e espaço de trabalho.
 

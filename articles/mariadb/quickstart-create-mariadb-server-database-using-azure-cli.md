@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88185167"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
@@ -45,7 +45,7 @@ az group create --name myresourcegroup --location westus
 
 Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-Definição | Valor da amostra | Description
+Definição | Valor da amostra | Descrição
 ---|---|---
 name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **grupo myresource** | Introduza o nome do grupo de recursos do Azure.
@@ -60,7 +60,7 @@ admin-user | **myadmin** | O nome de utilizador para o início de sessão do adm
 admin-password | *sua senha* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
++ `--sku-name B_Gen5_1` mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -213,8 +213,8 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
    | Definição | Valor sugerido | Descrição |
    |---|---|---|
    | Nome da Ligação | **Ligação de demonstração** | Introduza uma etiqueta para esta ligação (pode ser qualquer nome) |
-   | Método de Ligação | **Standard (TCP/IP)** | Utilizar o protocolo TCP/IP para ligar ao Azure Database for MariaDB |
-   | Nome de anfitrião | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
+   | Connection Method (Método de ligação) | **Standard (TCP/IP)** | Utilizar o protocolo TCP/IP para ligar ao Azure Database for MariaDB |
+   | Hostname (Nome do anfitrião) | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
    | Porta | **3306** | A porta predefinida para o Azure Database for MariaDB. |
    | Nome de utilizador | **myadmin \@ mydemoserver** | O início de sessão de administrador do servidor que anotou anteriormente. |
    | Palavra-passe | *sua senha* | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
@@ -223,7 +223,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
 
 4. Selecione a ligação para ligar com êxito ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não precisa dos recursos que utilizou neste início rápido para outro início rápido ou tutorial, pode eliminá-los ao executar o seguinte comando: 
 

@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar a extensão do G
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667661"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando O Azure CLI
@@ -117,7 +117,7 @@ az group delete --resource-group 'resource-graph-queries' --yes
 az extension remove -n resource-graph
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, adicionou a extensão do Gráfico de Recursos ao seu ambiente Azure CLI e criou uma consulta partilhada. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

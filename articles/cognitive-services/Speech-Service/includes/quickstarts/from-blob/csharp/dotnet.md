@@ -6,10 +6,10 @@ ms.date: 04/04/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05cf63f741e287112ace76a5249ae2ca8d01f34f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91376414"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

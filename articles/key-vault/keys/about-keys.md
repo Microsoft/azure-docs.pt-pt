@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91708871"
 ---
 # <a name="about-keys"></a>Acerca de chaves
@@ -215,7 +215,7 @@ As seguintes permissões podem ser concedidas, por base principal de utilizador/
 
 Para obter mais informações sobre o trabalho com as teclas, consulte [as operações key in the Key Vault REST API reference](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - [Sobre o Key Vault](../general/overview.md)
 - [Acerca do HSM Gerido](../managed-hsm/overview.md)
 - [Acerca de segredos](../secrets/about-secrets.md)

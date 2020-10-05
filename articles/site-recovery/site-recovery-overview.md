@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
 ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135233"
 ---
 # <a name="about-site-recovery"></a>Sobre o Site Recovery
@@ -43,7 +43,7 @@ O Site Recovery pode gerir a replicação de:
 **Planos de recuperação personalizados** | Utilizando planos de recuperação, pode personalizar e sequenciar o failover e a recuperação de aplicações multi-camadas em execução em vários VMs. Agrupa as máquinas num plano de recuperação e, opcionalmente, adiciona scripts e ações manuais. Os planos de recuperação podem ser integrados nos runbooks de automatização do Azure.
 **Integração do BCDR** | O Site Recovery integra-se com outras tecnologias BCDR. Por exemplo, pode utilizar a Recuperação de Sites para proteger o back-end do SQL Server de cargas de trabalho corporativas, com suporte nativo para o SQL Server AlwaysOn gerir a ativação pós-falha de grupos de disponibilidade.
 **Integração da automatização do Azure** | Uma biblioteca de Automatização do Azure completa fornece scripts específicos de aplicação, prontos para produção, que podem ser transferidos e integrados com o Site Recovery.
-**Integração de rede** | A Recuperação do Site integra-se com o Azure para gestão da rede de aplicações. Por exemplo, reservar endereços IP, configurar os equilibradores de carga e utilizar o Azure Traffic Manager para comutaçãos de rede eficientes.
+**Integração da rede** | A Recuperação do Site integra-se com o Azure para gestão da rede de aplicações. Por exemplo, reservar endereços IP, configurar os equilibradores de carga e utilizar o Azure Traffic Manager para comutaçãos de rede eficientes.
 
 ## <a name="what-can-i-replicate"></a>O que posso replicar?
 
@@ -54,7 +54,7 @@ O Site Recovery pode gerir a replicação de:
 **Máquinas replicadas** | Veja os requisitos de replicação para a replicação [VM do Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [VMs do VMware no local e servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines) e [VMs do Hyper-V no local](hyper-v-azure-support-matrix.md#replicated-vms).
 **Cargas de trabalho** | Pode replicar qualquer carga de trabalho em execução numa máquina que suporta replicação. E, a equipa de Recuperação de Sítios fez testes específicos para uma [série de aplicações.](site-recovery-workload.md#workload-summary)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [o suporte à carga de trabalho.](site-recovery-workload.md)
 - Introdução à [replicação de VMs do Azure entre regiões](azure-to-azure-quickstart.md).

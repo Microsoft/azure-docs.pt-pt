@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600950"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728986"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure
 
 [O Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) oferece uma plataforma de identidade universal que fornece às suas pessoas, parceiros e clientes uma única identidade para aceder a aplicações e colaborar a partir de qualquer plataforma e dispositivo. A Azure AD tem um [conjunto completo de capacidades de gestão de identidade.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) A normalização da autenticação e autorização da Azure AD permite os benefícios que estas capacidades proporcionam. 
 
-> [!NOTE]
-> Este artigo centra-se na autenticação de aplicações móveis dos serviços de Diretório Ativo e Diretório Ativo para Azure AD. Consulte a [autenticação da aplicação de migração em](https://aka.ms/migrateapps/whitepaper) papel branco para a Azure AD para uma visão geral do planeamento deste movimento. O Livro Branco discute como planear a migração, os testes e os insights.
+> [!TIP]
+> Este artigo está escrito para um público desenvolvedor. Os gestores e administradores de projetos que planeiam a mudança de uma aplicação para a Azure AD devem considerar a leitura da nossa [autenticação de aplicações migratórias para o Livro Branco AZure AD](https://aka.ms/migrateapps/whitepaper) (PDF).
 
 ## <a name="introduction"></a>Introdução
 

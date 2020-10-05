@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aa108d961fca3819b0747332c363b324c05b7994
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318505"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729105"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -176,7 +176,7 @@ As quotas de entrada e saída são aplicadas separadamente, de modo que nenhum r
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Existe um limite para o número de unidades de produção (TUs) que podem ser reservadas/selecionadas?
 Numa oferta multi-arrendatário, as unidades de produção podem crescer até 40 TUs (você pode selecionar até 20 TUs no portal, e levantar um bilhete de apoio para elevá-lo a 40 TUs no mesmo espaço de nome). Além de 40 TUs, o Event Hubs oferece o modelo baseado em recursos/capacidade chamado **clusters dedicados ao Event Hubs.** Os clusters dedicados são vendidos em Unidades de Capacidade (CUs).
 
-## <a name="dedicated-clusters"></a>Aglomerados dedicados
+## <a name="dedicated-clusters"></a>Clusters dedicados
 
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>O que são os clusters dos Hubs de Eventos Dedicados?
 Clusters dedicados ao Evento Hubs oferecem implantações de inquilinos únicos para clientes com requisitos mais exigentes. Esta oferta constrói um cluster baseado na capacidade que não está ligado por unidades de produção. Significa que pode usar o cluster para ingerir e transmitir os seus dados como ditado pelo CPU e pelo uso da memória do cluster. Para mais informações, consulte [clusters dedicados do Event Hubs.](event-hubs-dedicated-overview.md)
@@ -270,6 +270,20 @@ O Event Hubs suporta dois tipos de [registos](event-hubs-diagnostic-logs.md) de 
 O suporte técnico para o Event Hubs está disponível através da [página de perguntas do Microsoft Q&A para o Azure Service Bus](/answers/topics/azure-service-bus.html). O suporte de gestão de faturação e subscrição é fornecido sem custos.
 
 Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
+
+## <a name="azure-stack-hub"></a>Azure Stack Hub
+
+### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como posso direcionar uma versão específica do Azure Storage SDK ao usar o Azure Blob Storage como uma loja de checkpoint?
+Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
+
+Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte as seguintes amostras para C#, Java, Python e JavaScript/TypeScript.  
+
+Para um exemplo sobre como direcionar uma versão API de armazenamento específica do seu código, consulte as seguintes amostras no GitHub: 
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
+- [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java)
+- Python - [Sincronizado,](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) [Assíncronos](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts)
 
 ## <a name="next-steps"></a>Passos seguintes
 

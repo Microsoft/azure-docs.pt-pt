@@ -9,10 +9,10 @@ ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
 ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91449083"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure Defender para o Cofre de Chaves
@@ -48,7 +48,7 @@ Os alertas aparecem na página de **Segurança** do Key Vault, no painel de inst
 > Pode simular alertas de Azure Defender para key vault seguindo as instruções para [validar a deteção de ameaças de azure key vault no Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre o Azure Defender para o Key Vault.
 

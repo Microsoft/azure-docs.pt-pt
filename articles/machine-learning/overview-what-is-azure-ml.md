@@ -10,10 +10,10 @@ ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91710741"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
@@ -125,7 +125,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 
 A sua conta de Armazenamento Azure, metas de computação e outros recursos podem ser utilizados de forma segura dentro de uma rede virtual para treinar modelos e realizar inferência. Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie a sua primeira experiência com o seu método preferido:
   + [Use cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)

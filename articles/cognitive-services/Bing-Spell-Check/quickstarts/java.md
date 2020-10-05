@@ -12,10 +12,10 @@ ms.date: 05/21/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: 02e83d2a18958e23f412af7b9685ddd1ab400aac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91316635"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Verifique a ortografia com a API e Java do Bing Spell Check REST e Java
