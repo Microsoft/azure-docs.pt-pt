@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716016"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761146"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
+Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
 
 ## <a name="configure-windows-acls"></a>Configurar ACLs windows
 
@@ -116,7 +116,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como utilizar os ICACLs para definir ACLs do Windows e sobre os diferentes tipos de permissões suportadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que a funcionalidade está ativada e configurada, continue para o artigo seguinte, onde monta a sua partilha de ficheiros Azure a partir de um VM unido a domínio.
 

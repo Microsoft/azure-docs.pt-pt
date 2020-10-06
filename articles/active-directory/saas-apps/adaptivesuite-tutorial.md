@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537744"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760789"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integrar Insights Adaptativos com Diretório Ativo Azure
 
@@ -99,7 +99,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 2. Vá para a **Administração.**
 
-    ![Administração](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+    ![Screenshot que destaca a Administração no painel de navegação.](./media/adaptivesuite-tutorial/ic805644.png "Administrador")
 
 3. Na secção **Utilizadores e Funções,** clique em **Definições SSO SAML**.
 
@@ -173,7 +173,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se em Insights Adaptativ
 
 2. Vá para a **Administração.**
 
-   ![Administração](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+   ![Administração](./media/adaptivesuite-tutorial/IC805644.png "Administrador")
 
 3. Na secção **Utilizadores e Funções,** clique nos **Utilizadores**.
 

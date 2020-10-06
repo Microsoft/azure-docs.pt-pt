@@ -1,6 +1,6 @@
 ---
-title: Recupere o nome de utilizador e a palavra-passe para ligar ao Controlador de Dados do Arco
-description: Recupere o nome de utilizador e a palavra-passe para ligar ao Controlador de Dados do Arco
+title: Obter o nome de utilizador e a palavra-passe para estabelecer ligação ao Controlador de Dados do Arc
+description: Obter o nome de utilizador e a palavra-passe para estabelecer ligação ao Controlador de Dados do Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1c33cf21be0b4b1ea39a568d6df9fd90507dd454
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8cabb48e3620f1a17d1bb9b87e1646ce2793143b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938957"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761707"
 ---
-# <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>Recupere o nome de utilizador e a palavra-passe para ligar ao Controlador de Dados do Arco
+# <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>Obter o nome de utilizador e a palavra-passe para estabelecer ligação ao Controlador de Dados do Arc
 
 Pode estar numa situação em que precisa de recuperar o nome de utilizador e a palavra-passe para o controlador de dados. Estes são os comandos de que precisa quando se corre. 
 
@@ -61,4 +61,4 @@ Executar o seguinte comando para recuperar a senha:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente [outros cenários](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios)
+Experimente [outros cenários](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory-domain-services/scenarios.md)

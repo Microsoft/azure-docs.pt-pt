@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542960"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Ative Directory com a Agiloft
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com a Agiloft, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações únicas de sign-on do domínio Agiloft e URLs](common/idp-intiated.png)
+    ![Screenshot que destaca as caixas de texto de URL de identificação e resposta.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
@@ -150,11 +150,11 @@ Para configurar o Azure AD com a Agiloft, execute os seguintes passos:
 
 2. Clique na **Configuração** (no painel esquerdo) e, em seguida, selecione **Access**.
 
-    ![Configuração Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Screenshot que realça a secção De Acesso.](./media/agiloft-tutorial/setup1.png)
 
 3. Clique no botão **Configurar SAML 2.0 Único Sign-on**.
 
-    ![Configuração Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Screenshot que realça o botão Configure SAML 2.0 Single Sign-On.](./media/agiloft-tutorial/setup2.png)
 
 4. Aparece um diálogo de assistente. No diálogo, clique nos **Detalhes do Fornecedor de Identidade** e preencha os seguintes campos:  
 
@@ -201,7 +201,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Agiloft**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Agiloft**.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054267"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760258"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -430,7 +430,7 @@ Isto não depende de onde o seu recurso Application Insights está hospedado. S�
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Posso enviar telemetria para o portal Application Insights?
 
-Recomendamos que utilize os nossos SDKs e utilize o [API SDK.](app/api-custom-events-metrics.md) Existem variantes do SDK para [várias plataformas.](app/platforms.md) Estes SDKs lidam com tampão, compressão, estrangulamento, retrações, e assim por diante. No entanto, o [esquema de ingestão](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) e [o protocolo de ponto final](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) são públicos.
+Recomendamos que utilize os nossos SDKs e utilize o [API SDK.](app/api-custom-events-metrics.md) Existem variantes do SDK para [várias plataformas.](app/platforms.md) Estes SDKs lidam com tampão, compressão, estrangulamento, retrações, e assim por diante. No entanto, o [esquema de ingestão](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) e [o protocolo de ponto final](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) são públicos.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Posso monitorizar um servidor web intranet?
 
@@ -791,7 +791,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

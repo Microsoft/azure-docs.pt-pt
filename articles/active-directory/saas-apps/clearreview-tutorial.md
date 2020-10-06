@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544694"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Ative Directory com Clear Review
 
@@ -102,7 +102,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Clear Review Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Clear Review Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
 6. A aplicação Clear Review espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação Clear Review espera que **o identificador** de nomes seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 7. No diálogo **"Atributos & Reclamações** do Utilizador", execute os seguintes passos:
 
     a. Clique em **Editar** o ícone no valor do **identificador name.**
 
-    ![image](./media/clearreview-tutorial/attribute02.png)
+    ![A screenshot mostra atributos do utilizador & Reclamações com o ícone editar selecionado.](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](./media/clearreview-tutorial/attribute01.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](./media/clearreview-tutorial/attribute01.png)
 
     b. Na lista **de atributos Source,** selecione o valor do atributo **user.mail** para esta linha.
 
@@ -153,15 +153,15 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
 2. Selecione **Admin** a partir da navegação à esquerda.
 
-    ![Configure o botão único de poupança de sinal](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![A screenshot mostra o portal Clear Review com o Administrador selecionado.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. Na secção **Integrações** na parte inferior da página clique no botão **Alterar** para a direita de **Definições únicas de início de sposição**.
 
-    ![Configure o botão único de poupança de sinal](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![A screenshot mostra o botão de alteração de sinal único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Execute os passos seguintes na página **de definições de inscrição única**
 
-    ![Configure o botão único de poupança de sinal](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![A screenshot mostra a página 'Definições de entrada única' onde pode introduzir as informações neste passo.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. Na caixa de texto URL do **emitente,** cole o valor do **Identificador AD AZure** que copiou do portal Azure.
 
@@ -204,7 +204,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Clear Review**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Clear Review**.
 

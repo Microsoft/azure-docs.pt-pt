@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707837"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760517"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas. Podem existir vários motivos diferentes pelos quais os instantâneos não são gerados. Pode fazer o exame de saúde instantâneo para identificar algumas das possíveis causas comuns.
@@ -62,7 +62,7 @@ Se a aplicação utilizar uma versão de pré-visualização de .NET Core, e o S
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Upgrade para a versão mais recente do pacote NuGet
 
-Se o Snapshot Debugger foi ativado através do [painel Debugger Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então a sua aplicação já deve estar a executar o mais recente pacote NuGet. Se o Snapshot Debugger foi ativado através da inclusão do pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilize o NuGet Package Manager do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector. As notas de libertação podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Se o Snapshot Debugger foi ativado através do [painel Debugger Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então a sua aplicação já deve estar a executar o mais recente pacote NuGet. Se o Snapshot Debugger foi ativado através da inclusão do pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilize o NuGet Package Manager do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector.
 
 ## <a name="check-the-uploader-logs"></a>Verifique os registos do uploader
 

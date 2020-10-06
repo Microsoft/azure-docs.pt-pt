@@ -4,12 +4,12 @@ description: Reduza o tráfego de telemetria filtrando os eventos que não preci
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372183"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761010"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
 
@@ -78,10 +78,7 @@ Em ApplicationInsights.xml, adicione uma `TelemetryProcessors` secção como est
 
 ```
 
-
-
-
-[Inspecione o conjunto completo de processadores incorporados](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Inspecione o conjunto completo de processadores incorporados](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## <a name="built-in-filters"></a>Filtros embutidos
 
@@ -94,7 +91,7 @@ Em ApplicationInsights.xml, adicione uma `TelemetryProcessors` secção como est
            </Processor>
 ```
 
-* `NotNeeded`- Lista separada por vírgulas de nomes métricos personalizados.
+* `NotNeeded` - Lista separada por vírgulas de nomes métricos personalizados.
 
 
 ### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de vista de página
@@ -108,9 +105,9 @@ Em ApplicationInsights.xml, adicione uma `TelemetryProcessors` secção como est
            </Processor>
 ```
 
-* `DurationThresholdInMS`- Duração refere-se ao tempo de carregamento da página. Se isto estiver definido, as páginas que carregaram mais rapidamente do que desta vez não são reportadas.
-* `NotNeededNames`- Lista separada por vírgulas de nomes de página.
-* `NotNeededUrls`- Lista separada por vírgula de fragmentos de URL. Por exemplo, `"home"` filtra todas as páginas que têm "casa" na URL.
+* `DurationThresholdInMS` - Duração refere-se ao tempo de carregamento da página. Se isto estiver definido, as páginas que carregaram mais rapidamente do que desta vez não são reportadas.
+* `NotNeededNames` - Lista separada por vírgulas de nomes de página.
+* `NotNeededUrls` - Lista separada por vírgula de fragmentos de URL. Por exemplo, `"home"` filtra todas as páginas que têm "casa" na URL.
 
 
 ### <a name="request-telemetry-filter"></a>Solicitar filtro de telemetria
@@ -149,7 +146,7 @@ Filtrar a telemetria para fontes sintéticas específicas:
            </Processor>
 ```
 
-* `NotNeeded`- Lista separada por vírgulas de nomes de origem sintética.
+* `NotNeeded` - Lista separada por vírgulas de nomes de origem sintética.
 
 ### <a name="telemetry-event-filter"></a>Filtro de evento de telemetria
 
@@ -164,7 +161,7 @@ Filtra eventos personalizados (iniciados através do [TrackEvent).).](./api-cust
 ```
 
 
-* `NotNeededNames`- Lista separada por vírgulas de nomes de eventos.
+* `NotNeededNames` - Lista separada por vírgulas de nomes de eventos.
 
 
 ### <a name="trace-telemetry-filter"></a>Trace Telemetria filtro
@@ -178,7 +175,7 @@ Filtra traços de registo (registados utilizando [trackTrace()](./api-custom-eve
            </Processor>
 ```
 
-* `FromSeverityLevel`os valores válidos são:
+* `FromSeverityLevel` os valores válidos são:
   *  OFF - Filtrar todos os vestígios
   *  TRACE - Sem filtragem. equivale ao nível de trace
   *  INFO - Filtrar o nível TRACE

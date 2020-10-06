@@ -4,12 +4,12 @@ description: Monitorização de .NET Core/.NET Aplicações não-HTTP com Insigh
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 2ca5fc2d8f5e9e399fd7dfd3238d0ec16056d537
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007218"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760483"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
 
@@ -44,7 +44,7 @@ Instruções específicas para cada tipo de aplicação são descritas nas segui
 
 ## <a name="net-core-30-worker-service-application"></a>.NET Core 3.0 pedido de serviço de trabalhador
 
-O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Baixar e instalar [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Crie um novo projeto de Serviço dos Trabalhadores, utilizando o novo modelo de projeto ou linha de comando do Visual Studio `dotnet new worker`
@@ -136,7 +136,7 @@ Tipicamente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumenta�
 
 [Este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento descreve como criar tarefas de fundo na aplica ASP.NETção Core 2.1/2.2.
 
-O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
 1. Instale o microsoft.ApplicationInsights.WorkerService(pacote https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 2. Adicione `services.AddApplicationInsightsTelemetryWorkerService();` ao `ConfigureServices()` método, como neste exemplo:
@@ -223,7 +223,7 @@ Segue-se o código para `TimedHostedService` onde reside a lógica de tarefa de 
 
 Como mencionado no início deste artigo, o novo pacote pode ser usado para ativar a Telemetria Application Insights a partir de uma aplicação regular de consola. Este pacote tem como [`NetStandard2.0`](/dotnet/standard/net-standard) alvos , e assim pode ser utilizado para aplicações de consolas em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
 
-O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
 1. Instale o microsoft.ApplicationInsights.WorkerService(pacote https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 
@@ -509,7 +509,7 @@ Não. [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Esta
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 
-Yes. Suporte de funcionalidades para este SDK é o mesmo em todas as plataformas, com as seguintes exceções:
+Sim. Suporte de funcionalidades para este SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
 * Os contadores de desempenho são suportados apenas no Windows, com exceção do CpU/Memória do Processo mostrado em Métricas Vivas.
 * Apesar de `ServerTelemetryChannel` estar ativado por padrão, se a aplicação estiver em execução no Linux ou no MacOS, o canal não cria automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a esta limitação, a telemetria perde-se quando existem problemas temporários de rede ou servidor. Para contornar esta questão, configuure uma pasta local para o canal:
@@ -532,17 +532,17 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>Exemplos de aplicações
 
-[Aplicação de consola core .NET](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Utilize esta amostra se estiver a utilizar uma aplicação de consola escrita em .NET Core (2.0 ou superior) ou .NET Framework (4.7.2 ou superior)
+[Aplicação de consola core .NET](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Utilize esta amostra se estiver a utilizar uma aplicação de consola escrita em .NET Core (2.0 ou superior) ou .NET Framework (4.7.2 ou superior)
 
-[ASP .NET Core tarefas de fundo com Os Serviços Hospedados](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Utilize esta amostra se estiver em Asp.Net Core 2.1/2.2 e criando tarefas de fundo de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
+[ASP .NET Core tarefas de fundo com Os Serviços Hospedados](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Utilize esta amostra se estiver em Asp.Net Core 2.1/2.2 e criando tarefas de fundo de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
 
-[.NET Core 3.0 Serviço de Trabalhadores](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Utilize esta amostra se tiver uma aplicação de Serviço de Trabalhador .NET Core 3.0 de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
+[.NET Core 3.0 Serviço de Trabalhadores](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Utilize esta amostra se tiver uma aplicação de Serviço de Trabalhador .NET Core 3.0 de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
 
 ## <a name="open-source-sdk"></a>SDK de código aberto
 
 [Leia e contribua para o código.](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize a API](./api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
 * [Acompanhe as dependências adicionais não rastreadas automaticamente.](./auto-collect-dependencies.md)

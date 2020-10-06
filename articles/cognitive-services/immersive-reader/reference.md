@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330609"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761554"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência SDK do leitor imersivo JavaScript (v1.1)
 
@@ -135,7 +135,7 @@ Opções para a prestação dos botões Imersivos Reader.
 | ------- | ---- | ----------- |
 | elementos | HTMLDivElement[] | Elementos para tornar os botões Imersivos do Leitor dentro |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -210,14 +210,14 @@ Contém o conteúdo a ser mostrado no Leitor Imersivo.
 | título | String | Texto do título mostrado no topo do Leitor Imersivo (opcional) |
 | pedaços | [Pedaço[]](#chunk) | Matriz de pedaços |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -246,21 +246,21 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 | Lang | Cadeia | Linguagem do texto, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. A linguagem será detetada automaticamente se não for especificada. Veja [Supported Languages](#supported-languages) (Idiomas Suportados). |
 | mímicaType | string | Texto simples, MathML, HTML & os formatos Microsoft Word DOCX são suportados. Consulte [os tipos de MIME suportados](#supported-mime-types) para obter mais detalhes. |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -323,38 +323,38 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 | onPreferencesOdado | Função | Executa quando as preferências do utilizador mudaram. Consulte [as preferências do utilizador para](./how-to-store-user-preferences.md) obter mais informações. |
 | CustomDomain | Cadeia | Reservado para uso interno. Domínio personalizado onde o webapp imersivo do Leitor está hospedado (o padrão é nulo). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **IMPORTANTE** Não tente alterar programáticamente os valores da `-preferences` cadeia enviada para e a partir da aplicação Immersive Reader, pois isso pode causar um comportamento inesperado, resultando numa experiência de utilizador degradada para os seus clientes.
+> **IMPORTANTE** Não tente alterar programáticamente os valores da `-preferences` cadeia enviada para e a partir da aplicação Immersive Reader, pois isso pode causar um comportamento inesperado, resultando numa experiência de utilizador degradada para os seus clientes. As aplicações de anfitrião nunca devem atribuir um valor personalizado ou manipular a `-preferences` cadeia. Ao utilizar a `-preferences` opção de cadeia, utilize apenas o valor exato que foi devolvido da `-onPreferencesChanged` opção de retorno.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -396,7 +396,7 @@ type ReadAloudOptions = {
 | velocidade | Número | Velocidade de reprodução, deve ser entre 0,5 e 2,5, inclusive. |
 | autoPlay | Booleano | Comece automaticamente a ler em voz alta quando o leitor imersivo estiver carregado. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -435,7 +435,7 @@ type TranslationOptions = {
 | autoEnableDocumentTranslation | Booleano | Traduza automaticamente todo o documento. |
 | autoEnableWordTranslation | Booleano | Ativar automaticamente a tradução de palavras. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -463,7 +463,7 @@ type DisplayOptions = {
 | aumentar O espaçamento | Booleano | Define se o espaçamento do texto é alternado dentro ou fora. |
 | fonteFamily | Cadeia | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false

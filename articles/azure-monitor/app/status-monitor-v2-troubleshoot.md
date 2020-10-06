@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041397"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761469"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de Insights de Aplicação de Resolução de Problemas (anteriormente denominado Status Monitor v2)
 
 Quando ativa a monitorização, poderá experimentar problemas que impeçam a recolha de dados.
 Este artigo lista todos os problemas conhecidos e fornece exemplos de resolução de problemas.
-Se encontrar um problema que não esteja listado aqui, pode contactar-nos no [GitHub.](https://github.com/Microsoft/ApplicationInsights-Home/issues)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -72,12 +71,10 @@ Depois de executar o comando Enable, complete estes passos:
 ### <a name="iis-nested-applications"></a>Aplicações Aninhadas IIS
 
 Não instrumentamos aplicações aninhadas no IIS na versão 1.0.
-Estamos a acompanhar este [assunto.](https://github.com/microsoft/ApplicationInsights-Home/issues/369)
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>A Configuração Avançada SDK não está disponível.
 
 A configuração SDK não está exposta ao utilizador final na versão 1.0.
-Estamos a acompanhar este [assunto.](https://github.com/microsoft/ApplicationInsights-Home/issues/375)
 
     
     
@@ -140,7 +137,7 @@ Reveja a [referência da API](status-monitor-v2-api-reference.md) para uma descr
     - **Zip**
     - **Intercalar**
     - **Coleção de símbolos .NET**
-5. Definir estes **Fornecedores Adicionais**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Definir estes **Fornecedores Adicionais**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>Recolha de troncos
@@ -156,4 +153,3 @@ Reveja a [referência da API](status-monitor-v2-api-reference.md) para uma descr
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a referência da [API](status-monitor-v2-overview.md#powershell-api-reference) para saber sobre os parâmetros que pode ter perdido.
-- Se encontrar um problema que não esteja listado aqui, pode contactar-nos no [GitHub.](https://github.com/Microsoft/ApplicationInsights-Home/issues)

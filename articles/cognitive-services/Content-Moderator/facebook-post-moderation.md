@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548519"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760202"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Posts e comandos moderados do Facebook com Moderador de Conteúdo Azure
 
 Neste tutorial, você aprenderá a usar o Moderador de Conteúdo Azure para ajudar a moderar as publicações e comentários numa página de Facebook. O Facebook enviará o conteúdo publicado pelos visitantes ao serviço Desematado de Conteúdo. Em seguida, os fluxos de trabalho do seu Moderador de Conteúdo irão publicar o conteúdo ou criar revisões dentro da ferramenta 'Revisão', dependendo das pontuações e limiares de conteúdo. Veja o [vídeo de demonstração build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) para um exemplo de trabalho deste cenário.
+
+> [!IMPORTANT]
+> Em 2018, o Facebook implementou uma política de verificação mais rigorosa para as aplicações do Facebook. Não poderá completar os passos deste tutorial se a sua aplicação não tiver sido revista e aprovada pela equipa de revisão do Facebook.
 
 Este tutorial mostrar-lhe como:
 
@@ -33,9 +36,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Este diagrama ilustra cada componente deste cenário:
 
 ![Diagrama de Moderador de Conteúdo recebendo informações do Facebook através de "FBListener" e enviando informações através de "CMListener"](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> Em 2018, o Facebook implementou uma política de verificação mais rigorosa para as aplicações do Facebook. Não poderá completar os passos deste tutorial se a sua aplicação não tiver sido revista e aprovada pela equipa de revisão do Facebook.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +81,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
 
     Clique no botão **Guardar** no topo da página.
 
-1. Volte ao separador funcionalidades da **Plataforma.** Utilize o **+** botão do painel esquerdo para levantar o painel de **funções Nova.** A função que está prestes a criar receberá eventos do Facebook.
+1. Volte para o separador **funcionalidades da Plataforma.** Utilize o **+** botão no painel esquerdo para levantar o painel de **funções Nova.** A função que está prestes a criar receberá eventos do Facebook.
 
     ![Painel de funções Azure com o botão 'Adicionar Função' realçado.](images/new-function.png)
 

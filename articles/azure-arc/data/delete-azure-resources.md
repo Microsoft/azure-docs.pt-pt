@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c07a0d8279c8d2f8792f5df3e35d2d630b1a86bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46c1df8a175657e20dce984d0c8825ae99170246
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939901"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761656"
 ---
 # <a name="delete-resources-from-azure"></a>Eliminar recursos do Azure
 
@@ -97,4 +97,4 @@ az resource delete --name <data controller name> --resource-type Microsoft.Azure
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Eliminar um grupo de recursos utilizando o Azure CLI
 
-Também pode utilizar o CLI Azure para [eliminar um grupo de recursos](/azure-resource-manager/management/delete-resource-group).
+Também pode utilizar o CLI Azure para [eliminar um grupo de recursos](/azure/azure-resource-manager/management/delete-resource-group).

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 2a8e0ec113b4d008f759c7d199c4dab823576e16
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946693"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761095"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Construção de uma aplicação web estática com Blazor em Azure Static Web Apps
 
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conta GitHub](https://github.com)
+- Conta do [GitHub](https://github.com)
 - [Conta Azure](https://portal.azure.com)
 
 ## <a name="application-overview"></a>Descrição geral da aplicação
@@ -33,7 +33,7 @@ As Aplicações Web Estáticas Azure permitem criar aplicações web estáticas 
 
 A aplicação apresentada neste tutorial é composta por três projetos diferentes do Estúdio Visual:
 
-- **Api**: A aplicação C# Azure Functions que implementa o ponto final da API que fornece informações meteorológicas para a aplicação estática. O [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) devolve uma série de `WeatherForecast` objetos.
+- **Api**: A aplicação C# Azure Functions que implementa o ponto final da API que fornece informações meteorológicas para a aplicação estática. O [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs) devolve uma série de `WeatherForecast` objetos.
 
 - **Cliente**: O projeto de montagem web blazor frontal. É implementada [uma rota de retorno](#fallback-route) para garantir que todas as rotas são servidasindex.htmficheiro _l._
 
@@ -67,7 +67,7 @@ Este artigo usa um repositório de modelos GitHub para facilitar o seu início. 
     - https://github.com/staticwebdev/blazor-starter/generate
 1. Nomeie o seu repositório **my-first-static-blazor-app**
 
-## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
+## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
 Agora que o repositório é criado, crie uma aplicação web estática a partir do portal Azure.
 
@@ -79,7 +79,7 @@ Agora que o repositório é criado, crie uma aplicação web estática a partir 
 
 Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repositório GitHub.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Separador básico":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="App Completa blazor":::
 
 1. Selecione a sua _subscrição Azure_
 1. Selecione ou crie um novo _Grupo de Recursos_
@@ -91,7 +91,7 @@ Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repos
 
 Depois de assinar com o GitHub, insira a informação do repositório.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Detalhes do repositório":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="App Completa blazor":::
 
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **a minha primeira-estática-blazor-app** a partir do _repositório_ drop-down
@@ -105,15 +105,15 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 
 1. Selecione **Rever + criar**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Rever criar botão":::
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="App Completa blazor":::
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Botão Criar":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="App Completa blazor":::
 
 1. Selecione **Ir para recurso**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Botão Ir para recurso":::
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="App Completa blazor":::
 
 ## <a name="view-the-website"></a>Ver o site
 
@@ -123,13 +123,13 @@ Antes de navegar para o seu novo site estático, a construção de implantação
 
 A janela de visão geral das Aplicações Web Estáticas exibe uma série de links que o ajudam a interagir com a sua aplicação web.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Janela de visão geral":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="App Completa blazor":::
 
 1. Clicando no banner que diz, _clique aqui para verificar o estado das suas ações gitHub_ leva-o às Ações GitHub em execução contra o seu repositório. Assim que verificar que o trabalho de implantação está concluído, poderá navegar para o seu website através do URL gerado.
 
 2. Assim que o fluxo de trabalho das Ações GitHub estiver concluído, pode selecionar o link _URL_ para abrir o website em novo separador.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 

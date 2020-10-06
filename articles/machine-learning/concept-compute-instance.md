@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 68143d3ee5df6dca29c43cb090f5873c4b50060f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 88cb54a7a9e20e643d9a19f57dc83d3f1ea8004d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704695"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761214"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -30,7 +30,7 @@ Para a formação de modelos de produção, utilize um [cluster de cálculo Azur
 
 Um caso compute é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens|Descrição|
+|Principais vantagens|Description|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho. Também pode configurar o desenvolvimento remoto do Código VS utilizando [o SSH](how-to-set-up-vs-code-remote.md) |
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Autoprovisionamento a partir de modelos de gestor de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -96,6 +96,68 @@ Escrever pequenos ficheiros pode ser mais lento nas unidades de rede do que escr
 
 Pode utilizar o `/tmp` diretório na instância de cálculo para os seus dados temporários.  No entanto, não escreva grandes ficheiros de dados no disco oss da instância computacional.  Em vez disso, utilize [as datastores.](concept-azure-machine-learning-architecture.md#datasets-and-datastores) Se instalou a extensão do Git JupyterLab, também pode levar a um abrandamento no desempenho do caso computacional.
 
+## <a name="managing-a-compute-instance"></a>Gerir uma instância computacional
+
+No seu espaço de trabalho no estúdio Azure Machine Learning, selecione **Compute**e **selecione Compute Instance** no topo.
+
+![Gerir uma instância computacional](./media/concept-compute-instance/manage-compute-instance.png)
+
+Pode realizar as seguintes ações:
+
+* [Criar uma instância computacional](#create). 
+* Refresque o separador de instâncias computacional.
+* Comece, pare e reinicie uma instância de computação.  Pagas pelo exemplo sempre que está a funcionar. Pare a instância de cálculo quando não estiver a usá-lo para reduzir o custo. Parar um caso de computação o impede. Então, comece de novo quando precisar.
+* Apagar uma instância computacional.
+* Filtre a lista de computações para mostrar apenas aqueles que criou.
+
+Para cada instância de cálculo no seu espaço de trabalho que pode utilizar, pode:
+
+* Acesso Jupyter, JupyterLab, RStudio na instância compute compute
+* SSH em caso de computação. O acesso ao SSH é desativado por padrão, mas pode ser ativado no tempo de criação de instâncias de computação. O acesso ao SSH é através de um mecanismo chave público/privado. O separador irá dar-lhe detalhes para a ligação SSH, como endereço IP, nome de utilizador e número de porta.
+* Obtenha detalhes sobre uma instância computacional específica, como endereço IP e região.
+
+[O RBAC](/azure/role-based-access-control/overview) permite-lhe controlar quais os utilizadores no espaço de trabalho que podem criar, eliminar, iniciar, parar, reiniciar uma instância de computação. Todos os utilizadores no espaço de trabalho colaborador e papel de proprietário podem criar, eliminar, iniciar, parar e reiniciar casos de cálculo em todo o espaço de trabalho. No entanto, apenas o criador de uma instância computacional específica, ou o utilizador designado se foi criado em seu nome, é autorizado a aceder a Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância computacional é dedicada a um único utilizador que tenha acesso à raiz, e pode terminalizar através do Jupyter/JupyterLab/RStudio. A instância computacional terá um único utilizador e todas as ações usarão a identidade desse utilizador para o RBAC e a atribuição de execuções experimentais. O acesso ao SSH é controlado através de um mecanismo chave público/privado.
+
+Estas ações podem ser controladas pelo RBAC:
+* *Microsoft.MachineLearningServices/workspaces/computes/read*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/computes/delete*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância de computação
+
+No seu espaço de trabalho no estúdio Azure Machine Learning, [crie uma nova instância de computação](how-to-create-attach-compute-studio.md#compute-instance) a partir da secção **Compute** ou na secção **Notebooks** quando estiver pronto para executar um dos seus cadernos. 
+
+Também pode criar um caso
+* Diretamente da experiência de [cadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
+* No portal Azure
+* Do modelo do Gestor de Recursos Azure. Para um modelo de exemplo, consulte o [modelo de instância de cálculo Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
+* Com [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
+* Da [extensão do CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
+
+Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo.
+
+
+### <a name="create-on-behalf-of-preview"></a>Criar em nome de (pré-visualização)
+
+Como administrador, pode criar uma instância computacional em nome de um cientista de dados e atribuir-lhes a instância com:
+* [Modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Para obter mais informações sobre como encontrar o TenantID e o ObjectID necessários neste modelo, consulte [encontrar iDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Pode também encontrar estes valores no portal Azure Ative Directory.
+* API REST
+
+O cientista de dados que cria o caso computacional necessita das seguintes permissões RBAC: 
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+
+O cientista de dados pode começar, parar e reiniciar a instância de computação. Podem usar a instância computacional para:
+* Jupyter
+* JupyterLab
+* RStudio
+* Cadernos integrados
+
 ## <a name="compute-target"></a>Destino de computação
 
 Os casos de computação podem ser usados como um [alvo de computação de formação](concept-compute-target.md#train) semelhante aos clusters de treinamento de computação Azure Machine Learning. 
@@ -118,7 +180,7 @@ Quaisquer ficheiros de portátil armazenados na partilha de ficheiros do espaço
 Não é possível criar novos VMs de caderno. No entanto, ainda pode aceder e utilizar VMs de portátil que criou, com plena funcionalidade. Os casos de cálculo podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerir uma instância computacional](how-to-create-manage-compute-instance.md)
 * [Tutorial: Treine o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

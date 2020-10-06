@@ -8,22 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: c3f0b7c262fc774e43f2f63ebf09a1a08beea686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4100bf38b61d1b6eb7c3dfad3f1434a885c7d2ae
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262676"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760857"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e o JavaScript da Visão de Computador
 
 Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina. 
 
-> [!IMPORTANT]
-> O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
+O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,8 +31,8 @@ Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem util
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
-## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
 Para criar e executar o exemplo, siga os seguintes passos:
 

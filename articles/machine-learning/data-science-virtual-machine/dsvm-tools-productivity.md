@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: f26b02755c68b4ece4edca8cbbd90ec3330c5d1d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032508"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761197"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Ferramentas de produtividade na Máquina Virtual da Ciência dos Dados
 
@@ -24,6 +24,6 @@ Além das ferramentas de ciência e programação de dados, o DSVM contém ferra
 
 | Ferramenta | DSVM do Windows | DSVM do Linux | Windows 2019 Servidor DSVM | Ubuntu 18.04 DSVM | Notas de utilização |
 |---|:-:|:-:|:-:|:-:|:--|
-| [Microsoft 365 Apps para empresa](/microsoft-365/business/microsoft-365-apps-for-enterprise-product) com ativação partilhada: Excel, Word e PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Pode ativar aplicações microsoft 365 para empresa:<br/><ul><li>Ver [Ativação partilhada do computador](/deployoffice/overview-shared-computer-activation)</ul> |
+| [Microsoft 365 Apps para empresa](https://www.microsoft.com/microsoft-365/business/microsoft-365-apps-for-enterprise) com ativação partilhada: Excel, Word e PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | Pode ativar aplicações microsoft 365 para empresa:<br/><ul><li>Ver [Ativação partilhada do computador](/deployoffice/overview-shared-computer-activation)</ul> |
 | [Power BI Desktop](https://powerbi.microsoft.com/) | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | |
 | Browser Microsoft Edge | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | |

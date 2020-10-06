@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421676"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762013"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>A granel adiciona membros do grupo no Azure Ative Directory
 
@@ -75,9 +75,9 @@ Para mais detalhes sobre cada item de linha dentro da operação a granel, selec
 
 ## <a name="bulk-import-service-limits"></a>Limites de serviços de importação a granel
 
-Cada atividade a granel para importar uma lista de membros do grupo pode decorrer até uma hora. Isto permite a importação de uma lista de pelo menos 40.000 membros.
+Cada atividade a granel para importar uma lista de membros do grupo pode decorrer até uma hora. Isto permite a importação de uma lista de no máximo 40.000 membros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [A granel remove membros do grupo](groups-bulk-remove-members.md)
 - [Descarregue membros de um grupo](groups-bulk-download-members.md)

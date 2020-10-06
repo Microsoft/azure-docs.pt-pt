@@ -1,5 +1,5 @@
 ---
-title: Orientação de dimensionamento
+title: Documentação de orientação sobre dimensionamento
 description: Plano para a dimensão de uma implantação de Azure Arc habilitado serviços de dados.
 services: azure-arc
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940765"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761486"
 ---
 # <a name="sizing-guidance"></a>Orientação de Dimensionamento
 
@@ -27,7 +27,7 @@ Ao planear a implantação de serviços de dados do Azure Arc, deverá planear a
 ## <a name="general-sizing-requirements"></a>Requisitos gerais de dimensionamento
 
 > [!NOTE]
-> Se você não está familiarizado com os conceitos deste artigo, você pode ler mais sobre [a governação de recursos Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e [notação de tamanho Kubernetes](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Se você não está familiarizado com os conceitos deste artigo, você pode ler mais sobre [a governação de recursos Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) e [notação de tamanho Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Os números de núcleos devem ser um valor inteiro superior ou igual a um.
 

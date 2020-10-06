@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372260"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -22,7 +22,7 @@ O Azure Cost Management está disponível de forma nativa para os parceiros dire
 
 No caso dos parceiros diretos e fornecedores indiretos, o administrador global e os agentes de administração podem aceder ao Cost Management no inquilino do parceiro e gerir os custos aos preços faturados.
 
-Os revendedores e clientes podem aceder ao Cost Management no inquilino do cliente e ver os custos das subscrições, onde os custos são calculados e apresentados às taxas de retalho. No entanto, têm de ter acesso RBAC à subscrição no inquilino do cliente para verem os custos. A política de visibilidade dos custos tem de ser ativada pelo fornecedor para o inquilino do cliente.
+Os revendedores e clientes podem aceder ao Cost Management no inquilino do cliente e ver os custos das subscrições, onde os custos são calculados e apresentados às taxas de retalho. No entanto, têm de ter acesso RBAC do Azure à subscrição no inquilino do cliente para verem os custos. A política de visibilidade dos custos tem de ser ativada pelo fornecedor para o inquilino do cliente.
 
 Os clientes podem utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo parceiro CSP.
 
@@ -55,13 +55,13 @@ O Azure Cost Management requer acesso de leitura à conta de faturação ou à s
 
 Para obter mais informações sobre a ativação e a atribuição de acesso ao Azure Cost Management para uma conta de faturação, veja [Assign users roles and permissions](/partner-center/permissions-overview) (Atribuir funções e permissões de utilizadores). As funções **Administrador global** e **Agente de administração** podem gerir os custos de uma conta de faturação.
 
-Para aceder ao Azure Cost Management no âmbito da subscrição, qualquer utilizador com acesso RBAC a uma subscrição pode ver os custos nas tarifas de retalho (pay as you go). No entanto, a [política de visibilidade dos custos do inquilino do cliente](#enable-the-policy-to-view-azure-usage-charges) tem de estar ativada. Para ver uma lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md).
+Para aceder ao Azure Cost Management no âmbito da subscrição, qualquer utilizador com acesso RBAC do Azure a uma subscrição pode ver os custos nas tarifas de retalho (pay as you go). No entanto, a [política de visibilidade dos custos do inquilino do cliente](#enable-the-policy-to-view-azure-usage-charges) tem de estar ativada. Para ver uma lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza os âmbitos
 
-Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente dos âmbitos utilizados na gestão de recursos, que utilizam o RBAC. Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como âmbitos de faturação e âmbitos RBAC, respetivamente.
+Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente dos âmbitos utilizados na gestão de recursos, que utilizam o RBAC do Azure. Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como âmbitos de faturação e âmbitos RBAC do Azure, respetivamente.
 
-Para compreender os âmbitos de faturação e os âmbitos RBAC, e como funciona a gestão de custos com âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
+Para compreender os âmbitos de faturação e os âmbitos RBAC do Azure, e como funciona a gestão de custos com âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Gerir os custos com âmbitos de faturação do inquilino do parceiro
 
@@ -116,9 +116,9 @@ Apenas os utilizadores com as funções **Administrador global** e **Agente de a
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Ativar o Cost Management para subscrições de inquilinos de clientes
 
-Os parceiros podem permitir o acesso ao Cost Management depois de os clientes estarem integrados num Contrato de Cliente Microsoft. Em seguida, podem ativar uma política que permita aos clientes ver os custos dos serviços do Azure consumidos calculados de acordo com as tarifas de retalho pay as you go. Os custos são apresentados na moeda de faturação do cliente relativos ao consumo nos âmbitos da subscrição RBAC e dos grupos de recursos.
+Os parceiros podem permitir o acesso ao Cost Management depois de os clientes estarem integrados num Contrato de Cliente Microsoft. Em seguida, podem ativar uma política que permita aos clientes ver os custos dos serviços do Azure consumidos calculados de acordo com as tarifas de retalho pay as you go. Os custos são apresentados na moeda de faturação do cliente relativos ao consumo nos âmbitos da subscrição RBAC do Azure e dos grupos de recursos.
 
-Quando a política de visibilidade dos custos for ativada pelo parceiro, qualquer utilizador com acesso do Azure Resource Manager à subscrição pode gerir e analisar os custos nas tarifas pay as you go. Efetivamente, os revendedores e os clientes com acesso RBAC adequado às subscrições do Azure podem ver os custos.
+Quando a política de visibilidade dos custos for ativada pelo parceiro, qualquer utilizador com acesso do Azure Resource Manager à subscrição pode gerir e analisar os custos nas tarifas pay as you go. Efetivamente, os revendedores e os clientes com acesso RBAC do Azure adequado às subscrições do Azure podem ver os custos.
 
 Independentemente da política, os administradores globais e os agentes administradores do fornecedor podem ver os custos da subscrição caso tenham acesso à subscrição e ao grupo de recursos.
 
@@ -149,9 +149,9 @@ Para ver os custos de uma subscrição, abra **Cost Management + Faturação** n
 
 [![Ver a análise de custos como cliente ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-A análise de custos, os orçamentos e os alertas estão disponíveis para os âmbitos RBAC da subscrição e do grupo de subscrição nas tarifas pay as you go.
+A análise de custos, os orçamentos e os alertas estão disponíveis para os âmbitos RBAC do Azure da subscrição e do grupo de subscrição nas tarifas pay as you go.
 
-As vistas amortizadas e os custos reais das instâncias reservadas nos âmbitos RBAC mostram zero custos. Os custos das instâncias reservadas só são apresentados nos âmbitos de faturação onde foram efetuadas compras.
+As vistas amortizadas e os custos reais das instâncias reservadas nos âmbitos RBAC do Azure mostram zero custos. Os custos das instâncias reservadas só são apresentados nos âmbitos de faturação onde foram efetuadas compras.
 
 As taxas de retalho utilizadas para calcular os custos mostrados na vista são os mesmos preços apresentados na Calculadora de Preços do Azure para todos os clientes. Os custos apresentados não incluem descontos nem créditos que o parceiro possa ter, como Créditos Ganhos pelo Parceiro, Descontos de Escalão e descontos de Serviço Global.
 
@@ -159,7 +159,7 @@ As taxas de retalho utilizadas para calcular os custos mostrados na vista são o
 
 Os parceiros com acesso aos âmbitos de faturação no inquilino do parceiro podem explorar e analisar os custos faturados na análise de custos para um cliente específico ou para uma fatura. Na vista [análise de custos](quick-acm-cost-analysis.md), também pode [guardar vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [ficheiros CSV e PNG](quick-acm-cost-analysis.md#download-usage-data).
 
-Os utilizadores RBAC com acesso à subscrição no inquilino do cliente também podem analisar os custos de retalho das subscrições no inquilino do cliente, guardar vistas e exportar dados para ficheiros CSV e PNG.
+Os utilizadores RBAC do Azure com acesso à subscrição no inquilino do cliente também podem analisar os custos de retalho das subscrições no inquilino do cliente, guardar vistas e exportar dados para ficheiros CSV e PNG.
 
 Pode utilizar filtros e grupos por funcionalidades na análise de custos para analisar os custos em vários campos. Os campos específicos do parceiro são mostrados na secção seguinte.
 
@@ -223,8 +223,8 @@ Os seguintes campos de dados estão disponíveis nos ficheiros de detalhes de ut
 | costinBillingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda faturada. | N/D |
 | costinPricingCurrency | ExtendedCost ou custo combinado antes de impostos na moeda de preço para correlacionar com os preços. | N/D |
 | **costinUSD** | ExtendedCost estimado ou custo combinado antes de impostos em USD. | N/D |
-| **paygCostInBillingCurrency** | Mostrará os custos se os preços forem de retalho. Mostra preços pay as you go na moeda de faturação. Disponível apenas nos âmbitos RBAC. | N/D |
-| **paygCostInUSD** | Mostrará os custos se os preços forem de retalho. Mostra os preços pay as you go em USD. Disponível apenas nos âmbitos RBAC. | N/D |
+| **paygCostInBillingCurrency** | Mostrará os custos se os preços forem de retalho. Mostra preços pay as you go na moeda de faturação. Disponível apenas nos âmbitos RBAC do Azure. | N/D |
+| **paygCostInUSD** | Mostrará os custos se os preços forem de retalho. Mostra os preços pay as you go em USD. Disponível apenas nos âmbitos RBAC do Azure. | N/D |
 | exchangeRate | Taxa de câmbio utilizada para converter a moeda do preço na moeda de faturação. | Referida como PCToBCExchangeRate no Centro de Parceiros. A moeda do preço à taxa de câmbio da moeda de faturação.|
 | exchangeRateDate | A data da taxa de câmbio utilizada para converter a moeda do preço na moeda de faturação. | Referida como PCToBCExchangeRateDat no Centro de Parceiros. A moeda do preço à data da taxa de câmbio da moeda de faturação.|
 | isAzureCreditEligible | Indica se o custo é elegível para pagamento por créditos do Azure. | N/D |
@@ -262,7 +262,7 @@ Também pode agrupar e filtrar pela propriedade **PartnerEarnedCreditApplied** c
 
 Os parceiros com acesso aos âmbitos de faturação num inquilino do parceiro podem exportar os dados dos custos e da utilização para um blob do Armazenamento do Microsoft Azure. O blob deve estar numa subscrição no inquilino do parceiro que não seja uma subscrição de serviço partilhada ou uma subscrição do cliente. Para permitir a exportação dos dados dos custos, recomendamos que configure uma subscrição pay as you go independente no inquilino do parceiro para alojar os dados dos custos exportados. A conta de armazenamento de exportação é criada no blob do Armazenamento do Microsoft Azure alojado na subscrição pay as you go. Com base no âmbito em que o parceiro cria a exportação, os dados associados são exportados automaticamente para a conta de armazenamento periodicamente.
 
-Os utilizadores com acesso RBAC à subscrição também podem exportar os dados de custos para um blob do Armazenamento do Microsoft Azure alojado em qualquer subscrição do inquilino do cliente.
+Os utilizadores com acesso RBAC do Azure à subscrição também podem exportar os dados de custos para um blob do Armazenamento do Microsoft Azure alojado em qualquer subscrição do inquilino do cliente.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Criar uma exportação num inquilino do parceiro ou do cliente
 
@@ -276,7 +276,7 @@ Em seguida, selecione **Adicionar**, escreva o nome e selecione um tipo de expor
 
 Quando criar uma exportação no inquilino do parceiro, selecione a subscrição pay as you go no inquilino do parceiro. Crie uma conta do Armazenamento do Microsoft Azure com essa subscrição.
 
-Para os utilizadores RBAC no inquilino do cliente, selecione uma subscrição no inquilino do cliente. Crie uma conta de Armazenamento do Azure com a subscrição.
+Relativamente aos utilizadores RBAC do Azure no inquilino do cliente, selecione uma subscrição no inquilino do mesmo. Crie uma conta de Armazenamento do Azure com a subscrição.
 
 Reveja o conteúdo e, em seguida, selecione **Criar** para agendar uma exportação.
 

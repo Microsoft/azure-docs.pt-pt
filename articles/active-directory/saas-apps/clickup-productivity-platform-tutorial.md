@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551823"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma de Produtividade ClickUp
 
@@ -118,17 +118,17 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
 
 2. Clique no **perfil do Utilizador**e, em seguida, selecione **Definições**.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![O screenshot mostra o inquilino de produtividade clickUp com o ícone Definições selecionado.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![A imagem mostra definições.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. Selecione **Microsoft**, em Fornecedor único de SSO (SSO).
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![A screenshot mostra o painel de autenticação com a Microsoft selecionada.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. Na **página Configure Microsoft Single Sign On,** execute os seguintes passos:
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![O screenshot mostra o sinal único do Microsoft configurar na página onde pode copiar a Entidade I D e salvar os metadados U R L da Federação Azure.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Clique em **Copiar** para copiar o valor do ID da Entidade e cole-o na caixa de texto **identifier (Entity ID)** na secção **configuração BÁSICA SAML** no portal Azure.
     
@@ -136,7 +136,7 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
 
 5. Para completar a configuração, clique em **Autenticar com a Microsoft para completar a configuração** e autenticar com a conta microsoft.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![A screenshot mostra o Authenticate com a Microsoft para completar o botão de configuração.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -169,7 +169,7 @@ Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **a Plataforma de Produtividade ClickUp**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **ClickUp Productivity Platform**.
 
@@ -195,13 +195,13 @@ Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concede
 
 2. Clique no **perfil de Utilizador**e, em seguida, selecione **Pessoas**.
    
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![A screenshot mostra o inquilino da Produtividade ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![A screenshot mostra a ligação Pessoas selecionada.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. Introduza o endereço de e-mail do utilizador na caixa de texto e clique em **Convidar**.
 
-    ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![O Screenshot mostra as Definições dos Utilizadores da Equipa onde pode convidar as pessoas por e-mail.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > O utilizador receberá a notificação e deve aceitar o convite para ativar a conta.

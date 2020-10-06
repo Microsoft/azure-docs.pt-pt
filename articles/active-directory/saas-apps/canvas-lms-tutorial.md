@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 24350c63df04e55107ed32c2d61d1026aa27bdb9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547635"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Diretório Ativo Azure com Tela
 
@@ -189,7 +189,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Canvas**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Canvas**.
 
@@ -223,11 +223,11 @@ Para permitir que os utilizadores de Azure AD iniciem sessão na Tela, devem ser
 
 3. Clique em **Utilizadores**.
 
-   ![Utilizadores](./media/canvas-lms-tutorial/ic775995.png "Utilizadores")
+   ![O Screenshot mostra o menu de Canvas com os Utilizadores selecionados.](./media/canvas-lms-tutorial/ic775995.png "Utilizadores")
 
 4. Clique **em Adicionar Novo Utilizador**.
 
-   ![Utilizadores](./media/canvas-lms-tutorial/ic775996.png "Utilizadores")
+   ![A screenshot mostra o adicionar um novo botão de utilizador.](./media/canvas-lms-tutorial/ic775996.png "Utilizadores")
 
 5. Na página de diálogo Adicionar um novo utilizador, execute os seguintes passos:
 

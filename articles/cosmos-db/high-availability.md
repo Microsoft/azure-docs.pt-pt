@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 85ffff1a38d42aac00ce122a1e51d79515b0c51b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597277"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762030"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade? 
 
@@ -97,7 +97,7 @@ A tabela a seguir resume a elevada capacidade de disponibilidade de várias conf
 |Débito | X R/s provisto | X R/s provisões * 1.25 | 2X RU/s produção a provisionada <br/><br/> Este modo de configuração requer o dobro da quantidade de produção quando comparada com uma única região com Zonas de Disponibilidade porque existem duas regiões. |
 
 > [!NOTE]
-> Para permitir o suporte da Zona de Disponibilidade para uma conta Azure Cosmos de várias regiões, a conta deve ter escritas multi-regiões ativadas.
+> Para permitir o suporte da Zona de Disponibilidade para uma conta Azure Cosmos de várias regiões, a conta deve ter gravações multi-regiões ativadas.
 
 Você pode ativar a redundância de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para ativar a redundância de zona na sua conta Azure Cosmos, deverá definir `isZoneRedundant` a bandeira para uma `true` localização específica. Você pode definir esta bandeira dentro da propriedade local. Por exemplo, o seguinte corte PowerShell permite a redundância de zona para a região "Sudeste Asiático":
 

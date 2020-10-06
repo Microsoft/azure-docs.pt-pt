@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543028"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Azure Ative Directory com o Adobe Experience Manager
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Adobe Experience Manager Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![Screenshot que mostra a secção de configuração básica do SAML e destaca as caixas de texto de URL de identificação e resposta.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um valor único que também define no seu servidor AEM.
 
@@ -136,35 +136,35 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 2. Selecione **Definições**  >  **Utilizadores de segurança**  >  **Users**.
 
-    ![Configure o botão de poupança de inscrição única](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Screenshot que mostra o azulejo dos Utilizadores no Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Selecione **Administrador** ou qualquer outro utilizador relevante.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Screenshot que destaca o utilizador Adminisrator.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Selecione **definições de Conta**  >  **Gerir a Loja TrustStore**.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Screenshot que mostra Manage TrustStore nas definições de Conta.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. Sob **o Certificado de Adicionar a partir do ficheiro CER,** clique em Selecionar Ficheiro de **Certificado.** Navegue e selecione o ficheiro de certificado, que já descarregou a partir do portal Azure.
 
-    ![Configurar um único botão de poupança de inscrição](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Screenshot que realça o botão 'Select Certificate File'.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. O certificado é adicionado à TrustStore. Reparem no pseudónimo do certificado.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Screenshot que mostra que o certificado é adicionado à TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. Na página **Utilizadores,** selecione **o serviço de autenticação.**
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Sreenshot que destaca o serviço de autenticação no ecrã.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Selecione **definições de conta**  >  **Criar/Gerir a Loja de Chaves**. Crie a KeyStore fornecendo uma senha.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Screenshot que destaca Gerir a KeyStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Volta para o ecrã de administração. Em seguida, selecione **Definições**  >  **Operações**  >  **Consola Web**.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Screenshot que realça a Consola Web em Operações dentro da secção Definições.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Isto abre a página de configuração.
 
@@ -172,7 +172,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 10. Encontre **o Adobe Granite SAML 2.0 Authentication Handler**. Em seguida, selecione o ícone **Adicionar.**
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Screenshot que destaca o Adobe Granite SAML 2.0 Authentication Handler.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. Tome as seguintes ações nesta página.
 
@@ -229,7 +229,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Adobe Experience Manager**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Adobe Experience Manager**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 47e438b53f6aa3c9bc00da77c3532278b99e7269
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bfc370dbe1f44f353df4140de7a6136de9360423
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530382"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Integração do Diretório Ativo Azure com a Ceridian Dayforce HCM
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD single sign-on com Ceridian Dayforce HCM, execute os 
 
 5. A aplicação Ceridian Dayforce HCM espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
     
@@ -137,9 +137,9 @@ Para configurar o Azure AD single sign-on com Ceridian Dayforce HCM, execute os 
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -202,7 +202,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Ceridian Dayforce HCM**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Ceridian Dayforce HCM**.
 

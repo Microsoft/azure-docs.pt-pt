@@ -13,12 +13,12 @@ ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5042bfad2cfe06c7c368c6b476aa1b02d67bcc9c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258417"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760759"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação intermediada no Android
 
@@ -95,7 +95,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Depois de gerar um hash de assinatura com *tecla,* use o portal Azure para gerar o URI de redirecionamento:
 
-1. Inscreva-se no [portal Azure](https://protal.azure.com) e selecione a sua aplicação Android em **registos de Aplicações.**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione a sua aplicação Android em **registos de Aplicações.**
 1. Selecione **Autenticação**  >  **Adicione uma plataforma**  >  **Android**.
 1. No **painel de configuração** da sua aplicação Android que abre, insira o **hash Signature** que gerou anteriormente e um nome **pacote.**
 1. Selecione o **botão Configurar.**

@@ -3,12 +3,12 @@ title: Automatizar insights de aplicação Azure com PowerShell Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322487"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760908"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir recursos de Insights de Aplicação utilizando o PowerShell
 
@@ -188,8 +188,8 @@ Crie um novo ficheiro .json - vamos chamá-lo `template1.json` neste exemplo. Co
 
 ### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Utilize o modelo de Gestor de Recursos para criar um novo recurso Application Insights
 
-1. Em PowerShell, inscreva-se no Azure usando`$Connect-AzAccount`
-2. Desa parte para uma subscrição com`Set-AzContext "<subscription ID>"`
+1. Em PowerShell, inscreva-se no Azure usando `$Connect-AzAccount`
+2. Desa parte para uma subscrição com `Set-AzContext "<subscription ID>"`
 2. Executar uma nova implementação para criar um novo recurso Application Insights:
    
     ```PS
@@ -199,9 +199,9 @@ Crie um novo ficheiro .json - vamos chamá-lo `template1.json` neste exemplo. Co
 
     ``` 
    
-   * `-ResourceGroupName`é o grupo onde se quer criar os novos recursos.
-   * `-TemplateFile`deve ocorrer antes dos parâmetros personalizados.
-   * `-appName`O nome do recurso para criar.
+   * `-ResourceGroupName` é o grupo onde se quer criar os novos recursos.
+   * `-TemplateFile` deve ocorrer antes dos parâmetros personalizados.
+   * `-appName` O nome do recurso para criar.
 
 Pode adicionar outros parâmetros - encontrará as suas descrições na secção de parâmetros do modelo.
 
@@ -451,7 +451,7 @@ Aqui estão exemplos das substituições que vai querer fazer. Há várias ocorr
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(minúscula) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (minúscula) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>Definir dependências entre os recursos
@@ -473,5 +473,5 @@ Outros artigos de automação:
 * [Configurar alertas](powershell-alerts.md)
 * [Criar testes Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure ao Application Insights](powershell-azure-diagnostics.md)
-* [Criar anotações de libertação](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Criar anotações de libertação](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

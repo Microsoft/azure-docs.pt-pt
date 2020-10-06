@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d86ed8303d14a30cd4f03c9b174b91ea81f41cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6372f313517b1ef8515bc3a5b9c8e56eb8643bc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551343"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Ative Directory com a Cisco Cloud
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com cisco Cloud, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Cisco Cloud Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde aparecem os valores do Identifier e da Resposta U R L.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `<subdomain>.cisco.com`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com cisco Cloud, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Cisco Cloud Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.cloudapps.cisco.com`
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com cisco Cloud, execute os seguintes passos:
 
 6. A sua aplicação Cisco Cloud espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 7. Além de acima, a aplicação Cisco Cloud espera que alguns mais atributos sejam repercutidos na resposta DAL. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
@@ -128,9 +128,9 @@ Para configurar o Azure AD com cisco Cloud, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -183,7 +183,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Cisco Cloud**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Cisco Cloud**.
 

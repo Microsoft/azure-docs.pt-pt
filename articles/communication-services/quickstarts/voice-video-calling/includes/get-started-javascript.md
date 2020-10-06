@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Adicione VOIP chamando a uma aplicação web usando serviços de comunicação Azure
-description: Neste tutorial, você aprende a usar os Serviços de Comunicação Azure Chamando a biblioteca de clientes para Javascript
+description: Neste tutorial, você aprende a usar a biblioteca de clientes Azure Communication Call para JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d58b4d86936c56a08f27bef59edc1d3cc4ce4617
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948346"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761988"
 ---
 Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para JavaScript.
 
@@ -124,10 +124,8 @@ const callClient = new CallClient();
 const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
 let callAgent;
 
-callClient.createCallAgent(tokenCredential).then(agent => {
-  callAgent = agent;
-  callButton.disabled = false;
-});
+callAgent = await callClient.createCallAgent(tokenCredential);
+callButton.disabled = false;
 ```
 
 ## <a name="start-a-call"></a>Inicie uma ligação

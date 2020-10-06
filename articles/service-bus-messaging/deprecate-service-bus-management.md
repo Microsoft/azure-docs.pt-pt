@@ -3,12 +3,12 @@ title: Serviços de mensagens Azure - Gestor de Serviços para Gestor de Recurso
 description: Este artigo fornece mapeamento de cmdlets de Azure Service Manager preprodutado REST & PowerShell a Resource Manager API & powerShell cmdlets.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 30842023004246a71f28ff4093d70a5bb015c05a
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367772"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761180"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Depreciação do suporte do Azure Service Manager para Azure Service Bus, Relay e Event Hubs
 
@@ -22,7 +22,7 @@ Para obter mais informações sobre O Gestor de Serviços e APIs do Gestor de Re
 
 - [Azure Service Bus](/rest/api/servicebus/)
 - [Hubs de Eventos do Azure](/rest/api/eventhub/)
-- [Reencaminhamento do Azure](/rest/api/relay/)
+- [Relé Azure](/rest/api/relay/)
 
 ## <a name="service-manager-rest-api---resource-manager-rest-api"></a>Gestor de ServiçoS REST API - Gestor de Recursos REST API
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre O Gestor de Serviços e APIs do Gestor de Re
 | **EventHubsCrud-ListEventHubsAsync**<br/>[Centros de eventos de lista](/rest/api/eventhub/list-event-hubs)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/eventhubs?$skip={skip}&$top={top}``` | &nbsp; | [lista](/rest/api/servicebus/stable/eventhubs/listbynamespace) | &nbsp; | 
 | **EventHubsCrud-GetEventHubAsync**<br/>[Obter Centros de Eventos](/rest/api/eventhub/get-event-hub)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/eventhubs/{eventHubPath}``` | &nbsp; | [Obter](/rest/api/eventhub/get-event-hub) | &nbsp; | 
 | **NamespaceAuthorizationRules-DeleteNamespaceAuthorizationRuleAsync**<br/>Ônibus de serviço/centro de eventos/relé<br/>```DELETE https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules/{rule name}``` | [apagar regra de autorização](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/deleteauthorizationrule) | [apagar regra de autorização](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/deleteauthorizationrule) | [apagar regra de autorização](/rest/api/relay/namespaces/deleteauthorizationrule) |
-| **NamespaceAuthorizationRules-GetNamespaceAuthorizationRulesAsync**<br/>Autocarro de serviço/EventHub/Relé<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules``` | [listauthorizaçãoules](/rest/api/servicebus/namespaces/listauthorizationrules) | [listauthorizaçãoules](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/listauthorizationrules) | [listauthorizaçãoules](/rest/api/relay/namespaces/listauthorizationrules) |
+| **NamespaceAuthorizationRules-GetNamespaceAuthorizationRulesAsync**<br/>Autocarro de serviço/EventHub/Relé<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules``` | [listauthorizaçãoules](/rest/api/relay/namespaces/listauthorizationrules) | [listauthorizaçãoules](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/listauthorizationrules) | [listauthorizaçãoules](/rest/api/relay/namespaces/listauthorizationrules) |
 | **NamespaceSAilability-IsNamespace Disponível**<br/>[Disponibilidade de espaço de nome de ônibus de serviço](/rest/api/servicebus/check-namespace-availability)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/CheckNamespaceAvailability/?namespace=<namespaceValue>``` | [checknamedilability](/rest/api/servicebus/stable/namespaces%20-%20checkname%20availability/checknameavailability) | [checknamedilability](/rest/api/eventhub/2017-04-01/check%20name%20availability%20-%20namespaces/checknameavailability) | [checknamedilability](/rest/api/relay/namespaces/checknameavailability) |
 | **Espaços de nome-CreateOrUpdateNamespaceAsync**<br/>Ônibus de serviço/centro de eventos/relé<br/>```PUT https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}``` | [createorupdate](/rest/api/servicebus/stable/namespaces/createorupdate) | [createorupdate](/rest/api/eventhub/2017-04-01/namespaces/createorupdate) | [createorupdate](/rest/api/relay/namespaces/createorupdate) | 
 | **Tópicos-GetTopicAsync**<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/topics/{topicPath}``` | [Obter](/rest/api/servicebus/stable/topics/get) | &nbsp; | &nbsp; |
@@ -69,7 +69,7 @@ Consulte a seguinte documentação:
 - Documentação mais recente da API REST
     - [Azure Service Bus](/rest/api/servicebus/)
     - [Hubs de Eventos do Azure](/rest/api/eventhub/)
-    - [Reencaminhamento do Azure](/rest/api/relay/)
+    - [Relé Azure](/rest/api/relay/)
 - Documentação mais recente da PowerShell
     - [Azure Service Bus](/powershell/module/azurerm.servicebus/#service_bus)
     - [Hubs de Eventos do Azure](/powershell/module/azurerm.eventhub/#event_hub)

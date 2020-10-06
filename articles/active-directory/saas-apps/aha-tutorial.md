@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542858"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760693"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integrar Aha! com O Diretório Ativo Azure
 
@@ -148,7 +148,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 6. Clique **em Segurança e numa única sincção.**
 
-    ![Segurança e único sinal](./media/aha-tutorial/IC798952.png "Segurança e único sinal")
+    ![Screenshot que realça a opção de menu de segurança e de inscrição única.](./media/aha-tutorial/IC798952.png "Segurança e único sinal")
 
 7. Na secção **'Sign-On único',** como **Fornecedor de Identidade**, selecione **SAML2.0**.
 

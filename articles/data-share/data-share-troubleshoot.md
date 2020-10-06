@@ -6,15 +6,15 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 08/14/2020
-ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.date: 10/02/2020
+ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257804"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761537"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolução de problemas problemas comuns na Azure Data Share 
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolver problemas comuns no Azure Data Share 
 
 Este artigo mostra como resolver problemas comuns para a Azure Data Share. 
 
@@ -24,21 +24,21 @@ Em alguns casos, quando um novo utilizador clica em **Aceitar Convite** a partir
 
 ![Sem convites](media/no-invites.png)
 
-Isto pode dever-se às seguintes razões:
+Este erro pode ocorrer devido aos seguintes motivos:
 
-* **O serviço Azure Data Share não está registado como fornecedor de recursos de qualquer subscrição da Azure no inquilino do Azure.** Você vai experimentar este problema se não houver recurso de Partilha de Dados no seu inquilino Azure. Quando cria um recurso Azure Data Share, regista automaticamente o fornecedor de recursos na sua subscrição Azure. Também pode registar manualmente o serviço Partilha de Dados seguindo estes passos. Terá de ter o papel de Contribuidor Azure para completar estes passos.
+* **O serviço do Azure Data Share não está registado como um fornecedor de recursos de qualquer subscrição no inquilino do Azure.** Passará por este problema se não houver nenhum recurso do Data Share no inquilino do Azure. Quando cria um recurso do Azure Data Share, regista automaticamente o fornecedor de recursos na sua subscrição do Azure. Também pode registar manualmente o serviço Data Share ao seguir estes passos. Precisará de ter a função Contribuidor do Azure para concluir estes passos.
 
-    1. No portal Azure, navegue para **Subscrições**
-    1. Selecione a subscrição que pretende utilizar para criar o recurso Azure Data Share
+    1. No portal do Azure, navegue até **Subscrições**
+    1. Selecione a subscrição que quer utilizar para criar o recurso do Azure Data Share
     1. Clique em **Fornecedores de Recursos**
-    1. Pesquisa rumo **ao Microsoft.DataShare**
-    1. Clique **em Registar** 
+    1. Pesquise **Microsoft.DataShare**
+    1. Clique em **Registar** 
 
     Você precisará ter o [papel de Azure Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para a subscrição do Azure para completar estes passos. 
 
-* **O convite é enviado para o seu pseudónimo de e-mail em vez do seu e-mail de login Azure.** Se registou o serviço Azure Data Share ou já criou um recurso De partilha de dados no inquilino Azure, mas ainda não consegue ver o convite, talvez porque o fornecedor inseriu o seu pseudónimo de e-mail como destinatário em vez do seu endereço de e-mail de login Azure. Contacte o seu fornecedor de dados e certifique-se de que enviaram o convite para o seu endereço de e-mail de login da Azure e não para o seu pseudónimo de e-mail.
+* **O convite é enviado para o alias de e-mail em vez do seu e-mail de início de sessão do Azure.** Se registou o serviço do Azure Data Share ou já criou um recurso do Data Share no inquilino do Azure, mas ainda não consegue ver o convite, talvez seja porque o fornecedor inseriu o seu alias de e-mail como destinatário, em vez do seu endereço de e-mail de início de sessão do Azure. Entre em contacto com o seu fornecedor de dados e verifique se enviou o convite para o seu endereço de e-mail de início de sessão do Azure e não o seu alias de e-mail.
 
-* **O convite já foi aceite.** O link no e-mail leva-o à página data share Invitation no portal Azure, que apenas lista convites pendentes. Se já aceitou o convite, deixará de aparecer na página data share Invitation. Proceda ao seu recurso Data Share que usou para aceitar o convite para visualizar as ações recebidas e configurar a definição do cluster target Azure Data Explorer.
+* **O convite já foi aceite.** A ligação no e-mail encaminha-o para a página Convite do Azure Data Share no portal do Azure, que lista apenas os convites pendentes. Se já tiver aceitado o convite, este deixará de aparecer na página Convite do Azure Data Share. Prossiga para o recurso do Data Share que utilizou para aceitar o convite para ver as partilhas recebidas e configure a sua definição do cluster do Azure Data Explorer de destino.
 
 ## <a name="error-when-creating-or-receiving-a-new-share"></a>Erro ao criar ou receber uma nova parte
 
@@ -58,34 +58,15 @@ Precisa de escrever permissão para partilhar ou receber dados de uma loja de da
 
 Se esta for a primeira vez que partilha ou recebe dados da loja de dados Azure, também precisa da *Microsoft.Authorization/role assignments/write* permission, que normalmente existe na função Proprietário. Mesmo que tenha criado o recurso Azure data store, não o torna automaticamente o proprietário do recurso. Com a devida permissão, o serviço Azure Data Share concede automaticamente o acesso de identidade gerido do recurso à loja de dados. Este processo pode levar alguns minutos a fazer efeito. Se sentir falhas devido a este atraso, tente novamente em alguns minutos.
 
-A partilha baseada em SQL requer permissões adicionais. Consulte a partilha baseada em SQL para resolução de problemas para obter detalhes.
-
-## <a name="troubleshooting-sql-based-sharing"></a>Resolução de problemas com a partilha baseada em SQL
-
-"User x não existe na Base de Dados SQL"
-
-Se receber este erro ao adicionar um conjunto de dados a partir de uma fonte baseada em SQL, pode ser porque não criou um utilizador para a identidade gerida Azure Data Share na Base de Dados SQL.  Para resolver esta questão, execute o seguinte script:
-
-```sql
-    create user "<share_acct_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acct_name>";
-```      
-Se receber este erro ao mapear o conjunto de dados para um alvo baseado em SQL, pode ser porque não criou um utilizador para a identidade gerida Azure Data Share no seu SQL Server.  Para resolver esta questão, execute o seguinte script:
-
-```sql
-    create user "<share_acc_name>" from external provider; 
-    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-```
-Note que o *<share_acc_name>* é o nome do seu recurso Data Share.      
-
-Certifique-se de que seguiu todos os pré-requisitos listados na [Partilhar os seus dados](share-your-data.md) e aceitar e receber tutorial [de dados.](subscribe-to-data-share.md)
+A partilha baseada em SQL requer permissões adicionais. Consulte [a partilha de fontes SQL](how-to-share-from-sql.md) para obter uma lista detalhada de pré-requisitos.
 
 ## <a name="snapshot-failed"></a>O instantâneo falhou
-O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e, em seguida, no estado de cada conjunto de dados. 
+O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e, em seguida, no estado de cada conjunto de dados. Seguem-se as razões pelas quais o instantâneo falha:
 
-Se a mensagem de erro estiver relacionada com a permissão, verifique se o serviço de Partilha de Dados tem a permissão necessária. Consulte [funções e requisitos](concepts-roles-permissions.md) para mais detalhes. Se esta for a primeira vez que está a tirar uma fotografia, pode levar alguns minutos para que o recurso Data Share tenha acesso à loja de dados Azure. Espere alguns minutos e tente de novo.
+* A Data Share não tem permissão para ler a partir da loja de dados de origem ou escrever para a loja de dados-alvo. Consulte [as funções e os requisitos](concepts-roles-permissions.md) para requisitos de permissão detalhados. Se esta for a primeira vez que está a tirar uma fotografia, pode levar alguns minutos para que o recurso Data Share tenha acesso à loja de dados Azure. Espere alguns minutos e tente de novo.
+* Data Partilhar a ligação à loja de dados de origem ou alvo é bloqueada por firewall.
+* O conjunto de dados partilhado, ou a loja de dados de origem ou alvo é eliminada.
+* Para a partilha de SQL, os tipos de dados não são suportados pelo processo instantâneo ou pela loja de dados-alvo. Consulte [a partilhar a partir de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

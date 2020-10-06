@@ -3,12 +3,12 @@ title: Analise o vídeo ao vivo com o Live Video Analytics no IoT Edge e Azure C
 description: Aprenda a usar a Visão Personalizada para construir um modelo contentorizado que possa detetar um caminhão de brinquedo e usar a capacidade de extensibilidade de IA do Live Video Analytics no IoT Edge (LVA) para implantar o modelo na borda para detetar camiões de brinquedos a partir de um stream de vídeo ao vivo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0e980ac73d77b6fbbfdb8178f285904d3bf29920
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 022dc5714e7a2e19446ee57e827a08ef4c56413e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946625"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761435"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -57,7 +57,7 @@ Os pré-requisitos para este tutorial são:
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 
 
-Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv/) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
+Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -81,33 +81,7 @@ Notas adicionais:
 Uma vez terminado, se o modelo estiver pronto de acordo com a sua satisfação, pode exportá-lo para um recipiente Docker utilizando o botão Exportação no separador Performance. Certifique-se de que escolhe o Linux como tipo de plataforma de contentores. Esta é a plataforma em que o contentor vai funcionar. A máquina em que descarrega o recipiente pode ser o Windows ou o Linux. As instruções que se seguem basearam-se no ficheiro do contentor descarregado numa máquina Windows.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Dockerfile":::
- 
-1. Você deve ter um ficheiro zip descarregado na sua máquina local chamado `<projectname>.DockerFile.Linux.zip` . 
-1. Verifique se tem o Docker instalado se não instalar [o Docker](https://docs.docker.com/get-docker/) para o seu ambiente de trabalho do Windows .
-1. Desaperte o ficheiro descarregado num local à sua escolha. Utilize a linha de comando para ir para o diretório de pastas desapertado.
-    
-    Executar os seguintes comandos 
-    
-    1. `docker build -t cvtruck` 
-    
-        Este comando descarrega um monte de pacotes e constrói a imagem do estivador e marca-a como `cvtruck:latest` . 
-    
-        > [!NOTE]
-        > Deve ver o seguinte se for bem sucedido `- Successfully built <docker image id> and Successfully tagged cvtruck:latest.` Se o comando de construção falhar, tente novamente, pois por vezes os pacotes de dependência não descarregam pela primeira vez.
-    1. `docker  image ls`
-
-        Este comando verifica se a nova imagem está no seu registo local.
-    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
-    
-        Este comando deve publicar a porta exposta aos estivadores (80) na porta da sua máquina local (80).
-    1. `docker container ls`
-    
-        Este comando verifica os mapeamentos da porta e se o recipiente do estivador estiver a funcionar com sucesso na sua máquina. A saída deve ser algo como:
-
-        ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Visão personalizada"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -148,33 +122,13 @@ Uma vez terminado, se o modelo estiver pronto de acordo com a sua satisfação, 
 1. Clique no ficheiro "src/edge/ deployment.customvision.template.json" e clique no **Manifesto de Implementação de Arestas de IoT**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Gerar manifesto de implantação de borda ioT":::
-  
-    Isto deve criar um ficheiro manifesto na pasta src/edge/config chamada " deployment.customvision.amd64.json".
-1. Abra o ficheiro "src/edge/ deployment.customvision.template.json" e encontre o bloco json do registo. Neste bloco, encontrará o endereço do seu registo de contentores Azure juntamente com o seu nome de utilizador e senha.
-1. Empurre o recipiente local de visão personalizada para o registo do seu contentor Azure seguindo a linha de comando.
-
-    1. Iniciar sessão no registo executando o seguinte comando:
-    
-        `docker login <address>`
-    
-        Digite o nome de utilizador e a palavra-passe quando solicitado para autenticação. 
-        
-        > [!NOTE]
-        > A palavra-passe não está visível na linha de comando.
-    1. Marque a sua imagem utilizando:<br/>`docker tag cvtruck   <address>/cvtruck`
-    1. Empurre a sua imagem utilizando:<br/>`docker push <address>/cvtruck`
-
-        Se for bem sucedido, deverá ver 'Empurrado' na linha de comando juntamente com o SHA para a imagem. 
-    1. Também pode confirmar verificando o seu registo do Contentor Azure no portal Azure. Aqui você verá o nome do repositório juntamente com a etiqueta. 
-1. Desagre a cadeia de ligação IoTHub clicando no ícone "Mais ações" ao lado do painel AZURE IOT HUB no canto inferior esquerdo. Pode copiar o fio do appsettings.jsficheiro. (Aqui está outra abordagem recomendada para garantir que tem o Hub IoT adequado configurado dentro do VSCode através do [comando Select Iot Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Visão personalizada" ao lado do painel AZURE IOT HUB no canto inferior esquerdo. Pode copiar o fio do appsettings.jsficheiro. (Aqui está outra abordagem recomendada para garantir que tem o Hub IoT adequado configurado dentro do VSCode através do [comando Select Iot Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Cadeia de conexão":::
-1. Em seguida, clique à direita em "src/edge/config/ deployment.customvision.amd64.json" e clique em **Criar Implementação para Dispositivo Único**. 
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Visão personalizada" e clique em **Criar Implementação para Dispositivo Único**. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Criar implementação para dispositivo único":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Visão personalizada":::
 1. Em seguida, ser-lhe-á pedido que selecione um dispositivo IoT Hub. Selecione o dispositivo de amostra de Lva a partir do drop-down.
 1. Em cerca de 30 segundos, refresque o Azure IOT Hub na secção inferior esquerda e deverá ter o dispositivo de borda com os seguintes módulos implantados:
 
@@ -187,7 +141,7 @@ Uma vez terminado, se o modelo estiver pronto de acordo com a sua satisfação, 
 Clique com o botão direito no dispositivo Live Video Analytics e selecione **Start Monitoring Built-in Event Endpoint**. Precisa deste passo para monitorizar os eventos do IoT Hub na janela OUTPUT do Código do Estúdio Visual.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Iniciar monitorização do ponto final do evento incorporado":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Visão personalizada":::
 
 ## <a name="run-the-sample-program"></a>Executar o programa de amostragem
 
@@ -372,7 +326,7 @@ Note o seguinte nas mensagens acima:
 * "body" contém dados sobre o evento de análise. Neste caso, o evento é um evento de Inferência e, portanto, o corpo contém uma série de inferências chamadas "previsões".
 * A secção "previsões" contém uma lista de previsões onde o caminhão de entrega de brinquedos (tag=caminhão de entrega) é encontrado na moldura. Como se lembraria, o caminhão de entrega é a etiqueta personalizada que forneceu ao seu modelo personalizado treinado para o caminhão de brinquedo e o modelo está a inferenizar e identificar o caminhão de brinquedo no vídeo de entrada com diferentes pontuações de confiança de probabilidade.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretende experimentar os outros tutoriais ou quickstarts, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine todos os recursos.
 

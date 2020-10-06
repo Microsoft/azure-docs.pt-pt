@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549343"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Diretório Ativo Azure com o ClickTime
 
@@ -173,7 +173,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **ClickTime**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **ClickTime**.
 
@@ -207,7 +207,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 
 1. Na barra de ferramentas no topo, clique em **'Empresa'** e, em seguida, clique em **People**.
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![A screenshot mostra o inquilino ClickTime com empresa e pessoas selecionadas.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Clique **em Adicionar Pessoa.**
    
@@ -215,7 +215,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 
 1. Na secção Pessoa Nova, execute os seguintes passos:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![A screenshot mostra a secção Add Person onde pode adicionar as informações neste passo.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  Na caixa de texto **com nome completo,** escreva o nome completo de um utilizador como **Britta Simon**. 
   

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285065"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760166"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Consultas de auditoria em Registos do Monitor Azure (pré-visualização)
 Os registos de auditoria de consulta de registo fornecem telemetria sobre consultas de registo executadas no Azure Monitor. Isto inclui informações como quando uma consulta foi executada, quem a executou, que ferramenta foi usada, o texto de consulta, e estatísticas de desempenho descrevendo a execução da consulta.
@@ -68,6 +68,9 @@ Um registo de auditoria é criado cada vez que uma consulta é executada. Se env
 - As estatísticas de desempenho não estão disponíveis para consultas provenientes do proxy Azure Data Explorer. Todos os outros dados para estas consultas continuarão a ser preenchidos.
 - A dica *h* sobre cordas que [obfusca as cordas literais](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terá um efeito nos registos de auditoria de consulta. As consultas serão capturadas exatamente como submetidas sem que a corda seja obfundada. Deve garantir que apenas os utilizadores que tenham direitos de conformidade para ver estes dados são capazes de o fazer utilizando os vários modos RBAC disponíveis nos espaços de trabalho do Log Analytics.
 - Para consultas que incluam dados de vários espaços de trabalho, a consulta só será captada nos espaços de trabalho a que o utilizador tem acesso.
+
+## <a name="costs"></a>Custos  
+Não há custo para a Extensão de Diagnóstico Azure, mas pode incorrer em encargos para os dados ingeridos. Verifique [os preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para o destino onde está a recolher dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

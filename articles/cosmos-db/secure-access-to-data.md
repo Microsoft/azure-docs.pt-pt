@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611644"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760874"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Aqui está um padrão de design típico pelo qual tokens de recursos podem ser s
 
     :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados NoSQL" border="false":::
 
-A geração e gestão de token de recursos é gerida pelas bibliotecas de clientes nativos da Cosmos DB; no entanto, se utilizar REST deve construir os cabeçalhos pedido/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [o Controlo de Acesso nos Recursos DB da Cosmos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código fonte para o nosso [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+A geração e gestão de token de recursos é gerida pelas bibliotecas de clientes nativos da Cosmos DB; no entanto, se utilizar REST deve construir os cabeçalhos pedido/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [o Controlo de Acesso nos Recursos DB da Cosmos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código fonte para o nosso [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Para um exemplo de um serviço de nível médio utilizado para gerar ou intermediar fichas de recursos, consulte a [aplicação ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 

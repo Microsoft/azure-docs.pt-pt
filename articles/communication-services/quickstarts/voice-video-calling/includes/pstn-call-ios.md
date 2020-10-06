@@ -1,0 +1,73 @@
+---
+author: nikuklic
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 9/11/2020
+ms.author: nikuklic
+ms.openlocfilehash: 7d158b39b3d8297095b65a0d58d38e87dc8ec250
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762627"
+---
+[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
+- Um recurso de Serviços de Comunicação implantado. [Criar um recurso de Serviços de Comunicação.](../../create-communication-resource.md)
+- Um número de telefone adquirido em recursos dos Serviços de Comunicação. [como obter um número de telefone.](../../telephony-sms/get-phone-number.md)
+- A `User Access Token` para ativar o cliente de chamada. Para mais informações sobre [como obter um `User Access Token` ](../../access-tokens.md)
+- Complete o quickstart para [começar com a adição de chamadas à sua aplicação](../getting-started-with-calling.md)
+
+### <a name="prerequisite-check"></a>Verificação pré-requisito
+
+- Para visualizar os números de telefone associados ao seu recurso serviços de comunicação, inscreva-se no [portal Azure,](https://portal.azure.com/)localize o seu recurso de Serviços de Comunicação e abra o separador **números** de telefone a partir do painel de navegação à esquerda.
+- Pode construir e executar a sua aplicação com serviços de comunicação Azure Chamando a biblioteca de clientes para iOS:
+
+## <a name="setting-up"></a>Configuração
+
+## <a name="object-model"></a>Modelo de objeto
+
+As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando a biblioteca de clientes para iOS.
+
+| Nome                                           | Descrição                                                                                          |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| PhoneNumber | Esta classe é necessária para inicializar um número de telefone que gostaria de usar para a funcionalidade de telefonia. |
+
+
+## <a name="start-a-call-to-phone"></a>Inicie uma ligação para o telefone.
+
+Especifique o número de telefone adquirido no recurso Serviços de Comunicação, que será usado para iniciar a chamada:
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +122233344444)
+
+Modificar `startCall` o manipulador de eventos que será executado quando o botão *'Chamada's iniciar* é premido:
+
+```swift
+func startCall() {
+    // Ask permissions
+    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+        if granted {
+            let startCallOptions = ACSStartCallOptions()
+            startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
+            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.callDelegate = CallDelegate(self)
+            self.call!.delegate = self.callDelegate
+        }
+    }
+}
+```
+
+## <a name="run-the-code"></a>Executar o código
+
+Pode construir e executar a sua aplicação no simulador iOS selecionando **Product**  >  **Run** ou utilizando o atalho de teclado (&#8984;-R).
+
+![Olhar final e sensação da app de arranque rápido](../media/ios/quick-start-make-call.png)
+
+Pode esboçar uma chamada para telefone fornecendo um número de telefone no campo de texto adicionado e clicando no botão **'Chamada'.**
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +122233344444)
+
+> [!NOTE]
+> A primeira vez que fizer uma chamada, o sistema irá pedir-lhe acesso ao microfone. Numa aplicação de produção, deve utilizar a `AVAudioSession` API [verificar o estado da permissão](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) e atualizar graciosamente o comportamento da sua aplicação quando a permissão não for concedida.

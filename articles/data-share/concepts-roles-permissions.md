@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513770"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761520"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -32,14 +32,13 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 
 |**Tipo de Loja de Dados**|**Loja de dados do fornecedor de dados**|**Data Consumer Target Data Store**|
 |---|---|---|
-|Armazenamento de Blobs do Azure| Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
+|Armazenamento de Blobs do Azure| Leitor de Dados do Armazenamento de Blobs | Contribuinte de Dados do Armazenamento de Blobs
 |Azure Data Lake Gen1 | Proprietário | Não suportado
-|Azure Data Lake Gen2 | Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
-|Azure SQL Server | Colaborador do SQL DB | Colaborador do SQL DB
+|Azure Data Lake Gen2 | Leitor de Dados do Armazenamento de Blobs | Contribuinte de Dados do Armazenamento de Blobs
 |Cluster do Azure Data Explorer | Contribuinte | Contribuinte
 |
 
-Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados Azure SQL com o mesmo nome que o recurso Azure Data Share. Abaixo está um resumo da permissão exigida pelo utilizador SQL.
+Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados Azure SQL com o mesmo nome que o recurso Azure Data Share. A azure Ative Directy é necessária para criar este utilizador. Abaixo está um resumo da permissão exigida pelo utilizador SQL.
 
 |**Tipo de base de dados SQL**|**Permissão do utilizador do fornecedor de dados SQL**|**Autorização do utilizador sql do consumidor de dados**|
 |---|---|---|

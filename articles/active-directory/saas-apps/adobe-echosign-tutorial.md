@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7d1ea6c1ee21970a598855471284130160e1d65
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 18a034c6af9659e113a821e072098aee873c2ee2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537941"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Diretório Ativo Azure com Sinal de Adobe
 
@@ -151,7 +151,7 @@ Para configurar o Azure AD com o Adobe Sign, execute os seguintes passos:
 
 1. Na secção **Definições SAML,** execute os seguintes passos:
   
-   ![Screenshot das Definições SAML](./media/adobe-echosign-tutorial/ic789521.png "Definições SAML")
+   ![Screenshot que destaca as definições DE SAML, incluindo a SAML Mandatory.](./media/adobe-echosign-tutorial/ic789521.png "Definições SAML")
    
    ![Screenshot das Definições SAML](./media/adobe-echosign-tutorial/ic789522.png "Definições SAML")
 
@@ -202,7 +202,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Adobe Sign**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **Adobe Sign**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528903"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759852"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com a Cisco Webex
 
@@ -151,13 +151,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Selecione **Definições** e na secção **autenticação,** clique em **Modificar**.
 
-    ![Configurar um único sign-on](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![A screenshot mostra Definições de autenticação onde pode selecionar Modificar.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. **Selecione Integrar um fornecedor de identidade de terceiros. (Avançado)** e ir para o próximo ecrã.
 
 6. Na página **de Metadados do Idp Import,** ou arraste e deixe cair o ficheiro de metadados Azure AD na página ou utilize a opção do navegador de ficheiro para localizar e carregar o ficheiro de metadados AZure AD. Em seguida, **selecione Exigir certificado assinado por uma autoridade de certificado em Metadados (mais seguro)** e clique em **Seguinte**.
 
-    ![Configurar um único sign-on](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![A screenshot mostra a página de Metadados Import I d P.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Selecione **Test SSO Connection**, e quando um novo separador de navegador abrir, autente com Azure AD ao iniciar sessão.
 
@@ -171,13 +171,13 @@ Nesta secção, cria-se um utilizador chamado B.Simon na Cisco Webex. Nesta sec�
 
 2. Clique **nos Utilizadores** e, em seguida, **gerencie os Utilizadores.**
    
-    ![Configurar um único sign-on](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![A screenshot mostra a página do Utilizadores onde pode gerir os utilizadores.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Na janela **'Gerir** o utilizador', selecione **Manualmente adicionar ou modificar os utilizadores** e clique em **Seguinte**.
 
 4. Selecione **Nomes e endereço de e-mail**. Em seguida, preencha a caixa de texto da seguinte forma:
 
-    ![Configurar um único sign-on](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![A screenshot mostra a caixa de diálogo dos Utilizadores de Mange onde pode adicionar ou modificar manualmente os utilizadores.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. Na caixa de texto **Name Name,** escreva o primeiro nome do utilizador como **B**.
 

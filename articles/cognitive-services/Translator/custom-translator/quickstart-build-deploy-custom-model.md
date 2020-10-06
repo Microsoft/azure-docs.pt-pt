@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: bb4e3be621e83ed66748e3eba683b983dbac98d7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528546"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761584"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Quickstart: Construa, implemente e use um modelo personalizado para tradução
 
@@ -27,6 +27,9 @@ Este artigo fornece instruções passo a passo para construir um sistema de trad
 2. Uma subscrição da API de Texto tradutor através do portal Azure. Você precisará da chave de subscrição de Texto de Tradutor API para associar-se ao seu espaço de trabalho no Tradutor Personalizado. Veja [como se inscrever para a API de Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Quando tiver ambos os dois acima, inscreva-se no portal  [Do Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar espaços de trabalho, projetos, carregar ficheiros e criar/implementar modelos.
+
+>[!Note]
+>O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto de tradutor que foi criado dentro [do VNET Ativado.](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 

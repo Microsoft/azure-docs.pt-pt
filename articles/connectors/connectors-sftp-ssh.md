@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286619"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761129"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
@@ -52,18 +52,18 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | Não | Não aplicável |
-  | **Criar ficheiro** | Sim | Sim |
+  | **Ficheiro de cópia** | No | Não aplicável |
+  | **Criar ficheiro** | Yes | Yes |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
   | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
-  | **Obtenha o conteúdo do arquivo** | Sim | Sim |
-  | **Obtenha o conteúdo do ficheiro usando o caminho** | Sim | Sim |
+  | **Obtenha o conteúdo do arquivo** | Yes | Yes |
+  | **Obtenha o conteúdo do ficheiro usando o caminho** | Yes | Yes |
   | **Obtenha metadados de ficheiros** | Não aplicável | Não aplicável |
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | Não | Não aplicável |
+  | **Atualizar ficheiro** | No | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -252,6 +252,22 @@ Se não conseguir evitar ou atrasar a deslocação do ficheiro, pode ignorar a l
 1. Na ação de **ficheiro Create,** abra a nova lista **de parâmetros Adicionar,** selecione a propriedade **'Obter todos os metadados de ficheiros'** e desabrocha o valor para **Nº**.
 
 1. Se precisar deste ficheiro metadados mais tarde, pode utilizar a ação **de metadados de ficheiros Get.**
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 erro: "Uma tentativa de ligação falhou porque a parte ligada não respondeu corretamente após um período de tempo, ou a ligação estabelecida falhou porque o hospedeiro ligado não respondeu" ou "O pedido ao servidor SFTP demorou mais de '00:00:30' segundos"
+
+Este erro pode ocorrer quando a aplicação lógica não é capaz de estabelecer com sucesso uma ligação com o servidor SFTP. Pode haver uma série de razões diferentes e sugerimos que se resolva a questão dos seguintes aspetos. 
+
+1. O tempo de ligação é de 20 segundos. Certifique-se de que o servidor SFTP tem um bom desempenho e que os dispositivos intermidiados, como firewall, não adicionam muita sobrecarga. 
+
+2. Se houver uma firewall envolvida, certifique-se de que os endereços **IP do conector gerido** estão na lista branca. Você pode encontrar estes endereços IP para a sua região de aplicações lógicas [**aqui**]https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Se isto for um problema intermitente, por favor teste a definição de repetição para ver se uma contagem de repetição mais alta do que o padrão 4 pode ajudar.
+
+4. Verifique se o servidor SFTP coloca um limite no número de ligações de cada endereço IP. Em caso afirmativo, poderá ter de limitar o número de instâncias de aplicações lógicas simultâneas. 
+
+5. Aumentar a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) para uma hora na configuração SSH no seu servidor SFTP para reduzir o custo do estabelecimento de ligação.
+
+6. Pode verificar o registo do servidor SFTP para ver se o pedido da aplicação lógica chegou ao servidor SFTP. Também pode tirar alguns vestígios de rede na sua firewall e no seu servidor SFTP para aprofundar a questão da conectividade.
 
 ## <a name="connector-reference"></a>Referência do conector
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9888ae6f7d28f6fef5901ea246d71d7b9ae9f78f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4fcc9ab0811c447cebff825a0c45c9dac877219c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530616"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761843"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Tutorial: Integrar a Cópia de Segurança do Ponto Final de Carbonite com o Azure Ative Directory
 
@@ -129,19 +129,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Clique na **Empresa** a partir do painel esquerdo.
 
-    ![Configuração de backup de ponto de endpoint carbonite ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+    ![A screenshot mostra Carbonite Endpoint com a Empresa selecionada.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
 5. Clique em **'S'S-on' Único**.
 
-    ![Configuração de backup de ponto de endpoint carbonite ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+    ![A screenshot mostra a Empresa com um único sinal de s-on selecionado.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
 6. Clique em **Ativar** e, em seguida, clique em **Editar as definições** para configurar.
 
-    ![Configuração de backup de ponto de endpoint carbonite ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![A screenshot mostra o separador único de sinal de inscrição com definições de Ativação e Edição chamadas.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
 7. Na página de definições **de inscrição única,** execute os seguintes passos:
 
-    ![Configuração de backup de ponto de endpoint carbonite ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![A screenshot mostra o separador único de assinatura com as informações descritas neste passo.](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
     1. Na caixa de texto **do nome do fornecedor de identidade,** cole o valor do **identificador Azure AD,** que copiou do portal Azure.
 
@@ -187,11 +187,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique nos **Utilizadores** a partir do painel esquerdo e, em seguida, clique em **Adicionar utilizador**.
 
-    ![Adicionar utilizador na cópia de segurança do ponto de final de Carbonite](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![O Screenshot mostra a página de Ponto final de Carbonite com os utilizadores e adicionar utilizadores selecionados.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. Na página de **utilizador Adicionar,** execute os seguintes passos:
 
-    ![Adicionar utilizador na cópia de segurança do ponto de final de Carbonite](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![A screenshot mostra a página do utilizador Adicionar onde pode executar os passos descritos aqui.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. Introduza o **Email**, **Nome próprio**, **Apelido** do utilizador e forneça as permissões necessárias ao utilizador de acordo com os requisitos da Organização.
 

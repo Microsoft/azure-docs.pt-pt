@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683152"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372362"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -26,7 +26,7 @@ Um _âmbito_ é um nó na hierarquia de recursos do Azure onde os utilizadores d
 - Dados de faturação, como pagamentos e faturas
 - Serviços cloud, como governação de custos e políticas
 
-Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente das funções que são utilizadas na gestão de recursos, que utilizam as funções [RBAC do Azure](../../role-based-access-control/overview.md). Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como _âmbitos de faturação_ e _âmbitos RBAC_, respetivamente.
+Os âmbitos são onde gere os dados de faturação, tem funções específicas de pagamentos, visualiza faturas e onde realiza a gestão global da conta. As funções de faturação e de conta são geridas separadamente das funções que são utilizadas na gestão de recursos, que utilizam as funções [RBAC do Azure](../../role-based-access-control/overview.md). Para fazermos a distinção clara do objetivo dos diferentes âmbitos, incluindo as diferenças de controlo de acesso, serão designados como _âmbitos de faturação_ e _âmbitos RBAC do Azure_, respetivamente.
 
 Para saber mais sobre os âmbitos, veja o vídeo [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (Configuração de hierarquias do Cost Management). Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Para saber mais sobre os âmbitos, veja o vídeo [Cost Management setting up hie
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza os âmbitos
 
-O Cost Management funciona em todos os âmbitos acima dos recursos para permitir às organizações gerir os custos ao nível para o qual têm acesso, quer se trate da conta de faturação na sua globalidade ou de um de um grupo de recursos único. Apesar de os âmbitos de faturação diferirem com base no contrato Microsoft (tipo de subscrição), os âmbitos RBAC não.
+O Cost Management funciona em todos os âmbitos acima dos recursos para permitir às organizações gerir os custos ao nível para o qual têm acesso, quer se trate da conta de faturação na sua globalidade ou de um de um grupo de recursos único. Apesar de os âmbitos de faturação diferirem com base no contrato Microsoft (tipo de subscrição), os âmbitos RBAC do Azure não.
 
 ## <a name="azure-rbac-scopes"></a>Âmbitos RBAC do Azure
 
@@ -98,7 +98,7 @@ Os âmbitos de faturação do EA suportam as seguintes funções:
 - **Utilizador só de leitura do Enterprise** – pode ver as definições da conta de faturação, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Na função, o âmbito de faturação do EA é o mesmo que a [função do Azure Leitor do Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento** – pode gerir as definições de departamento, como o centro de custos, e pode aceder, ver todos os custos e gerir a configuração de custos. Por exemplo, orçamentos e exportações.  A definição da conta de faturação **Custos de vista do AD** tem de ser ativada para os administradores de departamento e os utilizadores só de leitura verem os custos. Se a opção **Os Administradores de Departamento podem ver os custos** estiver desativada, os utilizadores de departamento não conseguirão ver os custos em nenhum dos níveis, mesmo que sejam um proprietário de uma conta ou subscrição.
 - **Utilizador só de leitura de departamento** – pode ver as definições de departamento, os dados de custos e a configuração de custos. Por exemplo, orçamentos e exportações. Se a opção **Os Administradores de Departamento podem ver os custos** estiver desativada, os utilizadores de departamento não conseguirão ver os custos em nenhum dos níveis, mesmo que sejam um proprietário de uma conta ou subscrição.
-- **Proprietário da conta** – pode gerir as definições de contas de inscrição (como o centro de custos), ver todos os custos e gerir a configuração de custos (como os orçamentos e as exportações) da conta de inscrição. A definição da conta de faturação **Custos de vista do PC** tem de ser ativada para os proprietários de conta e os utilizadores de RBAC verem os custos.
+- **Proprietário da conta** – pode gerir as definições de contas de inscrição (como o centro de custos), ver todos os custos e gerir a configuração de custos (como os orçamentos e as exportações) da conta de inscrição. Para os proprietários de conta e os utilizadores de RBAC do Azure verem os custos, a definição da conta de faturação **Custos de vista do PC** tem de ser ativada.
 
 Os utilizadores de contas de faturação do EA não têm acesso direto a faturas. As faturas estão disponíveis num sistema de licenciamento de volume externo.
 

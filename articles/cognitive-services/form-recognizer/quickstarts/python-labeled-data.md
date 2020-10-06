@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: e96940960b6ee131068b77bca4818499377ea3dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 25a21107fd4b67a3a67b69a73401540d7b02b6b5
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723504"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762081"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python
 

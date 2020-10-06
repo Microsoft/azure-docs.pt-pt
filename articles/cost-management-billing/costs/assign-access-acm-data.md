@@ -9,20 +9,20 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: c69dc63af6bacb4aaf1beda1a0846a98b06ec209
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371971"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 
-Para os utilizadores com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal Enterprise (EA) define o nível de acesso de um utilizador aos dados do Azure Cost Management. Para os utilizadores com outros tipos de contas do Azure, a definição do nível de acesso de um utilizador aos dados do Cost Management é mais simples através da utilização do controlo de acesso baseado em funções do Azure. Este artigo mostra-lhe os passos para atribuir acesso a dados do Cost Management. Depois de a combinação de permissões ser atribuída, o utilizador vê os dados no Cost Management com base no seu âmbito de acesso e no âmbito que seleciona no portal do Azure.
+Para os utilizadores com contratos Azure Enterprise, uma combinação de permissões concedidas no portal do Azure e no portal Enterprise (EA) define o nível de acesso de um utilizador aos dados do Azure Cost Management. Relativamente aos utilizadores com outros tipos de contas do Azure, a definição do nível de acesso de um utilizador aos dados do Cost Management é mais simples através da utilização do controlo de acesso baseado em funções do Azure (RBAC do Azure). Este artigo mostra-lhe os passos para atribuir acesso a dados do Cost Management. Depois de a combinação de permissões ser atribuída, o utilizador vê os dados no Cost Management com base no seu âmbito de acesso e no âmbito que seleciona no portal do Azure.
 
 O âmbito que um utilizador seleciona será utilizado em todo o Cost Management para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Ao utilizarem os âmbitos, os utilizadores não podem selecionar vários. Em vez disso, selecionam um âmbito maior onde os âmbitos subordinados estão incluídos e, em seguida, filtram para o que querem visualizar. É importante que compreenda a consolidação dos dados, porque algumas pessoas não devem aceder a um âmbito principal no qual os âmbitos subordinados estão incluídos.
 
-Veja o vídeo [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) (Controlo de acesso do Cost Management) para saber mais sobre a atribuição de acesso para ver custos e cobranças com o controlo de acesso baseado em funções do Azure. Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Veja o vídeo [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) (Controlo de acesso do Cost Management) para saber mais sobre a atribuição de acesso para ver custos e cobranças com o controlo de acesso baseado em funções do Azure (RBAC do Azure). Para ver outros vídeos, visite o canal do YouTube [Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -71,7 +71,7 @@ Para ativar uma opção no portal do Azure:
 1. Em **Definições**, selecione o item de menu **Políticas** e configure a definição.  
     ![Políticas de âmbito de faturação que mostram as opções de visualização de custos](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-Depois de as opções das vistas de custos serem ativadas, a maioria dos âmbitos também requer uma configuração de permissão de controlo de acesso baseado em funções (RBAC) no portal do Azure.
+Depois de as opções das vistas de custos serem ativadas, a maioria dos âmbitos também requer uma configuração de permissão de controlo de acesso baseado em funções do Azure (RBAC do Azure) no portal do Azure.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no EA Portal
 
@@ -84,7 +84,7 @@ Para ativar uma opção no EA Portal:
 3. Para os âmbitos de gestão de custos aos quais pretende fornecer acesso, ative a opção de custos para **Custos da vista do AD** e/ou **Custos da vista do CP**.  
     ![Separador Inscrição que mostra as opções de custos da vista do AD e do CP](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Depois de as opções das vistas de custos serem ativadas, a maioria dos âmbitos também requer uma configuração de permissão de controlo de acesso baseado em funções (RBAC) no portal do Azure.
+Depois de as opções das vistas de custos serem ativadas, a maioria dos âmbitos também requer uma configuração de permissão de controlo de acesso baseado em funções do Azure (RBAC do Azure) no portal do Azure.
 
 ## <a name="enterprise-administrator-role"></a>Função de administrador empresarial
 
@@ -182,9 +182,9 @@ O acesso a um grupo de recursos requer, no mínimo, a permissão de Leitor do Co
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre inquilinos
 
-Atualmente, o Azure Cost Management oferece suporte limitado para a autenticação entre inquilinos. Em algumas circunstâncias, quanto tenta autenticar em vários inquilinos, poderá receber um erro **Acesso negado** na análise de custos. Este problema poderá ocorrer se configurar o controlo de acesso baseado em funções (RBAC) para outra subscrição do inquilino e, depois, tentar ver os dados dos custos.
+Atualmente, o Azure Cost Management oferece suporte limitado para a autenticação entre inquilinos. Em algumas circunstâncias, quanto tenta autenticar em vários inquilinos, poderá receber um erro **Acesso negado** na análise de custos. Este problema poderá ocorrer se configurar o controlo de acesso baseado em funções do Azure (RBAC do Azure) para outra subscrição do inquilino e, depois, tentar ver os dados dos custos.
 
-*Para contornar o problema*: depois de configurar o RBAC entre inquilinos, aguarde uma hora. Depois, tente ver os custos na análise de custos ou conceda acesso ao Cost Management a utilizadores em ambos os inquilinos.  
+*Para contornar o problema*: depois de configurar o RBAC do Azure entre inquilinos, aguarde uma hora. Depois, tente ver os custos na análise de custos ou conceda acesso ao Cost Management a utilizadores em ambos os inquilinos.  
 
 
 ## <a name="next-steps"></a>Passos seguintes

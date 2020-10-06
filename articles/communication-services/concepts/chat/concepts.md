@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c3b4970b70a9bd5399199771a081481e17e2efb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666998"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762047"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat
 
@@ -128,7 +128,7 @@ Pode utilizar [APIs cognitivos do Azure](https://docs.microsoft.com/azure/cognit
 
 Uma maneira de conseguir isso é fazendo com que o seu serviço de confiança atue como membro de um fio de chat. Digamos que quer ativar a tradução linguística. Este serviço será responsável por ouvir as mensagens que estão a ser trocadas por outros membros [1], chamar APIs cognitivos para traduzir o conteúdo para a língua desejada[2,3] e enviar o resultado traduzido como mensagem no fio do chat[4]. 
 
-Desta forma, o histórico da mensagem conterá mensagens originais e traduzidas. Na aplicação do cliente, pode adicionar lógica para mostrar a mensagem original ou traduzida. Veja [este quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) para entender como usar APIs cognitivos para traduzir texto para diferentes línguas. 
+Desta forma, o histórico da mensagem conterá mensagens originais e traduzidas. Na aplicação do cliente, pode adicionar lógica para mostrar a mensagem original ou traduzida. Veja [este quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) para entender como usar APIs cognitivos para traduzir texto para diferentes línguas. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando a arquitetura de chat dos Serviços de Comunicação.":::
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 4fa31a5be41e89c8fdc821ae77ff151b184316df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 282b8e1292bf1fe24655691fbbeb876d871bc31e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88518021"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761350"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Quickstart: Extrair dados de recibo usando o API do Reconhecimento de Formulários REST com cURL
 
@@ -34,43 +34,43 @@ Para completar este arranque rápido, você deve ter:
 
 ## <a name="analyze-a-receipt"></a>Analisar um recibo
 
-Para começar a analisar um recibo, ligue para a API **[de Receção de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** utilizando o comando cURL abaixo. Antes de executar o comando, faça estas alterações:
+Para começar a analisar um recibo, ligue para a API **[de Receção de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** utilizando o comando cURL abaixo. Antes de executar o comando, faça estas alterações:
 
 1. `<Endpoint>`Substitua-o pelo ponto final que obteve com a subscrição do Form Recogniser.
 1. `<your receipt URL>`Substitua-o pelo endereço URL de uma imagem de receção.
 1. `<subscription key>`Substitua-a pela chave de subscrição que copiou do passo anterior.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
 ```
 
 Receberá uma `202 (Success)` resposta que inclui o cabeçalho am **Operation-Location.** O valor deste cabeçalho contém um ID de operação que pode utilizar para consultar o estado da operação assíncronea e obter os resultados. No exemplo seguinte, a corda seguinte `operations/` é o ID de funcionamento.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-receipt-results"></a>Obtenha os resultados do recibo
 
-Depois de ter chamado a API **do Recibo de Análise,** ligue para a API **[do Resultado do Recibo de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** para obter o estado da operação e os dados extraídos. Antes de executar o comando, faça estas alterações:
+Depois de ter chamado a API **do Recibo de Análise,** ligue para a API **[do Resultado do Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** para obter o estado da operação e os dados extraídos. Antes de executar o comando, faça estas alterações:
 
 1. `<Endpoint>`Substitua-o pelo ponto final que obteve pela tecla de subscrição do Form Recogniser. Pode encontrá-lo no separador **'Visão geral'** do recurso 'Reconhecimento de Formulário'.
 1. `<operationId>`Substitua-a pelo ID de funcionamento do passo anterior.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-Receberá uma `200 (Success)` resposta com a saída da JSON. O primeiro `"status"` campo, indica o estado da operação. Se a operação estiver concluída, o `"recognitionResults"` campo contém todas as linhas de texto que foram extraídas do recibo, e o campo contém `"understandingResults"` informações de chave/valor para as partes mais relevantes do recibo. Se a operação não estiver concluída, o valor será `"status"` ou , e deverá voltar a ligar para a `"running"` `"notStarted"` API, manualmente ou através de um script. Recomendamos um intervalo de um segundo ou mais entre chamadas.
+Receberá uma `200 (Success)` resposta com a saída da JSON. O primeiro `"status"` campo, indica o estado da operação. Se a operação estiver concluída, o `"readResults"` campo contém todas as linhas de texto que foram extraídas do recibo, e o campo contém `"documentResults"` informações de chave/valor para as partes mais relevantes do recibo. Se a operação não estiver concluída, o valor será `"status"` ou , e deverá voltar a ligar para a `"running"` `"notStarted"` API, manualmente ou através de um script. Recomendamos um intervalo de um segundo ou mais entre chamadas.
 
 Consulte a seguinte imagem de recibo e a respetiva saída JSON. A saída foi encurtada para a legibilidade.
 
 ![Um recibo da loja Contoso](../media/contoso-allinone.jpg)
 
-O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O `"understandingResults"` nó contém os valores específicos do recibo que o modelo descobriu. É aqui que você encontrará pares de chaves/valor úteis como o endereço de imposto, total, comerciante, e assim por diante.
+O `"readResults"` nó contém todo o texto reconhecido (se definir o parâmetro opcional *incluaTextDetails* para `true` ). O texto é organizado por página, depois por linha, depois por palavras individuais. O `"documentResults"` nó contém os valores específicos do recibo que o modelo descobriu. É aqui que você encontrará pares de chaves/valor úteis como o endereço de imposto, total, comerciante, e assim por diante.
 
 ```json
 {
@@ -78,7 +78,7 @@ O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organi
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
   "analyzeResult":{
-    "version":"2.0.0",
+    "version":"2.1.0",
     "readResults":[
       {
         "page":1,
@@ -402,4 +402,4 @@ O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organi
 Neste arranque rápido, utilizou o Formulário Recogniser REST API com cURL para extrair o conteúdo de um recibo de venda. Em seguida, consulte a documentação de referência para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 
 > [!div class="nextstepaction"]
-> [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)
+> [Documentação de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)

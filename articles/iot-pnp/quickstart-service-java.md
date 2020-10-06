@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0ed5ebf316c80d7fc560b11e1f784dd1b91b170d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612579"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761333"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Java)
 
@@ -71,7 +71,7 @@ O dispositivo está agora pronto para receber comandos e atualizações de propr
 Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play](set-up-environment.md) criou duas variáveis ambientais para configurar a amostra para ligar ao seu hub e dispositivo IoT:
 
 * **IOTHUB_CONNECTION_STRING**: a cadeia de ligação do hub IoT que fez uma nota anterior.
-* **DEVICE_ID:** `"my-pnp-device"` .
+* **IOTHUB_DEVICE_ID:** `"my-pnp-device"` .
 
 Neste arranque rápido, utilize uma solução IoT de amostra escrita em Java para interagir com o dispositivo de amostra que acabou de configurar.
 

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: b4042e65fb9f7dbff6566bd497f782c3e6d591cb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707854"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761605"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar o Micrometro com Azure Application Insights Java SDK
 
@@ -24,7 +24,7 @@ A monitorização da aplicação de micrometros mede as métricas do código de 
 
 ## <a name="using-spring-boot-15x"></a>Usando a Bota de Mola 1.5x
 Adicione as seguintes dependências ao seu ficheiro pom.xml ou build.gradle: 
-* [Application Insights início de arranque](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 ou mais tarde
+* [Application Insights início de arranque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter) 2.5.0 ou mais tarde
 * Micrometro Registo Azure 1.1.0 ou superior
 * [Micrometro Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 ou superior (isto retroporta o código autoconfig na estrutura da Mola).
 * [Recurso ApplicationInsights](./create-new-resource.md)
@@ -57,7 +57,7 @@ Passos
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Construa a sua aplicação e corra
-2. O acima deve levá-lo a funcionar com métricas pré-agregadas recolhidas para O Azure Monitor. Para obter detalhes sobre como afinar o arranque do Boot De primavera do Application Insights Consulte o [readme no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+2. O acima deve levá-lo a funcionar com métricas pré-agregadas recolhidas para O Azure Monitor. Para obter detalhes sobre como afinar o arranque do Boot De primavera do Application Insights Consulte o [readme no GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md).
 
 ## <a name="using-spring-2x"></a>Usando a primavera 2.x
 

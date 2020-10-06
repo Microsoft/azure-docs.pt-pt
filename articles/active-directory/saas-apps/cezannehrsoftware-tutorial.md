@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530120"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Ative Directory com o Software RH cezanne
 
@@ -130,19 +130,19 @@ Para configurar o Azure AD com o Software CEzanne HR, execute os seguintes passo
 
 2. No painel de navegação esquerdo, clique na **configuração do sistema**. Ir para **definições de segurança**. Em seguida, navegue para a **configuração de inscrição única**.
 
-    ![Configure único sinal no lado da aplicação](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![O Screenshot mostra o inquilino do Software Cezanne H R com definições de segurança e configuração única de sinal de acesso selecionado.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. No **Permitir que os utilizadores iniciem sessão utilizando o seguinte painel de serviço de registo único (SSO),** verifique a caixa **SAML 2.0** e selecione a opção **Configuração Avançada.**
 
-    ![Configure único sinal no lado da aplicação](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![A screenshot mostra o painel de permitir que os utilizadores se despeçam com SAML 2.0 e Configuração Avançada selecionada.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Clique **em Adicionar Novo** botão.
 
-    ![Configure único sinal no lado da aplicação](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![A screenshot mostra o botão Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Execute os seguintes passos na secção **SAML 2.0 IDENTITY PROVIDERS.**
 
-    ![Configure único sinal no lado da aplicação](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![A screenshot mostra um painel onde pode introduzir os valores descritos neste passo.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. Insira o nome do seu Fornecedor de Identidade como **Nome de Exibição**.
 
@@ -160,7 +160,7 @@ Para configurar o Azure AD com o Software CEzanne HR, execute os seguintes passo
 
 6. Clique no botão **Guardar.**
 
-    ![Configure único sinal no lado da aplicação](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![A screenshot mostra o botão Guardar para a configuração de um único sinal de inscrição.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -193,7 +193,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Cezanne HR Software**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Cezanne HR Software**.
 
@@ -223,11 +223,11 @@ Para permitir que os utilizadores de Azure AD acedam ao Software Rh cezanne, dev
 
 2. No painel de navegação esquerdo, clique na **configuração do sistema**. Ir para **Gerir utilizadores**. Em seguida, navegue para **adicionar novo utilizador**.
 
-    ![Novo Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Utilizador")
+    ![O Screenshot mostra o inquilino do Software Cezanne H R com utilizadores de gestão e adicionar novo utilizador selecionado.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Utilizador")
 
 3. Na secção **DETALHES PESSOAIS,** execute abaixo dos passos:
 
-    ![Novo Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Utilizador")
+    ![A screenshot mostra a secção DETALHES PESSOA ONDE pode introduzir os valores descritos neste passo.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Utilizador")
 
     a. Desa parte **do utilizador interno.**
 
@@ -239,7 +239,7 @@ Para permitir que os utilizadores de Azure AD acedam ao Software Rh cezanne, dev
 
 4. Na secção **informações sobre contas,** execute abaixo dos passos:
 
-    ![Novo Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Utilizador")
+    ![A screenshot mostra informações de conta onde pode introduzir os valores descritos neste passo.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Utilizador")
 
     a. Na caixa de texto **username,** escreva o e-mail do utilizador como Brittasimon@contoso.com .
 
@@ -251,15 +251,15 @@ Para permitir que os utilizadores de Azure AD acedam ao Software Rh cezanne, dev
 
 5. Navegue para **o separador 'Sign-on' único** e selecione **Adicionar Novo** na área dos **identificadores SAML 2.0.**
 
-    ![Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilizador")
+    ![A screenshot mostra o separador 'Sign-on' único, onde pode selecionar Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilizador")
 
 6. Escolha o seu Fornecedor de Identidade para o **Fornecedor de Identidade** e na caixa de texto do User **Identifier,** insira o endereço de e-mail da conta Britta Simon.
 
-    ![Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilizador")
+    ![A screenshot mostra os identificadores SAML 2.0 onde pode selecionar o seu Fornecedor de Identidade e Identificador de Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilizador")
 
 7. Clique no botão **Guardar.**
 
-    ![Utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilizador")
+    ![A screenshot mostra o botão Guardar para as Definições do Utilizador.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilizador")
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

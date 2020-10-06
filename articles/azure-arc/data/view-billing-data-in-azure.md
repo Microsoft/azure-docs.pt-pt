@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 375191bbe6f45189fba50ea927454c0ec4f64678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939087"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760311"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Faça upload de dados de faturação para a Azure e veja-os no portal Azure
 
@@ -30,7 +30,7 @@ No futuro, haverá dois modos em que poderá executar os seus serviços de dados
 - **Indiretamente ligado** - Não existe ligação direta ao Azure. Os dados são enviados para a Azure apenas através de um processo de exportação/upload. Todas as implementações de serviços de dados Azure Arc funcionam neste modo hoje em pré-visualização.
 - **Conectado diretamente** - Neste modo, haverá uma dependência do Arco Azure que permitiu que o serviço Kubernetes fornecesse uma ligação direta entre a Azure e o cluster Kubernetes em que os serviços de dados ativados pelo Arco Azure estão a funcionar. Isto irá permitir-lhe mais capacidades e também permitir-lhe-á utilizar o portal Azure e o CLI Azure para gerir os seus serviços de dados habilitados a Azure Arc, tal como gere os seus serviços de dados em Azure PaaS.  Este modo de conectividade ainda não está disponível na pré-visualização, mas será em breve.
 
-Pode ler mais sobre a diferença entre os [modos de conectividade](/docs/connectivity.md).
+Pode ler mais sobre a diferença entre os [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
 
 No modo indireto ligado, os dados de faturação são periodicamente exportados para fora do controlador de dados do Arco Azure para um ficheiro seguro e depois enviados para Azure e processados.  No próximo modo ligado diretamente, os dados de faturação serão automaticamente enviados para a Azure aproximadamente 1/hora para dar uma visão quase em tempo real sobre os custos dos seus serviços. O processo de exportação e upload dos dados no modo indiretamente conectado também pode ser automatizado usando scripts ou podemos construir um serviço que o fará por si.
 
@@ -40,7 +40,7 @@ Para carregar os dados de faturação para a Azure, o seguinte deve acontecer pr
 
 1. Crie um serviço de dados ativado a Azure Arc se ainda não o tiver. Por exemplo, criar um dos seguintes:
    - [Criar um exemplo gerido pelo Azure SQL em Azure Arc](create-sql-managed-instance.md)
-   - [Criar um grupo de servidores de hiperescala pós-escala Azure Arc](create-postgresql-hyperscale-server-group.md)
+   - [Criar um grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc](create-postgresql-hyperscale-server-group.md)
 1. [Faça upload do inventário de recursos, dados de utilização, métricas e registos para o Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) se ainda não o fez.
 1. Aguarde pelo menos 2 horas desde a criação do serviço de dados para que o processo de recolha de telemetria de faturação possa recolher alguns dados de faturação.
 

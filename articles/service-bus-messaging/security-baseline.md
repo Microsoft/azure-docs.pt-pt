@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6242e593171bd8a01d01739b884ae8a1ca7beb4d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629765"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761163"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança Azure para Service Bus
 
@@ -273,7 +273,7 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Utilize o Azure Ative Directory single sign-on (SSO)
 
-**Orientação**: O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar o Azure AD com a Azure Service Bus é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome do recurso para solicitar um token é https://servicebus.azure.net/ . A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos da Azure Service Bus.
+**Orientação**: O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar o Azure AD com a Azure Service Bus é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome do recurso para solicitar um token é https://azure.microsoft.com/services/service-bus/ . A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos da Azure Service Bus.
 
 - [Como autenticar uma aplicação com Azure AD para aceder aos recursos do Service Bus](authenticate-application.md)
 
