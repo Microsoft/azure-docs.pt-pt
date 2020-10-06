@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338979"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743833"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway
 
@@ -45,7 +45,7 @@ Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
 2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e clique em **Adicionar**.
 
-    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Clique em adicionar utilizador 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
@@ -70,13 +70,13 @@ Efetue os seguintes passos no portal do Azure para eliminar um utilizador.
 
 2. Quando lhe for perguntado, confirme a eliminação. 
 
-   ![Eliminar um utilizador](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Excluir um utilizador 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 
-![Eliminar um utilizador](media/data-box-gateway-manage-users/delete-user-3.png)
+![Excluir um utilizador 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

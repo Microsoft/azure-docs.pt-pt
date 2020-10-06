@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883539"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743884"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as partilhas do Azure Data Box Gateway 
 
@@ -94,7 +94,7 @@ Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
 1. No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
 
-   ![Selecionar partilha](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Selecione share 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Clique em **Atualizar**. 
 
@@ -124,11 +124,11 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 1. Aceda a **Descrição Geral** no seu recurso. 
 2. A partir da lista de ações, escolha e clique numa ação associada à conta de armazenamento que precisa de sincronizar. Clique **na tecla de armazenamento Sync**. 
 
-     ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Sincronizar a chave de armazenamento](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Clique em **Sim** quando lhe for pedida a confirmação. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
-     ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Tecla de armazenamento de sincronização 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > Apenas terá de efetuar este procedimento uma vez para uma conta de armazenamento fornecida. Não precisa de repetir esta ação para todas as partilhas associadas à mesma conta de armazenamento.

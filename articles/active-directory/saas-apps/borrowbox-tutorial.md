@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548364"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Azure Ative Directory com BorrowBox
 
@@ -100,11 +100,11 @@ Para configurar o Azure AD com o BorrowBox, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-    ![[Nome da aplicação] Informações de assinatura única de domínio e URLs](common/preintegrated.png)
+    ![[Screenshot mostra a Configuração Básica SAML.] Informações de assinatura única de domínio e URLs](common/preintegrated.png)
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![[Nome da aplicação] Informações de assinatura única de domínio e URLs](common/metadata-upload-additional-signon.png)
+    ![[Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.] Informações de assinatura única de domínio e URLs](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
@@ -164,7 +164,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BorrowBox**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **BorrowBox**.
 

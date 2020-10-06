@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371291"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743952"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provision Azure Data Box Gateway em VMware
 
@@ -23,7 +23,7 @@ Este tutorial descreve como providenciar um Gateway de Caixa de Dados num sistem
 
 Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
@@ -145,11 +145,11 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
     Na mesma página, clique em **Add hard disk** (Adicionar disco rígido) e selecione **Existing hard disk** (Disco rígido existente). Selecione o ficheiro VMDK no arquivo de dados. Esta ação adicionará um disco de SO. 
 
-     ![Personalizar página de definições](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Personalizar definições página 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Desloque a página para baixo até ver **New hard disk** (Novo disco rígido) e expanda-o para ver as definições. Defina **Virtual Device Node** (Nó de dispositivo virtual) como **IDE controller 0** (Controlador IDE 0).
 
-     ![Personalizar página de definições](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Personalizar definições página 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Opcional) *Execute este passo apenas se estiver a executar VMware ESXi Server 6.7*. Na página **De Configurações De Personalização,** clique nas **opções VM**. Vá às **opções Boot > Firmware** e altere-o para **BIOS**. Por predefinição, o valor é definido para EFI. Clique em **Seguinte**.
 
@@ -158,7 +158,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 18. Na página **Ready to Complete** (Pronto para concluir), reveja todas as definições associadas à nova máquina virtual. Verifique se a CPU é 4, a memória é 8192 MB, a interface de rede é 1 e o Disco rígido 2 tem o Controlador IDE 0. Clique em **Concluir**.
    
     ![Página pronta para completar ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-     ![ A página Pronta para Concluir](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+     ![ a página 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 A sua máquina virtual está agora aprovisionada. Verá uma notificação para o efeito e a nova máquina virtual é adicionada à lista de VMs.
 

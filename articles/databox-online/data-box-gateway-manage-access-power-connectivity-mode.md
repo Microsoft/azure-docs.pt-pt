@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27b6d8ca61ed10b5c7362e089fe94d8d64164878
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893949"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743867"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o modo de acesso, energia e conectividade para o seu Gateway Azure Data Box
 
@@ -53,7 +53,7 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a senha antig
  
 2. Introduza a nova senha e, em seguida, confirme-a. A palavra-passe fornecida deve ter entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Clique **em Reiniciar**.
 
-    ![Repor palavra-passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Redefinir a palavra-passe 2](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerir o acesso a recursos
 
@@ -119,7 +119,7 @@ Para alterar o modo dispositivo, siga estes passos:
  
 4. Para executar o dispositivo em modo desligado, desative **a gestão do portal Azure**. Agora o dispositivo só pode ser gerido através da UI web local.
 
-    ![Modo conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Modo conectividade 2](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Gerir o poder
 

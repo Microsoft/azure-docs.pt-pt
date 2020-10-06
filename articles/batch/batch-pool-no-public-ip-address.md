@@ -3,15 +3,15 @@ title: Criar um conjunto do Azure Batch sem endereços IP públicos
 description: Saiba como criar uma piscina sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570877"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743663"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
@@ -24,7 +24,7 @@ Por predefinição, todos os nós de computação num conjunto de configuração
 Para restringir o acesso a estes nós e reduzir a descoberta destes nós a partir da internet, pode providenciar a piscina sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O apoio a piscinas sem endereços IP públicos em Azure Batch está atualmente em pré-visualização pública para as seguintes regiões: França Central, Ásia Oriental, Centro Ocidental dos EUA, Centro-Oeste dos EUA, Eua Ocidental 2, Leste dos EUA, Norte da Europa, Leste DOS EUA 2, Eua Central, Europa Ocidental.
+> O apoio a piscinas sem endereços IP públicos em Azure Batch está atualmente em pré-visualização pública para as seguintes regiões: França Central, Ásia Oriental, Central Ocidental, Eua Central, Eua Ocidental 2, Leste dos EUA, Norte da Europa, Leste dos EUA, América Central, Europa Ocidental, Norte-Americano, Eua Ocidental, Austrália Oriental, Japão Leste, Japão Ocidental.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962490"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743918"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Dimensione uma aplicação no Azure App Service
 
@@ -36,7 +36,7 @@ Para obter informações sobre os preços e funcionalidades dos planos individua
 ## <a name="scale-up-your-pricing-tier"></a>Dimensione o seu nível de preços
 
 > [!NOTE]
-> Para escalar até ao nível **PremiumV2,** consulte [o nível Configure PremiumV2 para o Serviço de Aplicações.](app-service-configure-premium-tier.md)
+> Para escalar até ao nível **PremiumV3,** consulte [o nível Configure PremiumV3 para o Serviço de Aplicações.](app-service-configure-premium-tier.md)
 >
 
 1. No browser, abra o [portal do Azure][portal].
@@ -78,7 +78,7 @@ Para uma tabela de limites de serviço, quotas e constrangimentos, e funcionalid
 ## <a name="more-resources"></a>Mais recursos
 
 [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md) (Dimensionar a contagem de instâncias manual ou automaticamente)  
-[Configure o nível PremiumV2 para o Serviço de Aplicações](app-service-configure-premium-tier.md)
+[Configure o nível PremiumV3 para o Serviço de Aplicações](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

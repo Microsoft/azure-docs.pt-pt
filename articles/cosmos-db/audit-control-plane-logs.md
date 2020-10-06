@@ -4,14 +4,14 @@ description: Saiba como auditar as operações do avião de controlo, tais como 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462450"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743901"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
 
@@ -69,17 +69,17 @@ Depois de ligar o registo, utilize os seguintes passos para localizar as operaç
 
 As imagens que se seguem captam registos quando um nível de consistência é alterado para uma conta Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controle os registos do avião quando um VNet é adicionado":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
 
 As imagens seguintes captam registos quando o espaço-chave ou uma tabela de uma conta Cassandra são criados e quando o resultado é atualizado. Os registos do plano de controlo para criar e atualizar operações na base de dados e o contentor são registados separadamente, como mostrado na imagem seguinte:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controle os registos do avião quando a produção é atualizada":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar a identidade associada a uma operação específica
 
 Se pretender depurar ainda mais, pode identificar uma operação específica no **registo de Atividades** utilizando o ID de Atividade ou através do calendário da operação. O timetamp é utilizado para alguns clientes do Gestor de Recursos onde o ID de atividade não é explicitamente passado. O registo de Atividades dá detalhes sobre a identidade com que a operação foi iniciada. A imagem que se segue mostra como utilizar o ID da atividade e encontrar as operações associadas a ele no registo de atividade:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use o ID da atividade e encontre as operações":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Controle as operações do avião para a conta da Azure Cosmos
 
@@ -211,7 +211,22 @@ on activityId_g
 | project Caller, activityId_g
 ```
 
-## <a name="next-steps"></a>Próximos passos
+Consulta para obter atualizações de índice ou ttl. Em seguida, pode comparar a saída desta consulta com uma atualização anterior para ver a variação no índice ou ttl.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**saída:**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Explore o Monitor Azure para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Monitore e depure com métricas em Azure Cosmos DB](use-metrics.md)

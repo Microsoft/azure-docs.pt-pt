@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
-ms.openlocfilehash: 1affa396407ba9804261c799b559e40928b9b1fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/30/2020
+ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388431"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744207"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
@@ -28,7 +27,7 @@ A funcionalidade de eliminação suave do Key Vault permite a recuperação dos 
 
 ## <a name="supporting-interfaces"></a>Interfaces de apoio
 
-A função soft-delete está inicialmente disponível através das interfaces [REST](/rest/api/keyvault/), [CLI,](soft-delete-cli.md) [PowerShell](soft-delete-powershell.md)e [.NET/C#,](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) bem como [modelos ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+A função soft-delete está disponível através da [API REST,](/rest/api/keyvault/)do [Azure CLI,](soft-delete-cli.md) [do Azure PowerShell](soft-delete-powershell.md)e das interfaces [.NET/C#,](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) bem como [dos modelos ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -48,13 +47,13 @@ O período de retenção predefinido é de 90 dias mas, durante a criação do c
 
 Não é possível reutilizar o nome de um cofre-chave que foi apagado até que o período de retenção tenha passado.
 
-### <a name="purge-protection"></a>Proteção de purga 
+### <a name="purge-protection"></a>Proteção de purga
 
 A proteção de purga é um comportamento opcional do Cofre de Chaves e não é **ativada por defeito**. A proteção contra a purga só pode ser ativada quando se ativa uma eliminação suave.  Pode ser ligado via [CLI](soft-delete-cli.md#enabling-purge-protection) ou [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-Quando a proteção contra a purga estiver acesa, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. As abóbadas e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida. 
+Quando a proteção contra a purga estiver acesa, um cofre ou um objeto no estado apagado não podem ser purgados até que o período de retenção tenha passado. As abóbadas e objetos apagados ainda podem ser recuperados, garantindo que a política de retenção será seguida.
 
-O período de retenção por defeito é de 90 dias, mas é possível definir o intervalo de política de retenção para um valor de 7 a 90 dias através do portal Azure. Uma vez definido o intervalo de política de retenção e guardado, não pode ser alterado para o cofre. 
+O período de retenção por defeito é de 90 dias, mas é possível definir o intervalo de política de retenção para um valor de 7 a 90 dias através do portal Azure. Uma vez definido o intervalo de política de retenção e guardado, não pode ser alterado para o cofre.
 
 ### <a name="permitted-purge"></a>Purga permitida
 
@@ -63,6 +62,8 @@ Eliminando, purgando permanentemente, um cofre chave é possível através de um
 As exceções são:
 - Quando a subscrição do Azure tiver sido marcada como *indelével*. Neste caso, apenas o serviço pode então realizar a eliminação real, e fá-lo como um processo programado. 
 - Quando o `--enable-purge-protection flag` ativo está no cofre em si. Neste caso, o Key Vault aguardará 90 dias a partir do momento em que o objeto secreto original foi marcado para eliminação para apagar permanentemente o objeto.
+
+Para os passos, consulte [Como utilizar o Key Vault soft-delete com CLI: Purgar um cofre](soft-delete-cli.md#purging-a-key-vault) de chaves ou como usar o Key Vault [soft-delete com PowerShell: Purgar um cofre de chaves](soft-delete-powershell.md#purging-a-key-vault).
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre chave
 
@@ -79,10 +80,10 @@ Ao mesmo tempo, o Key Vault irá agendar a eliminação dos dados subjacentes co
 Os recursos eliminados por suaves são retidos por um período de tempo definido, 90 dias. Durante o intervalo de retenção de eliminação suave, aplicam-se os seguintes:
 
 - Pode listar todos os cofres chave e objetos-chave do cofre no estado de eliminação suave para a sua subscrição, bem como informações de eliminação e recuperação de acessos sobre eles.
-    - Apenas os utilizadores com permissões especiais podem listar cofres eliminados. Recomendamos que os nossos utilizadores criem uma função personalizada com estas permissões especiais para o manuseamento de cofres eliminados.
-- Um cofre-chave com o mesmo nome não pode ser criado no mesmo local; correspondentemente, um objeto de cofre chave não pode ser criado em um dado cofre se esse cofre de chaves contiver um objeto com o mesmo nome e que está em um estado apagado 
+  - Apenas os utilizadores com permissões especiais podem listar cofres eliminados. Recomendamos que os nossos utilizadores criem uma função personalizada com estas permissões especiais para o manuseamento de cofres eliminados.
+- Um cofre-chave com o mesmo nome não pode ser criado no mesmo local; correspondentemente, um objeto de cofre chave não pode ser criado num dado cofre se o cofre de teclas contiver um objeto com o mesmo nome e que está em estado de apagação.
 - Apenas um utilizador especificamente privilegiado pode restaurar um cofre de chaves ou um objeto de cofre chave, emitindo um comando de recuperação no recurso de procuração correspondente.
-    - O utilizador, membro do papel personalizado, que tem o privilégio de criar um cofre chave sob o grupo de recursos pode restaurar o cofre.
+  - O utilizador, membro do papel personalizado, que tem o privilégio de criar um cofre chave sob o grupo de recursos pode restaurar o cofre.
 - Apenas um utilizador especificamente privilegiado pode apagar à força um cofre de chaves ou um objeto de cofre chave, emitindo um comando de eliminação no recurso de procuração correspondente.
 
 A menos que um cofre chave ou objeto de cofre chave seja recuperado, no final do intervalo de retenção o serviço executa uma purga do cofre de chave ou do objeto-chave eliminado e seu conteúdo. A eliminação de recursos não pode ser reagendada.
@@ -94,10 +95,9 @@ Em geral, quando um objeto (um cofre-chave ou uma chave ou um segredo) está em 
 - As ações de "purga" e "recuperação" contarão para operações normais de cofre e serão faturadas.
 - Se o objeto for uma chave HSM, a carga "tecla protegida de HSM" por versão chave por mês será aplicada se uma versão chave tiver sido utilizada nos últimos 30 dias. Depois disso, uma vez que o objeto está em estado apagado, não podem ser realizadas operações contra ele, pelo que não será aplicada qualquer taxa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os dois guias seguintes oferecem os cenários de utilização primários para a utilização de soft-delete.
 
 - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](soft-delete-powershell.md) 
 - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](soft-delete-cli.md)
-

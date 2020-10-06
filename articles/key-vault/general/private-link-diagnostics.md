@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713054"
+ms.locfileid: "91744224"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados no Cofre da Chave Azure
 
@@ -22,7 +22,7 @@ Este artigo ajuda os utilizadores a diagnosticar e corrigir problemas envolvendo
 
 Se é novo nesta funcionalidade, consulte [Integrate Key Vault com Azure Private Link](private-link-service.md).
 
-### <a name="symptoms-covered-by-this-article"></a>Sintomas cobertos por este artigo
+### <a name="problems-covered-by-this-article"></a>Problemas cobertos por este artigo
 
 - As suas consultas de DNS ainda devolvem um endereço IP público para o cofre de chaves, em vez de um endereço IP privado que você esperaria de usar o recurso de links privados.
 - Todos os pedidos feitos por um determinado cliente que está a usar link privado, estão a falhar com intervalos ou erros de rede, e o problema não é intermitente.
@@ -31,7 +31,7 @@ Se é novo nesta funcionalidade, consulte [Integrate Key Vault com Azure Private
 - O seu cofre tem dois Pontos Finais Privados. Os pedidos de utilização de um estão a funcionar bem, mas os pedidos que usam o outro estão a falhar.
 - Você tem outra subscrição, cofre chave ou rede virtual que está usando links privados. Queres fazer uma nova implantação semelhante, mas não consegues que as ligações privadas funcionem lá.
 
-### <a name="symptoms-not-covered-by-this-article"></a>Sintomas NÃO cobertos por este artigo
+### <a name="problems-not-covered-by-this-article"></a>Problemas NÃO cobertos por este artigo
 
 - Há um problema de conectividade intermitente. Num dado cliente, vemos alguns pedidos a funcionar e outros a não funcionar. *Os problemas intermitentes não são normalmente causados por um problema na configuração de links privados; são um sinal de rede ou sobrecarga de clientes.*
 - Está a utilizar um produto Azure que suporta a BYOK (Bring Your Own Key) ou CMK (Customer Managed Keys), e esse produto não consegue aceder ao cofre da chave. *Veja a outra documentação do produto. Certifique-se de que indica explicitamente o suporte para cofres-chave com a firewall ativada. Contacte o suporte do produto para esse produto específico, se necessário.*
@@ -188,7 +188,7 @@ A notável diferença do cenário anterior é que há um novo pseudónimo com o 
 
 Não significa que os pedidos realizados a partir de máquinas *fora* da Rede Virtual (como a que acabou de usar) utilizem links privados - não irão. Pode ver isso pelo facto de o nome de anfitrião ainda resolver um endereço IP público. Apenas as máquinas *ligadas à Rede Virtual* podem utilizar links privados. Mais sobre isto seguir-se-á.
 
-Se não vires o `privatelink` Alias, significa que o cofre tem zero ligações privadas no `Approved` estado. Continuar a ler este artigo.
+Se não vir o `privatelink` pseudónimo, significa que o cofre tem zero ligações privadas no `Approved` estado. Volte para [esta secção](#2-confirm-that-the-connection-is-approved-and-succeeded) antes de voltar a tentar.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Cofre chave com ligação privada resolvendo a partir de Rede Virtual
 

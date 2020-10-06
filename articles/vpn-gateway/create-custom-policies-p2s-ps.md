@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665095"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743697"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>Criar e definir políticas iPsec personalizadas para ponto a local
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Criar e definir políticas IPsec personalizadas para ponto a local (pré-visualização)
 
 Se o seu ambiente necessitar de uma política IPsec personalizada para encriptação, pode configurar facilmente um objeto de política com as definições necessárias. Este artigo ajuda-o a criar um objeto de política personalizado e, em seguida, defini-lo usando o PowerShell.
 
@@ -57,6 +57,6 @@ $gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway -VpnClientIpsecPolicy $vpnclientipsecpolicy
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as configurações P2S, consulte [Sobre a VPN ponto-a-local](point-to-site-about.md).

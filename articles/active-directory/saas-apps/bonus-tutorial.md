@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: fd82d3d2d2a76e0c0671c57d9254ff8c9030d3a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548295"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Ative Directory com bónus
 
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bonusly**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Bonusly**.
 
@@ -222,11 +222,11 @@ Para permitir que os utilizadores Azure AD inscrevam-se na Bonusly, devem ser ad
 
 1. Clique em **Adicionar Utilizador**.
 
-    ![Adicionar utilizador](./media/bonus-tutorial/ic781044.png "Adicionar Utilizador")
+    ![A screenshot mostra gerir os utilizadores onde pode selecionar Adicionar Utilizador.](./media/bonus-tutorial/ic781044.png "Adicionar Utilizador")
 
 1. No diálogo **do Utilizador Adicionar,** execute os seguintes passos:
 
-    ![Adicionar utilizador](./media/bonus-tutorial/ic781045.png "Adicionar Utilizador")  
+    ![A screenshot mostra a caixa de diálogo Do Utilizador Adicionar onde pode introduzir estas informações.](./media/bonus-tutorial/ic781045.png "Adicionar Utilizador")  
 
     a. Na caixa de texto do **primeiro nome,** insira o primeiro nome de utilizador como **Britta**.
 

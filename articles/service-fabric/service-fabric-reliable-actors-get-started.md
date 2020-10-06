@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3727c41c991b83bc3869279cbb0535a6185ff04d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015735"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743765"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Começar com atores fiáveis
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Crie uma aplicação de consola simples para ligar para o serviço de ator.
 
     O pacote NuGet e todas as suas dependências estão instalados no projeto ActorClient.
 
-5. O projeto do cliente também requer uma referência ao projeto interfaces.  No projeto ActorClient, clique à direita **Dependências** e, em seguida, clique em **Adicionar referência...**.  Selecione **Projetos > Solução** (se ainda não selecionada) e, em seguida, marque a caixa de verificação ao lado **da HelloWorld.Interfaces**.  Clique em **OK**.
+5. O projeto do cliente também requer uma referência ao projeto interfaces.  No projeto ActorClient, clique à direita **Em Dependencies** e, em seguida, clique em **Adicionar Referência do Projeto...**.  Selecione **Projetos > Solução** (se ainda não selecionada) e, em seguida, marque a caixa de verificação ao lado **da HelloWorld.Interfaces**.  Clique em **OK**.
     
     ![Adicionar diálogo de referência][7]
 

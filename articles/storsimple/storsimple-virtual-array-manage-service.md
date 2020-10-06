@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698942"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744139"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementar o serviço StorSimple Device Manager para StorSimple Virtual Array
 
@@ -109,7 +109,7 @@ Execute os seguintes passos para regenerar uma chave de registo de serviço.
 #### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registo de serviço
 1. Na lâmina **StorSimple Device Manager,** aceda às **Teclas** **de Gestão &gt; ** .
    
-   ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Lâmina de teclas novamente](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na lâmina **Keys,** clique em **Regenerar.**
    
    ![Clique em regenerar](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,11 +118,11 @@ Execute os seguintes passos para regenerar uma chave de registo de serviço.
    ![Confirme a chave regeneração](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Aparecerá uma nova chave de registo de serviço.
    
-    ![Confirme a chave regeneração](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Chave regeneração adicional confirme](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copie esta chave e guarde-a para registar quaisquer novos dispositivos com este serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [começar](storsimple-virtual-array-deploy1-portal-prep.md) com uma Matriz Virtual StorSimple.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

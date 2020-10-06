@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449629"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743935"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -40,6 +40,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 * Certifique-se de que o cliente NFS está atualizado e a executar as últimas atualizações para o sistema operativo.
 * Certifique-se de que o servidor LDAP do Ative Directory (AD) está a funcionar no AD. Isto é feito através da instalação e configuração da função [ative Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na máquina AD.
 * Certifique-se de que uma autoridade de certificados (CA) é criada na AD utilizando a função [de Serviços de Certificados de Diretório Ativo (CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado de CA de raiz auto-assinado.   
+* Atualmente, os volumes de protocolo duplo não suportam os Serviços de Domínio do Diretório Ativo Azure (AADDS).  
 
 ## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
 
@@ -148,7 +149,7 @@ Tem de definir os seguintes atributos para utilizadores LDAP e grupos LDAP:
 
 Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](configure-nfs-clients.md) para configurar o cliente NFS.  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Perguntas frequentes de dois protocolos](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

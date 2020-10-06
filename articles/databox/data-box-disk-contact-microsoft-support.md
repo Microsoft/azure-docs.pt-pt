@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: d4622ae1fa87a47915094b7ab90390c753b82dbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609119"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744156"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um bilhete de apoio para Azure Data Box
 
@@ -38,7 +38,7 @@ Execute os seguintes passos para criar um pedido de apoio:
     4. Especifique o seu **plano de suporte.**
     5. Clique em **Seguinte**.
 
-        ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Informações básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. No **novo pedido de apoio**, selecione Problema passo **2**. Em **Problema**, faça os seguintes passos:
 
@@ -76,11 +76,11 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 2. Uma listagem tabular de **pedidos** de suporte recentes é apresentada no **suporte Help +**.
 
-    ![Gerir pedidos de apoio](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
+    ![Gerir pedidos de apoio 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes deste pedido. Clique **em + Nova mensagem** se quiser acompanhar este pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [resolver problemas relacionados com o disco da caixa de dados.](data-box-disk-troubleshoot.md)
 Saiba como [resolver problemas relacionados com a Data Box](data-box-troubleshoot.md).

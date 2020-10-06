@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534867"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744020"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -109,8 +109,8 @@ As propriedades de [atribuição de negação](../../../role-based-access-contro
 
 |Modo |Permissões.Ações |Permissões.NotActions |Diretores[i]. Tipo |Excluir os Príncipes[i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Só de Leitura |**\*** |**\*/ler** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
-|Não apagar |**\*/eliminar** | |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
+|Só de Leitura |**\*** |**\*/ler**<br />**Microsoft.Autorização/bloqueios/exclusão**<br />**Microsoft.Network/virtualNetwork/sub-redes/join/action** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
+|Não apagar |**\*/eliminar** | **Microsoft.Autorização/bloqueios/exclusão**<br />**Microsoft.Network/virtualNetwork/sub-redes/join/action** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager caches detalhes de atribuição de funções por até 30 minutos. Como resultado, negar atribuições que negam que as ações sobre recursos de planta possam não estar imediatamente em vigor. Durante este período de tempo, poderá ser possível eliminar um recurso destinado a ser protegido por fechaduras de plantas.
@@ -179,7 +179,7 @@ Tal como [excluir um principal](#exclude-a-principal-from-a-deny-assignment) num
 
 Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluídas deacções** podem utilizar `*` para a correspondência de wildcard das operações do fornecedor de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Siga o tutorial [de novos recursos.](../tutorials/protect-new-resources.md)
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

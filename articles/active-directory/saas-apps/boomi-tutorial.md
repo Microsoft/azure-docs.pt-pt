@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 379ae013e9343b14b854386a0a9f486dd2917e94
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712328"
+ms.locfileid: "91744292"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
 
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML.
 
-    ![image](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde aparecem os valores do Identifier e da Resposta U R L.](common/idp-intiated.png)
 
     d. Introduza o **URL de inscrição,** tal como `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
 
@@ -98,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação Boomi espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![image](common/default-attributes.png)
+    ![A screenshot mostra atributos do utilizador & Reclamações com valores predefinidos, tais como givenname user.givenname e Emailaddress User.mail.](common/default-attributes.png)
 
 1. Além de acima, a aplicação Boomi espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
@@ -176,13 +176,13 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Boomi, devem ser a
 
 1. Depois de iniciar sessão, navegue para a **Gestão do Utilizador** e vá aos **Utilizadores**.
 
-    ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_001.png "Utilizadores")
+    ![A screenshot mostra a página de Gestão do Utilizador com os Utilizadores selecionados.](./media/boomi-tutorial/tutorial_boomi_001.png "Utilizadores")
 
 1. Clique **+**  no ícone e o diálogo **'Adicionar/Manter os papéis do utilizador'** abre.'
 
-    ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_002.png "Utilizadores")
+    ![A screenshot mostra o ícone + selecionado.](./media/boomi-tutorial/tutorial_boomi_002.png "Utilizadores")
 
-    ![Utilizadores](./media/boomi-tutorial/tutorial_boomi_003.png "Utilizadores")
+    ![A screenshot mostra as funções de utilizador add / keep onde configura um utilizador.](./media/boomi-tutorial/tutorial_boomi_003.png "Utilizadores")
 
     a. Na caixa de texto **do endereço de e-mail** do Utilizador, digite o e-mail do utilizador como B.Simon@contoso.com .
 

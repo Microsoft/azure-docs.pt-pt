@@ -1,6 +1,6 @@
 ---
 title: Alterar o desempenho dos discos geridos Azure
-description: Saiba mais sobre os níveis de desempenho para discos geridos, bem como como alterar os níveis de desempenho para discos geridos existentes.
+description: Aprenda sobre os níveis de desempenho para discos geridos e aprenda a mudar os níveis de desempenho para discos geridos existentes.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,22 +8,27 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7da500c3f18b7bf7057b0c5875bc9b39136a6483
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396591"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743731"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
-A Azure Disk Storage oferece atualmente capacidades de rebentamento incorporadas para obter um desempenho mais elevado para lidar com tráfego inesperado de curto prazo. Os SSDs Premium têm a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco, permitindo-lhe corresponder às necessidades de desempenho da sua carga de trabalho e reduzir custos, esta funcionalidade está atualmente em pré-visualização. Isto é ideal para eventos que temporariamente requerem um nível de desempenho consistentemente mais elevado, como compras de férias, testes de desempenho ou execução de um ambiente de treino. Para lidar com estes eventos, pode selecionar um nível de desempenho mais elevado durante o tempo necessário e voltar ao nível original quando o desempenho adicional já não for necessário.
+A Azure Disk Storage oferece atualmente capacidades de rebentamento incorporadas para proporcionar um maior desempenho para lidar com tráfego inesperado de curto prazo. Os SSDs premium têm a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco. Esta capacidade permite-lhe corresponder às suas necessidades de desempenho da carga de trabalho e reduzir custos. 
+
+> [!NOTE]
+> Esta funcionalidade encontra-se em pré-visualização. 
+
+Esta funcionalidade é ideal para eventos que temporariamente requerem um nível de desempenho consistentemente mais elevado, como compras de férias, testes de desempenho ou execução de um ambiente de treino. Para lidar com estes eventos, pode utilizar um nível de desempenho mais elevado durante o tempo que precisar. Em seguida, pode voltar ao nível original quando já não necessitar do desempenho adicional.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando implementa ou disponibiliza um disco pela primeira vez, o nível de desempenho de base para esse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais elevado pode ser selecionado para satisfazer uma maior procura e, quando esse desempenho já não for necessário, pode voltar ao nível de desempenho inicial da linha de base.
+Quando implementa ou disponibiliza um disco pela primeira vez, o nível de desempenho de base para esse disco é definido com base no tamanho do disco provisionado. Você pode usar um nível de desempenho mais alto para satisfazer uma maior procura. Quando já não precisares desse nível de desempenho, podes voltar ao nível de desempenho inicial da linha de base.
 
-A sua faturação muda à medida que o seu nível muda. Por exemplo, se forre um disco P10 (128 GiB), o seu nível de desempenho de base é definido como P10 (500 IOPS e 100 MB/s) e será faturado à taxa P10. Pode atualizar o nível para corresponder ao desempenho de P50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco, período durante o qual será faturado à taxa P50. Quando o desempenho mais elevado já não for necessário, pode voltar ao nível P10 e o disco será novamente faturado à taxa P10.
+A sua faturação muda à medida que o seu nível muda. Por exemplo, se forre um disco P10 (128 GiB), o seu nível de desempenho de base é definido como P10 (500 IOPS e 100 MBps). Será cobrado à taxa P10. Pode atualizar o nível para corresponder ao desempenho de P50 (7.500 IOPS e 250 MBps) sem aumentar o tamanho do disco. Durante o upgrade, será cobrado à taxa P50. Quando já não precisares de um desempenho superior, podes voltar ao nível P10. O disco será novamente cobrado à taxa P10.
 
 | Tamanho do disco | Nível de desempenho de base | Pode ser atualizado para |
 |----------------|-----|-------------------------------------|
@@ -46,16 +51,14 @@ Para obter informações sobre faturação, consulte [preços de disco geridos](
 
 ## <a name="restrictions"></a>Restrições
 
-- Atualmente apenas suportado para SSDs premium.
-- Os discos devem ser separados de um VM em funcionamento antes de alterar os níveis.
-- A utilização dos níveis de desempenho P60, P70 e P80 está restrita aos discos de 4096 GiB ou superiores.
-- Um nível de desempenho dos discos só pode ser alterado uma vez a cada 24 horas.
+- Atualmente esta funcionalidade é suportada apenas para SSDs premium.
+- Tem de separar o disco de um VM em funcionamento antes de poder alterar o nível do disco.
+- A utilização dos níveis de desempenho P60, P70 e P80 está restrita a discos de 4.096 GiB ou superiores.
+- O nível de desempenho de um disco só pode ser alterado uma vez a cada 24 horas.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-Atualmente, o ajustamento do nível de desempenho de um disco gerido só está atualmente disponível para SSDs premium nas seguintes regiões:
-
-- E.U.A. Centro-Oeste 
+A capacidade de ajustar o nível de desempenho de um disco gerido está atualmente disponível apenas em SSDs premium na região dos EUA. 
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com um nível superior ao nível de base
 
@@ -102,7 +105,7 @@ az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver de redimensionar um disco para tirar partido dos níveis de desempenho maiores, consulte os nossos artigos sobre o assunto:
+Se precisar de redimensionar um disco para tirar partido dos níveis de desempenho mais elevados, consulte estes artigos:
 
 - [Expandir discos rígidos virtuais num Linux VM com o Azure CLI](linux/expand-disks.md)
 - [Expandir um disco gerido ligado a uma máquina virtual do Windows](windows/expand-os-disk.md)

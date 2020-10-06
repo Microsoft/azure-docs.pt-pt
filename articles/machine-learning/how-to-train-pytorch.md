@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 99f249c9eba0e3d59fd687ac2c3886d037d1ff20
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532776"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743782"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treinar modelos PyTorch em escala com Azure Machine Learning
 
@@ -113,48 +113,10 @@ Para obter mais informações sobre metas de computação, consulte o [que é um
 
 ### <a name="define-your-environment"></a>Defina o seu ambiente
 
-Para definir o [Ambiente](concept-environments.md) Azure ML que engloba as dependências do seu script de treino, você pode definir um ambiente personalizado ou usar e Azure ML ambiente curado.
-
-#### <a name="create-a-custom-environment"></a>Criar um ambiente personalizado
-
-Defina o ambiente Azure ML que encapsula as dependências do seu script de treino.
-
-Primeiro, defina as suas dependências conda num ficheiro YAML; neste exemplo, o ficheiro é nomeado `conda_dependencies.yml` .
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - future==0.17.1
-  - pillow
-```
-
-Crie um ambiente Azure ML a partir desta especificação ambiente conda. O ambiente será embalado num contentor Docker em tempo de execução.
-
-Por predefinição, se não for especificada nenhuma imagem de base, o Azure ML utilizará uma imagem cpU `azureml.core.runconfig.DEFAULT_CPU_IMAGE` como imagem base. Uma vez que este exemplo executa o treino num cluster de GPU, você precisará especificar uma imagem base da GPU que tenha os condutores e dependências de GPU necessários. Azure ML mantém um conjunto de imagens de base publicadas no Microsoft Container Registry (MCR) que pode utilizar, consulte o [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo para obter mais informações.
-
-```python
-from azureml.core import Environment
-
-pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
-
-# Specify a GPU base image
-pytorch_env.docker.enabled = True
-pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
-```
-
-> [!TIP]
-> Opcionalmente, pode capturar todas as suas dependências diretamente numa imagem personalizada do Docker ou Dockerfile, e criar o seu ambiente a partir daí. Para mais informações, consulte [Train com imagem personalizada.](how-to-train-with-custom-image.md)
-
-Para obter mais informações sobre a criação e utilização de ambientes, consulte [Criar e utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
+Para definir o [Ambiente](concept-environments.md) Azure ML que engloba as dependências do seu script de treino, você pode definir um ambiente personalizado ou usar um ambiente curado Azure ML.
 
 #### <a name="use-a-curated-environment"></a>Use um ambiente curado
-Opcionalmente, a Azure ML fornece ambientes pré-construídos e curados se não quiser construir a sua própria imagem. Azure ML tem vários ambientes com curadoria de CPU e GPU para PyTorch correspondentes a diferentes versões de PyTorch. Para mais informações, consulte [aqui.](resource-curated-environments.md)
+A azure ML fornece ambientes pré-construídos e curados se você não quiser definir o seu próprio ambiente. Azure ML tem vários ambientes com curadoria de CPU e GPU para PyTorch correspondentes a diferentes versões de PyTorch. Para mais informações, consulte [aqui.](resource-curated-environments.md)
 
 Se quiser utilizar um ambiente curado, pode executar o seguinte comando:
 
@@ -177,6 +139,44 @@ Se em vez disso modificou diretamente o objeto ambiental curado, pode clonar ess
 ```python
 pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 ```
+
+#### <a name="create-a-custom-environment"></a>Criar um ambiente personalizado
+
+Também pode criar o seu próprio ambiente Azure ML que encapsula as dependências do seu script de treino.
+
+Primeiro, defina as suas dependências conda num ficheiro YAML; neste exemplo, o ficheiro é nomeado `conda_dependencies.yml` .
+
+```yaml
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-defaults
+  - torch==1.6.0
+  - torchvision==0.7.0
+  - future==0.17.1
+  - pillow
+```
+
+Crie um ambiente Azure ML a partir desta especificação ambiente conda. O ambiente será embalado num contentor Docker em tempo de execução.
+
+Por predefinição, se não for especificada nenhuma imagem de base, o Azure ML utilizará uma imagem cpU `azureml.core.environment.DEFAULT_CPU_IMAGE` como imagem base. Uma vez que este exemplo executa o treino num cluster de GPU, você precisará especificar uma imagem base da GPU que tenha os condutores e dependências de GPU necessários. Azure ML mantém um conjunto de imagens de base publicadas no Microsoft Container Registry (MCR) que pode utilizar, consulte o [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo para obter mais informações.
+
+```python
+from azureml.core import Environment
+
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+
+# Specify a GPU base image
+pytorch_env.docker.enabled = True
+pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
+```
+
+> [!TIP]
+> Opcionalmente, pode capturar todas as suas dependências diretamente numa imagem personalizada do Docker ou Dockerfile, e criar o seu ambiente a partir daí. Para mais informações, consulte [Train com imagem personalizada.](how-to-train-with-custom-image.md)
+
+Para obter mais informações sobre a criação e utilização de ambientes, consulte [Criar e utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md).
 
 ## <a name="configure-and-submit-your-training-run"></a>Configure e submeta a sua formação
 
@@ -320,7 +320,7 @@ Para obter um tutorial completo sobre a execução do PyTorch distribuído no Az
 
 Para otimizar a inferência com o [Tempo de Execução ONNX,](concept-onnx.md)converta o seu modelo PyTorch treinado para o formato ONNX. Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para previsão, mais frequentemente em dados de produção. Veja o [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) como exemplo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você treinou e registou uma rede neural de aprendizagem profunda usando PyTorch em Azure Machine Learning. Para aprender a implementar um modelo, continue para o nosso artigo de implementação de modelos.
 
