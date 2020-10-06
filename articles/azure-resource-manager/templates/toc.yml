@@ -379,7 +379,7 @@
           href: key-vault-parameter.md
     - name: CI/CD
       items:
-        - name: Projeto de VS com pipelines
+        - name: Modelos do ARM com pipelines
           href: add-template-to-azure-pipelines.md
         - name: Implementar - GitHub Actions
           href: deploy-github-actions.md

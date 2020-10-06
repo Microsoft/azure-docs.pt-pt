@@ -13,20 +13,20 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: bd1a0b2efb01d0db153bd666f8ff4e3911095702
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: f3711352d18b0f225ed94c0b09ec17b7a90917ac
+  ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90985002"
+  ms.lasthandoff: 10/02/2020
+  ms.locfileid: "91653082"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
     itemType: overview
     url: ./general/overview.md
-  - title: Alterações importantes à eliminação recuperável
+  - title: Atualizações importantes ao serviço
     itemType: whats-new
-    url: ./general/soft-delete-change.md
+    url: ./general/whats-new.md
   - title: Autenticação
     itemType: overview
     url: ./general/authentication.md

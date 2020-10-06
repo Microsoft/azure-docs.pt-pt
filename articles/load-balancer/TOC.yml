@@ -4,7 +4,7 @@
   items:
     - name: O que é o Balanceador de Carga do Azure?
       href: load-balancer-overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar um balanceador de carga público - Portal
       href: quickstart-load-balancer-standard-public-portal.md
@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: Ligações de saída
       href: load-balancer-outbound-connections.md
-    - name: Reposição de TCP em tempo limite de inatividade
+    - name: Reposição de TCP e tempo limite de inatividade de TCP
       href: load-balancer-tcp-reset.md
     - name: Balanceador de Carga Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md

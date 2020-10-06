@@ -265,8 +265,8 @@
                     - name: Preparar unidades para importação (v2)
         - name: Monitorização
           items:
-            - name: Monitorizar uma conta de armazenamento
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Monitorizar Armazenamento de blobs
+              href: monitor-blob-storage.md
             - name: Transição a partir de métricas clássicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitorização (clássico)
@@ -554,7 +554,7 @@
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
         - name: Monitorizar dados
-          href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: monitor-blob-storage-reference.md
         - name: Incorporações do Azure Policy
           displayName: 'samples, policies, definitions'
           href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -701,7 +701,7 @@
               href: data-lake-storage-supported-open-source-platforms.md
         - name: Monitorização
           items:
-            - name: Monitorizar uma conta de armazenamento
+            - name: Monitorizar Armazenamento de blobs
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transição a partir de métricas clássicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

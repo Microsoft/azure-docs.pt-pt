@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 7b64ef2739b8e6531f7531f9a135b7fb5ffe3467
-  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
+  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/09/2020
-  ms.locfileid: "89568023"
+  ms.lasthandoff: 10/02/2020
+  ms.locfileid: "91667457"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -118,15 +118,23 @@ conceptualContent:
       url: index-voice-assistants.yml
   - title: Reconhecimento de Orador
     links:
-    - itemType: how-to-guide
+    - itemType: overview
       text: Acerca do Reconhecimento de Orador
       url: speaker-recognition-overview.md
-    - itemType: how-to-guide
-      text: Noções básicas de Reconhecimento de Orador
+    - itemType: quickstart
+      text: Introdução ao Reconhecimento de Orador
       url: speaker-recognition-basics.md
     - itemType: how-to-guide
       text: Referência da API de Reconhecimento de Orador
       url: https://docs.microsoft.com/rest/api/speakerrecognition/
+  - title: Palavra-chave personalizada
+    links:
+    - itemType: overview
+      text: Acerca da Palavra-passe Personalizada
+      url: custom-keyword-overview.md
+    - itemType: quickstart
+      text: Introdução à Palavra-passe Personalizada
+      url: custom-keyword-basics.md
   - title: Ferramentas
     links:
     - itemType: overview

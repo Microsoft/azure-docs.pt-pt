@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: Monitorizar desempenho
           href: insights/vminsights-performance.md
+        - name: Monitorizar alterações
+          href: insights/vminsights-change-analysis.md
         - name: Analisar dados com consultas de registo
           href: insights/vminsights-log-search.md
         - name: Visualizar dados com livros

@@ -146,6 +146,10 @@
           href: move-subscription.md
         - name: Mover o Key Vault para Outra Região
           href: move-region.md
+    - name: Redes
+      items:
+        - name: Diagnosticar Problemas do Private Link
+          href: private-link-diagnostics.md
 - name: Referência
   items:
     - name: Novidades

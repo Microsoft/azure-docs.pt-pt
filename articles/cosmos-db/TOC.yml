@@ -1064,6 +1064,8 @@
       items:
         - name: Migrar para o SDK Java V4
           href: migrate-java-v4-sdk.md
+        - name: Migrar para o SDK .NET V3
+          href: migrate-dotnet-v3.md
     - name: Resolução de problemas
       items:
         - name: Erros comuns
