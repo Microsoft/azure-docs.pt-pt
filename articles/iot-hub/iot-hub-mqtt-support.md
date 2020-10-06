@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664941"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767312"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -119,7 +119,7 @@ Este repositório contém:
 
 * DeviceTwinMQTTWin32: contém código para consultar e subscrever os eventos gémeos do dispositivo de um dispositivo no hub Azure IoT numa máquina Windows.
 
-* PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com ioT Plug & Reprodução capacidades do Dispositivo de pré-visualização para um hub Azure IoT, construído e executado numa máquina Windows. Pode ler mais no [IoT Plug & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com capacidades de IoT Plug e Play para um hub IoT Azure, construído e executado numa máquina Windows. Pode ler mais no [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Para Linux:**
 
@@ -437,7 +437,7 @@ Para obter mais informações, consulte o [guia do programador de métodos Diret
 
 Como consideração final, se precisar de personalizar o comportamento do protocolo MQTT no lado da nuvem, deve rever o gateway de [protocolo Azure IoT](iot-hub-protocol-gateway.md). Este software permite-lhe implementar um portal de protocolo personalizado de alto desempenho que interage diretamente com o IoT Hub. O gateway de protocolo Azure IoT permite-lhe personalizar o protocolo do dispositivo para acomodar implementações MQTT brownfield ou outros protocolos personalizados. Esta abordagem requer, no entanto, que você corra e opere um portal de protocolo personalizado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https://mqtt.org/).
 

@@ -1,0 +1,272 @@
+---
+title: Use ações do GitHub para implantar um site estático para o armazenamento de Azure
+description: Website estático de armazenamento Azure hospedado com ações do GitHub
+author: juliakm
+ms.service: storage
+ms.topic: how-to
+ms.author: jukullam
+ms.reviewer: dineshm
+ms.date: 09/11/2020
+ms.subservice: blobs
+ms.custom: devx-track-javascript, github-actions-azure
+ms.openlocfilehash: 9b616f8df0a8b64969fac1d18544e6d316120e50
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91771067"
+---
+# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Crie um fluxo de trabalho de GitHub Actions para implementar o seu website estático no Azure Storage
+
+Começa com as [ações do GitHub](https://docs.github.com/en/actions) utilizando um fluxo de trabalho para implantar um site estático numa bolha de armazenamento Azure. Uma vez configurado um fluxo de trabalho gitHub Actions, poderá implementar automaticamente o seu site para Azure a partir do GitHub quando escoar alterações ao código do seu site. 
+
+> [!NOTE]
+> Se estiver a utilizar [aplicações web estáticas Azure](https://docs.microsoft.com/azure/static-web-apps/), então não precisa de configurar manualmente um fluxo de trabalho gitHub Actions.
+> A azure Static Web Apps cria automaticamente um fluxo de trabalho GitHub para si. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma subscrição da Azure e uma conta GitHub. 
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Uma conta GitHub com o seu código de site estático. Se não tiver uma conta GitHub, [inscreva-se gratuitamente.](https://github.com/join)  
+- Um site estático de trabalho hospedado no Azure Storage. Saiba como [hospedar um website estático no Azure Storage](storage-blob-static-website-how-to.md). O seu site estático deve incluir um [Azure CDN](static-website-content-delivery-network.md).
+
+## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
+
+Pode criar um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+
+Substitua o espaço reservado `myStaticSite` pelo nome do seu site alojado no Azure Storage. 
+
+```azurecli-interactive
+   az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+```
+
+No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e nome de grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de funções que fornecem acesso à sua aplicação de Serviço de Aplicações semelhante abaixo. Copie este objeto JSON para mais tarde.
+
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
+
+> [!IMPORTANT]
+> É sempre uma boa prática conceder o mínimo acesso. O âmbito no exemplo anterior está limitado à aplicação específica do Serviço de Aplicações e não a todo o grupo de recursos.
+
+## <a name="configure-the-github-secret"></a>Configure o segredo do GitHub
+
+1. No [GitHub,](https://github.com/)navegue no seu repositório.
+
+1. Selecione **Definições > Segredos > Novo segredo**.
+
+1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS` como.
+
+    Quando configurar o ficheiro de fluxo de trabalho mais tarde, utilize o segredo para a entrada `creds` da ação Azure Login. Por exemplo:
+
+    ```yaml
+    - uses: azure/login@v1
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
+
+## <a name="add-your-workflow"></a>Adicione o seu fluxo de trabalho
+
+1. Vá às **ações** para o seu repositório GitHub. 
+
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Item do menu de ações do GitHub&quot;:::
+
+1. Selecione **Configurar o seu fluxo de trabalho por si mesmo**. 
+
+1. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
+
+    ```yml
+    name: CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+    ```
+
+1. Mude o nome do seu fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e login. Estas ações irão verificar o código do seu site e autenticar-se com o Azure usando o `AZURE_CREDENTIALS` segredo GitHub que criou anteriormente. 
+
+    ```yml
+    name: Blob storage website CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:            
+        - uses: actions/checkout@v2
+        - uses: azure/login@v1
+          with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
+
+1. Utilize a ação Azure CLI para carregar o seu código para o armazenamento de bolhas e para limpar o seu ponto final CDN. Para `az storage blob upload-batch` , substitua o espaço reservado pelo nome da sua conta de armazenamento. O guião será enviado para o `$web` contentor. Para `az cdn endpoint purge` , substitua os espaços reservados pelo nome do seu perfil CDN, nome de ponto final CDN e grupo de recursos.
+
+    ```yaml
+        - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+        - name: Purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP&quot;
+    ``` 
+
+1. Complete o seu fluxo de trabalho adicionando uma ação ao logout da Azure. Aqui está o fluxo de trabalho completo. O ficheiro aparecerá na `.github/workflows` pasta do seu repositório.
+
+    ```yaml
+   name: Blob storage website CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Azure Login
+        uses: azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}    
+        - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+        - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP"
+            # Azure logout 
+        - name: logout
+          run: |
+                az logout
+    ```
+
+## <a name="review-your-deployment"></a>Reveja a sua implementação
+
+1. Vá às **ações** para o seu repositório GitHub. 
+
+1. Abra o primeiro resultado para ver os registos detalhados do funcionaamento do seu fluxo de trabalho. 
+ 
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Item do menu de ações do GitHub&quot;:::
+
+1. Selecione **Configurar o seu fluxo de trabalho por si mesmo**. 
+
+1. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
+
+    ```yml
+    name: CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+    ```
+
+1. Mude o nome do seu fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e login. Estas ações irão verificar o código do seu site e autenticar-se com o Azure usando o `AZURE_CREDENTIALS` segredo GitHub que criou anteriormente. 
+
+    ```yml
+    name: Blob storage website CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:            
+        - uses: actions/checkout@v2
+        - uses: azure/login@v1
+          with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
+
+1. Utilize a ação Azure CLI para carregar o seu código para o armazenamento de bolhas e para limpar o seu ponto final CDN. Para `az storage blob upload-batch` , substitua o espaço reservado pelo nome da sua conta de armazenamento. O guião será enviado para o `$web` contentor. Para `az cdn endpoint purge` , substitua os espaços reservados pelo nome do seu perfil CDN, nome de ponto final CDN e grupo de recursos.
+
+    ```yaml
+        - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+        - name: Purge CDN endpoint
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP&quot;
+    ``` 
+
+1. Complete o seu fluxo de trabalho adicionando uma ação ao logout da Azure. Aqui está o fluxo de trabalho completo. O ficheiro aparecerá na `.github/workflows` pasta do seu repositório.
+
+    ```yaml
+   name: Blob storage website CI
+
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Azure Login
+        uses: azure/login@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}    
+        - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+        - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+            azcliversion: 2.0.72
+            inlineScript: |
+            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP":::
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando o seu site estático Azure e o repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
+
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)

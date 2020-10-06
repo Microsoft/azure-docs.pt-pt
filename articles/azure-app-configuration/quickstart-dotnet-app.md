@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4edf48b73ee4d50679cbec377ed47749d2c94776
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d338ca5cf2c794f15d3eb535b5280208236d1e34
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569618"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767758"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação .NET Framework com Configuração de Aplicações Azure
 
@@ -30,7 +30,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer**  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -38,7 +38,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
-7. Selecione **Aplicar**.
+8. Selecione **Aplicar**.
 
 ## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
@@ -98,7 +98,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 1. Prima Ctrl + F5 para construir e executar a aplicação da consola.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

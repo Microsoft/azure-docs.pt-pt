@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586458"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767637"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Java Spring com Configuração de Aplicação Azure
 
@@ -32,7 +32,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -40,7 +40,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
-7. Selecione **Aplicar**.
+8. Selecione **Aplicar**.
 
 ## <a name="create-a-spring-boot-app"></a>Criar uma aplicação de Boot de primavera
 
@@ -182,7 +182,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

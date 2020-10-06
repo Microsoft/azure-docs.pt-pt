@@ -3,12 +3,12 @@ title: Segurança de rede para hubs de eventos Azure
 description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521858"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767800"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos Azure 
 Este artigo descreve como usar as seguintes funcionalidades de segurança com os Azure Event Hubs: 
@@ -16,7 +16,7 @@ Este artigo descreve como usar as seguintes funcionalidades de segurança com os
 - Etiquetas de serviço
 - Regras ip firewall
 - Pontos finais de serviço de rede
-- Pontos finais privados (pré-visualização)
+- Pontos finais privados
 
 
 ## <a name="service-tags"></a>Etiquetas de serviço
@@ -74,14 +74,11 @@ Um ponto final privado é uma interface de rede que o liga de forma privada e se
 
 > [!NOTE]
 > Esta funcionalidade é suportada apenas com o nível **dedicado.** Para obter mais informações sobre o nível dedicado, consulte [a visão geral dos Centros de Eventos Dedicados.](event-hubs-dedicated-overview.md) 
->
-> Esta funcionalidade encontra-se atualmente em **pré-visualização.** 
-
 
 Para mais informações, consulte [Como configurar pontos finais privados para um centro de eventos](private-link-service.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como configurar firewall IP para um centro de eventos](event-hubs-ip-filtering.md)

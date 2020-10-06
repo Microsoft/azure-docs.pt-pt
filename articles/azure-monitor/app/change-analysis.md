@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: c78132ca85b87486e2fa8f41da6ae430c6eabba0
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667629"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767657"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -141,7 +141,7 @@ Se a sua subscrição incluir numerosas aplicações web, ativar o serviço ao n
 
 Pré-requisitos:
 
-- Módulo PowerShell Az. Siga as instruções na [Instalação do módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- Módulo PowerShell Az. Siga as instruções na [Instalação do módulo Azure PowerShell](/powershell/azure/install-az-ps)
 
 Execute o seguintes script:
 
@@ -189,7 +189,7 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Ativar insights de aplicações para [aplicações Azure App Services](azure-web-apps.md).
 - Ativar os Insights de Aplicações para [Azure VM e Azure série de máquinas virtuais definir aplicações hospedadas no IIS](azure-vm-vmss-apps.md).

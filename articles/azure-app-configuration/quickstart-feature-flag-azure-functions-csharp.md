@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001000"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767702"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação Azure Functions
 
@@ -31,14 +31,14 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Feature Manager**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
+7. Selecione **Feature Manager**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
     Parta `label` e `Description` por enquanto.
 
-7. **Selecione Aplicar** para guardar a nova bandeira de funcionalidade.
+8. **Selecione Aplicar** para guardar a nova bandeira de funcionalidade.
 
 ## <a name="create-a-functions-app"></a>Criar uma aplicação De Funções
 
@@ -143,7 +143,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
  
     ![Bandeira de função quickstart ativada](./media/quickstarts/functions-launch-ff-enabled.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

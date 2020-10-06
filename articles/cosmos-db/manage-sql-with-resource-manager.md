@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2b4a572abec8007fe6f1c7e963be19d28c7b48d6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7dfd6bddd19e5559918889da5f6ef38dbe6eef15
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028152"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767497"
 ---
-# <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gerir recursos API DB Core (SQL) da Azure Cosmos com modelos de Gestor de Recursos Azure
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gerir recursos da API de Núcleo (SQL) do Azure Cosmos DB com modelos de Azure Resource Manager
 
 Neste artigo, aprende a usar modelos do Azure Resource Manager para ajudar a implementar e gerir as suas contas, bases de dados e contentores Azure Cosmos.
 
@@ -24,6 +24,7 @@ Este artigo apenas mostra exemplos de modelo do Azure Resource Manager para cont
 > * Os nomes das contas estão limitados a 44 caracteres, todos minúsculos.
 > * Para alterar os valores de produção, reimplante o modelo com RU/s atualizados.
 > * Quando adiciona ou remove localizações a uma conta Azure Cosmos, não pode modificar simultaneamente outras propriedades. Estas operações devem ser efetuadas separadamente.
+> * Os recursos DB da Azure Cosmos não podem ser renomeados, uma vez que isto viola a forma como o Azure Resource Manager funciona com URIs de recursos.
 
 Para criar qualquer um dos recursos DB do Azure Cosmos abaixo, copie o modelo de exemplo a seguir num novo ficheiro json. Pode criar opcionalmente um ficheiro json de parâmetros para utilizar ao implementar várias instâncias do mesmo recurso com diferentes nomes e valores. Existem muitas formas de implementar modelos de Gestor de Recursos Azure, incluindo, [portal Azure](../azure-resource-manager/templates/deploy-portal.md) [CLI,](../azure-resource-manager/templates/deploy-cli.md) [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [GitHub.](../azure-resource-manager/templates/deploy-to-azure-button.md)
 
@@ -77,7 +78,7 @@ Este modelo cria uma conta Azure Cosmos de nível livre e uma base de dados com 
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-free/azuredeploy.json":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Seguem-se alguns recursos adicionais:
 

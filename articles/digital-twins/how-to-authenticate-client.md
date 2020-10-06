@@ -8,20 +8,20 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331867"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767828"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
 Depois de [configurar uma instância e autenticação Azure Digital Twins,](how-to-set-up-instance-portal.md)pode criar uma aplicação ao cliente que utilizará para interagir com o caso. Depois de configurar um projeto de cliente inicial, este artigo mostra-lhe **como escrever código nessa aplicação do cliente para autenticá-lo** contra a instância Azure Digital Twins.
 
 Há duas abordagens para o código de amostra neste artigo. Podes usar o que é certo para ti, dependendo da tua linguagem de eleição:
-* A primeira secção do código de amostra utiliza o Azure Digital Twins .NET (C#) SDK. O SDK faz parte do Azure SDK para .NET, e está localizado aqui: [*Biblioteca de clientes Azure IoT Digital Twin para .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* A segunda secção do código de amostra destina-se a utilizadores que não utilizem o .NET SDK e utilizem SDKs gerados por AutoR em outras línguas. Para obter mais informações sobre esta estratégia, consulte [*Como-a-fazer: Crie SDKs personalizados para Azure Digital Twins com AutoRest*](how-to-create-custom-sdks.md).
+* A primeira secção do código de amostra utiliza o Azure Digital Twins .NET (C#) SDK. O SDK faz parte do Azure SDK para .NET, e está localizado aqui: [*Biblioteca de clientes Azure IoT Digital Twin para .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Existem também SDKs suportados para [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) e [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), que podem ser usados de forma semelhante.
+* A segunda secção do código de amostra destina-se a utilizadores que não utilizem um SDK fornecido e, em vez disso, utilizem SDKs gerados por AutoR em outras línguas. Para obter mais informações sobre esta estratégia, consulte [*Como-a-fazer: Crie SDKs personalizados para Azure Digital Twins com AutoRest*](how-to-create-custom-sdks.md).
 
 Também pode ler mais sobre as APIs e SDKs para Azure Digital Twins em [*Como-a-: Use as APIs e SDKs das Gémeas Digitais Azure*](how-to-use-apis-sdks.md).
 
@@ -32,6 +32,8 @@ Em primeiro lugar, complete os passos de configuração em [*Como-a: Configurar 
 Para prosseguir, você precisará de um projeto de aplicação de cliente no qual você escreve o seu código. Se ainda não tiver um projeto de aplicação de clientes configurado, crie um projeto básico no seu idioma de eleição para usar com este tutorial.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticação e criação de clientes: .NET (C#) SDK
+
+Esta secção mostra um exemplo em C# para a utilização do .NET SDK fornecido.
 
 Em primeiro lugar, inclua os seguintes pacotes no seu projeto para utilizar as ferramentas de autenticação .NET SDK e para este modo de como:
 * `Azure.DigitalTwins.Core`
@@ -100,7 +102,7 @@ Além disso, para utilizar a autenticação em função, lembre-se de:
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Autenticação com um SDK gerado por AutoResc
 
-Se não estiver a utilizar .NET, poderá optar por construir uma biblioteca SDK num idioma à sua escolha, como descrito em [*Como-a-: Criar SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
+Se não estiver a utilizar um dos SDKs fornecidos (.NET, Java, JavaScript), poderá optar por construir uma biblioteca SDK num idioma à sua escolha, como descrito em [*Como-a-: Criar SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 
 Esta secção explica como autenticar nesse caso.
 

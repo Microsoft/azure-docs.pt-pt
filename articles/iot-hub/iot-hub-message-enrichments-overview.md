@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290303"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767202"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimentos de mensagens para mensagens IoT Hub de dispositivo para nuvem
 
@@ -86,7 +86,7 @@ Para experimentar enriquecimentos de mensagens, consulte o [tutorial de enriquec
 
 * O tamanho total da mensagem, incluindo os enriquecimentos, não pode exceder 256 KB. Se o tamanho de uma mensagem exceder 256 KB, o Hub IoT deixará cair a mensagem. Pode utilizar [métricas do IoT Hub](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são largadas. Por exemplo, pode monitorizar d2c.telemetria.egress.inválido.
 
-* Os enriquecimentos de mensagens não se aplicam a eventos digitais de mudança de gémeos (parte da [pré-visualização pública IoT Plug and Play).](../iot-pnp/overview-iot-plug-and-play.md)
+* Os enriquecimentos de mensagens não se aplicam a eventos digitais de mudança de gémeos.
 
 ## <a name="pricing"></a>Preços
 

@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Criar e modificar um circuito com o ExpressRoute'
-description: Neste arranque rápido, aprende-se a criar, providenciar, verificar, atualizar, eliminar e desprovisionar um circuito ExpressRoute.
+title: 'Quickstart: Criar e modificar um circuito com o portal ExpressRoute - Azure'
+description: Neste arranque rápido, aprende-se a criar, providenciar, verificar, atualizar, eliminar e desprovisionar um circuito ExpressRoute utilizando o portal Azure.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: c944feb6cc77d8337fccb64915baa576e590ef40
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761753"
+ms.locfileid: "91767805"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Quickstart: Criar e modificar um circuito ExpressRoute
 
@@ -170,7 +170,7 @@ Se o estado de prestação do serviço de circuito ExpressRoute for **Provisioni
 >* Se o prestador de serviços tiver desprovisionado o circuito (o estado de prestação do prestador de serviços está definido para **Não aprovisionado),** pode apagar o circuito. Isto interrompe a faturação do circuito.
 
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Pode eliminar o seu circuito ExpressRoute selecionando o ícone **Eliminar.** 
 

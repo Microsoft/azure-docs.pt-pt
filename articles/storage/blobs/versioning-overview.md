@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714940"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767245"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -36,13 +36,13 @@ Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob
 
 Uma versão captura o estado de uma bolha num dado momento. Quando a versão blob é ativada para uma conta de armazenamento, o Azure Storage cria automaticamente uma nova versão de uma bolha cada vez que a bolha é modificada ou eliminada.
 
-Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha.
+Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha. Uma bolha pode ter até 1000 versões associadas.
 
 Quando elimina uma bolha com versão ativada, o Azure Storage cria uma versão que captura o estado da bolha antes de ser eliminada. A versão atual do blob é então eliminada, mas as versões do blob persistem, para que possa ser recriada se necessário. 
 
 As versões blob são imutáveis. Não é possível modificar o conteúdo ou metadados de uma versão blob existente.
 
-A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
+A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas. 
 
 Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
@@ -291,7 +291,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

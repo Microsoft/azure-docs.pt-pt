@@ -10,16 +10,16 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496150"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767576"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gestor de Dispositivos do StorSimple no portal do Azure para clonar um volume
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial descreve como pode utilizar um conjunto de backup para clonar um volume individual através da lâmina do **catálogo Backup.** Também explica a diferença entre clones *transitórios* e *permanentes.* A orientação neste tutorial aplica-se a todos os dispositivos da série StorSimple 8000 em execução Update 3 ou posterior.
 
@@ -64,11 +64,11 @@ Execute os seguintes passos para criar um clone do seu volume a partir do catál
 
       As cópias de segurança associadas à política de volume ou backup selecionada devem constar da lista de conjuntos de backup.
    
-      ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista de conjunto de backup 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expanda o conjunto de backup para visualizar o volume associado e selecione um volume num conjunto de backup. Clique à direita e, em seguida, a partir do menu de contexto, selecione **Clone**.
 
-   ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista de conjunto de backup 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. Na lâmina **Clone,** faça os seguintes passos:
    
@@ -84,17 +84,17 @@ Execute os seguintes passos para criar um clone do seu volume a partir do catál
           
    3. Nos **anfitriões ligados,** especifique um registo de controlo de acesso (ACR) para o clone. Pode adicionar um novo ACR ou escolher entre a lista existente. O ACR determinará quais os anfitriões que podem aceder a este clone.
       
-       ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista de conjunto de backup 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. Clique em **Clone** para completar a operação.
 
 4. Um trabalho de clone é iniciado e você é notificado quando o clone é criado com sucesso. Clique na notificação de trabalho ou vá à lâmina **Jobs** para monitorizar o trabalho do clone.
 
-    ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista de conjunto de backup 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. Depois de terminar o trabalho do clone, vá ao seu dispositivo e, em seguida, clique em **Volumes**. Na lista de volumes, deve ver o clone que foi criado no mesmo recipiente de volume que tem o volume de origem.
 
-    ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista de conjunto de backup 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 Um clone que é criado desta forma é um clone transitório. Para obter mais informações sobre tipos de clones, consulte [transiente vs. clones permanentes](#transient-vs-permanent-clones).
 
@@ -113,7 +113,7 @@ Tens de recuperar um ficheiro de apresentação do Microsoft PowerPoint com um a
 ### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testes no ambiente de produção com um clone permanente
 É necessário verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção e, em seguida, tira uma imagem em nuvem deste clone para criar um volume clonado independente. Neste cenário, é usado um clone permanente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [restaurar um volume StorSimple a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

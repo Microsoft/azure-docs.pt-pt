@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575066"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767738"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com Configuração de Aplicações
 
@@ -28,7 +28,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer**  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -36,7 +36,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
-7. Selecione **Aplicar**.
+8. Selecione **Aplicar**.
 
 ## <a name="create-a-net-core-console-app"></a>Criar uma aplicação de consola .NET Core
 
@@ -118,7 +118,7 @@ Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

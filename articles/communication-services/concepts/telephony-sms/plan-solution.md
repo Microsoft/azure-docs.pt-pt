@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: ada37175988155332503c0c15e998ab284d099e5
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758511"
+ms.locfileid: "91767137"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planear a solução de telefonia e SMS
 
@@ -23,6 +23,9 @@ ms.locfileid: "91758511"
 
 
 Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone para fazer chamadas de voz e enviar mensagens SMS com a rede telefónica comutada pelo público (PSTN). Neste documento, vamos rever os tipos de números de telefone, planos e disponibilidade da região para o planeamento da sua solução de telefonia e SMS utilizando serviços de comunicação.
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
  

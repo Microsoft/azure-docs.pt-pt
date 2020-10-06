@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91257831"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767279"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
@@ -25,7 +25,7 @@ Neste arranque rápido, você vai aprender a escrever uma aplicação .NET Core 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -48,12 +48,12 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 >
 > 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) procurando **registos de Aplicações** na barra de pesquisa do Portal Azure.
 > 1. Selecione **Novo registo**.
 > 1. Quando aparecer uma página de **inscrição,** insira as informações de registo do seu pedido.
 > 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Daemon-console` exemplo, selecione **Registar-se** para criar a aplicação.
 > 1. Uma vez registado, selecione o menu **Certificados & segredos.**
-> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar**. Copie o segredo num local seguro. Vai precisar dele para usar no seu código.
+> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar**. Copie o segredo num local seguro. Vai precisar que o utilize no seu código e não voltará a ser exibido no portal.
 > 1. Agora, selecione o menu **API Permissões,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
 > 1. Selecione **permissões de aplicação**.
 > 1. No nó **do utilizador,** selecione **User.Read.All**e, em seguida, selecione **Adicionar permissões**
@@ -73,6 +73,11 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 
 > [!div renderon="docs"]
 > [Descarregue o projeto Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+> [!div renderon="docs"]
+> > [!NOTE]
+> > Você pode executar o projeto fornecido em Visual Studio ou Visual Studio para Mac
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Executar o projeto usando o Visual Studio 2019.
@@ -115,7 +120,7 @@ Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Erro proib
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilino global
 
 > [!div renderon="docs"]
-> Se for administrador de inquilino global, vá à página **de Permissões da API** no Registo de Pedidos do Portal Azure (Pré-visualização) e selecione **o consentimento de administração de subvenção para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
+> Se for administrador de inquilinos **globais,** no Portal Azure navegue para aplicações Enterprise > Clique no registo da sua aplicação > Escolha **"Permissões"** a partir da secção de Segurança do painel de navegação à esquerda. Clique no botão grande marcado **o consentimento de administração grant para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Se for um administrador global, vá à página **de permissões da API** selecionar **o consentimento de administração do Grant para Enter_the_Tenant_Name_Here**
@@ -144,10 +149,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Passo 5: Executar a aplicação
 
-Se estiver a utilizar o Visual Studio, prima **F5** para executar a aplicação, caso contrário, execute a aplicação através do pedido através do pedido de comando ou consola:
+Se estiver a utilizar o Visual Studio ou o Visual Studio para Mac, prima **F5** para executar a aplicação, caso contrário, execute a aplicação através de pedido de comando, consola ou terminal:
 
 ```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 

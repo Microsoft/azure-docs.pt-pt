@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d4fe0f54ecd11c197f258d190e9eaef14bf2bb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459928"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767769"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma app Azure Functions com Configuração de Aplicações Azure
 
@@ -29,7 +29,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
+7. Selecione **Configuration Explorer**  >  **+ Crie**valor  >  **chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -37,7 +37,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
-7. Selecione **Aplicar**.
+8. Selecione **Aplicar**.
 
 ## <a name="create-a-functions-app"></a>Criar uma aplicação De Funções
 
@@ -114,7 +114,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
     ![Quickstart Function lançar local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0792a885006cf3050002c0e275eff2850afb81c7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566810"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767537"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerir recursos Azure Cosmos DB SQL API utilizando PowerShell
 
@@ -28,6 +28,9 @@ Para a gestão transversal da Azure Cosmos DB, pode utilizar os `Az` `Az.CosmosD
 ## <a name="getting-started"></a>Introdução
 
 Siga as instruções em [Como instalar e configurar a Azure PowerShell][powershell-install-configure] para instalar e iniciar sôm na sua conta Azure no PowerShell.
+
+> [!IMPORTANT]
+> Os recursos DB da Azure Cosmos não podem ser renomeados, uma vez que isto viola a forma como o Azure Resource Manager funciona com URIs de recursos.
 
 ## <a name="azure-cosmos-accounts"></a>Contas de Azure Cosmos
 

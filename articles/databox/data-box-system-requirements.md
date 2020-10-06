@@ -6,38 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 71f499e1cdd7ccf22d90b21ce04299798978a828
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926608"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767870"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos do sistema Azure Data Box
 
-Este artigo descreve os requisitos importantes do sistema para a sua Caixa de Dados Do Microsoft Azure e para os clientes que se ligam à Caixa de Dados. Recomendamos que reveja as informações cuidadosamente antes de implementar a sua Caixa de Dados e, em seguida, volte a fazê-la conforme necessário durante a implementação e posterior funcionamento.
+Este artigo descreve requisitos importantes do sistema para a sua Caixa de Dados Microsoft Azure e para os clientes que se ligam à Caixa de Dados. Recomendamos que reveja as informações cuidadosamente antes de implementar a sua Caixa de Dados e, em seguida, consulte-as conforme necessário durante a implementação e operação.
 
 Os requisitos do sistema incluem:
 
-* **Requisitos de software para anfitriões que se conectam à Data Box** - descreve as plataformas suportadas, navegadores para a web uI local, clientes SMB, e quaisquer requisitos adicionais para anfitriões que possam ligar-se à Caixa de Dados.
-* **Requisitos de rede para a Caixa de Dados** - fornece informações sobre os requisitos de rede para o funcionamento ideal da Caixa de Dados.
+* **Requisitos de software:** Para os anfitriões que se ligam à Caixa de Dados, descreve sistemas operativos suportados, protocolos de transferência de ficheiros, contas de armazenamento, tipos de armazenamento e navegadores para a UI web local.
+* **Requisitos de rede:** Para a Caixa de Dados, descreve a ligação da rede e os requisitos da porta para o melhor funcionamento da Caixa de Dados.
 
 
 ## <a name="software-requirements"></a>Requisitos de software
 
-Os requisitos de software incluem a informação sobre os sistemas operativos suportados, navegadores suportados para a UI web local e clientes SMB.
+Os requisitos do software incluem sistemas operativos suportados, protocolos de transferência de ficheiros, contas de armazenamento, tipos de armazenamento e navegadores para a UI web local.
 
 ### <a name="supported-operating-systems-for-clients"></a>Sistemas operativos suportados para clientes
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 
-### <a name="supported-filesystems-for-linux-clients"></a>Sistemas de ficheiros suportados para clientes Linux
+### <a name="supported-file-transfer-protocols-for-clients"></a>Protocolos de transferência de ficheiros suportados para clientes
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
-
 
 > [!IMPORTANT] 
 > A ligação às ações da Data Box não é suportada através de REST para encomendas de exportação. 
@@ -45,7 +44,6 @@ Os requisitos de software incluem a informação sobre os sistemas operativos su
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
-
 
 ### <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
@@ -57,11 +55,11 @@ Os requisitos de software incluem a informação sobre os sistemas operativos su
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
-O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, pode ser utilizada uma ligação de dados de 1 GbE para copiar dados, mas as velocidades de cópia são impactadas.
+O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, pode ser utilizada uma ligação de dados de 1 GbE para copiar dados, mas as velocidades de cópia são afetadas.
 
 ### <a name="port-requirements"></a>Requisitos portuários
 
-A tabela que se segue lista as portas que precisam de ser abertas na sua firewall para permitir o tráfego de SMB ou NFS. Nesta tabela, *dentro* ou *entrada* refere-se à direção a partir da qual o cliente que chega solicita o acesso ao seu dispositivo. *Para fora* ou *para fora* refere-se à direção em que o seu dispositivo Data Box envia dados externamente, para além da implementação: por exemplo, saída para a Internet.
+A tabela que se segue lista as portas que precisam de ser abertas na sua firewall para permitir o tráfego de SMB ou NFS. Nesta tabela, *In* *(entrada)* refere-se à direção a partir da qual o cliente que chega solicita o acesso ao seu dispositivo. *out* (ou *outbound*) refere-se à direção em que o seu dispositivo Data Box envia dados externamente, para além da implementação: por exemplo, saída para a Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
