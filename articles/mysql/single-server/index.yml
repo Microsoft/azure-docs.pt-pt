@@ -8,19 +8,19 @@ metadata:
   ms.date: 09/20/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: a9ddd354a97578c5b83455fc6d709d5c2d60494f
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 796e76c7e7251924865fbea63c2b30ff9aa90ce1
+  ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90928941"
+  ms.lasthandoff: 10/05/2020
+  ms.locfileid: "91713083"
 landingContent:
 - title: Acerca do Servidor Único
   linkLists:
   - linkListType: overview
     links:
     - text: O que é o Servidor Único?
-      url: ../concepts-servers.md
+      url: ../single-server-overview.md
   - linkListType: whats-new
     links:
     - text: Veja o nosso blogue

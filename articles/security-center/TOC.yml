@@ -263,8 +263,6 @@
       href: release-notes-archive.md
     - name: Blogue do mapa do Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
-    - name: Descontinuação de funcionalidades e de API (julho de 2019)
-      href: security-center-features-retirement-july2019.md
     - name: Avaliação e recomendações da proteção de ponto final
       href: security-center-endpoint-protection.md
 - name: Recursos

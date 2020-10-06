@@ -544,6 +544,8 @@
           href: data-flow-new-branch.md
         - name: Dinamizar
           href: data-flow-pivot.md
+        - name: Posição
+          href: data-flow-rank.md
         - name: Selecione
           href: data-flow-select.md
         - name: Sink
