@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891557"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743204"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Problemas de resolução de problemas no seu dispositivo GPU Azure Stack Edge Pro 
 
@@ -51,7 +51,7 @@ Efetue os seguintes passos para recolher um pacote de Suporte.
  
 2. Depois de criar o pacote Support, selecione **o pacote de Suporte para Download**. Um pacote zipado é transferido no caminho que escolher. Pode deszipar o pacote e ver os ficheiros de registo do sistema.
 
-    ![Selecione adicionar utilizador](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Selecione adicionar utilizador 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## <a name="gather-advanced-security-logs"></a>Recolha registos de segurança avançados
 

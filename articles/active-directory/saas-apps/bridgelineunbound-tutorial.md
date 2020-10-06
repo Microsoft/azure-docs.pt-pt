@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 9089227d28b5e0141521dd4db2cc0883f6ecfc77
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d17c2d1a9ca41965bff7f7f72e2e753374a0fe2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548181"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Tutorial: Integração do Diretório Ativo Azure com a Bridgeline Unbound
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com bridgeline Unbound, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Bridgeline Unbound Domain e URLs informações únicas de acesso](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `iApps_UPSTT_<ENVIRONMENTNAME>`
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com bridgeline Unbound, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Bridgeline Unbound Domain e URLs informações únicas de acesso](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 
@@ -164,7 +164,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bridgeline Unbound**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Bridgeline Unbound**.
 

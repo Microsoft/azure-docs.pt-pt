@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294871"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740688"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Crie uma consulta simples na Pesquisa Cognitiva Azure
 
@@ -37,13 +37,13 @@ O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido
 
 Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as consultas neste artigo, trocando apenas a **cadeia search=.** 
 
-  ![Carteiro solicitam parâmetros definidos](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 ### <a name="set-the-request-url"></a>Definir o URL de pedido
 
 O pedido é um comando GET emparelhado com um URL que contém o ponto final de pesquisa cognitiva do Azure e a cadeia de pesquisa.
 
-  ![Cabeçalho de pedido do carteiro GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 A composição url tem os seguintes elementos:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 A resposta a esta consulta deve ser semelhante à seguinte imagem.
 
-  ![Resposta da amostra do carteiro](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Deve ter reparado na pontuação da pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, quer porque a pesquisa não foi completamente pesquisa de texto, quer porque não foi aplicado nenhum critério. Para uma busca nula sem critérios, as linhas voltam por ordem arbitrária. Quando incluir critérios reais, verá as pontuações de pesquisa evoluir em valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Usado em conjunto, o filtro é aplicado primeiro a todo o índice, e depois a pesquisa é realizada nos resultados do filtro. Por conseguinte, os filtros podem ser uma técnica útil para melhorar o desempenho de consultas, uma vez que reduzem o conjunto de documentos necessários à consulta de pesquisa para processamento.
 
-  ![Resposta de consulta de filtro](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Se quiser experimentar isto no Carteiro usando GET, pode colar nesta cadeia:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Filtro de gama para gamas numéricas](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Filtro de gama para intervalos de texto](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Também pode experimentá-las no Carteiro usando GET:
 
@@ -251,14 +251,14 @@ Utilizando a pesquisa padrãoMode (qualquer), são devolvidos 2800 documentos: o
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![modo de pesquisa qualquer](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Alteração da pesquisaMode para `all` impor um efeito cumulativo em critérios e devolve um conjunto de resultados menor - 21 documentos - composto por documentos que contenham toda a frase "corpo de bombeiros", menos os empregos no endereço do Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![modo de pesquisa todos](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exemplo 8: Resultados estruturantes
 
@@ -285,7 +285,7 @@ Para obter os próximos 5, salte o primeiro lote:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Tente especificar consultas no seu código. Os seguintes links explicam como configurar consultas de pesquisa tanto para .NET como para a API REST utilizando a sintaxe simples padrão.
 
 * [Consultar o seu índice utilizando o .NET SDK](./search-get-started-dotnet.md)

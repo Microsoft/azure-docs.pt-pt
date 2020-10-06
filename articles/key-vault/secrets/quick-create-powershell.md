@@ -3,24 +3,21 @@ title: 'Quickstart: Definir & recuperar um segredo do Cofre de Chaves usando Pow
 description: Neste quickstart, aprenda a criar, recuperar e apagar segredos de um Cofre de Chaves Azure usando a Azure PowerShell.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9e3f5e37462b30b0201be5350dedc103a49bb39a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef7b17efc1f18009edffbacb2578f94fcf40b1c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "87039298"
+ms.locfileid: "91743034"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para obter mais informações sobre o Key Vault, pode ver a [Descrição Geral](../general/overview.md). Neste início rápido, vai utilizar o PowerShell para criar um cofre de chaves. Em seguida, vai armazenar um segredo no cofre recém-criado.
 
@@ -36,7 +33,7 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d3d2c94f44abbfd66bbee7a1f757e0b57fe424e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1105d2818d6410ffbbc08e0522adca212efe35b1
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537452"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Azure Ative Directory com Benefitsolver
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
 
 5. A aplicação Benefitsolver espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
@@ -126,9 +126,9 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com adicionar nova reclamação e guardar chamado.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir os valores descritos neste passo.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -194,7 +194,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Benefitsolver**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Benefitsolver**.
 

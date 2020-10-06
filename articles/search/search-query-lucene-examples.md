@@ -8,13 +8,13 @@ ms.author: heidist
 tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297999"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740705"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utilize a sintaxe de pesquisa lucene "completa" (consultas avançadas em Pesquisa Cognitiva Azure)
 
@@ -40,13 +40,13 @@ O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido
 
 Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as consultas neste artigo, trocando apenas a **cadeia search=.** 
 
-  ![Carteiro solicitam parâmetros definidos](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 ### <a name="set-the-request-url"></a>Definir o URL de pedido
 
 O pedido é um comando GET emparelhado com um URL que contém o ponto final de pesquisa cognitiva do Azure e a cadeia de pesquisa.
 
-  ![Cabeçalho de pedido do carteiro GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 A composição url tem os seguintes elementos:
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Expressão de pesquisa de resposta de amostra de carteiro](media/search-query-lucene-examples/intrafieldfilter.png)
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Pode definir uma operação de pesquisa em campo com o **fieldName:searchX** sintaxe de expressão de pesquisa, onde a expressão de pesquisa pode ser uma única palavra ou uma frase, ou uma expressão mais complexa em parênteses, opcionalmente com operadores Boolean. Alguns exemplos incluem:
 
@@ -199,7 +199,7 @@ Nesta consulta, para empregos com o termo "analista sénior" onde é separado po
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  ![Consulta de proximidade](media/search-query-lucene-examples/proximity-before.png)
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Tente de novo removendo as palavras entre o termo "analista sénior". Note que 8 documentos são devolvidos para esta consulta em oposição a 10 para a consulta anterior.
 
@@ -217,7 +217,7 @@ Nesta consulta "antes", procure empregos com o termo *analista de computadores* 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  ![Aumento de prazos antes](media/search-query-lucene-examples/termboostingbefore.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 Na consulta "depois", repita a procura, desta vez impulsionando os resultados com o termo *analista* ao longo do termo *computador* se ambas as palavras não existirem. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 Uma versão mais legível humana da consulta acima é `search=business_title:computer analyst^2` . Para uma consulta viável, `^2` é codificado como `%5E2` , o que é mais difícil de ver.
 
-  ![Aumento de prazos após](media/search-query-lucene-examples/termboostingafter.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 O aumento de prazos difere dos perfis de pontuação em que os perfis de pontuação impulsionam certos campos, em vez de termos específicos. O exemplo a seguir ajuda a ilustrar as diferenças.
 
@@ -253,7 +253,7 @@ Nesta consulta, procure empregos com o termo Senior ou Júnior: `search=business
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  ![Consulta regex](media/search-query-lucene-examples/regex.png)
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 > [!Note]
 > As consultas de Regex não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta incompleta é a redução.
@@ -275,13 +275,13 @@ Nesta consulta, procure empregos que contenham o prefixo 'prog' que incluiria t�
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  ![Consulta wildcard](media/search-query-lucene-examples/wildcard.png)
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
 
 > [!Note]
 > As consultas wildcard não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta incompleta é a redução.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Tente especificar o Lucene Query Parser no seu código. Os seguintes links explicam como configurar consultas de pesquisa tanto para .NET como para a API REST. As ligações utilizam a sintaxe simples padrão, pelo que terá de aplicar o que aprendeu com este artigo para especificar a **consultaType**.
 
 * [Consultar o seu índice utilizando o .NET SDK](./search-get-started-dotnet.md)

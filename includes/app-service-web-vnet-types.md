@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81312811"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739918"
 ---
 * Os sistemas multitenantes que suportam toda a gama de planos de preços, exceto isolados.
 * O Ambiente de Serviço de Aplicações, que se implanta no seu VNet e suporta aplicações de planos de preços isolados.
@@ -23,7 +23,7 @@ A VNet Integration dá à sua aplicação acesso a recursos no seu VNet, mas nã
 
 As funcionalidades de Integração VNet:
 
-* Requer um plano de preços Standard, Premium, PremiumV2 ou Elastic Premium.
+* Requer um plano de preços Standard, Premium, PremiumV2, PremiumV3 ou Elastic Premium.
 * Apoiar TCP e UDP.
 * Trabalhe com aplicações e aplicações de função do Azure App Service.
 

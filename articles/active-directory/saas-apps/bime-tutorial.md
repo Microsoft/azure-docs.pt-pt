@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547346"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Diretório Ativo Azure com o Bime
 
@@ -132,7 +132,7 @@ Para configurar o Azure AD com o Bime, execute os seguintes passos:
 
 2. Na barra de ferramentas, clique em **Administração**e, em seguida, **Conta**.
   
-    ![Administração](./media/bime-tutorial/ic775558.png "Admin")
+    ![A screenshot mostra o item de Administração selecionado e a Conta selecionada.](./media/bime-tutorial/ic775558.png "Administrador")
 
 3. Na página de configuração da conta, execute os seguintes passos:
   
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bime**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Bime**.
 
@@ -207,7 +207,7 @@ Para permitir que os utilizadores da Azure AD iniciem sessão no Bime, devem ser
 
 2. Na barra de ferramentas, clique em **Administração,** e depois **utilizadores**.
 
-    ![Administração](./media/bime-tutorial/ic775561.png "Admin")
+    ![A screenshot mostra o item de Administração selecionado e os Utilizadores selecionados.](./media/bime-tutorial/ic775561.png "Administrador")
 
 3. Na **Lista de Utilizadores,** clique **em Adicionar Novo Utilizador** ("+").
 

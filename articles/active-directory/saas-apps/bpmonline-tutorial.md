@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0fe0dd43a59b0fb23a3a74509841402880b6fd69
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a6150093bd6735fe3ba6b2ff20aea89a3802bf21
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548162"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743476"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>Tutorial: Azure Ative Directory integração única (SSO) com Creatio
 
@@ -93,11 +93,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de descarregamento de certificado](common/certificatebase64.png)
+    ![O Screenshot mostra a página do Certificado de Assinatura SAML com um link de descarregamento para um certificado base64.](common/certificatebase64.png)
 
 1. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
 
-    ![O link de descarregamento de certificado](common/copy-metadataurl.png)
+    ![O Screenshot mostra a página do Certificado de Assinatura SAML onde pode copiar metadados da Federação de Aplicações que é l.](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 

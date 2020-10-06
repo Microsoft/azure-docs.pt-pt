@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2884302ae636739243e0277fa49ef6889b077c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547601"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Azure Ative Directory integração única (SSO) com CakeHR
 
@@ -142,11 +142,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No canto superior direito da página, clique no **Perfil** e, em seguida, navegue para **Definições**.
 
-    ![Configuração cakehr](./media/cakehr-tutorial/config01.png)
+    ![A screenshot mostra o perfil com as definições selecionadas.](./media/cakehr-tutorial/config01.png)
 
 1. Do lado esquerdo da barra de menu, clique em **INTEGRAÇÕES**  >  **SAML SSO** e execute os seguintes passos:
 
-    ![Configuração cakehr](./media/cakehr-tutorial/config02.png)
+    ![A screenshot mostra o painel de definição onde executa estes passos.](./media/cakehr-tutorial/config02.png)
 
     a. Na caixa de texto **do ID da entidade,** escreva `cake.hr` .
 
@@ -168,11 +168,11 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CakeHR, devem ser 
 
 2. Do lado esquerdo da barra de menu, clique em **ADD COMPANY**  >  **ADD**.
 
-    ![Configuração cakehr](./media/cakehr-tutorial/config03.png)
+    ![A screenshot mostra CakeHR com EMPRESA e ADD selecionados.](./media/cakehr-tutorial/config03.png)
 
 3. No pop-up **do novo empregado,** execute os seguintes passos:
 
-     ![Configuração cakehr](./media/cakehr-tutorial/config04.png)
+     ![Screenshot mostra Adicionar novo funcionário onde executa estes passos.](./media/cakehr-tutorial/config04.png)
 
     a. Na caixa de texto **de nome completo,** insira o nome do utilizador como B.Simon.
 

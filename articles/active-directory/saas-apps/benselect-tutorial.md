@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537129"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741215"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Tutorial: Azure Ative Directory integração única (SSO) com BenSelect
 
@@ -89,15 +89,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação BenSelect espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com atributos predefinidos, tais como dado o nome de utilizador.givenname e e-mail.mail.](common/edit-attribute.png)
 
 1. Clique no ícone **Editar** para editar o valor do **identificador nome**.
 
-    ![image](media/benselect-tutorial/mail-prefix1.png)
+    ![A screenshot mostra o painel de atributos do utilizador & Claims com o ícone editar chamado.](media/benselect-tutorial/mail-prefix1.png)
 
 1. Na secção **Gerir reclamações do utilizador,** execute os seguintes passos:
 
-    ![image](media/benselect-tutorial/mail-prefix2.png)
+    ![Screenshot mostra Gerir as alegações do utilizador onde pode introduzir os valores descritos neste passo.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Selecione **a Transformação** como **Fonte**.
 

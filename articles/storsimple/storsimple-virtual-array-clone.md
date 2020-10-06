@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070698"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742184"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clone a partir de uma cópia de segurança do seu StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ Este artigo descreve passo a passo como clonar um conjunto de backup das suas a�
    
    c.    Clique em **OK**.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Clone um backup 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. Na lâmina **Clone,** clique nas **definições do Target** e, em seguida, faça o seguinte:
    
    a.    Forneça um nome de partilha. O nome da partilha deve conter 3-127 caracteres.
@@ -59,13 +59,13 @@ Este artigo descreve passo a passo como clonar um conjunto de backup das suas a�
    
    f.    Clique em **OK**.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Clone um backup 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Clique em **Clone** para iniciar um trabalho de clone. Depois do trabalho estar concluído, a operação do clone começa e é notificado. Para monitorizar o progresso do clone, vá à lâmina **Jobs** e clique no trabalho para ver detalhes do trabalho.
 5. Depois de o clone ter sido criado com sucesso, volte para a lâmina **Shares** do seu dispositivo.
 6. Pode agora ver a nova participação clonada na lista de ações do seu dispositivo. Uma parte hierárquica é clonada como hierarquizada e uma participação localmente fixada como uma parte fixa local.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Clone um backup 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Clonar volumes a partir de um conjunto de cópias de segurança
 
@@ -84,7 +84,7 @@ Para clonar a partir de uma cópia de segurança, no portal Azure, você tem que
    
    c.    Clique em **OK**.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Clone um volume 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. Na lâmina **Clone,** clique nas **definições de volume do Destino** e, em seguida, faça o seguinte::
    
    a. O nome do dispositivo é automaticamente povoado.
@@ -95,16 +95,16 @@ Para clonar a partir de uma cópia de segurança, no portal Azure, você tem que
    
    d. Para os **anfitriões ligados,** clique **em Select**.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Clone um volume 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. Na lâmina **de anfitriões conectados,** selecione a partir de um ACR existente ou adicione um novo ACR. Para adicionar um novo ACR, terá de fornecer um nome ACR e o IQN do anfitrião. Clique em **Selecionar**.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Clone um volume 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Clique **em Clone** para lançar um trabalho de clone.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Clone um volume 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. Após a criação do trabalho do clone, a clonagem começará. Uma vez criado o clone, é apresentado na lâmina volumes do seu dispositivo. Note que um volume hierárquico é clonado como hierarquizado e que um volume fixado localmente é clonado como um volume fixado localmente.
    
-   ![Clone um backup](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Clone um volume 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Uma vez que o volume aparece on-line na lista de volumes, o volume está disponível para utilização. No anfitrião do iniciador iSCSI, atualize a lista de alvos na janela de propriedades do iniciador iSCSI. Um novo alvo que contenha o nome do volume clonado deve aparecer como "inativo" sob a coluna de estado.
 8. Selecione o alvo e clique em **Ligar**. Depois de o iniciador estar ligado ao alvo, o estado deve mudar para **Connected**.
 9. Na janela **de Gestão** do Disco, os volumes montados aparecem como mostrado na seguinte ilustração. Clique com o botão direito do rato no volume detetado (clique no nome do disco) e, em seguida, clique em **Online**.

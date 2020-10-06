@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: e1cb4555b1eab930286e7a27988b3b372b109070
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570896"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743279"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro com GPU 
 
@@ -22,7 +22,7 @@ Este é o primeiro tutorial na série de tutoriais de implementação que são n
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um novo recurso
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para a implementação do Azure Stack Edge Pro, tem de preparar primeiro o seu ambiente. Uma vez que o ambiente esteja pronto, siga as etapas necessárias e, se necessário, etapas e procedimentos opcionais para implantar totalmente o dispositivo. As instruções de colocação passo a passo indicam quando deve executar cada uma destas etapas necessárias e opcionais.
 
-| Passo | Description |
+| Passo | Descrição |
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
@@ -70,9 +70,9 @@ Antes de começar, certifique-se de que:
 - Tem acesso ao proprietário ou colaborador a nível de grupo de recursos para os recursos Azure Stack Edge Pro/Data Box Gateway, IoT Hub e Azure Storage.
 
     - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. 
-    - Também tem de se certificar de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para criar qualquer recurso IoT Hub, `Microsoft.Devices` o fornecedor deve ser registado. 
+    - Também precisa de se certificar de que os `Microsoft.DataBoxEdge` fornecedores e `MicrosoftKeyVault` fornecedores de recursos estão registados. Para criar qualquer recurso IoT Hub, `Microsoft.Devices` o fornecedor deve ser registado. 
         - Para registar um fornecedor de recursos, no portal Azure, vá às **Subscrições de > Domiciliária > os fornecedores de recursos > de subscrição.** 
-        - Procure `Microsoft.DataBoxEdge` e registe o fornecedor de recursos. 
+        - Procure o fornecedor de recursos específico, por `Microsoft.DataBoxEdge` exemplo, e registe o fornecedor de recursos. 
     - Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Azure Storage é, por defeito, um fornecedor de recursos registado.
 - Tem acesso a administrador ou utilizador à Azure Ative Directory Graph API para gerar chave de ativação ou operações credenciais, como criação de ações que utiliza uma conta de armazenamento. Para mais informações, consulte [a Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -152,11 +152,15 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 10. No **separador 'Rever +' criar,** rever os **detalhes de Preços,** **Termos de utilização**e os detalhes do seu recurso. Selecione a caixa de combinação para **eu ter revisto os termos de privacidade**.
 
-    ![Criar um recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Criar um recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    É também notificado que durante a criação de recursos está ativado um Identidade de Serviço Gerido (MSI) que lhe permite autenticar os serviços na nuvem. Esta identidade existe enquanto o recurso existir.
 
 11. Selecione **Criar**.
 
-A criação do recurso demora alguns minutos. Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
+A criação do recurso demora alguns minutos. Também é criado um MSI que permite que o dispositivo Azure Stack Edge comunique com o fornecedor de recursos em Azure.
+
+Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
 
 ![Vá ao recurso Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -174,9 +178,16 @@ Depois de o recurso Azure Stack Edge estar a funcionar, terás de obter a chave 
 
     ![Selecione configuração do dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. No **azulejo Ativar,** **selecione Gerar a tecla** para criar uma chave de ativação. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.
+2. No azulejo **Ativar,** forneça um nome para o Cofre da Chave Azure ou aceite o nome predefinido. O nome do cofre pode estar entre 3 e 24 caracteres. 
+
+    É criado um cofre-chave para cada recurso Azure Stack Edge que é ativado com o seu dispositivo. O cofre permite armazenar e aceder a segredos, por exemplo, a Chave de Integridade do Canal (CIK) para o serviço está armazenada no cofre da chave. 
+
+    Uma vez especificado um nome de cofre de chave, **selecione Gerar a tecla** para criar uma chave de ativação. 
 
     ![Obter a chave de ativação](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Aguarde alguns minutos à medida que a chave do cofre e da chave de ativação são criadas. Selecione o ícone de cópia para copiar a chave e guarde-a para posterior utilização.
+
 
 > [!IMPORTANT]
 > - A chave de ativação expira três dias após a sua geração.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ac881d19ee4ba7efc2dcbab93775f59cfec5effa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 82fced2d504af1823b3e6e1561ee875067a962c5
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549292"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741419"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beekeeper-azure-ad-sso"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com apicultor Azure AD SSO
 
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML.
 
-    ![image](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Se os valores de URL **de identificação** e **resposta** não forem automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.
@@ -103,7 +103,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação Azure AD SSO espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![image](common/default-attributes.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/default-attributes.png)
 
 1. Além de acima, a aplicação Azure AD SSO do Azure espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 

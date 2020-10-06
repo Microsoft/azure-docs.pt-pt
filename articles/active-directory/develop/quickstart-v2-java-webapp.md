@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 6281ab00f20663a54fd8c397df307581d3967ef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631601"
+ms.locfileid: "91743493"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -258,4 +258,4 @@ import com.microsoft.aad.msal4j.*;
 Para uma discussão mais aprofundada sobre a construção de aplicações web que assinam nos utilizadores na plataforma de identidade da Microsoft, passe para a nossa série de cenários multi-partes:
 
 > [!div class="nextstepaction"]
-[Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md?tabs=java)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35b1d0dd080164b015c8210e12fd404bf0a5b3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4aec6f266d7559656bca848801df54c83949e925
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547295"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Bitbucket por resolução GmbH
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD um único sinal de lançamento com o SAML SSO para a 
 
 4. Na secção **De Configuração Básica SAML,** execute os seguintes passos se desejar configurar a aplicação no modo iniciado pelo **IDP:**
 
-    ![SAML SSO para Bitbucket por resolução GmbH Domain e URLs informações únicas de súmato](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD um único sinal de lançamento com o SAML SSO para a 
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![SAML SSO para Bitbucket por resolução GmbH Domain e URLs informações únicas de súmato](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -191,7 +191,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAML SSO para Bitbucket por resolução GmbH**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **SAML SSO para Bitbucket por resolução GmbH**.
 

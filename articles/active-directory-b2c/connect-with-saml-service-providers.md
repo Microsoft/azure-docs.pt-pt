@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611619"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740382"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -253,6 +253,9 @@ O seu ficheiro final de política do partido deve parecer o seguinte:
 </TrustFrameworkPolicy>
 ```
 
+> [!NOTE]
+> Ao implementar outros tipos de fluxos de utilizador (por exemplo, iniciar sessão, redefinição de palavras-passe ou edição de perfis), o processo é essencialmente o mesmo que descrito nesta secção. No passo 4 acima, irá alterar o último passo da viagem do utilizador de `JWTIssuer` `Saml2AssertionIssuer` . E no passo 6 acima, na secção de partidos, você vai mudar o **Protocolo** de `OpenIdConnect` `SAML2` .
+
 ### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 Carre faça upload e teste os seus metadados de política
 
 Guarde as suas alterações e carrete o novo ficheiro de política. Depois de ter carregado ambas as políticas (a extensão e os ficheiros do partido em funções), abra um navegador web e navegue para os metadados da política.
@@ -435,7 +438,7 @@ Os seguintes cenários de partidos de suporte SAML (RP) são suportados através
 Os seguintes cenários de partidos dependentes da SAML (RP) não são atualmente suportados:
 * O Fornecedor de Identidade iniciou a sua inscrição, onde o Fornecedor de Identidade é um Fornecedor de Identidade externo, por exemplo, ADFS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 - Obtenha a aplicação web de teste SAML da [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002628"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740875"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
 
@@ -29,7 +29,8 @@ A navegação frontal é utilizada para filtragem auto-direcionada em resultados
 
 As facetas são dinâmicas e devolvidas numa consulta. As respostas de pesquisa trazem consigo as categorias de facetas utilizadas para navegar nos resultados. Se não está familiarizado com as facetas, o exemplo a seguir é uma ilustração de uma estrutura de navegação faceta.
 
-  ![Uma imagem mostrando um diálogo de pesquisa com resultados de pesquisa filtrados agrupados por título de negócio. Uma seta indica que os resultados são facetas que são exibidas numa estrutura de navegação faceta.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="resultados de pesquisa filtrados&quot;:::
+&quot;Uma imagem mostrando um diálogo de pesquisa com resultados de pesquisa filtrados agrupados por título de negócio. Uma seta indica que os resultados são facetas que são exibidas numa estrutura de navegação faceta" :::image-end:::
 
 Nova navegação virada para a frente e quer mais detalhes? Veja [como implementar a navegação facetada na Pesquisa Cognitiva Azure.](search-faceted-navigation.md)
 
@@ -122,7 +123,7 @@ Um dos desafios com a navegação faceta na Azure Cognitive Search é que as fac
 
 Embora este seja um caso de uso comum, não é algo que a estrutura de navegação faceta fornece atualmente fora da caixa. Os desenvolvedores que querem facetas estáticas normalmente funcionam em torno da limitação, emitindo duas consultas filtradas: uma com o cuidado dos resultados, a outra usada para criar uma lista estática de facetas para fins de navegação.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 + [Criar Índice REST API](/rest/api/searchservice/create-index)

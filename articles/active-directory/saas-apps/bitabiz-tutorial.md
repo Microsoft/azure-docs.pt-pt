@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531102"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: Integração do Diretório Ativo Azure com o BitaBIZ
 
@@ -132,15 +132,15 @@ Para configurar o Azure AD com bitaBIZ, execute os seguintes passos:
 
 2. Clique em **SETUP ADMIN**.
 
-    ![Configuração BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![A screenshot mostra parte de uma janela do navegador com o Setup Admin selecionado.](./media/bitabiz-tutorial/settings1.png)
 
 3. Clique nas **integrações da Microsoft** na secção **Valor Acrescentado.**
 
-    ![Configuração BitaBIZ](./media/bitabiz-tutorial/settings2.png)
+    ![Screenshot mostra valor de adicionar com integrações microsoft selecionadas.](./media/bitabiz-tutorial/settings2.png)
 
 4. Desloque-se até à secção **Microsoft Azure AD (Faça sinal único)** e execute os seguintes passos:
 
-    ![Configuração BitaBIZ](./media/bitabiz-tutorial/settings3.png)
+    ![A screenshot mostra a secção Microsoft Azure A D onde introduz as informações descritas neste passo.](./media/bitabiz-tutorial/settings3.png)
 
     a. Copie o valor da caixa de texto **Entity ID ("Identificador" em Azure AD)** e cole-o na caixa de texto **identifier** na secção **de Configuração SAML Básica** no portal Azure. 
 
@@ -187,7 +187,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **BitaBIZ**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **BitaBIZ**.
 
@@ -218,19 +218,19 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
 2. Clique em **SETUP ADMIN**.
 
-    ![BitaBIZ Adicionar Utilizador](./media/bitabiz-tutorial/settings1.png)
+    ![A screenshot mostra parte da janela do seu navegador com o Setup Admin selecionado.](./media/bitabiz-tutorial/settings1.png)
 
 3. Clique em **Adicionar utilizadores** na secção **Organização.**
 
-    ![BitaBIZ Adicionar Utilizador](./media/bitabiz-tutorial/user1.png)
+    ![A screenshot mostra a secção Organização com utilizadores add selecionados.](./media/bitabiz-tutorial/user1.png)
 
 4. Clique **em Adicionar novo funcionário.**
 
-    ![BitaBIZ Adicionar Utilizador](./media/bitabiz-tutorial/user2.png)
+    ![Screenshot mostra Adicionar utilizadores com Adicionar novo funcionário selecionado.](./media/bitabiz-tutorial/user2.png)
 
 5. Na página de diálogo **do novo funcionário,** execute os seguintes passos:
 
-    ![BitaBIZ Adicionar Utilizador](./media/bitabiz-tutorial/user3.png)
+    ![A screenshot mostra a página onde introduz as informações descritas neste passo.](./media/bitabiz-tutorial/user3.png)
 
     a. Na caixa de texto **Name First,** digite o primeiro nome de utilizador como Britta.
 

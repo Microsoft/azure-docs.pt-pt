@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a8b53af6e23b2dd0ff011a6bfbf99a1da427063
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 1b49ce9f3b04a31e3f062c81f63d3e639a09c6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611641"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741946"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Prepare-se para implementar gateway de caixa de dados azul
 
@@ -21,7 +21,7 @@ Este é o primeiro tutorial da série de tutoriais de implementação necessári
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -50,9 +50,9 @@ Aqui, vai encontrar os pré-requisitos de configuração para o recurso do Data 
 
 Antes de começar, certifique-se de que:
 
-* A sua subscrição microsoft Azure está ativada para um recurso Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* A subscrição do Microsoft Azure tem de estar ativada para um recurso do Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * Tem acesso ao proprietário ou colaborador a nível de grupo de recursos para os recursos Azure Stack Edge / Data Box Gateway, IoT Hub e Azure Storage.
-    - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. Também tem de se certificar de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para obter informações sobre como se registar, aceda ao [fornecedor de recursos Register](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. Também tem de se certificar de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para obter informações sobre como realizar o registo, aceda a [Registar fornecedor de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Azure Storage é, por defeito, um fornecedor de recursos registado.
 - Tem acesso administrativo ou utilizador à Microsoft Graph API. Para obter mais informações, consulte a [referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
@@ -108,7 +108,7 @@ Para criar um recurso Data Box Gateway, tome os seguintes passos no portal Azure
     |Definição  |Valor  |
     |---------|---------|
     |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |   
-    |Região     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Para o Governo de Azure, estão disponíveis todas as regiões governamentais listadas nas [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/) <br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
+    |Region     |Para obter uma lista de todas as regiões onde o recurso Azure Stack Edge está disponível, consulte [os produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Para o Governo de Azure, estão disponíveis todas as regiões governamentais listadas nas [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/) <br> Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo.|
     
     ![Criar o recurso do Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
@@ -120,7 +120,7 @@ Para criar um recurso Data Box Gateway, tome os seguintes passos no portal Azure
 
 A criação do recurso demora alguns minutos. Depois de o recurso ser criado e implementado com sucesso, é notificado. Selecione **Ir para recurso**.
 
-![Rever detalhes de recursos da Caixa de Dados Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Rever dados box gateway detalhes de recursos 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Transferir a imagem do dispositivo virtual
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ddd93341bacea039a40c56a6ed7e36f439e137b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 23cf7cdb75f1889f58cec152b1b520deac3f6839
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667378"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740620"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
 
@@ -23,7 +23,7 @@ Este tutorial mostra-lhe como criar uma aplicação web que questiona e devolve 
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Configurar um ambiente de desenvolvimento
+> * Criar um ambiente de desenvolvimento
 > * Estruturas de dados de modelo
 > * Criar uma página web para recolher entradas de consulta e mostrar resultados
 > * Definir um método de pesquisa
@@ -569,7 +569,7 @@ Considere os seguintes takeaways deste projeto:
 * As chamadas assíncronos adicionam uma pequena quantidade de complexidade ao controlador, mas são as melhores práticas se pretende desenvolver apps de qualidade.
 * Esta aplicação realizou uma pesquisa de texto simples, definida pelo que é configurado em **searchOptions**. No entanto, esta classe pode ser povoada com muitos membros que adicionam sofisticação a uma pesquisa. Não é necessário muito trabalho adicional para tornar esta aplicação consideravelmente mais poderosa.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para melhorar a experiência do utilizador, adicione mais funcionalidades, nomeadamente paging (utilizando números de página, ou deslocamento infinito) e autocomplete/sugestões. Você também pode considerar opções de pesquisa mais sofisticadas (por exemplo, pesquisas geográficas em hotéis dentro de um determinado raio de um determinado ponto, e pedido de resultados de pesquisa).
 

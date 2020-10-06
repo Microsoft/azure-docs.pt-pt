@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323679"
+ms.locfileid: "91742082"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -43,7 +43,8 @@ Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornec
 
 -   **Proteger-se rapidamente**: no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> Este serviço suporta [o Azure Lighthouse,](../lighthouse/overview.md)que permite que os prestadores de serviços inscrevam-se no seu próprio inquilino para gerir subscrições e grupos de recursos que os clientes delegaram. Para cenários do Azure Security Center, uma subscrição deve ser delegada em vez de grupos de recursos individuais.
 
 ## <a name="architecture"></a>Arquitetura
 

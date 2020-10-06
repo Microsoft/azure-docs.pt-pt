@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894259"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743340"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Tutorial: Conecte-se, instale e ative o Azure Stack Edge Pro 
 
@@ -22,7 +22,7 @@ Este tutorial descreve como pode ligar-se, configurar e ativar o seu dispositivo
 
 O processo de configuração e ativação pode demorar cerca de 20 minutos a ser concluído.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -146,7 +146,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
 
     4. Poderá ter de esperar vários minutos após a conclusão da atualização. As atualizações da página indicam que o dispositivo está ativado com sucesso.
 
-        ![Página local de UI "Cloud Settings" atualizada](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Página local de UI "Cloud Settings" atualizada 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 A configuração do dispositivo está completa. Agora pode adicionar ações no seu dispositivo.
 

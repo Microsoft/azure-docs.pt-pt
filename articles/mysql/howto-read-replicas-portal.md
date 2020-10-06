@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 8f3c85bb6dab906528c3c442cbdd1b762d8145e0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533133"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740127"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -31,7 +31,7 @@ Neste artigo, você vai aprender a criar e gerir réplicas de leitura no serviç
 
 Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como mestre. Esta ação abre a página **de visão geral.**
 
@@ -139,6 +139,6 @@ Para eliminar um servidor de origem do portal Azure, utilize os seguintes passos
 
    :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

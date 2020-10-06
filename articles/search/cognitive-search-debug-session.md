@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936168"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743187"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de Debug em Pesquisa Cognitiva Azure
 
@@ -35,8 +35,7 @@ Se o gasoduto de enriquecimento não tiver erros, pode ser utilizada uma sessão
 
 Para iniciar uma sessão de depuração deve ter um gasoduto de enriquecimento de IA existente, incluindo; uma fonte de dados, um skillset, um indexante e um índice. Para configurar uma sessão de depuração, você precisa nomear a sessão, e fornecer uma conta de armazenamento de propósito geral que será usada para cache as execuções de habilidades durante a execução do indexante. Também terá de selecionar o indexante que estará em execução. O indexante tem referências armazenadas na fonte de dados, skillset e índice. A sessão de depuração será padrão para o primeiro documento na fonte de dados ou pode especificar um documento na fonte de dados para passar.
 
-> [!div class="mx-imgBorder"]
-> ![Criar uma sessão de depurar](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Criar uma sessão de depurar":::
 
 ## <a name="debug-session-features"></a>Características da sessão de Debug
 
@@ -52,8 +51,7 @@ A **visão Skill Graph** proporciona uma representação visuais hierárquica do
 
 A seleção de uma habilidade no gráfico irá destacar as habilidades ligadas a ele, os nós que criam as suas entradas e os nós que aceitam as suas saídas. Cada nó de habilidade apresenta o seu tipo, erros ou avisos, e a execução conta. O **Gráfico de Habilidade** é onde irá selecionar qual a habilidade para depurar ou melhorar. Quando selecionar uma habilidade, os seus detalhes serão apresentados no painel de detalhes de habilidades à direita do gráfico.
 
-> [!div class="mx-imgBorder"]
-> ![Gráfico de habilidade](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Criar uma sessão de depurar":::
 
 ## <a name="skill-details"></a>Detalhes de habilidades
 
@@ -75,8 +73,7 @@ Ao construir uma habilidade personalizada ou depurar um erro com uma habilidade 
 
 O painel **da Estrutura de Dados Enriquecido** mostra os enriquecimentos do documento através do skillset, detalhando o contexto para cada enriquecimento e a habilidade de origem. O **avaliador de expressão** também pode ser usado para visualizar o conteúdo para cada enriquecimento.
 
-> [!div class="mx-imgBorder"]
-> ![Estrutura de Dados Enriquecida](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Criar uma sessão de depurar":::
 
 ## <a name="expression-evaluator"></a>Avaliador de expressão
 

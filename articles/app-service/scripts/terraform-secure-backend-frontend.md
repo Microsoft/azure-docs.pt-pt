@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962235"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739838"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Criar duas aplicações web conectadas de forma segura com a integração Private Endpoint e VNet
 
@@ -21,7 +21,7 @@ Este artigo ilustra um exemplo de utilização da integração [Private Endpoint
 - Implementar um VNet
 - Criar a primeira sub-rede para a integração
 - Crie a segunda sub-rede para o ponto final privado, tem de definir um parâmetro específico para desativar as políticas de rede
-- Implementar um Plano de Serviço de Aplicações do tipo PremiumV2, sKU mínimo necessário para a funcionalidade Private Endpoint
+- Implementar um plano de Serviço de Aplicações do tipo PremiumV2 ou PremiumV3, necessário para a funcionalidade Private Endpoint
 - Crie a aplicação web frontend com configurações específicas de aplicações para consumir a zona privada de DNS, [mais detalhes](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Ligue a aplicação web frontend à sub-rede de integração
 - Crie a aplicação web backend

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336637"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739736"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -120,6 +120,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
   - Configuração do grupo de segurança de rede Harden com Endurecimento da Rede Adaptive
   - Garantir que os servidores estão a executar apenas as aplicações e processos que devem estar com controlos de aplicações adaptativos
   - Monitorize alterações em ficheiros importantes e entradas de registo com Monitorização da Integridade do Ficheiro (FIM)
+- Note que a subscrição total deve ser delegada ao arrendatário gestor; Os cenários do Centro de Segurança Azure não são suportados com grupos de recursos delegados
 
 [Sentinela Azure:](../../sentinel/multiple-tenants-service-providers.md)
 

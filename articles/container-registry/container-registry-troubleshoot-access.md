@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630955"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743374"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -90,6 +90,8 @@ Se um ponto final de serviço do registo estiver configurado, confirme que uma r
 Se pretender restringir o acesso ao registo utilizando uma rede virtual numa subscrição Azure diferente, certifique-se de que regista o `Microsoft.ContainerRegistry` fornecedor de recursos nessa subscrição. [Registe o fornecedor de recursos](../azure-resource-manager/management/resource-providers-and-types.md) do Registo de Contentores Azure utilizando o portal Azure CLI ou outras ferramentas Azure.
 
 Se o Azure Firewall ou uma solução semelhante estiver configurado na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado a chegar aos pontos finais do registo.
+
+Se um ponto final privado estiver configurado, confirme que o DNS resolve a FQDN pública do registo, tal como *myregistry.azurecr.io* ao endereço IP privado do registo. Utilize um utilitário de rede como `dig` ou para a procura de `nslookup` DNS.
 
 Links relacionados:
 

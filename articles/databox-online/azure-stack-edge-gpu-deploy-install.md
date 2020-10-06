@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900023"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743408"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalar Azure Stack Edge Pro com GPU
 
@@ -22,7 +22,7 @@ Este tutorial descreve como instalar um dispositivo físico Azure Stack Edge Pro
 
 A instalação pode demorar cerca de duas horas a ser concluída.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
@@ -124,7 +124,7 @@ Localize os componentes para a instalação do conjunto do kit ferroviário:
 3. Fixe os trilhos de montagem esquerdo e direito às flanges de cremalheira vertical dianteiras utilizando dois pares de parafusos.
 4. Deslize os suportes traseiros esquerdo e direito para a frente contra as flanges de cremalheira vertical traseira e prenda-os com dois pares de parafusos.
 
-    ![Instale e remova trilhos com ferramentas](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instale e remova trilhos com ferramentas 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instale o sistema num rack
 
@@ -207,11 +207,11 @@ Tome os seguintes passos para teleférico para a alimentação e rede.
 
     - Dispositivo com 3 ranhuras PCI e uma GPU
 
-        ![Plano traseiro de um dispositivo por cabo](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Plano traseiro de um dispositivo por cabo 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Dispositivo com 3 ranhuras PCI e dois GPU
 
-        ![Plano traseiro de um dispositivo por cabo](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Plano traseiro de um dispositivo por cabo 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Localize as ranhuras do disco e o botão de alimentação na parte frontal do dispositivo.
 

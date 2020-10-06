@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547582"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740246"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutorial: Integrar Bynder com diretório ativo Azure
 
@@ -104,7 +104,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação Bynder espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador & Reclamações com o ícone editar selecionado.](common/edit-attribute.png)
 
 1. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
@@ -116,7 +116,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Clique em **Guardar**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![A screenshot mostra a secção de Reivindicações de Grupo com grupos de segurança e o Grupo I D selecionado.](./media/bynder-tutorial/config08.png)
 
 1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Metadata XML** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 

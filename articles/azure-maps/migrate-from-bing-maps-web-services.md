@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108840"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741674"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Migrar serviço web a partir de Bing Maps
 
@@ -24,7 +24,7 @@ A tabela seguinte fornece as APIs de serviço Azure Maps que fornecem uma funcio
 
 | Serviço Bing Maps API                 | A azure Maps serviço API      |
 |---------------------------------------|-----------------------------|
-| Autosuggest                           | [Pesquisa](https://docs.microsoft.com/rest/api/maps/search)     |
+| Sugestão Automática                           | [Pesquisa](https://docs.microsoft.com/rest/api/maps/search)     |
 | Instruções (incluindo o camião)          | [Direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)                          |
 | Matriz de distância                       | [Matriz de Rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)                          |
 | Imagens - Mapa Estático                  | [Composição](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                                   |
@@ -150,7 +150,7 @@ A Azure Maps reverse geocoding API tem algumas funcionalidades adicionais não d
 
 A tabela seguinte cruza referências aos valores de tipo de entidade Bing Maps aos nomes de propriedade equivalentes no Azure Maps.
 
-| Tipo de Entidade Bing Maps | Tipo de entidade Azure Maps comparável               | Description                                |
+| Tipo de Entidade Bing Maps | Tipo de entidade Azure Maps comparável               | Descrição                                |
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Endereço*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Bairro*                             |
@@ -249,7 +249,7 @@ A Azure Maps encaminhando a API tem muitas funcionalidades adicionais não dispo
 
 Há várias formas de captar coordenadas para as estradas em Azure Maps.
 
--   Utilize as direções de rota API para captar coordenadas e de uma rota lógica ao longo da rede rodoviária.
+-   Utilize as direções de rota API para encaixar as coordenadas para uma rota lógica ao longo da rede rodoviária.
 -   Use o Azure Maps Web SDK para encaixar as coordenadas individuais na estrada mais próxima nos azulejos vetoriais.
 -   Use os azulejos vetoriais Azure Maps diretamente para estalar as coordenadas individuais.
 

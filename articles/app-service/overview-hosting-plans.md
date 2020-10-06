@@ -4,14 +4,14 @@ description: Saiba como os planos do Serviço de Aplicações funcionam no Azure
 keywords: serviço de aplicações, serviço de aplicativos azure, escala, escalável, escala, plano de serviço de aplicações, custo de serviço de aplicações
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958517"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742978"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -22,32 +22,32 @@ Quando se cria um plano de Serviço de Aplicações numa determinada região (po
 - Região (E.U.A. Oeste, E.U.A. Leste, etc.)
 - Número de instâncias de VM
 - Tamanho das instâncias de VM (pequena, média, grande)
-- Preço (Livre, Partilhado, Básico, Standard, Premium, PremiumV2, Isolado)
+- Preço (Grátis, Partilhado, Básico, Standard, Premium, PremiumV2, PremiumV3, Isolado)
 
 O _nível_ de preços de um plano de Serviço de Aplicações determina quais as funcionalidades do Serviço de Aplicações que obtém e quanto paga pelo plano. Existem algumas categorias de escalões de preço:
 
 - **Computação partilhada**: **Grátis** e **Partilhadas,** os dois níveis base, executa uma aplicação no mesmo Azure VM que outras aplicações do App Service, incluindo apps de outros clientes. Estes escalões alocam quotas de CPU a cada uma das aplicações que executam nos recursos partilhados e os recursos não podem ser aumentados horizontalmente.
-- **Computação dedicada**: Os níveis **Básico,** **Standard,** **Premium**e **PremiumV2** executam aplicações em VMs Azure dedicados. Apenas as aplicações no mesmo plano do Serviço de Aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, mais instâncias de VM estarão disponíveis para escalamento horizontal.
+- **Computação dedicada**: Os níveis **Básico,** **Standard,** **Premium,** **PremiumV2**e **PremiumV3** executam aplicações em VMs Azure dedicados. Apenas as aplicações no mesmo plano do Serviço de Aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, mais instâncias de VM estarão disponíveis para escalamento horizontal.
 - **Isolado**: Este nível executa VMs Azure dedicados em redes virtuais dedicadas Azure. Proporciona isolamento de rede em cima do isolamento computacional às suas aplicações. Fornece as capacidades máximas de escalamento horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Cada nível também fornece um subconjunto específico de funcionalidades do Serviço de Aplicações. Estas funcionalidades incluem domínios personalizados e certificados TLS/SSL, autoscaling, slots de implementação, backups, integração do Traffic Manager, entre outros. Quanto maior for o nível, mais funcionalidades estão disponíveis. Para saber quais as funcionalidades suportadas em cada nível de preços, consulte os [detalhes do plano do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/plans/)
 
-<a name="new-pricing-tier-premiumv2"></a>
+<a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> O novo nível de preços **PremiumV2** fornece [VMs da série Dv2](../virtual-machines/dv2-dsv2-series.md) com processadores mais rápidos, armazenamento SSD e relação memória-core dupla em comparação com o nível **Standard.** **O PremiumV2** também suporta uma maior escala através do aumento da contagem de instâncias, ao mesmo tempo que fornece todas as capacidades avançadas encontradas no plano Standard. Todas as funcionalidades disponíveis no nível **Premium** existente estão incluídas no **PremiumV2**.
+> O novo nível de preços **PremiumV3** garante [VMs da série Dv3](../virtual-machines/dv3-dsv3-series.md) com processadores mais rápidos, armazenamento SSD e relação memória-núcleo quádruplo em comparação com o nível **Standard.** **O PremiumV3** também suporta uma maior escala através do aumento da contagem de instâncias, ao mesmo tempo que fornece todas as capacidades avançadas encontradas no nível **Standard.** Todas as funcionalidades disponíveis no nível **PremiumV2** existente estão incluídas no **PremiumV3**.
 >
 > Semelhantes a outros níveis dedicados, estão disponíveis três tamanhos VM para este nível:
 >
-> - Pequeno (um núcleo de CPU, 3,5 GiB de memória) 
-> - Médio (dois núcleos cpu, 7 GiB de memória) 
-> - Grande (quatro núcleos cpu, 14 GiB de memória)  
+> - Pequeno (núcleo de 2 CPU, 8 GiB de memória) 
+> - Médio (4 núcleos cpu, 16 GiB de memória) 
+> - Grande (8 núcleos de CPU, 32 GiB de memória)  
 >
-> Para obter informações sobre preços **PremiumV2,** consulte [o Preço do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
+> Para obter informações sobre preços **PremiumV3,** consulte [o Preço do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/)
 >
-> Para começar com o novo nível de preços **PremiumV2,** consulte o [nível Configure PremiumV2 para o Serviço de Aplicações.](app-service-configure-premium-tier.md)
+> Para começar com o novo nível de preços **PremiumV3,** consulte o [nível Configure PremiumV3 para o Serviço de Aplicações.](app-service-configure-premium-tier.md)
 
 ## <a name="how-does-my-app-run-and-scale"></a>Como é que a minha aplicação funciona e escala?
 
@@ -68,7 +68,7 @@ Esta secção descreve como as aplicações do Serviço de Aplicações são fat
 Com exceção do **nível gratuito,** um plano de Serviço de Aplicações tem uma taxa sobre os recursos computacionáveis que utiliza.
 
 - No nível **Partilhado,** cada aplicação recebe uma quota de minutos de CPU, pelo que _cada aplicação_ é cobrada pela quota do CPU.
-- Nos níveis de computação dedicados (**Básico,** **Standard,** **Premium**, **Premium, PremiumV2),** o plano de Serviço de Aplicações define o número de instâncias VM a que as aplicações são dimensionados, pelo que _cada instância VM_ no plano de Serviço de Aplicações é cobrada. Estas instâncias VM são cobradas da mesma forma independentemente de quantas aplicações estão a ser executadas nelas. Para evitar tarifas inesperadas, consulte [Clean up a App Service plan](app-service-plan-manage.md#delete).
+- Nos níveis de computação dedicados (**Básico,** **Standard,** **Premium,** **PremiumV2**, **PremiumV3),** o plano de Serviço de Aplicações define o número de instâncias VM a que as aplicações são dimensionados, pelo que _cada instância VM_ no plano de Serviço de Aplicações é cobrada. Estas instâncias VM são cobradas da mesma forma independentemente de quantas aplicações estão a ser executadas nelas. Para evitar tarifas inesperadas, consulte [Clean up a App Service plan](app-service-plan-manage.md#delete).
 - No nível **isolado,** o Ambiente de Serviço de Aplicações define o número de trabalhadores isolados que executam as suas apps, e _cada trabalhador_ é cobrado. Além disso, há uma taxa de selo plana para a execução do próprio Ambiente de Serviço de Aplicações.
 
 Não é cobrado por usar as funcionalidades do Serviço de Aplicações que estão disponíveis para si (configurar domínios personalizados, certificados TLS/SSL, slots de implementação, backups, etc.). As exceções são:

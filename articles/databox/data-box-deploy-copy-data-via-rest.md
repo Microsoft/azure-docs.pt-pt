@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 71f966cd62ffd2c735259dcfa98b9b97f87d9a19
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926200"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742524"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Use APIs de REPOUSO para copiar dados para o armazenamento de blob da caixa de dados Azure  
 
@@ -115,11 +115,11 @@ Siga estes passos para importar o `.cer` ficheiro para a loja raiz de um cliente
 
 3. Selecione **Coloque todos os certificados na seguinte loja**e, em seguida, clique em **procurar**. Navegue até à loja de raiz do seu anfitrião remoto e, em seguida, clique em **Seguinte**.
 
-    ![Certificado de importação utilizando PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Certificado de importação utilizando PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Clique em **Concluir**. Uma mensagem que diz que a importação foi bem sucedida aparece.
 
-    ![Certificado de importação utilizando PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Certificado de importação utilizando PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Utilize um sistema Linux
 
@@ -133,7 +133,7 @@ Vários, como Ubuntu e Debian, usam o `update-ca-certificates` comando.
 Versões recentes de RHEL, Fedora e CentOS usam o `update-ca-trust` comando.
 
 * Copie o ficheiro do certificado para o `/etc/pki/ca-trust/source/anchors` diretório.
-* Execute o `update-ca-trust`.
+* Execute `update-ca-trust`.
 
 Consulte a documentação específica para a sua distribuição para mais detalhes.
 

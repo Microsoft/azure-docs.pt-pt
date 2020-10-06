@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f5994aa4114f12b55f2e232ea5a35fa2df87626
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547737"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integração do Diretório Ativo Azure com o Bugsnag
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com bugsnag, execute os seguintes passos:
 
 4. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute o seguinte passo:
 
-    ![Informações de súmis de domínio e URLs de bugsnag](common/both-replyurl.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir Answer U R L e selecionar Save.](common/both-replyurl.png)
 
     Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com bugsnag, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações de súmis de domínio e URLs de bugsnag](common/both-signonurl.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-signonurl.png)
 
     Na caixa de texto **URL de inscrição,** escreva como:  `https://app.bugsnag.com/user/identity_provider`
 
@@ -152,7 +152,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bugsnag**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Bugsnag**.
 

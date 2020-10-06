@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542534"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742864"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o portal Azure
 
@@ -31,7 +31,7 @@ Neste artigo, você vai aprender a criar e gerir réplicas de leitura na Base de
 
 Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione a base de dados Azure existente para o servidor MariaDB que pretende utilizar como mestre. Esta ação abre a página **de visão geral.**
 
@@ -116,7 +116,7 @@ Para eliminar um servidor de origem do portal Azure, utilize os seguintes passos
 
 3. Digite o nome do servidor de origem e clique em **Eliminar** para confirmar a eliminação do servidor de origem.  
 
-   ![Azure Database for MariaDB - Delete master](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Azure Database for MariaDB - Eliminar master confirmar](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitorizar a replicação
 
@@ -134,8 +134,8 @@ Para eliminar um servidor de origem do portal Azure, utilize os seguintes passos
 
 5. Ver o lag de replicação para o intervalo de tempo selecionado. A imagem abaixo mostra os últimos 30 minutos para uma grande carga de trabalho.
 
-   ![Selecione intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Selecione intervalo de tempo 30 minutos](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

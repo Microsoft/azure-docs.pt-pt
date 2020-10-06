@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921934"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742507"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -45,7 +45,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 2. Navegue para o [portal](https://customsearch.ai) da pesquisa personalizada.  
   
-3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que utiliza o portal, irá pedir permissões para aceder aos seus dados. Clique **em Sim**.  
+3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que utiliza o portal, irá pedir permissões para aceder aos seus dados. Clique em **Sim**.  
   
 4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na janela Criar uma nova janela **de instância de pesquisa personalizada,** insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retorna. Pode alterar o nome em qualquer altura.  
   
@@ -118,7 +118,7 @@ A Pesquisa Personalizada fornece uma IU alojada para compor a resposta JSON da s
   
 5. Selecione as chaves de subscrição nas listas pendentes. Em alternativa, pode introduzir a chave de subscrição manualmente.
   
-   ![Captura de ecrã do passo de configurações adicionais da IU Alojada](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot da chave de subscrição de UI hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ O restante deste tutorial ilustra **a Opção 1: JavaScript snippet**.
   
 4. Na janela **Nova Aplicação Web do ASP.NET Core**, selecione **Aplicação Web** e clique em **OK**.  
   
-   ![Captura de ecrã da janela Novo Projeto](./media/custom-search-new-webapp.png)  
+   ![Screenshot da nova janela do webapp](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Editar o ficheiro index.cshtml
 

@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294255"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743527"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -57,7 +57,7 @@ Vamos agora passar por uma simples passagem passo a passo para criar a sua prime
 
    Deve agora ter uma definição de escala que escama/escalas com base na utilização do CPU.
    ![Escala baseada no CPU][8]
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 Parabéns! Criou agora com sucesso a sua primeira definição de escala para autoescalar a sua aplicação web com base na utilização do CPU.
 
@@ -115,7 +115,9 @@ Pode sempre voltar à Autoescala clicando em **Ativar a autoescala** e, em segui
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Encaminhar o tráfego para instâncias saudáveis (Serviço de Aplicações)
 
-Quando você é dimensionado para várias instâncias, o App Service pode realizar verificações de saúde nas suas instâncias para encaminhar o tráfego apenas para as instâncias saudáveis. Para tal, abra o Portal ao seu Serviço de Aplicações e, em seguida, selecione **Verificação de Saúde** em **Monitorização**. **Selecione Ative** e forneça um caminho URL válido na sua aplicação, como `/health` ou `/api/health` . Clique em **Save** (Guardar).
+Quando você é dimensionado para várias instâncias, o App Service pode realizar verificações de saúde nas suas instâncias para encaminhar o tráfego apenas para as instâncias saudáveis. Para tal, abra o Portal ao seu Serviço de Aplicações e, em seguida, selecione **Verificação de Saúde** em **Monitorização**. **Selecione Ative** e forneça um caminho URL válido na sua aplicação, como `/health` ou `/api/health` . Clique em **Guardar**.
+
+Para ativar a funcionalidade com os modelos ARM, desacorda a `healthcheckpath` propriedade do recurso para o caminho de `Microsoft.Web/sites` verificação de saúde no seu site, por exemplo: `"/api/health/"` . Para desativar a função, volte a colocar a propriedade na cadeia `""` vazia.
 
 ### <a name="health-check-path"></a>Caminho de verificação de saúde
 

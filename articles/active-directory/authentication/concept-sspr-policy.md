@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531280"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741722"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -41,13 +41,15 @@ O quadro que se segue descreve as políticas de nome de utilizador que se aplica
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de senha AD AZure
 
-Uma política de palavra-passe é aplicada a todas as contas de utilizador que são criadas e geridas diretamente no AZure AD. Esta política de palavra-passe não pode ser modificada, embora possa [configurar senhas proibidas personalizadas para proteção de senha AD AZure](tutorial-configure-custom-password-protection.md).
+Uma política de palavra-passe é aplicada a todas as contas de utilizador que são criadas e geridas diretamente no AZure AD. Algumas destas definições de política de palavra-passe não podem ser modificadas, embora possa [configurar senhas proibidas personalizadas para proteção de password AD AD](tutorial-configure-custom-password-protection.md) ou parâmetros de bloqueio de conta.
 
-A política de palavra-passe não se aplica às contas de utilizador sincronizadas a partir de um ambiente AD DS no local utilizando o Azure AD Connect, a menos que ative o EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Por predefinição, uma conta é bloqueada após 10 tentativas de inscrição falhadas com a senha errada. O utilizador está bloqueado por um minuto. Outras tentativas de entrada incorretas bloqueiam o utilizador durante o período de tempo. [O bloqueio inteligente](howto-password-smart-lockout.md) rastreia os últimos três haques de palavra-passe estragados para evitar o incremento do contador de bloqueio para a mesma palavra-passe. Se alguém introduzir a mesma palavra-passe errada várias vezes, este comportamento não fará com que a conta bloqueie. Pode definir o limiar de bloqueio inteligente e a duração.
 
-São definidas as seguintes opções de política de senha:
+A política de palavra-passe AD AD não se aplica às contas de utilizador sincronizadas a partir de um ambiente AD DS no local utilizando o Azure AD Connect, a menos que ative *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
-| Propriedade | Requirements |
+São definidas as seguintes opções de política de palavra-passe AZure AD. A menos que seja notado, não pode alterar estas definições:
+
+| Propriedade | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não são permitidos | Caracteres unicódigo. |
@@ -57,7 +59,6 @@ São definidas as seguintes opções de política de senha:
 | Prazo de validade (Deixe que as palavras-passe nunca expirem) |<ul><li>Valor predefinido: **falso** (indica que a palavra-passe tem uma data de validade).</li><li>O valor pode ser configurado para contas individuais de utilizador utilizando o `Set-MsolUser` cmdlet.</li></ul> |
 | Histórico de mudança de palavra-passe | A última palavra-passe *não pode* ser usada novamente quando o utilizador muda uma palavra-passe. |
 | Histórico de reset de palavra-passe | A última palavra-passe *pode* ser novamente utilizada quando o utilizador reinicia uma palavra-passe esquecida. |
-| Bloqueio de conta | Após 10 tentativas de entrada sem sucesso com a senha errada, o utilizador fica bloqueado por um minuto. Outras tentativas de entrada incorretas bloqueiam o utilizador durante o período de tempo. [O bloqueio inteligente](howto-password-smart-lockout.md) rastreia os últimos três haques de palavra-passe estragados para evitar o incremento do contador de bloqueio para a mesma palavra-passe. Se alguém introduzir a mesma palavra-passe errada várias vezes, este comportamento não fará com que a conta bloqueie. |
 
 ## <a name="administrator-reset-policy-differences"></a>Administrator reset policy differences (Diferenças da política de reposição de administrador)
 
@@ -175,7 +176,7 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
    > [!WARNING]
    > As palavras-passe definidas `-PasswordPolicies DisablePasswordExpiration` para a idade ainda com base no `pwdLastSet` atributo. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None` , todas as palavras-passe com `pwdLastSet` mais de 90 dias exigem que o utilizador as altere da próxima vez que iniciar sôs. Esta alteração pode afetar um grande número de utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com o SSPR, consulte [Tutorial: Ative os utilizadores para desbloquearem a sua conta ou redefinirem as palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory](tutorial-enable-sspr.md).
 

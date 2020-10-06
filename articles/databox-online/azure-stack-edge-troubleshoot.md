@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903653"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742031"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Resolução de problemas dos seus problemas Azure Stack Edge Pro
 
@@ -55,7 +55,7 @@ Efetue os seguintes passos para recolher um pacote de Suporte.
 
 2. Depois de criar o pacote Support, selecione **o pacote de Suporte para Download**. Um pacote zipado é transferido no caminho que escolher. Pode deszipar o pacote e ver os ficheiros de registo do sistema.
 
-    ![Clicar em adicionar utilizador](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
+    ![Clique em adicionar utilizador 2](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Utilizar registos para resolução de problemas
 

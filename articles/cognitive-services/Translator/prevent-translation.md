@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 37d2e4c0131569ab50ebf49ff73b6adf7a420713
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996181"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742065"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Como impedir a tradução de conteúdos com o Tradutor
 
-O Tradutor permite-lhe marcar conteúdo para que não seja traduzido. Por exemplo, pode querer marcar código, uma marca ou uma palavra/frase que não faça sentido quando localizada.
+O Tradutor permite-lhe marcar conteúdo para que não seja traduzido. Por exemplo, poderá querer etiquetar código, o nome de uma marca ou uma palavra/expressão que não faz sentido quando localizada.
 
-## <a name="methods-for-preventing-translation"></a>Métodos de prevenção da tradução
+## <a name="methods-for-preventing-translation"></a>Métodos para impedir a tradução
 
-1. Marque o seu conteúdo com `notranslate` . É por design que isto funciona apenas quando o texto de entradaType é definido como HTML
+1. Marque o seu conteúdo com `notranslate` . É por design que isto só funciona quando o texto de entradaType é definido como HTML
 
    Exemplo:
 
@@ -37,13 +37,26 @@ O Tradutor permite-lhe marcar conteúdo para que não seja traduzido. Por exempl
    <div>This will be translated. </div>
    ```
 
-2. Utilize o [dicionário dinâmico](dynamic-dictionary.md) para prescrever uma tradução específica.
+2. Marque o seu conteúdo com `translate="no"` . Isto só funciona quando o texto de entradaType é definido como HTML
 
-3. Não passe a corda ao Tradutor para tradução.
+   Exemplo:
 
-4. Tradutor personalizado: Utilize um [dicionário em Tradutor Personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com 100% de probabilidade.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+
+4. Don't pass the string to the Translator for translation.
+
+5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
-## <a name="next-steps"></a>Próximos passos
+## Next steps
 > [!div class="nextstepaction"]
-> [Evite a tradução na chamada do tradutor](reference/v3-0-translate.md)
+> [Use the Translate operation to translate text](reference/v3-0-translate.md)

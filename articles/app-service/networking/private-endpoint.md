@@ -9,19 +9,19 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961555"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743017"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
 > [!Note]
 > Com a atualização de pré-visualização, divulgámos a funcionalidade de proteção de exfiltração de dados.
 >
-> A pré-visualização está disponível em todas as regiões públicas para As Aplicações Web PremiumV2 e Linux Web e Funções Premium Elásticas. 
+> A pré-visualização está disponível em todas as regiões públicas para aplicações PremiumV2 e PremiumV3 Windows e Linux e Funções Premium Elásticas. 
 
 Pode utilizar o Private Endpoint para a sua Azure Web App para permitir que os clientes localizados na sua rede privada acedam de forma segura à aplicação sobre o Private Link. O Private Endpoint utiliza um endereço IP a partir do seu espaço de endereço Azure VNet. O tráfego de rede entre um cliente na sua rede privada e a Web App atravessa o VNet e uma Ligação Privada na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
 

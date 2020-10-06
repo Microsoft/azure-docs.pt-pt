@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23c64f956821dd2a204a15c37bf0fcdde4d09ba8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716127"
+ms.locfileid: "91743323"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -51,11 +51,10 @@ Para obter mais informações sobre o avião de gestão key vault, consulte [o K
 
 O Key Vault está a usar a autenticação AD AZure que requer o diretor de segurança AZure AD para conceder acesso. Um diretor de segurança Azure AD pode ser um utilizador, um diretor de serviço de aplicação, uma [identidade gerida para os recursos Azure,](../../active-directory/managed-identities-azure-resources/overview.md)ou um grupo de qualquer tipo de princípios de segurança.
 
-Para aplicações seguras, recomenda-se a utilização de identidade gerida para aplicações implantadas no Azure. Se os serviços da Azure, que não suportam a identidade gerida ou os pedidos implementados no local, [o principal de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) é uma alternativa possível. O certificado deve ser armazenado no Cofre de Chaves e rodado frequentemente. 
+### <a name="authentication-best-practices"></a>Melhores práticas de autenticação
+Recomenda-se a utilização de identidade gerida para aplicações implantadas no Azure. Se utilizar os serviços Azure, que não suportam a identidade gerida ou se os pedidos forem implementados no local, [o principal de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) é uma alternativa possível. Nesse cenário, o certificado deve ser armazenado no Cofre de Chaves e rodado frequentemente. Recomenda-se o principal do serviço com segredo para ambientes de desenvolvimento e teste, e localmente ou em Cloud Shell usando o principal utilizador é recomendado.
 
-O principal do serviço com segredo pode ser usado para ambientes de desenvolvimento e teste, e localmente ou no principal utilizador da Cloud Shell é recomendado.
-
-Para o desenvolvimento de aplicações, pode utilizar o Azure Identity SDK em diferentes ambientes e plataformas sem alterar código. A Azure Identity está integrada com Azure CLI, Visual Studio, Visual Studio Code, entre outros. 
+Acima, os cenários de autenticação são suportados pela biblioteca de clientes da Azure Identity e integrados com Key Vault SDKs. A biblioteca de identidade Azure pode ser usada em diferentes ambientes e plataformas sem alterar o seu código. A Azure Identity também recuperaria automaticamente o token de autenticação de iniciar sessão no utilizador Azure com Azure CLI, Visual Studio, Visual Studio Code, entre outros. 
 
 Para obter mais informações, consulte: 
 

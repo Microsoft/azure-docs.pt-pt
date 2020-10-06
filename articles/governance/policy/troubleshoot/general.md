@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545544"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743442"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -52,7 +52,7 @@ Uma nova atribuição de políticas ou iniciativas leva cerca de 30 minutos a se
 
 Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Cenário: Avaliação não como esperado
+### <a name="scenario-compliance-not-as-expected"></a>Cenário: Conformidade não como esperado
 
 #### <a name="issue"></a>Problema
 
@@ -64,10 +64,21 @@ O recurso não está no âmbito correto para a atribuição de políticas ou a d
 
 #### <a name="resolution"></a>Resolução
 
-- Para um recurso não conforme que se esperava que fosse conforme, comece por [determinar as razões do incumprimento](../how-to/determine-non-compliance.md). A comparação da definição com o valor patrimonial avaliado indica por que razão um recurso não foi conforme.
-- Para um recurso conforme que se esperava não conforme, leia a condição de definição de política por condição e avalie contra as propriedades dos recursos. Valide que os operadores lógicos estão a agrupar as condições certas e que as suas condições não estão invertidas.
+Siga estes passos para resolver os problemas da sua definição política:
 
-Se o cumprimento de uma atribuição de políticas mostrar `0/0` recursos, nenhum recursos foi determinado ser aplicável dentro do âmbito de atribuição. Verifique tanto a definição de política como o âmbito de atribuição.
+1. Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos.
+1. Verifique o [modo de definição de política:](../concepts/definition-structure.md#mode)
+   - Modo 'todos' para todos os tipos de recursos.
+   - Modo 'indexado' se a definição de política verificar as etiquetas ou a localização.
+1. Verifique se o âmbito do recurso não está [excluído](../concepts/assignment-structure.md#excluded-scopes) ou [isento.](../concepts/exemption-structure.md)
+1. Se o cumprimento de uma atribuição de políticas mostrar `0/0` recursos, nenhum recursos foi determinado ser aplicável dentro do âmbito de atribuição. Verifique tanto a definição de política como o âmbito de atribuição.
+1. Para um recurso não conforme que se esperava que fosse conforme, verifique [as razões determinantes para o incumprimento](../how-to/determine-non-compliance.md). A comparação da definição com o valor patrimonial avaliado indica por que razão um recurso não foi conforme.
+   - Se o **valor-alvo** estiver errado, reveja a definição de política.
+   - Se o **valor atual** estiver errado, valide a carga útil do recurso através `resources.azure.com` de .
+1. Verifique [resolução de problemas: A aplicação não é tão esperada para](#scenario-enforcement-not-as-expected) outras questões e soluções comuns.
+
+Se ainda tiver algum problema com a definição de política incorporada duplicada e personalizada ou a definição personalizada, crie um bilhete de apoio ao abrigo **da Autoria de uma política** para encaminhar o problema corretamente.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Cenário: Execução não como esperado
 
@@ -81,7 +92,18 @@ A atribuição da política foi configurada para [a aplicação da Medida](../co
 
 #### <a name="resolution"></a>Resolução
 
-Atualizar **execuçãoMode** para _Ativar_. Esta alteração permite que a Azure Policy atue sobre os recursos desta atribuição de políticas e envie entradas para o registo de atividades. Se **a aplicação da leiMode** já estiver ativada, consulte [a Avaliação não como esperado](#scenario-evaluation-not-as-expected) para os cursos de ação.
+Siga estes passos para resolver os problemas da aplicação da sua missão política:
+
+1. Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos e se **o modo de execução** está _ativado_. 
+1. Verifique o [modo de definição de política:](../concepts/definition-structure.md#mode)
+   - Modo 'todos' para todos os tipos de recursos.
+   - Modo 'indexado' se a definição de política verificar as etiquetas ou a localização.
+1. Verifique se o âmbito do recurso não está [excluído](../concepts/assignment-structure.md#excluded-scopes) ou [isento.](../concepts/exemption-structure.md)
+1. Verifique se a carga útil do recurso corresponde à lógica da política. Isto pode ser feito [capturando um traço HAR](../../../azure-portal/capture-browser-trace.md) ou revendo as propriedades do modelo ARM.
+1. Verifique [resolução de problemas: Conformidade não como esperado](#scenario-compliance-not-as-expected) para outras questões e soluções comuns.
+
+Se ainda tiver algum problema com a definição de política incorporada duplicada e personalizada ou a definição personalizada, crie um bilhete de apoio ao abrigo **da Autoria de uma política** para encaminhar o problema corretamente.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Cenário: Negado pela Política Azure
 

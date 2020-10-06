@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542807"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Diretório Ativo Azure com Brightidea
 
@@ -112,14 +112,14 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
     c. Após o carregamento com sucesso do ficheiro de metadados, os valores de URL **de identificação** e **resposta** são auto-povoados na caixa de texto da secção Brightidea:
 
-    ![image](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Se os valores de URL **de identificação** e **resposta** não forem automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.brightidea.com`
 
@@ -143,21 +143,21 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
 2. Para chegar à funcionalidade SSO no seu sistema Brightidea, navegue para o Separador de Autenticação **de Configuração**  ->  **da**Empresa. Lá você verá dois separadores sub-separadores: Auth Selection & Perfis SAML.
 
-    ![Configuração Brightidea](./media/brightidea-tutorial/configure1.png)
+    ![A screenshot mostra o site Brightidea com o separador autenticação selecionado.](./media/brightidea-tutorial/configure1.png)
 
 3. Selecione **Auth Selection**. Por padrão, apenas apresenta dois métodos padrão: Brightidea Login & Registro. Quando um método SSO adicionado, aparecerá na lista.
 
-    ![Configuração Brightidea](./media/brightidea-tutorial/configure2.png)
+    ![A screenshot mostra o separador de autenticação Brightidea com seleção Auth selecionada.](./media/brightidea-tutorial/configure2.png)
 
 4. Selecione **perfis SAML** e execute os seguintes passos:
 
-    ![Configuração Brightidea](./media/brightidea-tutorial/configure3.png)
+    ![O Screenshot mostra o separador de autenticação Brightidea com perfis SAML selecionados, que fornece opções para descarregar metadados e adicionar novos.](./media/brightidea-tutorial/configure3.png)
 
     a. Clique nos **Metadados de Descarregamento** e faça o upload na secção **Configuração Básica SAML** no portal Azure.
 
     b. Clique no botão **Adicionar Novo** na **Definição do Fornecedor de Identidade** e execute os seguintes passos:
     
-    ![Configuração Brightidea](./media/brightidea-tutorial/configure4.png)
+    ![A screenshot mostra a Definição do Fornecedor de Identidade Brightidea onde introduz informações.](./media/brightidea-tutorial/configure4.png)
     
    * Introduza o **Nome do Perfil SAML** como por exemplo `Azure Ad SSO`
     
@@ -203,7 +203,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Brightidea**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Brightidea**.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 60e621b34250b036888b233b084ba1ddff939048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087803"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739940"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
 
@@ -61,7 +61,7 @@ Configurar a chave gerida pelo cliente para a sua Caixa de Dados Azure é opcion
 
     Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Certifique-se de que a proteção **para eliminar** e **purgar** suavemente está ativada. Aceite todos os outros incumprimentos. Selecione **Review + Criar**.
 
-    ![Criar novo Cofre de Chaves Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Criar novo Cofre da Chave Azure 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
 7. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
 
@@ -69,11 +69,11 @@ Configurar a chave gerida pelo cliente para a sua Caixa de Dados Azure é opcion
 
 8. Na **tecla Select a partir do Azure Key Vault,** pode selecionar uma chave no cofre de chaves existente.
 
-    ![Criar nova chave no Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Criar nova chave no Cofre da Chave Azure 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
 9. Se quiser criar uma nova chave, selecione **Criar nova** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
 
-    ![Criar nova chave no Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Criar nova chave no Cofre da Chave Azure 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
 10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**. 
 

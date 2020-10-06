@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d3378b08ace73b2bc9a10286abf5a48f3063ba7f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904534"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743510"
 ---
 # <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir contas de armazenamento Edge no seu Azure Stack Edge Pro
 
@@ -93,7 +93,7 @@ Para sincronizar a chave de acesso à conta de armazenamento, tome os seguintes 
 
 2. Quando solicitado para confirmação, selecione **Sim**.
 
-    ![Selecione a chave de armazenamento de sincronização](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
+    ![Selecione a tecla de armazenamento de sincronização 2](media/azure-stack-edge-j-series-manage-storage-accounts/sync-storage-key-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

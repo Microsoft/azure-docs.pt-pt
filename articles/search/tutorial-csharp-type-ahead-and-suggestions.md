@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d610f7ad8f9c211f99f01cd866e26956c7242a1
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667219"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739668"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
 
@@ -145,13 +145,13 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
 3. Execute a aplicação. Obtém uma gama de opções quando entra em "po", por exemplo? Agora tente "pa".
 
-    ![Dactilografia "po" revela duas sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-po.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
 
     Note que as letras que inseriu _devem_ iniciar uma palavra, e não simplesmente ser incluídas dentro da palavra.
 
 4. No script view, definir **&confuso** para verdade, e executar a app novamente. Agora insira "po". Note que a procura assume que errou com uma carta.
  
-    ![Digitando "pa" com conjunto felpudo para verdade](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
 
     Se estiver interessado, a [sintaxe de consulta Lucene em Azure Cognitive Search](./query-lucene-syntax.md) descreve a lógica usada em pesquisas difusas em detalhe.
 
@@ -196,7 +196,7 @@ Podemos melhorar a aparência das sugestões ao utilizador definindo o parâmetr
 
 1. Execute novamente a aplicação e deverá ver o seu texto inserido arrombado nas sugestões. Tente escrever "pa".
  
-    ![Digitar "pa" com destaque](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
 
    A lógica usada no roteiro de destaque acima não é infalível. Se introduzir um termo que aparece duas vezes no mesmo nome, os resultados arrojados não são bem o que desejaria. Tente escrever "mo".
 
@@ -255,7 +255,7 @@ Outra variação, ligeiramente diferente das sugestões, é a auto-conclusão (p
 
 1. Execute a aplicação. Note como o leque de opções apresentadas na lista de suspensos são palavras únicas. Tente escrever palavras começando com "re". Note como o número de opções diminui à medida que mais letras são dactilografadas.
 
-    ![Dactilografia com auto-contícula básica](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
 
     Tal como está, o script de sugestões que executou anteriormente é provavelmente mais útil do que este script de auto-premutável. Para tornar a auto-contígnia mais fácil de utilizar, considere usá-la com resultados sugeridos.
 
@@ -451,7 +451,7 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
 
 1. Agora executar a aplicação. Introduza "pa" na caixa de pesquisa. Você recebe "palácio" como a sugestão autocompleta, juntamente com dois hotéis que contêm "pa"?
 
-    ![Dactilografia com autocompleto inline e sugestões](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
 
 1. Tente fazer tabbing para aceitar a sugestão de precontamento automático e tente selecionar sugestões utilizando as teclas de seta e tecla do separador, e tente novamente usando o rato e um simples clique. Verifique se o script lida com todas estas situações de forma ordenada.
 
@@ -466,7 +466,7 @@ Considere os seguintes takeaways deste projeto:
 * Teste sempre funções de auto-completação com todas as formas de entrada.
 * A utilização da função **setInterval** pode ser útil na verificação e correção de elementos de UI.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo tutorial, temos uma outra forma de melhorar a experiência do utilizador, usando facetas para reduzir as pesquisas com um único clique.
 

@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962099"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743051"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de networking do Serviço de Aplicações
 
 As aplicações no Azure App Service podem ser implementadas de várias maneiras. Por padrão, as aplicações hospedadas no Serviço de Aplicações são diretamente acessíveis à Internet e só podem chegar aos pontos finais hospedados na Internet. Muitas aplicações de clientes precisam, no entanto, de controlar o tráfego de rede de entrada e saída. Existem várias funcionalidades disponíveis no Serviço de Aplicações para satisfazer essas necessidades. O desafio é saber que característica deve ser usada para resolver um determinado problema. Este documento destina-se a ajudar os clientes a determinar que funcionalidade deve ser utilizada com base em alguns casos de utilização de exemplo.
 
-Existem dois tipos de implementação primária para o Serviço de Aplicações Azure. Existe o serviço público multi-inquilino, que acolhe planos de Serviço de Aplicações nos SKUs de preços gratuitos, partilhados, básicos, padrão, premium e premiumv2. Depois há o único inquilino App Service Environment (ASE), que acolhe planos isolados do SKU App Service diretamente na sua Rede Virtual Azure (VNet). As funcionalidades que utiliza variarão se estiver no serviço multi-inquilino ou num ASE. 
+Existem dois tipos de implementação primária para o Serviço de Aplicações Azure. Existe o serviço público multi-inquilino, que acolhe planos de Serviço de Aplicações nos SKUs de preços gratuitos, partilhados, básicos, padrão, premium, PremiumV2 e PremiumV3. Depois há o único inquilino App Service Environment (ASE), que acolhe planos isolados do SKU App Service diretamente na sua Rede Virtual Azure (VNet). As funcionalidades que utiliza variarão se estiver no serviço multi-inquilino ou num ASE. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Recursos de rede multi-inquilinos do Serviço de Aplicações 
 
@@ -62,7 +62,7 @@ Os seguintes casos de utilização de saída sugerem como usar as funcionalidade
 
 ### <a name="default-networking-behavior"></a>Comportamento de rede padrão
 
-As unidades de escala de serviço de aplicações Azure suportam muitos clientes em cada implementação. Os planos SKU gratuitos e partilhados acolhem cargas de trabalho dos clientes em trabalhadores multi-inquilinos. O Basic, e acima de planos, acolhe cargas de trabalho de clientes que são dedicadas a apenas um plano de Serviço de Aplicações (ASP). Se tiver um plano standard de Serviço de Aplicações, todas as aplicações nesse plano serão executadas com o mesmo trabalhador. Se escaloná-lo, todas as aplicações dessa ASP serão replicadas num novo trabalhador para cada instância no seu ASP. Os trabalhadores que são utilizados para o Premiumv2 são diferentes dos trabalhadores utilizados para os outros planos. Cada implementação do Serviço de Aplicações tem um endereço IP que é utilizado para todo o tráfego de entrada para as aplicações nessa implementação do Serviço de Aplicações. No entanto, existem entre 4 e 11 endereços utilizados para fazer chamadas de saída. Estes endereços são partilhados por todas as aplicações que são implantações do Serviço de Aplicações. Os endereços de saída são diferentes com base nos diferentes tipos de trabalhadores. Isto significa que os endereços utilizados pelos ASPs gratuitos, partilhados, básicos, standard e premium são diferentes dos endereços utilizados para chamadas de saída dos ASPs Premiumv2. Se procurar nas propriedades da sua aplicação, pode ver os endereços de entrada e saída que são utilizados pela sua aplicação. Se precisar de bloquear uma dependência com um IP ACL, utilize os possíveis OutboundAddresses. 
+As unidades de escala de serviço de aplicações Azure suportam muitos clientes em cada implementação. Os planos SKU gratuitos e partilhados acolhem cargas de trabalho dos clientes em trabalhadores multi-inquilinos. O Basic, e acima de planos, acolhe cargas de trabalho de clientes que são dedicadas a apenas um plano de Serviço de Aplicações (ASP). Se tiver um plano standard de Serviço de Aplicações, todas as aplicações nesse plano serão executadas com o mesmo trabalhador. Se escaloná-lo, todas as aplicações dessa ASP serão replicadas num novo trabalhador para cada instância no seu ASP. Os trabalhadores que são utilizados para o PremiumV2 e o PremiumV3 são diferentes dos trabalhadores utilizados para os outros planos. Cada implementação do Serviço de Aplicações tem um endereço IP que é utilizado para todo o tráfego de entrada para as aplicações nessa implementação do Serviço de Aplicações. No entanto, existem entre 4 e 11 endereços utilizados para fazer chamadas de saída. Estes endereços são partilhados por todas as aplicações que são implantações do Serviço de Aplicações. Os endereços de saída são diferentes com base nos diferentes tipos de trabalhadores. Isto significa que os endereços utilizados pelos ASPs gratuitos, partilhados, básicos, standard e premium são diferentes dos endereços utilizados para chamadas de saída dos ASPs PremiumV2 e PremiumV3. Se procurar nas propriedades da sua aplicação, pode ver os endereços de entrada e saída que são utilizados pela sua aplicação. Se precisar de bloquear uma dependência com um IP ACL, utilize os possíveis OutboundAddresses. 
 
 ![Propriedades de aplicativos](media/networking-features/app-properties.png)
 

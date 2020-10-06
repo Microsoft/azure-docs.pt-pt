@@ -3,19 +3,18 @@ title: Segurança do Azure Key Vault
 description: Gerencie permissões de acesso para Azure Key Vault, chaves e segredos. Cobre o modelo de autenticação e autorização do Key Vault e como proteger o cofre da chave.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596361"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739695"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -76,29 +75,16 @@ Após as regras de firewall estarem em vigor, os utilizadores só podem ler dado
 
 Para mais informações sobre o endereço da rede Azure Key Vault, reveja [os pontos finais do serviço de rede virtual para Azure Key Vault ( Azure Key Vault)](overview-vnet-service-endpoints.md)
 
-### <a name="tls-and-https"></a>TLS e HTTPS
+## <a name="tls-and-https"></a>TLS e HTTPS
 
 *   A extremidade frontal do Key Vault (plano de dados) é um servidor multi-inquilino. Isto significa que os cofres-chave de diferentes clientes podem partilhar o mesmo endereço IP público. Para conseguir o isolamento, cada pedido HTTP é autenticado e autorizado independentemente de outros pedidos.
 *   Pode identificar versões mais antigas do TLS para reportar vulnerabilidades, mas como o endereço IP público é partilhado, não é possível que a equipa de serviço de cofre-chave desative versões antigas do TLS para cofres-chave individuais a nível de transporte.
 *   O protocolo HTTPS permite ao cliente participar na negociação da TLS. **Os clientes podem impor a versão mais recente do TLS,** e sempre que um cliente o faça, toda a ligação utilizará a proteção de nível correspondente. O facto de o Key Vault ainda suportar versões TLS mais antigas não prejudicará a segurança das ligações utilizando versões TLS mais recentes.
 *   Apesar das vulnerabilidades conhecidas no protocolo TLS, não existe um ataque conhecido que permita a um agente malicioso extrair qualquer informação do seu cofre-chave quando o intruso iniciar uma ligação com uma versão TLS que tenha vulnerabilidades. O intruso ainda precisaria de autenticar e autorizar-se, e enquanto os clientes legítimos se ligarem sempre às versões recentes do TLS, não é possível que as credenciais possam ter sido vazadas de vulnerabilidades em versões antigas do TLS.
 
+## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
-## <a name="monitoring"></a>Monitorização
-
-O registo do Key Vault guarda informações sobre as atividades realizadas no seu cofre. Registos do Cofre de Chaves:
-
-- Todos os pedidos autenticados da API DO REST, incluindo pedidos falhados
-  - Operações no cofre da chave em si. Estas operações incluem criação, eliminação, definição de políticas de acesso e atualização de atributos chave do cofre, tais como tags.
-  - Operações com chaves e segredos no cofre, incluindo:
-    - Criar, modificar ou apagar estas chaves ou segredos.
-    - Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
-- Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo ao portador, que são mal formados ou expirados, ou que têm um token inválido.
-
-A informação de registo pode ser acedida no prazo de 10 minutos após a operação do cofre da chave. Cabe-lhe a si gerir os seus registos na sua conta de armazenamento.
-
-- Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
-- Elimine os registos que já não pretende manter na sua conta de armazenamento.
+O registo do Key Vault guarda informações sobre as atividades realizadas no seu cofre. Para obter todos os detalhes, consulte [a sessão de registo do Key Vault](logging.md).
 
 Para recomendação sobre a gestão segura das contas de armazenamento, reveja o [guia de segurança do Azure Storage](../../storage/blobs/security-recommendations.md)
 
@@ -106,4 +92,3 @@ Para recomendação sobre a gestão segura das contas de armazenamento, reveja o
 
 - [Pontos finais de serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
-

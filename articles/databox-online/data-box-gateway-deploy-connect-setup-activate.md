@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82561668"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741963"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar gateway Azure Data Box
 
@@ -23,7 +23,7 @@ Este tutorial descreve como ligar, configurar e ativar o seu dispositivo Data Bo
 
 O processo de configuração e ativação pode demorar cerca de 10 minutos a ser concluído. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ligar-se a um dispositivo virtual
@@ -43,9 +43,9 @@ Antes de configurar e configurar o seu Portal da Caixa de Dados, certifique-se d
    
    https: \/ /ip-address-of-network-interface
    
-   Utilize o URL de ligação indicado no tutorial anterior. Você vê um erro ou um aviso indicando que há um problema com o certificado de segurança do site.
+   Utilize o URL de ligação indicado no tutorial anterior. Verá um erro ou um aviso a indicar que existe um problema com o certificado de segurança do site.
 
-2. **Selecione Continue a esta página web**. Estes passos podem variar dependendo do navegador que você está usando.
+2. **Selecione Continue a esta página web**. Estes passos podem variar consoante o browser utilizado.
    
     ![Mensagem de erro do certificado de segurança do site](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
@@ -75,12 +75,12 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
    
     Ao configurar as definições de rede, lembre-se:
 
-    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são automaticamente atribuídos.
+    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Um endereço IP, uma sub-rede, um gateway e um DNS são atribuídos automaticamente.
     - Se o DHCP não estiver ativado, pode atribuir IPs estáticos se necessário.
     - Pode configurar a sua interface de rede como IPv4.
 
      >[!NOTE] 
-     > Recomendamos que não altere o endereço IP local da interface de rede de estática para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mudar para DHCP, não haverá forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, aguarde até depois de o dispositivo ter registado o serviço e, em seguida, alterar. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
+     > Recomendamos que não altere o endereço IP local da interface de rede de estática para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se estiver a utilizar uma interface de rede e alternar para DHCP, não haverá forma de determinar o endereço DHCP. Se quiser alterar para um endereço DHCP, aguarde até que o dispositivo tenha sido registado com o serviço e, em seguida, altere. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
 
 3. (Opcional) Configure o servidor proxy Web. Embora a configuração de procuração web seja opcional, se utilizar um representante web, só pode configugá-la nesta página.
    
@@ -88,14 +88,14 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
    
    Na página **de procuração** da Web, faça o seguinte:
    
-   1. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://&lt;host-IP address or FQDN&gt;:Port number` . OS URLs HTTPS não são suportados.
+   1. Na caixa **DE URL de procuração web,** introduza o URL neste formato: `http://&lt;host-IP address or FQDN&gt;:Port number` . Os URLs HTTPS não são suportados.
    2. Em **Autenticação**, **selecione Nenhum** ou **NTLM**.
    3. Se estiver a utilizar a autenticação, insira um **nome de utilizador** e uma **palavra-passe**.
    4. Para validar e aplicar as definições de procuração web configuradas, selecione **Apply**.
 
    > [!NOTE]
    > Os ficheiros Proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes do utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL.
-   > Os proxies que tentam intercetar e ler todo o tráfego (em seguida, re-assinar tudo com a sua própria certificação) não são compatíveis uma vez que o cert do proxy não é confiável.
+   > Os proxies que tentam intercetar e ler todo o tráfego (e, em seguida, voltam a assinar tudo com a sua própria certificação) não são compatíveis, pois o certificado do proxy não é fidedigno.
    > Os proxies tipicamente transparentes funcionam bem com o Azure Data Box Gateway.
 
 4. (Opcional) No painel esquerdo, selecione definições de tempo e, em seguida, configufique o **fuso**horário e os servidores NTP primários e secundários para o seu dispositivo. 
@@ -126,7 +126,7 @@ O seu painel de instrumentos exibe as várias definições necessárias para con
     
     3. O dispositivo é ativado e as atualizações críticas, se disponíveis, são aplicadas automaticamente. Vê uma notificação nesse sentido. Monitorize o progresso da atualização através do portal Azure.
 
-        ![Página local de UI "Cloud Settings"](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Web local UI "Cloud settings" página 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **O diálogo também tem uma chave de recuperação que deve copiar e guardar num local seguro. Esta chave é utilizada para recuperar os seus dados no caso de o dispositivo não conseguir arrancar.**
 

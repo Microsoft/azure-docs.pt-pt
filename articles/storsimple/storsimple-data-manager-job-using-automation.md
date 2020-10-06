@@ -6,14 +6,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514926"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743612"
 ---
-# <a name="use-azure-automation-to-trigger-a-job"></a>Use a Azure Automation para desencadear um trabalho
+# <a name="use-azure-automation-to-trigger-a-job"></a>Utilizar a Automatização do Azure para acionar uma tarefa
 
 Este artigo explica como pode utilizar a funcionalidade de transformação de dados dentro do serviço StorSimple Data Manager para transformar dados do dispositivo StorSimple. Pode lançar um trabalho de transformação de dados de duas formas: 
 
@@ -28,7 +28,7 @@ Antes de começar, certifique-se de que tem:
 
 *   Azure PowerShell instalado no computador cliente. [Baixar Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Uma definição de emprego corretamente configurada num serviço StorSimple Data Manager dentro de um grupo de recursos.
-*   Descarregue [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) o ficheiro do repositório do GitHub. 
+*   Descarregue  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) o ficheiro do repositório do GitHub. 
 *   Baixe [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) o script do repositório do GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedimento passo a passo
@@ -41,7 +41,7 @@ Antes de começar, certifique-se de que tem:
 
 2. Para adicionar uma nova conta de automação, clique **em + Adicionar**.
 
-    ![Criar Run como conta de automação](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Criar Executar como conta de automação 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. Na **Automatização**de Adicionar:
 
@@ -52,7 +52,7 @@ Antes de começar, certifique-se de que tem:
    5. Deixe a opção **de execução por** defeito Como a opção de conta selecionada.
    6. Para obter um link para acesso rápido no painel de instrumentos, verifique **Pin para painel de instrumentos**. Clique em **Criar**.
 
-      ![Criar Run como conta de automação](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Criar Executar como conta de automação 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Depois de a conta de automação ter sido criada com sucesso, é notificado.
     
@@ -116,6 +116,6 @@ Execute os seguintes passos para importar, publicar e executar o livro de bordo 
 
     ![Adicionar runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o StorSimple Data Manager UI para transformar os seus dados](storsimple-data-manager-ui.md).

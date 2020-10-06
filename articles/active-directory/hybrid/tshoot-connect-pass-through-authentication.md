@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275928"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741198"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -96,6 +96,7 @@ Navegue para **Azure Ative Directory**  ->  **Ins** no centro de administração
 | 80007 | O Agente de Autenticação não se consegue ligar ao Active Directory. | Verifique se o seu Diretório Ativo está acessível a partir do Agente de Autenticação.
 | 80010 | O Agente de Autenticação não conseguiu desencriptar a palavra-passe. | Se o problema for consistentemente reprodutível, instale e registe um novo Agente de Autenticação. E desinstalar o atual. 
 | 80011 | O Agente de Autenticação não conseguiu obter a chave de desencriptação. | Se o problema for consistentemente reprodutível, instale e registe um novo Agente de Autenticação. E desinstalar o atual.
+| 80014 | O pedido de validação respondeu após o tempo máximo decorrido. | Agente de autenticação cronometrado. Abra um bilhete de suporte com o código de erro, iD de correlação e cartão de tempo para obter mais detalhes sobre este erro
 
 >[!IMPORTANT]
 >Os Agentes de Autenticação Pass-through autenticam os utilizadores Azure AD, validando os seus nomes de utilizador e palavras-passe contra o Ative Directory, chamando a [API do LogonUser Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, se definiu a definição "Logon To" no Ative Directory para limitar o acesso à estação de trabalho, terá de adicionar servidores que hospedam Agentes de Autenticação Pass-through na lista de servidores "Logon To". Se não o fizer, impedirá os seus utilizadores de se inscreverem no Azure AD.

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183722"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743578"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Mudar o caminho de um blob do caminho predefinido
 
@@ -69,7 +69,7 @@ Para criar uma função Azure, execute os seguintes passos:
      
 10. Na janela Função, executar o ficheiro _.csx._
 
-    ![Criar uma nova função C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Criar uma nova função C# 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Realize os seguintes passos.
 
@@ -191,7 +191,7 @@ Para criar uma função Azure, execute os seguintes passos:
 
     2. Clique em **+ Adicionar**.
         
-        ![O link "Ver ficheiros"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Adicionar novo ficheiro de adicionar função](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Digite **project.jse, em**seguida, prima **Enter**. Na **project.jsem** arquivo, cole o seguinte código:
 
@@ -211,7 +211,7 @@ Para criar uma função Azure, execute os seguintes passos:
     
     4. Clique em **Guardar**.
 
-        ![O link "Ver ficheiros"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![Json projeto de nova função](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Criou uma função Azure. Esta função é desencadeada cada vez que uma nova bolha é gerada pelo trabalho de transformação de dados.
 

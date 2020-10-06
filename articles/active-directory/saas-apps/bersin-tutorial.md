@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540801"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Diretório Ativo Azure com a Bersin
 
@@ -98,7 +98,7 @@ Para configurar o Azure AD com Bersin, faça os seguintes passos:
 
 4. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** faça o seguinte passo:
 
-    ![Bersin Domain e URLs informações únicas de súmis](common/idp-identifier-relay.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-identifier-relay.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com Bersin, faça os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e faça os seguintes passos se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Bersin Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.bersin.com/Login.aspx`
 
@@ -161,7 +161,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bersin**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Bersin**.
 

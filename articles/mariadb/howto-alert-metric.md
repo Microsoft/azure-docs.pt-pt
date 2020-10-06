@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120080"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742847"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para MariaDB
 
@@ -52,7 +52,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
    
    Selecione **Fazer** quando concluído.
 
-   ![Selecionar métrica](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Selecione métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
 
@@ -70,7 +70,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
 11. Especifique um nome de regra de alerta, descrição e severidade.
 
-    ![Grupo de ações](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de ação 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selecione **Criar a regra de alerta** para criar o alerta.
 
@@ -84,6 +84,6 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 * **Desative** ou **Ative** o alerta, se pretender parar temporariamente ou retomar as notificações.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

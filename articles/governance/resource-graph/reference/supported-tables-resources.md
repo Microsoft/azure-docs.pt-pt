@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600607"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740008"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -119,6 +119,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.cdn/perfis
 - microsoft.cdn/perfis/pontos finais
 - microsoft.certificateregistration/certificateorders
+- microsoft.caos/chaosexperiments
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
@@ -400,6 +401,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
+- microsoft.orbital/contactprofiles
+- microsoft.orbital/spacecrafts
 - microsoft.peering/peerings
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
@@ -420,6 +423,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.resources/templatespecs/vers
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft.scvmm/clouds
+- microsoft.scvmm/virtualmachines
+- microsoft.scvmm/virtualmachinetemplates
+- microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
@@ -436,6 +443,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/conectores
 - microsoft.signalrservice/signalr
+- microsoft.singularidade/contas
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/eletrodomésticos
 - microsoft.solutions/applicationdefinitions
@@ -531,6 +539,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
 - wandisco.fusion/migradores
+- wandisco.fusion/migradores/livedatamigrations
 - wandisco.fusion/migradores/targets
 
 ## <a name="securityresources"></a>fontes de segurança
