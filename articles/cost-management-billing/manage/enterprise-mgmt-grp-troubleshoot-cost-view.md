@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd7f1ff20189b971ba32e5c4b40b380fc22611b2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371852"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver visualizações de custos empresariais
 
@@ -41,7 +41,7 @@ Se receber uma mensagem de erro que diz **Este elemento está indisponível** ao
 
 ![Captura de ecrã que mostra a mensagem “O elemento está indisponível”.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Peça acesso ao administrador do grupo de gestão ou da subscrição do Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Peça acesso ao administrador do grupo de gestão ou da subscrição do Azure. Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 - Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

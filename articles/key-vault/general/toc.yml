@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Resolver problemas de acesso
           href: troubleshooting-access-issues.md
+    - name: Como ativar o registo
+      href: howto-logging.md
     - name: Programar
       items:
         - name: Guia do Programador do Azure Key Vault

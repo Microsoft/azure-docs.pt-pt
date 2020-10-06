@@ -1,6 +1,6 @@
 ---
 title: Obter a propriedade da faturação das subscrições do Azure do Contrato de Parceiro da Microsoft (MPA)
-description: Saiba como pedir a propriedade da faturação das subscrições do Azure de outros utilizadores.
+description: Saiba como pedir a propriedade da faturação das subscrições do Azure de outros utilizadores para o Contrato de Parceiro da Microsoft (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371019"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -35,7 +35,7 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais do Agente de Administração do CSP no inquilino do CSP.
 1. Procure **Cost Management + Faturação**.  
-    ![Captura de ecrã que mostra a pesquisa da opção cost management + faturação no portal do Azure](./media/mpa-request-ownership/search-cmb.png)
+    ![Captura de ecrã que mostra a pesquisa de cost management + faturação no portal do Azure para pedir a propriedade de faturação.](./media/mpa-request-ownership/search-cmb.png)
 1. Selecione **Clientes** no lado esquerdo e, em seguida, selecione um cliente na lista.  
     [![Captura de ecrã a mostrar a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selecione **Pedidos de transferência** no canto inferior esquerdo e, em seguida, selecione **Adicionar um novo pedido**.  
@@ -56,7 +56,7 @@ Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Mic
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure **Cost Management + Faturação**.  
-    ![Captura de ecrã que mostra a pesquisa da opção cost management + faturação no portal do Azure](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Captura de ecrã que mostra a pesquisa de cost management + faturação no portal do Azure para pedir o estado da transferência.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Selecione **Clientes** no lado esquerdo.  
     [![Captura de ecrã a mostrar a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Selecione o cliente na lista para a qual enviou o pedido de transferência.
@@ -127,7 +127,7 @@ As Reservas do Azure não são movidas automaticamente com as subscrições. Pod
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
-O acesso a utilizadores, grupos ou principais de serviço existentes atribuído com o [RBAC (controlo de acesso baseado em funções) do Azure](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obtém novos acessos RBAC para as subscrições.
+O acesso de utilizadores, grupos ou principais de serviço existentes atribuído com o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obtém qualquer acesso RBAC novo às subscrições.
 
 Os parceiros devem colaborar com o cliente para obterem acesso às subscrições. Para abrir pedidos de suporte, os parceiros têm de ter acesso de [Administração em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -174,4 +174,4 @@ Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Micr
 ## <a name="next-steps"></a>Passos seguintes
 
 * A propriedade da faturação das subscrições do Azure é transferida para si. Controle os custos destas subscrições no [portal do Azure.](https://portal.azure.com)
-* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Gira o acesso aos recursos do Azure com o RBAC e o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Utilize o portal do Azure para adicionar ou remover atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

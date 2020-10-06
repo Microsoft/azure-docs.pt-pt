@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f622042c9a2e8cc5bc11c8dc909d02afe38e5c78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90908364"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758902"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 
@@ -32,7 +32,7 @@ Esta introdução descreve as seguintes capacidades de Azure Spring Cloud:
 
 ## <a name="spring-cloud-config-server"></a>Servidor Config de Nuvem de primavera
 
-O Azure Spring Cloud Config Server fornece uma configuração externa num sistema distribuído com suporte ao servidor e ao cliente.  O Azure Spring Cloud Config Server é uma localização central para gerir propriedades de aplicações em todos os ambientes. Para mais informações consulte a [referência do Servidor Config da Nuvem de primavera](https://spring.io/projects/spring-cloud-config.md). 
+O Azure Spring Cloud Config Server fornece uma configuração externa num sistema distribuído com suporte ao servidor e ao cliente.  O Azure Spring Cloud Config Server é uma localização central para gerir propriedades de aplicações em todos os ambientes. Para mais informações consulte a [referência do Servidor Config da Nuvem de primavera](https://spring.io/projects/spring-cloud-config). 
 
 ## <a name="bluegreen-deployments"></a>Implantações azuis/verdes
 

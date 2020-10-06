@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689529"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447548"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Analisar a fatura do Contrato de Cliente Microsoft
 
@@ -47,7 +47,7 @@ Verifique o tipo de contrato para determinar se tem acesso a uma conta de fatura
 
 No portal do Azure, escreva *cost management + faturação* na caixa de pesquisa e, em seguida, selecione **Cost Management + Faturação**.
 
-![Captura de ecrã a mostrar a pesquisa da opção cost management + faturação no portal do Azure](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Captura de ecrã que mostra a pesquisa da opção cost management + faturação no portal do Azure.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Se tiver acesso a apenas um âmbito de faturação, selecione **Propriedades** no lado esquerdo. Tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft se o tipo de conta de faturação for **Contrato de Cliente Microsoft**.
 
@@ -106,7 +106,7 @@ Selecione o separador **Resumo** na parte superior do ecrã.
 
 A secção Encargos apresenta os custo do mês acumulados até à data atual e do último mês.
 
-![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Captura de ecrã que mostra o resumo de um perfil de faturação.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Os custos do mês acumuladas até à data são os custos pendentes relativamente ao mês atual e estes são cobrados quando a fatura é gerada para esse mês. Se a fatura do último mês ainda não tiver sido gerada, os custos desse mês também estarão pendentes e serão apresentados na sua próxima fatura.
 
@@ -138,7 +138,7 @@ Selecione **Todas as subscrições** no lado esquerdo da página.
 
 A página Subscrições do Azure apresenta os custos do mês até à data e do último mês para cada subscrição no perfil de faturação. Os custos do mês acumuladas até à data são os custos pendentes relativamente ao mês atual e estes são cobrados quando a fatura é gerada para esse mês. Se a fatura do último mês ainda não foi gerada, os custos desse mês também estarão pendentes.
 
-![Captura de ecrã a mostrar a lista de subscrições do Azure do perfil de faturação](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Captura de ecrã que mostra subscrições com cobranças do mês acumuladas até hoje e as cobranças do último mês.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analisar os custos de utilização do Azure
 
@@ -172,7 +172,7 @@ Pode filtrar o ficheiro CSV Utilização e custos do Azure para reconciliar os c
 
 A imagem seguinte mostra a lista de subscrições no portal do Azure.
 
-![Captura de ecrã a mostrar a lista de subscrições do Azure do perfil de faturação](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Captura de ecrã que mostra a lista de subscrições no portal do Azure com uma subscrição em destaque.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtre a coluna **subscriptionName** no ficheiro CSV Utilização e custos do Azure para **WA_Subscription** de modo a ver os custos de utilização detalhados para o campo WA_Subscription.
 

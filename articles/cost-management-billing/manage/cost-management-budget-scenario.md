@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690192"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446460"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
@@ -152,7 +152,7 @@ Utiliza uma instrução condicional para verificar se o valor do limiar atingiu 
 1. Selecione **OK** para definir a expressão.
 1. Selecione **é maior ou igual a** na caixa pendente da **Condição**.
 1. Na caixa **Escolher um valor** da condição, introduza `.8`.  
-    ![Azure – Aplicação lógica – Expressão float com um valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Captura de ecrã que mostra a caixa de diálogo Condição com valores selecionados.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Selecione **Adicionar** > **Adicionar linha** na caixa Condição para adicionar uma parte adicional da condição.
 1. Na caixa **Condição**, selecione a caixa de texto que contém `Choose a value`.
 1. Selecione **Expressão** na parte superior da lista e introduza a seguinte expressão no editor de expressões: `float()`
@@ -160,7 +160,7 @@ Utiliza uma instrução condicional para verificar se o valor do limiar atingiu 
 1. Selecione **OK** para definir a expressão.
 1. Selecione **é menor que** na caixa pendente da **Condição**.
 1. Na caixa **Escolher um valor** da condição, introduza `1`.  
-    ![Azure – Aplicação lógica – Expressão float com um valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Captura de ecrã que mostra a caixa de diálogo Condição com duas condições.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. Na caixa **Se verdadeiro**, selecione **Adicionar uma ação**. Vai adicionar uma ação HTTP POST que encerrará as VMs opcionais.  
     ![Azure – Aplicação lógica – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Introduza **HTTP** para procurar a ação HTTP e selecione a ação **HTTP – HTTP**.  
@@ -183,7 +183,7 @@ Utiliza uma instrução condicional para verificar se o valor do limiar atingiu 
 Utilize uma instrução condicional para verificar se o valor do limiar atingiu ou excedeu os 100% do valor do orçamento. Se este valor de limiar tiver sido atingido, envie um HTTP POST com o webhook denominado **Concluído**. Esta ação encerrará todas as restantes VMs.
 
 1. Selecione **Novo passo** > **Adicionar uma Condição**.  
-    ![Azure – Aplicação lógica – Adicionar ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Captura de ecrã que mostra a caixa de diálogo "If true" com Adicionar uma Condição destacado.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. Na caixa **Condição**, selecione a caixa de texto que contém `Choose a value` para apresentar uma lista dos valores disponíveis.
 1. Selecione **Expressão** na parte superior da lista e introduza a seguinte expressão no editor de expressões: `float()`
 1. Selecione **Conteúdo dinâmico**, coloque o cursor dentro dos parênteses () e selecione **NotificationThresholdAmount** na lista para povoar toda a expressão.
@@ -194,11 +194,11 @@ Utilize uma instrução condicional para verificar se o valor do limiar atingiu 
 1. Na caixa **Escolher um valor** da condição, introduza `1`.  
     ![Azure – Aplicação lógica – Definir valor da condição](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. Na caixa **Se verdadeiro**, selecione **Adicionar uma ação**. Vai adicionar uma ação HTTP POST que encerrará as VMs restantes.  
-    ![Azure – Aplicação lógica – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Captura de ecrã que mostra a caixa de diálogo "If true" em que pode adicionar uma ação HTTP POST.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Introduza **HTTP** para procurar a ação HTTP e selecione a ação **HTTP – HTTP**.
 1. Selecione **Publicar** como valor do **Método**.
 1. Introduza o URL do webhook chamado **Concluído** que criou anteriormente neste tutorial como o valor do **Url**.  
-    ![Azure – Aplicação lógica – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Captura de ecrã que mostra a caixa de diálogo HTTP em que pode introduzir um valor de URL.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Selecione **Adicionar uma ação** na caixa **Se verdadeiro**. Vai adicionar uma ação de e-mail que enviará um e-mail a notificar o destinatário de que as restantes VMs foram encerradas.
 1. Procure “enviar e-mail e selecione uma ação *enviar e-mail* com base no serviço de e-mail que utiliza.
 1. Adicione o texto **Para**, **Assunto** e **Corpo** ao e-mail que notifica o destinatário de que as VMs opcionais foram encerradas. Utilize o conteúdo dinâmico **BudgetName** e **NotificationThresholdAmount** para povoar os campos do assunto e do corpo.  

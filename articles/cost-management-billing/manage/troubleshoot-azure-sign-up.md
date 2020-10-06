@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326611"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
@@ -131,7 +131,7 @@ Utilize os passos seguintes para atualizar as definições de cookies do browser
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Vi uma cobrança na minha conta de avaliação gratuita
 
-Poderá ver uma breve retenção da verificação temporária na sua conta de cartão de crédito depois de se inscrever. Esta retenção é removida em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [evitar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+Poderá ver uma breve retenção da verificação temporária na sua conta de cartão de crédito depois de se inscrever. Esta retenção é removida em três a cinco dias. Se estiver preocupado com a gestão dos custos, leia mais sobre como [Analisar custos inesperados](../understand/analyze-unexpected-charges.md).
 
 ## <a name="agreement"></a>Contrato
 

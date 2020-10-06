@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650986"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759099"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
@@ -166,7 +166,7 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Zimbabué                            | ZW        | USD          |
 |   |   |   |
 
-\* Para os clientes no Brasil, o mercado commcercial através da Cloud Solution Providers (CSP) utiliza USD.
+\* Para clientes no Brasil, o mercado comercial através da Cloud Solution Providers (CSP) utiliza USD.
 
 \** Apenas imagens VM grátis e BYOL.
 
@@ -181,7 +181,7 @@ Para ajustar qualquer preço antes de publicar, basta exportar a folha de cálcu
 
 O preço de uma oferta é sempre mostrado aos clientes na sua moeda local. O preço que seleciona no Partner Center é convertido para a moeda local dos clientes de acordo com a taxa de câmbio no momento em que poupou o preço no Partner Center. O preço mostrado aos clientes nas lojas online não muda, a menos que reebine a sua oferta.
 
-A Microsoft recebe pagamentos de clientes em sua moeda local e paga-lhe na sua moeda local. A Microsoft converte a moeda local do cliente para a sua moeda local utilizando a taxa de câmbio do dia de compra.
+A Microsoft recebe pagamentos de clientes em sua moeda local, e paga-lhe na moeda que selecionou no Partner Center. A Microsoft converte a moeda local do cliente utilizando a taxa de câmbio do dia de compra.
 
 > [!NOTE]
 > A Microsoft converte os preços de oferta usando as taxas de câmbio do Microsoft Treasury.
@@ -196,7 +196,7 @@ Para obter mais informações sobre como introduzir preços para tipos específi
 
 - [Criar uma oferta de aplicações do Azure](partner-center-portal/create-new-azure-apps-offer.md)
 - [Criar uma oferta de recipienteS Azure](partner-center-portal/create-azure-container-offer.md)
-- [Crie uma oferta de máquina virtual Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Criar uma oferta de máquina virtual do Azure](partner-center-portal/azure-vm-create-offer.md)
 - [Criar uma oferta de serviço de consultoria](partner-center-portal/create-consulting-service-offer.md)
 - [Criar uma oferta do Dynamics 365 for Customer Engagement e do PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Criar uma oferta do Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)

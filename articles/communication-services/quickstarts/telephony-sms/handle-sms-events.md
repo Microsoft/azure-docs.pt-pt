@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 66160f17a15ce81dbc21ddf65dba17c0a4ad7a99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665378"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756767"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Inicie-se com os Serviços de Comunicação Azure utilizando a Azure Event Grid para lidar com eventos DE SMS dos Serviços de Comunicação. 
 
@@ -96,7 +96,7 @@ Assim que completares qualquer ação acima, vais reparar nisso  `SMS Received` 
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
 
 Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos](../../concepts/event-handling.md)
 

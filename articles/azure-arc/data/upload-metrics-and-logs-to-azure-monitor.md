@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630004"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757474"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 
@@ -95,7 +95,7 @@ Siga estes comandos para criar o seu principal de serviço de upload de métrica
 Para criar um principal de serviço, executar este comando:
 
 > [!NOTE]
-> A criação de um principal de serviço requer [certas permissões em Azure.](/active-directory/develop/howto-create-service-principal-portal#required-permissions)
+> A criação de um principal de serviço requer [certas permissões em Azure.](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app)
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

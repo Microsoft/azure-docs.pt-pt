@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936474"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757984"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -246,7 +246,7 @@ Pode modificar estes parâmetros conforme necessário:
 
 Para mais informações,
 - [Registo de traços de desempenho com PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Fontes de evento de insights de aplicação](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Fontes de evento de insights de aplicação](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Recolher troncos com traços de dotnet
 

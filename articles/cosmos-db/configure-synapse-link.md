@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253161"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757848"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
-Synapse Link for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo da nuvem (HTAP) que lhe permite executar análises em tempo real sobre dados operacionais em Azure Cosmos DB. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
+[Azure Synapse Link for Azure Cosmos DB](synapse-link.md) é uma capacidade de processamento transacional e analítico híbrido nativo da nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais em Azure Cosmos DB. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Para utilizar o Azure Synapse Link, certifique-se de que fornece a sua conta DB Azure Cosmos & espaço de trabalho Azure Synapse Analytics numa das regiões apoiadas. A azure Synapse Link está atualmente disponível nas seguintes regiões de Azure: EUA West Central, East US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
@@ -46,7 +46,7 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 1. Em seguida, solicita-lhe que ative o link sinapse na sua conta. Selecione **Ativar**. Este processo pode demorar 1 a 5 minutos a ser concluído.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Ativar a funcionalidade Synapse Link":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Encontre a funcionalidade de pré-visualização do Synapse Link":::
 
 1. A sua conta está agora habilitada a utilizar o Synapse Link. Em seguida, veja como criar uma loja analítica que permita aos contentores começarem automaticamente a replicar os seus dados operacionais da loja transacional para a loja analítica.
 
@@ -68,7 +68,7 @@ Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipie
 
 1. Selecione **Novo Recipiente** e introduza um nome para a sua base de dados, recipiente, chave de partição e detalhes de saída. Ligue a opção **de loja analítica.** Depois de ativar a loja analítica, cria um recipiente com `AnalyicalTTL` propriedade definida para o valor padrão de -1 (retenção infinita). Esta loja analítica que mantém todas as versões históricas dos registos.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Ligue a loja analítica para o recipiente Azure Cosmos":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Encontre a funcionalidade de pré-visualização do Synapse Link":::
 
 1. Se não tiver ativado o Synapse Link nesta conta, irá pedir-lhe que o faça porque é um pré-requisito para criar um recipiente analítico habilitado para a loja. Se solicitado, selecione **Enable Synapse Link**. Este processo pode demorar 1 a 5 minutos a ser concluído.
 

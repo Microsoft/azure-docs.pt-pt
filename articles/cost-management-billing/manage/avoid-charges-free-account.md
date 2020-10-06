@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 203a3b93f200a54ec40c96ee79c7fc822fac140b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270615"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar custos com a conta gratuita do Azure
 
@@ -31,7 +31,7 @@ Recebe uma quantidade limitada de serviços gratuitos a cada mês com a sua cont
 
 ## <a name="you-used-some-services-that-arent-free"></a>Utilizou alguns serviços que não são gratuitos
 
-Assim que atualizar a conta, ser-lhe-ão cobradas tarifas pay as you go pela utilização de serviços que não estão incluídos gratuitamente na conta gratuita do Azure. Para saber mais sobre os serviços incluídos na conta gratuita, veja as [FAQ sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/). Pode verificar a utilização do serviço no portal do Azure. Para saber mais, veja [Verificar regularmente o portal quanto à discriminação dos custos e à taxa de gravação](getting-started.md#costs).
+Assim que atualizar a conta, ser-lhe-ão cobradas tarifas pay as you go pela utilização de serviços que não estão incluídos gratuitamente na conta gratuita do Azure. Para saber mais sobre os serviços incluídos na conta gratuita, veja as [FAQ sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/). Pode verificar a utilização do serviço no portal do Azure. Para saber mais, veja [Analisar custos inesperados](../understand/analyze-unexpected-charges.md).
 
 ## <a name="you-reached-the-end-of-your-free-12-months"></a>Chegou ao final dos 12 meses gratuitos
 

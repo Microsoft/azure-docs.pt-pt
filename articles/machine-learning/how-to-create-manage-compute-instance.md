@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743561"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756624"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -46,7 +46,7 @@ As instâncias computacional podem executar empregos de forma segura num [ambien
 
 Criar uma instância computacional é um processo único para o seu espaço de trabalho. Pode reutilizar este cálculo como uma estação de trabalho de desenvolvimento ou como um alvo de computação para a formação. Pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
 
-Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo.
+Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo. Por favor, note que não é possível alterar o tamanho da máquina virtual de instância computacional uma vez que é criado.
 
 O exemplo a seguir demonstra como criar uma instância computacional:
 

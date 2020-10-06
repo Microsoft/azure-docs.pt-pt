@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362781"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Personalizar a conta de faturação para organizar os custos
 
@@ -53,19 +53,19 @@ Esta secção descreve cenários comuns de organização de custos e as estrutur
 |---------|---------|
 |O João inscreve-se no Azure e precisa de uma única fatura mensal. | Um perfil de faturação e uma secção de fatura. Esta estrutura é configurada automaticamente para o João quando ele se inscreve no Azure e não requer quaisquer passos adicionais. |
 
-![Gráfico informativo referente a um cenário de faturação simples](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Infográfico de um cenário de faturação individual.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Cenário  |Estrutura  |
 |---------|---------|
 |A Contoso é uma pequena organização que precisa de uma única fatura mensal, mas que os custos sejam agrupados pelos respetivos departamentos – marketing e engenharia.  | Um perfil de faturação da Contoso e uma secção de fatura para cada departamento: o de marketing e o de engenharia. |
 
-![Gráfico informativo referente a um cenário de faturação simples](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Infográfico de um cenário de faturação múltipla.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Cenário  |Estrutura  |
 |---------|---------|
 |A Fabrikam é uma organização média que precisa de faturas separadas para os respetivos departamentos de engenharia e marketing. Para o departamento de engenharia, pretendem agrupar os custos por ambientes – produção e desenvolvimento.  | Um perfil de faturação para cada departamento: o de marketing e o de engenharia. Para o departamento de engenharia, uma secção de fatura para cada ambiente: o de produção e o de desenvolvimento. |
 
-![Gráfico informativo referente a um cenário de faturação simples](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Infográfico de um cenário de faturação múltipla, com faturação separada para ambientes de produção e desenvolvimento.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Criar uma nova secção de fatura
 
@@ -79,7 +79,7 @@ Para criar uma secção de fatura, precisa de ser **proprietário do perfil de f
 
 3. Selecione **Perfis de faturação** no painel esquerdo. Na lista, selecione um perfil de faturação. A nova secção é apresentada na fatura do perfil de faturação selecionado.
 
-   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Captura de ecrã que mostra a lista dos perfis de faturação.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Selecione **Secções de fatura** no painel esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
 
@@ -107,7 +107,7 @@ Para criar um novo perfil de faturação, tem de ser **proprietário da conta de
 
 3. Selecione **Perfis de faturação** no painel esquerdo e, em seguida, selecione **Adicionar** na parte superior da página.
 
-   [![Captura de ecrã que mostra a lista dos perfis de faturação](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Captura de ecrã que mostra a lista de perfis de faturação com Adicionar selecionado.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Depois de ter personalizado a conta de faturação de acordo com as suas necessi
 
 2. Escreva **Subscrições** na caixa de pesquisa.
 
-   [![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Captura de ecrã que mostra a pesquisa de uma subscrição no portal do Azure.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Selecione **Adicionar** na parte superior da página.
 
-   ![Captura de ecrã que mostra o botão Adicionar na vista Subscrições](./media/mca-section-invoice/subscription-add.png)
+   ![Captura de ecrã que mostra o botão Adicionar na vista Subscrições de uma subscrição nova.](./media/mca-section-invoice/subscription-add.png)
 
 4. Se tiver acesso a várias contas de faturação, selecione a conta de faturação do seu Contrato de Cliente Microsoft.
 
-   ![Captura de ecrã que mostra o botão Adicionar na vista Subscrições](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Captura de ecrã que mostra o painel Criar subscrição.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Selecione o perfil de faturação que será cobrado pela utilização da subscrição. Os custos da utilização do Azure e outras compras desta subscrição serão cobrados na fatura do perfil de faturação selecionado.
 
@@ -166,7 +166,7 @@ Se tiver subscrições do Azure existentes ou outros produtos, como recursos do 
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/mca-section-invoice/search-cmb.png)
+   ![Captura de ecrã que mostra a pesquisa por Cost Management + Faturação no portal do Azure.](./media/mca-section-invoice/search-cmb.png)
 
 3. Para associar uma subscrição a uma nova secção de fatura, selecione **Subscrições do Azure** no lado esquerdo do ecrã. Para outros produtos, como recursos do Azure Marketplace e recursos de origem da Aplicação, selecione **Custos Recorrentes**.
 

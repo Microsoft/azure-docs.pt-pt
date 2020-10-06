@@ -10,12 +10,12 @@ ms.date: 09/03/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
-ms.openlocfilehash: 3fe27bf31385e0310211b5e1b0b7bbfa636eb19b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9265caa3054cde6af311e655db2b2496524e8d24
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948359"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757163"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes PYTHON para enviar mensagens SMS.
 
@@ -107,7 +107,7 @@ sms_response = sms_client.send(
 
 ```
 
-Deverá substituir `<leased-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone a que deseja enviar uma mensagem. Todos os parâmetros de número de telefone devem aderir à [norma E.164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+Deverá substituir `<leased-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone a que deseja enviar uma mensagem. 
 
 O `send_sms_options` parâmetro é um parâmetro opcional que pode utilizar para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
 

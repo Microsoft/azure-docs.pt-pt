@@ -8,20 +8,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 23ac1e241c0811944a943c3c3fef3116eff68a67
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937902"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757763"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utilize Azure DevOps para criar um pipeline CI/CD para um trabalho de Stream Analytics
 
-Neste artigo, aprende-se a criar a Azure DevOps [a construir](/devops/pipelines/get-started-designer) e [a libertar](/devops/pipelines/release/define-multistage-release-process) oleodutos utilizando ferramentas CI/CD do Azure Stream Analytics.
+Neste artigo, aprende-se a criar a Azure DevOps [a construir](/azure/devops/pipelines/get-started/pipelines-get-started) e [a libertar](/azure/devops/pipelines/release/define-multistage-release-process) oleodutos utilizando ferramentas CI/CD do Azure Stream Analytics.
 
 ## <a name="commit-your-stream-analytics-project"></a>Comprometa o seu projeto Stream Analytics
 
-Antes de começar, comprometa os seus projetos stream analytics completos como ficheiros de origem para um repositório [Azure DevOps.](/devops/user-guide/source-control) Pode fazer referência a este [repositório](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) de amostras e [código fonte de projeto Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) em Pipelines Azure.
+Antes de começar, comprometa os seus projetos stream analytics completos como ficheiros de origem para um repositório [Azure DevOps.](/azure/devops/user-guide/source-control) Pode fazer referência a este [repositório](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) de amostras e [código fonte de projeto Stream Analytics](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) em Pipelines Azure.
 
 Os passos deste artigo usam um projeto stream Analytics Visual Studio Code. Se estiver a utilizar um projeto visual Studio, siga os passos em [construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD](cicd-tools.md).
 
@@ -39,7 +39,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 1. Selecione o seu tipo de origem, projeto de equipa e repositório. Em seguida, **selecione Continue**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selecione projeto Azure Stream Analytics":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Criar novo Gasoduto Azure":::
 
 1. Na página do modelo Escolha uma página **de modelo,** selecione **Trabalho Vazio**.
 
@@ -47,7 +47,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 1. Na página **Tarefas,** selecione o sinal de mais ao lado **do trabalho do Agente 1**. Introduza *npm* na pesquisa de tarefas e selecione **npm**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Selecione tarefa npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Criar novo Gasoduto Azure":::
 
 2. Dê à tarefa um **nome de Exibição**. Altere a opção **Comando** para *personalizar* e insira o seguinte comando no **Comando e nos argumentos**. Deixe as restantes opções predefinidos.
 
@@ -55,7 +55,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Introduza configurações para tarefa npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="add-a-build-task"></a>Adicione uma tarefa de construção
 
@@ -65,7 +65,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
    |-|-|
    |projectRootPath|[O Seu Nome DeProjecto]|
    |saídaapata|Saída|
-   |implementarPata|Implementar|
+   |implementarPata|Implementação|
 
 2. Na página **Tarefas,** selecione o sinal de mais ao lado **do trabalho do Agente 1**. Procurar **linha de comando**.
 
@@ -77,7 +77,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
    A imagem abaixo utiliza um projeto Stream Analytics Visual Studio Code como exemplo.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Introduza configurações para código de estúdio visual de tarefa de linha de comando":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="add-a-test-task"></a>Adicione uma tarefa de teste
 
@@ -87,7 +87,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
    |-|-|
    |testPath|Teste|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Adicionar variáveis de gasoduto":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Criar novo Gasoduto Azure":::
 
 2. Na página **Tarefas,** selecione o sinal de mais ao lado **do trabalho do Agente 1**. Procurar **linha de comando**.
 
@@ -99,7 +99,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Introduza configurações para a tarefa da linha de comando":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="add-a-copy-files-task"></a>Adicionar uma tarefa de ficheiros de cópia
 
@@ -107,7 +107,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 1. Na página **Tarefas,** selecione o **+** trabalho seguinte ao Agente **1**. Procurar **por ficheiros Copy**. Em seguida, introduza as seguintes configurações. Ao atribuir `**` ao **Conteúdo,** todos os ficheiros dos resultados dos testes são copiados.
 
-   |Parâmetro|Entrada|
+   |Parâmetro|Input|
    |-|-|
    |Nome a apresentar|Copy Files to: $(build.artifactstagingdirectory)|
    |Pasta de Origem|`$(system.defaultworkingdirectory)/$(outputPath)/`|
@@ -116,7 +116,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 2. Expandir **opções de controlo**. Selecione **Mesmo que uma tarefa anterior tenha falhado, a menos que a construção tenha sido cancelada** em Executar esta **tarefa**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Introduza configurações para a tarefa de cópia":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Adicione uma tarefa de construção de artefactos de construção de publicação
 
@@ -124,7 +124,7 @@ Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer refer
 
 2. Expandir **opções de controlo**. Selecione **Mesmo que uma tarefa anterior tenha falhado, a menos que a construção tenha sido cancelada** em Executar esta **tarefa**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Introduzir configurações para publicar tarefa":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="save-and-run"></a>Salvar e correr
 
@@ -134,9 +134,9 @@ Uma vez terminada a adição do pacote npm, linha de comando, ficheiros de cópi
 
 O ficheiro de resumo do teste e os ficheiros de modelo do Gestor de Recursos Azure podem ser encontrados na pasta **Publicada.**
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Verifique a construção e o resultado do teste":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Criar novo Gasoduto Azure":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Verifique artefactos":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="release-with-azure-pipelines"></a>Lançamento com gasodutos Azure
 
@@ -150,7 +150,7 @@ Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual
 
 3. Na caixa **de Artefactos,** selecione **+ Adicione um artefacto.** Em **Fonte**, selecione o pipeline de construção que criou e selecione **Adicionar**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Insira a construção de artefactos de gasoduto":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Criar novo Gasoduto Azure":::
 
 4. Alterar o nome da **fase 1** para **implementar o trabalho para o ambiente de teste**.
 
@@ -196,7 +196,7 @@ Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual
 
 Para criar um desbloqueio, selecione **Criar o desbloqueio** no canto superior direito.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Criar um desbloqueio utilizando gasodutos Azure":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Criar novo Gasoduto Azure":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

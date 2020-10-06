@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683271"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447611"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 
@@ -91,9 +91,9 @@ As exportações para grupos de gestão de outros tipos de subscrição não sã
 
 1. Se ainda não tiver criado um grupo de gestão, crie um e atribua subscrições ao mesmo.
 1. Na análise de custos, defina o âmbito para o grupo de gestão e selecione **Selecionar este grupo de gestão**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exemplo a mostrar a opção Selecionar este grupo de gestão" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exemplo de nova exportação" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Crie uma exportação no âmbito para obter os dados de gestão de custos para as subscrições no grupo de gestão.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemplo a mostrar a opção Criar nova exportação com um âmbito Grupo de gestão":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemplo de nova exportação":::
 
 ## <a name="verify-that-data-is-collected"></a>Verificar se os dados são recolhidos
 
@@ -128,11 +128,11 @@ Também pode transferir o ficheiro CSV exportado no portal do Azure. Os passos s
 
 Pode ver o histórico de execuções da exportação agendada ao selecionar uma exportação individual na página da lista de exportações. A página da lista de exportações também proporciona acesso rápido à visualização do tempo de execução das exportações anteriores e a próxima hora na qual a execução será executada. Veja a seguir um exemplo a mostrar o histórico de execuções.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exemplo a mostrar o histórico de execuções de exportação":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exemplo de nova exportação":::
 
 Selecione uma exportação para ver o histórico de execuções.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exemplo a mostrar o histórico de execuções de exportação":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exemplo de nova exportação":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Aceder aos dados exportados a partir de outros sistemas
 

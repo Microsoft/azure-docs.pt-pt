@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907589"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756556"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -47,7 +47,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Descrição|
+|Configuração de exibição | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -62,7 +62,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Descrição |
+|Etapas de exibição &nbsp;| Description |
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
@@ -316,7 +316,7 @@ Para invocar o BERT, tem de definir  `enable_dnn: True` o seu automl_settings e 
 
 A AutoML dá os seguintes passos para o BERT. 
 
-1. **Pré-processamento e tokenização de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no resumo da caracterização do modelo final. Um exemplo de como produzir o resumo da caracterização do modelo pode ser encontrado [neste caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Pré-processamento e tokenização de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no resumo da caracterização do modelo final. Um exemplo de como produzir o resumo da caracterização do modelo pode ser encontrado [neste caderno](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Concatenate todas as colunas de texto numa única coluna de texto,** daí `StringConcatTransformer` o modelo final. 
 

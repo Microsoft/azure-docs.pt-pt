@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939307"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756539"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauro na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL Flexible Server, cria automaticamente cópias de segura
 
 O Flexible Server retira cópias de segurança instantâneas dos ficheiros de dados e armazena-os num armazenamento redundante local. O servidor também realiza registos de transações de backup e também os armazena em armazenamento redundante local. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente a cópia de segurança da base de dados de 1 a 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits para os dados armazenados em repouso.
 
-Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para operações de restauro no servidor Flexível. Também pode utilizar [o mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)   de um cliente MySQL para copiar uma base de dados.
+Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para operações de restauro no servidor Flexível. Também pode utilizar [o mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   de um cliente MySQL para copiar uma base de dados.
 
 ## <a name="backup-frequency"></a>Frequência de cópia de segurança
 

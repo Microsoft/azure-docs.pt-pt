@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510515"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757032"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -51,6 +51,8 @@ Se não tiver uma subscrição, siga os passos abaixo:
 
     ![Criar novo diálogo de espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto tradutor (também conhecido como API. Chave de subscrição Azure) que foi criada dentro [do VNET Ativado](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modificar a chave existente
 
@@ -61,7 +63,7 @@ Se não tiver uma subscrição, siga os passos abaixo:
 
 3. No diálogo, introduza a chave para a subscrição do Tradutor e, em seguida, clique no botão "Guardar".
 
-    ![Como adicionar chave de subscrição](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Como adicionar diálogo chave de subscrição](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Gerir a sua área de trabalho
 

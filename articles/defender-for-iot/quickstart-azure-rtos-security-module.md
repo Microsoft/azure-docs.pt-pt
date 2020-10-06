@@ -4,21 +4,21 @@ description: Aprenda a bordo e ative o Módulo de Segurança para o serviço Azu
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 09/24/2020
+ms.author: rkarlin
+ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947523"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759737"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Quickstart: Módulo de segurança para Azure RTOS (pré-visualização)
 
@@ -35,7 +35,7 @@ Este artigo fornece uma explicação dos pré-requisitos antes de começar e exp
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-Faça o download, compile e execute um dos ficheiros .zip para a placa e ferramenta específicas (IAR, semi's IDE ou PC) da sua escolha a partir do Módulo de Segurança para recurso [Azure RTOS GitHub](hhtps://github.com/azure-rtos/azure-iot-preview/releases).
+Faça o download, compile e execute um dos ficheiros .zip para a placa e ferramenta específicas (IAR, semi's IDE ou PC) da sua escolha a partir do Módulo de Segurança para recurso [Azure RTOS GitHub](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Recursos do Azure
 

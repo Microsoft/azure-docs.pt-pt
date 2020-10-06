@@ -5,20 +5,22 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531649"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758987"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
 Neste tutorial, cria e implementa o seu código para Azure Functions como um recipiente personalizado do Docker utilizando uma imagem base linux. Normalmente usa uma imagem personalizada quando as suas funções requerem uma versão específica do idioma ou têm uma dependência ou configuração específica que não é fornecida pela imagem incorporada.
 
+A implementação do seu código de função num recipiente Linux personalizado requer [um plano Premium](functions-premium-plan.md#features) ou um plano de hospedagem dedicado [(Serviço de Aplicações).](functions-scale.md#app-service-plan) Completar este tutorial incorre em custos de alguns dólares americanos na sua conta Azure, que pode minimizar através da [limpeza de recursos](#clean-up-resources) quando terminar.
+
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma aplicação de função e dockerfile utilizando as Ferramentas Principais de Funções Azure.
@@ -31,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Ativar as ligações SSH ao recipiente.
 > * Adicione uma ligação de saída de armazenamento de fila. 
 
-Pode seguir este tutorial em qualquer computador que execute Windows, macOS ou Linux. Completar o tutorial incorrerá em custos de alguns dólares americanos na sua conta Azure.
+Pode seguir este tutorial em qualquer computador que execute Windows, macOS ou Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Utiliza comandos Azure CLI para criar estes itens. Cada comando fornece saída J
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    O alojamento Linux para funções personalizadas é suportado em [planos dedicados (App Service)](functions-scale.md#app-service-plan) e [planos Premium.](functions-premium-plan.md#features) Utilizamos aqui o plano Premium, que pode escalar conforme necessário. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md). Para calcular os [custos,](https://azure.microsoft.com/pricing/details/functions/)consulte a página de preços das funções .
+    Utilizamos aqui o plano Premium, que pode escalar conforme necessário. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md). Para calcular os [custos,](https://azure.microsoft.com/pricing/details/functions/)consulte a página de preços das funções .
 
     O comando também fornece uma instância Azure Application Insights associada no mesmo grupo de recursos, com a qual pode monitorizar a sua aplicação de função e visualizar registos. Para obter mais informações, consulte [as Funções Do Monitor Azure](functions-monitoring.md). O caso não incorre em custos até que o ative.
 
@@ -505,7 +507,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 

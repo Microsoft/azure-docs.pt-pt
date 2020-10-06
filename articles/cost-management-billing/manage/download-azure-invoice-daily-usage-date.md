@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a3930698bb2999ebaad4d78e0b545b83cc968ef2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270904"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou ver os dados da utilização diária e da faturação do Azure
 
@@ -49,7 +49,7 @@ Para a maioria das subscrições, pode transferir a fatura a partir do portal do
 
     ![Captura de ecrã que mostra a página Transferir fatura e utilização](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-Para obter mais informações sobre a fatura, veja [Compreender a fatura do Microsoft Azure](../understand/review-individual-bill.md). Para obter ajuda para gerir os seus custos, veja [Evitar custos inesperados com a faturação e a gestão de custos do Azure](getting-started.md).
+Para obter mais informações sobre a fatura, veja [Compreender a fatura do Microsoft Azure](../understand/review-individual-bill.md). Para obter ajuda para a gestão dos seus custos, veja [Analisar custos inesperados](../understand/analyze-unexpected-charges.md).
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Transferir as faturas de um Contrato de Cliente da Microsoft
 

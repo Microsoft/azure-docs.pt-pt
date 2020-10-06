@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: f42c185046e6ce78edd234923da1a3390ed08608
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371818"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
 
@@ -40,7 +40,7 @@ O administrador da conta pode conceder acesso às informações de faturação d
 
 Estas funções têm acesso a informações de faturação no [portal do Azure](https://portal.azure.com/). As pessoas a quem são atribuídas estas funções também podem utilizar as [APIs de Faturação](usage-rate-card-overview.md) para obter programaticamente as faturas e os detalhes de utilização.
 
-Para atribuir funções, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para atribuir funções, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ** Se for um cliente EA, um Proprietário da Conta poderá atribuir a função acima a outros utilizadores da sua equipa. Mas para que estes utilizadores vejam as informações de faturação, o Administrador da Empresa deve permitir que o Proprietário da Conta visualize os custos no Enterprise Portal.
 
@@ -105,7 +105,7 @@ A funcionalidade Leitor de Faturação está em pré-visualização e ainda não
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Os utilizadores noutras funções, como o Proprietário ou Contribuidor, podem aceder às informações de faturação e aos serviços do Azure. Para gerir estas funções, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+- Os utilizadores noutras funções, como o Proprietário ou Contribuidor, podem aceder às informações de faturação e aos serviços do Azure. Para gerir estas funções, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 - Para obter mais informações sobre as funções, veja [funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.

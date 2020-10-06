@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998429"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757797"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Otimizar a indexação com a API push
 
@@ -325,7 +325,7 @@ do
 
 A partir daqui, embrulhamos o código exponencial de backoff numa função para que possa ser facilmente chamado.
 
-Outra função é então criada para gerir os fios ativos. Para a simplicidade, esta função não está incluída aqui, mas pode ser encontrada em [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada com o seguinte comando onde `hotels` estão os dados que queremos carregar, `1000` é o tamanho do lote, e é o número de fios `8` simultâneos:
+Outra função é então criada para gerir os fios ativos. Para a simplicidade, esta função não está incluída aqui, mas pode ser encontrada em [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). A função pode ser chamada com o seguinte comando onde `hotels` estão os dados que queremos carregar, `1000` é o tamanho do lote, e é o número de fios `8` simultâneos:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
@@ -381,7 +381,7 @@ O código de amostra deste tutorial verifica os índices existentes e elimina-os
 
 Também pode utilizar o portal para eliminar índices.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

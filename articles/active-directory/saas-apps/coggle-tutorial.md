@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555976"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Tutorial: Azure Ative Directy integração única (SSO) com Coggle
 
@@ -146,19 +146,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique na conta **Coggle** e selecione **As Definições**.
 
-    ![Configuração coggle](./media/Coggle-tutorial/configure1.png)
+    ![A screenshot mostra o site da empresa Coggle com as minhas definições selecionadas.](./media/Coggle-tutorial/configure1.png)
 
 3. Clique no seguinte **logotipo** e selecione **Autenticação.**
 
-    ![Configuração coggle](./media/Coggle-tutorial/configure2.png)
+    ![A screenshot mostra um ícone de baleia e autenticação selecionada.](./media/Coggle-tutorial/configure2.png)
 
 4. Clique em **Editar SAML Config.**
 
-    ![Configuração coggle](./media/Coggle-tutorial/configure3.png)
+    ![A screenshot mostra a página de Integração SAML com a opção Edit SAML Config.](./media/Coggle-tutorial/configure3.png)
 
 5. Na página de diálogo de **integração SAML,** execute os seguintes passos:
 
-    ![Configuração coggle](./media/Coggle-tutorial/configure4.png)
+    ![A screenshot mostra a página de Integração SAML onde pode introduzir as informações neste passo.](./media/Coggle-tutorial/configure4.png)
 
     a. Na caixa de texto **'Entrada' (ID Provider SSO URL),** cole o valor URL de **login,** que copiou a partir do portal Azure.
 

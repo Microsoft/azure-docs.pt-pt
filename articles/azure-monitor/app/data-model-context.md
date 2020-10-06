@@ -4,12 +4,12 @@ description: Modelo de dados de contexto de telemetria de insights de aplicaçã
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cbd717243ed35fc90772cb2b727f7670bb77ee70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322674"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757304"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados de Insights de Aplicação
 
@@ -113,7 +113,7 @@ Comprimento máximo: 256
 
 ## <a name="internal-sdk-version"></a>Interna: Versão SDK
 
-Versão SDK. Consulte [este artigo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
+Versão SDK. Consulte [este artigo](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
 
 Comprimento máximo: 64
 

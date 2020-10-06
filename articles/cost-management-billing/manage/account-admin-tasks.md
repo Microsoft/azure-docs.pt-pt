@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ad39b9980562c345aff87f4e0771f265011886b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683305"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447690"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de Administrador de Conta no portal do Azure
 
@@ -35,14 +35,14 @@ Tem de ser o Administrador de Conta para realizar qualquer uma destas tarefas.
 
 1. Na lista **As minhas subscrições**, selecione a subscrição à qual quer adicionar o cartão de crédito.
 
-   ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Captura de ecrã que mostra a página Cost Management + Faturação em que pode selecionar uma subscrição.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Se não vir algumas das suas subscrições aqui, tal poderá dever-se ao facto de ter alterado o diretório das subscrições em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
 
 1. Selecione **Métodos de pagamento**.
 
-    ![Captura de ecrã que mostra o painel de métodos de pagamento selecionado.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Captura de ecrã que mostra a página Métodos de pagamento em que pode adicionar um método de pagamento.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 Aqui, pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar detalhes do cartão de crédito e eliminar cartões de crédito.
 
@@ -100,7 +100,7 @@ Se for elegível para pagar por fatura (cheque/transferência bancária), pode m
 
 1. Selecione **Pagar por fatura** na barra de comandos.
 
-    ![Captura de ecrã que mostra o painel de métodos de pagamento selecionado.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
+    ![Captura de ecrã que mostra a página Métodos de pagamento com Pagar por fatura selecionado.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Introduza o endereço para o método de pagamento por fatura.
 1. Clique em **Seguinte**.
@@ -124,7 +124,7 @@ O limite de gastos não está disponível para as subscrições com planos de al
 
 1. Na lista **As minhas subscrições**, selecione a sua subscrição do Visual Studio Enterprise.
 
-   ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Captura de ecrã que mostra a área As minhas subscrições em que pode selecionar a sua subscrição do Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se não vir algumas das suas subscrições do Visual Studio aqui, tal poderá dever-se ao facto de ter alterado o diretório de uma subscrição em determinado momento. No caso destas subscrições, tem de alterar o diretório para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
@@ -152,7 +152,7 @@ Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos 
 
 1. Na lista **As minhas subscrições**, selecione a sua subscrição Azure no Licenciamento Open.
 
-    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Captura de ecrã que mostra a área As minhas subscrições em que pode selecionar a sua subscrição do Azure no Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Se não vir a sua subscrição aqui, tal poderá dever-se ao facto de ter alterado o diretório em determinado momento. Tem de alterar o diretório da subscrição para o diretório original (o diretório no qual inicialmente se inscreveu). Em seguida, repita o passo 2.
@@ -183,4 +183,4 @@ Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos 
 Não suportamos cartões virtuais ou pré-pagos. Se ocorrerem erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o browser em modo privado.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Obtenha mais informações sobre como [analisar e evitar custos inesperados no portal do Azure](getting-started.md)
+- Saiba mais sobre como [analisar custos inesperados](../understand/analyze-unexpected-charges.md)

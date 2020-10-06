@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371886"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar subscrições Enterprise do Azure (pré-visualização)
 
@@ -23,11 +23,11 @@ Na qualidade de cliente do Azure no [Contrato Enterprise (EA)](https://azure.mic
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para [criar subscrições numa conta de inscrição](programmatically-create-subscription.md), os utilizadores devem ter a [função de Proprietário de RBAC](../../role-based-access-control/built-in-roles.md#owner) nessa conta. Pode conceder a um utilizador ou a um grupo de utilizadores a função de Proprietário de RBAC numa conta de inscrição ao seguir estes passos:
+Para [criar subscrições numa conta de inscrição](programmatically-create-subscription.md), os utilizadores têm de ter a [função de Proprietário](../../role-based-access-control/built-in-roles.md#owner) do RBAC do Azure nessa conta. Pode conceder a um utilizador ou a um grupo de utilizadores a função de Proprietário de RBAC do Azure numa conta de inscrição ao seguir estes passos:
 
 1. Obter o ID de objeto da conta de inscrição à qual pretende conceder acesso
 
-    Para conceder a outros utilizadores a função de Proprietário de RBAC numa conta de inscrição, tem de ser o Proprietário da Conta ou um Proprietário de RBAC da conta.
+    Para conceder a outros utilizadores a função de Proprietário de RBAC do Azure numa conta de inscrição, tem de ser o Proprietário da Conta ou um Proprietário de RBAC do Azure da conta.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ Para [criar subscrições numa conta de inscrição](programmatically-create-sub
     }
     ```
 
-    Use a propriedade `principalName` para identificar a conta à qual pretende conceder acesso ao Proprietário de RBAC. Copie o `name` dessa conta. Por exemplo, se quisesse conceder aceder acesso ao Proprietário de RBAC à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Trata-se do ID de objeto da conta de inscrição. Cole este valor algures para que possa utilizá-lo no próximo passo como `enrollmentAccountObjectId`.
+    Utilize a propriedade `principalName` para identificar a conta à qual pretende conceder acesso de Proprietário de RBAC do Azure. Copie o `name` dessa conta. Por exemplo, se quisesse conceder aceder acesso de Proprietário de RBAC do Azure à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Trata-se do ID de objeto da conta de inscrição. Cole este valor algures para que possa utilizá-lo no próximo passo como `enrollmentAccountObjectId`.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ Para [criar subscrições numa conta de inscrição](programmatically-create-sub
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use a propriedade `principalName` para identificar a conta à qual pretende conceder acesso ao Proprietário de RBAC. Copie o `ObjectId` dessa conta. Por exemplo, se quisesse conceder aceder acesso ao Proprietário de RBAC à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole este ID de objeto algures para que possa utilizá-lo no próximo passo como o `enrollmentAccountObjectId`.
+    Utilize a propriedade `principalName` para identificar a conta à qual pretende conceder acesso de Proprietário de RBAC do Azure. Copie o `ObjectId` dessa conta. Por exemplo, se quisesse conceder aceder acesso de Proprietário de RBAC do Azure à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole este ID de objeto algures para que possa utilizá-lo no próximo passo como o `enrollmentAccountObjectId`.
 
     # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ Para [criar subscrições numa conta de inscrição](programmatically-create-sub
 
     ---
 
-    Use a propriedade `principalName` para identificar a conta à qual pretende conceder acesso ao Proprietário de RBAC. Copie o `name` dessa conta. Por exemplo, se quisesse conceder aceder acesso ao Proprietário de RBAC à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Trata-se do ID de objeto da conta de inscrição. Cole este valor algures para que possa utilizá-lo no próximo passo como `enrollmentAccountObjectId`.
+    Utilize a propriedade `principalName` para identificar a conta à qual pretende conceder acesso de Proprietário de RBAC do Azure. Copie o `name` dessa conta. Por exemplo, se quisesse conceder aceder acesso de Proprietário de RBAC do Azure à SignUpEngineering@contoso.comconta de inscrição, teria de copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Trata-se do ID de objeto da conta de inscrição. Cole este valor algures para que possa utilizá-lo no próximo passo como `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Obtenha o ID de objeto do utilizador ou do grupo ao qual pretende conceder a função de Proprietário de RBAC
+1. <a id="userObjectId"></a>Obtenha o ID de objeto do utilizador ou do grupo ao qual pretende conceder a função de Proprietário de RBAC do Azure
 
     1. No portal do Azure, pesquise no **Azure Active Directory**.
     1. Se quiser conceder acesso a um utilizador, selecione **Utilizadores** no menu à esquerda. Para conceder acesso a um grupo, selecione **Grupos**.
-    1. Selecione o Utilizador ou Grupo ao qual pretende conceder a função de Proprietário de RBAC.
+    1. Selecione o Utilizador ou Grupo ao qual pretende conceder a função de Proprietário de RBAC do Azure.
     1. Se selecionou um Utilizador, encontrará o ID de objeto na página Perfil. Se selecionou um Grupo, o ID do objeto estará na página Descrição Geral. Copie o **ObjectID** ao selecionar o ícone à direita da caixa de texto. Cole-o num local em que possa utilizá-lo no próximo passo como `userObjectId`.
 
-1. Conceder ao utilizador ou ao grupo a função de Proprietário de RBAC na conta de inscrição
+1. Conceder ao utilizador ou ao grupo a função de Proprietário de RBAC do Azure na conta de inscrição
 
-    Através dos valores que recolheu nos dois primeiros passos, conceda ao utilizador ou ao grupo a função de Proprietário de RBAC na conta de inscrição.
+    Através dos valores que recolheu nos dois primeiros passos, conceda ao utilizador ou ao grupo a função de Proprietário de RBAC do Azure na conta de inscrição.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ Para [criar subscrições numa conta de inscrição](programmatically-create-sub
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Quando um utilizador se torna um Proprietário de RBAC para a sua conta de inscrição, este pode [criar subscrições através de programação](programmatically-create-subscription.md) na mesma. Uma subscrição criada por um utilizador delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas também tem o utilizador delegado como um Proprietário de RBAC por predefinição.
+    Quando um utilizador se torna Proprietário de RBAC do Azure da sua conta de inscrição, aquele pode [criar subscrições através de programação](programmatically-create-subscription.md) na mesma. Uma subscrição criada por um utilizador delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas também tem o utilizador delegado como Proprietário de RBAC do Azure por predefinição.
 
     ---
 

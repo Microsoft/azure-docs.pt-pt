@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308967"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma subscrição do Azure desativada
 
@@ -32,7 +32,7 @@ As subscrições do Azure com crédito, como a Avaliação Gratuita e o Visual S
 > [!NOTE]
 > Se tiver uma subscrição de Avaliação Gratuita e remover o limite de gastos, a subscrição será convertida numa subscrição individual com tarifas pay as you go no final da Avaliação Gratuita. O crédito é mantido durante os 30 dias completos após a criação da subscrição. Também tem acesso a serviços gratuitos durante 12 meses.
 
-Para monitorizar e gerir a atividade de faturação do Azure, veja [Evitar custos inesperados com a faturação e a gestão de custos do Azure](getting-started.md).
+Para monitorar e gerir a atividade de faturação do Azure, veja [Planear a gestão dos custos do Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>A fatura está em dívida
@@ -60,4 +60,4 @@ Relativamente aos outros tipos de subscrições, [contacte o suporte](https://po
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba como [Monitorizar e gerir a atividade de faturação do Azure](getting-started.md).
+- Saiba como [Planear a gestão dos custos do Azure](../understand/plan-manage-costs.md).

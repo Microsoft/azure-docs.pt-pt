@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321820"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759463"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -391,7 +391,7 @@ Se utilizar APPINSIGHTS_JAVASCRIPT_ENABLED=verdade nos casos em que o conteúdo 
 
 Isto deve-se à APPINSIGHTS_JAVASCRIPT_ENABLED configuração da aplicação estar a ser definida como verdadeira e codificação de conteúdos ao mesmo tempo. Este cenário ainda não está apoiado. A solução é remover APPINSIGHTS_JAVASCRIPT_ENABLED das definições da sua aplicação. Infelizmente, isto significa que, se a instrumentação JavaScript do lado do cliente/navegador ainda for necessária, são necessárias referências SDK manual para as suas páginas web. Siga as [instruções](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) de instrumentação manual com o JavaScript SDK.
 
-Para obter as informações mais recentes sobre o agente/extensão application insights, consulte as [notas de lançamento](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+Para obter as informações mais recentes sobre o agente/extensão application insights, consulte as [notas de lançamento](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>O website predefinido implementado com aplicações web não suporta monitorização automática do lado do cliente
 

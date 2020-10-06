@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0667e253d50ecc34acef822a928a95e49f13282e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567916"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439788"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagamento das suas subscrições do Azure por fatura
 
@@ -85,7 +85,7 @@ Siga os passos abaixo para alternar a sua subscrição do Azure para pagamento p
 
 1. Aceda ao [portal do Azure](https://portal.azure.com) para iniciar sessão como Administrador de Conta. Procure e selecione **Gestão de Custos + Faturação**.
 
-    ![Procurar Gestão de Custos e Faturação, portal do Microsoft Azure](./media/pay-by-invoice/search.png)
+    ![Captura de ecrã que mostra a pesquisa por Cost Management e Faturação no portal do Azure.](./media/pay-by-invoice/search.png)
 
 1. Selecione a subscrição que quer mudar para pagamento contra fatura.
 1. Selecione **Métodos de pagamento**.

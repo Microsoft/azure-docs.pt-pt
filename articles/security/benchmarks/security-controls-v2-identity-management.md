@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741412"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757941"
 ---
 # <a name="security-control-v2-identity-management"></a>Controlo de Segurança V2: Gestão de Identidade
 
@@ -169,7 +169,7 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../../security-center/security-center-identity-access.md)
 
-- [Alertas no módulo de proteção de ameaças do Centro de Segurança Azure](//azure/security-center/alerts-reference)
+- [Alertas no módulo de proteção de ameaças do Centro de Segurança Azure](/azure/security-center/alerts-reference)
 
 - [Como integrar os registos de atividade do Azure no Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 

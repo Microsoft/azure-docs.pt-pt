@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 141da3dfab9996110952ec266733271582e66ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688917"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439201"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a utilização e os custos do Azure
 
@@ -28,12 +28,12 @@ Com base no tipo de subscrição que utiliza, as opções para transferir a sua 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure *Cost Management + Faturação*.  
-    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Captura de ecrã que mostra a pesquisa da opção Cost Management + Faturação no portal do Azure.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Dependendo do seu acesso, poderá ser preciso selecionar uma Conta de faturação ou um Perfil de faturação.
 1. No menu esquerdo, selecione **Faturas** em **Faturação**.
 1. Na grelha da fatura, localize a linha do período de faturação que corresponde à utilização que quer transferir.
 1. Selecione o **ícone de transferência** ou as reticências (`...`) à direita.  
-  ![Captura de ecrã que mostra a localização de transferência de Utilização + custos](./media/download-azure-daily-usage/download-usage-others.png)  
+  ![Captura de ecrã que mostra a página de Faturas de Cost Management + Faturação com a opção de transferência.](./media/download-azure-daily-usage/download-usage-others.png)  
 1. O painel Transferência é apresentado no lado direito. Selecione **Transferir** na secção **Detalhes de Utilização**.  
 
 ## <a name="download-usage-for-ea-customers"></a>Transferir a utilização para clientes do EA
@@ -42,10 +42,10 @@ Para ver e transferir os dados de utilização como um cliente do EA, tem de ser
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure *Cost Management + Faturação*.  
-    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Captura de ecrã que mostra a pesquisa do portal do Azure.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Selecione **Utilização + custos**.
 1. Para o mês que pretende transferir, selecione **Transferir**.  
-    ![Captura de ecrã que mostra a localização de transferência de Utilização + custos](./media/download-azure-daily-usage/download-usage-ea.png)
+    ![Captura de ecrã que mostra a página Faturas de Cost Management + Faturação para clientes EA.](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## <a name="download-usage-for-pending-charges"></a>Transferir utilização para custos pendentes
 

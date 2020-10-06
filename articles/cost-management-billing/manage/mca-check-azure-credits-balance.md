@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: 334193f64c49b546bab5f44840df5b3f59e32c4f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690583"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447624"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Controlar o saldo do Crédito do Azure do Contrato de Cliente da Microsoft
 
@@ -35,11 +35,11 @@ Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Mi
 
 2. Procure **Cost Management + Faturação**.
 
-    ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 3. Na página dos âmbitos de faturação, selecione a conta de faturação na qual quer controlar o saldo do crédito. A conta de faturação deverá ser do tipo **Contrato de Cliente Microsoft**.
 
-    ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação](./media/mca-check-azure-credits-balance/list-of-scopes.png)
+    ![Captura de ecrã que mostra os Âmbitos de Faturação.](./media/mca-check-azure-credits-balance/list-of-scopes.png)
 
     > [!NOTE]
     >
@@ -47,7 +47,7 @@ Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Mi
 
 3. Selecione **Métodos de pagamento** do lado esquerdo e, em seguida, selecione **Créditos do Azure**.
 
-   ![Captura de ecrã do saldo do crédito de um perfil de faturação](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   ![Captura de ecrã dos saldos previsto e atual.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. A página Créditos do Azure tem as seguintes seções:
 

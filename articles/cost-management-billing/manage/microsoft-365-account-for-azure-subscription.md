@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370339"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Inscrever-se numa subscrição do Azure com a sua conta do Microsoft 365
 
-Se tiver uma subscrição do Microsoft 365, pode utilizar a sua conta do Microsoft 365 para criar uma subscrição do Azure. Inicie sessão no [portal do Azure](https://portal.azure.com/) com o nome de utilizador e a palavra-passe do Microsoft 365. Se quiser configurar máquinas virtuais ou usar outros serviços do Azure, tem de se inscrever para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso à sua subscrição e aos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Se tiver uma subscrição do Microsoft 365, pode utilizar a sua conta do Microsoft 365 para criar uma subscrição do Azure. Inicie sessão no [portal do Azure](https://portal.azure.com/) com o nome de utilizador e a palavra-passe do Microsoft 365. Se quiser configurar máquinas virtuais ou usar outros serviços do Azure, tem de se inscrever para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o controlo de acesso baseado em funções do Azure (RBAC do Azure) para gerir o acesso às suas subscrições e aos seus recursos do Azure.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 Se já tiver uma conta do Microsoft 365 e uma subscrição do Azure, veja [Associar um inquilino do Microsoft 365 a uma subscrição do Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Partilhe a sua subscrição do Azure com outras pessoas e [utilize o Controlo de Acesso Baseado em Funções para gerir o acesso à sua subscrição e aos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Partilhe a sua subscrição do Azure com outras pessoas e [utilize o controlo de acesso baseado em funções do Azure (RBAC do Azure) para gerir o acesso à sua subscrição e aos seus recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

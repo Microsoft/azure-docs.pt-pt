@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: b4905b1aba11a2f8c457d4785897cbe70dd31f76
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 63e648681a63daafe1eaeb1d2e8e5a6cd607aa70
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687421"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446330"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualizar e transferir os preços do Azure para a sua organização
 
@@ -28,17 +28,17 @@ Dependendo das políticas definidas para a sua organização pelo Administrador 
 1. Como Administrador Corporativo, inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Procure *Cost Management + Faturação*.
 
-   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/ea-pricing/portal-cm-billing-search.png)
+   ![Captura de ecrã que mostra a pesquisa do portal do Azure.](./media/ea-pricing/portal-cm-billing-search.png)
 
 1. Na conta de faturação, selecione **Utilização + custos**.
 
    ![Captura de ecrã que mostra a utilização e os custos em Faturação](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Selecione ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/ea-pricing/download-icon.png) **Transferir** para o mês.
+1. Selecione o ![ícone Transferir.](./media/ea-pricing/download-icon.png) **Transferir** para o mês.
 
 1. Em **Folha de Preços**, selecione **Transferir CSV**.
 
-   ![Captura de ecrã que mostra o botão Transferir CSV da folha de preços](./media/ea-pricing/download-ea-price-sheet.png)
+   ![Captura de ecrã que mostra as opções Transferir Utilização + Custos.](./media/ea-pricing/download-ea-price-sheet.png)
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Transferir preços de uma conta MCA ou MPA
 
@@ -70,7 +70,7 @@ Se tiver um MCA, poderá transferir os preços relativamente ao período de fatu
 1. Selecione **Folha de preços do Azure**.
 ![Captura de ecrã que mostra a transferência a partir da Descrição geral](./media/ea-pricing/open-pricing01.png)
 
-## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Estimativa dos custos com a calculadora de preços do Azure
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Obter a estimativa dos custos com a calculadora de preços do Azure
 
 Também pode usar os preços da sua organização para estimar os custos com a calculadora de preços do Azure.
 
@@ -79,7 +79,7 @@ Também pode usar os preços da sua organização para estimar os custos com a c
 1. Em **Programas e Oferta** > **Programa de Licenciamento**, selecione **Contrato Enterprise (EA)** .
 1. Em **Programas e Oferta** > **Contrato Selecionado**, selecione **Nenhum selecionado**.
 
-    ![Captura de ecrã que mostra o botão Transferir CSV da folha de preços](./media/ea-pricing/ea-pricing-calculator-estimate.png)
+    ![Captura de ecrã que mostra os Programas e as Ofertas disponíveis.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 
 1. Escolha a organização.
 1. Selecione **Aplicar**.
@@ -103,5 +103,5 @@ Se tiver um Contrato de Cliente da Microsoft, veja:
 - [Compreender os termos na sua folha de preços para um Contrato de Cliente da Microsoft](mca-understand-pricesheet.md)
 - [Ver e transferir a fatura do Microsoft Azure](../understand/download-azure-invoice.md)
 - [Ver e transferir a utilização e os custos do Microsoft Azure](../understand/download-azure-daily-usage.md)
-- [Ver e transferir os documentos fiscais para o seu perfil de faturação](../understand/mca-download-tax-document.md)
+- [Visualizar e transferir os documentos fiscais para o seu perfil de faturação](../understand/mca-download-tax-document.md)
 - [Compreender os custos na sua fatura do perfil de faturação](../understand/review-customer-agreement-bill.md)

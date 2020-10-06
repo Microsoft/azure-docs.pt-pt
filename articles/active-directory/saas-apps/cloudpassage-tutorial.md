@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e36be8ee9444b5612901439aa5dca4771f2dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551687"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758358"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Tutorial: Azure Ative Directy integração única (SSO) com CloudPassage
 
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://portal.cloudpassage.com/saml/consume/accountid` . Pode obter o seu valor para este atributo clicando na **documentação de configuração SSO** na secção **Definições de Inscrição única** do seu portal CloudPassage.
 
-    ![Configurar um único sign-on](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![A screenshot mostra o portal CloudPassage com o link de documentação de configuração S S O chamado.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de sôm. Contacte [a equipa de suporte do Cliente CloudPassage](https://www.cloudpassage.com/company/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -146,15 +146,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu em cima, clique em **Definições**e, em seguida, clique em **Administração do Site**. 
    
-    ![Configurar um único sign-on][12]
+    ![A screenshot mostra o site CloudPassage com a Administração do Site selecionada.][12]
 
 1. Clique no **separador Definições de Autenticação.** 
    
-    ![Configurar um único sign-on][13]
+    ![A screenshot mostra o site CloudPassage com o separador Definições de Autenticação selecionado.][13]
 
 1. Na secção **Definições de Inscrição única,** execute os seguintes passos: 
    
-    ![Configurar um único sign-on][14]
+    ![A screenshot mostra a secção 'Definições de início único' onde pode introduzir as informações neste passo.][14]
 
     a. Selecione Ative a caixa de verificação **SSO Setup.(SSO Setup Documentation).**
     
@@ -178,15 +178,15 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in CloudPassage
 
 1. Na barra de ferramentas na parte superior, clique em **Definições**e, em seguida, clique em **Administração do Site**. 
    
-    ![Criar um utilizador de teste CloudPassage][22] 
+    ![A screenshot mostra cloudPassage com a Administração do Site selecionada.][22] 
 
 1. Clique no **separador Utilizadores** e, em seguida, clique em **Adicionar Novo Utilizador**. 
    
-    ![Criar um utilizador de teste CloudPassage][23]
+    ![O Screenshot mostra a Administração do Site CloudPassage com o separador Utilizadores selecionado e a opção de adicionar novo utilizador.][23]
 
 1. Na secção **Adicionar Novo Utilizador,** execute os seguintes passos: 
    
-    ![Criar um utilizador de teste CloudPassage][24]
+    ![A screenshot mostra a secção Adicionar Novo Utilizador onde pode especificar as informações do utilizador.][24]
     
     a. Na caixa de texto **Name First,** escreva Britta. 
   

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526651"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372192"
 ---
 # <a name="manage-costs-with-automation"></a>Gerir os custos com a automatização
 
@@ -230,13 +230,13 @@ Idiomas suportados por um código de cultura:
 
 Existem várias maneiras de configurar um orçamento no ambiente do Azure. Reflita sobre o seu cenário primeiro e, em seguida, identifique as opções de configuração que o tornam possível. Analise as seguintes opções:
 
-- **Intervalo de Agregação** - Representa o período de periodicidade utilizado pelo seu orçamento para acumular e avaliar os custos. As opções mais comuns são Mensal, Trimestral e Anual.
-- **Período de Tempo** – Representa o período de validade do orçamento. O orçamento monitoriza e alerta ativamente o utilizador apenas enquanto é válido.
+- **Intervalo de Agregação** - representa o período de periodicidade utilizado pelo seu orçamento para acumular e avaliar os custos. As opções mais comuns são Mensal, Trimestral e Anual.
+- **Período de Tempo** – representa o período de validade do orçamento. O orçamento monitoriza e alerta ativamente o utilizador apenas enquanto é válido.
 - **Notificações**
-  - E-mails de Contacto – Os endereços de e-mail recebem alertas quando um orçamento acumula custos e excede os limites definidos.
-  - Funções de Contacto – Todos os utilizadores com uma função RBAC do Azure correspondente no âmbito especificado recebem alertas por e-mail com esta opção. Por exemplo, os Proprietários de Subscrições podem receber um alerta relativo a um orçamento criado no âmbito das subscrições.
-  - Grupos de Contacto – O orçamento chama os grupos de ações configurados quando o limite de um alerta é excedido.
-- **Filtros de dimensão de custo** – A mesma filtragem que é possível fazer na Análise de Custos ou na API de Consulta também pode ser feita no seu orçamento. Utilize este filtro para reduzir o intervalo de custos que monitoriza com o orçamento.
+  - E-mails de Contacto – os endereços de e-mail recebem alertas quando um orçamento acumula custos e excede os limites definidos.
+  - Funções de Contacto – todos os utilizadores com uma função do Azure correspondente no âmbito especificado recebem alertas por e-mail com esta opção. Por exemplo, os Proprietários de Subscrições podem receber um alerta relativo a um orçamento criado no âmbito das subscrições.
+  - Grupos de Contacto – o orçamento chama os grupos de ações configurados quando o limite de um alerta é excedido.
+- **Filtros de dimensão de custo** – a mesma filtragem que é possível fazer na Análise de Custos ou na API de Consulta também pode ser feita no seu orçamento. Utilize este filtro para reduzir o intervalo de custos que monitoriza com o orçamento.
 
 Depois de identificar as opções de criação de orçamentos que satisfazem as suas necessidades, crie o orçamento com a API. Utilize o exemplo fornecido abaixo para começar com uma configuração de orçamento comum.
 

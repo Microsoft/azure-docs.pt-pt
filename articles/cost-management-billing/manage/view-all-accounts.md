@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360702"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Âmbitos e contas de faturação no portal do Azure
 
@@ -80,11 +80,11 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Captura de ecrã que mostra a pesquisa da opção Cost Management + Faturação no portal do Azure.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Na página da descrição geral, selecione **Mudar âmbito**.
 
-   ![Captura de ecrã que mostra os âmbitos de faturação](./media/view-all-accounts/overview-select-scopes.png)
+   ![Captura de ecrã que mostra os âmbitos de faturação.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Um âmbito é um nó numa conta de faturação que utiliza para ver e gerir a fa
 
 4. Selecione um âmbito para ver os detalhes.
 
-   ![Captura de ecrã que mostra os âmbitos de faturação](./media/view-all-accounts/list-of-scopes.png)
+   ![Captura de ecrã que mostra os âmbitos de faturação, que pode selecionar para ver detalhes.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Verificar o tipo de conta
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

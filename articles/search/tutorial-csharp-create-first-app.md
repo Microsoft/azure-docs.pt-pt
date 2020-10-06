@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23cf7cdb75f1889f58cec152b1b520deac3f6839
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2414570a1d483cd7630e628b13c92dbdc331370d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740620"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759140"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
 
@@ -55,15 +55,15 @@ Uma versão acabada do código neste tutorial pode ser encontrada no seguinte pr
 
 * [1-base-pesquisa-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
+Este tutorial foi atualizado para utilizar o pacote Azure.Search.Documents (versão 11). Para obter uma versão anterior do .NET SDK, consulte [a amostra de código Microsoft.Azure.Search (versão 10).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)
+
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Como está a utilizar um índice de pesquisa de amostras públicas hospedado pela Microsoft, não precisa de um serviço de pesquisa ou de uma conta Azure para este tutorial.
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Biblioteca de clientes Azure Cognitive Search (versão 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-Este tutorial foi atualizado para utilizar o pacote Azure.Search.Documents (versão 11). Para obter uma versão anterior do .NET SDK, consulte [a amostra de código Microsoft.Azure.Search (versão 10).](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)
-
-Como está a utilizar uma amostra pública hospedada pela Microsoft, não precisa de um serviço de pesquisa ou de uma conta Azure para este tutorial.
 
 ### <a name="install-and-run-the-project-from-github"></a>Instale e execute o projeto a partir do GitHub
 

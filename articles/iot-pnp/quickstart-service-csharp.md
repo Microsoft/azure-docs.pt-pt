@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 1a8155c9c0466184a09bc4ff224c9bdf42c173b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612562"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759174"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (C#)
 
@@ -66,7 +66,7 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play](set-up-environment.md) criou duas variáveis ambientais para configurar a amostra para ligar ao seu hub e dispositivo IoT:
 
 * **IOTHUB_CONNECTION_STRING**: a cadeia de ligação do hub IoT que fez uma nota anterior.
-* **DEVICE_ID:** `"my-pnp-device"` .
+* **IOTHUB_DEVICE_ID:** `"my-pnp-device"` .
 
 Neste arranque rápido, utilize uma solução de IoT de amostra em C# para interagir com o dispositivo de amostra que acabou de configurar.
 
@@ -76,7 +76,7 @@ Neste arranque rápido, utilize uma solução de IoT de amostra em C# para inter
 
     | Name | Valor |
     | ---- | ----- |
-    | DEVICE_ID | my-pnp-dispositivo |
+    | IOTHUB_DEVICE_ID | my-pnp-dispositivo |
     | IOTHUB_CONNECTION_STRING | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
 
 1. Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7223d33f8f26897d24841f84454405f91cf3bc49
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308865"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Atualizar a conta gratuita do Azure ou a conta Microsoft Azure for Students Starter
 
@@ -80,4 +80,4 @@ Se for elegível, utilize os passos abaixo para atualizar para uma conta gratuit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que atualizou a conta, veja [Evitar custos inesperados com a faturação e a gestão de custos do Azure](getting-started.md).
+Agora que atualizou a sua conta, veja [Planear a gestão dos custos do Azure](../understand/plan-manage-costs.md).

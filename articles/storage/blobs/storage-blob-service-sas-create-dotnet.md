@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/05/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16179ae730e81ff1ff7c107e3af70b5ce24e8813
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6ebb81e6f5adce1dbc301ac905fed5af1ee6a825
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001949"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758310"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Crie um serviço SAS para um recipiente ou blob com .NET
 
@@ -30,7 +30,7 @@ O seguinte exemplo de código cria um SAS para um recipiente. Se for fornecida a
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Criar um novo [BlobSasBuilder.](/dotnet/api/azure.storage.sas.blobsasbuilder) Em seguida, ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a corda simbólica SAS. 
+Um serviço SAS é assinado com a chave de acesso à conta. Utilize a classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para criar a credencial que é usada para assinar o SAS. Em seguida, crie um novo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de ficha SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
 
@@ -86,7 +86,7 @@ O exemplo de código a seguir cria um SAS numa bolha. Se for fornecida a denomin
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Criar um novo [BlobSasBuilder.](/dotnet/api/azure.storage.sas.blobsasbuilder) Em seguida, ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a corda simbólica SAS. 
+Um serviço SAS é assinado com a chave de acesso à conta. Utilize a classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) para criar a credencial que é usada para assinar o SAS. Em seguida, crie um novo objeto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e ligue para os [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de ficha SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
 
@@ -136,6 +136,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     return blob.Uri + sasBlobToken;
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

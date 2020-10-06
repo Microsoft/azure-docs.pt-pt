@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715207"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759650"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -97,7 +97,7 @@ O serviço de servidor flexível utiliza o módulo criptográfico validado FIPS 
 
 O serviço encripta dados em movimento com a segurança da camada de transporte aplicada por padrão. Os Servidores Flexíveis suportam apenas ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2) e todas as ligações de entrada com TLS 1.0 e TLS 1.1 serão negadas. 
 
-Veja [como usar ligações encriptadas em servidores flexíveis](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) para saber mais.
+Veja [como usar ligações encriptadas em servidores flexíveis](https://docs.mongodb.com/manual/tutorial/configure-ssl) para saber mais.
 
 Servidores flexíveis permitem o acesso privado completo aos servidores utilizando a integração [da rede virtual Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet). Os servidores da rede virtual Azure só podem ser alcançados e conectados através de endereços IP privados. Com a integração do VNet, o acesso público é negado e os servidores não podem ser alcançados usando pontos finais públicos. 
 
@@ -126,7 +126,7 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação de um único servidor MySQL, está pronto para:
 
 - Crie o seu primeiro servidor. 

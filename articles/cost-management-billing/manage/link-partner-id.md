@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487356"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371835"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -151,9 +151,9 @@ Os relatórios de Desempenho dos Produtos na Cloud estão disponíveis para os p
 
 Não consegue ver o cliente nos relatórios pelos seguintes motivos
 
-1. A conta de utilizador associada não tem [Acesso Baseado em Funções](https://docs.microsoft.com/azure/role-based-access-control/overview) em nenhuma subscrição ou recurso do Azure do cliente.
+1. A conta de utilizador associada não tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) em nenhuma subscrição ou recurso do Azure do cliente.
 
-2. A subscrição do Azure em que o utilizador tem [Acesso Baseado em Funções](https://docs.microsoft.com/azure/role-based-access-control/overview) não tem nenhuma utilização.
+2. A subscrição do Azure em que o utilizador tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) não tem nenhuma utilização.
 
 **O ID de parceiro da ligação funciona com o Azure Stack?**
 

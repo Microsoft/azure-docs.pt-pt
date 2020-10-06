@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532700"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758579"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copie e mova os seus projetos de Visão Personalizada
 
 Depois de ter criado e treinado um projeto De Visão Personalizada, talvez queira copiar o seu projeto para outro recurso. Por exemplo, você pode querer mover um projeto de um ambiente de desenvolvimento para o ambiente de produção, ou apoiar um projeto para uma conta em uma região de Azure diferente para uma maior segurança de dados.
 
-As **[APIs do Projeto de Exportação](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** e **[Doprojecto](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** permitem este cenário, permitindo-lhe copiar projetos de uma conta de Visão Personalizada para outras. Este guia mostra-lhe como utilizar estas APIs REST com cURL. Também pode utilizar um serviço de pedido HTTP como o Carteiro para emitir os pedidos.
+As **[APIs do Projeto de Exportação](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** e **[Doprojecto](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** permitem este cenário, permitindo-lhe copiar projetos de uma conta de Visão Personalizada para outras. Este guia mostra-lhe como utilizar estas APIs REST com cURL. Também pode utilizar um serviço de pedido HTTP como o Carteiro para emitir os pedidos.
 
 ## <a name="business-scenarios"></a>Cenários de negócio
 

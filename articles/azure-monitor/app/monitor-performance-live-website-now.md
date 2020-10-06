@@ -4,12 +4,12 @@ description: Monitorize o desempenho de um site sem o reimplementar. Funciona co
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923828"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758668"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -40,14 +40,14 @@ Segue-se um resumo do que pode usufruir:
 
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
-| **Pedidos & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
+| **Pedidos & exceções** |Yes |Yes |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
-| **[API para telemetria personalizada][api]** |Sim |Não |
-| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Sim |Não |
-| **[Visualização da página & dados do utilizador](./javascript.md)** |Sim |Não |
-| **É necessário reprogramar o código** |Sim | Não |
+| **[Contadores de desempenho do sistema](./performance-counters.md)** |Yes |Yes |
+| **[API para telemetria personalizada][api]** |Yes |No |
+| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Yes |No |
+| **[Visualização da página & dados do utilizador](./javascript.md)** |Yes |No |
+| **É necessário reprogramar o código** |Yes | No |
 
 
 
@@ -130,7 +130,7 @@ Para corrigir a atualização do seu web.config:
 </dependentAssembly>
 ```
 
-Estamos a acompanhar esta [questão.](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)
+Estamos a acompanhar esta [questão.](https://github.com/MohanGsk/ApplicationInsights-Home)
 
 
 ### <a name="application-diagnostic-messages"></a>Mensagens de diagnóstico de aplicações
@@ -266,7 +266,7 @@ Uma aplicação de ambiente de trabalho que instala no seu servidor Web do IIS. 
 
 ### <a name="can-i-close-it-after-it-runs"></a>Pode fechá-lo depois de a tarefa ser executada?
 
-Yes. Depois de ter instrumentado os sites que selecionou, pode fechá-lo.
+Sim. Depois de ter instrumentado os sites que selecionou, pode fechá-lo.
 
 Não recolhe telemetria por si só. Só configura as aplicações Web e define algumas permissões.
 

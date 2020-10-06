@@ -3,19 +3,19 @@ title: Monitorize um site do SharePoint com o Application Insights
 description: Comece a monitorizar uma nova aplicação com uma nova chave de instrumentação
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 0d365e1fbcc52e14cfc727dd1de3e31a7d3e5d68
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: afd7a5fc8ccf7546078fa8a4ffa7a076cb05be6a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536502"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757253"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorize um site do SharePoint com o Application Insights
 
 O Azure Application Insights monitoriza a disponibilidade, o desempenho e a utilização das suas aplicações. Aqui, irá aprender a configurá-lo para um site do SharePoint.
 
 > [!NOTE]
-> Devido a questões de segurança, não é possível adicionar diretamente o script descrito neste artigo às suas páginas web no UX moderno do SharePoint. Como alternativa, pode utilizar [o SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para construir uma extensão personalizada que pode utilizar para instalar Insights de Aplicação nos seus sites SharePoint. Para saber mais, consulte [Como criar uma solução de extensão SPFx com AppInsights instalados de raiz](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) ou ver a [amostra](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample-NPM). 
+> Devido a questões de segurança, não é possível adicionar diretamente o script descrito neste artigo às suas páginas web no UX moderno do SharePoint. Como alternativa, pode utilizar [o SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para construir uma extensão personalizada que pode utilizar para instalar Insights de Aplicação nos seus sites SharePoint.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 No [Portal do Azure](https://portal.azure.com), crie um recurso do Application Insights novo. Escolha ASP.NET como o tipo de aplicação.

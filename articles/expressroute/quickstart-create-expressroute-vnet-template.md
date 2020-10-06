@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90016559"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759242"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Quickstart: Criar um circuito ExpressRoute com um esprevamento privado usando um modelo ARM
 
@@ -120,11 +120,7 @@ Neste arranque rápido, criou um:
 * IP público
 * grupos de segurança de rede
 
-Para saber mais sobre a ligação de uma rede virtual a um circuito, continue para os tutoriais ExpressRoute.
+Para aprender a ligar uma rede virtual a um circuito, continue para os tutoriais ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Tutoriais ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
-* Para obter mais informações sobre peering do circuito, veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
-* Para obter mais informações sobre como trabalhar com redes virtuais, veja [Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md).
