@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 0100ace6dcf4701a8491f034f36075dc483849ec
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: a3583cf57725acfdc812e44c921842acebbfd0a0
+  ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90970076"
+  ms.lasthandoff: 10/06/2020
+  ms.locfileid: "91773319"
 landingContent:
 - title: Acerca do Azure Dev Spaces
   linkLists:
@@ -54,3 +54,5 @@ landingContent:
       url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
     - text: Utilizar o Bridge to Kubernetes com o Visual Studio
       url: /visualstudio/containers/bridge-to-kubernetes
+    - text: Migrar para o Bridge to Kubernetes
+      url: migrate-to-bridge-to-kubernetes.md

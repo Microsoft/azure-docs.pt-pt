@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP.NET Core
+        - name: Núcleo de ASP.NET
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -384,6 +384,9 @@
             - name: Migrar aplicações do ADAL para o MSAL
               href: msal-migration.md
               displayName: migration
+    - name: Biblioteca Web do Microsoft Identity
+      href: microsoft-identity-web.md
+      displayName: 'auth, library, .NET Core'
     - name: Protocolos de autenticação
       displayName: Auth protocol
       items:

@@ -975,6 +975,8 @@
           displayName: ARM
         - name: Mover entre regiões
           href: how-to-move-regions.md
+        - name: Impedir alterações ou eliminações
+          href: resource-locks.md
     - name: Distribuição global
       items:
         - name: Configurar escritas em várias regiões
