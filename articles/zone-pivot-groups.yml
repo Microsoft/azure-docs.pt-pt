@@ -392,18 +392,18 @@ groups:
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação ou CLI
   pivots:
-  - id: programmer-tool-spx
-    title: CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
   - id: programming-language-more
     title: Mais linguagens...
 - id: programming-languages-set-two-with-js-go
@@ -652,6 +652,26 @@ groups:
     title: Python
   - id: programming-language-spx
     title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
 - id: acs-js-csharp
   title: Pivôs JS e C#
   prompt: Escolher uma linguagem de programação
@@ -767,9 +787,9 @@ groups:
   - id: platform-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: 9e70f2b3f236bf24279550a1441b40fd0f9ae246
-  ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+  ms.openlocfilehash: a2e8065a9498a7139482fac19483e5706449f27b
+  ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/29/2020
-  ms.locfileid: "91461177"
+  ms.lasthandoff: 10/06/2020
+  ms.locfileid: "91772979"
