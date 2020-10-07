@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 34cb40d385b007f8a41a6700448a1591b714c096
-  ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+  ms.openlocfilehash: 3b1361646bb90677bf97d9666be361d3c439c8a7
+  ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90562762"
+  ms.lasthandoff: 10/05/2020
+  ms.locfileid: "91728408"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -94,7 +94,7 @@ landingContent:
     - text: Saiba onde os dados do utilizador são armazenados
       url: data-residency.md
     - text: Regulamentos
-      url: overview.md
+      url: https://docs.microsoft.com/azure/compliance/
     - text: Acesso de utilizador e termos de utilização
       url: manage-user-access.md
 - title: Operações
@@ -105,8 +105,8 @@ landingContent:
       url: deploy-custom-policies-devops.md
     - text: Monitorização
       url: azure-monitor.md
-    - text: Acesso baseado em funções para administradores
-      url: overview.md
+    - text: Controlo de acesso baseado em funções para administradores
+      url: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles
     - text: Gestão de utilizadores
       url: manage-user-accounts-graph-api.md
     - text: Resolução de problemas

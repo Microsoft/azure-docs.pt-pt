@@ -133,7 +133,7 @@
                   href: authorize-active-directory-powershell.md
                 - name: CLI do Azure
                   href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Gerir direitos de acesso com RBAC
+            - name: Gerir direitos de acesso com o Azure RBAC
               items:
                 - name: Portal
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json

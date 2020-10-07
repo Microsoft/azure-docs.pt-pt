@@ -1326,6 +1326,8 @@
       href: samples/policy-reference.md
     - name: Extinção de Funcionalidades e APIs
       items:
+        - name: API OperationalInsights
+          href: platform/operationalinsights-api-retirement.md
         - name: API clássica de dimensionamento automático e métricas
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Alertas e monitorização clássicos

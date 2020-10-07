@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: b830092f6a54d2dc460c7aba4338c695d27b16b9
-  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+  ms.openlocfilehash: 21736e257a31e65c6cd9ea4a6e1f65cf21bf61d1
+  ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90019109"
+  ms.lasthandoff: 10/05/2020
+  ms.locfileid: "91715742"
 landingContent:
 - title: Acerca do Armazenamento de Blobs do Azure
   linkLists:
@@ -127,7 +127,7 @@ landingContent:
     links:
     - text: Aceder aos dados de blob com uma conta do Azure AD
       url: authorize-blob-access-portal.md
-    - text: Gerir direitos de acesso com RBAC
+    - text: Gerir direitos de acesso com o Azure RBAC
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Utilizar uma identidade gerida para autorizar o acesso ao Armazenamento de Blobs
       url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
