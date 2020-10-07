@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743323"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812408"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -61,6 +61,11 @@ Para obter mais informações, consulte:
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Identidade Azure SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identidade SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Identidade Azure SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Identidade Azure SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+Autenticar para o Cofre de Chaves em aplicações:
+- [Autenticar para Key Vault na aplicação hospedada em VM em .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Autenticar para Key Vault na aplicação hospedada em VM em Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Autenticar para cofre de chaves com serviço de aplicações](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerir chaves, certificados e segredos
 
@@ -112,9 +117,13 @@ Os seguintes artigos e cenários fornecem orientações específicas para a tare
 
 Estes artigos são sobre outros cenários e serviços que usam ou integram com o Key Vault.
 
-- [Encriptação em REST com Cofre de Chaves](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [A encriptação em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) permite a codificação (encriptação) dos dados quando estes são persistidos. As chaves de encriptação de dados são frequentemente encriptadas com uma chave de encriptação chave no Cofre da Chave Azure para limitar ainda mais o acesso.
 - [A Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) permite-lhe gerente da sua própria chave de inquilino. Por exemplo, em vez de a Microsoft gerir a chave do seu inquilino (o padrão), pode gerir a sua própria chave de inquilino para cumprir os regulamentos específicos que se aplicam à sua organização. A gestão da sua própria chave de inquilino também é referida como Bring Your Own Key (Traga a Sua Própria Chave) ou BYOK.
+- [O Azure Private Link Service](private-link-service.md) permite-lhe aceder aos Serviços Azure (por exemplo, Azure Key Vault, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um Ponto Final Privado na sua rede virtual.
+- A integração do Key Vault com [a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  permite que os utilizadores sejam notificados quando o estado de um segredo armazenado no cofre da chave tiver mudado. Pode distribuir nova versão de segredos para aplicações ou rodar perto de segredos de validade para evitar interrupções.
+- Pode proteger os seus segredos [do Azure Devops](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) de acesso indesejado no Key Vault.
+- [Use segredo armazenado no Cofre de Chaves em DataBricks para ligar ao Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Configure e executar o fornecedor Azure Key Vault para o [motorista CSI Secrets Store](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) em Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Principais visões e conceitos do Cofre
 

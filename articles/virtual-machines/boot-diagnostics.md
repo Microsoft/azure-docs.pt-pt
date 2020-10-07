@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287088"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813241"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
@@ -25,12 +25,14 @@ Uma experiência alternativa de Diagnóstico de Boot é utilizar uma conta de ar
 
 > [!IMPORTANT]
 > Os clientes da Azure não serão cobrados pelos custos de armazenamento associados aos diagnósticos de arranque utilizando uma conta de armazenamento gerida até outubro de 2020.
+>
+> As bolhas de dados de diagnóstico de arranque (que compreendem registos e imagens instantâneas) são armazenadas numa conta de armazenamento gerida. Os clientes serão cobrados apenas em GiBs usados pelas bolhas, e não no tamanho provisível do disco. Os contadores instantâneos serão utilizados para a faturação da conta de armazenamento gerida. Uma vez que as contas geridas são criadas em LRS Standard ou ZRS Standard, os clientes serão cobrados a $0,05/GB por mês apenas pelo tamanho das suas bolhas de dados de diagnóstico. Para obter mais informações sobre este preço, consulte [os preços dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/). Os clientes verão esta taxa ligada ao seu recurso VM URI. 
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnóstico de arranque
 Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque encontra-se na secção *de Suporte e Resolução de Problemas* no portal Azure. A seleção de diagnósticos de arranque apresentará uma imagem e informações de registo em série. O registo em série contém mensagens de kernel e a imagem é uma imagem do seu estado atual dos VMs. Baseado em se o VM está a executar Windows ou Linux determina como seria a imagem esperada. Para o Windows, os utilizadores irão ver um fundo de ambiente de trabalho e, para o Linux, os utilizadores irão ver uma solicitação de login.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot dos diagnósticos de botas Linux":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot dos diagnósticos de arranque do Windows":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot dos diagnósticos de botas Linux":::
 
 
 ## <a name="limitations"></a>Limitações

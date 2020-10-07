@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265182"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812289"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testes de largura de banda/produção (NTTTCP)
 
@@ -26,7 +26,7 @@ Ao testar o desempenho da produção da rede em Azure, o melhor é usar uma ferr
 Copie a ferramenta para dois VMs Azure do mesmo tamanho. Um VM funciona como SENDER e o outro como RECETOR.
 
 #### <a name="deploying-vms-for-testing"></a>Implantação de VMs para testes
-Para efeitos deste teste, os dois VMs devem estar no mesmo Serviço de Cloud ou no mesmo Conjunto de Disponibilidade para que possamos utilizar os seus IPs internos e excluir os Balançadores de Carga do teste. É possível testar com o VIP, mas este tipo de testes está fora do âmbito deste documento.
+Para efeitos deste teste, os dois VMs devem estar no mesmo Grupo de [Colocação](../virtual-machines/windows/co-location.md) de Proximidade ou no mesmo Conjunto de Disponibilidade para que possamos utilizar os seus IPs internos e excluir os Balançadores de Carga do teste. É possível testar com o VIP, mas este tipo de testes está fora do âmbito deste documento.
 
 Tome nota do endereço IP do RECETOR. Vamos chamar ip "a.b.c.r"
 
@@ -52,7 +52,7 @@ Parâmetros remetentes: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
 #### <a name="get-ntttcp-onto-the-vms"></a>Coloca o NTTTCP nos VMs.
 
-Descarregue a versão mais recente:<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Descarregue a versão mais recente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
 Ou procure-o se for movido: <https://www.bing.com/search?q=ntttcp+download> \< - deve ser o primeiro sucesso
 
@@ -89,7 +89,7 @@ Espere pelos resultados.
 
 ## <a name="testing-vms-running-linux"></a>Teste de VMs em execução LINUX:
 
-Use nttcp-for-linux. Está disponível a partir de<https://github.com/Microsoft/ntttcp-for-linux>
+Use nttcp-for-linux. Está disponível a partir de <https://github.com/Microsoft/ntttcp-for-linux>
 
 Nos VMs Linux (tanto SENDER como RECETOR), execute estes comandos para preparar o ntttcp-for-linux nos seus VMs:
 

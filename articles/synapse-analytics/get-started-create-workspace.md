@@ -8,13 +8,13 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/07/2020
+ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620074"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812323"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -29,16 +29,15 @@ Para completar tudo isto, é necessário ter acesso a um grupo de recursos para 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
-1. No **Basics,** escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
+1. No **Básico, insira**os campos necessários e escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Navegue para **selecionar data lake storage Gen 2**. 
     1. Clique **em Criar Novo** e nomeie-o **contosolake**.
-    1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.**
+    1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**
 1. OPÇÃO 2 Utilizando uma conta ADLSGEN2 existente. Consulte as instruções **da Conta de Armazenamento ADLSGEN2** na parte inferior deste documento.
 1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
-
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio
 
@@ -117,8 +116,8 @@ Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho
 1. Atribua as seguintes funções ou certifique-se de que já estão atribuídas. Usamos o mesmo nome para a identidade do espaço de trabalho e o nome do espaço de trabalho.
     * Para a função **de Contribuinte de Dados blob de armazenamento** na conta de armazenamento, atribua o meu espaço de **trabalho** como identidade do espaço de trabalho.
     * Atribua **o meu espaço de trabalho** como o nome do espaço de trabalho.
-
 1. Selecione **Guardar**.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

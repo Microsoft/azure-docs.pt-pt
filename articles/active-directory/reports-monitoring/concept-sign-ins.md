@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361301"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812833"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -31,6 +31,7 @@ A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguin
 - **Atividade** 
     - **Insuposições** – Informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
     - **Registos de**  -  auditoria [Os registos de auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
+    - Registos de **provisionamento**  -  [O fornecimento de registos](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) permite que os clientes monitorizem a atividade através do serviço de fornecimento, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday. 
 - **Segurança** 
     - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
     - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
@@ -142,7 +143,7 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 ![Filtro de aplicativo de cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Autenticação moderna|Description|
+|Nome|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|

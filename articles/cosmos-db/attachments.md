@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cb5dbe5101231963f45132fca58279b934c5e49c
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 56e8212d60494d469e225c25edbbd331c601ea6b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055372"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804166"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Anexos DB Azure Cosmos
 
@@ -158,9 +158,9 @@ namespace attachments
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Começa com [o armazenamento da Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-- Obtenha referências para a utilização de anexos através [do .NET SDK v2 da Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet)
-- Obtenha referências para a utilização de anexos através [de Java SDK v2 da Azure Cosmos DB](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable)
+- Obtenha referências para a utilização de anexos através [do .NET SDK v2 da Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet&preserve-view=true)
+- Obtenha referências para a utilização de anexos através [de Java SDK v2 da Azure Cosmos DB](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable&preserve-view=true)
 - Obtenha referências para a utilização de anexos através [da API REST da Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/attachments)

@@ -2,13 +2,13 @@
 title: O tamanho do trabalho excedeu o erro
 description: Descreve como resolver erros quando o tamanho ou o modelo do trabalho são demasiado grandes.
 ms.topic: troubleshooting
-ms.date: 09/25/2020
-ms.openlocfilehash: 06645561964d9634d93061b3be4d100a578cc7e7
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/07/2020
+ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373173"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812901"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Resolver erros para o tamanho do trabalho excedidos
 
@@ -38,6 +38,10 @@ A sua primeira opção é simplificar o modelo. Esta opção funciona quando o s
 
 Pode definir outros recursos como dependentes do modelo ligado e [obter valores a partir da saída do modelo ligado](linked-templates.md#get-values-from-linked-template).
 
-## <a name="solution-2---use-serial-copy"></a>Solução 2 - Utilize cópia em série
+## <a name="solution-2---reduce-name-size"></a>Solução 2 - Reduzir o tamanho do nome
+
+Tente encurtar o comprimento dos nomes que utiliza para [parâmetros,](template-parameters.md) [variáveis](template-variables.md)e [saídas](template-outputs.md). Quando estes valores são repetidos através de ciclos de cópia, um nome grande é multiplicado muitas vezes. O tamanho final do modelo é desnecessariamente grande.
+
+## <a name="solution-3---use-serial-copy"></a>Solução 3 - Utilize cópia em série
 
 A segunda opção é alterar o seu ciclo de cópia de [processamento paralelo a série](copy-resources.md#serial-or-parallel). Utilize esta opção apenas quando suspeitar que o erro provém da implantação de um grande número de recursos através de cópia. Esta mudança pode aumentar significativamente o seu tempo de implantação porque os recursos não são implantados em paralelo.

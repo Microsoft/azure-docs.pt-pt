@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265148"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812850"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
 
@@ -56,12 +56,12 @@ O RSS é sempre ativado por padrão num VM Azure Linux. Os kernels Linux lançad
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implementações
 
-O kernel Ubuntu Azure fornece o melhor desempenho de rede em Azure e tem sido o núcleo padrão desde 21 de setembro de 2017. Para obter este núcleo, instale pela primeira vez a versão mais recente suportada de 16.04-LTS, da seguinte forma:
+O kernel Ubuntu Azure é o mais otimizado para o desempenho da rede em Azure. Para obter as mais recentes otimizações, instale primeiro a versão mais recente suportada de 18.04-LTS, da seguinte forma:
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Upgrade do kernel Ubuntu Azure para os VM existentes
 
-Um desempenho significativo de produção pode ser alcançado através da atualização para o núcleo Azure Linux. Para verificar se tem este núcleo, verifique a sua versão kernel.
+Um desempenho significativo de produção pode ser alcançado através da atualização para o núcleo Azure Linux. Para verificar se tem este núcleo, verifique a sua versão kernel. Deve ser o mesmo ou mais tarde do que o exemplo.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -117,7 +117,7 @@ Para obter as mais recentes otimizações, o melhor é criar um VM com a versão
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -152,6 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Saiba mais sobre a Versão 4.2 dos Serviços de Integração Linux para Hiper-V visualizando a página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Passos seguintes
+* Implementar VMs próximos uns dos outros para baixa latência com [Grupo de Colocação de Proximidade](../virtual-machines/windows/co-location.md)
 * Consulte o resultado otimizado com [bandwidth/Throughput testando Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)

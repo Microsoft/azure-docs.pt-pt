@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987354"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812442"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -50,14 +50,21 @@ Pode implementar rapidamente uma nova aplicação IoT Central e, em seguida, per
 
 Como construtor de soluções, utiliza as ferramentas baseadas na web para criar um modelo de _dispositivo_ para os dispositivos que se ligam à sua aplicação. Um modelo de dispositivo é a planta que define as características e o comportamento de um tipo de dispositivo como:
 
-- Telemetria que envia.
-- As propriedades de negócio que um operador pode modificar.
-- As propriedades dos dispositivos que são definidas por um dispositivo e são só de leitura na aplicação.
-- Propriedades que um operador define, que determinam o comportamento do dispositivo.
+- Telemetria que envia. Exemplos incluem temperatura e humidade. A telemetria está a transmitir dados.
+- As propriedades de negócio que um operador pode modificar. Exemplos incluem um endereço de cliente e uma última data servida.
+- As propriedades dos dispositivos que são definidas por um dispositivo e são só de leitura na aplicação. Por exemplo, o estado de uma válvula como aberto ou fechado.
+- Propriedades que um operador define, que determinam o comportamento do dispositivo. Por exemplo, uma temperatura-alvo para o dispositivo.
+- Comandos, que um operador pode ligar, que funcionam num dispositivo. Por exemplo, um comando para reiniciar remotamente um dispositivo.
 
 Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
-- Um _modelo de capacidade do dispositivo_ que descreve as capacidades que um dispositivo deve implementar, como a telemetria que envia e as propriedades que reporta.
+- Um _modelo de capacidade do dispositivo_ que descreve as capacidades que um dispositivo deve implementar. As capacidades do dispositivo incluem:
+
+  - A telemetria transmite para a IoT Central.
+  - As propriedades só de leitura que usa para reportar o estado à IoT Central.
+  - As propriedades writable que recebe da IoT Central para definir o estado do dispositivo.
+  - Os comandos ligaram da IoT Central.
+
 - Propriedades em nuvem que não são armazenadas no dispositivo.
 - Personalizações, dashboards e formulários que fazem parte da sua aplicação IoT Central.
 
@@ -144,7 +151,6 @@ Cada subscrição do Azure tem quotas padrão que podem afetar o âmbito da sua 
 - Os tipos de esquemas de matriz não são suportados.
 - Apenas o dispositivo C SDK e o Node.js dispositivo e serviço SDKs são suportados.
 - A IoT Central está atualmente disponível nos Estados Unidos, Europa, Ásia-Pacífico, Austrália, Reino Unido e Japão.
-- Não é possível utilizar o modelo de aplicação **de aplicação personalizada (legado)** nas localizações do Reino Unido e do Japão.
 - Os modelos de capacidade do dispositivo devem ter todas as interfaces definidas no mesmo ficheiro.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716576"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813071"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicação?
 
@@ -30,18 +30,13 @@ Você escolhe o modelo de aplicação quando cria a sua aplicação. Não é pos
 
 ## <a name="custom-templates"></a>Modelos personalizados
 
-Se quiser criar a sua aplicação de raiz, escolha um dos dois modelos de aplicação personalizados:
-
-- Aplicação personalizada
-- Aplicação personalizada (legado)
-
-Escolha o modelo **de aplicação personalizado** a menos que tenha uma razão específica para usar o modelo legado.
+Se quiser criar a sua aplicação de raiz, escolha um dos modelos de **aplicação personalizados.**
 
 ## <a name="industry-focused-templates"></a>Modelos focados na indústria
 
 Azure IoT Central é uma plataforma de aplicação agnóstica da indústria. Os modelos de aplicação são exemplos focados na indústria disponíveis para estas indústrias hoje em dia, com mais para vir no futuro:
 
-- [Retalho](../retail/overview-iot-central-retail.md)
+- [Retail](../retail/overview-iot-central-retail.md)
   - Logística associada
   - Centro de distribuição digital
   - Análise na loja - monitorização de condições
@@ -51,7 +46,7 @@ Azure IoT Central é uma plataforma de aplicação agnóstica da indústria. Os 
 - [Energia](../energy/overview-iot-central-energy.md)
   - Monitorização de contadores inteligentes
   - Monitorização do painel solar
-- [Governo](../government/overview-iot-central-government.md)
+- [Administração Pública](../government/overview-iot-central-government.md)
   - Gestão de resíduos conectados
   - Monitorização do consumo de água
   - Monitorização da qualidade da água

@@ -1,6 +1,6 @@
 ---
 title: O que são modelos de dispositivo no Azure IoT Central Microsoft Docs
-description: Os modelos do dispositivo Azure IoT Central permitem especificar o comportamento dos dispositivos ligados à sua aplicação.
+description: Os modelos do dispositivo Azure IoT Central permitem especificar o comportamento dos dispositivos ligados à sua aplicação. Um modelo de dispositivo especifica a telemetria, propriedades e comandos que o dispositivo deve implementar. Um modelo de dispositivo também define o UI para o dispositivo em IoT Central, como os formulários e dashboards que um operador utiliza.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015097"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813173"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -26,12 +26,10 @@ Um construtor de soluções adiciona modelos de dispositivo a uma aplicação Io
 Um modelo de dispositivo inclui as seguintes secções:
 
 - _Um modelo de capacidade do dispositivo (DCM)_. Esta parte do modelo do dispositivo define como o dispositivo interage com a sua aplicação. Um desenvolvedor de dispositivos implementa os comportamentos definidos no DCM.
+    - _Interfaces_. Um DCM contém uma ou mais interfaces que definem a telemetria, propriedades e comandos que o dispositivo deve implementar.
 - _Propriedades na nuvem_. Esta parte do modelo do dispositivo permite ao desenvolvedor da solução especificar quaisquer metadados do dispositivo para armazenar. As propriedades da nuvem nunca são sincronizadas com dispositivos e só existem na aplicação. As propriedades da nuvem não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
 - _Personalizações._ Esta parte do modelo do dispositivo permite que o desenvolvedor de solução substitua algumas das definições no DCM. As personalizações são úteis se o desenvolvedor de solução quiser refinar a forma como a aplicação lida com um valor, como alterar o nome de ecrã para uma propriedade ou a cor usada para exibir um valor de telemetria. As personalizações não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
 - _Vistas._ Esta parte do modelo do dispositivo permite ao desenvolvedor de solução definir visualizações para visualizar dados do dispositivo, e formas para gerir e controlar um dispositivo. As vistas utilizam o DCM, propriedades em nuvem e personalizações. As vistas não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
-
-> [!NOTE]
-> O [IoT Plug and Play public preview release](../../iot-pnp/overview-iot-plug-and-play.md) visa os desenvolvedores de dispositivos e OEMs para começar a construir dispositivos que podem certificar para IoT Plug e Play antes do lançamento do GA.
 
 ## <a name="device-capability-models"></a>Modelos de função de dispositivo
 
@@ -108,11 +106,11 @@ Uma interface tem alguns campos necessários:
 
 Existem alguns campos opcionais que pode usar para adicionar mais detalhes ao modelo de capacidade, como o nome do ecrã e a descrição.
 
-### <a name="interface"></a>Interface
+## <a name="interfaces"></a>Interfaces
 
 O DTDL permite-lhe descrever as capacidades do seu dispositivo. As capacidades relacionadas são agrupadas em interfaces. As interfaces descrevem as propriedades, a telemetria e comanda uma parte dos instrumentos do seu dispositivo:
 
-- `Properties`. As propriedades são campos de dados que representam o estado do seu dispositivo. Utilize propriedades para representar o estado duradouro do dispositivo, como o estado de saída de uma bomba de refrigeração. As propriedades também podem representar propriedades básicas do dispositivo, como a versão firmware do dispositivo. Pode declarar propriedades apenas para leitura ou legitável.
+- `Properties`. As propriedades são campos de dados que representam o estado do seu dispositivo. Utilize propriedades para representar o estado duradouro do dispositivo, como o estado de saída de uma bomba de refrigeração. As propriedades também podem representar propriedades básicas do dispositivo, como a versão firmware do dispositivo. Pode declarar propriedades apenas para leitura ou legitável. Apenas os dispositivos podem atualizar o valor de uma propriedade apenas de leitura. Um operador pode definir o valor de uma propriedade writable para enviar para um dispositivo.
 - `Telemetry`. Os campos de telemetria representam medições dos sensores. Sempre que o seu dispositivo efetuar uma medição do sensor, deve enviar um evento de telemetria contendo os dados do sensor.
 - `Commands`. Os comandos representam métodos que os utilizadores do seu dispositivo podem executar no dispositivo. Por exemplo, um comando de reset ou um comando para ligar ou desligar uma ventoinha.
 
@@ -159,7 +157,7 @@ O exemplo a seguir mostra a definição de interface de sensores ambientais:
 }
 ```
 
-Este exemplo mostra duas propriedades, um tipo de telemetria, e dois comandos. Uma descrição mínima de campo tem um:
+Este exemplo mostra duas propriedades (uma só leitura e uma writable), um tipo de telemetria e dois comandos. Uma descrição mínima de campo tem um:
 
 - `@type` para especificar o tipo de capacidade: `Telemetry` `Property` , , ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que a IoT Central faça algumas suposições sobre como lidar com o valor.
 - `name` para o valor da telemetria.
@@ -168,7 +166,7 @@ Este exemplo mostra duas propriedades, um tipo de telemetria, e dois comandos. U
 
 Os campos opcionais, como o nome do ecrã e a descrição, permitem adicionar mais detalhes à interface e às capacidades.
 
-### <a name="properties"></a>Propriedades
+## <a name="properties"></a>Propriedades
 
 Por padrão, as propriedades são apenas de leitura. Propriedades apenas de leitura significam que o dispositivo reporta atualizações do valor da propriedade para a sua aplicação IoT Central. Sua aplicação IoT Central não pode definir o valor de uma propriedade apenas de leitura.
 
@@ -180,13 +178,13 @@ Não utilize propriedades para enviar telemetria do seu dispositivo. Por exemplo
 
 Para propriedades writable, a aplicação do dispositivo devolve um código de estado, versão e descrição desejadas para indicar se recebeu e aplicou o valor da propriedade.
 
-### <a name="telemetry"></a>Telemetria
+## <a name="telemetry"></a>Telemetria
 
 O IoT Central permite-lhe ver a telemetria nos dashboards e gráficos e utilizar regras para desencadear ações quando os limiares são atingidos. A IoT Central utiliza as informações no DCM, tais como tipos de dados, unidades e nomes de exibição, para determinar como exibir valores de telemetria.
 
 Pode utilizar a funcionalidade de exportação de dados IoT Central para transmitir telemetria para outros destinos, como armazenamento ou Centros de Eventos.
 
-### <a name="commands"></a>Comandos
+## <a name="commands"></a>Comandos
 
 Os comandos são sincronizados ou assíncronos. Um comando sincronizado deve ser executado dentro de 30 segundos por defeito, e o dispositivo deve ser ligado quando o comando chegar. Se o dispositivo responder a tempo ou o dispositivo não estiver ligado, o comando falha.
 
@@ -223,7 +221,7 @@ Um desenvolvedor de soluções cria pontos de vista que permitem aos operadores 
 
 A telemetria, propriedades e comandos que pode adicionar a uma vista são determinados pelo DCM, propriedades em nuvem e personalizações no modelo do dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [telemetria, propriedade e cargas de comando](./concepts-telemetry-properties-commands.md) para saber mais sobre os dados que um dispositivo troca com a IoT Central.
 
