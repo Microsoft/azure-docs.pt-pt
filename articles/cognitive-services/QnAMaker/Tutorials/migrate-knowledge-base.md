@@ -1,21 +1,23 @@
 ---
 title: Bases de conhecimento migram - QnA Maker
 description: Migrar uma base de conhecimento requer exportar de uma base de conhecimento, e depois importar para outra.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 4148431ebb4de288ac517c7c006a925e36c5f460
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542926"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777381"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de conhecimentos utilizando a importação de exportação
 
 A migração é o processo de criação de uma nova base de conhecimento a partir de uma base de conhecimento existente. Pode fazê-lo por várias razões:
 
 * processo de backup e restauro
-* Gasoduto CI/CD
+* Pipeline de CI/CD
 * mover regiões
 
 Migrar uma base de conhecimento requer exportar de uma base de conhecimento existente, importando depois para outra.

@@ -3,12 +3,12 @@ title: Detete movimento, grave vídeo para a Azure Media Services
 description: Este quickstart mostra como usar o Live Video Analytics no IoT Edge de forma a detetar movimentos num stream de vídeo ao vivo e gravar videoclips para a Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89569016"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776481"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Quickstart: Detect motion, gravar vídeo para media services
 
@@ -39,6 +39,16 @@ Quando completar os passos abaixo, terá usado live video analytics no IoT Edge 
 ## <a name="use-direct-method-calls"></a>Use chamadas de métodos diretos
 
 Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando métodos diretos. Leia [Métodos Diretos para Análise de Vídeo Ao Vivo no IoT Edge](direct-methods.md) para compreender todos os métodos diretos fornecidos pelo módulo. 
+
+1. No Código do Estúdio Visual, abra o **separador Extensões** (ou prima Ctrl+Shift+X) e procure por Azure IoT Hub.
+1. Clique no direito e selecione **Definições de extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Gravação de vídeo baseada em eventos para Ativos com base em eventos de movimento":::
+1. Procure e ative "Mostrar Mensagem Verbose".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Gravação de vídeo baseada em eventos para Ativos com base em eventos de movimento":::
 
 ### <a name="invoke-graphtopologylist"></a>Invocar a Lista de Graftopologia
 Este passo enumera todas as [topologias de gráficos](media-graph-concept.md#media-graph-topologies-and-instances) do módulo.
@@ -846,7 +856,7 @@ Em seguida, pode utilizar o portal Azure para reproduzir o vídeo que gravou.
 > [!NOTE]
 > Uma vez que o vídeo simulado ao vivo começa quando ativa o gráfico, os valores da hora do dia não são relevantes e não são expostos através deste atalho do jogador. O tutorial sobre gravação e reprodução contínua de vídeo mostra como pode exibir os tempos de tensão.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine os recursos criados neste arranque rápido.
 

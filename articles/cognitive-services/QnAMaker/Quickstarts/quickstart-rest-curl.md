@@ -1,16 +1,18 @@
 ---
 title: 'Quickstart: Use cURL & REST para gerir a base de conhecimentos - QnA Maker'
 description: Este quickstart mostra-lhe como criar, publicar e consultar a sua base de conhecimentos utilizando as APIs REST.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11a7bd8655d1b5606c3b53ed78e796bc42f85b2e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81261708"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777434"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Quickstart: Use cURL e REST para gerir a base de conhecimentos
 

@@ -1,16 +1,18 @@
 ---
 title: O que é o serviço QnA Maker?
 description: O QnA Maker é um serviço NLP baseado na nuvem que cria facilmente uma camada de conversação natural sobre os seus dados. Pode ser usado para encontrar a resposta mais adequada para qualquer dado contributo de linguagem natural, a partir da sua base de conhecimento personalizado (KB) de informação.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: fabricante de qna, bots de chat de código baixo, conversas multi-turn
-ms.openlocfilehash: ed790016c11199a4422f0489fb52bfcfce5533b3
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761248"
+ms.locfileid: "91776787"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 

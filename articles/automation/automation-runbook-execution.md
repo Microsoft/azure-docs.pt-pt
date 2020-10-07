@@ -1,16 +1,16 @@
 ---
 title: Execução de runbooks na Automatização do Azure
-description: Este artigo diz que fornece uma visão geral do processamento de livros de execução na Azure Automation.
+description: Este artigo fornece uma visão geral do processamento de livros de execução na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325832"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776294"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -89,7 +89,7 @@ A Azure Automation utiliza o [Azure Monitor](../azure-monitor/overview.md) para 
 
 ### <a name="log-analytics-agent-for-windows"></a>Log Analytics agente para Windows
 
-O [agente Log Analytics para o Windows](../azure-monitor/platform/agent-windows.md) trabalha com o Azure Monitor para gerir VMs do Windows e computadores físicos. As máquinas podem estar a funcionar em Azure ou num ambiente não-Azure, como um datacenter local. Tem de configurar o agente para se apresentar a um ou mais espaços de trabalho do Log Analytics.
+O [agente Log Analytics para o Windows](../azure-monitor/platform/agent-windows.md) trabalha com o Azure Monitor para gerir VMs do Windows e computadores físicos. As máquinas podem estar a funcionar em Azure ou num ambiente não-Azure, como um datacenter local.
 
 >[!NOTE]
 >O agente Log Analytics para windows era anteriormente conhecido como o Agente de Monitorização da Microsoft (MMA).
@@ -100,9 +100,11 @@ O [agente Log Analytics do Linux](../azure-monitor/platform/agent-linux.md) func
 
 A conta **de nxautomação** com as permissões de sudo correspondentes deve estar presente durante [a instalação de um trabalhador do Linux Hybrid Runbook](automation-linux-hrw-install.md). Se tentar instalar o trabalhador e a conta não estiver presente ou não tiver as permissões adequadas, a instalação falha.
 
+Não deve alterar as permissões da pasta ou a `sudoers.d` sua propriedade. A permissão de sudo é necessária para a conta **de nxautomation** e as permissões não devem ser removidas. Restringir isto a determinadas pastas ou comandos pode resultar numa mudança de rutura.
+
 Os registos disponíveis para o agente Log Analytics e a conta **de nxautomation** são:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Registo de trabalhadores de automação
 
 >[!NOTE]
@@ -226,7 +228,7 @@ Os serviços externos, por exemplo, os Serviços Azure DevOps e o GitHub, podem 
 
 Para partilhar recursos entre todos os runbooks na nuvem, a Azure usa um conceito chamado fair share. Usando uma parte justa, a Azure descarrega temporariamente ou para qualquer trabalho que tenha funcionado por mais de três horas. Os postos de trabalho para [os livros powerShell](automation-runbook-types.md#powershell-runbooks) e [os runbooks python](automation-runbook-types.md#python-runbooks) são interrompidos e não reiniciados, e o estado do trabalho torna-se interrompido.
 
-Para tarefas de automação Azure de longa duração, recomenda-se a utilização de um Trabalhador De Runbook Híbrido. Os Trabalhadores de Runbook Híbridos não são limitados por uma parte justa, e não têm uma limitação de quanto tempo um runbook pode executar. Os [outros limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de emprego aplicam-se tanto às caixas de areia Azure como aos Trabalhadores De Runbook Híbridos. Embora os Trabalhadores de Runbook Híbridos não estejam limitados pelo limite de 3 horas de quota justa, você deve desenvolver runbooks para executar os trabalhadores que suportam o recomeço de problemas inesperados de infraestruturas locais.
+Para tarefas de automação Azure de longa duração, recomenda-se a utilização de um Trabalhador De Runbook Híbrido. Os Trabalhadores de Runbook Híbridos não são limitados por uma parte justa, e não têm uma limitação de quanto tempo um runbook pode executar. Os [outros limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de emprego aplicam-se tanto às caixas de areia Azure como aos Trabalhadores De Runbook Híbridos. Embora os Trabalhadores de Runbook Híbridos não estejam limitados pelo limite de três horas de quota justa, você deve desenvolver runbooks para executar os trabalhadores que suportam o recomeço de problemas inesperados de infraestruturas locais.
 
 Outra opção é otimizar um runbook utilizando livros infantis. Por exemplo, o seu runbook pode circular pela mesma função em vários recursos, por exemplo, com uma operação de base de dados em várias bases de dados. Pode mover esta função para um livro de [crianças](automation-child-runbooks.md) e pedir ao seu livro de execução que o chame de [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Os livros infantis executam em paralelo em processos separados.
 

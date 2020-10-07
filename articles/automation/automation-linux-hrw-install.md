@@ -3,14 +3,14 @@ title: Implementar um Trabalhador de Runbook Híbrido Linux na Azure Automation
 description: Este artigo diz como instalar um Azure Automation Hybrid Runbook Worker para executar livros em máquinas baseadas em Linux no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987227"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776277"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -45,6 +45,10 @@ Para adicionar a função de Rastreio e Inventário de Alterações ao seu espa�
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
 O papel de Trabalhador de Runbook Híbrido requer o [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) para o sistema operativo Linux suportado.
+
+>[!NOTE]
+>Depois de instalar o agente Log Analytics para o Linux, não deverá alterar as permissões da pasta ou da `sudoers.d` sua propriedade. A permissão de sudo é necessária para a conta **de nxautomation,** que é o contexto de utilizador que o Trabalhador de Runbook Híbrido executa. As permissões não devem ser removidas. Restringir isto a determinadas pastas ou comandos pode resultar numa mudança de rutura.
+>
 
 ### <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 
@@ -88,11 +92,11 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 
 |Tipo de livro de execução | Suportado |
 |-------------|-----------|
-|Python 2 |Yes |
+|Python 2 |Sim |
 |PowerShell |Sim<sup>1</sup> |
-|Fluxo de Trabalho do PowerShell |No |
-|Gráficos |No |
-|Fluxo de trabalho gráfico powershell |No |
+|Fluxo de Trabalho do PowerShell |Não |
+|Gráficos |Não |
+|Fluxo de trabalho gráfico powershell |Não |
 
 <sup>1</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
 

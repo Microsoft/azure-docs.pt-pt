@@ -1,31 +1,32 @@
 ---
-title: Verifique a instância do recipiente de extração de frases-chave
+title: Verifique a instância do recipiente de extração de frase-chave
 titleSuffix: Azure Cognitive Services
-description: Aprenda a verificar a instância do recipiente de extração de frases-chave.
+description: Saiba como verificar a instância do recipiente de extração de frases-chave.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5c177517ec18d7526b1cc09da74e35cb5434766d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dca4828a5c1127133461ddf9fc06099fc176b68
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876454"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779660"
 ---
-### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verifique a instância do recipiente de extração de frases-chave
+### <a name="verify-the-key-phrase-extraction-container-instance"></a>Verifique a instância do recipiente de extração de frase-chave
 
-1. Selecione o separador **'Visão Geral'** e copie o endereço IP.
-1. Abra um novo separador de navegador e introduza o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`introduza). A página inicial do recipiente é exibida, o que lhe permite saber que o recipiente está em funcionamento.
+1. Selecione o **separador Visão Geral** e copie o endereço IP.
+1. Abra um novo separador de navegador e insira o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000` insira). A página inicial do recipiente é apresentada, o que lhe permite saber se o recipiente está em funcionamento.
 
-    ![Veja a página inicial do contentor para verificar se está a funcionar](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Veja a página inicial do contentor para verificar se está em funcionamento](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Selecione o link descrição da **API** de serviço para ir à página Swagger do contentor.
+1. Selecione o link de descrição da **API de serviço** para ir à página swagger do recipiente.
 
-1. Escolha qualquer uma das APIs **POST** e selecione **Experimente- a**. Os parâmetros são apresentados, o que inclui esta entrada de exemplo:
+1. Escolha qualquer uma das APIs **post** e selecione **Experimentá-lo**. Os parâmetros são apresentados, que inclui esta entrada de exemplo:
 
     ```json
     {
@@ -64,13 +65,13 @@ ms.locfileid: "80876454"
     }
     ```
 
-1. Definir **showStats** para `true`.
+1. Definir **showStats** para `true` .
 
-1. Selecione **Executar** para determinar o sentimento do texto.
+1. **Selecione Executar** para determinar o sentimento do texto.
 
-    O modelo que está embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é negativo e 1 é positivo.
+    O modelo que é embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é negativo e 1 é positivo.
 
-    A resposta da JSON que foi devolvida inclui o sentimento para a entrada de texto atualizada:
+    A resposta JSON que é devolvida inclui sentimento para a entrada de texto atualizada:
 
     ```json
     {
@@ -100,4 +101,4 @@ ms.locfileid: "80876454"
     }
     ```
 
-Podemos agora correlacionar `id` o documento dos dados JSON da carga de `id`resposta ao documento original de carga útil do pedido. O documento resultante `keyPhrases` tem uma matriz, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, existem `characterCount` várias estatísticas, tais como e `transactionCount` para cada documento resultante.
+Podemos agora correlacionar o documento `id` dos dados JSON da carga útil de resposta com o documento de carga útil do pedido `id` original. O documento resultante tem um `keyPhrases` conjunto, que contém a lista de frases-chave que foram extraídas do documento de entrada correspondente. Além disso, existem várias estatísticas, tais como `characterCount` e para cada documento `transactionCount` resultante.

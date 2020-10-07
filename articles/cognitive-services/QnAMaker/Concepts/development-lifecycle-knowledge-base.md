@@ -1,14 +1,16 @@
 ---
 title: Ciclo de vida da base de conhecimento - QnA Maker
 description: O QnA Maker aprende melhor num ciclo iterativo de mudanças de modelos, exemplos de palavras, publicação e recolha de dados de consultas de ponto final.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 7bbf729fa80e4b41a85b8dfd1080decea1bae108
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612268"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776974"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida base de conhecimento no Fabricante QnA
 O QnA Maker aprende melhor num ciclo iterativo de mudanças de modelos, exemplos de palavras, publicação e recolha de dados de consultas de ponto final.
@@ -83,7 +85,7 @@ A *base de conhecimento de teste* é a versão atualmente editada e guardada. A 
 A *base de conhecimentos publicada* é a versão que é usada no seu chat bot ou aplicação. A publicação de uma base de conhecimento coloca o conteúdo da sua versão de teste na sua versão publicada. A base de conhecimentos publicada é a versão que a aplicação utiliza através do ponto final. Certifique-se de que o conteúdo está correto e bem testado. A base de conhecimentos publicada é conhecida como `prod` no pedido HTTP.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Sugestões de aprendizagem ativa](./active-learning-suggestions.md)

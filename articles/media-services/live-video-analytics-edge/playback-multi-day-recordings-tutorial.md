@@ -3,12 +3,12 @@ title: Reprodução de gravações de vários dias - Azure
 description: Neste tutorial, você aprenderá a usar APIs do Azure Media Service para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7641114dbae5a118937e7f4973092d5f0eadbccc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530578"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776379"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reprodução de gravações de vários dias  
 
@@ -70,22 +70,15 @@ Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta co
 } 
 ```
 
-No Código do Estúdio Visual, pode clicar no ícone Executar à esquerda (ou Ctrl+Shift+D) para apresentar as aplicações disponíveis para executar:
+1. No Código do Estúdio Visual, abra o **separador Extensões** (ou prima Ctrl+Shift+X) e procure por Azure IoT Hub.
+1. Clique no direito e selecione **Definições de extensão**.
 
-![A screenshot mostra um menu no Código do Estúdio Visual com o item de execução selecionado.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Selecione a aplicação AMS Asset Player a partir da caixa drop down, como mostrado abaixo, e bata em F5 para começar a depurar.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Definições de extensão":::
+1. Procure e ative "Mostrar Mensagem Verbose".
 
-![A screenshot mostra um menu no Código do Estúdio Visual com o Ams Asset Player selecionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-A aplicação da amostra irá construir e lançar a sua aplicação de navegador padrão, e abrir a página AMS Asset Player.
-
-> [!NOTE]
-> Dependendo das definições de segurança do seu navegador, poderá ver uma mensagem de aviso. Uma vez que a página web está a funcionar localmente, pode optar por ignorar o aviso.
-
-O Leitor de Ativos AMS pede-lhe que introduza o nome de um ativo do Media Service. Deve utilizar o nome do Ativo que utilizou para gravar vídeos em [Tutorial: Gravação contínua de vídeo](continuous-video-recording-tutorial.md).
-
-Ao escrever o nome do ativo e bater, o código do jogador carregará o URL de streaming. Para mais informações, consulte [Como-a-Guia: Reprodução de gravações](playback-recordings-how-to.md). Se, como recomendado, ainda estiver a gravar para o ativo, o leitor irá detetar isso e tentará fazer a reprodução para a parte mais recente do vídeo gravado. Pode ver a horatamp (em UTC) na parte superior esquerda do leitor. Na imagem abaixo, note como o botão "Live" é selecionado.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Definições de extensão" é selecionado.
 
 ![Fluxo](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  
@@ -96,7 +89,7 @@ Quando expandir o dia, se tiver deixado o Tutorial CVR funcionar durante várias
 
 A fonte para o feed de vídeo no tutorial é um ficheiro MKV. Quando o simulador RSTP (ver [Live555 Media Server)](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)chega ao fim do ficheiro, termina o fluxo. O nó de origem RTSP no gráfico de mídia deteta-o e restabelece a ligação, e o vídeo retoma. Entre cada extremidade do ficheiro e reconectar,.
 
-![Resultados](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
+![Results](./media/playback-multi-day-recordings-tutorial/assetplayer2.png)
  
 Quando clica em qualquer uma das entradas da lista, a aplicação cria um URL de streaming com o filtro apropriado, tal como https://{hostname}/{locatorId}/content.ism/manifest(formato=mpd-time-csf,startTime=YYYY-MM-MMTHH:MM:SS). O leitor carregará este URL e a reprodução começará no início de tempo desejado.
 

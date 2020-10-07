@@ -1,15 +1,16 @@
 ---
 author: aahill
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 3fa9683b63f94f740c19d45865dab9b6d5a08d3f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a7846d1a63ee0b3042bbea473babffbe52f06a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91401053"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779435"
 ---
 <a name="HOLTop"></a>
 

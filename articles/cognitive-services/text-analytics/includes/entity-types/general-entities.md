@@ -5,19 +5,20 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 32e80c50ff6f543679852cbd7e5ce9bda92d01e1
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140948"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779880"
 ---
 As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/entities/recognition/general` ponto final.
 
-| Categoria   | Subcategory | Descrição                          | Versão do modelo inicial                                                    | Notas |
+| Categoria   | Subcategoria | Descrição                          | Versão do modelo inicial                                                    | Notas |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | Pessoa     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também devolvido por NER v2.1 |
 | PersonType | N/D         | Tipos de emprego ou funções detidas por uma pessoa. | `2020-02-01` | |
@@ -42,14 +43,14 @@ As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/
 | URL | N/D | URLs para sites. | `2019-10-01` | Também devolvido por NER v2.1  |
 | IP | N/D | Endereços IP de rede. | `2019-10-01` | Também devolvido por NER v2.1 |
 | DateTime | N/D | Datas e horas do dia. | `2019-10-01` | Também devolvido por NER v2.1 | 
-| DateTime | Data | Datas de Calender. | `2019-10-01` | Também devolvido por NER v2.1 |
-| DateTime | Hora | Horas do dia | `2019-10-01` | Também devolvido por NER v2.1 |
-| DateTime | DateRange | Intervalos de data. | `2019-10-01` | Também devolvido por NER v2.1 |
-| DateTime | TimeRange | Intervalos de tempo. | `2019-10-01` | Também devolvido por NER v2.1 |
-| DateTime | Duração | As durações. | `2019-10-01` | Também devolvido por NER v2.1 |
-| DateTime | Definir | Set, vezes repetidas. |  `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Data | Datas de Calender. | `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Hora | Horas do dia | `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Intervalo de Datas | Intervalos de data. | `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Intervalo de Tempo | Intervalos de tempo. | `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Duração | As durações. | `2019-10-01` | Também devolvido por NER v2.1 |
+| Data e Hora | Definido para | Set, vezes repetidas. |  `2019-10-01` | Também devolvido por NER v2.1 |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` | Também devolvido por NER v2.1  |
-| Quantidade | Número | Os números. | `2019-10-01` | Também devolvido por NER v2.1 |
+| Quantidade | Número | Números. | `2019-10-01` | Também devolvido por NER v2.1 |
 | Quantidade | Percentagem | Percentagens.| `2019-10-01` | Também devolvido por NER v2.1 |
 | Quantidade | Ordinal | Números ordinais. | `2019-10-01` | Também devolvido por NER v2.1 |
 | Quantidade | Idade | Idades. | `2019-10-01` |  Também devolvido por NER v2.1 |

@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
-ms.openlocfilehash: 9b616f8df0a8b64969fac1d18544e6d316120e50
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91771067"
+ms.locfileid: "91776396"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Crie um fluxo de trabalho de GitHub Actions para implementar o seu website estático no Azure Storage
 
@@ -83,7 +83,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e
 
 1. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -95,7 +95,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e
 
 1. Mude o nome do seu fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e login. Estas ações irão verificar o código do seu site e autenticar-se com o Azure usando o `AZURE_CREDENTIALS` segredo GitHub que criou anteriormente. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:
@@ -181,7 +181,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e
 
 1. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -193,7 +193,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e
 
 1. Mude o nome do seu fluxo de trabalho `Blob storage website CI` e adicione as ações de check-out e login. Estas ações irão verificar o código do seu site e autenticar-se com o Azure usando o `AZURE_CREDENTIALS` segredo GitHub que criou anteriormente. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:

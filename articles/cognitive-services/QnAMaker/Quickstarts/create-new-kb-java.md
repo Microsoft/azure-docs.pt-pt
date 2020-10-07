@@ -1,16 +1,18 @@
 ---
 title: 'Início Rápido: criar base de dados de conhecimento – REST, Java – Criador de FAQ'
 description: Este quickstart baseado em Java REST acompanha-o através da criação de uma base de conhecimento qna Maker, programáticamente, que aparecerá no seu Painel Azure da sua conta API de Serviços Cognitivos.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 3a20198e1fce7b72befb0963a4f1eb7a5e7e3f08
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 275b1976e51789d4a458e7bd9f7cfa3240cc81d5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259800"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777662"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Java
 

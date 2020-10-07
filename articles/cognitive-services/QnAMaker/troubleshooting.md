@@ -1,14 +1,16 @@
 ---
 title: Resolução de problemas - QnA Maker
 description: A lista com curadoria das perguntas mais frequentes sobre o serviço QnA Maker irá ajudá-lo a adotar o serviço de forma mais rápida e com melhores resultados.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06747e2d053171749bfc5c9c394dab3d48674d67
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502584"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776243"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para o Criador QnA
 
@@ -133,7 +135,7 @@ Todos os deletes são permanentes, incluindo pares de perguntas e respostas, fic
 <details>
 <summary><b>A base de conhecimento suporta dados ricos ou multimédia?</b></summary>
 
-**Resposta:**
+**Resposta**:
 
 #### <a name="multimedia-auto-extraction-for-files-and-urls"></a>Extração automática multimédia para ficheiros e URLs
 
@@ -274,7 +276,7 @@ A chave final da base de conhecimento está rotulada `QnAAuthkey` no serviço AB
 <details>
 <summary><b>Que dados são armazenados e onde é armazenado?</b></summary>
 
-**Resposta:**
+**Resposta**:
 
 Ao criar o seu serviço QnA Maker, selecionou uma região Azure. As suas bases de conhecimento e ficheiros de registo estão armazenados nesta região.
 

@@ -5,15 +5,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 563daca1e5179639b8dd3aaf710d92e54faf6aa1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709523"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779856"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Análise de Texto para categorias de saúde, entidades e atributos
 

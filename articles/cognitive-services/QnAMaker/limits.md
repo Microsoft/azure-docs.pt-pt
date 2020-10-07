@@ -1,14 +1,16 @@
 ---
 title: Limites e limites - QnA Maker
 description: A QnA Maker tem meta-limites para partes da base de conhecimento e serviço. É importante manter a sua base de conhecimento dentro desses limites para testar e publicar.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524442"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776260"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -32,12 +34,12 @@ Os nomes dos ficheiros não podem incluir os seguintes caracteres:
 
 |Não use o caráter|
 |--|
-|Cotação única`'`|
-|Cotação dupla`"`|
+|Cotação única `'`|
+|Cotação dupla `"`|
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do ficheiro
 
-|Formatar|Tamanho do ficheiro máximo (MB)|
+|Formato|Tamanho do ficheiro máximo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -71,8 +73,8 @@ Os caracteres de comprimento e aceitáveis para nome e valor dos metadados estã
 
 |Item|Chars permitidos|Combinação de padrão regex|Max chars|
 |--|--|--|--|
-|Nome (chave)|Permite<br>alfanumérico (letras e dígitos)<br>`_`(sublinhar)<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
-|Valor|Permite tudo, exceto<br>`:`(cólon)<br>`|`(tubo vertical)<br>Só é permitido um valor.|`^[^:|]+$`|500|
+|Nome (chave)|Permite<br>alfanumérico (letras e dígitos)<br>`_` (sublinhar)<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
+|Valor|Permite tudo, exceto<br>`:` (cólon)<br>`|` (tubo vertical)<br>Só é permitido um valor.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Conhecimento
@@ -81,8 +83,8 @@ Limites globais sobre o conteúdo na base de conhecimento:
 * Duração do texto de pergunta: 1.000
 * Comprimento do texto chave dos metadados: 100
 * Duração do texto do valor dos metadados: 500
-* Caracteres suportados para nome de metadados: Alfabetos, dígitos e`_`
-* Caracteres suportados para valor de metadados: Todos exceto `:` e`|`
+* Caracteres suportados para nome de metadados: Alfabetos, dígitos e `_`
+* Caracteres suportados para valor de metadados: Todos exceto `:` e `|`
 * Duração do ficheiro: 200
 * Formatos de ficheiros suportados: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Número máximo de perguntas alternativas: 300
@@ -102,6 +104,6 @@ Estes representam os limites para cada ação de atualização; isto é, clicar 
 * Número máximo de campos de metadados adicionados ou eliminados: 10
 * Número máximo de URLs que podem ser atualizados: 5
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba quando e como alterar os [níveis de preços do serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

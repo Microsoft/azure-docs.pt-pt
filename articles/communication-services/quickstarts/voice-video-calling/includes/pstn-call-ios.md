@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 7d158b39b3d8297095b65a0d58d38e87dc8ec250
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 63fd0af819fde7d78df289a1b8f5cefa2e415101
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762627"
+ms.locfileid: "91779650"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -26,15 +26,6 @@ ms.locfileid: "91762627"
 - Pode construir e executar a sua aplicação com serviços de comunicação Azure Chamando a biblioteca de clientes para iOS:
 
 ## <a name="setting-up"></a>Configuração
-
-## <a name="object-model"></a>Modelo de objeto
-
-As seguintes classes e interfaces lidam com algumas das principais características dos Serviços de Comunicação Azure Chamando a biblioteca de clientes para iOS.
-
-| Nome                                           | Descrição                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | Esta classe é necessária para inicializar um número de telefone que gostaria de usar para a funcionalidade de telefonia. |
-
 
 ## <a name="start-a-call-to-phone"></a>Inicie uma ligação para o telefone.
 

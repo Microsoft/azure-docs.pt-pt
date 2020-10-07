@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904475"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777212"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no seu Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no Azure Stack Edge Pro
 
 Este artigo descreve como gerir ações no seu Azure Stack Edge Pro. Pode gerir o Azure Stack Edge Pro através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
 
@@ -74,7 +74,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
 
-   ![Selecione adicionar a partilha](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Selecione adicionar a partilha 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
@@ -106,7 +106,7 @@ Se criou uma parte antes de configurar o computamento no seu dispositivo Azure S
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. Na lista das ações, selecione a parte que pretende montar. A coluna **usada para cálculo** mostrará o estado de **desativado** para a parte selecionada.
 
-   ![Selecionar partilha](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Selecione partilha 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Selecione **Mount**.
 
@@ -130,7 +130,7 @@ Faça os seguintes passos no portal Azure para desmontar uma parte.
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**.
 
-   ![Selecionar partilha](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Selecione partilha 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. Na lista das ações, selecione a parte que pretende desmontar. Certifique-se de que a parte que desmonta não é utilizada por nenhum módulo. Se a partilha for utilizada por um módulo, verá problemas com o módulo correspondente. Selecione **Desmonte**.
 
@@ -150,7 +150,7 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
 1. Na lista de partilhas, selecione e clique na partilha que pretende eliminar.
 
-   ![Selecionar partilha](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Selecione share 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Clique em **Eliminar**.
 
@@ -175,7 +175,7 @@ Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
 1. No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
 
-   ![Selecionar partilha](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Selecione partilha 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Clique em **Atualizar**.
 

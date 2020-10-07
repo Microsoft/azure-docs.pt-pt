@@ -1,14 +1,16 @@
 ---
 title: Formato markdown - QnA Maker
 description: Segue-se a lista de formatos de marcação que pode utilizar no texto de resposta do QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321038"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777357"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato markdown suportado no texto de resposta do Criador QnA
 
@@ -49,8 +51,8 @@ Se pretender adicionar conteúdo utilizando APIs de base de conhecimento de atua
 
 | Preservar HTML  | Representação no pedido da API  | Representação no KB |
 |-----------|---------|-------------------------|
-| Yes | \&Lt;br \& gt; | &lt;br&gt; |
-| Yes | \&lt;h3 \& gt;header \& lt;/h3 \& gt; | &lt;cabeçalho h3 &gt; &lt; /h3&gt; |
+| Sim | \&Lt;br \& gt; | &lt;br&gt; |
+| Sim | \&lt;h3 \& gt;header \& lt;/h3 \& gt; | &lt;cabeçalho h3 &gt; &lt; /h3&gt; |
 
 Adicionalmente, CR LF (\r\n) são convertidos para \n no KB. LF(\n) é mantido como está. Se quiser escapar a qualquer sequência de fuga como uma \t ou \n pode usar backslash, por exemplo: \\ \\ 'r \\ \\ n' e \\ \\ 't'
 

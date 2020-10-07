@@ -1,43 +1,44 @@
 ---
-title: Deteção de Idiomas Kubernetes config e desdobrar passos
+title: Deteção de Idiomas Kubernetes config e implementar etapas
 titleSuffix: Azure Cognitive Services
-description: Deteção de Idiomas Kubernetes config e desdobrar passos
+description: Deteção de Idiomas Kubernetes config e implementar etapas
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: dc344bd6e4927d39b72ba9af3ae2eeb61d9cec95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1edca9cf8449ff386d0a9920e7d80d69692536fd
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877849"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779871"
 ---
-### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Desloque o recipiente de deteção de idiomas para um cluster AKS
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implementar o recipiente de deteção de idiomas num cluster AKS
 
-1. Abra o Azure CLI e inscreva-se no Azure.
+1. Abra o Azure CLI e inscreva-se em Azure.
 
     ```azurecli
     az login
     ```
 
-1. Inscreva-se no aglomerado AKS. `your-cluster-name` Substitua `your-resource-group` e com os valores apropriados.
+1. Inscreva-se no cluster AKS. Substitua `your-cluster-name` e `your-resource-group` pelos valores adequados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Após a duração deste comando, reporta uma mensagem semelhante à seguinte:
+    Após este comando ser executado, reporta uma mensagem semelhante à seguinte:
 
     ```output
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Se tiver várias subscrições disponíveis na sua `az aks get-credentials` conta Azure e o comando devolver com um erro, um problema comum é que está a usar a subscrição errada. Detete o contexto da sua sessão Azure CLI para usar a mesma subscrição com que criou os recursos e tentar novamente.
+    > Se tiver várias subscrições disponíveis na sua conta Azure e o `az aks get-credentials` comando retornar com um erro, um problema comum é que está a utilizar a subscrição errada. Desconfie do contexto da sua sessão Azure CLI para utilizar a mesma subscrição com a que criou os recursos e tente novamente.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +49,7 @@ ms.locfileid: "80877849"
     code .
     ```
 
-1. Dentro do editor de texto, crie um novo ficheiro chamado *language.yaml*, e cola o seguinte YAML nele. Certifique-se `billing/value` de `apikey/value` substituir e com as suas próprias informações.
+1. Dentro do editor de texto, crie um novo ficheiro chamado *language.yaml,* e cole-o o seguinte YAML. Certifique-se de substituir `billing/value` e por sua própria `apikey/value` informação.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,7 +96,7 @@ ms.locfileid: "80877849"
     ```
 
 1. Guarde o ficheiro e feche o editor de texto.
-1. Executar o comando `apply` Kubernetes com o ficheiro *idioma.yaml* como alvo:
+1. Executar o comando Kubernetes `apply` com o ficheiro *language.yaml* como alvo:
 
     ```console
     kubectl apply -f language.yaml

@@ -1,15 +1,17 @@
 ---
 title: Use Personalizar no chat bot - Personalizer
 description: Personalize um bot de chat C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089892"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777314"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Use personalizar em .NET chat bot
 
@@ -176,18 +178,18 @@ Mantenha o site em funcionamento porque o tutorial explica o que o bot está a f
 
 1. Abra o Emulador De Estrutura bot e selecione **Open Bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot do ecrã de arranque do emulador de bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
 
 
 1. Configure o bot com o seguinte **URL bot** e, em seguida, selecione **Connect**:
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot das definições de bot emulador de bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
 
     O emulador liga-se ao bot de chat e exibe o texto instrutivo, juntamente com informações de registo e depuragem úteis para o desenvolvimento local.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot do emulador de bot na primeira volta da conversa.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Use o bot no emulador de bot
 

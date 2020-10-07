@@ -1,43 +1,44 @@
 ---
-title: Análise de Sentimento Kubernetes config e desdobrar passos
+title: Análise de Sentimento Kubernetes config e implementar etapas
 titleSuffix: Azure Cognitive Services
-description: Análise de Sentimento Kubernetes config e desdobrar passos
+description: Análise de Sentimento Kubernetes config e implementar etapas
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: b43299974034f55b57b86191b3556c3d5c2ee83b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ca8d4d725ff25687d1005ddab1964316a147c730
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877852"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779406"
 ---
-### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Desloque o recipiente de Análise de Sentimentos para um cluster AKS
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Implementar o recipiente de Análise de Sentimento num cluster AKS
 
-1. Abra o Azure CLI e inscreva-se no Azure.
+1. Abra o Azure CLI e inscreva-se em Azure.
 
     ```azurecli
     az login
     ```
 
-1. Inscreva-se no aglomerado AKS. `your-cluster-name` Substitua `your-resource-group` e com os valores apropriados.
+1. Inscreva-se no cluster AKS. Substitua `your-cluster-name` e `your-resource-group` pelos valores adequados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Após a duração deste comando, reporta uma mensagem semelhante à seguinte:
+    Após este comando ser executado, reporta uma mensagem semelhante à seguinte:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Se tiver várias subscrições disponíveis na sua `az aks get-credentials` conta Azure e o comando devolver com um erro, um problema comum é que está a usar a subscrição errada. Detete o contexto da sua sessão Azure CLI para usar a mesma subscrição com que criou os recursos e tentar novamente.
+    > Se tiver várias subscrições disponíveis na sua conta Azure e o `az aks get-credentials` comando retornar com um erro, um problema comum é que está a utilizar a subscrição errada. Desconfie do contexto da sua sessão Azure CLI para utilizar a mesma subscrição com a que criou os recursos e tente novamente.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +49,7 @@ ms.locfileid: "80877852"
     code .
     ```
 
-1. Dentro do editor de texto, crie um novo ficheiro chamado *sentiment.yaml*, e cola o seguinte YAML nele. Certifique-se `billing/value` de `apikey/value` substituir e com as suas próprias informações.
+1. Dentro do editor de texto, crie um novo ficheiro chamado *sentiment.yaml,* e cole o yaML seguinte nele. Certifique-se de substituir `billing/value` e por sua própria `apikey/value` informação.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,7 +96,7 @@ ms.locfileid: "80877852"
     ```
 
 1. Guarde o ficheiro e feche o editor de texto.
-1. Executar o comando `apply` Kubernetes com o ficheiro *sentiment.yaml* como alvo:
+1. Executar o comando Kubernetes `apply` com o ficheiro *sentiment.yaml* como alvo:
 
     ```console
     kubectl apply -f sentiment.yaml
@@ -126,7 +127,7 @@ ms.locfileid: "80877852"
     kubectl get services
     ```
 
-    A saída para o estado de funcionamento do serviço de *sentimento* sintetizador na cápsula:
+    A saída para o estado de funcionamento do serviço de *sentimento* na cápsula:
 
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

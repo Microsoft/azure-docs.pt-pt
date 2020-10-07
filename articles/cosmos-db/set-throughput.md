@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605727"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777794"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Recomendamos que configuure a produção na granularidade do recipiente quando d
 
 A imagem a seguir mostra como uma partição física acolhe uma ou mais divisórias lógicas de um recipiente:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partição física" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Definir saída numa base de dados
 
@@ -75,7 +75,7 @@ Se a sua conta DB Azure Cosmos já tiver uma base de dados de produção partilh
 
 Se as suas cargas de trabalho envolverem a eliminação e recriação de todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem a seguir mostra como uma partição física pode acolher uma ou mais divisórias lógicas que pertencem a diferentes recipientes dentro de uma base de dados:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Colocar a produção numa base de dados e num contentor
 
@@ -84,7 +84,7 @@ Pode combinar os dois modelos. É permitido o fornecimento de produção na base
 * Pode criar uma base de dados Azure Cosmos chamada *Z* com produção padrão (manual) de *RUs "K".* 
 * Em seguida, crie cinco recipientes chamados *A,* *B,* *C,* *D*e *E* dentro da base de dados. Ao criar o contentor B, certifique-se de que permite a **produção dedicada a esta** opção de contentor e configure explicitamente as RUs *"P"* de produção prevista neste recipiente. Note que só pode configurar a produção partilhada e dedicada ao criar a base de dados e o contentor. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Definição da produção ao nível do contentor":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente":::
 
 * A produção de RUs *"K"* é partilhada nos quatro contentores *A,* *C,* *D*e *E*. A quantidade exata de produção disponível para *A,* *C,* *D*ou *E* varia. Não há SLAs para a produção de cada contentor.
 * O contentor chamado *B* tem a garantia de obter sempre a produção de RUs *"P".* É apoiado por SLAs.
@@ -105,11 +105,11 @@ Para estimar o [rendimento mínimo previsto](concepts-limits.md#storage-and-data
 
 O ru/s mínimo real pode variar dependendo da configuração da sua conta. Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para visualizar o histórico de produção provisitada (RU/s) e armazenamento num recurso.
 
-Pode recuperar o rendimento mínimo de um contentor ou de uma base de dados programáticamente utilizando os SDKs ou visualizar o valor no portal Azure. Ao utilizar o .NET SDK, o método [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite-lhe escalar o valor de produção previsto. Ao utilizar o SDK Java, o método [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) permite-lhe escalar o valor de produção previsto. 
+Pode recuperar o rendimento mínimo de um contentor ou de uma base de dados programáticamente utilizando os SDKs ou visualizar o valor no portal Azure. Ao utilizar o .NET SDK, o [recipiente. Substituir o método DeputeseAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) permite-lhe escalar o valor de produção previsto. Ao utilizar o SDK Java, o método [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) permite-lhe escalar o valor de produção previsto.
 
-Ao utilizar o .NET SDK, o método [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite-lhe recuperar o rendimento mínimo de um contentor ou de uma base de dados. 
+Ao utilizar o método .NET SDK, o método [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) permite-lhe recuperar o rendimento mínimo de um contentor ou de uma base de dados. 
 
-Pode escalar o rendimento previsto de um contentor ou de uma base de dados a qualquer momento. Quando uma operação de escala é realizada para aumentar a produção, pode demorar mais tempo devido às tarefas do sistema para obter os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programáticamente os SDKs. Ao utilizar o .NET SDK, pode obter o estado da operação da balança utilizando o `DocumentClient.ReadOfferAsync` método.
+Pode escalar o rendimento previsto de um contentor ou de uma base de dados a qualquer momento. Quando uma operação de escala é realizada para aumentar a produção, pode demorar mais tempo devido às tarefas do sistema para obter os recursos necessários. Pode verificar o estado da operação de escala no portal Azure ou utilizar programáticamente os SDKs. Ao utilizar o .NET SDK, pode obter o estado da operação da balança utilizando o `Container.ReadThroughputAsync` método.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Este quadro mostra uma comparação entre a produção padrão de provisionamento (manual) numa base de dados vs. num contentor. 

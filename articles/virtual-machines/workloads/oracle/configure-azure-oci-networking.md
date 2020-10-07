@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325934"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776583"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud  
 
@@ -66,7 +66,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
     * Na **Chave de Serviço do Fornecedor,** cole a chave de serviço ExpressRoute.
     * Utilize o primeiro espaço de endereço IP privado /30 esculpido num passo anterior para o **Endereço IP BGP primário** e o segundo espaço de endereço IP privado /30 para o Endereço IP secundário do **BGP.**
         * Atribua o primeiro endereço utilizável das duas gamas para o Endereço IP do Oracle BGP (Primário e Secundário) e o segundo endereço para o endereço IP do cliente BGP (numa perspetiva FastConnect). O primeiro endereço IP utilizável é o segundo endereço IP no espaço de endereço /30 (o primeiro endereço IP é reservado pela Microsoft).
-    * Clique em **Create** (Criar).
+    * Clique em **Criar**.
 1. Complete a ligação do FastConnect à rede de nuvem virtual sob o seu inquilino Oracle via Dynamic Routing Gateway, utilizando a Tabela de Rotas.
 1. Navegue para Azure e certifique-se de que o **Estado do Fornecedor** do seu circuito ExpressRoute foi alterado para **Provisioned** e que foi abastado um espreitamento do tipo **Azure privado.** Este é um pré-requisito para os seguintes passos.
 
@@ -96,7 +96,7 @@ Instalando agentes em ambas as nuvens, pode aproveitar o Azure [Network Performa
 
 Para eliminar a interligação, devem ser seguidos os seguintes passos, na ordem específica dada. Se não o fizer, resultará num circuito ExpressRoute "estado falhado".
 
-1. Elimine a ligação ExpressRoute. Elimine a ligação clicando no ícone **Eliminar** na página para a sua ligação. Para mais informações, consulte a [documentação ExpressRoute.](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet)
+1. Elimine a ligação ExpressRoute. Elimine a ligação clicando no ícone **Eliminar** na página para a sua ligação. Para mais informações, consulte a [documentação ExpressRoute.](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources)
 1. Elimine o Oracle FastConnect da Consola de Nuvem Oracle.
 1. Uma vez eliminado o circuito Oracle FastConnect, pode eliminar o circuito Azure ExpressRoute.
 

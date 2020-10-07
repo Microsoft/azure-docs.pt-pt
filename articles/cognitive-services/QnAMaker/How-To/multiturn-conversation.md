@@ -1,14 +1,16 @@
 ---
 title: Conversas multi-voltas - QnA Maker
 description: Use solicitações e contexto para gerir as múltiplas voltas, conhecidas como multi-voltas, para o seu bot de uma pergunta para outra. Multi-volta é a capacidade de ter uma conversa de trás para a frente onde o contexto da pergunta anterior influencia a próxima pergunta e resposta.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322840"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777797"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -92,7 +94,7 @@ Selecione **Ver as opções**e, em seguida, selecione **Mostrar o contexto**. A 
 
 O contexto multi-volta é apresentado na primeira coluna.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="A screenshot mostra a secção de Contexto realçada." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="A screenshot mostra um exemplo da estrutura num manual do utilizador." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na imagem anterior, **#1** indica texto arrojado na coluna, o que significa a questão atual. A questão dos pais é o item mais alto da fila. Quaisquer perguntas abaixo estão os pares de perguntas e respostas ligados. Estes itens são selecionáveis, para que possa ir imediatamente para os outros itens de contexto.
 
@@ -167,7 +169,7 @@ Quando se adiciona um novo par de perguntas e respostas à base de conhecimento,
 
     A questão dos pais mostra uma nova questão como uma das suas escolhas.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="A screenshot mostra a coluna Contexto, para ambas as perguntas, indica uma relação rápida de seguimento." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="A screenshot mostra um exemplo da estrutura num manual do utilizador." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Depois de adicionar o pedido de seguimento, **selecione Save e treine** na barra de navegação superior.
 

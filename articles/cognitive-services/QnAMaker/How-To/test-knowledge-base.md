@@ -1,14 +1,16 @@
 ---
 title: Como testar uma base de conhecimento - QnA Maker
 description: Testar a sua base de conhecimento QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão a ser devolvidas. Pode testar a base de conhecimento através de uma interface de chat melhorada que também lhe permite fazer edições.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 9c6d7fc9a421ce466ecd91aaac5c2b83f42a1624
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776838"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste a sua base de conhecimentos no QnA Maker
 
@@ -265,7 +267,7 @@ Se não continuar a utilizar esta base de conhecimento, elimine a base de conhec
 * o exemplo da linha de comando da ferramenta
 * o formato para ficheiros de entrada e preenchimento de TSV
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Publicar uma base de dados de conhecimento](./publish-knowledge-base.md)

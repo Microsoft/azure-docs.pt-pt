@@ -1,14 +1,16 @@
 ---
 title: 'Quickstart: Adicione perguntas e resposta no portal QnA Maker'
 description: Este quickstart mostra como adicionar pares de perguntas e respostas com metadados para que os seus utilizadores possam encontrar a resposta certa à sua pergunta.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84331394"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776753"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker
 
@@ -99,7 +101,7 @@ Adicionar metadados a um par de perguntas e respostas permite que a aplicação 
 
 Editou a sua base de conhecimentos para suportar mais perguntas e forneceu pares de nome/valor para suportar a filtragem durante a busca da resposta superior ou pós-processamento, após a resposta ou respostas serem devolvidas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 

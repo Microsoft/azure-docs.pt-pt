@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: tradução da fala
-ms.openlocfilehash: 855e999feddfa9c87f10115866f9b393e6cecc96
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ef6997c0fc2382e436f8a84e154ca4109c85363
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326938"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776663"
 ---
 # <a name="get-started-with-speech-translation"></a>Introdução à tradução de voz
 
@@ -34,12 +34,16 @@ ms.locfileid: "91326938"
 [!INCLUDE [Java Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+::: zone pivot="programmer-tool-spx"
+[!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

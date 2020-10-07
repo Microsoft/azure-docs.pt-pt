@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d22b0100074a230451e5c6b3967fa5dbc8ae3f56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779305"
 ---
 A tabela que se segue lista informações de quota específicas para as mensagens do Azure Service Bus. Para obter informações sobre preços e outras quotas para Service Bus, consulte [os preços do Service Bus.](https://azure.microsoft.com/pricing/details/service-bus/)
 
@@ -32,7 +32,7 @@ A tabela que se segue lista informações de quota específicas para as mensagen
 | Tamanho máximo de uma [iD de sessão](/dotnet/api/microsoft.azure.servicebus.message.sessionid) de mensagem | Entidade |- | 128 |
 | Tamanho da mensagem para uma fila, tópico ou entidade de subscrição |Entidade |As mensagens recebidas que excedam estas quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |Tamanho máximo da mensagem: 256 KB para [nível Standard,](../articles/service-bus-messaging/service-bus-premium-messaging.md)1 MB para [nível Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Devido à sobrecarga do sistema, este limite é inferior a estes valores.<br /><br />Tamanho máximo do cabeçalho: 64 KB.<br /><br />Número máximo de propriedades de cabeçalho no saco de propriedade: **byte/int. MaxValue.**<br /><br />Tamanho máximo da propriedade no saco de propriedade: Sem limite explícito. Limitado pelo tamanho máximo do cabeçalho. |
 | Tamanho da propriedade da mensagem para uma fila, tópico ou entidade de subscrição |Entidade | A exceção `SerializationException` é gerada. |O tamanho máximo da propriedade de mensagem para cada propriedade é de 32.000. O tamanho acumulado de todas as propriedades não pode exceder 64.000. Este limite aplica-se a todo o cabeçalho da [Mensagem Intermediada,](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)que possui propriedades do utilizador e propriedades do sistema, tais como [Número de Sequência,](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) [Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)e [ID de Mensagem](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Número de subscrições por tópico |Entidade |Os pedidos subsequentes de criação de subscrições adicionais para o tema são rejeitados. Como resultado, se configurado através do portal, é mostrada uma mensagem de erro. Se for chamada da API de gestão, uma exceção é recebida pelo código de chamada. |2.000 por tópico para o nível Standard. |
+| Número de subscrições por tópico |Entidade |Os pedidos subsequentes de criação de subscrições adicionais para o tema são rejeitados. Como resultado, se configurado através do portal, é mostrada uma mensagem de erro. Se for chamada da API de gestão, uma exceção é recebida pelo código de chamada. |2.000 por tópico para o nível Standard e nível Premium. |
 | Número de filtros SQL por tópico |Entidade |Os pedidos subsequentes de criação de filtros adicionais sobre o tema são rejeitados e uma exceção é recebida pelo código de chamada. |2.000 |
 | Número de filtros de correlação por tópico |Entidade |Os pedidos subsequentes de criação de filtros adicionais sobre o tema são rejeitados e uma exceção é recebida pelo código de chamada. |100.000 |
 | Tamanho dos filtros ou ações SQL |Espaço de Nomes |Os pedidos subsequentes de criação de filtros adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |Comprimento máximo da cadeia de condição do filtro: 1.024 (1 K).<br /><br />Comprimento máximo do fio de ação da regra: 1.024 (1 K).<br /><br />Número máximo de expressões por ação de regra: 32. |

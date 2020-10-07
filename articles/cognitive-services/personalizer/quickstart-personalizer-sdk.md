@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Criar e utilizar o ciclo de aprendizagem com a SDK - Personalizer'
 description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimentos utilizando a biblioteca de clientes Personalizer.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: dccdec0888f2968fb7089c4ff80c9338215de135
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3acfd8134a2a65e6ea9f019baff24b8b8149f7f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055997"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777329"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Quickstart: Biblioteca de clientes personalizado
 
@@ -34,7 +36,7 @@ Começa com a biblioteca de clientes Personalizer. Siga estes passos para instal
 [!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

@@ -6,26 +6,27 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: dc52586550f89ddae147d79458584331ed984eea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 543a4d85982adadc86435819679351c8ffaa9814
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876456"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779293"
 ---
 ### <a name="verify-the-language-detection-container-instance"></a>Verifique a instância do recipiente de deteção de idiomas
 
-1. Selecione o separador **'Visão Geral'** e copie o endereço IP.
-1. Abra um novo separador de navegador e introduza o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`introduza). A página inicial do recipiente é exibida, o que lhe permite saber que o recipiente está em funcionamento.
+1. Selecione o **separador Visão Geral** e copie o endereço IP.
+1. Abra um novo separador de navegador e insira o endereço IP. Por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000` insira). A página inicial do recipiente é apresentada, o que lhe permite saber se o recipiente está em funcionamento.
 
-    ![Veja a página inicial do contentor para verificar se está a funcionar](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Veja a página inicial do contentor para verificar se está em funcionamento](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Selecione o link descrição da **API** de serviço para ir à página Swagger do contentor.
+1. Selecione o link de descrição da **API de serviço** para ir à página swagger do recipiente.
 
-1. Escolha qualquer uma das APIs **POST** e selecione **Experimente- a**. Os parâmetros são apresentados, o que inclui esta entrada de exemplo:
+1. Escolha qualquer uma das APIs **post** e selecione **Experimentá-lo**. Os parâmetros são apresentados, que inclui esta entrada de exemplo:
 
     ```json
     {
@@ -49,13 +50,13 @@ ms.locfileid: "80876456"
     }
     ```
 
-1. Definir **showStats** para `true`.
+1. Definir **showStats** para `true` .
 
-1. Selecione **Executar** para determinar o sentimento do texto.
+1. **Selecione Executar** para determinar o sentimento do texto.
 
-    O modelo que está embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é sentimento negativo e 1 é sentimento positivo.
+    O modelo que é embalado no recipiente gera uma pontuação que varia de 0 a 1, onde 0 é sentimento negativo e 1 é sentimento positivo.
 
-    A resposta da JSON que foi devolvida inclui o sentimento para a entrada de texto atualizada:
+    A resposta JSON que é devolvida inclui sentimento para a entrada de texto atualizada:
 
     ```json
     {
@@ -127,4 +128,4 @@ ms.locfileid: "80876456"
     }
     ```
 
-Podemos agora correlacionar os documentos dos dados jSON da carga de resposta `id`com os documentos de carga útil do pedido original pelo correspondente . Cada documento é tratado de `characterCount` forma `transactionCount`independente contendo várias estatísticas, tais como e . Adicionalmente, cada documento `detectedLanguages` resultante tem `name` `iso6391Name`a `score` matriz com o , e para cada idioma detetado. Quando várias línguas são `score` detetadas, a é usada para determinar a língua mais provável.
+Podemos agora correlacionar os documentos dos dados JSON da carga útil de resposta com os documentos de carga útil do pedido original pelos seus correspondentes `id` . Cada documento é tratado independentemente contendo várias estatísticas, tais `characterCount` `transactionCount` como. Além disso, cada documento resultante tem a `detectedLanguages` matriz com o , e para cada `name` `iso6391Name` `score` idioma detetado. Quando várias línguas são detetadas, `score` a é usada para determinar a língua mais provável.

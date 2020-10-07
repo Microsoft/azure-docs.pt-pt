@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fb6813875858ab6cc438df5abb78a75391adfeac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280662"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777110"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do Azure Security Benchmark (V2)
 
@@ -28,21 +28,19 @@ Este benchmark faz parte de um conjunto de orientações holísticas de seguran�
  O Azure Security Benchmark foca-se em áreas de controlo centradas na nuvem. Estes controlos são consistentes com referências de segurança bem conhecidas, como as descritas pelo Center for Internet Security (CIS) Controls Version 7.1 e National Institute of Standards and Technology (NIST) SP800-53.
 Os seguintes controlos estão incluídos no Benchmark de Segurança Azure:
 
-| Domínios de controlo ASB | Description 
+| Domínios de controlo ASB | Descrição 
 |--|--|
-| [Segurança da rede (NS)](security-controls-v2-network-security.md) | A Segurança da Rede cobre controlos para proteger e proteger redes Azure, incluindo a segurança de redes virtuais, o estabelecimento de ligações privadas, a prevenção e mitigação de ataques externos e a segurança de DNS. |
-| [Gestão de Identidade (IM)](security-controls-v2-identity-management.md) | A Gestão de Identidade abrange controlos para estabelecer uma identidade segura e controlos de acesso utilizando o Azure Ative Directory, incluindo a utilização de autenticações únicas, autenticações fortes, identidades geridas (e princípios de serviço) para aplicações, acesso condicional e monitorização de anomalias de conta. |
-| [Acesso Privilegiado (PA)](security-controls-v2-privileged-access.md) | O Acesso Privilegiado abrange controlos para proteger o acesso privilegiado ao seu inquilino e recursos Azure, incluindo uma série de controlos para proteger o seu modelo administrativo, contas administrativas e estações de trabalho privilegiadas de acesso contra riscos deliberados e inadvertidos. |
-| [Proteção de Dados (PD)](security-controls-v2-data-protection.md) | A Proteção de Dados cobre o controlo da proteção de dados em repouso, em trânsito e através de mecanismos de acesso autorizados, incluindo descobrir, classificar, proteger e monitorizar ativos de dados sensíveis usando controlo de acesso, encriptação e registo em Azure. |
-| [Gestão de Ativos (AM)](security-controls-v2-asset-management.md) | A Gestão de Ativos cobre controlos para garantir a visibilidade e governação de segurança sobre os recursos da Azure, incluindo recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos e gestão de aprovações para serviços e recursos (inventário, pista e correto). |
-| [Registo e Deteção de Ameaças (LT)](security-controls-v2-logging-threat-detection.md) | A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para serviços Azure, incluindo processos de deteção, investigação e reparação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos. |
-| [Resposta a Incidentes (IR)](security-controls-v2-incident-response.md) | Incident Response abrange controlos no ciclo de vida de resposta a incidentes - preparação, deteção e análise, contenção e atividades pós-incidente, incluindo a utilização de serviços Azure, como o Azure Security Center e o Sentinel, para automatizar o processo de resposta a incidentes. |
-| [Gestão de Postura e Vulnerabilidade (PV)](security-controls-v2-posture-vulnerability-management.md) | A Gestão de Postura e Vulnerabilidade centra-se nos controlos para avaliar e melhorar a postura de segurança do Azure, incluindo a digitalização de vulnerabilidades, testes de penetração e reparação, bem como o rastreio, reporte e correção de configuração de segurança nos recursos do Azure. |
-| [Segurança no ponto final (ES)](security-controls-v2-endpoint-security.md) | A Endpoint Security cobre controlos na deteção e resposta de pontos finais, incluindo a utilização de deteção e resposta de pontos finais (EDR) e serviço anti-malware para pontos finais em ambientes Azure. |
-| [Backup e Recuperação (BR)](security-controls-v2-backup-recovery.md) | A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas. |
-| [Governação e Estratégia (SG)](security-controls-v2-governance-strategy.md) | A governação e a estratégia fornecem orientações para assegurar uma estratégia de segurança coerente e uma abordagem de governação documentada para orientar e manter a garantia de segurança, incluindo o estabelecimento de funções e responsabilidades para as diferentes funções de segurança na nuvem, estratégia técnica unificada e apoio a políticas e normas. |
-
-Também pode baixar o Azure Security Benchmark no [formato de folha de cálculo.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
+| [Segurança &nbsp; da rede &nbsp; (NS)](security-controls-v2-network-security.md) | A Segurança da Rede cobre controlos para proteger e proteger redes Azure, incluindo a segurança de redes virtuais, o estabelecimento de ligações privadas, a prevenção e mitigação de ataques externos e a segurança de DNS. |
+| [Gestão de Identidade &nbsp; &nbsp; (IM)](security-controls-v2-identity-management.md) | A Gestão de Identidade abrange controlos para estabelecer uma identidade segura e controlos de acesso utilizando o Azure Ative Directory, incluindo a utilização de autenticações únicas, autenticações fortes, identidades geridas (e princípios de serviço) para aplicações, acesso condicional e monitorização de anomalias de conta. |
+| [Acesso Privilegiado &nbsp; &nbsp; (PA)](security-controls-v2-privileged-access.md) | O Acesso Privilegiado abrange controlos para proteger o acesso privilegiado ao seu inquilino e recursos Azure, incluindo uma série de controlos para proteger o seu modelo administrativo, contas administrativas e estações de trabalho privilegiadas de acesso contra riscos deliberados e inadvertidos. |
+| [Proteção de Dados &nbsp; &nbsp; (PD)](security-controls-v2-data-protection.md) | A Proteção de Dados cobre o controlo da proteção de dados em repouso, em trânsito e através de mecanismos de acesso autorizados, incluindo descobrir, classificar, proteger e monitorizar ativos de dados sensíveis usando controlo de acesso, encriptação e registo em Azure. |
+| [Gestão de Ativos &nbsp; &nbsp; (AM)](security-controls-v2-asset-management.md) | A Gestão de Ativos cobre controlos para garantir a visibilidade e governação de segurança sobre os recursos da Azure, incluindo recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos e gestão de aprovações para serviços e recursos (inventário, pista e correto). |
+| [Registo &nbsp; e &nbsp; Deteção de Ameaças &nbsp; (LT)](security-controls-v2-logging-threat-detection.md) | A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para serviços Azure, incluindo processos de deteção, investigação e reparação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos. |
+| [&nbsp;Resposta a &nbsp; Incidentes (IR)](security-controls-v2-incident-response.md) | Incident Response abrange controlos no ciclo de vida de resposta a incidentes - preparação, deteção e análise, contenção e atividades pós-incidente, incluindo a utilização de serviços Azure, como o Azure Security Center e o Sentinel, para automatizar o processo de resposta a incidentes. |
+| [Gestão de Postura &nbsp; e &nbsp; Vulnerabilidade &nbsp; &nbsp; (PV)](security-controls-v2-posture-vulnerability-management.md) | A Gestão de Postura e Vulnerabilidade centra-se nos controlos para avaliar e melhorar a postura de segurança do Azure, incluindo a digitalização de vulnerabilidades, testes de penetração e reparação, bem como o rastreio, reporte e correção de configuração de segurança nos recursos do Azure. |
+| [Segurança no ponto &nbsp; &nbsp; final (ES)](security-controls-v2-endpoint-security.md) | A Endpoint Security cobre controlos na deteção e resposta de pontos finais, incluindo a utilização de deteção e resposta de pontos finais (EDR) e serviço anti-malware para pontos finais em ambientes Azure. |
+| [Backup &nbsp; e &nbsp; Recuperação &nbsp; (BR)](security-controls-v2-backup-recovery.md) | A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas. |
+| [Governação &nbsp; e &nbsp; Estratégia &nbsp; (SG)](security-controls-v2-governance-strategy.md) | A governação e a estratégia fornecem orientações para assegurar uma estratégia de segurança coerente e uma abordagem de governação documentada para orientar e manter a garantia de segurança, incluindo o estabelecimento de funções e responsabilidades para as diferentes funções de segurança na nuvem, estratégia técnica unificada e apoio a políticas e normas. |
 
 ## <a name="azure-security-benchmark-recommendations"></a>Recomendações de benchmark de segurança Azure
 
@@ -60,7 +58,11 @@ Cada recomendação inclui as seguintes informações:
 
 Congratulamo-nos com o seu feedback detalhado e participação ativa no esforço de Benchmark de Segurança Azure. Se você gostaria de fornecer a entrada direta da equipe Azure Security Benchmark, preencha o formulário em https://aka.ms/AzSecBenchmark
 
+## <a name="download"></a>Download
 
+Pode baixar o Azure Security Benchmark no [formato de folha de cálculo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+
+## <a name="next-steps"></a>Passos seguintes 
 - Consulte o primeiro controlo de segurança: [Segurança da rede](security-control-network-security.md)
 - Leia a introdução do [Azure Security Benchmark](introduction.md)
-- Descarregue a folha de [cálculo do Azure Security Benchmark v2 excel](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
+- Conheça os [Fundamentos de Segurança do Azure](../fundamentals/index.yml)

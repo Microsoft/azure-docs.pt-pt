@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para gerir a s
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003050"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776311"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
 
@@ -177,7 +177,7 @@ Para obter mais informações sobre filtros disponíveis, consulte [os perfis de
 
 A Kubernetes lança novas funcionalidades a um ritmo mais rápido do que as plataformas de infraestruturas mais tradicionais. As atualizações de Kubernetes incluem novas funcionalidades e correções de bug ou segurança. As novas funcionalidades normalmente movem-se através de um estatuto *alfa* e, em seguida, *beta* antes de ficarem *estáveis* e geralmente estão disponíveis e recomendadas para uso de produção. Este ciclo de lançamento deve permitir-lhe atualizar Kubernetes sem encontrar regularmente alterações de rutura ou ajustar as suas implementações e modelos.
 
-AKS suporta quatro versões menores de Kubernetes. Isto significa que quando uma nova versão de patch menor é introduzida, a versão menor mais antiga e os lançamentos de patch suportados são retirados. Pequenas atualizações a Kubernetes acontecem periodicamente. Certifique-se de que tem um processo de governação para verificar e atualizar conforme necessário para que não deixe de suportar. Para mais informações, consulte [as versões AKS suportadas de Kubernetes][aks-supported-versions]
+AKS suporta três versões menores de Kubernetes. Isto significa que quando uma nova versão de patch menor é introduzida, a versão menor mais antiga e os lançamentos de patch suportados são retirados. Pequenas atualizações a Kubernetes acontecem periodicamente. Certifique-se de que tem um processo de governação para verificar e atualizar conforme necessário para que não deixe de suportar. Para obter mais informações, consulte [as versões AKS suportadas de Kubernetes.][aks-supported-versions]
 
 Para verificar as versões disponíveis para o seu cluster, utilize o comando [az aks get-upgrades][az-aks-get-upgrades] como mostrado no seguinte exemplo:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Em seguida, pode atualizar o seu cluster AKS utilizando o comando [de atualização az aks.][az-aks-upgrade] O processo de atualização seguramente isola e drena um nó de cada vez, programa cápsulas nos nós restantes e, em seguida, implementa um novo nó executando as versões mais recentes de SO e Kubernetes.
+
+É altamente recomendado testar novas versões menores num ambiente de teste dev para que possa validar a sua carga de trabalho continua o funcionamento saudável com a nova versão Kubernetes. Kubernetes pode depreciar APIs, como na versão 1.16, que poderia ser invocada pelas suas cargas de trabalho. Ao introduzir novas versões em produção, considere usar [várias piscinas de nós em versões separadas](use-multiple-node-pools.md) e atualizar piscinas individuais uma de cada vez para lançar progressivamente a atualização através de um cluster. Se executar vários clusters, atualize um cluster de cada vez para monitorizar progressivamente o impacto ou alterações.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

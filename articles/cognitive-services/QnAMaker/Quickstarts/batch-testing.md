@@ -1,14 +1,16 @@
 ---
 title: 'Quickstart: Testar base de conhecimento com perguntas de lote'
 description: Utilize a ferramenta de teste do lote QnA Maker para testar as bases de conhecimento no seu recurso QnA Maker para obter respostas esperadas, pontuações de confiança e solicitações de várias voltas.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ac406761abf922ff5f0d86eacd3e419c374ce096
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531074"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776770"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Quickstart: Testar base de conhecimento com perguntas de lote e respostas esperadas
 
@@ -190,7 +192,7 @@ Você deve ser capaz de ver com estes resultados que você pode pegar um log de 
 
 Filtrar com meta-dados foi uma boa ideia para o teste? Sim e não. O sistema de teste deve criar ficheiros de teste para cada par de meta-dados, bem como um teste sem pares de meta-dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a testar a base de conhecimentos, elimine a ferramenta de ficheiro de lote e os ficheiros de teste.
 

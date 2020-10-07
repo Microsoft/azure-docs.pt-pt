@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86201793"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776634"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Serviços Cognitivos Azure para Big Data
 
@@ -125,12 +125,14 @@ Os Serviços Cognitivos para Big Data são um exemplo de como podemos integrar s
 - [Saiba mais sobre como os Serviços Cognitivos funcionam na Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Salvando leopardos da neve com aprendizagem profunda e visão computacional na faísca](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Microsoft Research Podcast: MMLSpark, capacitando AI para o bem com Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [Papel Branco Académico: Microserviços Inteligentes em Larga Escala](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>Webinars e vídeos
 
 - [Os Serviços Cognitivos Azure em Faísca: Clusters com Serviços Inteligentes Incorporados](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit Keynote: IA escalável para o bem](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Os Serviços Cognitivos para Big Data em Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Relâmpago fala em microserviços inteligentes de grande escala](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>Passos seguintes
 

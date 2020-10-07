@@ -1,14 +1,16 @@
 ---
 title: Base de conhecimento de design - QnA Maker
 description: Aprenda a desenhar uma base de conhecimento - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 86e176a378d02d294e0123aba0d2e08d99b044fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330660"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776906"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceitos de pares de perguntas e respostas
 

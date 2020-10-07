@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664834"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776362"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barras compósitos
 
@@ -91,7 +91,7 @@ Para adicionar definições de Grupo Por:
 
 ![Screenshot do grupo por definições.](./media/workbooks-composite-bar/group-by-settings.png)
 
-#### <a name="none"></a>Nenhum
+#### <a name="none"></a>Nenhuma
 
 Nenhuma agregação significa não apresentar resultados para a coluna para as linhas de grupo.
 
@@ -124,11 +124,11 @@ Para visualizações de grelha, a triagem das linhas para a coluna com o renderi
 3. Alterar a visualização para *Azulejos*.
 4. Fazer consulta.
 5. Selecione **Definições de azulejos**.
-6. Selecione *Left* nos campos de títulos.
+6. Selecione *Left* in Tile fields.
 7. Introduza as definições abaixo nas *Definições de Campo*.
     1. Utilize a coluna: "servidor".
     2. Renderizador de colunas: "Texto".
-8. Selecione *Bottom* nos campos de títulos.
+8. Selecione *Bottom* nos campos de azulejos.
 9. Introduza as definições abaixo nas *Definições de Campo*.
     1. Coluna de utilização: "total".
     2. Renderizador de colunas: "Barra composta".
@@ -143,9 +143,9 @@ Para visualizações de grelha, a triagem das linhas para a coluna com o renderi
     4. Adicionar etiqueta: `["online"] of ["total"] are healthy` .
 10. Selecione **Aplicar**.
 
-Definições de barra composta para títulos:
+Definições de barra composta para azulejos:
 
-![Screenshot das definições de título de barra composta com as definições acima descritas.](./media/workbooks-composite-bar/tiles-settings.png)
+![Screenshot das definições de azulejos de barra composta com as definições acima descritas.](./media/workbooks-composite-bar/tiles-settings.png)
 
 A vista de bar composta para azulejos com as definições acima será assim:
 
@@ -157,7 +157,7 @@ Para fazer um renderizador de barras compósitos para visualização de gráfico
 
 1. **Selecione Adicionar** e *adicionar consulta*.
 2. Altere a fonte de dados para JSON introduza os dados a partir do [exemplo anterior](#adding-composite-bar-renderer).
-3. Alterar a visualização para *Azulejos*.
+3. Alterar a visualização para *Gráficos*.
 4. Fazer consulta.
 5. Selecione **Configurações de gráficos**.
 6. Selecione *o conteúdo do centro* nas definições do formato do nó.
@@ -190,7 +190,7 @@ A vista de barras composta para gráfico com as definições acima será assim:
 
 ![Screenshot de gráficos de barras compósitas com aglomerados de colmeia.](./media/workbooks-composite-bar/composite-bar-graphs.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar](workbooks-automate.md) livros de trabalho com o Gestor de Recursos Azure.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

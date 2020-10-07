@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: d6635696422c22dfdb4250516a9c3dfc8c577e12
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619887"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777076"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -126,7 +126,7 @@ Para tornar este teste prático, o seu programa reconhece um parâmetro de tempo
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection parâmetros para retíria de conexão
 
-Se o seu programa de clientes ligar à sua base de dados na Base de Dados SQL utilizando o Sistema de Classe Quadro **.NET.Data.SqlClient.SqlConnection,** utilize .NET 4.6.1 ou mais tarde (ou .NET Core) para que possa utilizar a sua função de relemtivo de ligação. Para obter mais informações sobre a funcionalidade, consulte [esta página web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Se o seu programa de clientes ligar à sua base de dados na Base de Dados SQL utilizando o Sistema de Classe Quadro **.NET.Data.SqlClient.SqlConnection,** utilize .NET 4.6.1 ou mais tarde (ou .NET Core) para que possa utilizar a sua função de relemtivo de ligação. Para obter mais informações sobre a funcionalidade, consulte [SqlConnection.ConnectionString Property](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.

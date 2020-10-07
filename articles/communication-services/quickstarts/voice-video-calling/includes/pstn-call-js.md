@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 5ef4fb2059710fcd5f05ea17edbbf00472ae0a6f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 009bd57fdb82b8463352da8dc63c9aeebceab09b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762620"
+ms.locfileid: "91779683"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,7 +31,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="add-pstn-functionality-your-app"></a>Adicione a funcionalidade PSTN a sua app
+### <a name="add-pstn-functionality-to-your-app"></a>Adicione a funcionalidade PSTN à sua aplicação
 
 Estenda o seu layout com controlos de marcação de telefone.
 
@@ -64,14 +64,6 @@ const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 ```
-
-## <a name="object-model"></a>Modelo de objeto
-
-As seguintes classes e interfaces lidam com algumas das principais funcionalidades dos Serviços de Comunicação Azure Chamando a biblioteca de clientes para o JavaScript.
-
-| Nome                                           | Descrição                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | Esta classe é necessária para inicializar um número de telefone que gostaria de usar para a funcionalidade de telefonia. |
 
 ## <a name="start-a-call-to-phone"></a>Inicie uma ligação para o telefone.
 

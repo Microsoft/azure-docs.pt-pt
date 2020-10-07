@@ -3,12 +3,12 @@ title: Analise o vídeo ao vivo com o Live Video Analytics no IoT Edge e Azure C
 description: Aprenda a usar a Visão Personalizada para construir um modelo contentorizado que possa detetar um caminhão de brinquedo e usar a capacidade de extensibilidade de IA do Live Video Analytics no IoT Edge (LVA) para implantar o modelo na borda para detetar camiões de brinquedos a partir de um stream de vídeo ao vivo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 022dc5714e7a2e19446ee57e827a08ef4c56413e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 97aa514e2347b3398aab6293d8543afcdc239bdb
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761435"
+ms.locfileid: "91776600"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -56,8 +56,7 @@ Os pré-requisitos para este tutorial são:
 
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 
-
-Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
+Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv/) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -326,7 +325,7 @@ Note o seguinte nas mensagens acima:
 * "body" contém dados sobre o evento de análise. Neste caso, o evento é um evento de Inferência e, portanto, o corpo contém uma série de inferências chamadas "previsões".
 * A secção "previsões" contém uma lista de previsões onde o caminhão de entrega de brinquedos (tag=caminhão de entrega) é encontrado na moldura. Como se lembraria, o caminhão de entrega é a etiqueta personalizada que forneceu ao seu modelo personalizado treinado para o caminhão de brinquedo e o modelo está a inferenizar e identificar o caminhão de brinquedo no vídeo de entrada com diferentes pontuações de confiança de probabilidade.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende experimentar os outros tutoriais ou quickstarts, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine todos os recursos.
 

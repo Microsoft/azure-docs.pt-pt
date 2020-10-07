@@ -1,15 +1,17 @@
 ---
 title: Ative Learning sugeriu perguntas - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: bd90ea3cd73fcd6a545d925e3897c6053184d98c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321021"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776498"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -142,7 +144,7 @@ O corpo JSON tem várias configurações:
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
 |`userId`|string|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do utilizador. Necessário.|
+|`userQuestion`|string|Texto exato da consulta do utilizador. Obrigatório.|
 |`qnaID`|número|ID de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON parece:

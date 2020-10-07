@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766290"
+ms.locfileid: "91777772"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerir um dispositivo GPU Azure Stack Edge Pro via Windows PowerShell
 
@@ -429,7 +429,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 O controlador de gestão do rodapé (BMC) é utilizado para monitorizar e gerir remotamente o seu dispositivo. Esta secção descreve os cmdlets que podem ser utilizados para gerir a configuração do BMC. Antes de executar qualquer um destes cmdlets, [Ligue-se à interface PowerShell do dispositivo](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Utilize este cmdlet para obter as propriedades de configuração de rede do BMC, por exemplo, `IPv4Address` `IPv4Gateway` , `IPv4SubnetMask` `DhcpEnabled` , 
+- `Get-HcsNetBmcInterface`: Utilize este cmdlet para obter as propriedades de configuração de rede do BMC, por exemplo, `IPv4Address` , , . . . `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
     
     Eis uma saída de exemplo:
     
@@ -476,7 +476,7 @@ O controlador de gestão do rodapé (BMC) é utilizado para monitorizar e gerir 
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Utilize este cmdlet para modificar a palavra-passe BMC para `EdgeUser` . 
+- `Set-HcsBmcPassword`: Utilize este cmdlet para modificar a palavra-passe BMC para `EdgeUser` . O nome de utilizador `EdgeUser` é sensível a casos.
 
     Eis uma saída de exemplo: 
 

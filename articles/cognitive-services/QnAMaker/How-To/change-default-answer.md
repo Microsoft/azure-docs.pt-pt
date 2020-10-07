@@ -1,14 +1,16 @@
 ---
 title: Obtenha resposta predefinitiva - QnA Maker
 description: A resposta por defeito é devolvida quando não há correspondência com a pergunta. Pode querer alterar a resposta predefinida da resposta padrão.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: d37e63d84be58e6ccd2f1e23a1344961d39ffa01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054167"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776821"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso do QnA Maker
 
@@ -21,7 +23,7 @@ Existem dois tipos de resposta padrão na sua base de conhecimento. É important
 
 |Tipo de pergunta|Descrição da resposta|
 |--|--|
-|Resposta KB quando não é determinada resposta|`No good match found in KB.`- Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, a `DefaultAnswer` definição do serviço App é devolvida. Todas as bases de conhecimento no mesmo recurso QnA Maker partilham o mesmo texto de resposta predefinido.<br>Pode gerir a definição no portal Azure, através do serviço App, ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a definição.|
+|Resposta KB quando não é determinada resposta|`No good match found in KB.` - Quando a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) não encontra uma resposta correspondente à pergunta, a `DefaultAnswer` definição do serviço App é devolvida. Todas as bases de conhecimento no mesmo recurso QnA Maker partilham o mesmo texto de resposta predefinido.<br>Pode gerir a definição no portal Azure, através do serviço App, ou com as APIs REST para [obter](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) ou [atualizar](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) a definição.|
 |Texto de instrução de acompanhamento rápido|Ao utilizar um pedido de seguimento num fluxo de conversação, pode não precisar de uma resposta no par QnA porque pretende que o utilizador selecione a partir das indicações de seguimento. Neste caso, defina texto específico definindo o texto de resposta predefinido, que é devolvido com cada previsão para as indicações de seguimento. O texto destina-se a exibir como texto instrutivo a seleção de instruções. Um exemplo para este texto de resposta predefinido é `Please select from the following choices` . Esta configuração é explicada nas próximas secções deste documento. Também pode definir como parte da definição de base de conhecimento da utilização da `defaultAnswerUsedForExtraction` [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### <a name="client-application-integration"></a>Integração de aplicações ao cliente
@@ -49,4 +51,4 @@ A resposta predefinitiva da base de conhecimento é devolvida quando nenhuma res
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma base de dados de conhecimento](../How-to/manage-knowledge-bases.md)
+* [Criar uma base de conhecimento](../How-to/manage-knowledge-bases.md)

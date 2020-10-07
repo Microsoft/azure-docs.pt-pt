@@ -2,13 +2,14 @@
 title: Implementar e configurar a solução VMware Azure
 description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598170"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776430"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -19,7 +20,7 @@ Neste artigo, utilizará as informações da secção de [planeamento](productio
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
-## <a name="deploy-azure-vmware-solution"></a>Implementar Solução VMware Azure
+## <a name="deploy-azure-vmware-solution"></a>Implementar o Azure VMware Solution
 
 Utilize as informações recolhidas no artigo [de implementação do Planeamento da Solução VMware Azure:](production-ready-deployment-steps.md)
 
@@ -28,17 +29,15 @@ Utilize as informações recolhidas no artigo [de implementação do Planeamento
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>Para uma visão geral deste passo, consulte a [Solução Azure VMware: Deployment](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
 
 ## <a name="create-the-jump-box"></a>Criar a caixa de salto
 
 >[!IMPORTANT]
 >Se deixou a opção **Rede Virtual** em branco durante o passo inicial de provisionamento no ecrã Criar uma **Nuvem Privada,** preencha a rede de configuração para o seu tutorial [de nuvem privada VMware](tutorial-configure-networking.md) **antes** de prosseguir com esta secção.  
 
-
-
 Depois de implementar a Solução VMware Azure, irá criar a caixa de salto da rede virtual que se conecta ao vCenter e ao NSX. Depois de configurar os circuitos ExpressRoute e ExpressRoute Global Reach, a caixa de salto não é necessária.  Mas é útil chegar ao vCenter e NSX na sua Solução Azure VMware.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Crie a caixa de salto Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 

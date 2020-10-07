@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377491"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779828"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,9 +72,9 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Coloque uma chamada de 1:n com utilizadores e PSTN
-> [!WARNING]
-> A chamada da PSTN está atualmente em pré-visualização privada. Para acesso, [aplique no programa de adoção precoce.](https://aka.ms/ACS-EarlyAdopter)
+
 Para colocar uma chamada de 1:n para um utilizador e um número PSTN, tem de especificar um Comunicador de Comunicação e um Número de Telefone para ambos os callees.
+
 O seu recurso de Serviços de Comunicação deve ser configurado para permitir a chamada pstn.
 ```js
 

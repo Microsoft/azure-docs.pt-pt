@@ -1,14 +1,16 @@
 ---
 title: Importação de fontes de dados - QnA Maker
 description: Saiba como importar os pares de perguntas e respostas a partir de fontes de dados - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: c66f81ccabd77e49ba1c492db25ad9e9edd34e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f609dc27aa1251cfad0249d26ef5140936bfe41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334638"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776957"
 ---
 # <a name="importing-from-data-sources"></a>Importar a partir de origens de dados
 
