@@ -70,7 +70,7 @@
         - name: Criar fluxos de trabalho com ou sem estado no Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Chamar aplicações lógicas do Power Automate e do Power Apps
-          href: call-logic-apps-from-power-automate-power-apps.md
+          href: call-from-power-automate-power-apps.md
         - name: Execução do fluxo de trabalho de controlo
           items:
             - name: Declarações condicionais

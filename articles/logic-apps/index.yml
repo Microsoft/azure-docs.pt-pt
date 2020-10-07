@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 09/18/2019
-  ms.openlocfilehash: c7917fc97ec84862387e629701f444df9ad619f3
-  ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+  ms.openlocfilehash: e8f9f48693d0ff9ea2505f92afa0e41284cd304c
+  ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/29/2020
-  ms.locfileid: "91460293"
+  ms.lasthandoff: 10/06/2020
+  ms.locfileid: "91761401"
 landingContent:
 - title: Acerca do Azure Logic Apps
   linkLists:
@@ -132,7 +132,7 @@ landingContent:
     - text: Implementar modelos de aplicação lógica
       url: logic-apps-deploy-azure-resource-manager-templates.md
     - text: Chamar aplicações lógicas do Power Automate e do Power Apps
-      url: call-logic-apps-from-power-automate-power-apps.md
+      url: call-from-power-automate-power-apps.md
   - linkListType: learn
     links:
     - text: Criar e implementar com modelos do Resource Manager

@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 4931a50d2258902c551cb276a8b47b129a176551
-  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+  ms.openlocfilehash: 24a8d13a364d4d4f3d484beb41404e169420f34a
+  ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/04/2020
-  ms.locfileid: "91704298"
+  ms.lasthandoff: 10/06/2020
+  ms.locfileid: "91760993"
 landingContent:
 - title: Acerca da Base de Dados do Azure para PostgreSQL
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Estruturar uma Base de Dados no Servidor Único
-      url: /tutorial-design-database-using-azure-portal.md               -
+      url: tutorial-design-database-using-azure-portal.md
     - text: Estruturar uma base de dados multi-inquilino através do Hyperscale
       url: tutorial-design-database-hyperscale-multi-tenant.md
     - text: Estruturar uma base de dados em tempo real através do Hyperscale

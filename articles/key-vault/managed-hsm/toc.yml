@@ -42,7 +42,7 @@
 - name: Referência
   items:
     - name: Azure PowerShell
-      href: /powershell/module/distaster-recoveryeyvault/?view=azps-1.2.0#key_vault
+      href: /powershell/azure#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
@@ -52,7 +52,7 @@
     - name: Node.js
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
+      href: /python/api/overview/azure/key-vault-index
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager
