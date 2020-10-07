@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583395"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802213"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -19,6 +19,40 @@ Os processos deste início rápido resultam num ambiente pronto para a produçã
 >[!IMPORTANT]
 >Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo. Para obter mais informações, consulte [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Subscrição
+
+Identifique a subscrição que pretende utilizar para implementar a Solução VMware Azure.  Pode criar uma nova subscrição ou reutilizar uma existente.
+
+>[!NOTE]
+>A subscrição deve ser associada a um Acordo de Empresa da Microsoft.
+
+## <a name="resource-group"></a>Grupo de recursos
+
+Identifique o grupo de recursos que pretende utilizar para a sua Solução Azure VMware.  Geralmente, um grupo de recursos é criado especificamente para a Azure VMware Solution, mas você pode usar um grupo de recursos existente.
+
+## <a name="region"></a>Região
+
+Identifique a região que pretende que a Azure VMware Solution seja implementada.  Para mais informações, consulte os [Produtos Azure Disponíveis por Guia da Região.](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware)
+
+## <a name="resource-name"></a>Nome do recurso
+
+Defina o nome de recurso que utilizará durante a implantação.  O nome do recurso é um nome amigável e descritivo no qual intitula a sua nuvem privada Azure VMware Solution.
+
+## <a name="size-nodes"></a>Nódoas de tamanho
+
+Identifique os nós de tamanho que pretende utilizar ao implementar a Solução VMware Azure.  Para obter uma lista completa, consulte a documentação [privada Azure VMware Solution e clusters.](concepts-private-clouds-clusters.md#hosts)
+
+## <a name="number-of-hosts"></a>Número de anfitriões
+
+Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  A contagem mínima de nó é de três, e a máxima é de 16 por cluster.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
+
+Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
+
+## <a name="vcenter-admin-password"></a>vCenter senha de administração
+Defina a palavra-passe de administração vCenter.  Durante a implementação, irá criar uma palavra-passe de administração vCenter. A palavra-passe é para a cloudadmin@vsphere.local conta de administração durante a construção do vCenter. Vai usá-lo para entrar no vCenter.
+
+## <a name="nsx-t-admin-password"></a>Senha de administração NSX-T
+Defina a palavra-passe de administração NSX-T.  Durante a implementação, irá criar uma senha de administração NSX-T. A palavra-passe é atribuída ao utilizador administrativo na conta NSX durante a construção do NSX. Vai usá-lo para entrar no NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento de endereço IP
 
@@ -63,41 +97,6 @@ Identifique um `/29` bloco de endereços de rede CIDR, que é necessário para o
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar - Segmento de endereço IP" border="false":::
 
-## <a name="subscription"></a>Subscrição
-
-Identifique a subscrição que pretende utilizar para implementar a Solução VMware Azure.  Pode criar uma nova subscrição ou reutilizar uma existente.
-
->[!NOTE]
->A subscrição deve ser associada a um Acordo de Empresa da Microsoft.
-
-## <a name="resource-group"></a>Grupo de recursos
-
-Identifique o grupo de recursos que pretende utilizar para a sua Solução Azure VMware.  Geralmente, um grupo de recursos é criado especificamente para a Azure VMware Solution, mas você pode usar um grupo de recursos existente.
-
-## <a name="region"></a>Region
-
-Identifique a região que pretende que a Azure VMware Solution seja implementada.  Para mais informações, consulte os [Produtos Azure Disponíveis por Guia da Região.](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware)
-
-## <a name="resource-name"></a>Nome do recurso
-
-Defina o nome de recurso que utilizará durante a implantação.  O nome do recurso é um nome amigável e descritivo no qual intitula a sua nuvem privada Azure VMware Solution.
-
-## <a name="size-nodes"></a>Nódoas de tamanho
-
-Identifique os nós de tamanho que pretende utilizar ao implementar a Solução VMware Azure.  Para obter uma lista completa, consulte a documentação [privada Azure VMware Solution e clusters.](concepts-private-clouds-clusters.md#hosts)
-
-## <a name="number-of-hosts"></a>Número de anfitriões
-
-Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  A contagem mínima de nó é de três, e a máxima é de 16 por cluster.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
-
-Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
-
-## <a name="vcenter-admin-password"></a>vCenter senha de administração
-Defina a palavra-passe de administração vCenter.  Durante a implementação, irá criar uma palavra-passe de administração vCenter. A palavra-passe é para a cloudadmin@vsphere.local conta de administração durante a construção do vCenter. Vai usá-lo para entrar no vCenter.
-
-## <a name="nsx-t-admin-password"></a>Senha de administração NSX-T
-Defina a palavra-passe de administração NSX-T.  Durante a implementação, irá criar uma senha de administração NSX-T. A palavra-passe é atribuída ao utilizador administrativo na conta NSX durante a construção do NSX. Vai usá-lo para entrar no NSX-T Manager.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual Azure para anexar Solução VMware Azure
 
 Para aceder à sua nuvem privada Azure VMware Solution, o circuito ExpressRoute, que vem com a Solução VMware Azure, deve ser ligado a uma Rede Virtual Azure.  Durante a implementação, pode definir uma nova rede virtual ou escolher uma existente.
@@ -121,8 +120,6 @@ De qualquer forma, documente o que quer fazer neste passo.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificar - Segmento de endereço IP" border="false":::
 
-
-
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de rede VMware HCX
 
 VMware HCX é uma tecnologia agregada com Azure VMware Solution. Os casos de utilização primária para VMware HCX são migrações de carga de trabalho e recuperação de desastres. Se planeia fazer qualquer um dos dois, é melhor planear a rede agora.   Caso contrário, pode saltar e continuar até ao próximo passo.
@@ -133,4 +130,4 @@ VMware HCX é uma tecnologia agregada com Azure VMware Solution. Os casos de uti
 Agora que recolheu e documentou as informações necessárias, continue até à secção seguinte para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementar Solução VMware Azure](deploy-azure-vmware-solution.md)
+> [Implementar o Azure VMware Solution](deploy-azure-vmware-solution.md)

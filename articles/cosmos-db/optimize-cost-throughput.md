@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1359fd2a59b49f10bb3b2daa4bcbadae921e188
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012454"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801329"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) capturam implicitamente
 
 Se tiver mais de um cliente a operar cumulativamente acima da taxa de pedido, a contagem de retíria por defeito, que está atualmente definida para 9, pode não ser suficiente. Nesses casos, o cliente lança um `RequestRateTooLargeException` código de estado 429 para a aplicação. A contagem de repetições por defeito pode ser alterada definindo `RetryOptions` a instância "ConnectionPolicy". Por predefinição, o `RequestRateTooLargeException` código de estado 429 é devolvido após um tempo de espera acumulado de 30 segundos se o pedido continuar a funcionar acima da taxa de pedido. Isto ocorre mesmo quando a contagem de repetição atual é inferior à contagem máxima de repetição, seja o padrão de 9 ou um valor definido pelo utilizador. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) está definido para 3, por isso, neste caso, se uma operação de pedido for limitada por exceder a produção reservada para o contentor, a operação de pedido retrifique três vezes antes de lançar a exceção ao pedido. [MaxRetryWaitTimeInSegundos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido para 60, por isso, neste caso, se o tempo de espera acumulado em segundos, uma vez que o primeiro pedido excede 60 segundos, a exceção é lançada.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) está definido para 3, por isso, neste caso, se uma operação de pedido for limitada por exceder a produção reservada para o contentor, a operação de pedido retrifique três vezes antes de lançar a exceção ao pedido. [MaxRetryWaitTimeInSegundos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido para 60, por isso, neste caso, se o tempo de espera acumulado em segundos, uma vez que o primeiro pedido excede 60 segundos, a exceção é lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

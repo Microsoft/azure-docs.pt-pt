@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f0f8925f3f5569e3344c284c654687da1239918b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d0f7b693eab275e232454cdf92f77b9ecfac1af
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998395"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802638"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 para SQL API: Baixar e lançar notas
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "88998395"
 | |  |
 |---|---|
 |**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
-|**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Amostras**|[Amostras de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Introdução**|[Começa com o Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-dotnet-application.md)|

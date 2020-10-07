@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172a023cc9156f435b4f40b2262ee44128c138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4210ad382301851a41d3fbd7ee3dc20a748fb544
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732009"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802196"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Azure Ative Directory
 
@@ -58,14 +58,14 @@ Em primeiro lugar, tem de [descarregar o módulo PowerShell de pré-visualizaç�
 Para instalar o módulo Azure AD PowerShell, utilize os seguintes comandos:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module AzureADPreview
+Import-Module AzureADPreview
 ```
 
 Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte comando:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
@@ -125,7 +125,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     Corpo
 
     ``` HTTP
-   {
+    {
        "description": "Can manage basic aspects of application registrations.",
        "displayName": "Application Support Administrator",
        "isEnabled": true,
@@ -138,11 +138,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
                ]
            }
        ]
-   }
+    }
     ```
 
-  > [!Note]
-  > O "templateId": "GUID" é um parâmetro opcional enviado no corpo dependendo da exigência. Se você tem um requisito para criar vários papéis personalizados diferentes com parâmetros comuns, é melhor criar um modelo e definir um modeloId . Pode gerar um modeloId previamente utilizando o cmdlet powershell (New-Guid). Guia. 
+    > [!Note]
+    > É `"templateId": "GUID"` um parâmetro opcional que é enviado no corpo dependendo da exigência. Se você tem a obrigação de criar várias funções personalizadas diferentes com parâmetros comuns, o melhor é criar um modelo e definir um `templateId` valor. Pode gerar `templateId` previamente um valor utilizando o cmdlet PowerShell `(New-Guid).Guid` . 
 
 1. Crie a tarefa de função.
 
@@ -164,13 +164,12 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
-
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Atribuir uma função personalizada a um recurso
 
 Tal como as funções incorporadas, as funções personalizadas são atribuídas por padrão no âmbito padrão da organização para conceder permissões de acesso em todos os registos de aplicações da sua organização. Mas, ao contrário das funções incorporadas, as funções personalizadas também podem ser atribuídas no âmbito de um único recurso AD Azure. Isto permite-lhe dar ao utilizador a permissão para atualizar credenciais e propriedades básicas de uma única aplicação sem ter de criar uma segunda função personalizada.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de desenvolvedores de aplicações na organização Azure AD.
-1. Selecione **Registos das aplicações**.
+1. Selecione **Registos de aplicações**.
 1. Selecione o registo da aplicação a que está a conceder acesso à gestão. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
 
     ![Selecione o registo da aplicação como uma margem de recurso para uma atribuição de funções](./media/roles-create-custom/appreg-all-apps.png)
@@ -180,7 +179,7 @@ Tal como as funções incorporadas, as funções personalizadas são atribuídas
 1. Selecione a função para abrir a página **Atribuições.**
 1. **Selecione Adicionar a atribuição** para adicionar um utilizador. O utilizador receberá quaisquer permissões apenas sobre o registo de aplicações selecionados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).

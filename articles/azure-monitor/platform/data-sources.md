@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515585"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802073"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitorização do Azure Monitor
 O Azure Monitor baseia-se numa [plataforma comum de dados de monitorização](data-platform.md) que inclui [Registos](data-platform-logs.md) e [Métricas.](data-platform-metrics.md) A recolha de dados nesta plataforma permite que os dados de vários recursos sejam analisados em conjunto usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitorização também podem ser enviados para outros locais para suportar certos cenários, e alguns recursos podem escrever para outros locais antes de poderem ser recolhidos em Registos ou Métricas.
@@ -32,7 +32,7 @@ A tabela seguinte descreve brevemente os níveis de aplicação específicos do 
 | Escalão de serviço | Descrição | Método de recolha |
 |:---|:---|:---|
 | [Inquilino Azure](#azure-tenant) | Dados sobre a operação dos serviços do Azure ao nível do inquilino, como o Azure Active Directory. | Ver dados AAD no portal ou configurar a recolha para o Azure Monitor utilizando uma definição de diagnóstico do inquilino. |
-| [Subscrição do Azure](#azure-subscription) | Dados relacionados com a saúde e gestão de serviços de recursos cruzados na sua subscrição Azure, como Gestor de Recursos e Saúde de Serviço. | Ver no portal ou configurar a recolha para o Azure Monitor utilizando um perfil de registo. |
+| [Assinatura Azure](#azure-subscription) | Dados relacionados com a saúde e gestão de serviços de recursos cruzados na sua subscrição Azure, como Gestor de Recursos e Saúde de Serviço. | Ver no portal ou configurar a recolha para o Azure Monitor utilizando um perfil de registo. |
 | [Recursos do Azure](#azure-resources) |  Dados sobre o funcionamento e desempenho de cada recurso Azure. | Métricas recolhidas automaticamente, vista no Metrics Explorer.<br>Configurar definições de diagnóstico para recolher registos no Azure Monitor.<br>Soluções de monitorização e insights disponíveis para uma monitorização mais detalhada para tipos específicos de recursos. |
 
 ### <a name="azure-other-cloud-or-on-premises"></a>Azul, outra nuvem, ou no local 
@@ -65,7 +65,7 @@ Telemetria relacionada com a saúde e funcionamento da sua assinatura Azure.
 
 ![Subscrição do Azure](media/data-sources/azure-subscription.png)
 
-### <a name="azure-activity-log"></a>Log de atividades Azure 
+### <a name="azure-activity-log"></a>Registo de atividades do Azure 
 O [registo de Atividades Azure](platform-logs-overview.md) inclui registos de saúde de serviço, juntamente com registos de quaisquer alterações de configuração es feitas aos recursos na sua subscrição do Azure. O registo de Atividades está disponível para todos os recursos Azure e representa a sua visão _externa._
 
 | Destino | Descrição | Referência |
@@ -86,7 +86,7 @@ O [registo de Atividades Azure](platform-logs-overview.md) inclui registos de sa
 ## <a name="azure-resources"></a>Recursos do Azure
 Métricas e registos de recursos fornecem informações sobre o funcionamento _interno_ dos recursos da Azure. Estes estão disponíveis para a maioria dos serviços Azure, e as soluções e insights de monitorização recolhem dados adicionais para determinados serviços.
 
-![Coleção de recursos Azure](media/data-sources/azure-resources.png)
+![Coleção de recursos Azure](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Métricas de plataforma 
@@ -180,7 +180,7 @@ Quando ativa o Application Insights para uma aplicação através da instalaçã
 |:---|:---|:---|
 | Registos do Azure Monitor | Armazena dados de monitorização de AKS, incluindo inventário, registos e eventos. Os dados métricos também são armazenados em Logs de forma a alavancar a sua funcionalidade de análise no portal. | [Compreender o desempenho do cluster do AKS com o Azure Monitor para contentores](../insights/container-insights-analyze.md) |
 | Métricas do Monitor Azure | Os dados métricos são armazenados na base de dados métrica para impulsionar a visualização e os alertas. | [Ver métricas de recipiente no explorador de métricas](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Fornece acesso direto aos seus registos de contentores Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod no portal. | [Como ver registos, eventos e métricas de kubernetes em tempo real](../insights/container-insights-livedata-overview.md) |
+| Azure Kubernetes Service | Fornece acesso direto aos seus registos de contentores Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod no portal. | [Como ver registos, eventos e métricas de kubernetes em tempo real ](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
 [O Azure Monitor para VMs](../insights/vminsights-overview.md) proporciona uma experiência personalizada para monitorizar máquinas virtuais. Uma descrição dos dados recolhidos pelo Azure Monitor para VMs está incluída na secção [sistema operativo (convidado)](#operating-system-guest) acima.
@@ -205,7 +205,7 @@ Outros serviços em Azure escrevem dados para a plataforma de dados do Azure Mon
 | [Azure Sentinel](../../sentinel/index.yml) | Registos do Azure Monitor | O Azure Sentinel armazena os dados que recolhe de diferentes fontes de dados num espaço de trabalho do Log Analytics que permite que sejam analisados com outros dados de registo recolhidos pelo Azure Monitor.  | [Ligar a origens de dados](../../sentinel/quickstart-onboard.md) |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [tipos de dados de monitorização recolhidos pelo Azure Monitor](data-platform.md) e como visualizar e analisar estes dados.
 - Liste os [diferentes locais onde os recursos Azure armazenam dados](data-locations.md) e como pode acessá-lo. 

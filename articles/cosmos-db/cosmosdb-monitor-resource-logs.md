@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549970"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801423"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorize os dados do DB da Azure Cosmos utilizando configurações de diagnóstico em Azure
 
@@ -71,7 +71,7 @@ As métricas da plataforma e os registos de Atividade são recolhidos automatica
 Para obter informações detalhadas sobre como criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em artigo Azure.](../azure-monitor/platform/diagnostic-settings.md)
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Problemas de resolução de problemas com consultas de diagnóstico
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Problemas de resolução de problemas com consultas de diagnóstico
 
 1. Como consultar as operações que estão a demorar mais de 3 milissegundos a executar:
 
@@ -99,12 +99,12 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    | render timechart
    ```
     
-1. Como obter estatísticas de chaves de partição para avaliar o desvio entre as 3 principais divisórias para a conta de base de dados:
+1. Como obter estatísticas-chave de partição para avaliar o desvio entre as 3 principais divisórias para uma conta de base de dados:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Como obter os pedidos de consultas caras?
@@ -214,14 +214,6 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Como obter estatísticas de chaves de partição para avaliar o desvio entre as três principais divisórias para a conta de base de dados?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Como obter latências de replicação P99 ou P50 para operações, taxa de pedido ou duração da resposta?
 
    ```Kusto
@@ -238,7 +230,7 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
  
 1. Como obter registos do Controlplane?
  
-   lembre-se de ligar a bandeira como descrito nos [metadados baseados em chave para desativação escrever artigos de acesso](audit-control-plane-logs.md#disable-key-based-metadata-write-access) e executar as operações através do Azure PowerShell, CLI ou ARM.
+   Lembre-se de ligar a bandeira como descrito no artigo [de acesso de metadados baseado em chave para desativar](audit-control-plane-logs.md#disable-key-based-metadata-write-access) e executar as operações utilizando a Azure PowerShell, o Azure CLI ou O Gestor de Recursos Azure.
  
    ```Kusto  
    AzureDiagnostics 
@@ -247,7 +239,7 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitor Azure para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
 * [Monitore e depure com métricas em Azure Cosmos DB](use-metrics.md)

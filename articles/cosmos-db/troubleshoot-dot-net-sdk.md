@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330456"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802418"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
@@ -55,7 +55,7 @@ A verificação das [métricas](monitor-accounts.md) do portal ajudará a determ
 
 ## <a name="common-error-status-codes"></a>Códigos comuns de estado de erro <a id="error-codes"></a>
 
-| Código de Estado | Description | 
+| Código de Estado | Descrição | 
 |----------|-------------|
 | 400 | Mau pedido (Depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 
@@ -82,7 +82,7 @@ Se a sua aplicação for implementada em [Máquinas Virtuais Azure sem endereço
 * Atribua um [IP público ao seu Azure VM](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latência de alta rede
-A alta latência da rede pode ser identificada utilizando a [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) no V2 SDK ou [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) em V3 SDK.
+A alta latência da rede pode ser identificada utilizando a [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) no V2 SDK ou [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) em V3 SDK.
 
 Se não houver [intervalos de tempo](troubleshoot-dot-net-sdk-request-timeout.md) e os diagnósticos mostrarem pedidos únicos em que a elevada latência é evidente na diferença entre `ResponseTime` `RequestStartTime` e, assim (>300 milissegundos neste exemplo):
 

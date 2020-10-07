@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761200"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801856"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB Python (pré-visualização)
 
@@ -164,10 +164,10 @@ Consulte [as amostras do Python SDK.](https://github.com/Azure/azure-sdk-for-pyt
 > [!IMPORTANT]
 > O Python SDK incorporado só é suportado para contas API SQL (Core). Para outras APIs, terá de [instalar o controlador Python relevante](#install-a-new-package) que corresponde à API. 
 
-## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância personalizada de``cosmos_client``
+## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância personalizada de ``cosmos_client``
 Para uma maior flexibilidade, pode criar uma instância personalizada de ``cosmos_client`` forma a:
 
-- Personalizar a [política de ligação](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Personalizar a [política de ligação](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Executar operações contra uma conta Azure Cosmos diferente da que você está em
 
 Pode aceder à cadeia de ligação e à chave primária da conta corrente através das [variáveis ambientais.](#access-the-account-endpoint-and-primary-key-env-variables) 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de cadernos
 Para redefinir o espaço de trabalho dos blocos de notas para as definições predefinidos, selecione **Reset Workspace** na barra de comando. Isto removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Os seus cadernos, ficheiros e recursos da Azure Cosmos não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="explorador de dados nteract":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

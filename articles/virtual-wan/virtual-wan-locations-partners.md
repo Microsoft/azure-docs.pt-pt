@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: e8dcb188dc5aad59738e3eab4169bf9dbd3679ec
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449340"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801465"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros virtuais wan e localizações de hub virtual
 
@@ -58,7 +58,7 @@ Estes parceiros têm ofertas **de Aplicação Gerida** que estão agora disponí
 |Parceiros|Guia de configuração/como/implantação|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guia de implantação de Barracuda CloudGen WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Para implementar cisco Cloud Services (CSR) WAN no Centro Virtual, por favor envie correio para vwan_public_preview@cisco.com |
+|[Cisco Cloud Service Router (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Durante a pré-visualização pública da Cisco Cloud Services (CSR) WAN no hub da VWAN, a Cisco exige que o cliente final se registe como cliente Cisco EFT (Early Field Trial), enviando um vwan_public_preview@external.cisco.com e-mail e solicitando o vManage Deployment Guide. |
 
 Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtual Hub num futuro próximo: Citrix, Versa Networks e VeloCloud.
 
@@ -66,7 +66,7 @@ Os seguintes parceiros estão programados para trazer a NVA nas ofertas do Virtu
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte o [VIRTUAL WAN FAQ](virtual-wan-faq.md).
 

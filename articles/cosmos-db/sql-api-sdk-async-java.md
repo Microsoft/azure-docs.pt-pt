@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b8f45fe07b825008b673534bcc3b28b9364c4cae
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 509c6e7a7940cb740a3dcbf81deed9f0d26c2bc8
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587298"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802859"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para SQL API: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88587298"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
 > * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de faíscas](sql-api-sdk-java-spark.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [DESCANSAR] (/repouso/api
 > * [Fornecedor de Recursos REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
@@ -45,12 +45,12 @@ O SQL API Async Java SDK difere do SQL API Java SDK, fornecendo operações ass�
 | |  |
 |---|---|
 | **SDK Download** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**Documentação da API** |[Documentação de referência da API de Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**Documentação da API** |[Documentação de referência da API de Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable&preserve-view=true) | 
 |**Contribuir para a SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**Introdução** | [Começa com o Async Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**Exemplo de código** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **Sugestões de desempenho**| [GitHub lerme](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
-| **Tempo mínimo suportado**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
+| **Tempo mínimo suportado**|[JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) | 
 
 [!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## <a name="faq"></a>FAQ

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4fc5c44ab0fcee5cbf1faa2338f65fe12d779f37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511778"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803947"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Falha num dispositivo físico da série StorSimple 8000
 
@@ -75,14 +75,14 @@ Execute os seguintes passos para restaurar o seu dispositivo num dispositivo fí
    
    1. Selecione o dispositivo que foi utilizado como o dispositivo alvo para o processo de falha.
 
-       ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecione dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Vá à lâmina **dos recipientes de volume.** Todos os recipientes de volume, juntamente com os volumes do dispositivo antigo, devem ser listados.
 
        ![Ver recipientes de volume alvo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev16.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Depois de ter efetuado uma falha, poderá ter de [desativar ou eliminar o seu dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * Para obter informações sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

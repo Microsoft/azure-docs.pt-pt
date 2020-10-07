@@ -7,18 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397037"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802935"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB
 
 Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de eliminar automaticamente os itens de um recipiente após um determinado período de tempo. Por predefinição, pode definir a hora para viver ao nível do recipiente e sobrepor o valor numa base por item. Depois de definir o TTL num recipiente ou a um nível de item, a Azure Cosmos DB removerá automaticamente estes itens após o período de tempo, desde a última modificação. O tempo de vida do valor é configurado em segundos. Quando configurar a TTL, o sistema eliminará automaticamente os itens caducados com base no valor TTL, sem necessidade de uma operação de eliminação que seja explicitamente emitida pela aplicação do cliente. O valor máximo para TTL é 2147483647.
 
 A eliminação de itens caducados é uma tarefa de fundo que consome [Unidades de Pedido](request-units.md)sobrantes, ou seja, Unidades de Pedido que não tenham sido consumidas por solicitações do utilizador. Mesmo depois de expirado o TTL, se o contentor estiver sobrecarregado com pedidos e se não houver RU suficiente disponível, a eliminação de dados é retardada. Os dados são eliminados uma vez que existam RUs suficientes disponíveis para executar a operação de eliminação. Embora a eliminação de dados seja adiada, os dados não são devolvidos por quaisquer consultas (por qualquer API) depois de expirado o TTL.
+
+> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analidade TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](https://docs.microsoft.com/azure/cosmos-db/synapse-link)clique [aqui.](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tempo de viver para contentores e itens
 
@@ -82,7 +84,7 @@ TTL no recipiente é definido para 1000 (DefaultTimeToLive = 1000)
 |ttl = -1   |O TTL está ativado. O artigo nunca expirará.|
 |ttl = 2000 |O TTL está ativado. O artigo expirará após 2000 segundos.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar o tempo para viver nos seguintes artigos:
 

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
-ms.openlocfilehash: ac47a2922e92233f0acabf75817a712671306bc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 180af30f57a8123b6e90cc8b11848b92b3c86db1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681210"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802179"
 ---
 # <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Utilizar o Holographic Remoting e o Remote Rendering no Unity
 
@@ -18,7 +18,7 @@ ms.locfileid: "80681210"
 
 Para cada execução do editor da Unidade, apenas um dos dois pode ser usado. Para usar o outro, reinicie a Unidade primeiro.
 
-## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Use o modo de reprodução de unidade para pré-visualizar em Hololens 2
+## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Use o modo de reprodução de Unidade para pré-visualizar hololens 2
 
  O modo de reprodução de unidade ainda pode ser usado, por exemplo, para testar a UI da aplicação. No entanto, é vital que o ARR nunca seja inicializado. Caso contrário, vai despenhar-se.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: e75369a82ccedb50e542dd43db9639ea4cba5c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304696"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Diretório Ativo Azure com redes Palo Alto - Abertura
 
@@ -69,7 +69,7 @@ Para configurar e testar a Azure AD com a Palo Alto Networks - Abertura, execute
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No portal Azure, na página de integração da aplicação **Salesforce,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página **palo Alto Networks - Aperture** application integration, encontre a secção **Gerir** e selecione um único sinal **de saúde**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -150,7 +150,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     e. Reveja as informações do IdP na secção **Aperture Info** e descarregue o certificado do campo **Aperture Key.**
 
-    f. Clique em **Save** (Guardar).
+    f. Clique em **Guardar**.
 
 
 ### <a name="create-palo-alto-networks---aperture-test-user"></a>Criar Redes Palo Alto - Utilizador de teste de abertura

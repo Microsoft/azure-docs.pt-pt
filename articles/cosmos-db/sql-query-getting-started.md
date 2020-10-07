@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4ee0c0af6939e71f696fc900ec2ab1343ca91df
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308190"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802519"
 ---
-# <a name="getting-started-with-sql-queries"></a>Começando com consultas SQL
+# <a name="getting-started-with-sql-queries"></a>Introdução às consultas SQL
 
 Nas contas Azure Cosmos DB SQL API, existem duas formas de ler dados:
 
@@ -25,10 +25,10 @@ A maioria das cargas de trabalho pesadas de leitura em Azure Cosmos DB usam uma 
 
 Aqui estão alguns exemplos de como fazer leituras pontuais com cada SDK:
 
-- [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
-- [SDK Java](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
-- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet&preserve-view=true)
+- [SDK Java](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable&preserve-view=true#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest&preserve-view=true#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python&preserve-view=true#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 O resto deste doc mostra como começar a escrever consultas SQL em Azure Cosmos DB. As consultas SQL podem ser executadas através do portal SDK ou Azure.
 
@@ -174,7 +174,7 @@ Os exemplos anteriores mostram vários aspetos da linguagem de consulta Cosmos D
 
 * Como a linguagem de consulta funciona com dados sem esquemas, o sistema de tipo deve ser ligado dinamicamente. A mesma expressão pode produzir diferentes tipos em diferentes itens. O resultado de uma consulta é um valor JSON válido, mas não é garantido ser de um esquema fixo.  
 
-* A Azure Cosmos DB suporta apenas itens JSON rigorosos. O sistema de tipo e expressões são restritos a lidar apenas com tipos de JSON. Para mais informações, consulte a [especificação JSON.](https://www.json.org/)  
+* A Azure Cosmos DB suporta apenas itens JSON rigorosos. O sistema de tipos e as expressões são restringidos para processar apenas os tipos JSON. Para mais informações, consulte a [especificação JSON.](https://www.json.org/)  
 
 * Um recipiente Cosmos é uma coleção livre de esquemas de artigos JSON. As relações dentro e fora dos objetos de contentores são implicitamente capturadas pela contenção, não pelas relações fundamentais e externas. Esta funcionalidade é importante para as juntas intra-item discutidas mais tarde neste artigo.
 

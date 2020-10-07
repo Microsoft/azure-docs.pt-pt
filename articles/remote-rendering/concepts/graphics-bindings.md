@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561878"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802298"
 ---
 # <a name="graphics-binding"></a>Ligação gráfica
 
@@ -120,7 +120,10 @@ Quando o acima `ptr` deve ser um ponteiro para um objeto nativo `ABI::Windows::P
 
 #### <a name="render-remote-image"></a>Render imagem remota
 
-No início de cada quadro, a estrutura remota precisa de ser transformada no tampão traseiro. Isto é feito através da chamada `BlitRemoteFrame` , que preencherá a informação de cor e profundidade no alvo de renderização atualmente vinculado. Assim, é importante que isto seja feito depois de encadernar o tampão traseiro como alvo de renderização.
+No início de cada armação, a estrutura remota precisa de ser transformada no tampão traseiro. Isto é feito chamando `BlitRemoteFrame` , que irá preencher informações de cor e profundidade para ambos os olhos no alvo de renderização atualmente vinculado. Assim, é importante fazê-lo depois de encadernar o tampão traseiro completo como alvo de renderização.
+
+> [!WARNING]
+> Após a imagem remota ter sido cortada no backbuffer, o conteúdo local deve ser prestado utilizando uma técnica de renderização estéreo de passe único, por exemplo, utilizando **SV_RenderTargetArrayIndex**. A utilização de outras técnicas de renderização estéreo, como a renderização de cada olho num passe separado, pode resultar em degradação de desempenho ou artefactos gráficos importantes e deve ser evitada.
 
 ```cs
 AzureSession currentSession = ...;

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235728"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801805"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -169,22 +169,42 @@ O desempenho depende se o seu trabalho de provisionamento está a executar um ci
 Todas as operações executadas pelo serviço de fornecimento de utilizadores são registadas nos registos de Provisionamento Azure AD [(pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os registos incluem todas as operações de leitura e escrita feitas para os sistemas de origem e alvo, bem como os dados do utilizador que foram lidos ou escritos durante cada operação. Para obter informações sobre como ler os registos de provisionamento no portal Azure, consulte o [guia de informação sobre](./check-status-user-account-provisioning.md)o provisionamento .
 
 ## <a name="de-provisioning"></a>Desesvisão
+O serviço de fornecimento de Azure AD mantém os sistemas de origem e alvo sincronizados através da desavisionamento de contas quando o acesso ao utilizador é removido.
 
-O serviço de fornecimento de Azure AD mantém os sistemas de origem e alvo sincronizados através do desavisionamento de contas quando os utilizadores já não devem ter acesso. 
+O serviço de prestação suporta a eliminação e a desativação (por vezes designada por eliminação suave) dos utilizadores. A definição exata de desativação e eliminação varia em com base na implementação da aplicação-alvo, mas geralmente um desativado indica que o utilizador não pode iniciar sação. Uma eliminação indica que o utilizador foi completamente removido da aplicação. Para aplicações SCIM, um disable é um pedido para definir a propriedade *ativa* para falso em um utilizador. 
 
-O serviço de fornecimento AZure AD eliminará suavemente um utilizador numa aplicação quando a aplicação suporta eliminações suaves (pedido de atualização com ativo = falso) e qualquer um dos seguintes eventos ocorrem:
+**Configure a sua aplicação para desativar um utilizador**
 
-* A conta de utilizador é eliminada em Azure AD
-*   O utilizador não está atribuído à aplicação
-*   O utilizador já não encontra um filtro de deteção e fica fora de alcance
-    * Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as supressões fora de alcance](../app-provisioning/skip-out-of-scope-deletions.md).
-*   A propriedade AccountEnabled está definida como Falsa
+Certifique-se de que selecionou a caixa de verificação para obter atualizações.
 
-Se ocorrer um dos quatro eventos acima e a aplicação-alvo não suportar eliminações suaves, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador da aplicação. 
+Certifique-se de que tem o mapeamento *ativo* para a sua aplicação. Se utilizar uma aplicação na galeria de aplicações, o mapeamento pode ser ligeiramente diferente. Certifique-se de que utiliza o predefinido /fora do mapeamento da caixa para aplicações de galeria.
 
-30 dias após a perda de um utilizador em Azure AD, serão permanentemente eliminados do arrendatário. Neste momento, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador na aplicação. A qualquer momento durante a janela de 30 dias, pode [eliminar manualmente um utilizador permanentemente](../fundamentals/active-directory-users-restore.md), o que envia um pedido de eliminação para a aplicação.
 
-Se vir um atributo IsSoftDeleted nos mapeamentos do seu atributo, é utilizado para determinar o estado do utilizador e se deve enviar um pedido de atualização com ativo = falso para eliminar suavemente o utilizador. 
+**Configure a sua aplicação para eliminar um utilizador**
+
+Os seguintes cenários desencadearão um desativação ou uma eliminação: 
+* Um utilizador é eliminado suavemente em Azure AD (enviado para o caixote do lixo de reciclagem / Propriedade AccountEnabled definida como falsa).
+    30 dias após a perda de um utilizador em Azure AD, serão permanentemente eliminados do arrendatário. Neste momento, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador na aplicação. A qualquer momento durante a janela de 30 dias, pode [eliminar manualmente um utilizador permanentemente](../fundamentals/active-directory-users-restore.md), o que envia um pedido de eliminação para a aplicação.
+* Um utilizador é permanentemente eliminado / removido do caixote do lixo em Azure AD.
+* Um utilizador não é atribuído a partir de uma aplicação.
+* Um utilizador vai de âmbito para fora do alcance (já não passa um filtro de escotagem).
+    
+Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as exclusões fora de alcance.](skip-out-of-scope-deletions.md)
+
+Se ocorrer um dos quatro eventos acima e a aplicação-alvo não suportar eliminações suaves, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador da aplicação.
+
+Se vir um atributo IsSoftDeleted nos mapeamentos do seu atributo, é utilizado para determinar o estado do utilizador e se deve enviar um pedido de atualização com ativo = falso para eliminar suavemente o utilizador.
+
+**Limitações conhecidas**
+
+* Se um utilizador que foi previamente gerido pelo serviço de fornecimento não for designado a partir de uma aplicação, ou de um grupo atribuído a uma app, enviaremos um pedido de desativação. Nessa altura, o utilizador não é gerido pelo serviço e não enviaremos um pedido de eliminação quando estes forem eliminados do diretório.
+* Não é suportado o fornecimento de um utilizador que esteja desativado em Azure AD. Devem estar ativos na Azure AD antes de serem a provisionados.
+* Quando um utilizador passa de soft-deleted para ativo, o serviço de fornecimento AZure AD ativará o utilizador na aplicação-alvo, mas não irá restaurar automaticamente os membros do grupo. A aplicação-alvo deve manter os membros do grupo para o utilizador em estado inativo. Se a aplicação-alvo não o apoiar, pode reiniciar a provisão para atualizar os membros do grupo. 
+
+**Recomendação**
+
+Ao desenvolver uma aplicação, apoie sempre as eliminações suaves e as eliminações duras. Permite que os clientes recuperem quando um utilizador é acidentalmente desativado.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

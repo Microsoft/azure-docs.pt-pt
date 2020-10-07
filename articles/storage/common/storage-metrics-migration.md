@@ -4,17 +4,17 @@ description: Saiba como fazer a transição das métricas storage Analytics (mé
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708582"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802842"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
@@ -46,6 +46,8 @@ Para a transição para métricas no Azure Monitor, recomendamos a seguinte abor
 Esta secção descreve algumas diferenças fundamentais entre estas duas plataformas métricas.
 
 A principal diferença está na forma como as métricas são geridas. As métricas clássicas são geridas pelo Azure Storage, enquanto as métricas no Azure Monitor são geridas pelo Azure Monitor. Com métricas clássicas, o Azure Storage recolhe valores métricos, agrega-os e, em seguida, armazena-os em mesas que estão localizadas na conta de armazenamento. Com métricas no Azure Monitor, o Azure Storage envia dados métricos para a parte traseira do Azure Monitor. O Azure Monitor fornece uma experiência de monitorização unificada que inclui dados do portal Azure, bem como dados que são ingeridos. 
+
+As métricas clássicas são enviadas e armazenadas numa conta de armazenamento Azure. As métricas do Monitor Azure podem ser enviadas para vários locais. Uma conta de armazenamento pode ser um desses locais, mas não é necessário.  
 
 No que diz respeito ao suporte de métricas, as métricas clássicas fornecem métricas **de capacidade** apenas para o armazenamento de Azure Blob. As métricas no Azure Monitor fornecem métricas de capacidade para blob, mesa, arquivo, fila e armazenamento premium. As métricas clássicas fornecem métricas de **transação** em Blob, Table, Azure File e armazenamento de fila. As métricas no Azure Monitor adicionam armazenamento premium a essa lista.
 
@@ -113,7 +115,7 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 | `TotalIngress` | `Ingress` |
 | `TotalRequests` | `Transactions` |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
 

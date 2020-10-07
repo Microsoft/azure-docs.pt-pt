@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 877e90fa3c1c8a595c438fc6745c142e97b5692c
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605163"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803284"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
 
@@ -26,21 +26,24 @@ Antes que uma aplicação possa aceder aos dados da sua organização, um utiliz
 
 Ao permitir que os utilizadores concedam às apps o acesso aos dados, os utilizadores podem facilmente adquirir aplicações úteis e ser produtivos. No entanto, em algumas situações esta configuração pode representar um risco se não for monitorizada e controlada cuidadosamente.
 
+> [!IMPORTANT]
+> Para reduzir o risco de aplicações maliciosas que tentam enganar os utilizadores a conceder-lhes acesso aos dados da sua organização, recomendamos que permita o consentimento do utilizador apenas para aplicações que tenham sido publicadas por um [editor verificado.](../develop/publisher-verification-overview.md)
+
 ## <a name="user-consent-settings"></a>Definições de consentimento do utilizador
 
-Para controlar que casos os utilizadores podem consentir com as aplicações, escolha a política de consentimento que se aplicará a todos os utilizadores. Aqui estão as três opções de política de consentimento:
+As políticas de consentimento da app descrevem as condições que devem ser satisfeitas antes de uma aplicação poder ser consentida. Estas políticas podem incluir condições na aplicação que solicita o acesso, bem como as permissões que a app está a solicitar.
 
-* **Desativar o consentimento do utilizador** - Os utilizadores não podem conceder permissões às aplicações. Os utilizadores podem continuar a iniciar seduções em apps que tinham previamente consentido ou que são consentidas por administradores em seu nome, mas não serão autorizados a consentir com novas permissões ou novas aplicações por conta própria. Apenas os utilizadores que tenham recebido um papel de diretório que inclua a permissão para conceder o consentimento poderão consentir com novas permissões ou novas aplicações.
+Ao escolher quais as políticas de consentimento da aplicação aplicáveis a todos os utilizadores, pode estabelecer limites para quando os utilizadores finais são autorizados a conceder consentimento às apps, e quando serão obrigados a solicitar a revisão e aprovação do administrador:
 
-* **Os utilizadores podem consentir com aplicações de editoras verificadas, mas apenas para permissões que selecione (pré-visualização)** - Todos os utilizadores só podem consentir com aplicações que foram publicadas por um [editor verificado](../develop/publisher-verification-overview.md) e aplicações que estão registadas no seu inquilino. Os utilizadores só podem consentir com as permissões que classificou como "baixo impacto", também referidas como "de baixo risco". O que é considerado de baixo risco para uma organização, como uma aplicação que visualiza um endereço de e-mail dos utilizadores, pode ser considerado de alto risco para outra organização. Por esta razão, as permissões de "baixo risco" são definidas pelo administrador para o arrendatário.
+* **Desativar o consentimento do utilizador** - Os utilizadores não podem conceder permissões às aplicações. Os utilizadores podem continuar a iniciar seduções em apps que tinham previamente consentido ou que são consentidas por administradores em seu nome, mas não serão autorizados a consentir com novas permissões ou novas aplicações por conta própria. Apenas os utilizadores que tenham recebido um papel de diretório que inclua a permissão para conceder o consentimento poderão consentir com novas aplicações.
 
-  Certifique-se [de classificar permissões](#configure-permission-classifications-preview) para selecionar quais permissões os utilizadores estão autorizados a consentir.
+* **Os utilizadores podem consentir em apps de editores verificados ou da sua organização, mas apenas para permissões que selecione** - Todos os utilizadores só podem consentir com aplicações que foram publicadas por um [editor verificado](../develop/publisher-verification-overview.md) e aplicações que estão registadas no seu inquilino. Os utilizadores só podem consentir com as permissões que classificou como "baixo impacto". Tem de [classificar permissões](configure-permission-classifications.md) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.
 
-* **Os utilizadores podem consentir com todas as aplicações** - Esta opção permite que todos os utilizadores consintam em qualquer permissão, que não requer consentimento administrativo, para qualquer aplicação. 
+* **Os utilizadores podem consentir com todas as aplicações** - Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação.
 
-   Para reduzir o risco de aplicações maliciosas que tentam enganar os utilizadores a conceder-lhes acesso aos dados da sua organização, recomendamos que permita o consentimento do utilizador apenas para aplicações que tenham sido publicadas por um [editor verificado.](../develop/publisher-verification-overview.md)
+* **Política de consentimento de aplicativo personalizado** - Para ainda mais opções sobre as condições que regem quando o consentimento do utilizador, pode criar uma política de consentimento de [aplicações personalizadas](manage-app-consent-policies.md#create-a-custom-app-consent-policy)e configurar as que se candidatam ao consentimento do utilizador.
 
-### <a name="configure-user-consent-settings-from-the-azure-portal"></a>Configurar as definições de consentimento do utilizador a partir do portal Azure
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para configurar as definições de consentimento do utilizador através do portal Azure:
 
@@ -51,14 +54,13 @@ Para configurar as definições de consentimento do utilizador através do porta
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Definições de consentimento do utilizador":::
 
-> [!TIP]
-> Considere [permitir que o fluxo de trabalho](configure-admin-consent-workflow.md) de consentimento administrativo permita que os utilizadores solicitem a revisão e aprovação de um administrador de uma aplicação que o utilizador não está autorizado a consentir-- por exemplo, quando o consentimento do utilizador foi desativado ou quando um pedido está a solicitar permissões que o utilizador não está autorizado a conceder.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-### <a name="configure-user-consent-settings-using-powershell"></a>Configurar as definições de consentimento do utilizador utilizando o PowerShell
+Pode utilizar o mais recente módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)para escolher qual a política de consentimento da aplicação que rege o consentimento do utilizador para aplicações.
 
-Pode utilizar o mais recente módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)para escolher qual a política de consentimento que rege o consentimento do utilizador para aplicações.
+#### <a name="disable-user-consent"></a>Desativar o consentimento do utilizador
 
-* **Desativar o consentimento do utilizador** - Para desativar o consentimento do utilizador, desintebilita as políticas de consentimento que regem o consentimento do utilizador para estarem vazias:
+Para desativar o consentimento do utilizador, desinsuse as políticas de consentimento que regem o consentimento do utilizador para estarem vazias:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -66,137 +68,52 @@ Pode utilizar o mais recente módulo de pré-visualização Azure AD PowerShell,
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
   ```
 
-* **Permitir o consentimento do utilizador para apps de editores verificados, para permissões selecionadas (pré-visualização)** - Para permitir o consentimento limitado do utilizador apenas para aplicações de editores e aplicações verificadas registadas no seu inquilino, e apenas para permissões que classifica como "Baixo impacto", configure a política de consentimento incorporada denominada: `microsoft-user-default-low`
+#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Permitir o consentimento do utilizador sujeito a uma política de consentimento de aplicações
+
+Para permitir o consentimento do utilizador, escolha qual a política de consentimento da aplicação que deve reger a autorização dos utilizadores para conceder o consentimento às aplicações:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
   ```
 
-   Não se esqueça de [classificar permissões](#configure-permission-classifications-preview) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.
+`{consent-policy-id}`Substitua-o pela identificação da apólice que gostaria de aplicar. Pode escolher uma [política de consentimento de aplicações personalizadas](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que criou ou pode escolher entre as seguintes políticas incorporadas:
 
-* **Permitir o consentimento do utilizador para todas as aplicações** - Para permitir o consentimento do utilizador para todas as aplicações:
+| ID | Descrição |
+|:---|:------------|
+| microsoft-user-default-low | **Permitir o consentimento do utilizador para apps de editores verificados, para permissões selecionadas**<br /> Permitir o consentimento limitado do utilizador apenas para apps de editores e aplicações verificadas registadas no seu inquilino, e apenas para permissões que classifica como "Baixo impacto". (Não se esqueça de [classificar permissões](configure-permission-classifications.md) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.) |
+| microsoft-user-default-legacy | **Permitir o consentimento do utilizador para apps**<br /> Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação |
+  
+Por exemplo, para permitir o consentimento do utilizador sujeito à política `microsoft-user-default-low` incorporada:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-legacy")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy `
+   -Id "authorizationPolicy" `
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+```
 
-   Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação. Recomendamos que permita o consentimento do utilizador apenas para apps de editores verificados.
-
-## <a name="configure-permission-classifications-preview"></a>Configurar classificações de permissão (pré-visualização)
-
-As classificações de permissão permitem identificar o impacto que as diferentes permissões têm de acordo com as políticas da sua organização e avaliações de risco. Por exemplo, pode utilizar classificações de permissão em políticas de consentimento para identificar o conjunto de permissões a que os utilizadores estão autorizados a consentir.
-
-> [!NOTE]
-> Atualmente, apenas a classificação de permissão de "baixo impacto" é suportada. Apenas permissões delegadas que não exijam consentimento administrativo podem ser classificadas como "Baixo impacto".
-
-### <a name="classify-permissions-using-the-azure-portal"></a>Classificar permissões usando o portal Azure
-
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)
-1. Selecione **Azure Ative Directory**  >  **Enterprise Aplicações**  >  **Consentimento e permissões**  >  **Classificações de permissão**.
-1. Escolha **Permissões de adicionar** para classificar outra permissão como "Baixo impacto". 
-1. Selecione a API e, em seguida, selecione as permissões delegadas.
-
-Neste exemplo, classificamos o conjunto mínimo de permissão necessária para uma única inscrição:
-
-:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Classificações de permissão":::
+---
 
 > [!TIP]
-> Para a API do Gráfico microsoft, as permissões mínimas necessárias para fazer um único sinal básico são `openid` `profile` , e `User.Read` `offline_access` . Com estas permissões, uma aplicação pode ler os detalhes do perfil do utilizador inscrito e pode manter este acesso mesmo quando o utilizador já não estiver a utilizar a app.
+> [Ativar o fluxo de trabalho](configure-admin-consent-workflow.md) de consentimento administrativo para permitir que os utilizadores solicitem a revisão e aprovação de um administrador de uma aplicação que o utilizador não está autorizado a consentir — por exemplo, quando o consentimento do utilizador foi desativado ou quando um pedido está a solicitar permissões que o utilizador não está autorizado a conceder.
 
-### <a name="classify-permissions-using-powershell"></a>Classificar permissões usando PowerShell
+## <a name="risk-based-step-up-consent"></a>Consentimento de intensificação baseado no risco
 
-Pode utilizar o mais recente módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)para classificar permissões. As classificações de permissão são configuradas no objeto **ServicePrincipal** da API que publica as permissões.
+O consentimento de intensificação baseado no risco ajuda a reduzir a exposição do utilizador a aplicações maliciosas que fazem [pedidos de consentimento ilícitos.](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) Se a Microsoft detetar um pedido de consentimento de utilizador final arriscado, o pedido exigirá um "step-up" para obter o consentimento administrativo. Esta capacidade é ativada por padrão, mas só resultará numa mudança de comportamento quando o consentimento do utilizador final estiver ativado.
 
-#### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Para ler as classificações de permissão atuais para uma API:
+Quando um pedido de consentimento de risco for detetado, o pedido de consentimento apresentará uma mensagem indicando que a aprovação de administração é necessária. Se o fluxo de trabalho do [pedido de consentimento administrativo](configure-admin-consent-workflow.md) estiver ativado, o utilizador pode enviar o pedido a um administrador para posterior revisão diretamente a partir do pedido de consentimento. Se não estiver ativada, será exibida a seguinte mensagem:
 
-1. Recupere o objeto **ServicePrincipal** para a API. Aqui recuperamos o objeto ServicePrincipal para a API do Gráfico microsoft:
+* **AADSTS90094:** &lt; clienteAppDisplayName &gt; precisa de permissão para aceder a recursos na sua organização que só um administrador pode conceder. Peça a um administrador para conceder permissão para esta aplicação antes de poder utilizá-la.
 
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
+Neste caso, será também registado um evento de auditoria com uma categoria de "Gestação de Aplicações", Tipo de Atividade de "Consentimento à aplicação", e Razão de Estado de "Aplicação arriscada detetada".
 
-1. Leia as classificações de autorização delegada para a API:
+> [!IMPORTANT]
+> Os administradores devem [avaliar cuidadosamente todos os pedidos de consentimento](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) antes de aprovar um pedido, especialmente quando a Microsoft detetou o risco.
 
-   ```powershell
-   Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
-   ```
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Desativar ou reativar o consentimento de intensificação baseado no risco usando o PowerShell
 
-#### <a name="to-classify-a-permission-as-low-impact"></a>Para classificar uma permissão como "Baixo impacto":
-
-1. Recupere o objeto **ServicePrincipal** para a API. Aqui recuperamos o objeto ServicePrincipal para a API do Gráfico microsoft:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Encontre a permissão delegada que gostaria de classificar:
-
-   ```powershell
-   $delegatedPermission = $api.OAuth2Permissions | Where-Object { $_.Value -eq "User.ReadBasic.All" }
-   ```
-
-1. Desa estada a classificação de permissão utilizando o nome de permissão e identificação:
-
-   ```powershell
-   Add-AzureADMSServicePrincipalDelegatedPermissionClassification `
-      -ServicePrincipalId $api.ObjectId `
-      -PermissionId $delegatedPermission.Id `
-      -PermissionName $delegatedPermission.Value `
-      -Classification "low"
-   ```
-
-#### <a name="to-remove-a-delegated-permission-classification"></a>Para remover uma classificação de permissão delegada:
-
-1. Recupere o objeto **ServicePrincipal** para a API. Aqui recuperamos o objeto ServicePrincipal para a API do Gráfico microsoft:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Encontre a classificação de permissão delegada que deseja remover:
-
-   ```powershell
-   $classifications = Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId
-   $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "User.ReadBasic.All"}
-   ```
-
-1. Eliminar a classificação de permissão:
-
-   ```powershell
-   Remove-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId `
-       -Id $classificationToRemove.Id
-   ```
-
-## <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configure o consentimento do proprietário do grupo para apps que acedam aos dados do grupo
-
-Os proprietários do grupo podem autorizar aplicações, como aplicações publicadas por fornecedores de terceiros, a aceder aos dados da sua organização associados a um grupo. Por exemplo, um dono de equipa em Microsoft Teams pode permitir que uma aplicação leia todas as mensagens de Equipas na equipa ou liste o perfil básico dos membros de um grupo.
-
-Pode configurar quais os utilizadores que estão autorizados a consentir em aplicações que acedam aos dados dos seus grupos, ou pode desativar esta funcionalidade.
-
-### <a name="configure-group-owner-consent-using-the-azure-portal"></a>Configurar o consentimento do proprietário do grupo usando o portal Azure
-
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)
-2. Selecione **Azure Ative Directory**  >  **Enterprise aplicações**  >  **Consent and permissions**User consent  >  **settings**.
-3. Sob **o consentimento do proprietário do Grupo para aplicações que acedam a dados** selecione a opção que gostaria de ativar.
-4. **Selecione Guardar** para guardar as suas definições.
-
-Neste exemplo, todos os proprietários do grupo estão autorizados a consentir que as aplicações acedam aos dados dos seus grupos:
-
-:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Definições de consentimento do proprietário do grupo":::
-
-### <a name="configure-group-owner-consent-using-powershell"></a>Configure o consentimento do proprietário do grupo usando o PowerShell
-
-Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)para permitir ou desativar a capacidade dos proprietários do grupo de consentirem com as aplicações que acedem aos dados da sua organização para os grupos que possuem.
+Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)para desativar o consentimento de administração necessário para os casos em que a Microsoft deteta riscos ou o reativa se este tiver sido previamente desativado.
 
 1. Certifique-se de que está a utilizar o módulo [AzureADPreview.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) Este passo é importante se tiver instalado o módulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) e o módulo [AzureADPreview).](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)
 
@@ -222,35 +139,25 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
         $settings = $template.CreateDirectorySetting()
     }
 
-    $enabledValue = $settings.Values | ? { $_.Name -eq "EnableGroupSpecificConsent" }
-    $limitedToValue = $settings.Values | ? { $_.Name -eq "ConstrainGroupSpecificConsentToMembersOfGroupId" }
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
     ```
 
-1. Compreenda os valores de definição. Existem dois valores de definição que definem quais os utilizadores que seriam capazes de permitir que uma aplicação acedesse aos dados do seu grupo:
+1. Compreender o valor das definições:
 
-    | Definição       | Tipo         | Description  |
+    | Definição       | Tipo         | Descrição  |
     | ------------- | ------------ | ------------ |
-    | _Ativar oGroupSpecificConsent_   | Booleano | Bandeira indicando se os proprietários de grupos são autorizados a conceder permissões específicas do grupo. |
-    | _RestriçãoGroupSpecificConsentToMemembersOfGroupId_ | GUID | Se _o EnableGroupSpecificConsent_ estiver definido como "Verdadeiro" e este valor definido para o ID de objeto de um grupo, os membros do grupo identificado serão autorizados a conceder permissões específicas do grupo aos grupos que possuem. |
+    | _BlockUserConsentForRiskyApps_   | Booleano |  Sinalização indicando se o consentimento do utilizador será bloqueado quando for detetado um pedido de risco. |
 
-1. Atualizar valores de definições para a configuração desejada:
+1. Valor de definições de atualização para a configuração desejada:
 
     ```powershell
-    # Disable group-specific consent entirely
-    $enabledValue.Value = "False"
-    $limitedToValue.Value = ""
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
     ```
 
     ```powershell
-    # Enable group-specific consent for all users
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = ""
-    ```
-
-    ```powershell
-    # Enable group-specific consent for users in a given group
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = "{group-object-id}"
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
     ```
 
 1. Guarde as suas definições.
@@ -265,53 +172,12 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
     }
     ```
 
-## <a name="configure-risk-based-step-up-consent"></a>Configure o consentimento de um passo de intensificação baseado no risco
-
-O consentimento de intensificação baseado no risco ajuda a reduzir a exposição do utilizador a aplicações maliciosas que fazem [pedidos de consentimento ilícitos.](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) Se a Microsoft detetar um pedido de consentimento de utilizador final arriscado, o pedido exigirá um "step-up" para obter o consentimento administrativo. Esta capacidade é ativada por padrão, mas só resultará numa mudança de comportamento quando o consentimento do utilizador final estiver ativado.
-
-Quando um pedido de consentimento de risco for detetado, o pedido de consentimento apresentará uma mensagem indicando que a aprovação de administração é necessária. Se o fluxo de trabalho do [pedido de consentimento administrativo](configure-admin-consent-workflow.md) estiver ativado, o utilizador pode enviar o pedido a um administrador para posterior revisão diretamente a partir do pedido de consentimento. Se não estiver ativada, será exibida a seguinte mensagem:
-
-* **AADSTS90094:** &lt; clienteAppDisplayName &gt; precisa de permissão para aceder a recursos na sua organização que só um administrador pode conceder. Peça a um administrador para conceder permissão para esta aplicação antes de poder utilizá-la.
-
-Neste caso, será também registado um evento de auditoria com uma categoria de "Gestação de Aplicações", Tipo de Atividade de "Consentimento à aplicação", e Razão de Estado de "Aplicação arriscada detetada".
-
-> [!IMPORTANT]
-> Os administradores devem [avaliar cuidadosamente todos os pedidos de consentimento](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) antes de aprovar um pedido, especialmente quando a Microsoft detetou o risco.
-
-### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Desativar ou reativar o consentimento de intensificação baseado no risco usando o PowerShell
-
-Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPreview,](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)para desativar o consentimento de administração necessário para os casos em que a Microsoft deteta riscos ou o reativa se este tiver sido previamente desativado.
-
-Pode fazê-lo utilizando os mesmos passos acima indicados para configurar o [consentimento do proprietário do grupo utilizando o PowerShell,](#configure-group-owner-consent-using-powershell)mas substituindo um valor de configurações diferente. Há três diferenças de etapas: 
-
-1. Compreenda os valores de definição do consentimento de intensificação baseado no risco:
-
-    | Definição       | Tipo         | Description  |
-    | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Booleano |  Sinalização indicando se o consentimento do utilizador será bloqueado quando for detetado um pedido de risco. |
-
-1. Substitua o seguinte valor no passo 3:
-
-    ```powershell
-    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
-    ```
-    
-1. Substitua um dos seguintes no passo 5:
-
-    ```powershell
-    # Disable risk-based step-up consent entirely
-    $riskBasedConsentEnabledValue.Value = "False"
-    ```
-
-    ```powershell
-    # Re-enable risk-based step-up consent, if disabled previously
-    $riskBasedConsentEnabledValue.Value = "True"
-    ```
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais:
 
+* [Configurar as definições de consentimento do utilizador](configure-user-consent.md)
+* [Gerir políticas de consentimento de aplicativos](manage-app-consent-policies.md)
 * [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
 * [Saiba como gerir o consentimento das candidaturas e avaliar pedidos de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador ao nível do inquilino a uma aplicação](grant-admin-consent.md)

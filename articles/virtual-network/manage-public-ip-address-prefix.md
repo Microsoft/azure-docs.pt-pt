@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035081"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804015"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
 Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e apagar um. Um prefixo de endereço IP público é um leque contíguo de endereços baseados no número de endereços IP públicos que especifica. Os endereços são atribuídos à sua subscrição. Ao criar um recurso de endereço IP público, pode atribuir um endereço IP público estático a partir do prefixo e associar o endereço a máquinas virtuais, equilibradores de carga ou outros recursos, para permitir a conectividade da Internet. Se não estiver familiarizado com os prefixos do endereço IP público, consulte a [visão geral do prefixo do endereço IP público](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,7 @@ Em alternativa, pode utilizar os comandos CLI e PS abaixo com os parâmetros --p
 2. Selecione o nome do prefixo do endereço IP público que pretende visualizar, alterar definições ou eliminar da lista.
 3. Preencha uma das seguintes opções, dependendo se pretende ver, excluir ou alterar o prefixo do endereço IP público.
    - **Ver**: A secção **'Visão Geral'** mostra as definições das chaves para o prefixo do endereço IP público, como o prefixo.
-   - **Excluir**: Para eliminar o prefixo do endereço IP público, **selecione Eliminar** na secção **'Vista Geral'.** Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP públicos, deve primeiro eliminar os recursos de endereço IP público. Consulte [um endereço IP público](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Excluir**: Para eliminar o prefixo do endereço IP público, **selecione Eliminar** na secção **'Vista Geral'.** Se os endereços dentro do prefixo estiverem associados a recursos de endereço IP públicos, deve primeiro eliminar os recursos de endereço IP público. Consulte [um endereço IP público](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Comandos**
 
