@@ -1,5 +1,5 @@
 ---
-title: Criar ativos técnicos da Máquina Virtual Azure
+title: Crie ativos técnicos para uma oferta de máquina virtual Azure Marketplace
 description: Saiba como criar e configurar ativos técnicos para uma oferta de máquina virtual (VM) para o Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646804"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803522"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Criar ativos técnicos da Máquina Virtual Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Crie ativos técnicos para uma oferta de máquina virtual Azure Marketplace
 
 Ao publicar as imagens da sua máquina virtual (VM) no Azure Marketplace, a equipa da Azure valida a imagem VM para garantir a sua capacidade de arranque, segurança e compatibilidade Azure. Se algum dos testes de alta qualidade falhar, a publicação falhará com uma mensagem que contenha o erro e possíveis [etapas de retificação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
 Este artigo descreve como criar e configurar ativos técnicos para uma oferta de máquina virtual (VM) para o Azure Marketplace. Um VM contém dois componentes: o disco rígido virtual do sistema operativo (VHD) e os discos de dados associados opcionais VHDs:
 
-1. **Sistema operativo VHD** – Contém o sistema operativo e a solução que se implanta com a sua oferta. O processo de preparação do VHD difere consoante se trate de um VM baseado em Linux, baseado no Windows ou um VM personalizado.
+- **Sistema operativo VHD**: Contém o sistema operativo e a solução que se implanta com a sua oferta. O processo de preparação do VHD difere consoante se trate de um VM baseado em Linux, baseado no Windows ou um VM personalizado.
 
-2. **VHDs de disco de dados** – Armazenamento dedicado e persistente para um VM. Não utilize o VHD do sistema operativo (por exemplo, o C: unidade) para armazenar informações persistentes.
+- **VHDs de disco de dados**: Armazenamento dedicado e persistente para um VM. Não utilize o VHD do sistema operativo (por exemplo, o C: unidade) para armazenar informações persistentes.
 
 Uma imagem VM contém um disco do sistema operativo e até 16 discos de dados. Utilize um VHD por disco de dados, mesmo que o disco esteja em branco.
 
@@ -98,20 +98,20 @@ Siga estes passos para criar a imagem VM base no [portal Azure:](https://ms.port
 4. **Selecione + Adicione** para abrir a experiência da máquina **virtual.**
 5. Selecione a imagem da lista de drop-down ou **selecione Navegue em todas as imagens públicas e privadas** para pesquisar ou navegar em todas as imagens de máquinas virtuais disponíveis. Exemplo:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra uma imagem VM de amostra.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 6. Selecione o tamanho do VM para implementar utilizando as seguintes recomendações:
     1. Se planeia desenvolver o VHD no local, o tamanho não importa. Considere usar um dos VMs menores.
     2. Se planeia desenvolver a imagem em Azure, considere utilizar um dos tamanhos VM recomendados para a imagem selecionada.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra a seleção do tamanho de VM.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 7. Na secção **Discos,** expanda a secção **Advanced** e desaver a opção **Utilização de discos geridos** para **Nº**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra a opção de utilização de discos geridos.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 8. Forneça os outros detalhes necessários para criar o VM.
-9. Selecione **Review + crie** para rever as suas escolhas. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+9. Selecione **Review + crie** para rever as suas escolhas. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 O Azure começa a aturar a máquina virtual especificada. Pode acompanhar o seu progresso selecionando o separador **Máquinas Virtuais** à esquerda. Depois de criado, o estado mudará para **Running**.
 
@@ -129,7 +129,7 @@ Criar uma geração 2 (Gen2) VM no portal Azure.
 8. Selecione um tamanho recomendado de [Gen 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) suportado e tamanho.
 9. Passeie pelo fluxo de [criação do portal Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) para terminar a criação do VM.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra a opção de selecionar a geração de VM.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Ligue-se ao seu Azure VM
 
@@ -157,7 +157,7 @@ Para se ligar a um VM baseado em Linux, precisa de um cliente seguro do protocol
 7. Abra a aplicação PuTTY.
 8. No diálogo de configuração Putty, insira o endereço IP ou o nome DNS do seu VM.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Ilustra as definições do terminal PuTTY, destacando os campos de Nome anfitrião e porto.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Mostra o início da criação de um grupo de recursos.":::
 
 9. Selecione **Abrir** para abrir um terminal PuTTY.
 10. Quando solicitado, insira o nome da conta e a palavra-passe da sua conta Linux VM.
@@ -229,7 +229,7 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desatribua o VM.
     2. O seu VHD está agora generalizado e pode criar um novo VM utilizando este VHD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD.](common-issues-during-vhd-creation.md)
 - Caso contrário, [testar a Máquina Virtual (VM) implantada a partir da VHD](azure-vm-image-certification.md) explica como testar e enviar uma imagem VM para certificação Azure Marketplace, incluindo onde obter a Ferramenta de Teste de Certificação para a ferramenta Certificada Azure e como usá-la para certificar a sua imagem VM.

@@ -1,18 +1,18 @@
 ---
-title: Resolver Problemas
+title: Resolução de problemas
 description: Informações de resolução de problemas para renderização remota de Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322194"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803828"
 ---
-# <a name="troubleshoot"></a>Resolver Problemas
+# <a name="troubleshoot"></a>Resolução de problemas
 
 Esta página lista questões comuns que interferem com a renderização remota do Azure e formas de resolvê-las.
 
@@ -88,7 +88,7 @@ A qualidade do vídeo pode ser comprometida quer pela qualidade da rede, quer pe
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Vídeo gravado com MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser gravado em Hololens através de [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
+Um vídeo pode ser gravado em HoloLens através [de Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
 * O framerate de vídeo é limitado a 30 Hz em oposição a 60 Hz.
 * As imagens de vídeo não passam pelo passo de processamento de [reprojecção do estágio tardio,](../overview/features/late-stage-reprojection.md) pelo que o vídeo parece ser mais picante.
 
@@ -185,7 +185,7 @@ O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote *de Realidade Mist
 
 ### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erro de 'Biblioteca não encontrada' para aplicação UWP ou Dll
 
-Dentro do pacote C++ Nuget, existe `microsoft.azure.remoterendering.Cpp.targets` um ficheiro que define qual do sabor binário deve ser utilizado. Para `UWP` identificar, as condições no ficheiro de verificação `ApplicationType == 'Windows Store'` . Por conseguinte, é necessário assegurar que este tipo se insegure no projeto. Este deve ser o caso ao criar uma aplicação UWP ou Dll através do assistente de projeto do Visual Studio.
+Dentro do pacote C++ NuGet, existe um ficheiro de ficheiro `microsoft.azure.remoterendering.Cpp.targets` que define qual do sabor binário deve ser utilizado. Para `UWP` identificar, as condições no ficheiro de verificação `ApplicationType == 'Windows Store'` . Por conseguinte, é necessário assegurar que este tipo se insegure no projeto. Este deve ser o caso ao criar uma aplicação UWP ou Dll através do assistente de projeto do Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 
@@ -193,7 +193,7 @@ No caso de os objetos renderizados parecerem estar a mover-se juntamente com os 
 
 Outra razão para hologramas instáveis (oscilantes, deformas, nervosismo ou hologramas de salto) pode ser a fraca conectividade da rede, em particular a largura de banda de rede insuficiente, ou uma latência demasiado alta. Um bom indicador para a qualidade da sua ligação de rede é o valor das [estatísticas de desempenho.](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` Os quadros reutilizados indicam situações em que uma antiga moldura de vídeo precisava de ser reutilizada do lado do cliente porque não havia uma nova moldura de vídeo disponível – por exemplo, devido à perda de pacotes ou devido a variações na latência da rede. Se `ARRServiceStats.VideoFramesReused` for frequentemente maior do que zero, isto indica um problema de rede.
 
-Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consistentemente abaixo dos 100 ms. Se vir valores mais elevados, isto indica que está ligado a um centro de dados que está muito longe.
+Outro valor a olhar `ARRServiceStats.LatencyPoseToReceiveAvg` é. Deve ser consistentemente abaixo dos 100 ms. Ver valores mais elevados pode indicar que está ligado a um centro de dados que está muito longe.
 
 Para obter uma lista de potenciais mitigações, consulte as diretrizes para a [conectividade da rede.](../reference/network-requirements.md#guidelines-for-network-connectivity)
 
@@ -245,7 +245,9 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 * As superfícies são propositadamente da autoria do toque, como decalques ou texto nas paredes.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefactos gráficos usando renderização estéreo multi-pass em aplicativos C++ nativos
 
+Em alguns casos, as aplicações nativas personalizadas C++ que utilizam um modo de renderização estéreo multi-pass para conteúdo local (renderização para o olho esquerdo e direito em passes separados) depois de ligar para [**o BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) podem desencadear um bug do condutor. O inseto resulta em falhas de rasterização não determinísticas, fazendo com que triângulos individuais ou partes de triângulos do conteúdo local desapareçam aleatoriamente. Por razões de desempenho, recomenda-se, de qualquer forma, tornar o conteúdo local com uma técnica de renderização estéreo de passe único mais moderna, por exemplo, utilizando **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

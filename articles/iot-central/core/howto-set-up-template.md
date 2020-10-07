@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019245"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803794"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT na aplicação do Azure IoT Central
 
@@ -123,7 +123,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome do visor para o valor da telemetria utilizado nos painéis e formulários. |
-| Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | A telemetria. |
 | Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados de telemetria, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
@@ -143,7 +143,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade usado em dashboards e formulários. |
-| Name | O nome da propriedade. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome da propriedade. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | Propriedade. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
@@ -164,13 +164,28 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de visualização do comando utilizado nos painéis e formulários. |
-| Name | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | O comando. |
 | Comando | `SynchronousExecutionType`. |
 | Comentário | Qualquer comentário sobre a capacidade de comando. |
 | Descrição | Uma descrição da capacidade de comando. |
 | Pedir | Se ativado, uma definição do parâmetro de pedido, incluindo: nome, nome de exibição, esquema, unidade e unidade de visualização. |
 | Resposta | Se ativado, uma definição da resposta do comando, incluindo: nome, nome do visor, esquema, unidade e unidade de visualização. |
+
+#### <a name="offline-commands"></a>Comandos offline
+
+Pode escolher comandos de fila se um dispositivo estiver atualmente offline, ativando a opção **"Fila" se** for por opção offline para um comando no modelo do dispositivo.
+
+Esta opção utiliza mensagens nuvem-dispositivo IoT Hub para enviar notificações para dispositivos. Para saber mais, consulte o artigo IoT Hub Enviar por email o artigo IoT Hub [Enviar por email](../../iot-hub/iot-hub-devguide-messages-c2d.md)o artigo IoT Hub.
+
+Mensagens nuvem-para-dispositivo:
+
+- São notificações unidirecionais para o dispositivo a partir da sua solução.
+- Garantia entrega de mensagem pelo menos uma vez. O IoT Hub persiste em mensagens nuvem-dispositivo em filas por dispositivo, garantindo resiliência contra a conectividade e falhas no dispositivo.
+- Exija que o dispositivo implemente um manipulador de mensagens para processar a mensagem nuvem-dispositivo.
+
+> [!NOTE]
+> Esta opção só está disponível na UI web IoT Central. Esta definição não está incluída se exportar um modelo ou interface a partir do modelo do dispositivo.
 
 ## <a name="manage-an-interface"></a>Gerir uma interface
 
@@ -187,7 +202,7 @@ A tabela a seguir mostra as definições de configuração de uma propriedade na
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade na nuvem usado em dashboards e formulários. |
-| Name | O nome da propriedade na nuvem. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. |
+| Nome | O nome da propriedade na nuvem. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados de propriedade em nuvem, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. |
 
@@ -259,6 +274,6 @@ Para publicar um modelo de dispositivo, vá até si o modelo do seu dispositivo 
 
 Depois de publicar um modelo de dispositivo, um operador pode ir à página dispositivos e adicionar **dispositivos** reais ou simulados que usam o modelo do seu dispositivo. Pode continuar a modificar e guardar o modelo do dispositivo à medida que está a fazer alterações. Quando pretender empurrar estas alterações para o operador para visualizar na página **Dispositivos,** tem de selecionar **Publicar** sempre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre a [versão do modelo do dispositivo](./howto-version-device-template.md).

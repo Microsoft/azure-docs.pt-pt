@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443346"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803862"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utilize o Transact-SQL (T-SQL) para criar e gerir trabalhos de base de dados elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Adiciona uma base de dados ou um grupo de bases de dados a um grupo alvo.
 O nome do grupo-alvo ao qual o membro será adicionado. target_group_name é nvarchar(128), sem defeito.
 
 [membership_type ** \@ =** ] 'membership_type'  
-Especifica se o membro do grupo alvo será incluído ou excluído. target_group_name é nvarchar(128), com padrão de 'Incluir'. Valores válidos para target_group_name são 'Incluir' ou 'Excluir'.
+Especifica se o membro do grupo alvo será incluído ou excluído. target_group_name é nvarchar(128), com padrão de 'Incluir'. Valores válidos para membership_type são 'Incluir' ou 'Excluir'.
 
 [target_type ** \@ =** ] 'target_type'  
 O tipo de base de dados-alvo ou recolha de bases de dados, incluindo todas as bases de dados num servidor, todas as bases de dados num pool elástico, todas as bases de dados num mapa de fragmentos ou uma base de dados individual. target_type é nvarchar(128), sem defeito. Valores válidos para target_type são 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.
 
 [refresh_credential_name ** \@ =** ] 'refresh_credential_name'  
-O nome do servidor. refresh_credential_name é nvarchar(128), sem defeito.
+O nome da base de dados foi credencial. refresh_credential_name é nvarchar(128), sem defeito.
 
 [server_name ** \@ =** ] 'server_name'  
 O nome do servidor que deve ser adicionado ao grupo alvo especificado. server_name deve ser especificado quando target_type é 'SqlServer'. server_name é nvarchar(128), sem defeito.
@@ -1041,7 +1041,7 @@ O nome da base de dados que deve ser adicionado ao grupo-alvo especificado. data
 O nome da piscina elástica que deve ser adicionada ao grupo-alvo especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlElasticPool'. elastic_pool_name é nvarchar(128), sem defeito.
 
 [shard_map_name ** \@ =** ] 'shard_map_name'  
-O nome do conjunto de mapas de fragmentos que deve ser adicionado ao grupo alvo especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlSqlShardMap'. shard_map_name é nvarchar(128), sem defeito.
+O nome do conjunto de mapas de fragmentos que deve ser adicionado ao grupo alvo especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlShardMap'. shard_map_name é nvarchar(128), sem defeito.
 
 [ ** \@ target_id =** ] PRODUÇÃO target_group_id  
 O número de identificação do alvo atribuído ao membro do grupo alvo se for criado adicionado ao grupo-alvo. target_id é uma variável de saída de tipo uniqueidentifier, com um padrão de NUN.
@@ -1346,7 +1346,7 @@ Mostra todos os membros de todos os grupos-alvo.
 
 - ![Ícone de ligação tópico](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ícone de ligação de tópico") [Convenções de Sintaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Autorização e Permissões](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

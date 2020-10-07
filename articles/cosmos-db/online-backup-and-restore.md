@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570928"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803879"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauro de dados on-demand em Azure Cosmos DB
 
@@ -88,6 +88,13 @@ Quando eliminar acidentalmente uma base de dados Azure Cosmos, podemos restaurar
 Quando eliminar acidentalmente ou modificar um ou mais itens dentro de um recipiente (o caso da corrupção de dados), tem de especificar a hora para restaurar. O tempo é importante se houver corrupção de dados. Como o contentor está ao vivo, a cópia de segurança ainda está em funcionamento, por isso, se esperar para além do período de retenção (o padrão é de oito horas), as cópias de segurança serão substituídas. **Para evitar que o backup seja substituído, aumente a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar a sua retenção dentro de 8 horas da corrupção de dados.**
 
 Se acidentalmente eliminou ou corrompeu os seus dados, deverá contactar o [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipa DB do Azure Cosmos possa ajudá-lo a restaurar os dados das cópias de segurança. Desta forma, a equipa de apoio do Azure Cosmos terá tempo suficiente para restaurar a sua conta.
+
+> [!NOTE]
+> Depois de restaurar os dados, nem todas as capacidades ou configurações de origem são transportadas para a conta restaurada. As seguintes definições não são transitadas para a nova conta:
+
+> * Listas de controlo de acesso vNET
+> * Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
+> * Configurações multi-regiões  
 
 Se fornecer produção ao nível da base de dados, o processo de backup e restauro neste caso ocorra a todo o nível da base de dados, e não ao nível de cada contentor. Nesses casos, não é possível selecionar um subconjunto de recipientes para restaurar.
 

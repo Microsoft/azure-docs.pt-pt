@@ -1,20 +1,20 @@
 ---
-title: Certificação de máquinas virtuais - problemas e soluções
-description: Este artigo explica mensagens de erro comuns para imagens VM. Também discute soluções relacionadas
+title: Questões comuns ao certificar imagens de máquinas virtuais para o Azure Marketplace
+description: Este artigo explica mensagens de erro comuns e problemas ao testar e certificar imagens VM para o Azure Marketplace. Também discute soluções relacionadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296455"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803471"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Questões comuns ao certificar imagens de máquinas virtuais para o Azure Marketplace
 
 Ao publicar a sua imagem de máquina virtual (VM) no Azure Marketplace, a equipa da Azure valida-a para garantir a sua compatibilidade de bootability, segurança e Azure. Se algum dos testes de alta qualidade falhar, a publicação falhará e receberá uma mensagem de erro que descreve o problema.
 
@@ -29,7 +29,7 @@ Quando submete um pedido para republicar a sua imagem com atualizações, o caso
 
 Esta falha ocorre quando se utiliza uma imagem base que pertence a outra editora e atualiza a imagem. Nesta situação, não poderá publicar a sua imagem.
 
-Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alterações no mesmo. Para obter mais informações, veja os seguintes artigos:
+Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alterações no mesmo. Para obter mais informações, veja os artigos seguintes:
 
 - [Imagens linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602817"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803505"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -49,7 +49,7 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 | blob  | Sim |
 | boolean  | Sim |
 | counter  | Sim |
-| data  | Sim |
+| date  | Sim |
 | decimal  | Sim |
 | double  | Sim |
 | float  | Sim |
@@ -71,6 +71,8 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 | tuples | Sim | 
 | udts  | Sim |
 | mapa | Sim |
+
+A estática é suportada para a declaração do tipo de dados.
 
 ## <a name="cql-functions"></a>Funções de CQL
 
@@ -273,7 +275,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## <a name="secondary-index"></a>Índice Secundário
+A API Cassandra suporta índices secundários em todos os tipos de dados, exceto tipos de recolha congelada, tipos decimal e variantes. 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Utilização da política de ligação de repetição Cassandra
 

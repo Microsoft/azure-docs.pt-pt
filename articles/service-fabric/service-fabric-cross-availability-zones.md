@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519001"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803743"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster de tecido de serviço Azure em zonas de disponibilidade
 Availability Zones in Azure é uma oferta de alta disponibilidade que protege as suas aplicações e dados contra falhas do datacenter. Uma Zona de Disponibilidade é um local físico único equipado com potência independente, arrefecimento e networking dentro de uma região de Azure.
@@ -150,7 +150,7 @@ Para ativar uma zona, num conjunto de escala de máquina virtual deve incluir os
 
 * O primeiro valor é a propriedade **zonas,** que especifica qual a Zona de Disponibilidade para a qual será implantado o conjunto de escala de máquina virtual.
 * O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como verdadeira.
-* O terceiro valor é a propriedade "faultDomainOverride" na extensão de escala virtual de máquina do Tecido de Serviço. O valor desta propriedade deve incluir a região e a zona em que este conjunto de escala de máquina virtual será colocado. Exemplo: "faultDomdomainOverride": "eastus/az1" Todos os recursos de escala de máquina virtual devem ser colocados na mesma região porque os clusters de tecido de serviço Azure não têm suporte de região cruzada.
+* O terceiro valor é a propriedade "faultDomainOverride" na extensão de escala virtual de máquina do Tecido de Serviço. O valor desta propriedade deve incluir apenas a zona em que este conjunto de escala de máquina virtual será colocado. Exemplo: "faultDomdomainOverride": "az1" Todos os recursos de escala de máquina virtual devem ser colocados na mesma região porque os clusters de tecido de serviço Azure não têm suporte de região cruzada.
 
 ```json
 {
@@ -183,7 +183,7 @@ Para ativar uma zona, num conjunto de escala de máquina virtual deve incluir os
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }
