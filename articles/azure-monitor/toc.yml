@@ -301,8 +301,6 @@
               href: platform/move-workspace.md
             - name: Design para fornecedores de serviços
               href: platform/service-providers.md
-            - name: Gerir o acesso
-              href: platform/manage-access.md
             - name: Clusters dedicados
               href: log-query/logs-dedicated-clusters.md
     - name: Explorador de Métricas
@@ -751,8 +749,6 @@
             - name: Alertas de disponibilidade
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Teste de desempenho
-              href: app/performance-testing.md
             - name: Resolução de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md

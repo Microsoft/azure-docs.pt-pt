@@ -992,6 +992,8 @@
                 - name: Registo com Fornecedor de Recursos da VM do SQL
                   displayName: 'resource provider, registration'
                   items:
+                    - name: Registo automático
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: VM única
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Registo em massa de múltiplas VMs
