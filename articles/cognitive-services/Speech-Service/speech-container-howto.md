@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460055"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766459"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -107,7 +107,7 @@ Preencha e envie o [formulário de pedido](https://aka.ms/csgate) para solicitar
 
 As imagens do contentor para a fala estão disponíveis no seguinte registo de contentores.
 
-# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -119,7 +119,7 @@ As imagens do contentor para a fala estão disponíveis no seguinte registo de c
 |-----------|------------|
 | Discurso-a-texto personalizado | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
-# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -139,6 +139,9 @@ As imagens do contentor para a fala estão disponíveis no seguinte registo de c
 
 # <a name="speech-language-detection"></a>[Deteção de linguagem da fala](#tab/lid)
 
+> [!TIP]
+> Para obter os melhores resultados, recomendamos a utilização do recipiente de deteção de linguagem da fala com os recipientes fala-a-texto ou personalizados. 
+
 | Contentor | Repositório |
 |-----------|------------|
 | Deteção de linguagem da fala | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
@@ -149,7 +152,7 @@ As imagens do contentor para a fala estão disponíveis no seguinte registo de c
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker puxa para os recipientes da fala
 
-# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker puxa para o recipiente discurso-a-texto
 
@@ -191,7 +194,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 > [!NOTE]
 > Os `locale` `voice` recipientes e para os recipientes de fala personalizados são determinados pelo modelo personalizado ingerido pelo recipiente.
 
-# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker puxa para o recipiente texto-a-fala
 
@@ -291,7 +294,7 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o contentor. Consulte a [recolha dos parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{Endpoint_URI}` valores e `{API_Key}` valores. Estão também disponíveis [exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do `docker run` comando.
 
-# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 Para executar o recipiente *padrão discurso-texto,* execute o seguinte `docker run` comando.
 
@@ -389,7 +392,7 @@ Este comando:
 * Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
-# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 Para executar o recipiente *Texto-a-fala* Padrão, execute o seguinte `docker run` comando.
 
@@ -675,9 +678,9 @@ Para obter mais informações sobre estas opções, consulte [os recipientes Con
 Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes de discurso. Em resumo:
 
 * A fala fornece quatro recipientes Linux para Docker, encapsulando várias capacidades:
-  * *Discurso-a-texto*
+  * *Conversão de voz em texto*
   * *Discurso-a-texto personalizado*
-  * *Texto-a-discurso*
+  * *Conversão de texto em voz*
   * *Texto-a-discurso personalizado*
   * *Texto-a-discurso neural*
   * *Deteção de linguagem da fala*
@@ -689,7 +692,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 >  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja os recipientes de configuração](speech-container-configuration.md) para configurações de configuração
 * Saiba como [usar recipientes de serviço de fala com Kubernetes e Helm](speech-container-howto-on-premises.md)

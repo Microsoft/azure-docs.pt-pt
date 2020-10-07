@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713366"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776090"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -24,14 +24,15 @@ Neste artigo, aprende-se a usar o estúdio Azure Machine Learning numa rede virt
 
 > [!div class="checklist"]
 > - Aceda ao estúdio a partir de um recurso dentro de uma rede virtual.
+> - Configure os pontos finais privados para contas de armazenamento.
 > - Dê ao estúdio acesso aos dados armazenados dentro de uma rede virtual.
-> - Entenda como a segurança do armazenamento é impactada pelo estúdio.
+> - Entenda como o estúdio impacta a segurança do armazenamento.
 
 Este artigo é parte cinco de uma série de cinco partes que o acompanha através da garantia de um fluxo de trabalho de Aprendizagem automática Azure. Recomendamos vivamente que leia a [primeira parte: visão geral do VNet](how-to-network-security-overview.md) para entender primeiro a arquitetura geral. 
 
 Veja os outros artigos desta série:
 
-[1. Visão geral da VNet](how-to-network-security-overview.md)  >  [2. Proteja o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  [3. Proteja o ambiente de treino](how-to-secure-training-vnet.md)  >  [4. Fixe o ambiente de inferencção](how-to-secure-inferencing-vnet.md)  >  [5. Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+[1. Visão geral da VNet](how-to-network-security-overview.md)  >  [2. Proteja o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  [3. Proteja o ambiente de treino](how-to-secure-training-vnet.md)  >  [4. Fixe o ambiente de inferencção](how-to-secure-inferencing-vnet.md)  >  **5. Ativar a funcionalidade do estúdio**
 
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ Veja os outros artigos desta série:
 
 + Um espaço de trabalho de [aprendizagem automática Azure existente com ligação privada ativada](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Uma [conta de armazenamento Azure existente adicionou a sua rede virtual.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)
++ Uma [conta de armazenamento Azure existente adicionou a sua rede virtual.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Aceda ao estúdio a partir de um recurso dentro do VNet
 
@@ -56,7 +57,7 @@ Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restr
 
 ## <a name="access-data-using-the-studio"></a>Aceder a dados usando o estúdio
 
-Depois de [adicionar uma conta de armazenamento Azure à sua rede virtual,](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)tem de configurar a sua conta de armazenamento para utilizar a identidade [gerida](../active-directory/managed-identities-azure-resources/overview.md) para permitir o acesso do estúdio aos seus dados. O estúdio suporta contas de armazenamento configuradas para usar pontos finais de serviço ou pontos finais privados. As contas de armazenamento utilizam os pontos finais do serviço por defeito. Para permitir o armazenamento de pontos finais privados, consulte [utilizar pontos finais privados para armazenamento Azure](../storage/common/storage-private-endpoints.md)
+Depois de adicionar uma conta de armazenamento Azure à sua rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou ponto [final privado,](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)tem de configurar a sua conta de armazenamento para utilizar a [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para permitir ao estúdio o acesso aos seus dados.
 
 Se não ativar a identidade gerida, receberá este erro, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` além disso, as seguintes operações serão desativadas:
 
@@ -64,6 +65,9 @@ Se não ativar a identidade gerida, receberá este erro, `Error: Unable to profi
 * Visualizar dados no designer.
 * Submeta uma experiência AutoML.
 * Inicie um projeto de rotulagem.
+
+> [!NOTE]
+> [A rotulagem de dados assistidos ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não suporta contas de armazenamento padrão protegidas por trás de uma rede virtual. Deve utilizar uma conta de armazenamento não padrão para a rotulagem de dados assistidos ML. A conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
 
 O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede virtual:
 
@@ -134,7 +138,7 @@ Também pode sobrepor a datastore predefinido numa base por módulo. Isto dá-lh
 1. Selecione **definições de saída de conjunto**.
 1. Especifique uma nova loja de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é uma parte opcional de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

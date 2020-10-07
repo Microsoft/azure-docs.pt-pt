@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665243"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774583"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -36,7 +36,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
-- Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
+- Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços. Por exemplo, se o seu ID editor for testpublisherid e introduzir **test-offer-1** aqui, o endereço web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
 - O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
@@ -132,7 +133,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 9. Descrição
 10. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -312,6 +313,6 @@ Se é a sua primeira vez publicando esta oferta, você pode:
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

@@ -1,28 +1,28 @@
 ---
-title: Conecte-se privadamente a uma aplicação web utilizando o Azure Private Endpoint (Preview)
-description: Este artigo explica como ligar-se privadamente a uma aplicação web utilizando o Azure Private Endpoint (Preview).
+title: Conecte-se privadamente a uma aplicação web utilizando o Azure Private Endpoint
+description: Este artigo explica como ligar-se privadamente a uma aplicação web utilizando o Azure Private Endpoint.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054539"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772843"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Conecte-se privadamente a uma aplicação web utilizando o Azure Private Endpoint (Preview)
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Conecte-se privadamente a uma aplicação web utilizando o Azure Private Endpoint
 
-Azure Private Endpoint (Preview) é o bloco de construção fundamental para a Azure Private Link. Ao utilizar o Private Endpoint, pode ligar-se em privado à sua aplicação web. Neste artigo, você vai aprender a implementar uma aplicação web usando Private Endpoint e, em seguida, conectar-se à aplicação web a partir de uma máquina virtual (VM).
+Azure Private Endpoint é o bloco de construção fundamental para a Azure Private Link. Ao utilizar o Private Endpoint, pode ligar-se em privado à sua aplicação web. Neste artigo, você vai aprender a implementar uma aplicação web usando Private Endpoint e, em seguida, conectar-se à aplicação web a partir de uma máquina virtual (VM).
 
 Para obter mais informações, consulte [utilizar pontos finais privados para uma aplicação web Azure][privateendpointwebapp].
 
 > [!Note]
-> O Private Endpoint (Preview) está disponível em regiões públicas para aplicações web PremiumV2 de nível Windows, aplicações web Linux e o plano Azure Functions Premium (por vezes referido como o plano Elastic Premium). 
+> O Private Endpoint está disponível em regiões públicas para aplicações web PremiumV2 de nível PremiumV3, aplicações web Do 43 ºC, aplicações web Linux e o plano Azure Functions Premium (por vezes referido como o plano Elastic Premium). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -86,7 +86,7 @@ Para criar a máquina virtual, faça o seguinte:
 Nesta secção, você cria uma aplicação web privada que usa um ponto final privado.
 
 > [!Note]
-> A função Private Endpoint está disponível apenas para o nível PremiumV2.
+> A função Private Endpoint está disponível apenas para o nível PremiumV2 e PremiumV3.
 
 ### <a name="create-the-web-app"></a>Criar a aplicação Web
 
@@ -103,20 +103,20 @@ Nesta secção, você cria uma aplicação web privada que usa um ponto final pr
 
 ### <a name="create-the-private-endpoint"></a>Criar o ponto final privado
 
-1. Nas propriedades de aplicações web, em **Definições**, **selecione Networking**e, em seguida, em **ligações private Endpoint (Preview)**, selecione **Configure as suas ligações de ponto final privado**.
+1. Nas propriedades de **aplicativos**web, em Definições , selecione **Networking**e, em seguida, em conexões **Private Endpoint **, selecione **Configure as suas ligações de ponto final privado**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot do link "Configurar as suas ligações de ponto final privado" no painel de rede de aplicações web.][7]
 
-1. No assistente **de ligações Private Endpoint (Pré-visualização),** selecione **Adicionar**.
+1. No assistente **de ligações Private Endpoint,** selecione **Adicionar**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot do botão Adicionar no assistente "Ligações Private Endpoint (Pré-visualização)".][8]
+   > ![Screenshot do botão Adicionar no assistente "Ligações Private Endpoint".][8]
 
 1. Selecione as informações corretas nas listas de **subscrição,** **rede virtual**e **sub-rede** e, em seguida, selecione **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot do painel "Add Private Endpoint (Preview)".][9]
+   > ![Screenshot do painel "Add Private Endpoint".][9]
 
 1. Monitorize o progresso da criação de pontos finais privados.
 
@@ -180,9 +180,6 @@ Nesta secção, conecta-se em privado à aplicação web utilizando o ponto fina
    > [!div class="mx-imgBorder"]
    > ![Screenshot de uma página de erro "Error 403 - Forbidden".][17]
 
-   > [!Important]
-   > Como esta funcionalidade está em pré-visualização, é necessário gerir manualmente a entrada do Serviço de Nome de Domínio (DNS).
-
    Para o DNS, faça qualquer um dos seguintes:
  
    - Utilize o serviço de zona privada Azure DNS.  
@@ -219,11 +216,11 @@ Quando terminar de usar o ponto final privado, a aplicação web e o VM, elimine
 
 1. No **tipo de tipo de grupo de recursos,** introduza o **pronto-rg**e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um VM numa rede virtual, uma aplicação web e um ponto final privado. Ligou-se a um VM da internet e comunicou-se de forma segura à aplicação web utilizando o Private Link. 
 
-Para saber mais sobre private endpoint (Preview), veja [o que é Azure Private Endpoint?][privateendpoint]
+Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?][privateendpoint]
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

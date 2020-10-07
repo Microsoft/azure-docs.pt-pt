@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536262"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775172"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integrar o Displayr com o Azure Ative Directory
 
@@ -88,15 +88,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação do Displayr espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador" com o ícone "Editar" em destaque.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação Do Displayr espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
     a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
-    ![image](./media/displayr-tutorial/config04.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador & Reclamações" com o ícone "Pen" ao lado de "Grupos devolvidos em reclamação" selecionados.](./media/displayr-tutorial/config04.png)
 
-    ![image](./media/displayr-tutorial/config05.png)
+    ![Screenshot que mostra a janela "Group Claims (Preview) com definições selecionadas.](./media/displayr-tutorial/config05.png)
 
     b. Selecione **Todos os Grupos** da lista de rádio.
 
@@ -126,11 +126,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Clique em **Definições** e, em seguida, navegue para **conta.**
 
-    ![Configuração](./media/displayr-tutorial/config01.png)
+    ![Screenshot que mostra o ícone "Definições" e "Conta" selecionados.](./media/displayr-tutorial/config01.png)
 
 5. Altere para **Definições** a partir do menu superior e desloque a página para clicar **em Configurar o Único Sinal (SAML)**.
 
-    ![Configuração](./media/displayr-tutorial/config02.png)
+    ![Screenshot que mostra o separador "Definições" selecionado e a ação "Configurar único sinal on (S A M L)" selecionada.](./media/displayr-tutorial/config02.png)
 
 6. Na página **Single Sign On (SAML),** execute os seguintes passos:
 
@@ -190,11 +190,11 @@ Para ativar os utilizadores Azure AD, inscreva-se no Displayr, devem ser adustad
 
 2. Clique em **Definições** e, em seguida, navegue para **conta.**
 
-    ![Configuração do displayr](./media/displayr-tutorial/config01.png)
+    ![Screenshot que mostra o ícone "Definições (engrenagem)" com "Conta" selecionada.](./media/displayr-tutorial/config01.png)
 
 3. Mude para **Definições** a partir do menu superior e desloque-se para baixo da página, até que a secção **de Utilizadores** clique em **Novo Utilizador**.
 
-    ![Configuração do displayr](./media/displayr-tutorial/config07.png)
+    ![Screenshot que mostra o separador "Definições" com "Utilizadores" realçado e o botão "Novo Utilizador" selecionado.](./media/displayr-tutorial/config07.png)
 
 4. Na página Novo **Utilizador,** execute os seguintes passos:
 

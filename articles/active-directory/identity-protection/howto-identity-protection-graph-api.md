@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950124"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776141"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Começa com a Azure Ative Directory Identity Protection e o Microsoft Graph
 
@@ -104,6 +104,8 @@ Envie este cabeçalho como um pedido para o seguinte URL API: `https://graph.mic
 A resposta, se for bem sucedida, é uma recolha de deteções de risco de identidade e dados associados no formato OData JSON, que podem ser analisados e tratados da forma que entenderem.
 
 ### <a name="sample"></a>Sample
+
+Esta amostra mostra o uso de um segredo partilhado para autenticar. Num ambiente de produção, armazenar segredos em código é geralmente mal visto. As organizações podem utilizar identidades geridas para os recursos da Azure para garantir estas credenciais. Para obter mais informações sobre identidades geridas consulte o artigo, [quais são identidades geridas para recursos Azure](../managed-identities-azure-resources/overview.md).
 
 Aqui está o código de amostra para autenticar e chamar a API usando o PowerShell.  
 Adicione a identificação do seu cliente, a chave secreta, e o domínio do inquilino.

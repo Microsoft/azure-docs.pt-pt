@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578466"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772656"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -30,18 +30,19 @@ A tabela seguinte mostra os tipos de oferta de mercado comercial no Partner Cent
 
 | **Tipo de oferta**    | **Descrição**  |
 | :------------------- | :-------------------|
-| [Aplicação Azure: **Aplicação gerida**](./marketplace-managed-apps.md) | Utilizar a Aplicação Azure: Tipo de oferta de aplicação gerida quando forem necessárias as seguintes condições: <br> <ul> <li> Implementa uma solução baseada em subscrição para o seu cliente utilizando uma Solução VM ou inteiramente baseada em IaaS. </li> <li>Você ou o seu cliente exigem que a solução seja gerida por um parceiro. </li> <ul> |
-| [Aplicação Azure: **Modelo de solução**](./marketplace-solution-templates.md) | Utilize a Aplicação Azure: Tipo de oferta de modelo de solução quando a sua solução requer uma automatização adicional de implementação e configuração para além de um único VM. Os modelos de solução podem empregar muitos tipos diferentes de recursos Azure, incluindo, mas não se limitando a VMs.  |
-  | [**Recipiente Azure**](./marketplace-containers.md) | Utilize o tipo de oferta de recipiente Azure quando a sua solução for uma imagem de contentor Docker antejada como um serviço de contentores Azure baseado em Kubernetes. |
-| [**Máquina virtual Azure**](./marketplace-virtual-machines.md) | Utilize o tipo de oferta de máquina virtual quando colocar um aparelho virtual na subscrição associada ao seu cliente. |
-| [**Serviço de consultoria**](./consulting-services.md) | Os serviços de consultoria ajudam a conectar os clientes com serviços de apoio e ampliação da sua utilização dos serviços Azure, Dynamics 365 ou Power Suite.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam as aplicações Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps e Finance and Operations.|
-| [**Módulo IoT Edge**](./iot-edge-module.md) | Os módulos Azure IoT Edge são as unidades de computação mais pequenas geridas pelo IoT Edge, e podem conter serviços microsoft (como a Azure Stream Analytics), serviços de terceiros ou o seu próprio código específico para solução. |
-| [**Aplicação Power BI <br/> Microsoft 365**](./appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam o Power BI e o Microsoft 365.|
+| [Aplicação Azure: **Aplicação gerida**](marketplace-managed-apps.md) | Utilizar a Aplicação Azure: Tipo de oferta de aplicação gerida quando forem necessárias as seguintes condições: <br> <ul> <li>Implementa uma solução baseada em subscrição para o seu cliente utilizando uma Solução VM ou inteiramente baseada em IaaS. </li> <li>Você ou o seu cliente exigem que a solução seja gerida por um parceiro. </li> <ul> |
+| [Aplicação Azure: **Modelo de solução**](marketplace-solution-templates.md) | Utilize a Aplicação Azure: Tipo de oferta de modelo de solução quando a sua solução requer uma automatização adicional de implementação e configuração para além de um único VM. Os modelos de solução podem empregar muitos tipos diferentes de recursos Azure, incluindo, mas não se limitando a VMs.  |
+  | [**Recipiente Azure**](marketplace-containers.md) | Utilize o tipo de oferta de recipiente Azure quando a sua solução for uma imagem de contentor Docker antejada como um serviço de contentores Azure baseado em Kubernetes. |
+| [**Máquina virtual Azure**](marketplace-virtual-machines.md) | Utilize o tipo de oferta de máquina virtual quando colocar um aparelho virtual na subscrição associada ao seu cliente. |
+| [**Serviço de consultoria**](consulting-services.md) | Os serviços de consultoria ajudam a conectar os clientes com serviços de apoio e ampliação da sua utilização dos serviços Azure, Dynamics 365 ou Power Suite.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam as aplicações Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps e Finance and Operations.|
+| [**Módulo IoT Edge**](iot-edge-module.md) | Os módulos Azure IoT Edge são as unidades de computação mais pequenas geridas pelo IoT Edge, e podem conter serviços microsoft (como a Azure Stream Analytics), serviços de terceiros ou o seu próprio código específico para solução. |
+| [**Serviço gerido**](partner-center-portal/create-new-managed-service-offer.md) | Pode criar ofertas de serviços geridos e gerir subscrições ou grupos de recursos delegados ao cliente através [do Farol de Azure.](/azure/lighthouse/overview)|
+| [**Aplicativo Power BI** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Pode publicar ofertas appSource que se baseiam ou prolongam o Power BI e o Microsoft 365.|
 | [**Software como serviço**](plan-saas-offer.md) | Utilize o software como tipo de oferta de serviço (SaaS) para permitir ao seu cliente comprar a sua solução técnica baseada no SaaS como subscrição. |
-| [**Soluções integradas**](./integrated-solutions-for-publishers.md) | Pode publicar soluções integradas e alinhadas com a indústria que combinam tecnologia e serviços como uma única oferta.|
 
-Para obter informações sobre os requisitos de inscrição única, listando opções e tipos de oferta, consulte [**os requisitos AD da Azure**](./enable-appsource-marketplace-using-azure-ad.md).
+
+Para obter informações sobre os requisitos de inscrição única, listando opções e tipos de oferta, consulte [**os requisitos AD da Azure**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

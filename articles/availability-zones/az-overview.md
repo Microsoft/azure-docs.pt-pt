@@ -1,5 +1,5 @@
 ---
-title: Regiões e Zonas de Disponibilidade em Azure
+title: Regiões e Zonas de Disponibilidade no Azure
 description: Conheça as regiões e zonas de disponibilidade em Azure para atender aos seus requisitos técnicos e regulamentares.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018676"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773744"
 ---
-# <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
+# <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
 Os serviços microsoft Azure estão disponíveis globalmente para conduzir as suas operações na nuvem a um nível ideal. Pode escolher a melhor região para as suas necessidades com base em considerações técnicas e regulamentares: capacidades de serviço, residência de dados, requisitos de conformidade e latência.
 
@@ -105,20 +105,20 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Serviços cloud: Série Ev3 | Base de Dados do Azure para PostgreSQL | Serviço de Nuvem de primavera Azure |
 > | Serviços na Nuvem: IPs de nível de exemplo | Azure Database Migration Service | Azure Time Series Insights |
 > | Serviços cloud: IP reservado | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Armazenamento em Disco | Azure DDoS Protection | Serviços cloud: Série G |
+> | Armazenamento de Discos | Proteção contra DDoS do Azure | Serviços cloud: Série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços cloud: Série H |
 > | Cofre de Chaves | Azure Firewall | Serviços Cognitivos : Visão Personalizada |
 > | Balanceador de carga | Azure Firewall Manager | Serviços Cognitivos : Reconhecimento de Altifalantes |
 > | Service Bus | Funções do Azure | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Catálogo de Dados |
-> | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure IoT Hub | Data Factory : Data Factory V1 |
-> | Máquinas Virtuais | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Máquinas Virtuais: Série Av2 | Azure Machine Learning | Machine Learning Studio |
+> | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory : Data Factory V1 |
+> | Máquinas Virtuais | Serviço de Kubernetes do Azure (AKS) | Data Lake Analytics |
+> | Máquinas Virtuais: Série Av2 | Azure Machine Learning | Azure Machine Learning Studio (clássico)|
 > | Máquinas Virtuais: Série B | Azure Private Link | Microsoft Genomics |
 > | Máquinas Virtuais: Série DSv2 | Azure Red Hat OpenShift | Remote Rendering |
 > | Máquinas Virtuais: Série DSv3 | Serviço SignalR do Azure | Spatial Anchors |
 > | Máquinas Virtuais: Série Dv2 | Azure Site Recovery | StorSimple |
-> | Máquinas Virtuais: Série Dv3 | Azure Stack Hub | Indexador de Vídeos |
+> | Máquinas Virtuais: Série Dv3 | Azure Stack Hub | Video Indexer |
 > | Máquinas Virtuais: Série ESv3 | Azure Stream Analytics | Máquinas Virtuais: SÉRIE DASV4 |
 > | Máquinas Virtuais: Série Ev3 | Azure Synapse Analytics | Máquinas Virtuais: Série DAv4 |
 > | Máquinas Virtuais: Série F | Batch | Máquinas Virtuais: Série DCsv2 |
@@ -132,7 +132,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > |  | Serviços Cognitivos: Fabricante QnA | Máquinas Virtuais: Série H |
 > |  | Serviços Cognitivos: Serviços de Fala | Máquinas Virtuais: Série LS |
 > |  | Container Instances | Máquinas Virtuais: Série LSv2 |
-> |  | Container Registry | Máquinas Virtuais: Série Mv2 |
+> |  | Registo de Contentor | Máquinas Virtuais: Série Mv2 |
 > |  | Data Factory | Máquinas Virtuais: Série NC |
 > |  | Event Grid | Máquinas Virtuais: NCv2-Series |
 > |  | HDInsight | Máquinas Virtuais: NCv3-Series |

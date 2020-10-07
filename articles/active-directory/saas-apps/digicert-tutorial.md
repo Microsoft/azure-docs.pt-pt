@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c9b85709ae37f1b3b6f4b4b562b7e96531f51b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536506"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Diretório Ativo Azure com DigiCert
 
@@ -105,11 +105,11 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
 5. A aplicação DigiCert espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | empresa | < > de código de empresa |
@@ -120,7 +120,7 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra a secção "Reclamações do Utilizador" com os botões "Adicionar nova reivindicação" e "Guardar" realçados.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -185,7 +185,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **DigiCert**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **DigiCert**.
 

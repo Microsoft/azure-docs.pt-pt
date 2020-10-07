@@ -7,13 +7,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 09/14/2020
-ms.openlocfilehash: 393678342ad1e8e6e2ff5d3c38dab68ce29ee7e7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/06/2020
+ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91711722"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772741"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Quickstart: Use um modelo ARM para implantar API Azure para FHIR
 
@@ -62,8 +62,6 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
 -->
-
-Mais Azure API para amostras de modelo de FHIR pode ser encontrado na galeria de [modelos quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -192,7 +190,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711610"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772673"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -71,6 +71,8 @@ Também tem de especificar uma das seguintes categorias de operações para as q
 | ArmazenamentoRead | Leia as operações em objetos. |
 | ArmazenamentoPorite | Escreva operações em objetos. |
 | StorageDelete | Eliminar operações em objetos. |
+
+Para obter a lista de operações SMB e REST que estão registadas, consulte [as operações de armazenamento registadas e as mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
 
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
@@ -276,7 +278,7 @@ O exemplo a seguir mostra como ler dados métricos sobre a multidimensional de s
 
 Pode aceder a registos de recursos como uma bolha numa conta de armazenamento, como dados de eventos, ou através de consultas de Log Analytic.
 
-Para obter uma referência detalhada dos campos que aparecem nestes registos, consulte [a referência de dados dos Ficheiros Azure Azure .](storage-files-monitoring-reference.md)
+Para obter a lista de operações SMB e REST que estão registadas, consulte [as operações de armazenamento registadas e as mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Para se inscrever na pré-visualização, consulte [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta pré-visualização permite registos para blobs (que inclui Azure Data Lake Storage Gen2), ficheiros, filas, tabelas, contas de armazenamento premium em v1 de uso geral e contas de armazenamento v2 de uso geral. As contas clássicas de armazenamento não são suportadas.
@@ -292,7 +294,7 @@ As entradas de registo só são criadas se houver pedidos feitos contra o ponto 
 - Pedidos que utilizem uma assinatura de acesso partilhado (SAS) ou OAuth, incluindo pedidos falhados e bem sucedidos
 - Pedidos de dados de análise (dados clássicos **de** registo no $logs dados métricos do recipiente e da classe nas tabelas **$metric)**
 
-Os pedidos feitos pelo próprio serviço Azure Files, como criação de registos ou eliminação, não são registados. Para obter uma lista completa dos dados registados, consulte [as operações registadas do Armazenamento e as mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e o formato de registo de [armazenamento.](storage-files-monitoring-reference.md)
+Os pedidos feitos pelo próprio serviço Azure Files, como criação de registos ou eliminação, não são registados. Para obter uma lista completa dos pedidos de SMB e REST que estão registados, consulte [as operações registadas de Armazenamento e mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Registar pedidos anónimos
 
@@ -303,7 +305,7 @@ Os pedidos feitos pelo próprio serviço Azure Files, como criação de registos
 - Erros de tempo limite para o cliente e o servidor
 - Pedidos GET falhados com o código de erro 304 (Não Modificado)
 
-Todos os outros pedidos anónimos falhados não estão registados. Para obter uma lista completa dos dados registados, consulte [as operações registadas do Armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e o formato de registo de [armazenamento.](storage-files-monitoring-reference.md)
+Todos os outros pedidos anónimos falhados não estão registados. Para obter uma lista completa dos pedidos de SMB e REST que estão registados, consulte [as operações registadas de Armazenamento e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Aceder a registos numa conta de armazenamento
 
@@ -479,7 +481,7 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta**, **Descrição e **Severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Files monitorizando a referência de dados](storage-files-monitoring.md)
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)

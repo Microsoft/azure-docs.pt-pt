@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550117"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775445"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Tutorial: Azure Ative Directory integração única (SSO) com Darwinbox
 
@@ -143,19 +143,19 @@ Quando clicar no azulejo darwinbox no Painel de Acesso, deverá ser automaticame
 
 1. Aplicação móvel Aberta Darwinbox. Clique em **ENTER Organization URL** agora insira o URL da sua organização na caixa de texto e clique no botão Seta.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Screenshot que mostra a aplicação móvel "Darwinbox" com o selecionado "Enter Organization U R L" e uma organização de exemplo e botão "Arrow" realçados.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Se tiver vários domínios, clique no seu domínio.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Screenshot que mostra o ecrã "Escolha o seu domínio" com um domínio de exemplo selecionado.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Introduza o seu e-mail AD AZure na aplicação Darwinbox e clique em **Seguinte**.
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Screenshot que mostra o ecrã "Iniciar" com o botão "Seguinte" realçado.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Introduza a sua palavra-passe AD AZure na aplicação Darwinbox e clique **em Iniciar sing dentro**
 
-    ![Aplicativo móvel Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Screenshot que mostra o ecrã "Introduzir palavra-passe" com o botão "Seguinte" realçado.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Finalmente, após o início do sôm.
 

@@ -4,15 +4,15 @@ description: Desenhe aplicações de alto desempenho utilizando discos geridos A
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650720"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776158"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -279,7 +279,7 @@ Seguem-se as definições recomendadas de cache de disco para discos de dados,
 
 | **Definição de cache de disco** | **recomendação sobre quando usar esta definição** |
 | --- | --- |
-| Nenhum |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
+| Nenhuma |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
 | ReadOnly |Configure a cache do anfitrião como ReadOnly para discos de leitura e leitura. |
 | ReadWrite |Configure a cache do hospedeiro como ReadWrite apenas se a sua aplicação manusear corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
@@ -305,45 +305,11 @@ Como exemplo, pode aplicar estas diretrizes ao SQL Server em execução no Armaz
 
 ## <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho nos VMs do Linux
 
-Para todos os SSDs premium ou discos ultra com cache definido para **ReadOnly** ou **None,** deve desativar "barreiras" quando montar o sistema de ficheiros. Não precisa de barreiras neste cenário porque as escritas para discos de armazenamento premium são duráveis para estas configurações de cache. Quando o pedido de escrita termina com sucesso, os dados foram escritos para a loja persistente. Para desativar "barreiras", utilize um dos seguintes métodos. Escolha o do seu sistema de ficheiros:
-  
-* Para **o reiserFS,** para desativar as barreiras, utilize a  `barrier=none` opção de montagem. (Para permitir barreiras, `barrier=flush` utilize.)
-* Para **ext3/ext4**, para desativar barreiras, utilize a `barrier=0` opção de montagem. (Para permitir barreiras, `barrier=1` utilize.)
-* Para **xFS,** para desativar barreiras, utilize a `nobarrier` opção de montagem. (Para permitir barreiras, `barrier` utilize.)
-* Para discos de armazenamento premium com cache definido para **ReadWrite,** permita barreiras para escrever durabilidade.
-* Para que as etiquetas de volume persistam após o reinício do VM, tem de atualizar /etc/fstab com as referências universalmente únicas do identificador (UUID) aos discos. Para obter mais informações, consulte [Adicionar um disco gerido a um Linux VM](./linux/add-disk.md).
+Para todos os SSDs premium ou discos ultra, pode ser capaz de desativar "barreiras" para sistemas de ficheiros no disco, de modo a melhorar o desempenho quando se sabe que não existem caches que possam perder dados.  Se o cache do disco Azure estiver definido para ReadOnly ou None, pode desativar barreiras.  Mas se o caching estiver definido para ReadWrite, as barreiras devem permanecer habilitados para garantir a durabilidade da escrita.  As barreiras são normalmente ativadas por padrão, mas pode desativar barreiras utilizando um dos seguintes métodos dependendo do tipo do sistema de ficheiros:
 
-As seguintes distribuições linux foram validadas para SSDs premium. Para um melhor desempenho e estabilidade com SSDs premium, recomendamos que atualize os seus VMs para uma destas versões ou mais recentes. 
-
-Algumas das versões requerem os mais recentes Serviços de Integração Linux (LIS), v4.0, para o Azure. Para descarregar e instalar uma distribuição, siga o link listado na tabela seguinte. Adicionamos imagens à lista à medida que completamos a validação. As nossas validações mostram que o desempenho varia para cada imagem. O desempenho depende das características da carga de trabalho e das definições de imagem. Imagens diferentes são sintonizadas para diferentes tipos de cargas de trabalho.
-
-| Distribuição | Versão | Núcleo suportado | Detalhes |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 ou mais recente| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 ou mais recente| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x ou mais recente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ ou mais recente| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0, ou mais recente| &nbsp; | [LIS4 necessário](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Ver nota na secção seguinte* |
-| CentOS | 7.1+ ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Ver nota na secção seguinte* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, ou mais recente | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+, ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK c/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK c/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Condutores LIS para OpenLogic CentOS
-
-Se estiver a executar VMs OpenLogic CentOS, executa o seguinte comando para instalar os controladores mais recentes:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-Em alguns casos, o comando acima também irá atualizar o núcleo. Se for necessária uma atualização de kernel, poderá ter de voltar a executar os comandos acima depois de reiniciar para instalar totalmente o pacote microsoft-hyper-v.
-
+* Para **o reiserFS,** utilize a opção de montagem barreira=nenhuma para desativar barreiras.  Para ativar explicitamente as barreiras, utilize barreira=flush.
+* Para **ext3/ext4,** utilize a opção de montagem barreira=0 para desativar barreiras.  Para ativar explicitamente as barreiras, utilize a barreira=1.
+* Para **xFS,** utilize a opção de montagem nobarrier para desativar barreiras.  Para ativar explicitamente as barreiras, utilize a barreira.  Note que em versões posteriores do kernel do Linux, o design do sistema de ficheiros XFS garante sempre a durabilidade, e as barreiras incapacitantes não têm qualquer efeito.  
 
 ## <a name="disk-striping"></a>Striping de disco
 
@@ -410,7 +376,7 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 

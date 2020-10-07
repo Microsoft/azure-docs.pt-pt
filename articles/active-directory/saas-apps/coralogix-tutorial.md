@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555910"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Tutorial: Azure Ative Directory integração única (SSO) com Coralogix
 
@@ -95,13 +95,14 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
  1. A aplicação Coralogix espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração da aplicação. Na **configuração de 'Sessão's Single's com** a página SAML, selecione o botão **Editar** para abrir a caixa de diálogo **de atributos** do utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o botão "Editar" realçado.](common/edit-attribute.png)
 
 1. Na secção **'Reclamações** de Utilizador' na caixa de diálogo **'Atributos do Utilizador',** edite as reclamações utilizando o ícone **Editar.** Também pode adicionar as reclamações utilizando **adicionar uma nova alegação** para configurar o atributoken SAML, tal como mostrado na imagem anterior. Em seguida, tome os seguintes passos:
     
     a. Selecione o **ícone Editar** para abrir a caixa de diálogo **de reclamações** do utilizador Gerir.
 
-    ![](./media/coralogix-tutorial/tutorial_usermail.png) ![ imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Screenshot que mostra o diálogo "User Awards & Claims" com o botão "Editar" realçado.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Na lista de **identificadores de nomes Escolha,** selecione **o endereço de e-mail.**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522139"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Diretório Ativo Azure com a Convercent
 
@@ -98,7 +98,7 @@ Para configurar o Azure AD com a Convercent, execute os seguintes passos:
 
 4. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute o seguinte passo:
 
-    ![Informações de assinatura única do domínio convercent e URLs](common/both-identifier.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com o campo "Identificador (ID da Entidade)" e o botão "Guardar" realçado.](common/both-identifier.png)
 
     Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:  `https://<instancename>.convercent.com/`
 
@@ -162,7 +162,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Convercent**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Convercent**.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712311"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772809"
 ---
 # <a name="azure-activity-log"></a>Registo de atividades do Azure
 O registo de Atividades é um [registo de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Para obter funcionalidades adicionais, deverá criar uma definição de diagnóstico para enviar o registo de Atividade para [Registos do Monitor Azure,](data-platform-logs.md)para Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar. Este artigo fornece detalhes sobre a visualização do registo de atividade e o envio para diferentes destinos.
@@ -396,7 +396,8 @@ Em breve deixará de ser capaz de adicionar a solução Activity Logs Analytics 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Leia uma visão geral dos registos da plataforma](platform-logs-overview.md)
+* [Rever esquema de evento de log de atividade](activity-log-schema.md)
 * [Criar definição de diagnóstico para enviar registos de atividade para outros destinos](diagnostic-settings.md)

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708321"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776052"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
@@ -57,10 +57,9 @@ O Azure Private Link permite-lhe ligar-se ao seu espaço de trabalho utilizando 
 
 Para obter mais informações sobre a criação de um espaço de trabalho private link, consulte [Como configurar o Private Link](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Contas de armazenamento Secure Azure com pontos finais de serviço
 
-## <a name="secure-azure-storage-accounts"></a>Contas de armazenamento Secure Azure
-
-Nesta secção, você aprende a proteger uma conta de armazenamento Azure usando pontos finais de serviço. No entanto, também pode utilizar pontos finais privados para garantir o armazenamento do Azure. Para obter mais informações, consulte [utilizar pontos finais privados para o armazenamento Azure](../storage/common/storage-private-endpoints.md).
+A Azure Machine Learning suporta contas de armazenamento configuradas para utilizar pontos finais de serviço ou pontos finais privados. Nesta secção, você aprende a proteger uma conta de armazenamento Azure usando pontos finais de serviço. Para pontos finais privados, consulte a secção seguinte.
 
 > [!IMPORTANT]
 > Pode colocar a _conta de armazenamento predefinida_ para Azure Machine Learning ou _contas de armazenamento não padrão_ numa rede virtual.
@@ -95,9 +94,21 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 
    [![O painel "Firewalls e redes virtuais" no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Contas de armazenamento Secure Azure com pontos finais privados
+
+A Azure Machine Learning suporta contas de armazenamento configuradas para utilizar pontos finais de serviço ou pontos finais privados. Se a conta de armazenamento utilizar pontos finais privados, deve configurar dois pontos finais privados para a sua conta de armazenamento predefinido:
+1. Um ponto final privado com um sub-recurso de alvo de **bolha.**
+1. Um ponto final privado com um sub-recurso alvo de **ficheiro** (fileshare).
+
+![Screenshot mostrando página de configuração de ponto final privado com opções de blob e arquivo](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Para configurar um ponto final privado para uma conta de armazenamento que **não** seja o armazenamento predefinido, selecione o tipo **de sub-recursos Target** que corresponde à conta de armazenamento que pretende adicionar.
+
+Para obter mais informações, consulte [utilizar pontos finais privados para armazenamento Azure](../storage/common/storage-private-endpoints.md)
+
 ## <a name="secure-datastores-and-datasets"></a>Lojas de dados e conjuntos de dados seguros
 
-Nesta secção, aprende-se a utilizar a datastore e o uso do conjunto de dados para a experiência SDK numa rede virtual. Para obter mais informações sobre a experiência do estúdio, consulte o [estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md)
+Nesta secção, aprende-se a utilizar datastore e conjuntos de dados na experiência SDK com uma rede virtual. Para obter mais informações sobre a experiência do estúdio, consulte o [estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md)
 
 Para aceder aos dados utilizando o SDK, deve utilizar o método de autenticação exigido pelo serviço individual em que os dados são armazenados. Por exemplo, se registar uma loja de dados para aceder à Azure Data Lake Store Gen2, ainda deve utilizar um principal de serviço como documentado nos [serviços de armazenamento Connect to Azure](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
@@ -271,7 +282,7 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
     }
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

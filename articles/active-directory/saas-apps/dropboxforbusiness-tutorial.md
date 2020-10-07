@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555744"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775158"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio dropbox com o Azure Ative Directory
 
@@ -145,27 +145,27 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 3. Se quiser configurar o Dropbox Business manualmente, abra uma nova janela do navegador web e aceda ao seu inquilino dropbox business e inscreva-se no seu inquilino do Dropbox Business. e executar os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar o início de sessão único")
+    ![Screenshot que mostra a página "Dropbox Business Sign in".](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar o início de sessão único")
 
 4. Clique no **separador Ícone** do Utilizador e selecione **O separador Definições.**
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o início de sessão único")
+    ![Screenshot que mostra a ação "USER ICON" e "Definições" selecionadas.](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o início de sessão único")
 
 5. No painel de navegação do lado esquerdo, clique na **consola Admin**.
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o início de sessão único")
+    ![Screenshot que mostra "Consola Admin" selecionada.](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o início de sessão único")
 
 6. Na **consola Admin,** clique em **Definições** no painel de navegação esquerdo.
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o início de sessão único")
+    ![Screenshot que mostra "Definições" selecionadas.](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o início de sessão único")
 
 7. Selecione a opção **de inscrição única** na secção **Autenticação.**
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o início de sessão único")
+    ![Screenshot que mostra a secção "Autenticação" com "Single sign-on" selecionado.](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o início de sessão único")
 
 8. Na secção **de inscrição única,** execute os seguintes passos:  
 
-    ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o início de sessão único")
+    ![Screenshot que mostra as definições de configuração "Single sign-on".](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o início de sessão único")
 
     a. Selecione **Requerido** como opção a partir do dropdown para o **sign-on único**.
 

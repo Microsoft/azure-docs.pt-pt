@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897959"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776124"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -156,6 +156,9 @@ O número exato de imagens etiquetadas necessárias para iniciar a rotulagem ass
 
 Uma vez que as etiquetas finais ainda dependem da entrada do rótulo, esta tecnologia é por vezes chamada humana na rotulagem *do loop.*
 
+> [!NOTE]
+> A rotulagem de dados assistidos ML não suporta contas de armazenamento padrão protegidas por trás de uma [rede virtual](how-to-network-security-overview.md). Deve utilizar uma conta de armazenamento não padrão para a rotulagem de dados assistidos ML. A conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
+
 ### <a name="clustering"></a>Clustering
 
 Após a submissão de um certo número de rótulos, o modelo de machine learning para classificação de imagem começa a agrupar imagens semelhantes.  Estas imagens semelhantes são apresentadas aos rotuladores no mesmo ecrã para acelerar a marcação manual. O agrupamento é especialmente útil quando o rótulo está a visualizar uma grelha de 4, 6 ou 9 imagens. 
@@ -186,7 +189,7 @@ Para interromper ou reiniciar o projeto, altere o estado **de Funcionamento** no
 
 O **separador Dashboard** mostra o progresso da tarefa de rotulagem.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Painel de rotulagem de dados":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Assistente de criação de projeto de rotulagem":::
 
 O gráfico de progresso mostra quantos itens foram rotulados e quantos ainda não foram feitos.  Os artigos pendentes podem ser:
 

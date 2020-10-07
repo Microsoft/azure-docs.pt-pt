@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181515"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773370"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -142,6 +142,50 @@ Para passar para uma nova subscrição, forneça o `--destination-subscription-i
 
 1. Definir/verificar os controlos de acesso dos grupos de recursos.  
 2. A funcionalidade de relatório e monitorização de backup precisa de ser configurada novamente para o cofre após o movimento estar concluído. A configuração anterior perder-se-á durante a operação de movimento.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Mova uma máquina virtual Azure para um cofre de serviço de recuperação diferente. 
+
+Se quiser mover uma máquina virtual Azure que tenha o backup Azure ativado, então tem duas opções. Dependem dos seus requisitos de negócio:
+
+- [Não precisa preservar dados anteriores de back-up](#dont-need-to-preserve-previous-backed-up-data)
+- [Deve preservar dados anteriores de back-up](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Não precisa preservar dados anteriores de back-up
+
+Para proteger as cargas de trabalho num novo cofre, a proteção atual e os dados terão de ser eliminados no cofre antigo e a cópia de segurança está novamente configurada.
+
+>[!WARNING]
+>A seguinte operação é destrutiva e não pode ser desfeita. Todos os dados de backup e itens de backup associados ao servidor protegido serão permanentemente eliminados. Avance com cuidado.
+
+**Parar e apagar a proteção atual no cofre antigo:**
+
+1. Desative a exclusão suave nas propriedades do cofre. Siga [estes passos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para desativar a eliminação suave.
+
+2. Pare a proteção e elimine as cópias de segurança do cofre atual. No menu do painel de instrumentos Vault, selecione **Itens de reserva**. Os itens listados aqui que precisam de ser transferidos para o novo cofre devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**. Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. Assim que forem removidos do antigo cofre, continuem a configurar os reforços para a sua carga de trabalho no novo cofre.
+
+### <a name="must-preserve-previous-backed-up-data"></a>Deve preservar dados anteriores de back-up
+
+Se precisar de manter os dados protegidos atuais no cofre antigo e continuar a proteção num novo cofre, existem opções limitadas para algumas das cargas de trabalho:
+
+- Para a MARS, pode [parar a proteção com os dados de retenção](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) e registar o agente no novo cofre.
+
+  - O serviço de backup Azure continuará a reter todos os pontos de recuperação existentes do antigo cofre.
+  - Terá de pagar para manter os pontos de recuperação no antigo cofre.
+  - Só poderá restaurar os dados de apoio para pontos de recuperação não passados no antigo cofre.
+  - Uma nova réplica inicial dos dados terá de ser criada no novo cofre.
+
+- Para um Azure VM, pode [parar a proteção com os dados](backup-azure-manage-vms.md#stop-protecting-a-vm) de retenção para o VM no cofre antigo, mover o VM para outro grupo de recursos e, em seguida, proteger o VM no novo cofre. Consulte [orientação e limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover um VM para outro grupo de recursos.
+
+  Um VM só pode ser protegido num cofre de cada vez. No entanto, o VM do novo grupo de recursos pode ser protegido no novo cofre, uma vez que é considerado um VM diferente.
+
+  - O serviço de backup da Azure vai manter os pontos de recuperação que foram apoiados no antigo cofre.
+  - Terá de pagar para manter os pontos de recuperação no cofre antigo (ver [preços de reserva do Azure](azure-backup-pricing.md) para mais detalhes).
+  - Poderá restaurar o VM, se necessário, do antigo cofre.
+  - A primeira cópia de segurança no novo cofre do VM no novo recurso será uma réplica inicial.
 
 ## <a name="next-steps"></a>Passos seguintes
 

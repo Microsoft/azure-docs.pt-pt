@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512069"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774465"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Falhe no seu StorSimple Cloud Appliance
 
@@ -46,15 +46,15 @@ Execute os seguintes passos para restaurar o dispositivo num aparelho de nuvem S
     ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os recipientes de volume que pretende falhar. Aceda às **definições > recipientes de volume**.
 
-    ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Selecione dispositivo 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Selecione um recipiente de volume que pretende falhar noutro dispositivo. Clique no recipiente de volume para visualizar a lista de volumes dentro deste recipiente. Selecione um volume, clique à direita e clique em **"Tirar Offline"** para tirar o volume offline.
 
-    ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Selecione dispositivo 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Repita este processo para todos os volumes do recipiente de volume.
 
-     ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Selecione dispositivo 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Repita o passo anterior para todos os recipientes de volume que pretende falhar noutro dispositivo.
 
@@ -81,7 +81,7 @@ Execute os seguintes passos para restaurar o dispositivo num aparelho de nuvem S
 
     1. Selecione o dispositivo que foi utilizado como o alvo para a falha.
 
-       ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecione dispositivo 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Clique em **Recipientes de Volume**. Todos os recipientes de volume, juntamente com os volumes do dispositivo antigo, devem ser listados.
 
@@ -90,7 +90,7 @@ Execute os seguintes passos para restaurar o dispositivo num aparelho de nuvem S
        ![Ver recipientes de volume alvo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev17.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Depois de ter efetuado uma falha, poderá ter de [desativar ou eliminar o seu dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 

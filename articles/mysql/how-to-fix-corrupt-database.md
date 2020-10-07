@@ -1,91 +1,94 @@
 ---
-title: Resolver a corrupção na Base de Dados - Base de Dados Azure para o MySQL
-description: Saiba como corrigir problemas de corrupção na base de dados para a Azure Database for MySQL
+title: Resolver a corrupção na base de dados - Base de Dados Azure para o MySQL
+description: Neste artigo, você vai aprender sobre como corrigir problemas de corrupção na base de dados na Base de Dados Azure para o MySQL.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 815b24d25e674e5460cc50d7eb6871f740994893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938937"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766893"
 ---
-# <a name="troubleshoot-database-corruption-on-azure-database-for-mysql"></a>Combate à corrupção na base de dados de resolução de problemas na Base de Dados Azure para o MySQL
+# <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Combate à corrupção na base de dados de resolução de problemas na Base de Dados Azure para o MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-A corrupção na base de dados pode causar tempo de inatividade para a sua aplicação e também é fundamental resolver o problema a tempo de evitar a perda de dados. Quando ocorrer corrupção na base de dados, verá no seu servidor registos deste erro **InnoDB: Corrupção de página de base de dados no disco ou uma falha**.
+A corrupção na base de dados pode causar tempo de inatividade para a sua aplicação. Também é fundamental resolver problemas de corrupção a tempo de evitar a perda de dados. Quando ocorrer corrupção na base de dados, verá este erro nos registos do seu servidor: `InnoDB: Database page corruption on disk or a failed.`
 
-Neste guia irá aprender a corrigir se a base de dados ou a tabela forem corrompidas. A Azure Database for MySQL utiliza o motor InnoDB e possui operações automatizadas de verificação e reparação de corrupção. O InnoDB verifica se há páginas corrompidas, realizando datas de verificação em cada página que lê, e se encontrar uma discrepância de dados, irá parar automaticamente o servidor MySQL.
+Neste artigo, você vai aprender a resolver problemas de base de dados ou de corrupção de mesa. A base de dados Azure para o MySQL utiliza o motor InnoDB. Apresenta operações automatizadas de verificação e reparação de corrupção. O InnoDB verifica se há páginas corruptas, executando as contas em todas as páginas que lê. Se encontrar uma discrepância de dados, irá parar automaticamente o servidor MySQL.
 
-Experimente qualquer uma destas opções abaixo para ajudar a mitigar rapidamente os problemas de corrupção na sua base de dados.
+Tente as seguintes opções para mitigar rapidamente os seus problemas de corrupção na base de dados.
 
 ## <a name="restart-your-mysql-server"></a>Reinicie o seu servidor MySQL
 
-Normalmente nota que uma base de dados ou tabela é corrompida quando a sua aplicação acede a essa base de dados de ro de tabela. Uma vez que o InnoDB possui um mecanismo de recuperação de falhas que pode resolver a maioria dos problemas quando o servidor é reiniciado. Assim, reiniciar o servidor deve ajudar o servidor a recuperar de uma falha que fez com que a base de dados estivesse em mau estado.
+Normalmente, nota que uma base de dados ou tabela é corrupta quando a sua aplicação acede à tabela ou à base de dados. O InnoDB possui um mecanismo de recuperação de falhas que pode resolver a maioria dos problemas quando o servidor é reiniciado. Assim, reiniciar o servidor pode ajudar o servidor a recuperar de uma falha que fez com que a base de dados estivesse em mau estado.
 
-##  <a name="resolve-data-corruption-with-dump-and-restore-method"></a>Resolver a corrupção de dados com o método de despejo e restauro
+## <a name="use-the-dump-and-restore-method"></a>Use o método de despejo e restauro
 
-Recomenda-se resolver a questão da corrupção com um **método de despejo e restauro.** Isto envolve ter acesso à tabela corrompida, utilizando o utilitário **mysqldump** para criar uma cópia de segurança lógica da tabela, que irá manter a estrutura da tabela e os dados dentro dela, e, em seguida, recarregar a tabela de volta para a base de dados.
+Recomendamos que resolva os problemas de corrupção utilizando um método *de despejo e restauro.* Este método envolve:
+1. A aceder à mesa corrupta.
+1. Usando o utilitário mysqldump para criar uma cópia de segurança lógica da tabela. A cópia de segurança conservará a estrutura da tabela e os dados dentro dela.
+1. Recarregando a mesa para a base de dados.
 
-### <a name="backup-your-database-or-tables"></a>Faça backup da sua base de dados ou tabelas
+### <a name="back-up-your-database-or-tables"></a>Ressou a sua base de dados ou tabelas
 
 > [!Important]
-> - Faça com que tenha configurado uma regra de firewall para aceder ao servidor a partir da sua máquina de cliente. Veja como configurar a [regra de firewall no servidor único](howto-manage-firewall-using-portal.md) e na regra de firewall no servidor [flexível](flexible-server/how-to-connect-tls-ssl.md).
-> - Utilize a opção SSL ```--ssl-cert``` para **mysqldump** se o SSL estiver ativado
+> - Certifique-se de que configura uma regra de firewall para aceder ao servidor a partir da sua máquina de cliente. Para obter mais informações, consulte [a regra de configuração de uma regra de firewall no Single Server](howto-manage-firewall-using-portal.md) e [configuure uma regra de firewall no Servidor Flexível](flexible-server/how-to-connect-tls-ssl.md).
+> - Utilize a opção SSL `--ssl-cert` para o mysqldump se tiver SSL ativado.
 
-Crie um ficheiro de backup a partir da linha de comando usando o mysqldump usando este comando
+Crie um ficheiro de reserva a partir da linha de comando utilizando o mysqldump. Utilize este comando:
 
 ```
 $ mysqldump [--ssl-cert=/path/to/pem] -h [host] -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
 
-Os parâmetros a fornecer são:
-- [ssl-cert=/caminho/para/pem] Descarregue o certificado SSL na sua máquina de cliente e desemende o caminho no comando. NÃO utilize isto é SSL está desativado.
-- [Anfitrião] é a sua Base de Dados Azure para o servidor MySQL
-- [uname] é o nome de utilizador do seu administrador de servidor
-- [passe] é a senha para o seu utilizador administrador
-- [dbname] é o nome da sua base de dados
-- [backupfile.sql] se o nome de ficheiro para a sua base de dados backup
+Descrições dos parâmetros:
+- `[ssl-cert=/path/to/pem]`: O caminho para o certificado SSL. Descarregue o certificado SSL na sua máquina de cliente e desafie o caminho no comando. Não utilize este parâmetro se o SSL estiver desativado.
+- `[host]`: A sua base de dados Azure para o servidor MySQL.
+- `[uname]`: O nome de utilizador do seu administrador do servidor.
+- `[pass]`: A palavra-passe para o seu utilizador administrativo.
+- `[dbname]`: O nome da sua base de dados.
+- `[backupfile.sql]`: O nome do ficheiro da sua base de dados.
 
 > [!Important]
-> - Para um servidor único, utilize o formato ```admin-user@servername``` para substituir ```myserveradmin``` nos comandos abaixo.
-> - Para o servidor flexível, utilize o formato ```admin-user``` para substituir ```myserveradmin``` nos comandos abaixo.
+> - Para o Servidor Único, utilize o formato `admin-user@servername` para substituir `myserveradmin` nos seguintes comandos.
+> - Para o Servidor Flexível, utilize o formato `admin-user` para substituir `myserveradmin` nos seguintes comandos.
 
-Se uma tabela específica for corrompida, selecione tabelas específicas na sua base de dados para fazer o back up usando este exemplo
+Se uma tabela específica for corrupta, selecione tabelas específicas na sua base de dados para fazer o back up:
 ```
 $ mysqldump --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb table1 table2 > testdb_tables_backup.sql
 ```
 
-Para fazer o back up de uma ou mais bases de dados, utilize o interruptor de base de dados e liste os nomes da base de dados separados por espaços.
+Para fazer uma ou mais bases de dados, utilize o `--database` comutador e enuqueca os nomes da base de dados, separados por espaços:
 
 ```
 $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.azure.com -u myserveradmin -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql
 ```
 
-###  <a name="restore-your-database-or-tables"></a>Restaurar a sua base de dados ou tabelas
+### <a name="restore-your-database-or-tables"></a>Restaurar a sua base de dados ou tabelas
 
-Os seguintes passos mostram como o TP restaura a sua base de dados ou tabelas. Uma vez criado o ficheiro de cópia de segurança, pode restaurar a tabela ou bases de dados utilizando o utilitário**mysql.** Executar o comando como mostrado abaixo:
+Os seguintes passos mostram como restaurar a sua base de dados ou tabelas. Depois de criar o ficheiro de backup, pode restaurar as tabelas ou bases de dados utilizando o utilitário mysql. Execute este comando:
 
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-Aqui está um exemplo da restauração ```testdb``` do ficheiro de backup criado com **mysqldump**. 
+Aqui está um exemplo que restaura `testdb` a partir de um ficheiro de backup criado com mysqldump: 
 
 > [!Important]
-> - Para um servidor único, utilize o formato ```admin-user@servername``` para substituir no comando ```myserveradmin``` abaixo.
-> - Para o servidor flexível, utilize o formato ```admin-user``` para substituir no comando ```myserveradmin``` abaixo. 
+> - Para o Servidor Único, utilize o formato `admin-user@servername` para substituir no seguinte `myserveradmin` comando.
+> - Para o Servidor Flexível, utilize o formato ```admin-user``` para substituir no seguinte `myserveradmin` comando. 
 
 ```
 $ mysql --ssl-cert=</path/to/pem> -h mydemoserver.mysql.database.azure.com -u myserveradmin -p testdb < testdb_backup.sql
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Se os passos acima não ajudarem a resolver o problema, pode sempre restaurar todo o servidor.
-- [Restaurar uma base de dados Azure para o MySQL Single Server](howto-restore-server-portal.md)
-- [Restaurar uma base de dados Azure para o MySQL Flexible Server](flexible-server/how-to-restore-server-portal.md)
+## <a name="next-steps"></a>Passos seguintes
+Se os passos anteriores não resolverem o problema, pode sempre restaurar todo o servidor:
+- [Restaurar o servidor na Base de Dados Azure para o MySQL - Servidor Único](howto-restore-server-portal.md)
+- [Restaurar o servidor na Base de Dados Azure para o MySQL - Servidor Flexível](flexible-server/how-to-restore-server-portal.md)
 
 
 

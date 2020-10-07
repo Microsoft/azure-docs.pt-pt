@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544531"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutorial: Integração do Diretório Ativo Azure com Horizontes Confirmait
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com a Confirmait Horizons, execute os seguintes passo
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Confirmit Horizons Domain e URLs informações únicas de entrada](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com a ação "Save", "Identifier" e "Answer U R L" realçada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
@@ -179,7 +179,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Confirmit Horizons**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Confirmit Horizons**.
 

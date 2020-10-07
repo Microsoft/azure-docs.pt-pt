@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463965"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776107"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Remediar riscos e desbloquear utilizadores
 
@@ -89,6 +89,10 @@ Para desbloquear uma conta baseada no risco de inscrição, os administradores t
 1. **Excluir o utilizador da política** - Se achar que a configuração atual da sua política de inscrição está a causar problemas a utilizadores específicos, pode excluir os utilizadores da presente. Para obter mais informações, consulte a secção Exclusões no artigo [Como: Configurar e permitir políticas de risco](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Política de desativar** - Se achar que a sua configuração de política está a causar problemas a todos os seus utilizadores, pode desativar a política. Para obter mais informações, consulte o artigo [Como: Configurar e permitir políticas de risco.](howto-identity-protection-configure-risk-policies.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="powershell-preview"></a>Pré-visualização PowerShell
+
+Utilizando o módulo de pré-visualização SDK do Microsoft Graph PowerShell, as organizações podem gerir o risco utilizando o PowerShell. Os módulos de pré-visualização e o código de amostra podem ser encontrados no [repo Azure AD GitHub](https://github.com/AzureAD/IdentityProtectionTools).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma visão geral da Proteção de Identidade AZure AD, consulte a visão geral da [Proteção de Identidade AZure AD](overview-identity-protection.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555884"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Check Point CloudGuard Dome9 Arc
 
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Check Point CloudGuard Dome9 Arc espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------------- |
     | membros de | user.assignedroles |
 
@@ -156,11 +156,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique nas **Definições** de Perfil no canto superior direito e, em seguida, clique em **Definições de Conta**. 
 
-    ![Verifique a configuração do arco do CloudGuard Dom9](./media/dome9arc-tutorial/configure1.png)
+    ![Screenshot que mostra o menu "Definições de perfil" com "Definições de conta" selecionadas.](./media/dome9arc-tutorial/configure1.png)
 
 3. Navegue para **SSO** e clique em **ENABLE**.
 
-    ![Verifique a configuração do arco do CloudGuard Dom9](./media/dome9arc-tutorial/configure2.png)
+    ![Screenshot que mostra o separador "S O" e "Enable" selecionados.](./media/dome9arc-tutorial/configure2.png)
 
 4. Na secção de Configuração SSO, execute os seguintes passos:
 
@@ -189,11 +189,11 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Check Point CloudG
 
 2. Clique nos **Utilizadores & Funções** e, em seguida, clique em **Utilizadores**.
 
-    ![Adicionar Empregado](./media/dome9arc-tutorial/user1.png)
+    ![Screenshot que mostra "Utilizadores & Roles" com a ação "Utilizadores" selecionada.](./media/dome9arc-tutorial/user1.png)
 
 3. Clique **em ADD USER**.
 
-    ![Adicionar Empregado](./media/dome9arc-tutorial/user2.png)
+    ![Screenshot que mostra "Utilizadores & Roles" com o botão "ADD USER" selecionado.](./media/dome9arc-tutorial/user2.png)
 
 4. Na secção **Criar Utilizador,** execute os seguintes passos:
 

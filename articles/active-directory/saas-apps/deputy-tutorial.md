@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536900"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Diretório Ativo Azure com o Adjunto
 
@@ -99,7 +99,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações de assinatura única de domínio e URLs](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com o botão "Identificador", "Url de resposta" e "Guardar" realçado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
@@ -171,7 +171,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
 1. Navegue para o seguinte URL: `https://(your-subdomain).deputy.com/exec/config/system_config` . Vá às **Definições de Segurança** e clique em **Editar**.
    
-    ![Configurar um único sign-on](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Screenshot que mostra a página "System Config" com o botão "Definições de Segurança - Edição" selecionado.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. Nesta página **definições de segurança,** execute abaixo dos passos.
 
@@ -220,7 +220,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Delegado**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Delegado.**
 

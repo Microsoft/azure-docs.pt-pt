@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520163"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Azure Ative Directory com o Comeet Recruiting Software
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Comeet Recruiting Software Domain e URLs informações únicas de acesso](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com a ação "Save", "Identifier" e "Answer U R L" realçada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,18 +116,18 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
 5. A aplicação Comeet Recruiting Software espera as afirmações do SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------------- |
     | nameidentifier | user.mail |
     | comeet_id | user.userprincipalname |
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra a secção "Reclamações do Utilizador" com as ações "Adicionar nova reivindicação" e "Salvar" realçadas.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -192,7 +192,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Comeet Recruiting Software**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Comeet Recruiting Software**.
 

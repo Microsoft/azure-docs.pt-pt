@@ -3,12 +3,12 @@ title: Segurança de rede para ônibus de serviço Azure
 description: Este artigo descreve funcionalidades de segurança de rede tais como tags de serviço, regras de firewall IP, pontos finais de serviço e pontos finais privados.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341143"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766401"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Segurança de rede para ônibus de serviço Azure 
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com o Azure Service Bus: 
@@ -16,7 +16,7 @@ Este artigo descreve como utilizar as seguintes funcionalidades de segurança co
 - Etiquetas de serviço
 - Regras ip firewall
 - Pontos finais de serviço de rede
-- Pontos finais privados (pré-visualização)
+- Pontos finais privados
 
 
 ## <a name="service-tags"></a>Etiquetas de serviço
@@ -81,14 +81,12 @@ Para mais informações, consulte [o que é a Azure Private Link?](../private-li
 
 > [!NOTE]
 > Esta funcionalidade é suportada com o nível **premium** da Azure Service Bus. Para obter mais informações sobre o nível premium, consulte o artigo [de níveis de mensagens Service Bus Premium e Standard.](service-bus-premium-messaging.md)
->
-> Esta funcionalidade encontra-se atualmente em **pré-visualização.** 
 
 
 Para obter mais informações, consulte [Como configurar pontos finais privados para um espaço de nomes de autocarros de serviço](private-link-service.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como configurar firewall IP para um espaço de nomes de ônibus de serviço](service-bus-ip-filtering.md)

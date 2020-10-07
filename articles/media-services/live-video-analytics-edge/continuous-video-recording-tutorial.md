@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336484"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774033"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -46,7 +46,7 @@ Os pré-requisitos para este tutorial são:
 
 No final destes passos, terá recursos Azure relevantes implantados na sua subscrição Azure:
 
-* Azure IoT Hub
+* Hub IoT do Azure
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
 * Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
@@ -146,7 +146,7 @@ O manifesto de implantação define quais os módulos que são implantados num d
     * Vídeo ao vivo analytics no IoT Edge (nome do módulo **lvaEdge)**
     * Simulador RTSP (nome do módulo **rtspsim)**
  
-    ![Hub IoT](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Preparar para monitorizar os módulos 
 
@@ -160,58 +160,15 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 
 ## <a name="run-the-program"></a>Execute o programa 
 
-1. No Código do Estúdio Visual, aceda a src/cloud-to-device-console-app/operations.js.
-1. Sob o nó **GraphTopologySet,** edite o seguinte:
+1. No Código do Estúdio Visual, abra o **separador Extensões** (ou prima Ctrl+Shift+X) e procure por Azure IoT Hub.
+1. Clique no direito e selecione **Definições de extensão**.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Em seguida, no nó **GraphInstanceSet,** certifique-se de que o valor do **topologianame** corresponde ao valor da propriedade do **nome** na topologia do gráfico anterior:
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Grafo do suporte de dados":::
+1. Procure e ative "Mostrar Mensagem Verbose".
 
-    `"topologyName" : "CVRToAMSAsset"`  
-1. Abra a [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) num browser e veja o assetNamePattern. Para se certificar de que tem um ativo com um nome único, pode querer alterar o nome da instância do gráfico no operations.jsno ficheiro (a partir do valor predefinido do Sample-Graph-1).
-
-    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
-1. Inicie uma sessão de depurar selecionando F5. Verá algumas mensagens impressas na janela **TERMINAL.**
-1. A operations.jsno ficheiro começa com chamadas para GraphTopologyList e GraphInstanceList. Se tiver limpo recursos após inícios ou tutoriais anteriores, esta ação retorna listas vazias e, em seguida, faz uma pausa para que você **selecione Enter**, como mostrado:
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. Depois de selecionar **Enter** in the **TERMINAL** window, é feito o próximo conjunto de chamadas de métodos diretos:
-   * Uma chamada para o GraphTopologySet usando o topologia anteriorUrl
-   * Uma chamada para o GraphInstanceSet utilizando o seguinte corpo
-     
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph-1",
-       "properties": {
-         "topologyName": "CVRToAMSAsset",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Grafo do suporte de dados"
            }
          ]
        }

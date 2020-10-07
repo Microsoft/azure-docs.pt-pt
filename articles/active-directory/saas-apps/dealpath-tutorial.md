@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537008"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Tutorial: Integração do Diretório Ativo Azure com Dealpath
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Dealpath, execut
 
 2. No superior direito, clique em **Ferramentas de Administração** e navegue para **Integrações,** em seguida, na secção **de autenticação SAML 2.0** clique em **Definições de Atualização**:
 
-    ![Configuração dealpath](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    ![Screenshot que mostra a página "Admin Tools - Integrações" com a secção "S A M L 2.0 Authentication" e "Atualização de Definições" selecionadas.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. Na página **de autenticação Configuração SAML 2.0,** execute os seguintes passos:
 
@@ -173,7 +173,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Dealpath**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Dealpath**.
 

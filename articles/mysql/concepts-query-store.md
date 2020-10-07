@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402243"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766128"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitor Azure Database para desempenho do MySQL com a Loja de Consultas
 
@@ -87,7 +87,7 @@ Quando a Loja de Consulta está ativada, guarda dados em janelas de agregação 
 
 As seguintes opções estão disponíveis para configurar parâmetros da Loja de Consultas.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_capture_mode | Rode a função de loja de consultas ON/OFF com base no valor. Nota: Se performance_schema estiver desligado, ligue query_store_capture_mode ligará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esta função. | ALL | NENHUM, TODOS. |
 | query_store_capture_interval | O intervalo de captura da loja de consulta em minutos. Permite especificar o intervalo em que as métricas de consulta são agregadas | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ As seguintes opções estão disponíveis para configurar parâmetros da Loja de
 
 As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Permite ligar / DESLIGAR as estatísticas de espera. | NENHUMA | NENHUM, TODOS. |
 | query_store_wait_sampling_frequency | Altera a frequência da amostra de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
@@ -108,7 +108,7 @@ Utilize o [portal Azure](howto-server-parameters.md)   ou O [CLI Azure](howto
 
 ## <a name="views-and-functions"></a>Vistas e funções
 
-Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
+Ver e gerir a Loja de Consultas utilizando as seguintes vistas e funções. Qualquer pessoa no [papel público de privilégio selecionado](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) pode usar estas opiniões para ver os dados na Loja de Consultas. Estas vistas só estão disponíveis na base de **dados mysql.**
 
 As consultas são normalizadas olhando para a sua estrutura depois de remover literal e constantes. Se duas consultas forem idênticas, exceto para valores literais, terão o mesmo haxixe.
 
@@ -176,6 +176,6 @@ Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma 
 - O período de retenção das estatísticas de espera é de 24 horas.
 - As estatísticas de espera usam a amostra para capturar uma fração de eventos. A frequência pode ser modificada utilizando o parâmetro `query_store_wait_sampling_frequency` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [consultas de performance insights](concepts-query-performance-insight.md)

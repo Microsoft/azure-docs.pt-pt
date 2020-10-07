@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336756"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772792"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -48,7 +48,7 @@ Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 > [!NOTE]
 > `Key Vault Contributor` papel é para operações de avião de gestão para gerir cofres chave. Não permite o acesso a chaves, segredos e certificados.
 
-| Papel incorporado | Description | ID |
+| Papel incorporado | Descrição | ID |
 | --- | --- | --- |
 | Administrador do cofre chave (pré-visualização) | Execute todas as operações de avião de dados num cofre chave e todos os objetos nele, incluindo certificados, chaves e segredos. Não é possível gerir os recursos-chave do cofre ou gerir atribuições de funções. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault Certificates Officer (pré-visualização) | Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permissões. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
@@ -64,6 +64,13 @@ Para obter mais informações sobre as definições de funções incorporadas do
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Usando permissões secretas, chave e certificados Azure RBAC com Key Vault
 
 O novo modelo de permissão Azure RBAC para o cofre de chaves fornece alternativa ao modelo de permissões de política de acesso ao cofre. 
+
+### <a name="prerequisites"></a>Pré-requisitos
+
+Para adicionar atribuições de funções, você deve ter:
+
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Ativar permissões Azure RBAC no Cofre de Chaves
 

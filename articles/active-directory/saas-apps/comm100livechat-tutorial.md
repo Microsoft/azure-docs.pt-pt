@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: abeb52155b933c223ee0621e8ab203ac035e5f36
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ce6e4dc44a19f4aaee35cc4477761010d76a96b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519720"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775924"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Comm100 Live Chat
 
@@ -92,7 +92,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Comm100 Live Chat espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------------- |
     |   e-mail    | user.mail |
 
@@ -144,7 +144,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. A partir do lado esquerdo do menu, clique em **Segurança** e, em seguida, clique **em Sign-On Único agente**.
 
-   ![Segurança comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Screenshot que mostra o menu da conta do lado esquerdo com "Segurança" e "Agente Sign-On Único" em destaque.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. Na página **'Sign-On' único do agente,** execute os seguintes passos:
 

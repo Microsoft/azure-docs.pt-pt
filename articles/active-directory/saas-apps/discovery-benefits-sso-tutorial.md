@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536245"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774125"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutorial: Azure Ative Directory integração única (SSO) com Discovery Benefits SSO
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Clique no ícone **Editar** para abrir o diálogo **do identificador de utilizador único (ID nome).**
 
-    ![Configuração SSO de Benefícios de Descoberta](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador & Reclamações" com as elipses "Reivindicação Obrigatória" no lado direito selecionado.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Configuração SSO de Benefícios de Descoberta](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     f. Temos automaticamente as reclamações adicionais que são necessárias para a configuração SSO `SSOInstance` (e `SSOID` . Utilize o ícone **Editar** para mapear os valores de acordo com a sua organização.
 
-    ![Configuração SSO de Benefícios de Descoberta](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Screenshot que mostra os "Atributos do Utilizador & Reivindicações" com os valores "S O Instance" e "S O I D" em destaque.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

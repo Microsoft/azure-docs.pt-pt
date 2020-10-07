@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514360"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766508"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure CHAP para o seu dispositivo StorSimple
 
@@ -58,7 +58,7 @@ Na autenticação unidirecional, o alvo autentica o iniciador. Esta autenticaç�
    
    3. Confirme a palavra-passe.
 
-       ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
+       ![Iniciador CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
 3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **OK** para guardar as alterações.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Para configurar a autenticação unidirecionais no servidor anfitrião do Windows
@@ -112,7 +112,7 @@ Na autenticação bidirecional, o alvo autentica o iniciador e, em seguida, o in
    2. Forneça uma **senha** para o seu dispositivo.
    3. Confirme a palavra-passe.
 
-       ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
+       ![Iniciador CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
 4. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **OK** para guardar as alterações.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Para configurar a autenticação bidirecional no servidor anfitrião do Windows
@@ -167,7 +167,7 @@ Pode verificar se o CHAP está a ser utilizado completando os seguintes passos.
    
     ![Detalhes favoritos do alvo](./media/storsimple-configure-chap/IC740952.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a segurança StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 142037366e9309f8087a2e42fa46cd0b4137f6b8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119407"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773897"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código da plataforma de identidade da Microsoft (ponto final v2.0)
 
@@ -56,10 +56,10 @@ As amostras que se seguem ilustram as aplicações web que assinam nos utilizado
 
 | Plataforma | Apenas sinais nos utilizadores | Sinais nos utilizadores e chamadas Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph |
 | ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Quickstart](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restrito-âmbitos-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png)  |                   | [ms-identidade-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
-| ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo_python.png)  |                   | [ms-identidade-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
+| ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo_python.png)  | [ms-identidade-python-flask-webapp-autenticação](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identidade-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Esta imagem mostra o logótipo da Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Aplicativos de cliente público móvel e desktop
@@ -119,7 +119,7 @@ As amostras que se seguem mostram como proteger uma API web com o ponto final da
 
 | Plataforma | Sample |
 | -------- | ------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (serviço) de [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | ASP.NET Core web API (serviço) de [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (serviço) de [ms-identidade-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png) | API Web (serviço) de [ms-identidade-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png) | Web API (serviço) de [active-directório-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
@@ -131,7 +131,7 @@ As seguintes amostras mostram como proteger uma Função Azure usando httpTrigge
 
 | Plataforma | Sample |
 | -------- | ------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (serviço) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>Núcleo de ASP.NET | ASP.NET Core web API (serviço) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (serviço) de [NodeJS e passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo_python.png)</p>Python | Web API (serviço) de [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Esta imagem mostra o logótipo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (serviço) de [NodeJS e passport-azure-ad usando em nome de](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |

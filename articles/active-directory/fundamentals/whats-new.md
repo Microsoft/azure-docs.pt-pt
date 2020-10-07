@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9bcc356835fcfc080bd381043552d6e8868cc7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446623"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773510"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -57,6 +57,22 @@ Pode agora automatizar a criação, atualização e eliminação de contas de ut
 - [Consciência de Segurança Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
 Para obter mais informações sobre como proteger melhor a sua organização utilizando o fornecimento automatizado de conta de utilizador, consulte [automatizar o fornecimento de utilizadores para aplicações SaaS com Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Atualização de pré-visualização pública de provisionamento de provisão pública em nuvem
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Capacidade do produto de provisão de nuvem Azure **AD: Gestão** do ciclo de vida da identidade
+ 
+A atualização de pré-visualização do Azure AD Connect Cloud Provisioning apresenta duas melhorias importantes desenvolvidas a partir do feedback do cliente: 
+
+- Atribuir experiência de mapeamento através do Portal Azure
+
+    Com esta funcionalidade, os Administradores de TI podem mapear os atributos do utilizador, grupo ou de contacto de AD a AD AZure utilizando vários tipos de mapeamento presentes hoje em dia. O mapeamento de atributos é uma funcionalidade utilizada para normalizar os valores dos atributos que fluem do Ative Directory para o Azure Ative Directory. Pode-se determinar se mapeia diretamente o valor do atributo como é de AD para Azure AD ou se utiliza expressões para transformar os valores do atributo ao a provisionar os utilizadores. [Saiba mais](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- Provisão a pedido ou experiência do utilizador de teste
+
+    Uma vez configurada a sua configuração, talvez queira testar para ver se a transformação do utilizador está a funcionar como esperado antes de a aplicar a todos os seus utilizadores no âmbito. Com o provisionamento a pedido, os Administradores de TI podem introduzir o Nome Distinto (DN) de um utilizador de AD e ver se estão a ser sincronizados como esperado. O fornecimento a pedido proporciona uma ótima maneira de garantir que os mapeamentos de atributos que fez anteriormente funcionam como esperado. [Saiba mais](../cloud-provisioning/how-to-on-demand-provision.md)
  
 ---
 
@@ -106,7 +122,7 @@ A avaliação contínua de acesso (CAE) está agora disponível em pré-visualiz
 
 ---
 
-### <a name="ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Pergunte aos utilizadores que solicitem um pacote de acesso perguntas adicionais para melhorar as decisões de aprovação
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Pré-visualização pública: pergunte aos utilizadores que solicitem um pacote de acesso perguntas adicionais para melhorar as decisões de aprovação
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Gestão do Acesso ao Utilizador  

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536485"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>Tutorial: Azure Ative Directory integração única (SSO) com Deskradar
 
@@ -99,7 +99,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Deskradar espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |
@@ -162,7 +162,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No separador **SAML 2.0,** execute os seguintes passos:
 
-    ![Configuração deskradar](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Screenshot que mostra o separador "S A M L 2.0" com setas apontando para os campos "S A M L S S D U R L" e "Identifier Provider Issuer".](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. Ativar o método de autenticação **SAML.**
 

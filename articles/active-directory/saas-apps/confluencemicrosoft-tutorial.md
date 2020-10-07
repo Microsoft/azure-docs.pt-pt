@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892954"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
 
@@ -159,11 +159,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Hover on cog e clique nos **Add-ons**.
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Screenshot que mostra o ícone "Cog" selecionado, e "Add-ons" realçados no menu suspenso.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Descarregue o plugin do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Faça o upload manual do plugin fornecido pela Microsoft utilizando o menu **add-on do Upload.** O download do plugin está coberto pelo [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Screenshot que mostra a página "Gerir add-ons" com a ação "Upload add-on" selecionada.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Para executar o cenário de procuração inversa confluência ou cenário de balançador de carga execute os seguintes passos:
 
@@ -174,19 +174,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Screenshot que mostra o ficheiro "server.xml" com o atributo adicionado à porta "connector".](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Altere **o URL base** nas **definições do sistema** de acordo com o equilibrador proxy/load.
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Screenshot que mostra a página "Administração - Definições" com "URL base" realçada.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Uma vez instalado o plugin, aparece na secção de add-ons **instalada pelo utilizador** da secção **'Gerir o Add-on'.** Clique **em Configurar** para configurar o novo plugin.
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Screenshot que mostra a secção "User Installed" com o botão "Configurar" realçado.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Execute os seguintes passos na página de configuração:
 
-    ![Configurar um único sign-on](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Screenshot que mostra a única página de configuração de inscrição.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado contra a app para que não haja erro na resolução dos metadados. Se houver vários certificados, a administração obtém um erro ao resolver os metadados.
@@ -237,7 +237,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no servidor Confluenc
 
 1. Na secção Utilizadores, clique no **separador Adicionar utilizadores.** Na página de diálogo **Adicionar um utilizador,** execute os seguintes passos:
 
-    ![Adicionar Empregado](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Screenshot que mostra a "administração confluência" com o separador "Adicionar utilizadores" selecionado e "Adicionar um Utilizador" inseriu.000 informações.](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. Na caixa de texto **username,** escreva o e-mail do utilizador como B.Simon.
 

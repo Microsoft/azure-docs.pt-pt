@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266620"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773931"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
 Funcionalidades como a autenticação de vários fatores (MFA) são uma ótima forma de proteger a sua organização, mas os utilizadores muitas vezes ficam frustrados com a camada de segurança adicional além de terem de se lembrar das suas palavras-passe. Os métodos de autenticação sem palavras-passe são mais convenientes porque a palavra-passe é removida e substituída por algo que tem, além de algo que é ou algo que sabe.
 
-| Autenticação  | Algo que tem. | Algo que és ou sabes |
+| Autenticação  | Algo que tem | Algo que és ou sabes |
 | --- | --- | --- |
 | Sem palavra-passe | Dispositivo, telefone ou chave de segurança do Windows 10 | Biométrico ou PIN |
 
@@ -61,6 +61,8 @@ Também pode permitir que o telefone do seu colaborador se torne um método de a
 ![Inscreva-se no Microsoft Edge com a aplicação Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 A App Authenticator transforma qualquer telefone iOS ou Android numa credencial forte e sem palavras-passe. Os utilizadores podem iniciar sposição em qualquer plataforma ou navegador através da notificação do seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, utilizando o seu biométrico (toque ou rosto) ou PIN para confirmar. Consulte o [Download e instale a aplicação Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
+
+O sôs-in sem palavras-passe com a aplicação Microsoft Authenticator para Azure AD está atualmente em pré-visualização. A utilização da aplicação Microsoft Authenticator para autenticação secundária para autenticação multi-factor Azure, reset de palavra-passe de autosserviço (SSPR) ou fichas de software OATH é GA. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A autenticação sem palavras-passe utilizando a aplicação Authenticator segue o mesmo padrão básico que o Windows Hello for Business. É um pouco mais complicado, uma vez que o utilizador precisa de ser identificado para que o Azure AD possa encontrar a versão da Microsoft Authenticator App a ser utilizada:
 

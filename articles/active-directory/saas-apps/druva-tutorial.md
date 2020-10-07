@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d0dffe602aef01af2fb2ef8ee9462a0bb99c1ae0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555693"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Druva
 
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Druva espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------------- | -------------------- |
     | e-mailAddress | user.email |
     | druva_auth_token | SSO Token gerado a partir da Consola DCP Admin, sem aspas.  Por exemplo: X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. O Azure adiciona automaticamente aspas em torno do símbolo auth. |
@@ -146,7 +146,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No **separador 'S-On Único',** clique em **Editar**.
 
-    ![Definições únicas de inscrição](./media/druva-tutorial/ic795092.png "Definições únicas de inscrição")
+    ![Screenshot que mostra o separador "Definições de acesso - Único Sinal de Acesso" com o botão "Editar" selecionado.](./media/druva-tutorial/ic795092.png "Definições únicas de inscrição")
 
 1. Na página **'Definições de inscrição única' de edição única,** execute os seguintes passos:
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631193"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776022"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -70,7 +70,7 @@ Use os seguintes passos para garantir o seu espaço de trabalho e recursos assoc
 
 1. Crie um [espaço de trabalho com ligações privadas](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para permitir a comunicação entre o seu VNet e o espaço de trabalho.
 1. Adicione o Cofre da Chave Azure à rede virtual com um [ponto final](../key-vault/general/overview-vnet-service-endpoints.md) de serviço ou um ponto [final privado](../key-vault/general/private-link-service.md). Definir o Cofre da Chave para ["Permitir que serviços confiáveis da Microsoft contornem esta firewall".](how-to-secure-workspace-vnet.md#secure-azure-key-vault)
-1. Adicione-lhe conta de armazenamento Azure à rede virtual com um [ponto final de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) ou um ponto final [privado](../storage/common/storage-private-endpoints.md)
+1. Adicione-lhe conta de armazenamento Azure à rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou um ponto [final privado.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)
 1. [Configure o registo do contentor Azure para utilizar um ponto final privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e permitir a [delegação de sub-redes em instâncias de contentores de Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados comunicam uns aos outros sobre pontos finais de serviço ou pontos finais privados dentro de um VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ O diagrama de rede que se segue mostra um espaço de trabalho seguro de Aprendiz
 
 [Proteger o espaço de](#secure-the-workspace-and-associated-resources)  >  trabalho [Garantir o ambiente](#secure-the-training-environment)  >  de treino [Proteja o ambiente](#secure-the-inferencing-environment)  >  de inferenculação **Ativar a funcionalidade do**  >  estúdio [Configurar definições de firewall](#configure-firewall-settings)
 
-Embora o estúdio possa aceder a dados numa conta de armazenamento configurada com um ponto final de serviço, algumas funcionalidades são desativadas por padrão:
+Se o seu armazenamento estiver num VNet, primeiro deve executar etapas de configuração adicionais para permitir a plena funcionalidade [no estúdio.](overview-what-is-machine-learning-studio.md) Por predefinição, a seguinte função é desativada:
 
 * Pré-visualizar dados no estúdio.
 * Visualizar dados no designer.
 * Submeta uma experiência AutoML.
 * Inicie um projeto de rotulagem.
 
-Para ativar a funcionalidade completa durante a utilização de um ponto final de serviço de armazenamento, consulte [o estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md#access-data-using-the-studio) O estúdio suporta tanto os pontos finais de serviço como os pontos finais privados para contas de armazenamento.
+Para ativar a funcionalidade completa do estúdio dentro de um VNet, consulte [o estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md#access-data-using-the-studio) O estúdio suporta contas de armazenamento usando pontos finais de serviço ou pontos finais privados.
 
 ### <a name="limitations"></a>Limitações
-- O estúdio não pode aceder a dados em contas de armazenamento configuradas para usar pontos finais privados. Para obter a funcionalidade completa, deve utilizar os pontos finais de serviço para armazenamento e utilização da identidade gerida.
+- [A rotulagem de dados assistidos ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não suporta contas de armazenamento padrão protegidas por trás de uma rede virtual. Deve utilizar uma conta de armazenamento não padrão para a rotulagem de dados assistidos ML. Note que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
 
 ## <a name="configure-firewall-settings"></a>Configurar as definições da firewall
 

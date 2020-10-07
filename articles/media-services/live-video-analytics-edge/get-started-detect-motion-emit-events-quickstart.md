@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90884934"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773411"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -43,12 +43,8 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
 1. Se estiver a utilizar a Cloud Shell pela primeira vez, será solicitado que selecione uma subscrição para criar uma conta de armazenamento e uma partilha de Ficheiros Microsoft Azure. Selecione **Criar armazenamento** para criar uma conta de armazenamento para as informações da sessão Cloud Shell. Esta conta de armazenamento é separada da conta que o script criará para utilizar com a sua conta Azure Media Services.
 1. No menu suspenso no lado esquerdo da janela Cloud Shell, selecione **Bash** como seu ambiente.
 
-    ![Selecionador de ambiente](./media/quickstarts/env-selector.png)
-
-1. Execute o seguinte comando.
-
-    ```
-    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Análise de vídeo ao vivo baseada na deteção de movimentos"
     ```
     
 Se o script terminar com sucesso, deverá ver todos os recursos necessários na sua subscrição. Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso `Microsoft.Devices/IotHubs` e anotar o nome. Vai precisar deste nome no próximo passo. 
@@ -76,7 +72,16 @@ Agora os módulos estão implantados, mas nenhum gráfico de mídia está ativo.
 
 Siga estas instruções para ligar ao seu hub IoT utilizando a extensão Azure IoT Tools.
 
-1. No Código do Estúdio Visual, selecione **View**  >  **Explorer**. Ou selecione Ctrl+Shift+E.
+1. No Código do Estúdio Visual, abra o **separador Extensões** (ou prima Ctrl+Shift+X) e procure por Azure IoT Hub.
+1. Clique no direito e selecione **Definições de extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Análise de vídeo ao vivo baseada na deteção de movimentos":::
+1. Procure e ative "Mostrar Mensagem Verbose".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Análise de vídeo ao vivo baseada na deteção de movimentos":::
+1. <!--In Visual Studio Code-->Selecione **Ver**  >  **Explorador**. Ou, selecione Ctrl+Shift+E.
 1. No canto inferior esquerdo do **separador Explorer,** selecione **Azure IoT Hub**.
 1. Selecione o ícone **Mais Opções** para ver o menu de contexto. Em seguida, selecione **set IoT Hub Connection String**.
 1. Quando aparecer uma caixa de entrada, introduza a sua cadeia de ligação IoT Hub. Na Cloud Shell, pode obter a cadeia de ligação a partir de *~/clouddrive/lva-sample/appsettings.js.*
@@ -679,7 +684,7 @@ Experimente os próximos passos:
 1. Invoque `GraphTopologyList` e observe que o módulo não contém topologias de gráficos.
 1. Invoque `GraphInstanceList` utilizando a mesma carga útil que `GraphTopologyList` . Observe que não são enumeradas instâncias de gráficos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou neste arranque rápido.
 

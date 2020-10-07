@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d743785ad5525f582e5cb25df715d8211121e809
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 898f579446008bd696b4c120a56a960458e5640f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547261"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Diretório Ativo Azure com a Communifire
 
@@ -101,7 +101,7 @@ Para configurar a Azure AD um único sinal de inscrição com a Communifire, exe
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Communifire Domain e URLs informações únicas de assinatura](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com a ação "Save", "Identifier" e "Answer U R L" realçada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.communifire.com`
 
@@ -175,7 +175,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Communifire**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Communifire**.
 

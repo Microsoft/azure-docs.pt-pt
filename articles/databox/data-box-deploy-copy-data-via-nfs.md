@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 584cf5d1d7cad4b626aae8fca3cd74d116470839
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619734"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766264"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para Azure Data Box via NFS
 
@@ -58,7 +58,7 @@ Se estiver a utilizar um computador anfitrião do Linux, execute os passos segui
 
 1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na IU Web local, aceda à página **Ligar e copiar**. Em **Definições de NFS**, clique em **Acesso de cliente NFS**. 
 
-    ![Configurar o acesso de cliente NFS 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Configure o acesso ao cliente NFS](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Forneça o endereço IP do cliente NFS e clique em **Adicionar**. Pode configurar o acesso para vários clientes NFS ao repetir este passo. Clique em **OK**.
 
