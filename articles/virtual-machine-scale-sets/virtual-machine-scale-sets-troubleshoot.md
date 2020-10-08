@@ -9,15 +9,15 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830687"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818529"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
-**Problema** – criou uma infraestrutura de autoscalização no Azure Resource Manager utilizando conjuntos de escala de máquinas virtuais – por exemplo, ao implementar um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – tem as suas regras de escala definidas e funciona muito bem, exceto que por mais carga que coloque nos VMs, não se autoescala.
+**Problema** – criou uma infraestrutura de autoscalização no Azure Resource Manager utilizando conjuntos de escala de máquinas virtuais – por exemplo, ao implementar um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  – tem as suas regras de escala definidas e funciona muito bem, exceto que por mais carga que coloque nos VMs, não se autoescala.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 Algumas coisas a considerar incluem:
@@ -62,11 +62,11 @@ Algumas coisas a considerar incluem:
     
     Se o serviço Insights não conseguir ler dados dos VMs, é suposto enviar-lhe um e-mail. Por exemplo, recebes um e-mail se os VMs estiverem em baixo. Certifique-se de verificar o seu e-mail, no endereço de e-mail especificado quando criou a sua conta Azure.
     
-    Também pode olhar para os dados por si mesmo. Veja a conta de armazenamento Azure usando um explorador de nuvem. Por exemplo, utilizando o [Visual Studio Cloud Explorer,](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)inicie sessão e escolha a subscrição Azure que está a utilizar. Em seguida, consulte o nome da conta de armazenamento de Diagnóstico referenciado na definição de extensão de Diagnóstico no seu modelo de implementação.
+    Também pode olhar para os dados por si mesmo. Veja a conta de armazenamento Azure usando um explorador de nuvem. Por exemplo, utilizando [o Visual Studio Cloud Explorer,](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)inicie sessão e escolha a subscrição Azure que está a utilizar. Em seguida, consulte o nome da conta de armazenamento de Diagnóstico referenciado na definição de extensão de Diagnóstico no seu modelo de implementação.
     
     ![Cloud Explorer][explorer]
     
-    Vê-se um monte de tabelas onde os dados de cada VM estão a ser armazenados. Tomando linux e a métrica do CPU como exemplo, veja as linhas mais recentes. O explorador de nuvem Visual Studio suporta uma linguagem de consulta para que possa executar uma consulta. Por exemplo, pode executar uma consulta para "Timestamp gt datetime'2016-02-02T21:20:00Z'" para se certificar de que obtém os eventos mais recentes. O intervalo corresponde à UTC. Os dados que vê aí correspondem às regras de escala que criou? No exemplo seguinte, o CPU para a máquina 20 começou a aumentar para 100% nos últimos cinco minutos.
+    Vê-se um monte de tabelas onde os dados de cada VM estão a ser armazenados. Tomando linux e a métrica do CPU como exemplo, veja as linhas mais recentes. O Visual Studio Cloud Explorer suporta uma linguagem de consulta para que possa executar uma consulta. Por exemplo, pode executar uma consulta para "Timestamp gt datetime'2016-02-02T21:20:00Z'" para se certificar de que obtém os eventos mais recentes. O intervalo corresponde à UTC. Os dados que vê aí correspondem às regras de escala que criou? No exemplo seguinte, o CPU para a máquina 20 começou a aumentar para 100% nos últimos cinco minutos.
     
     ![Mesas de Armazenamento][tables]
     

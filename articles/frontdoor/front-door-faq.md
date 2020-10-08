@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324064"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819027"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -248,6 +248,10 @@ Para ter ligações HTTPS bem sucedidas ao seu backend, seja para sondas de saú
 1. **Incompatibilidade do nome do sujeito do certificado**: Para ligações HTTPS, a Porta Frontal espera que o seu backend apresente um certificado de um CA válido com o(s) nome(s) sujeito correspondente ao nome de hospedeiro de backend. Como exemplo, se o seu nome de anfitrião de backend estiver definido `myapp-centralus.contosonews.net` e o certificado que o seu backend apresenta durante o aperto de mão TLS não tem nem no nome do `myapp-centralus.contosonews.net` `*myapp-centralus*.contosonews.net` sujeito, a Porta frontal recusará a ligação e resultará num erro. 
     1. **Solução**: Embora não seja recomendado do ponto de vista da conformidade, pode contornar este erro desativando o nome do sujeito do certificado para a sua porta frontal. Isto está presente em Definições no portal Azure e em BackendPoolsSettings na API.
 2. **Certificado de hospedagem backend da AC inválida**: Só podem ser utilizados certificados de [CAs válidos](/azure/frontdoor/front-door-troubleshoot-allowed-ca) no backend com porta frontal. Não são permitidos certificados de CAs internos ou certificados auto-assinados.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Posso usar a autenticação cliente/mútua com a Porta frontal Azure?
+
+Não. Embora a Azure Front Door suporte o TLS 1.2, que introduziu a autenticação cliente/mútua no [RFC 5246,](https://tools.ietf.org/html/rfc5246)atualmente, a Azure Front Door não suporta a autenticação cliente/mútua.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

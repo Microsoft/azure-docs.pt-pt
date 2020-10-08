@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258717"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818344"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -49,6 +49,9 @@ O Azure AD Conditional Access suporta as seguintes plataformas do dispositivo:
 - macOS
 
 Se bloquear a autenticação de legados utilizando a condição **de Outros clientes,** também pode definir a condição da plataforma do dispositivo.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que tenha uma política de acesso condicional para plataformas de dispositivos não suportadas. Como exemplo, se pretender bloquear o acesso aos seus recursos corporativos a partir do Linux ou de qualquer outro cliente não apoiado, deverá configurar uma política com uma condição de plataformas de Dispositivos que inclua qualquer dispositivo e exclua plataformas de dispositivos suportados e controlo grant definido para bloquear o acesso.
 
 ## <a name="locations"></a>Localizações
 
@@ -165,7 +168,7 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 | Outlook 2016 (Office for macOS) | Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype para Negócios (com autenticação moderna) | Exchange Online | Windows 8.1, Windows 7 |
 | App móvel outlook | Exchange Online | Android, iOS |
-| Aplicação Power BI | Serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
+| Aplicação Power BI | serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
 | Skype para Empresas | Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
@@ -177,7 +180,7 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 
 Se o controlo de acesso atribuído à apólice utilizar **requerer a aplicação de cliente aprovada,** o utilizador é direcionado para instalar e utilizar o cliente móvel do Outlook. No caso de ser necessária **a autenticação multi-factor,** os utilizadores afetados estão bloqueados, porque a autenticação básica não suporta a autenticação de vários fatores.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Bloquear autenticação do legado com Acesso Condicional](block-legacy-authentication.md)
 - [Exigir aplicações de clientes aprovadas com Acesso Condicional](app-based-conditional-access.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e223dd46806551fbba05127b70a9119a5d9c75
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661147"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818207"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Azure Ative Directory
 
@@ -31,21 +31,30 @@ Para obter os passos que se preparem para utilizar o PowerShell e o Microsoft Gr
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Pode atribuir utilizadores a unidades administrativas de duas formas.
+Pode atribuir os utilizadores a unidades administrativas individualmente ou numa operação a granel.
 
-1. Atribuição individual
+- Atribuição individual a partir de um perfil de utilizador
 
-    1. Pode ir ao AD Azure no portal e selecionar Utilizadores e selecionar o utilizador a atribuir a uma unidade administrativa. Em seguida, pode selecionar unidades administrativas no painel esquerdo. O utilizador pode ser atribuído a uma ou mais unidades administrativas clicando em **Atribuir à unidade administrativa e selecionar as unidades administrativas onde o utilizador deve ser atribuído.
+   1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com) com permissões de Administrador de Função Privilegiada.
+   1. Selecione **Utilizadores** e selecione o utilizador a atribuir a uma unidade administrativa para abrir o perfil do utilizador.
+   1. Selecione **unidades administrativas**. O utilizador pode ser atribuído a uma ou mais unidades administrativas selecionando **Atribuir à unidade administrativa** e selecionar as unidades administrativas onde o utilizador deve ser atribuído.
 
        ![selecione Adicionar e, em seguida, inserir um nome para a unidade administrativa](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Pode ir ao Azure AD no portal e selecionar unidades administrativas no painel esquerdo e, em seguida, selecionar a unidade administrativa onde os utilizadores devem ser designados. Selecione **Todos os utilizadores** e, em seguida, selecione **Adicionar membro**. Em seguida, pode ir em frente e selecionar um ou mais utilizadores a serem designados para a unidade administrativa a partir do painel direito.
+- Atribuição individual de uma unidade administrativa
+
+   1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com) com permissões de Administrador de Função Privilegiada.
+   1. Selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa onde os utilizadores devem ser designados.
+   1. Selecione **Todos os utilizadores** e, em seguida, selecione **Adicionar membro** para selecionar um ou mais utilizadores a atribuir à unidade administrativa a partir do painel de **membros Add.**
 
         ![selecione uma unidade administrativa e, em seguida, selecione Adicionar membro](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. Atribuição a granel
+- Atribuição a granel
 
-    Vá ao Azure AD no portal e selecione unidades administrativas. Selecione a unidade administrativa onde os utilizadores devem ser adicionados. Proceda clicando em Todos os utilizadores -> Adicione os membros do ficheiro .csv. Em seguida, pode descarregar o modelo CSV e editar o ficheiro. O formato é simples e precisa de um único UPN para ser adicionado em cada linha. Uma vez que o ficheiro esteja pronto, guarde-o num local apropriado e, em seguida, carrece-o no passo 3, conforme realçado no instantâneo.
+   1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com) com permissões de Administrador de Função Privilegiada.
+   1. Selecione **unidades administrativas**.
+   1. Selecione a unidade administrativa onde os utilizadores devem ser adicionados.
+   1. Abrir **Todos os utilizadores**  >  **Adicione membros do ficheiro .csv**. Em seguida, pode descarregar o modelo de valores separados por vírgula (CSV) e editar o ficheiro. O formato é simples e precisa de um único Nome Principal do Utilizador para ser adicionado em cada linha. Assim que o ficheiro estiver pronto, guarde-o num local apropriado e, em seguida, carrefique-o como parte deste passo.
 
     ![granel atribuir utilizadores a uma unidade administrativa](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -139,7 +148,7 @@ Depois de ter guardado as entradas no ficheiro, faça o upload do ficheiro, **se
 
 ![Envie o ficheiro de upload em massa](./media/roles-admin-units-add-manage-users/bulk-user-remove.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir um papel a uma unidade administrativa](roles-admin-units-assign-roles.md)
 - [Adicionar grupos a uma unidade administrativa](roles-admin-units-add-manage-groups.md)

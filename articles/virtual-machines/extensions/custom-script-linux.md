@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085729"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818803"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a Versão 2 da Extensão de Script Personalizado do Azure com as máquinas virtuais do Linux
 A versão de extensão de scripts personalizada 2 descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implantação, instalação de software ou qualquer outra tarefa de configuração/gestão. Você pode baixar scripts a partir de Azure Storage ou outro local de internet acessível, ou você pode fornecer-lhes para o tempo de execução da extensão. 
@@ -55,6 +55,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de portas a
 * Certifique-se de que os scripts não requerem a entrada do utilizador quando são executados.
 * Há 90 minutos permitidos para o script ser executado, qualquer coisa mais longa resultará numa disposição falhada da extensão.
 * Não coloque reboots dentro do script, isto irá causar problemas com outras extensões que estão a ser instaladas, e após o reboot, a extensão não continuará após o reinício. 
+* Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode deixar a extensão num estado de transição e levar a um tempo limite.
 * Se tiver um script que irá causar um reboot, então instale aplicações e execute scripts, etc. Você deve agendar o reboot usando um trabalho cron, ou usando ferramentas como DSC, ou Chef, extensões de marionetas.
 * A extensão só irá executar um script uma vez, se quiser executar um script em cada bota, então você pode usar [a imagem cloud-init](../linux/using-cloud-init.md) e usar um módulo [Scripts Per Boot.](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) Em alternativa, pode utilizar o script para criar uma unidade de serviço SystemD.
 * Só é possível ter uma versão de uma extensão aplicada ao VM. Para executar um segundo script personalizado, você precisa remover a extensão de script personalizado e reaplicá-lo novamente com o script atualizado. 
@@ -111,14 +112,14 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados | 
+| Nome | Valor / Exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | data |
+| apiVersion | 2019-03-01 | date |
 | publicador | Microsoft.Compute.Extensions | string |
 | tipo | PersonalScript | string |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py pitão\<my-param1> | string |
+| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo) | false | boolean |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
@@ -127,9 +128,9 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | entidade geridaId (por exemplo) | { } ou { "clientId": "31b403a-c364-4240-a7ff-d85fb6cd7232" } ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | objeto json |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
-* `apiVersion`: A apiversão mais atualizada pode ser encontrada usando [o Explorador de Recursos](https://resources.azure.com/) ou a partir de Azure CLI usando o seguinte comando`az provider list -o json`
+* `apiVersion`: A apiversão mais atualizada pode ser encontrada usando [o Explorador de Recursos](https://resources.azure.com/) ou a partir de Azure CLI usando o seguinte comando `az provider list -o json`
 * `skipDos2Unix`: (opcional, boolean) saltar a conversão dos2unix de URLs ou scripts baseados em scripts.
-* `timestamp`(opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma reedição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
+* `timestamp` (opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma reedição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
 * `commandToExecute`:**(requerido** se o script não estiver definido, string) o script do ponto de entrada para executar. Utilize este campo em vez disso se o seu comando contiver segredos como palavras-passe.
 * `script`:**(requerido** se o comandoToExecute não for definido, string)um script de base64 codificado (e opcionalmente gzip'ed) executado por /bin/sh.
 * `fileUris`: (opcional, matriz de cordas) os URLs para ficheiros a serem descarregados.

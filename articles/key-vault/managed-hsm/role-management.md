@@ -8,14 +8,14 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6654b97f914ce4c1e3e55d38f47bd5bde0a4891e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000884"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818033"
 ---
-# <a name="managed-hsm-role-management"></a>Gestão de funções gerida do HSM
+# <a name="managed-hsm-role-management"></a>Gestão de funções do HSM Gerido
 
 > [!NOTE]
 > O Key Vault suporta dois tipos de recursos: cofres e HSMs geridos. Este artigo é sobre **O HSM Gerido.** Se quiser aprender a gerir um cofre, consulte [o Key Vault utilizando o Azure CLI](../general/manage-with-cli2.md).
@@ -52,7 +52,7 @@ Para obter mais informações sobre as opções de login através do CLI, consul
 
 ### <a name="assign-roles-for-all-keys"></a>Atribuir funções para todas as teclas
 
-Utilize `az keyvault role assignment create` o comando para atribuir uma função de **Crypto Officer gerido** ao utilizador identificado pelo nome principal do utilizador para todas as **user2@contoso.com**  **teclas** (âmbito) `/keys` no ContosoHSM.
+Utilize `az keyvault role assignment create` o comando para atribuir uma função de **Crypto Officer gerido** ao utilizador identificado pelo utilizador principal do utilizador ** \@ contoso.com** para todas as  **teclas** (âmbito) no `/keys` ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Atribuir papel para uma chave específica
 
-Utilize `az keyvault role assignment create` o comando para atribuir uma função de **Crypto Officer gerido** ao utilizador identificado pelo nome principal do utilizador para uma chave específica chamada **user2@contoso.com** **myrsakey**.
+Utilize `az keyvault role assignment create` o comando para atribuir uma função de **Crypto Officer gerido** ao utilizador identificado pelo utilizador principal do utilizador ** \@ contoso.com** para uma chave específica chamada **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Excluir uma atribuição de funções
 
-Utilize `az keyvault role assignment delete` o comando para eliminar uma **função de Crypto Officer gerido do HSM** atribuído ao utilizador **user2@contoso.com** para a chave **myrsakey2**.
+Utilize `az keyvault role assignment delete` o comando para eliminar uma **função gerida do Oficial de Cripto HSM** atribuída ao **utilizador2 \@ contoso.com** para a chave **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

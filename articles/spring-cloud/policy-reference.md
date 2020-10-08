@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Spring Cloud
 description: Lista definições políticas incorporadas da Azure Policy para Azure Spring Cloud. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java
-ms.openlocfilehash: 40842a10da9d0bfaf4b1326b099f8b361cc8f916
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ffbd4f3b030a807bd6b72795e71b92dc2764b65e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983993"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818861"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Azure Policy definições incorporadas para Azure Spring Cloud
 

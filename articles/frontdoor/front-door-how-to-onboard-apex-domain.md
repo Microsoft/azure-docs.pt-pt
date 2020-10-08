@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 6be33df90ed58dc448009fb0e26ca49c800d1931
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766020"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819088"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio de raiz ou apex no seu Front Door
 A Azure Front Door utiliza registos CNAME para validar a propriedade do domínio para o embarque de domínios personalizados. A Porta da Frente não expõe o endereço IP frontend associado ao seu perfil da porta da frente. Por isso, não pode mapear o seu domínio de ápice para um endereço IP se a sua intenção for a bordo da Porta frontal Azure.
@@ -54,7 +54,7 @@ Pode utilizar o portal Azure para embarcar num domínio ápice na porta da frent
 
 1. **Selecione Guardar** para submeter as alterações.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Recorde de alias para o ápice da zona":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Recorde de alias para o ápice da zona":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Ative HTTPS no seu domínio personalizado
 
@@ -62,10 +62,10 @@ Pode utilizar o portal Azure para embarcar num domínio ápice na porta da frent
 
 1. Selecione o **tipo de gestão de certificados** para *"Use o meu próprio certificado".*
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Recorde de alias para o ápice da zona":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Recorde de alias para o ápice da zona":::    
 
-    > [!WARNING]
-    > O tipo de gestão de certificado gerido front door não é suportado atualmente para domínios ápice ou raiz. A única opção disponível para permitir HTTPS num domínio ápice ou raiz para porta frontal é usar o seu certificado TLS/SSL personalizado alojado no Cofre da Chave Azure.
+   > [!WARNING]
+   > O tipo de gestão de certificado gerido front door não é suportado atualmente para domínios ápice ou raiz. A única opção disponível para permitir HTTPS num domínio ápice ou raiz para porta frontal é usar o seu certificado TLS/SSL personalizado alojado no Cofre da Chave Azure.
 
 1. Certifique-se de que tem as permissões certas para a Porta frontal aceder ao seu cofre chave, como indicado na UI, antes de avançar para o passo seguinte.
 

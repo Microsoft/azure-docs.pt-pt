@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450382"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817981"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -36,10 +36,12 @@ Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e grupos confi
 Administrador helpdesk  |  Pode redefinir palavras-passe para administradores não administradores e helpdesk apenas na unidade administrativa atribuída.
 Administrador de Licença  |  Pode atribuir, remover e atualizar as atribuições de licença apenas dentro da unidade administrativa.
 Administrador de password  |  Pode redefinir palavras-passe apenas para administradores não administradores e administradores de passwords dentro da unidade administrativa atribuída.
-Administrador do Utilizador  |  Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de palavras-passe para administradores limitados apenas dentro da unidade administrativa atribuída.
+Administrador de Utilizadores  |  Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de palavras-passe para administradores limitados apenas dentro da unidade administrativa atribuída.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Princípios de segurança que podem ser atribuídos a uma função de âmbito da AU
-Os seguintes princípios de segurança podem ser atribuídos a uma função de âmbito da AU:
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>Princípios de segurança que podem ser atribuídos a uma função de âmbito
+
+Os seguintes princípios de segurança podem ser atribuídos a uma função com âmbito de unidade administrativa:
+
 * Utilizadores
 * Grupos de nuvem atribuíveis por função (pré-visualização)
 * Nome do Principal do Serviço (SPN)
@@ -112,7 +114,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

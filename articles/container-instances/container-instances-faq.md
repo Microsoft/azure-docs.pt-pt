@@ -1,15 +1,16 @@
 ---
 title: Perguntas mais frequentes
 description: Respostas para perguntas frequentes relacionadas com o serviço de Instâncias de Contentores Azure
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421285"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818492"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -39,7 +40,7 @@ Consulte [orientações](container-instances-troubleshooting.md#container-takes-
 #### <a name="windows-server-2016-base-images"></a>Imagens base do Windows Server 2016
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` , ou mais `10.0.14393.3506` recente
-* [Núcleo do Servidor do Windows](https://hub.docker.com/_/microsoft-windows-servercore): , ou mais `ltsc2016` `10.0.14393.3506` recente
+* [Núcleo do Servidor do Windows](https://hub.docker.com/_/microsoft-windows-servercore): , ou mais `ltsc2016`  `10.0.14393.3506` recente
 
 > [!NOTE]
 > As imagens do Windows baseadas na versão semi-anual do Canal 1709 ou 1803 não são suportadas.
@@ -101,7 +102,7 @@ A duração do grupo do contentor é calculada a partir do momento em que começ
 
 Os contadores param de funcionar assim que todo o grupo de contentores estiver parado. Enquanto um contentor do seu grupo de contentores estiver em funcionamento, nós guardamos os recursos no caso de querer voltar a ligar os contentores. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais](container-instances-overview.md) sobre as Instâncias do Contentor Azure.
 * [Resolver problemas comuns](container-instances-troubleshooting.md) em instâncias de contentores Azure.
