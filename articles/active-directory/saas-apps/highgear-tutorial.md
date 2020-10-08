@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550619"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Diretório Ativo Azure com o HighGear
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![HighGear Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** cole o valor do ID da **Entidade fornecedora** de serviços que está na página 'Definições de Entrada única' no seu sistema HighGear.
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-     ![HighGear Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+     ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
      Na caixa de texto **URL de entrada de registo,** cole o valor do iD da Entidade fornecedora de **serviços** que está na página 'Definições de Entrada única' no seu sistema HighGear. (Este ID de entidade é também o URL base do sistema HighGear que deve ser usado para o início de súm.)
 
@@ -190,7 +190,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **HighGear**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **HighGear**.
 

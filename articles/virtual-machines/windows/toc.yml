@@ -278,7 +278,7 @@
             - name: Flexibilidade do tamanho da instância de VM
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Spot VMs
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: VMs do Azure sem disco temporário
           href: ../azure-vms-no-temp-disk.md
@@ -380,7 +380,7 @@
         - name: Implementar o Spot VMs
           items:
             - name: Portal
-              href: spot-portal.md
+              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: PowerShell
               href: spot-powershell.md
             - name: Modelo ARM

@@ -156,7 +156,7 @@
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Load balancer
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Ponto final do Private Link
+            - name: Ponto Final Privado
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Serviço Private Link
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json

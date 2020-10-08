@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031403"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816794"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de construção
 
@@ -131,7 +131,7 @@ As opções disponíveis incluem:
 
 > [!NOTE]
 >
-> - Roslyn Analyzers são integrados com o compilador e podem ser executados apenas como parte da compilação csc.exe. Assim, esta tarefa requer que o comando do compilador que correu mais cedo na construção seja reproduzido ou executado novamente. Esta repetição ou execução é feita consultando visual Studio Team Services (VSTS) para os registos de tarefas de construção MSBuild.
+> - Roslyn Analyzers são integrados com o compilador e podem ser executados apenas como parte da compilação csc.exe. Assim, esta tarefa requer que o comando do compilador que correu mais cedo na construção seja reproduzido ou executado novamente. Esta repetição ou execução é feita consultando Azure DevOps (anteriormente Visual Studio Team Services) para os registos de tarefas de construção MSBuild.
 >
 >   Não há outra maneira de a tarefa obter de forma fiável a linha de comando de compilação MSBuild a partir da definição de construção. Considerámos adicionar uma caixa de texto de forma gratuita para permitir que os utilizadores entrassem nas suas linhas de comando. Mas então seria difícil manter essas linhas de comando atualizadas e em sintonia com a construção principal.
 >
@@ -195,7 +195,7 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as nossas [opções DE PÓS-Análise YAML](yaml-configuration.md#post-analysis-task)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a configuração baseada em YAML, consulte o nosso [guia de configuração YAML](yaml-configuration.md).
 

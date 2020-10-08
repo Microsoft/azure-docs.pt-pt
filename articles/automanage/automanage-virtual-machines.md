@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447914"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816823"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -134,20 +134,20 @@ Para isso no portal Azure, vá à página **de boas práticas da máquina virtua
 
 Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> A desativação da auto-gestão num VM resulta no seguinte comportamento:
+>
+> - A configuração do VM e os serviços a bordo não mudam.
+> - Quaisquer encargos incorridos por esses serviços continuam a ser faturadas e continuam a ser incorridos.
+> - Qualquer comportamento de auto-condutor para imediatamente.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Em primeiro lugar, não vamos desabar a máquina virtual de nenhum dos serviços a que a embarcamos e configuramos. Assim, quaisquer encargos incorridos por esses serviços continuarão a ser faturadas. Terá de sair do quadro, se necessário. Qualquer comportamento de auto-condutor parará imediatamente. Por exemplo, deixaremos de monitorizar o VM para deriva.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você descobriu que a autogestão para máquinas virtuais fornece um meio para o qual você pode eliminar a necessidade de você saber, a bordo, e configurar as melhores práticas serviços Azure. Além disso, se uma máquina que a bordo a bordo de Automanage for Virtual Machines deriva dos perfis de configuração configurados, nós automaticamente a traremos de volta ao cumprimento.
+Neste artigo, você descobriu que a autogestão para máquinas virtuais fornece um meio para o qual você pode eliminar a necessidade de você saber, a bordo, e configurar as melhores práticas serviços Azure. Além disso, se uma máquina que a bordo deu a bordo para auto-controlo para máquinas virtuais derivar dos perfis de configuração configurados, nós automaticamente a traremos de volta ao cumprimento.
 
 Tente ativar a auto-produção de máquinas virtuais no portal Azure.
 

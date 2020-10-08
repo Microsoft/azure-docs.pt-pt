@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713700"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817535"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gerir e encontrar dados do Azure Blob com índice blob (pré-visualização)
 
@@ -72,8 +72,11 @@ Aplicam-se os seguintes limites às etiquetas de índice blob:
 - As chaves e valores da etiqueta são sensíveis ao caso
 - Etiquetar chaves e valores apenas suportam tipos de dados de cadeia; quaisquer números, datas, horários ou caracteres especiais serão guardados como cordas
 - As teclas e valores da etiqueta devem respeitar as seguintes regras de nomeação:
-  - Caracteres alfa numéricos: a-z, A-Z, 0-9
-  - Caracteres especiais: espaço, mais, menos, ponto, ponto, cólon, igual, sublinhado, corte para a frente
+  - Caracteres alfanuméricos:
+    - **a** através de **z** (letras minúsculas)
+    - **A** a **Z** (letras maiúsculas)
+    - **0** a **9** (números)
+  - Caracteres especiais válidos: espaço, mais, menos, período, cólon, igual, sublinhado, barra para a frente ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Obtenção e listagem de etiquetas de índice de blob
 
@@ -308,7 +311,7 @@ As tags de índice blob apenas suportam tipos de dados de cadeia e consultam os 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>As etiquetas de índice blob e as etiquetas do Gestor de Recursos Azure estão relacionadas?
 Não, as etiquetas do Gestor de Recursos ajudam a organizar recursos de controlo do avião, tais como subscrições, grupos de recursos e contas de armazenamento. As etiquetas de índice blob fornecem gestão de objetos e descobertas em recursos de planos de dados, tais como bolhas dentro de uma conta de armazenamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para um exemplo de como utilizar o índice blob, consulte [o índice de blob utilizar para gerir e encontrar dados](storage-blob-index-how-to.md).
 

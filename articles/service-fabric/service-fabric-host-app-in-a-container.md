@@ -3,18 +3,18 @@ title: Implementar uma aplicação .NET num recipiente para o Azure Service Fabr
 description: Saiba como colocar uma aplicação .NET existente num contentor com o Visual Studio e depurar contentores no Service Fabric localmente. A aplicação em contentor é enviada para um registo de contentor do Azure e implementada num cluster do Service Fabric. Quando implementada no Azure, a aplicação utiliza a BD SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 7c77b2e5b60aef246b513cb852f6231ba7531056
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743816"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817638"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
 Este tutorial explica como colocar uma aplicação ASP.NET existente num contentor e empacotá-la como uma aplicação do Service Fabric.  Execute os contentores localmente no cluster de desenvolvimento do Service Fabric e, em seguida, implemente a aplicação no Azure.  A aplicação mantém os dados na [Base de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Atualizar a configuração da Web
 
-Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no ficheiro **web.config**, para que encaminhe para o SQL Server no contentor.  Atualize a parte do *Servidor* da cadeia de ligação para ser o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net".
+Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no ficheiro **web.config**, para que encaminhe para o SQL Server no contentor.  Atualize a parte do *Servidor* da cadeia de ligação para ser o nome do servidor criado pelo script anterior. Deve ser algo como "fab-fiber-751718376.database.windows.net". No XML seguinte, é necessário atualizar apenas o `connectionString` atributo; os `providerName` atributos e `name` atributos não precisam de ser alterados.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -241,7 +241,7 @@ Siga o progresso da implementação na janela de saída. Quando a aplicação fo
 
 Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar, lembre-se de remover todos os recursos que criou.  A forma mais simples de fazê-lo consiste em remover os grupos de recursos que contêm o cluster do Service Fabric, a BD SQL do Azure e o Azure Container Registry.
 

@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: 230fac982e19c1106aa5757c9bf1c32d192740d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314514"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817512"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e cofre de chaves Azure com Java para armazenamento Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-A [Biblioteca do Cliente de Armazenamento Azure para a Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto faz o download para o cliente. A biblioteca também suporta a integração com [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
+A [Biblioteca do Cliente de Armazenamento Azure para a Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto faz o download para o cliente. A biblioteca também suporta a integração com [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Encriptação e desencriptação através da técnica do envelope
 Os processos de encriptação e desencriptação seguem a técnica do envelope.  

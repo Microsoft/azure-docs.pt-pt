@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4387bf8067b399165b32ab1cdbb9e6ce55ab5f59
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815866"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816361"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utilize o portal Azure para restringir o acesso à importação/exportação de discos geridos com ligações privadas
 
@@ -30,12 +30,6 @@ Pode definir a propriedade NetworkAccessPolicy `DenyAll` para evitar que alguém
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para utilizar pontos finais privados para exportar e importar discos geridos, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail para mdprivatelinks@microsoft .com com os seus Ids de subscrição para obter a funcionalidade ativada para as suas subscrições.
-
-Terá de observar a rede virtual do VM a que os seus discos estão ligados. A rede virtual é necessária ao configurar o ponto final privado.
 
 ## <a name="create-a-disk-access-resource"></a>Criar um recurso de acesso ao disco
 

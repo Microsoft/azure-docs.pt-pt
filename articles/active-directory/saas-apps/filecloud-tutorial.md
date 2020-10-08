@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555186"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: Integração do Azure Ative Directory com FileCloud
 
@@ -130,19 +130,19 @@ Para configurar o Azure AD um único sinal de insuflação com o FileCloud, exec
 
 2. No painel de navegação à esquerda, clique em **Definições**. 
    
-    ![Configure único sinal no lado da aplicação](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Screenshot que mostra "Definições" realçadas no painel de navegação esquerdo.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Clique no separador **SSO** na secção Definições. 
    
-    ![Configure único sinal no lado da aplicação](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Screenshot que mostra a secção "Definições" com o separador "S S O" selecionado.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Selecione **SAML** como **SSO Type predefinido** no painel **de definições de sinal único (SSO).**
    
-    ![Configure único sinal no lado da aplicação](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Screenshot que mostra o painel "Single Sign On (S O) Settings" com "S A M L" selecionado.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. Na caixa de texto **URL IdP End Point,** cole o valor do **Identificador Ad Ad Azure** que copiou do portal Azure.
 
-    ![Configure único sinal no lado da aplicação](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Screenshot que mostra a secção "S A M L Settings" com "I d P End Point U R L" em destaque.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Abra o ficheiro de metadados descarregado no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **IdP Meta Data** no painel **de Definições SAML.**
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **FileCloud**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **FileCloud**.
 

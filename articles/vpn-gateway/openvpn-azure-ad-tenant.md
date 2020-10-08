@@ -5,23 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445827"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817299"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino do Azure Active Directory para as ligações do protocolo OpenVPN P2S
 
 Ao ligar-se ao seu VNet, pode utilizar a autenticação baseada em certificados ou a autenticação RADIUS. No entanto, quando utilizar o protocolo Open VPN, também pode utilizar a autenticação do Azure Ative Directory. Este artigo ajuda a configurar um inquilino Azure AD para a autenticação P2S Open VPN.
 
-> [!NOTE]
-> A autenticação AZure AD é suportada apenas para ligações de protocolo openVPN® e requer o cliente Azure VPN, que está disponível apenas para o Windows 10.
->
-
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Verifique o inquilino da Ad Azure
 
@@ -98,7 +95,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 9. Ativar a autenticação AZure AD no gateway VPN navegando para a **configuração ponto-a-local** e escolhendo **o OpenVPN (SSL)** como o **tipo de túnel**. Selecione **O Diretório Ativo Azure** como o **tipo de Autenticação** e, em seguida, preencha as informações na secção **Diretório Ativo Azure.**
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
+    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
 
 
    > [!NOTE]
@@ -112,6 +109,6 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 13. Tome nota da localização do ficheiro "azurevpnconfig.xml". O azurevpnconfig.xml contém a definição para a ligação VPN e pode ser importado diretamente para a aplicação do Cliente Azure VPN. Também pode distribuir este ficheiro a todos os utilizadores que necessitem de se conectar por e-mail ou outros meios. O utilizador necessitará de credenciais AZure AD válidas para se conectar com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para se ligar à sua rede virtual, tem de criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para ligações P2S VPN](openvpn-azure-ad-client.md).

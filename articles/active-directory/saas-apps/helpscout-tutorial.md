@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548146"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Diretório Ativo Azure com Help Scout
 
@@ -89,7 +89,7 @@ Para configurar o Azure AD com o Help Scout, execute os seguintes passos:
 
 1. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Ajude o domínio do escuteiro e as informações de assinatura única](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. **Identifier** é o **Audience URI (Service Provider Entity ID)** de Help Scout, começa com `urn:`
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com o Help Scout, execute os seguintes passos:
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Ajude o domínio do escuteiro e as informações de assinatura única](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **url de entrada de inscrição,** digite um URL como: `https://secure.helpscout.net/members/login/`
 
@@ -149,7 +149,7 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Help Scout**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Help Scout**.
 
@@ -183,15 +183,15 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 
 1. Clique em **Gerir** a partir do menu superior e, em seguida, selecione **Empresa** a partir do menu suspenso.
 
-    ![Configurar um único sign-on](./media/helpscout-tutorial/settings1.png)
+    ![A screenshot mostra o menu Gerir com a Empresa selecionada.](./media/helpscout-tutorial/settings1.png)
 
 1. Selecione **autenticação** a partir do painel de navegação esquerdo.
 
-    ![Configurar um único sign-on](./media/helpscout-tutorial/settings2.png)
+    ![A screenshot mostra a autenticação selecionada.](./media/helpscout-tutorial/settings2.png)
 
 1. Isto leva-o à secção de definições DE SAML e executa os seguintes passos:
 
-    ![Configurar um único sign-on](./media/helpscout-tutorial/settings3.png)
+    ![A screenshot mostra o separador 'Sign-On' único onde introduz as informações especificadas.](./media/helpscout-tutorial/settings3.png)
 
     a. Copie o valor **URL pós-back (URL do serviço de apoio à afirmação)** e cole o valor na caixa de texto **URL de resposta** na secção **configuração de SAML básico** no portal Azure.
 
@@ -199,7 +199,7 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 
 1. Toggle **Ativar o SAML** e executar os seguintes passos:
 
-    ![Configurar um único sign-on](./media/helpscout-tutorial/settings4.png)
+    ![A screenshot mostra o separador Sign-On único onde ativa o SAML e adiciona outras informações.](./media/helpscout-tutorial/settings4.png)
 
     a. Na caixa de texto **url de inscrição única,** cole o valor do URL de **login,** que copiou do portal Azure.
 

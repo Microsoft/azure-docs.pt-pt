@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 18463c4350895401c9bf73dc249ce93218a44f7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264648"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816432"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -83,6 +83,32 @@ As definições de aplicativo têm a seguinte formatação JSON:
   ...
 ]
 ```
+
+### <a name="automate-app-settings-with-the-azure-cli"></a>Automatizar as definições de aplicativos com o Azure CLI
+
+Pode utilizar o CLI Azure para criar e gerir as definições a partir da linha de comando.
+
+- Atribua um valor a uma definição com configurações de configurações de [aplicações config do webapp az](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    `<setting-name>`Substitua-o pelo nome da definição e `<value>` pelo valor a atribuir-lhe. Este comando cria a definição se já não existir.
+    
+- Mostrar todas as configurações e seus valores com [a lista de configurações de configuração de appsapp webapp az](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Remova uma ou mais configurações com configurações de [app config do webapp az delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Substitua `<names>` por uma lista de nomes de definição separadas pelo espaço.
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de ligação
 
@@ -164,7 +190,12 @@ No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida
 
 Aqui, pode configurar algumas definições comuns para a aplicação. Algumas configurações exigem que você [escalone até níveis de preços mais elevados](manage-scale-up.md).
 
-- **Configurações de**pilha : A pilha de software para executar a aplicação, incluindo as versões idioma e SDK. Para aplicações Linux e aplicativos de contentores personalizados, também pode definir um comando ou ficheiro de arranque opcional.
+- **Configurações de**pilha : A pilha de software para executar a aplicação, incluindo as versões idioma e SDK.
+
+    Para aplicações Linux e aplicativos de contentores personalizados, pode selecionar a versão de tempo de execução do idioma e definir um **comando de Arranque** opcional ou um ficheiro de comando de arranque.
+
+    ![Configurações gerais para contentores Linux](./media/configure-common/open-general-linux.png)
+
 - **Definições da plataforma**: Permite configurar as definições para a plataforma de hospedagem, incluindo:
     - **Bitness**: 32-bit ou 64-bit.
     - **Protocolo WebSocket**: Para [ASP.NET SignalR] ou [socket.io,](https://socket.io/)por exemplo.

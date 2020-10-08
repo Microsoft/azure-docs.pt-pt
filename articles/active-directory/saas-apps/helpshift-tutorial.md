@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fb9c776061407669f27f61ac4bc536b859d04b66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 41dd61182674d63e7c8b83232c53b9e7054de04d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550624"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816850"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helpshift"></a>Tutorial: Azure Ative Directory integração única (SSO) com Helpshift
 
@@ -134,11 +134,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Abra o painel **de instrumentos de ajuda** e clique no ícone **Definições**.
 
-    ![A Configuração Ajudashift](./media/helpshift-tutorial/configuration01.png)
+    ![A screenshot mostra o ícone De Definições De Ajuda.](./media/helpshift-tutorial/configuration01.png)
 
 1. Clique no separador **Integrações** e execute os seguintes passos:
 
-    ![A Configuração Ajudashift](./media/helpshift-tutorial/configuration02.png)
+    ![A screenshot mostra o separador Integração onde pode executar os passos descritos.](./media/helpshift-tutorial/configuration02.png)
 
     a. Ligue o **Sign-On Único (SAML – SSO)**.
 

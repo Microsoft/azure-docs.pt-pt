@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3b02be8f35ff33f758aebe03c89287c51c9ffef7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010162"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816324"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -22,7 +22,7 @@ ms.locfileid: "88010162"
 
 Este tópico irá acompanhá-lo como configurar a aplicação MSIX anexar num ambiente de desktop virtual do Windows.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Antes de começar, eis o que precisa para configurar o anexo da app MSIX:
 
@@ -342,20 +342,25 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Script Destage PowerShell
 
-Para este script, substitua o espaço reservado para **$packageName** pelo nome do pacote que está a testar.
+Para este script, substitua o espaço reservado para **$packageName** pelo nome do pacote que está a testar. Numa produção, seria melhor executar isto no Shutdown.
 
 ```powershell
 #MSIX app attach de staging sample
 
+$vhdSrc="<path to vhd>"
+
 #region variables
 $packageName = "<package name>"
-$msixJunction = "C:\temp\AppAttach\"
+$msixJunction = "C:\temp\AppAttach"
 #endregion
 
 #region deregister
 Remove-AppxPackage -AllUsers -Package $packageName
-cd $msixJunction
-rmdir $packageName -Force -Verbose
+Remove-Item "$msixJunction\$packageName" -Recurse -Force -Verbose
+#endregion
+
+#region Detach VHD
+Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
@@ -380,8 +385,8 @@ Eis como configurar as licenças para uso offline:
 
 1. Descarregue o pacote de aplicações, licenças e quadros necessários da Microsoft Store para negócios. Precisa dos ficheiros de licença codificados e não codificados. As instruções de descarregamento detalhadas podem ser [encontradas aqui.](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)
 2. Atualize as seguintes variáveis no roteiro para o passo 3:
-      1. `$contentID`é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro de licença num editor de texto à sua escolha.
-      2. `$licenseBlob`é a cadeia inteira para a bolha de licença no ficheiro de licença codificado (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha.
+      1. `$contentID` é o valor ContentID do ficheiro de licença não codificado (.xml). Pode abrir o ficheiro de licença num editor de texto à sua escolha.
+      2. `$licenseBlob` é a cadeia inteira para a bolha de licença no ficheiro de licença codificado (.bin). Pode abrir o ficheiro de licença codificado num editor de texto à sua escolha.
 3. Execute o seguinte script a partir de um pedido Admin PowerShell. Um bom lugar para executar a instalação de licença é no final do script de [encenação](#stage-powershell-script) que também precisa ser executado a partir de um pedido de administrador.
 
 ```powershell

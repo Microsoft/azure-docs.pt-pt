@@ -4,16 +4,16 @@ description: Monitorização de .NET Core/.NET Aplicações não-HTTP com Insigh
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760483"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816395"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
 
-A Application Insights está a lançar um novo SDK, chamado `Microsoft.ApplicationInsights.WorkerService` , que é mais adequado para cargas de trabalho não HTTP como mensagens, tarefas de fundo, aplicações de consolas, etc. Estes tipos de aplicações não têm a noção de um pedido HTTP de entrada como uma aplicação web core ASP.NET/ASP.NET tradicional, e, portanto, usar pacotes de Insights de Aplicação para [ASP.NET](asp-net.md) ou ASP.NET aplicações [Core](asp-net-core.md) não são suportadas.
+[Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) é um novo SDK que é mais adequado para cargas de trabalho não-HTTP como mensagens, tarefas de fundo, aplicações de consola, etc. Estes tipos de aplicações não têm a noção de um pedido HTTP de entrada como uma aplicação web core ASP.NET/ASP.NET tradicional, e, portanto, usar pacotes de Insights de Aplicação para [ASP.NET](asp-net.md) ou ASP.NET aplicações [Core](asp-net-core.md) não são suportadas.
 
 O novo SDK não faz qualquer coleção de telemetria por si só. Em vez disso, traz outros colecionadores de automóveis bem conhecidos da Application Insights como [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector,](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) [ApplicationInsightsLoggingProvider,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. Este SDK expõe métodos de extensão `IServiceCollection` para permitir e configurar a recolha de telemetria.
 
@@ -134,11 +134,11 @@ Tipicamente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumenta�
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>ASP.NET Tarefas de fundo do núcleo com serviços hospedados
 
-[Este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento descreve como criar tarefas de fundo na aplica ASP.NETção Core 2.1/2.2.
+[Este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento descreve como criar tarefas de fundo na aplica ASP.NET ção Core 2.1/2.2.
 
 O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Instale o microsoft.ApplicationInsights.WorkerService(pacote https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
+1. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 2. Adicione `services.AddApplicationInsightsTelemetryWorkerService();` ao `ConfigureServices()` método, como neste exemplo:
 
 ```csharp
@@ -225,7 +225,7 @@ Como mencionado no início deste artigo, o novo pacote pode ser usado para ativa
 
 O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Instale o microsoft.ApplicationInsights.WorkerService(pacote https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
+1. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 
 2. Modifique Program.cs como exemplo abaixo.
 
@@ -293,7 +293,7 @@ Esta aplicação de consola também utiliza o mesmo padrão `TelemetryConfigurat
 
 ## <a name="run-your-application"></a>Executar a aplicação
 
-Executar a sua candidatura. O exemplo dos trabalhadores de todos os acima referidos faz uma chamada http a cada segundo para bing.com, e também emite poucos registos usando o ILogger. Estas linhas estão embrulhadas no `StartOperation` interior da `TelemetryClient` chamada, que é usada para criar uma operação (neste exemplo `RequestTelemetry` chamado "operação"). Os Insights de Aplicação recolherão estes registos ILogger (aviso ou acima por defeito) e dependências, e serão correlacionados com a `RequestTelemetry` relação pai-filho. A correlação também funciona entre o processo/fronteira da rede. Por exemplo, se a chamada foi feita para outro componente monitorizado, então também será correlacionado com este progenitor.
+Executar a sua candidatura. O exemplo dos trabalhadores de todos os acima faz uma chamada http a cada segundo para bing.com, e também emite poucos registos usando `ILogger` . Estas linhas estão embrulhadas no `StartOperation` interior da `TelemetryClient` chamada, que é usada para criar uma operação (neste exemplo `RequestTelemetry` chamado "operação"). Os Insights de Aplicação recolherão estes registos ILogger (aviso ou acima por defeito) e dependências, e serão correlacionados com a `RequestTelemetry` relação pai-filho. A correlação também funciona entre o processo/fronteira da rede. Por exemplo, se a chamada foi feita para outro componente monitorizado, então também será correlacionado com este progenitor.
 
 Esta operação personalizada `RequestTelemetry` pode ser considerada como o equivalente a um pedido web de entrada numa aplicação web típica. Embora não seja necessário utilizar uma Operação, encaixa-se melhor com o [modelo de dados de correlação application Insights](./correlation.md) - com a `RequestTelemetry` atuação como a operação principal, e cada telemetria gerada dentro da iteração do trabalhador sendo tratada como logicamente pertencente à mesma operação. Esta abordagem também garante que toda a telemetria gerada (automática e manual) terá a mesma `operation_id` . Como a amostragem é baseada `operation_id` em , o algoritmo de amostragem mantém ou deixa cair toda a telemetria de uma única iteração.
 
