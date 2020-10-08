@@ -134,14 +134,12 @@
       items:
         - name: Instalar o Azure Firewall num hub
           href: howto-firewall.md
+        - name: Configurar a conectividade do Private Link
+          href: howto-private-link.md
     - name: Monitorização
       items:
         - name: Registos e métricas
           href: logs-metrics.md
-    - name: Ligação Privada
-      items:
-        - name: Configurar a conectividade do Private Link
-          href: howto-private-link.md
 - name: Referência
   items:
     - name: Azure PowerShell

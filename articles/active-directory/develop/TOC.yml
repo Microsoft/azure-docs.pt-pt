@@ -535,10 +535,6 @@
     - name: Configuração da aplicação
       displayName: App configuration
       items:
-        - name: Guia de formação para registar aplicações no portal do Azure
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Experiência de registos de aplicações do portal do Azure
-          href: app-registration-portal-training-guide.md
         - name: Converter uma aplicação de inquilino único numa aplicação multi-inquilino
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Criar um principal de serviço

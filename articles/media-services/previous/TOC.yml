@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Estrutura de múltiplos DRM de referência
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Processar com o Indexador
-          href: media-services-index-content.md
-          items:
-            - name: Predefinição de tarefas
-              href: indexer-task-preset.md
     - name: Analisar conteúdo
       items:
+        - name: Processar com o Indexador
+          href: media-services-index-content.md
+        - name: Predefinição de tarefas
+          href: indexer-task-preset.md
         - name: Processar com o Editor de Rostos
           href: media-services-face-redaction.md
         - name: Instruções de Redação de Rostos
