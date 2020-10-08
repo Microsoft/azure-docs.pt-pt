@@ -1,5 +1,5 @@
 ---
-title: Transformação da união de fluxos de dados de mapeamento
+title: Transformação da União no fluxo de dados de mapeamento
 description: Azure Data Factory mapeamento dados fluxo nova transformação de ramo
 author: kromerm
 ms.author: makromer
@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 1874e3536a3dda123c7fff9726c02e5d92d88804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e10418c18e6f8e0089a893e9d33ee1081f3131f1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204343"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823642"
 ---
-# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Azure Data Factory mapeamento transformação da união de fluxos de dados
+# <a name="union-transformation-in-mapping-data-flow"></a>Transformação da União no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

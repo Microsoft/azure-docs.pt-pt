@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443853"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824155"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443853"
 Este artigo introduz configurações que controlam a conectividade com o servidor para Azure SQL Database e Azure Synapse Analytics. Estas definições aplicam-se a **todas as** bases de dados SQL Database e Azure Synapse associadas ao servidor.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica a **Azure SQL Managed Instance**
+> Este artigo *não* se aplica a **Azure SQL Managed Instance**.
 
 As definições de conectividade estão acessíveis a partir do ecrã **de Firewalls e redes virtuais,** como mostrado na imagem seguinte:
 
@@ -38,6 +38,9 @@ Quando a definição **de acesso à rede pública deny** está definida para **S
  ![Screenshot da conectividade com o acesso à rede pública negar o acesso à rede pública][2]
 
 Qualquer tentativa de definir a definição **de acesso à rede pública** de Deny para **Sim** sem quaisquer pontos finais privados existentes no servidor lógico falhará com uma mensagem de erro semelhante a:  
+
+> [!NOTE]
+> Para definir as regras de firewall de rede virtual num servidor lógico que já está configurado com pontos finais privados, defina **o acesso da rede pública** ao **Nº**.
 
 ```output
 Error 42102
@@ -217,7 +220,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
 - Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).

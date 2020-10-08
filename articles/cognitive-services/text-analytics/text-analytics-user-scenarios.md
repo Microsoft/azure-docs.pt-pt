@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986462"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823935"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplo de cenários de utilizador para a API de Análise de Texto
 
@@ -41,7 +41,7 @@ Utilize o Reconhecimento de Extração de Frase-Chave e reconhecimento de entida
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Monitorize as redes sociais do seu produto
 
-Monitorize o feedback do produto do utilizador no twitter ou na página de Facebook do seu produto. Utilize os dados para analisar o sentimento do cliente em relação aos lançamentos de novos produtos, extrair frases-chave sobre funcionalidades e pedidos de funcionalidades ou abordar as reclamações dos clientes à medida que estes ocorram. Veja o [exemplo do modelo do Microsoft Flow.](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)
+Monitorize o feedback do produto do utilizador no twitter ou na página de Facebook do seu produto. Utilize os dados para analisar o sentimento do cliente em relação aos lançamentos de novos produtos, extrair frases-chave sobre funcionalidades e pedidos de funcionalidades ou abordar as reclamações dos clientes à medida que estes ocorram. Veja o exemplo do [modelo de automatismo de energia da Microsoft.](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)
 
 ![Uma imagem descrevendo como monitorizar o feedback do seu produto e da empresa nas redes sociais usando a extração de frases-chave](media/use-cases/social-feed.svg)
 

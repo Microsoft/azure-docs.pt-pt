@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486447"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823203"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -308,7 +308,7 @@ Para configurar o vídeo ao vivo analítico no módulo IoT Edge para gerar regis
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > Este comando liga as pastas de registo entre o dispositivo Edge e o recipiente. Se pretender recolher os registos num local diferente, utilize o seguinte comando, substituindo **$LOG_LOCATION_ON_EDGE_DEVICE** pela localização que pretende utilizar:`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > Este comando liga as pastas de registo entre o dispositivo Edge e o recipiente. Se pretender recolher os registos num local diferente, utilize o seguinte comando, substituindo **$LOG_LOCATION_ON_EDGE_DEVICE** pela localização que pretende utilizar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Selecione **Atualizar**.
 1. Selecione **Review + Criar**. Uma mensagem de validação bem sucedida é postada sob um banner verde.
@@ -321,9 +321,11 @@ Para configurar o vídeo ao vivo analítico no módulo IoT Edge para gerar regis
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > Este comando liga as pastas de registo entre o dispositivo Edge e o recipiente. Se pretender recolher os registos num local diferente, utilize o seguinte comando, substituindo **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** pela localização que pretende utilizar:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > Este comando liga as pastas de registo entre o dispositivo Edge e o recipiente. Se pretender recolher os registos num local diferente do dispositivo:
+    > 1. Crie uma ligação para a localização do Registo de Debug na secção **Binds,** substituindo a **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** e **$DEBUG_LOG_LOCATION** com a localização desejada: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Utilize o seguinte comando, substituindo **$DEBUG_LOG_LOCATION** pela localização utilizada no passo anterior:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Selecione **Guardar**.
 
 1. Reproduza o problema.

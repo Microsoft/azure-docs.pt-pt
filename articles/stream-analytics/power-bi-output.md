@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891992"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822991"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
 
@@ -44,6 +44,9 @@ O Azure Stream Analytics cria um conjunto de dados power BI e esquema de tabela 
 
 Power BI utiliza a política de retenção de primeira e primeira saída (FIFO). Os dados serão recolhidos numa tabela até atingirem as 200.000 filas.
 
+> [!NOTE]
+> Não recomendamos a utilização de várias saídas para escrever para o mesmo conjunto de dados, pois pode causar vários problemas. Cada saída tenta criar o conjunto de dados Power BI de forma independente, o que pode resultar em múltiplos conjuntos de dados com o mesmo nome. Além disso, se as saídas não tiverem esquemas consistentes, o conjunto de dados altera o esquema em cada escrita, o que leva a muitos pedidos de alteração de esquemas. Mesmo que estas questões sejam evitadas, as saídas múltiplas serão menos performantes do que uma única saída fundida.
+
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Converter um tipo de dados do Stream Analytics para Power BI
 
 O Azure Stream Analytics atualiza o modelo de dados dinamicamente no tempo de execução se o esquema de saída mudar. Alterações no nome da coluna, alterações do tipo de coluna e a adição ou remoção de colunas são todas rastreadas.
@@ -53,7 +56,7 @@ Esta tabela cobre as conversões do tipo de dados do [Stream Analytics](https://
 De Stream Analytics | Para Power BI
 -----|-----
 bigint | Int64
-nvarchar(máx) | Cadeia
+nvarchar(máx) | String
 datetime | Datetime
 float | Double (Duplo)
 Matriz de registos | Tipo de corda, valor constante "IRecord" ou "IArray"
@@ -64,12 +67,12 @@ O Stream Analytics infere o esquema do modelo de dados com base no primeiro conj
 
 Evite a `SELECT *` consulta para evitar uma atualização dinâmica do esquema através de linhas. Além das potenciais implicações de desempenho, pode resultar na incerteza do tempo que os resultados demoram. Selecione os campos exatos que precisam de ser mostrados no painel Power BI. Além disso, os valores dos dados devem estar em conformidade com o tipo de dados escolhido.
 
-Anterior/corrente | Int64 | Cadeia | Datetime | Double (Duplo)
+Anterior/corrente | Int64 | String | Datetime | Double (Duplo)
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Double (Duplo)
 Double (Duplo) | Double (Duplo) | Cadeia | Cadeia | Double (Duplo)
 Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
-Datetime | Cadeia | Cadeia |  Datetime | Cadeia
+Datetime | Cadeia | Cadeia |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

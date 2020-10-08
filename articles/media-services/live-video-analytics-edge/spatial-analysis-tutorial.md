@@ -3,12 +3,12 @@ title: Analise vídeo ao vivo com visão computacional para análise espacial - 
 description: Este tutorial mostra-lhe como usar o Live Video Analytics juntamente com a funcionalidade de análise espacial de IA da Azure Cognitive Services para analisar um feed de vídeo ao vivo a partir de uma câmara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 72063cdefdf349eaad1b1d2fd760bb30b42786da
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649772"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824131"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analise vídeo ao vivo com visão de computador para análise espacial (pré-visualização)
 
@@ -21,7 +21,7 @@ Neste tutorial você:
 > * Examine o código.
 > * Executar o código de amostra.
 > * Monitorize os acontecimentos.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida
@@ -200,7 +200,16 @@ Em seguida, pode `lvaEdge` `rtspsim` encontrar, `spatialAnalysis` e `rtspsim` m�
 
 Para ver estes eventos, siga estes passos:
 
-1. Abra o painel Explorer no Código do Estúdio Visual e procure o Azure IoT Hub no canto inferior esquerdo.
+1. No Código do Estúdio Visual, abra o **separador Extensões** (ou prima Ctrl+Shift+X) e procure por Azure IoT Hub.
+1. Clique no direito e selecione **Definições de extensão**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Visão geral da análise espacial":::
+1. Procure e ative "Mostrar Mensagem Verbose".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visão geral da análise espacial":::
+1. Abra o painel Explorer e procure o Azure IoT Hub no canto inferior esquerdo.
 1. Expandir o nó dispositivos.
 1. Clique com o botão direito no seu Azure Stack Edge e selecione Start Monitoring Built-in Event Endpoint.
     

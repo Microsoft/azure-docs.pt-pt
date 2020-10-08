@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761129"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823620"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
@@ -52,18 +52,18 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | No | Não aplicável |
-  | **Criar ficheiro** | Yes | Yes |
+  | **Ficheiro de cópia** | Não | Não aplicável |
+  | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
   | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
-  | **Obtenha o conteúdo do arquivo** | Yes | Yes |
-  | **Obtenha o conteúdo do ficheiro usando o caminho** | Yes | Yes |
+  | **Obtenha o conteúdo do arquivo** | Sim | Sim |
+  | **Obtenha o conteúdo do ficheiro usando o caminho** | Sim | Sim |
   | **Obtenha metadados de ficheiros** | Não aplicável | Não aplicável |
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | No | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -259,7 +259,7 @@ Este erro pode ocorrer quando a aplicação lógica não é capaz de estabelecer
 
 1. O tempo de ligação é de 20 segundos. Certifique-se de que o servidor SFTP tem um bom desempenho e que os dispositivos intermidiados, como firewall, não adicionam muita sobrecarga. 
 
-2. Se houver uma firewall envolvida, certifique-se de que os endereços **IP do conector gerido** estão na lista branca. Você pode encontrar estes endereços IP para a sua região de aplicações lógicas [**aqui**]https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. Se houver uma firewall envolvida, certifique-se de que os endereços IP do **conector gerido** são adicionados à lista aprovada. Você pode encontrar estes endereços IP para a sua região de aplicações lógicas [**aqui**]https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. Se isto for um problema intermitente, por favor teste a definição de repetição para ver se uma contagem de repetição mais alta do que o padrão 4 pode ajudar.
 
@@ -279,4 +279,3 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
-

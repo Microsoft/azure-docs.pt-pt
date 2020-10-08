@@ -3,14 +3,14 @@ title: Integre o ônibus de serviço Azure com o Azure Private Link Service
 description: Saiba como integrar o Azure Service Bus com o Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.topic: article
-ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 54649c47a896937a512a6041e485abfb03ca88dd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716627"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824967"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados
 
@@ -189,7 +189,7 @@ Existem quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Na barra de pesquisa, escreva em **Service Bus.**
 1. Selecione o **espaço de nomes** que pretende gerir.
 1. Selecione o **separador 'Rede'.**

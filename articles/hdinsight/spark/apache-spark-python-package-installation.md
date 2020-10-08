@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060752"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823417"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
-A HDInsight tem duas instalações python incorporadas no cluster Spark, Anaconda Python 2.7 e Python 3.5. Os clientes podem precisar de personalizar o ambiente Python. Como instalar pacotes Python externos ou outra versão Python. Aqui, mostramos a melhor prática de gerir com segurança ambientes Python para aglomerados Apache Spark em HDInsight.
+A HDInsight tem duas instalações python incorporadas no cluster Spark, Anaconda Python 2.7 e Python 3.5. Os clientes podem precisar de personalizar o ambiente Python como instalar pacotes Python externos. Aqui, mostramos a melhor prática de gerir com segurança ambientes Python para aglomerados Apache Spark em HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -146,7 +146,7 @@ Há um bug conhecido para a versão Anaconda, `4.7.11` `4.7.12` e `4.8.0` . Se v
 
 Para verificar a sua versão Anaconda, pode SSH para o nó do cabeçalho do cluster e correr `/usr/bin/anaconda/bin/conda --v` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Pacotes externos com cadernos Jupyter em Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555124"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integração do Azure Ative Directory com FicheirosAnywhere
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD um único sinal de inscrição com ficheirosAnywhere,
 
 4. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute o seguinte passo:
 
-    ![FicheirosInde que domínio e URLs única informação de súp livre](common/both-replyurl.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com o campo "Responder U R L" realçado e o botão "Guardar" selecionado.](common/both-replyurl.png)
 
     Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,19 +116,19 @@ Para configurar o Azure AD um único sinal de inscrição com ficheirosAnywhere,
 
 6. FicheirosA aplicação onde a aplicação espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique no ícone Editar para adicionar os atributos.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
-    Quando os utilizadores se inscrevem no FilesOnde obtê-lo do atributo **clienteid** da [equipa FilesOnywhere](mailto:support@FilesAnywhere.com). Tem de adicionar o atributo "Identificação do Cliente" com o valor único fornecido pela FilesAnywhere.
+    Quando os utilizadores se inscrevem no FilesOnde obtê-lo do atributo **clienteid** da [equipa FilesOnywhere](mailto:support@FilesAnywhere.com). Tem de adicionar o atributo "ID do cliente" com o valor único fornecido pelo FilesAnywhere.
 
 7. Além de acima, a aplicação FilesAnywhere espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |    
     | clientid | *"Valor único"* |
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra o diálogo "Reclamações do Utilizador" com "Adicionar nova reivindicação" e "Save" selecionados.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -193,7 +193,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **FicheirosOnde .**
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, **selecione FilesAnywhere**.
 

@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530859"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824472"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos na Pesquisa Cognitiva Azure
 
@@ -35,11 +35,13 @@ Para começar, recomendamos o [conjunto de dados do Hotels,](https://github.com/
 
 O seguinte documento JSON é composto por campos simples e campos complexos. Campos complexos, tais como `Address` `Rooms` e, têm sub-campos. `Address` tem um único conjunto de valores para esses sub-campos, uma vez que é um único objeto no documento. Em contraste, `Rooms` tem vários conjuntos de valores para os seus sub-campos, um para cada objeto na coleção.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,17 +50,26 @@ O seguinte documento JSON é composto por campos simples e campos complexos. Cam
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
+
+<um nome="indexação-complexo-tipos></a>
+
+## <a name="indexing-complex-types"></a>Indexação de tipos complexos
+
+Durante a indexação, você pode ter um máximo de 3000 elementos em todas as coleções complexas dentro de um único documento. Um elemento de uma coleção complexa é um membro dessa coleção, por isso, no caso dos Quartos (a única coleção complexa no exemplo do Hotel), cada quarto é um elemento. No exemplo acima, se o "Motel Secret Point" tivesse 500 quartos, o documento do hotel teria 500 elementos de quarto. Para coleções complexas aninhadas, cada elemento aninhado também é contado, além do elemento exterior (progenitor).
+
+Este limite aplica-se apenas a coleções complexas, e não a tipos complexos (como Address) ou coleções de cordas (como Tags).
 
 ## <a name="creating-complex-fields"></a>Criação de campos complexos
 
@@ -93,7 +104,7 @@ O exemplo a seguir mostra um esquema de índice JSON com campos simples, coleç�
 
 ## <a name="updating-complex-fields"></a>Atualizar campos complexos
 
-Todas as [regras de reindexão](search-howto-reindex.md) aplicáveis aos campos em geral ainda se aplicam a campos complexos. Reafirmar algumas das principais regras aqui, adicionar um campo não requer uma reconstrução de índices, mas a maioria das modificações sim.
+Todas as [regras de reindexão](search-howto-reindex.md) aplicáveis aos campos em geral ainda se aplicam a campos complexos. Restaurar algumas das principais regras aqui, adicionar um campo a um tipo complexo não requer uma reconstrução de índice, mas a maioria das modificações sim.
 
 ### <a name="structural-updates-to-the-definition"></a>Atualizações estruturais da definição
 
@@ -151,7 +162,7 @@ Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambd
 
 Tal como acontece com os campos simples de alto nível, os subtis simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido `true` na definição de índice. Para obter mais informações, consulte a [referência API do Índice de Criação](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o [conjunto de dados do Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) no assistente de **dados de importação.** Você precisará da informação de ligação cosmos DB fornecida na leitura para aceder aos dados.
 

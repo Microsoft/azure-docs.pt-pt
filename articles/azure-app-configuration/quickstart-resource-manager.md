@@ -1,134 +1,105 @@
 ---
-title: Implementação de VM automatizada com quickstart de configuração de aplicações Azure
-description: Este quickstart demonstra como usar o módulo Azure PowerShell e os modelos Azure Resource Manager para implementar uma loja de configuração de aplicações Azure. Em seguida, utilize os valores na loja para implantar um VM.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 08/11/2020
+title: Crie uma loja de configuração de aplicativos Azure utilizando o modelo do Gestor de Recursos Azure (modelo ARM)
+titleSuffix: Azure App Configuration
+description: Aprenda a criar uma loja de configuração de aplicativos Azure utilizando o modelo Azure Resource Manager (modelo ARM).
+author: ZhijunZhao
+ms.author: zhijzhao
+ms.date: 09/21/2020
+ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.service: azure-app-configuration
-ms.custom:
-- mvc
-- subject-armqs
-ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88661474"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824184"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Quickstart: Implantação automatizada de VM com configuração de aplicações e modelo de gestor de recursos (modelo ARM)
+# <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Quickstart: Criar uma loja de configuração de aplicativos Azure usando um modelo ARM
 
-Aprenda a usar os modelos do Azure Resource Manager e o Azure PowerShell para implementar uma loja de configuração de aplicações Azure, como adicionar valores-chave na loja e como usar os valores-chave na loja para implantar um recurso Azure, como uma máquina virtual Azure neste exemplo.
+Este quickstart descreve como:
+
+- Implemente uma loja de configuração de aplicativos usando o modelo ARM
+- Crie valores-chave numa loja de configuração de aplicativos utilizando o modelo ARM
+- Leia os valores-chave numa loja de configuração de aplicativos a partir do modelo ARM
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="review-the-templates"></a>Rever os modelos
+## <a name="review-the-template"></a>Rever o modelo
 
-Os modelos utilizados neste arranque rápido são de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). O [primeiro modelo](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) cria uma loja de configuração de aplicativos:
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Cria uma nova loja de Configuração de Aplicações com dois valores-chave no interior. Em seguida, utiliza a `reference` função para desau o valor dos dois recursos de valor-chave. A leitura do valor da chave desta forma permite que seja usada em outros lugares do modelo.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
+O quickstart utiliza o `copy` elemento para criar múltiplas instâncias de recurso de valor-chave. Para saber mais sobre o `copy` elemento, consulte [a iteração de recursos nos modelos ARM](../azure-resource-manager/templates/copy-resources.md).
 
-No modelo, está definido um recurso do Azure:
+> [!IMPORTANT]
+> Este modelo requer a versão do fornecedor de recursos de configuração de aplicação `2020-07-01-preview` ou posterior. Esta versão utiliza a `reference` função para ler valores-chave. A `listKeyValue` função que foi utilizada para ler valores-chave na versão anterior não está disponível a partir da versão `2020-07-01-preview` .
 
-- [Microsoft.AppConfiguration/configurationStores:](/azure/templates/microsoft.appconfiguration/2019-10-01/configurationstores)criar uma loja de configuração de aplicações.
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
 
-O [segundo modelo](https://azure.microsoft.com/resources/templates/101-app-configuration/) cria uma máquina virtual utilizando os valores-chave na loja. Antes deste passo, tem de adicionar valores-chave utilizando o portal ou o Azure CLI.
+Dois recursos Azure são definidos no modelo:
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration/azuredeploy.json" range="1-217" highlight="77, 181,189":::
+- [Microsoft.AppConfiguration/configurationStores:](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores)criar uma loja de configuração de aplicações.
+- Microsoft.AppConfiguration/configurationStores/keyValues: criar um valor-chave dentro da loja de Configuração de Aplicações.
 
-## <a name="deploy-the-templates"></a>Implementar os modelos
+> [!NOTE]
+> O `keyValues` nome do recurso é uma combinação de chave e etiqueta. A chave e o rótulo são acompanhados pelo `$` delimiter. A etiqueta é opcional. No exemplo acima, o `keyValues` recurso com nome cria um `myKey` valor-chave sem rótulo.
+>
+> A codificação por percentativa, também conhecida como codificação de URL, permite que as chaves ou etiquetas incluam caracteres que não são permitidos em nomes de recursos de modelo ARM. `%` também não é um personagem permitido, pelo que `~` é usado no seu lugar. Para codificar corretamente um nome, siga estes passos:
+>
+> 1. Aplicar codificação de URL
+> 2. Substituir `~` por `~7E`
+> 3. Substituir `%` por `~`
+>
+> Por exemplo, para criar um par de valores-chave com nome chave `AppName:DbEndpoint` e nome `Test` de etiqueta, o nome do recurso deve ser `AppName~3ADbEndpoint$Test` .
 
-### <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma loja de configuração de aplicativos.
+Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma loja de configuração de aplicativos com dois valores-chave no interior.
 
-    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
-1. Selecione ou introduza os seguintes valores.
+Também pode implantar o modelo utilizando o seguinte cmdlet PowerShell. Os valores-chave estarão na saída da consola PowerShell.
 
-    - **subscrição**: selecione a subscrição Azure utilizada para criar a loja de Configuração de Aplicações.
-    - **Grupo de recursos**: selecione **Criar novo** para criar um novo grupo de recursos, a menos que pretenda utilizar um grupo de recursos existente.
-    - **Região**: selecione uma localização para o grupo de recursos.  Por exemplo, **Leste dos EUA.**
-    - **Nome da loja Config:** introduza um novo nome de loja de configuração de aplicações.
-    - **Localização**: especifique a localização da loja de Configuração de Aplicações.  Utilize o valor predefinido.
-    - **Nome Sku**: especifique o nome SKU da loja de configuração de aplicações. Utilize o valor predefinido.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
 
-1. Selecione **Rever + criar**.
-1. Verifique se a página mostra **validação passada**e, em seguida, selecione **Criar**.
+$resourceGroupName = "${projectName}rg"
 
-Tome nota do nome do grupo de recursos e do nome da loja de configuração de aplicações.  Precisa destes valores quando implanta a máquina virtual
-### <a name="add-vm-configuration-key-values"></a>Adicionar valores-chave de configuração VM
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 
-Depois de ter criado uma loja de Configuração de Aplicações, pode utilizar o portal Azure ou o Azure CLI para adicionar valores-chave à loja.
-
-1. Inscreva-se no [portal Azure](https://portal.azure.com)e, em seguida, navegue para a recém-criada loja de Configuração de Aplicações.
-1. Selecione o explorador de **configuração** a partir do menu esquerdo.
-1. Selecione **Criar** para adicionar os seguintes pares de valor-chave:
-
-   |Chave|Valor|Etiqueta|
-   |-|-|-|
-   |windowsOsVersion|Centro de Dados 2019|modelo|
-   |diskSizeGB|1023|modelo|
-
-   Mantenha **o tipo de conteúdo** vazio.
-
-Para utilizar o Azure CLI, consulte [Trabalhar com valores-chave numa loja de configuração de aplicações Azure](./scripts/cli-work-with-keys.md).
-
-### <a name="deploy-vm-using-stored-key-values"></a>Implementar VM utilizando valores-chave armazenados
-
-Agora que adicionou valores-chave à loja, está pronto para implementar um VM usando um modelo de Gestor de Recursos Azure. O modelo faz referência às **chaves windowsOsVersion** e **diskSizeGB** que criou.
-
-> [!WARNING]
-> Os modelos ARM não podem fazer referência às teclas numa loja de Configuração de Aplicações que tenha o Link Privado ativado.
-
-1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma máquina virtual utilizando valores-chave armazenados na loja de configuração de aplicações.
-
-    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration%2Fazuredeploy.json)
-
-1. Selecione ou introduza os seguintes valores.
-
-    - **subscrição**: selecione a assinatura Azure utilizada para criar a máquina virtual.
-    - **Grupo de recursos**: especifique o mesmo grupo de recursos que a loja de Configuração de Aplicações ou selecione **Criar novos** para criar um novo grupo de recursos.
-    - **Região**: selecione uma localização para o grupo de recursos.  Por exemplo, **Leste dos EUA.**
-    - **Localização**: especificar a localização da máquina virtual. utilizar o valor predefinido.
-    - **Nome de utilizador Admin**: especifique um nome de utilizador do administrador para a máquina virtual.
-    - **Admin Password**: especifique uma palavra-passe do administrador para a máquina virtual.
-    - **Etiqueta de nome de**domínio : especifique um nome de domínio único.
-    - **Nome da conta de**armazenamento : especifique um nome único para uma conta de armazenamento associada à máquina virtual.
-    - **App Config Store Resource Group**: especifique o grupo de recursos que contém a sua loja de Configuração de Aplicações.
-    - **App Config Store Name**: especifique o nome da sua loja de configuração de aplicações Azure.
-    - **Chave VM Sku**: especifique **a janelaOsVersion**.  Este é o nome de valor chave que adicionou à loja.
-    - **Tecla de tamanho do disco**: especifique o **diskSizeGB**. Este é o nome de valor chave que adicionou à loja.
-
-1. Selecione **Rever + criar**.
-1. Verifique se a página mostra **validação passada**e, em seguida, selecione **Criar**.
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)e, em seguida, navegue para a máquina virtual recém-criada.
-1. Selecione **visão geral** do menu esquerdo e verifique se o **SKU** é **2019-Datacenter**.
-1. Selecione **Discos** do menu esquerdo e verifique se o tamanho do disco de dados é **2013**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Na caixa de pesquisa do portal Azure, **escreva configuração de aplicação**. Selecione configuração de **aplicação** da lista.
+1. Selecione o recurso de configuração de aplicação recém-criado.
+1. Em **Operações,** clique no **explorador de configuração.**
+1. Verifique se existem dois valores-chave.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a loja de Configuração de Aplicações, VM e todos os recursos relacionados. Se, no futuro, estiver a planear utilizar a loja de Configuração de Aplicações ou VM, pode não a excluir. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
+Quando já não for necessário, elimine o grupo de recursos, a loja de Configuração de Aplicações e todos os recursos relacionados. Se estiver a planear utilizar a loja de Configuração de Aplicações no futuro, pode não a excluir. Se não continuar a utilizar esta loja, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup `
-  -Name $resourceGroup
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-
-Neste arranque rápido, implementou um VM utilizando um modelo de Gestor de Recursos Azure e valores-chave da Configuração da Aplicação Azure.
 
 Para saber mais sobre a criação de outras aplicações com configuração de aplicações Azure, continue ao seguinte artigo:
 

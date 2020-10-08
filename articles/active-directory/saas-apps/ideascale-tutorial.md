@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547506"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Azure Ative Directory com IdeaScale
 
@@ -137,7 +137,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
 3. Aceda às ** \> definições de sinalização única de segurança**.
 
-    ![Definições de signon único](./media/ideascale-tutorial/ic790848.png "Definições de signon único")
+    ![A screenshot mostra definições de signon única selecionadas a partir do menu De segurança.](./media/ideascale-tutorial/ic790848.png "Definições de signon único")
 
 4. Como **Tipo Single-Signon**, selecione **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
 5. No **diálogo de definições de sinalização única,** execute os seguintes passos:
 
-    ![Definições de signon único](./media/ideascale-tutorial/ic790850.png "Definições de signon único")
+    ![A screenshot mostra a caixa de diálogo de definições de signon único.](./media/ideascale-tutorial/ic790850.png "Definições de signon único")
 
     a. Na caixa de texto **IdP ID da ENTIDADE SAML,** cole o valor do **Identificador Ad Azure** que copiou do portal Azure.
 
@@ -186,7 +186,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **IdeaScale**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **IdeaScale**.
 

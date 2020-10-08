@@ -1,5 +1,5 @@
 ---
-title: Transformação da janela de fluxo de dados de mapeamento
+title: Transformação da janela no fluxo de dados de mapeamento
 description: Azure Data Factory mapeamento dados fluxo de janela transformação de janela
 author: kromerm
 ms.author: makromer
@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 1f440a5877dcefeca8c1baa82fad4299b5ce7bce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0231fc8919444558abcbc965ad127f7372eceb66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606232"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823608"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformação da janela da fábrica de dados Azure
+# <a name="window-transformation-in-mapping-data-flow"></a>Transformação da janela no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -47,6 +47,6 @@ Por último, utilize o Expression Builder para definir as agregações que prete
 
 A lista completa de funções agregadas e analíticas disponíveis para utilizar na Linguagem de Expressão de Fluxo de Dados ADF através do Expression Builder está listada aqui: https://aka.ms/dataflowexpressions .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se procura uma agregação simples de grupo, use a [transformação agregada](data-flow-aggregate.md)
