@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714703"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822269"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
@@ -47,8 +47,8 @@ As funções incorporadas que concedem permissões para chamadas de operações 
 |    Função do Azure    |    Descrição    |    Inclui acesso às chaves da conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso a recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
-| **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue atribuir recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
-| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | N.º |
+| **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue gerir o acesso aos recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
+| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | Não. |
 | **Contribuidor de Conta de Armazenamento** | Pode gerir a conta de armazenamento, obter informações sobre os grupos e recursos de recursos da subscrição, e criar e gerir implementações de grupos de recursos de subscrição. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Administrador de Acesso do Utilizador** | Pode gerir o acesso à conta de armazenamento.   | Sim, permite que um diretor de segurança atribua quaisquer permissões a si mesmos e a outros. |
 | **Contribuidor de Máquina Virtual** | Pode gerir máquinas virtuais, mas não a conta de armazenamento à qual estão ligadas.   | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
@@ -74,7 +74,7 @@ Estes modelos representam duas formas distingas de implementar e gerir as suas s
 
 Para obter mais informações sobre os modelos de implementação da Azure, consulte [o Gestor de Recursos e a implementação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Gestor de Recursos Azure](/azure/azure-resource-manager/resource-group-overview)
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)

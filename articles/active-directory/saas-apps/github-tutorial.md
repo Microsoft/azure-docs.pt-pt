@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985895"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821176"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
 
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 5. A sua aplicação GitHub espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos, onde como **Identificador de Utilizador Único (ID nome)** é mapeado com **user.userprincipalname**. A aplicação GitHub espera que **o Identificador Exclusivo do Utilizador (ID)** seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do utilizador" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -117,7 +117,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -149,11 +149,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Navegue para **Definições** e clique em **Segurança**
 
-    ![Definições](./media/github-tutorial/security.png)
+    ![Screenshot que mostra o menu GitHub "Organizações" com "Segurança" selecionado.](./media/github-tutorial/security.png)
 
 3. Verifique a caixa **de autenticação ATIVA SAML,** revelando os campos de configuração de inscrição de assinatura única. executar os seguintes passos:
 
-    ![Definições](./media/github-tutorial/saml-sso.png)
+    ![Screenshot que mostra a secção "S A M L single sign-on" com "Enable S A M L authentication" com caixas de texto U R L realçadas.](./media/github-tutorial/saml-sso.png)
 
     a. Copie o valor **de URL de inscrição única** e cole este valor na caixa de texto do Sinal na caixa de texto **SÍBL na Configuração Básica SAML** no portal Azure. **Sign on URL**
     
@@ -161,7 +161,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Configure os seguintes campos:
 
-    ![Definições](./media/github-tutorial/configure.png)
+    ![Screenshot que mostra as caixas de texto "Sign on URL", "Emitente" e "Certificado Público".](./media/github-tutorial/configure.png)
 
     a. Na placa de texto **URL,** cole o valor URL do **Login** que copiou do portal Azure.
 
@@ -208,7 +208,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no GitHub.
 
     b. Clique **em Enviar Convite.**
 
-    ![Convidar pessoas](./media/github-tutorial/send-invitation.png "Convidar pessoas")
+    ![Screenshot que mostra a página de diálogo "Membro convidado" com "Membro" selecionado e o botão "Enviar convite" selecionado.](./media/github-tutorial/send-invitation.png "Convidar pessoas")
 
     > [!NOTE]
     > O titular da conta Azure Ative Directory receberá um e-mail e seguirá um link para confirmar a sua conta antes de ficar ativa.

@@ -3,12 +3,12 @@ title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577225"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822188"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -62,7 +62,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 * Para ler, modificar, reesoar e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
 
-### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço azure
+### <a name="azure-subscription-and-service-limits"></a>Subscrição do Azure e limites do serviço
 
 Antes de configurar as suas máquinas com servidores ativados pelo Azure Arc, reveja os [limites de subscrição](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) do Gestor de Recursos Azure e [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) de grupo de recursos para planear o número de máquinas a serem ligadas.
 
@@ -85,6 +85,7 @@ Etiquetas de serviço:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* Estrutura AzureArcInfra
 
 URLs:
 
@@ -176,7 +177,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Name |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -238,7 +239,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Valor predefinido |Descrição |
+    |Nome |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

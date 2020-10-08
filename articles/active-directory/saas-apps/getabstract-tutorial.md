@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6881681eef553dd2e21ba68a2bf722c7af1fc4a7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550856"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Diretório Ativo Azure com o Getabstract
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD single sign-on com Getabstract, execute os seguintes 
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações únicas de sign-on do domínio getabstract e URLs](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com o "Identificador" e "URL de resposta" realçado e o botão "Guardar" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um URL:
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Getabstract**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Getabstract**.
 

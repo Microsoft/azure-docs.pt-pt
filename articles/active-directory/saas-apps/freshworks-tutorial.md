@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550970"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821255"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Azure Ative Directory integração única (SSO) com Freshworks
 
@@ -95,7 +95,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
      ![image](common/edit-certificate.png)
 
-     ![Configuração de obras frescas](./media/freshworks-tutorial/response.png)
+     ![Screenshot que mostra o diálogo "S A M L Signing Certificate" com o botão "Editar" selecionado.](./media/freshworks-tutorial/response.png)
 
     a. Selecione **Sign SAML response** como **Opção de Assinatura**.
 
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. A partir do lado esquerdo do menu, clique no ícone **de**   Segurança, em seguida, verifique a opção de **inscrição única** e selecione **SSO SAML** em **métodos de autenticação**.
 
-    ![Configuração de obras frescas](./media/freshworks-tutorial/configure01.png)
+    ![Screenshot que mostra a secção "Métodos de Segurança - Autenticação" com a opção "Single sign-on" ligada e selecionada "S A M L S S O".](./media/freshworks-tutorial/configure01.png)
 
 3. Na secção **de inscrição única,** execute os seguintes passos:
 

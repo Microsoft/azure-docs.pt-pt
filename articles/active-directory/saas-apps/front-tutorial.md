@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550984"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: Integração do Diretório Ativo Azure com a Front
 
@@ -128,23 +128,23 @@ Para configurar o Azure AD single sign-on com Front, execute os seguintes passos
 
 2. Ir para **Definições (ícone de engrenagem na parte inferior da barra lateral esquerda) > Preferências**.
    
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_000.png)
+    ![Screenshot que mostra as "Definições (ícone de engrenagem)" selecionada com "Preferências" em destaque.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Clique **em Sinal único No** link.
    
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_001.png)
+    ![Screenshot que mostra a secção "Preferências da empresa" com o link "Single Sign On" selecionado.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Selecione **SAML** na lista de drop-down de **Single Sign On**.
    
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_002.png)
+    ![Screenshot que mostra a lista de drop-down "Single Sign On" com "S A M L" selecionada.](./media/front-tutorial/tutorial_front_002.png)
 
 5. Na caixa de texto **'Ponto de Entrada'** coloca o valor do URL de **Login** do assistente de configuração de aplicação AD Azure.
     
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_003.png)
+    ![Screenshot que mostra a caixa de texto "Ponto de Entrada".](./media/front-tutorial/tutorial_front_003.png)
 
 6. Abra o seu ficheiro certificado descarregado **(Base64)** no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto do **certificado de assinatura.**
     
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_004.png)
+    ![Screenshot que mostra "Certificado de assinatura" em destaque, com a caixa de texto acinzentado.](./media/front-tutorial/tutorial_front_004.png)
 
 7. Na secção **de definições do prestador de serviços,** execute os seguintes passos:
 
@@ -187,7 +187,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Front**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Front**.
 

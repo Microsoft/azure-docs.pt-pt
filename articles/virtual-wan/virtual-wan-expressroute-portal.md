@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569638"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821886"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando Azure Virtual WAN
 
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Alterar o tamanho do gateway
 > * Anuncie uma rota predefinida
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -38,7 +38,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * A sua rede virtual não tem quaisquer portas de rede virtuais. Se a sua rede virtual tiver um gateway (VPN ou ExpressRoute), deve remover todos os gateways. Esta configuração requer que as redes virtuais estejam ligadas ao gateway do hub Virtual WAN.
 
-* Obtenha um intervalo de endereços IP para a região do seu hub. O hub é uma rede virtual que é criada e usada pela Virtual WAN. O intervalo de endereços que especifica para o hub não pode sobrepor-se a nenhuma das suas redes virtuais existentes a que se conecta. Também não se pode sobrepor aos intervalos de endereços a que se ligue no local. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração da rede no local, coordene com alguém que possa fornecer esses detalhes para si.
+* Obtenha um intervalo de endereços IP para a região do seu hub. O hub é uma rede virtual que é criada e usada pela Virtual WAN. O intervalo de endereços que especifica para o hub não pode sobrepor-se a nenhuma das suas redes virtuais existentes a que se conecta. Também não pode sobrepor-se aos intervalos de endereços que liga ao local. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração da rede no local, coordene com alguém que possa fornecer esses detalhes para si.
 
 * O circuito ExpressRoute deve ser um circuito Premium/Standard para ligar ao portão do hub.
 
@@ -105,7 +105,7 @@ Nesta secção, cria-se a ligação de espreitar entre o seu hub e um VNet. Repi
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Ligue o seu circuito ao gateway do hub
 
-Uma vez criado o gateway, pode ligar-lhe um [circuito ExpressRoute.](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Os circuitos ExpressRoute Premium/Standard que se encontram em locais suportados pelo ExpressRoute Global Reach podem ligar-se a um gateway Virtual WAN ExpressRoute e usufruir de todas as capacidades de trânsito VIRTUAL WAN (VPN a VPN, VPN e ExpressRoute transit). Os circuitos ExpressRoute Premium/Standard que se encontram em locais de alcance não global podem ligar-se aos recursos Azure, mas não poderão utilizar as capacidades de trânsito WAN virtual.
+Uma vez criado o gateway, pode ligar-lhe um [circuito ExpressRoute.](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Os circuitos ExpressRoute Standard ou Premium que se encontrem em locais suportados pelo ExpressRoute Global Reach podem ligar-se a um gateway Virtual WAN ExpressRoute e usufruir de todas as capacidades de trânsito VIRTUAL WAN (VPN-to-VPN, VPN e expressRoute transit). Os circuitos ExpressRoute Standard e Premium que se encontram em locais não-Globais de Alcance podem ligar-se aos recursos Azure, mas não poderão utilizar as capacidades de trânsito WAN Virtual. O ExpressRoute Local não é suportado com a Azure Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para ligar o circuito ao gateway do hub
 

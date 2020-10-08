@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086335"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821692"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar Apache HBase com Apache Ambari em Azure HDInsight
 
@@ -89,7 +89,7 @@ Quanto maior for o tamanho do ficheiro da região, menor é o número de divisõ
 
 ## <a name="define-memstore-size"></a>Definir o tamanho de Memstore
 
-O tamanho da memstore é definido pelos `hbase.regionserver.global.memstore.UpperLimit` `hbase.regionserver.global.memstore.LowerLimit` parâmetros e parâmetros. Definir estes valores iguais uns aos outros reduz as pausas durante as escritas (causando também uma lavagem mais frequente) e resulta num aumento do desempenho da escrita.
+O tamanho da memstore é definido pelos `hbase.regionserver.global.memstore.upperLimit` `hbase.regionserver.global.memstore.lowerLimit` parâmetros e parâmetros. Definir estes valores iguais uns aos outros reduz as pausas durante as escritas (causando também uma lavagem mais frequente) e resulta num aumento do desempenho da escrita.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Definir tampão de atribuição local memstore
 
@@ -97,7 +97,7 @@ O uso do tampão de atribuição local memstore é determinado pela propriedade 
 
 ![hbase.hregion.memstore.mslab.enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
