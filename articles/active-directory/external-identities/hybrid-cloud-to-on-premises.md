@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909414"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819390"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B utilizadores em Azure AD acesso às suas aplicações no local
 
@@ -41,6 +41,9 @@ Para fornecer aos utilizadores B2B acesso a aplicações no local que estejam pr
 
 - **Autenticação através do Azure AD Application Proxy**. Os utilizadores B2B devem poder autenticar a aplicação no local. Para isso, tem de publicar a aplicação no local através do Azure AD Application Proxy. Para obter mais informações, consulte [Começar com o Application Proxy e instalar as](../manage-apps/application-proxy-enable.md) aplicações de conector e publicação utilizando o [Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md).
 - **Autorização através de um objeto utilizador B2B no diretório no local**. A aplicação deve ser capaz de realizar verificações de acesso ao utilizador e conceder acesso aos recursos corretos. A IWA e a KCD requerem um objeto de utilizador no Windows Server Ative Directory para completar esta autorização. Como descrito em [Como funciona um único s-on com o KCD,](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)o Application Proxy precisa deste objeto do utilizador para personificar o utilizador e obter um token Kerberos para a aplicação. 
+
+   > [!NOTE]
+   > Quando configurar o Proxy de aplicação AD Azure, certifique-se de que a **identidade de logon delegada** está definida para **o nome principal do utilizador** (padrão) para um único sinal de IWA.
 
    Para o cenário de utilizador B2B, existem dois métodos disponíveis que pode utilizar para criar os objetos de utilizador convidado que são necessários para autorização no diretório no local:
 

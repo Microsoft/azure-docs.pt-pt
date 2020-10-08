@@ -13,12 +13,12 @@ ms.date: 09/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: a9bf992a65914afb8fa800041b57ad9f44ba4fa0
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595609"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819445"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -90,9 +90,9 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | Access Token Lifetime |AccessTokenLifetime<sup>2</sup> |Fichas de acesso, fichas de ID, fichas SAML2 |Uma hora |10 minutos |1 dia |
 | Atualizar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Fichas de atualização (para qualquer utilizadores) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) | 180 dias |10 minutos |Até revogado<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) | 180 dias |10 minutos |180 dias<sup>1</sup> |
 | Sessão de fator único Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) | 180 dias |10 minutos |Até revogado<sup>1</sup> |
+| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) | 180 dias |10 minutos | 180 dias<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
 * <sup>2</sup> Para garantir que o cliente Web da Microsoft Teams funciona, recomenda-se manter o AccessTokenLifetime a mais de 15 minutos para as Equipas microsoft.

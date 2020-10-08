@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398394"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819902"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
-A Microsoft detém e opera uma das maiores redes de espinha dorsal do mundo. Esta arquitetura global e sofisticada, com mais de 160.000 milhas, liga os nossos datacenters e clientes. 
+A Microsoft detém e opera uma das maiores redes de espinha dorsal do mundo. Esta arquitetura global e sofisticada, com mais de 165.000 milhas, liga os nossos datacenters e clientes. 
  
 Todos os dias, os clientes de todo o mundo conectam e passam triliões de pedidos para a Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox, entre muitos outros. Independentemente do tipo, os clientes esperam fiabilidade instantânea e capacidade de resposta dos nossos serviços. 
  
-A [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) é uma parte central de proporcionar uma grande experiência em nuvem. Conectando os [nossos centros de dados](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 54 regiões de Azure e uma grande malha de nós de borda estrategicamente posicionados em todo o mundo, a nossa rede global oferece tanto a disponibilidade, a capacidade como a flexibilidade para satisfazer qualquer procura.
+A [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) é uma parte central de proporcionar uma grande experiência em nuvem. Conectando os [nossos centros de dados](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 61 regiões de Azure e uma grande malha de nós de borda estrategicamente posicionados em todo o mundo, a nossa rede global oferece tanto a disponibilidade, a capacidade como a flexibilidade para satisfazer qualquer procura.
 
 ![Rede global da Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Obtenha a rede de nuvem premium
  
-Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando se utiliza a nuvem microsoft. A partir do momento em que o tráfego de clientes entra na nossa rede global através dos nossos nós de borda estrategicamente posicionados, os seus dados viajam através de rotas otimizadas perto da velocidade da luz. Isto garante uma latência ótima para o melhor desempenho. Estes nós de borda, todos interligados a mais de 3500 parceiros únicos da Internet (pares) através de milhares de conexões em mais de 165 locais, fornecem a base da nossa estratégia de interconexão. 
+Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando se utiliza a nuvem microsoft. A partir do momento em que o tráfego de clientes entra na nossa rede global através dos nossos nós de borda estrategicamente posicionados, os seus dados viajam através de rotas otimizadas perto da velocidade da luz. Isto garante uma latência ótima para o melhor desempenho. Estes nós de borda, todos interligados a mais de 4000 parceiros únicos da Internet (pares) através de milhares de conexões em mais de 175 locais, fornecem a base da nossa estratégia de interconexão. 
  
 Seja ligando de Londres a Tóquio, ou de Washington DC a Los Angeles, o desempenho da rede é quantificado e impactado por coisas como latência, nervosismo, perda de pacotes e produção.  Na Microsoft, preferimos e usamos interligações diretas em oposição às ligações de trânsito, isto mantém a resposta simétrica do tráfego e ajuda a manter o lúpulo, as partes e os caminhos o mais curtos e simples possível. 
 

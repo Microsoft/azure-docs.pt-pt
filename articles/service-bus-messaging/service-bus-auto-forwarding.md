@@ -4,12 +4,12 @@ description: Este artigo descreve como acorrentar uma fila de autocarros da Azur
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333686"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819579"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Entidades de autocarros de serviço de chaining com autoforwarding
 
@@ -52,6 +52,8 @@ Ao acorrentar tópicos individuais para obter um tópico composto com muitas sub
 Service Bus fatura uma operação para cada mensagem reencaminhada. Por exemplo, o envio de uma mensagem para um tópico com 20 subscrições, cada uma delas configurada para mensagens de via automática para outra fila ou tópico, é faturado como 21 operações se todas as subscrições de primeiro nível receberem uma cópia da mensagem.
 
 Para criar uma subscrição acorrentada a outra fila ou tópico, o criador da subscrição deve ter permissões de **Gestão** tanto na fonte como na entidade de destino. Enviar mensagens para o tópico de origem só requer **Enviar** permissões sobre o tópico de origem.
+
+Não crie uma corrente que exceda 4 lúpulos. Mensagens que ultrapassam 4 lúpulos são letradas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

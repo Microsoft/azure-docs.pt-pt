@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: tradução da fala
-ms.openlocfilehash: 2ef6997c0fc2382e436f8a84e154ca4109c85363
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d5da242a72a3b152924363190a2161ebc101da4b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776663"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819456"
 ---
 # <a name="get-started-with-speech-translation"></a>Introdução à tradução de voz
 
@@ -44,10 +44,6 @@ ms.locfileid: "91776663"
 
 ::: zone pivot="programmer-tool-spx"
 [!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
-::: zone-end
-
-::: zone pivot="programming-language-more"
-[!INCLUDE [More languages include](includes/how-to/speech-translation-basics/more.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Passos seguintes

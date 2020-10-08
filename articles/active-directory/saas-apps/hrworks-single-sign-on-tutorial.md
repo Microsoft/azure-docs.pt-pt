@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549163"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820487"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com HRworks Single Sign-On
 
@@ -156,15 +156,15 @@ Para ativar os utilizadores Azure AD, inscreva-se no HRworks Single Sign-On, dev
 
 1. Clique em Pessoas **de Administrador**  >  **Persons**  >  **Persons**  >  **Pessoas Nova pessoa** do lado esquerdo da barra de menu.
 
-     ![Configurar um único sign-on](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Screenshot mostra screenshot mostra página de trabalho de H R com Pessoas e Nova pessoa selecionada.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. No Pop-up, clique em **Seguinte**.
 
-    ![Configurar um único sign-on](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![A screenshot mostra uma lista de países para você escolher para a pessoa.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. No **Create new person with country for legal terms** pop-up, preencha os respetivos detalhes como Primeiro **Nome**, **Apelido** e clique em **Criar**.
 
-    ![Configurar um único sign-on](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![A screenshot mostra caixas de texto onde pode introduzir primeiro e último nome para a pessoa.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Teste SSO
 

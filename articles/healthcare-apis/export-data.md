@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: ee7ba96a7cc8789e1a949db80bc84c63b28f4518
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 433d3391e7b2b99d72ea71f1b4d48c3e04a46afc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531671"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819980"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
-A funcionalidade de Exportação a Granel permite que os dados sejam exportados do Servidor FHIR de acordo com a especificação "FHIR". https://hl7.org/fhir/uv/bulkdata/export/index.html) 
+A funcionalidade de exportação a granel permite que os dados sejam exportados do Servidor FHIR de acordo com a [especificação FHIR](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
 Antes de utilizar $export, deverá certificar-se de que a API Azure para FHIR está configurada para a utilizar. Para configurar as definições de exportação e criar a conta de armazenamento Azure, consulte [a página de dados de exportação configurada](configure-export-data.md).
 
@@ -24,7 +24,7 @@ Antes de utilizar $export, deverá certificar-se de que a API Azure para FHIR es
 
 Depois de configurar a API Azure para a exportação, pode utilizar o comando $export para exportar os dados para fora do serviço. Os dados serão armazenados na conta de armazenamento que especificou enquanto configura a exportação. Para aprender a invocar $export comando no servidor FHIR, leia a documentação sobre a [especificação $export](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
 
-O comando $export em Azure API para FHIR tem um parâmetro de _ \_ contentor_ opcional que especifica o recipiente dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um recipiente for especificado, os dados serão exportados para esse recipiente numa nova pasta com o nome. Se nenhum recipiente for especificado, os dados serão exportados para um novo recipiente com o nome
+O comando $export em Azure API para FHIR tem um parâmetro de _ \_ contentor_ opcional que especifica o recipiente dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se for especificado um recipiente, os dados serão exportados para esse contentor numa nova pasta com o nome do recipiente. Se não for especificado nenhum recipiente, os dados serão exportados para um novo recipiente.
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 
@@ -37,7 +37,7 @@ A Azure API para FHIR suporta $export ao nível do sistema, paciente e grupo. Pa
 
 Além disso, é apoiado o controlo do estado de exportação através do URL devolvido pelo cabeçalho de localização durante a fila, bem como o cancelamento do emprego de exportação efetivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a exportar recursos FHIR usando $export comando. Em seguida, pode rever as nossas funcionalidades suportadas
  

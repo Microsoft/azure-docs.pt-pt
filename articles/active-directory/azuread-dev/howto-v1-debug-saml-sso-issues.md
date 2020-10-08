@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116143"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819316"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "88116143"
 
 Saiba como encontrar e corrigir problemas [de inscrição única](../manage-apps/what-is-single-sign-on.md) para aplicações no Azure Ative Directory (Azure AD) que suportam [a Linguagem de Marcação de Afirmação de Segurança (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Recomendamos a instalação da [extensão de inscrição segura das minhas apps](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensão do navegador facilita a recolha do pedido SAML e das informações de resposta SAML de que necessita para resolver problemas com um único sing-on. Caso não possa instalar a extensão, este artigo mostra-lhe como resolver problemas com e sem a extensão instalada.
 
@@ -86,7 +86,7 @@ Se não for fornecida nenhuma resolução para o erro de entrada, sugerimos que 
 
 Pode iniciar sôm com sucesso e depois ver um erro na página da aplicação. Isto ocorre quando a Azure AD emitiu um sinal para o pedido, mas o pedido não aceita a resposta.
 
-Para resolver o erro, siga estes passos:
+Para resolver o erro, siga estes passos ou veja este [pequeno vídeo sobre como usar a Azure AD para resolver problemas saml SSO](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8):
 
 1. Se a aplicação estiver na Galeria AD Azure, verifique se seguiu todos os passos para integrar a aplicação com a Azure AD. Para encontrar as instruções de integração da sua candidatura, consulte a [lista de tutoriais de integração de aplicações SaaS.](../saas-apps/tutorial-list.md)
 1. Recupere a resposta do SAML.

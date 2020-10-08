@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708123"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819935"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -158,11 +158,11 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
     Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, incluindo marcação HTML. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação.](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)
 
 - **Instruções de início**: Se optar por vender a sua oferta através da Microsoft (oferta transacionável), este campo é necessário. Estas são instruções para ajudar os clientes a conectarem-se à sua oferta SaaS. Pode adicionar até 3.000 caracteres de texto e links para documentação online mais detalhada.
-- **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta no mercado(s). Não é necessário incluir a oferta **Nome** e **Descrição**: esse texto está automaticamente incluído na pesquisa.
+- **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta nas lojas online. Não é necessário incluir a oferta **Nome** e **Descrição**: esse texto está automaticamente incluído na pesquisa.
 - **Ligação de política de privacidade**: O URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que a sua aplicação está em conformidade com as leis e regulamentos de privacidade.
 - **Informações de contacto**: Deve designar os seguintes contactos da sua organização:
   - **Contacto de suporte**: Forneça o nome, telefone e e-mail para os parceiros da Microsoft usarem quando os seus clientes abrirem os bilhetes. Também deve incluir o URL para o seu site de suporte.
-  - **Contacto de engenharia**: Forneça o nome, telefone e e-mail para que a Microsoft utilize diretamente quando houver problemas com a sua oferta. Esta informação de contacto não está listada no mercado.
+  - **Contacto de engenharia**: Forneça o nome, telefone e e-mail para que a Microsoft utilize diretamente quando houver problemas com a sua oferta. Esta informação de contacto não está listada no mercado comercial.
   - **Contacto do Programa CSP** (opcional): Forneça o nome, telefone e e-mail se optar pelo programa CSP, para que esses parceiros possam contactá-lo com quaisquer questões. Também pode incluir um URL nos seus materiais de marketing.
 - **Links úteis** (opcional): Pode fornecer links para vários recursos para os utilizadores da sua oferta. Por exemplo, fóruns, PERGUNTAS Frequentes e notas de lançamento.
 - **Documentos comprovativos**: Pode fornecer até três documentos voltados para o cliente, tais como papel branco, brochuras, checklists ou apresentações de PowerPoint.
@@ -174,16 +174,16 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 
   Estes logótipos são utilizados em diferentes locais nas lojas online:
 
-  -  O logótipo Small aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa.
-  -  O logótipo Medium aparece quando cria um novo recurso no Microsoft Azure.
-  -  O logotipo Large aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
+  - O logótipo Small aparece nos resultados de pesquisa do Azure Marketplace e na página principal do Microsoft AppSource e na página de resultados de pesquisa.
+  - O logótipo Medium aparece quando cria um novo recurso no Microsoft Azure.
+  - O logotipo Large aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
 
 - **Meios de comunicação - Screenshots**: Deve adicionar pelo menos uma e até cinco imagens com os seguintes requisitos, que mostram como a sua oferta funciona:
   - 1280 x 720 pixels
   - ficheiro .png
   - Deve incluir uma legenda
 - **Meios - Vídeos** (opcional): Pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram a sua oferta:
-  - Name
+  - Nome
   - URL: Deve ser hospedado apenas no YouTube ou Vimeo.
   - Miniatura: 1280 x 720 .png file
 
@@ -241,7 +241,7 @@ Pode optar por optar por canais de marketing e vendas suportados pela Microsoft.
 
 - **Co-vender com**a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)
 - [Melhores práticas de listagem de ofertas](gtm-offer-listing-best-practices.md)
