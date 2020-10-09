@@ -4,10 +4,10 @@ description: Use o Gráfico de Recursos Azure para executar algumas consultas de
 ms.date: 07/14/2020
 ms.topic: sample
 ms.openlocfilehash: 778e8bb7715f1eda1587ff79c4c9a99b69ab4e70
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425267"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Amostras de consulta de gráfico de recurso de início

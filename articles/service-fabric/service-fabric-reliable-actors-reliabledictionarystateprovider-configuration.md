@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609745"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurar atores fiáveis--ReliableDictionaryActorStateProvider
@@ -30,7 +30,7 @@ A configuração global é especificada no manifesto de cluster para o cluster s
 O manifesto de cluster é um único ficheiro XML que contém configurações e configurações que se aplicam a todos os nós e serviços do cluster. O ficheiro é normalmente chamado ClusterManifest.xml. Pode ver o manifesto de cluster para o seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Name | Unidade | Valor predefinido | Observações |
+| Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB para alocar no modo kernel para o logger escrever piscina de memória tampão. Este conjunto de memórias é utilizado para cache informações do estado antes de escrever no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Tamanho máximo ao qual o madeireiro escreve piscina de memória tampão pode crescer. |
@@ -75,7 +75,7 @@ A configuração padrão é gerada pelo modelo de Estúdio Visual e deve ser suf
 &lt;ActorName &gt; ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Name | Unidade | Valor predefinido | Observações |
+| Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAckAckNownowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta um aviso para o primário. Quaisquer outros avisos a serem enviados para operações processadas dentro deste intervalo são enviados como uma resposta. |
 | Ponto de réplica |N/D |Sem parâmetro padrão-necessário |Endereço IP e porta que o replicador primário/secundário utilizará para comunicar com outros replicadores no conjunto de réplicas. Isto deve fazer referência a um ponto final de recurso TCP no manifesto de serviço. Consulte os [recursos manifestos do Serviço](service-fabric-service-manifest-resources.md) para ler mais sobre a definição de recursos de ponto final no manifesto de serviço. |

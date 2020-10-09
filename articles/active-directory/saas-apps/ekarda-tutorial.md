@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: cfd7a007c8f26a96d929026e231cb412cdc70279
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440886"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Azure Ative Directory integração única (SSO) com ekarda
@@ -76,9 +76,9 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Na página de integração da aplicação **ekarda,** encontre a secção **Gerir** e selecione **um único sinal de s-on**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de um único sinal com página SAML,** selecione o ícone de lápis para editar as definições básicas de **configuração SAML.**
+1. Na **configuração single Sign-On com página SAML,** selecione o ícone de lápis para editar as definições básicas de **configuração SAML.**
 
-   ![Screenshot de Configurar O Único Sinal com página SAML, com o ícone do lápis em destaque.](common/edit-urls.png)
+   ![Screenshot de Configurar Single Sign-On com página SAML, com o ícone do lápis em destaque.](common/edit-urls.png)
 
 1. Na secção **De Configuração Básica SAML,** se vir **o ficheiro de metadados do Fornecedor de Serviços,** siga estes passos:
     1. Selecione **carregar o ficheiro de metadados**.
@@ -100,9 +100,9 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
     > [!NOTE]
     > Os valores nos dois passos anteriores não são reais. Atualize-os com o identificador real, responda URL e valores de URL de assinatura. Contacte a [equipa de suporte do Cliente Ekarda](mailto:contact@ekarda.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sinal com página SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para guardar **o Certificado (Base64)** no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para guardar **Certificado (Base64)** no seu computador.
 
-    ![Screenshot da secção de Certificado de Assinatura SAML da Configuração de Um Único Sinal com página SAML, com link de descarregamento destacado para o certificado Base64.](common/certificatebase64.png)
+    ![Screenshot da secção de Certificado de Assinatura SAML da Configuração Single Sign-On com página SAML, com link de descarregamento destacado para o certificado Base64.](common/certificatebase64.png)
 
 1. Na secção **Configuração ekarda,** copie os URLs apropriados com base nos seus requisitos.
 

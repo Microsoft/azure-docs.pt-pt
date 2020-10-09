@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991506"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados cassandra no local usando Azure Data Factory
@@ -63,13 +63,13 @@ As seguintes secções fornecem detalhes sobre as propriedades da JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Cassandra.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesCassandra** |Sim |
 | anfitrião |Um ou mais endereços IP ou nomes de anfitrião de servidores Cassandra.<br/><br/>Especifique uma lista separada de vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores simultaneamente. |Sim |
 | porta |A porta TCP que o servidor Cassandra usa para ouvir as ligações do cliente. |Não, valor predefinido: 9042 |
 | authenticationType |Básico, ou Anónimo |Sim |
-| o nome de utilizador |Especifique o nome de utilizador para a conta do utilizador. |Sim, se a autenticaçãoType estiver definida como Basic. |
+| nome de utilizador |Especifique o nome de utilizador para a conta do utilizador. |Sim, se a autenticaçãoType estiver definida como Basic. |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador. |Sim, se a autenticaçãoType estiver definida como Basic. |
 | gatewayName |O nome do portal que é usado para ligar à base de dados cassandra no local. |Sim |
 | criptografadoCredential |Credencial encriptada pelo portal. |Não |
@@ -82,7 +82,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipos de direitos para conjunto de dados do tipo **CassandraTable** tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | keyspace |Nome do espaço-chave ou esquema na base de dados de Cassandra. |Sim (Se **a consulta** para **CassandraSource** não estiver definida). |
 | tableName |O nome da mesa na base de dados da Cassandra. |Sim (Se **a consulta** para **CassandraSource** não estiver definida). |
@@ -97,7 +97,7 @@ Quando a fonte é do tipo **CassandraSource,** as seguintes propriedades estão 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | consulta |Utilize a consulta personalizada para ler dados. |Consulta SQL-92 ou consulta CQL. Consulte [a referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **o nome do keyspace.table** para representar a tabela que pretende consultar. |Não (se o nome de tabela e o espaço de teclas no conjunto de dados forem definidos). |
-| consistênciaLevel |O nível de consistência especifica quantas réplicas devem responder a um pedido de leitura antes de devolver os dados à aplicação do cliente. Cassandra verifica o número especificado de réplicas de dados para satisfazer o pedido de leitura. |UM, DOIS, TRÊS, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter informações mais pormenores. |Não. O valor predefinido é ONE. |
+| consistênciaLevel |O nível de consistência especifica quantas réplicas devem responder a um pedido de leitura antes de devolver os dados à aplicação do cliente. Cassandra verifica o número especificado de réplicas de dados para satisfazer o pedido de leitura. |UM, DOIS, TRÊS, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter informações mais pormenores. |N.º O valor predefinido é ONE. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo JSON: Copiar dados de Cassandra para Azure Blob
 Este exemplo fornece definições JSON de amostra que pode usar para criar um oleoduto utilizando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Mostra como copiar dados de uma base de dados cassandra no local para um Azure Blob Storage. No entanto, os dados podem ser copiados para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados utilizando a Atividade de Cópia na Fábrica de Dados Azure.
@@ -266,7 +266,7 @@ Consulte [as propriedades do tipo RelationalSource](#copy-activity-properties) p
 | BLOB |Byte[] |
 | BOOLEANA |Booleano |
 | DECIMAL |Decimal |
-| DUPLO |Double |
+| DUPLO |Double (Duplo) |
 | FLUTUAR |Único |
 | INET |String |
 | INT |Int32 |

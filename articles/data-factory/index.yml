@@ -12,10 +12,10 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   ms.openlocfilehash: 8a9046a3f35401a279c4cd99ce5fee88bd67cb32
-  ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/04/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89489277"
 landingContent:
 - title: Acerca do Azure Data Factory

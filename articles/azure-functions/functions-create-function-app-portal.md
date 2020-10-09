@@ -5,17 +5,17 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
 ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80985019"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar uma aplicação de funções a partir do portal do Azure
 
 Este tópico mostra-lhe como usar as Funções Azure para criar uma aplicação de função no portal Azure. Uma aplicação de funções é o contentor que aloja a execução das funções individuais. 
 
-## <a name="create-a-function-app"></a>Criar uma aplicação de função
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -38,7 +38,7 @@ Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Arma
 
 Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Enquanto o portal Azure facilita a criação e experimentação de Funções, recomendamos [o desenvolvimento local.](functions-develop-local.md) Depois de criar uma aplicação de função no portal, ainda precisa de adicionar uma função. 
 

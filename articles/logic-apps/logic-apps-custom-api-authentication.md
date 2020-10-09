@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656240"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança das chamadas para APIs personalizadas das Azure Logic Apps
@@ -142,7 +142,7 @@ Agora você deve encontrar o ID do cliente e iD do inquilino para a identidade d
 
 4. Em **Url Emitente,** copie e guarde apenas o GUID para a Parte 3. Também pode utilizar este GUID na sua aplicação web ou no modelo de implementação da app API, se necessário.
 
-   Este GUID é o GUID do seu inquilino específico ("ID do inquilino") e deve aparecer neste URL:`https://sts.windows.net/{GUID}`
+   Este GUID é o GUID do seu inquilino específico ("ID do inquilino") e deve aparecer neste URL: `https://sts.windows.net/{GUID}`
 
 5. Sem guardar as alterações, feche a página **Azure Ative Directory Settings.**
 
@@ -274,7 +274,7 @@ Na secção **de Autorização,** inclua estas propriedades:
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
 | tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor deve `Basic` ser. | 
-| o nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
+| nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
 | palavra-passe | Sim | A palavra-passe que pretende usar para autenticação | 
 |||| 
 
@@ -293,6 +293,6 @@ and not use the Azure portal, learn how to
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar e chamar APIs personalizados a partir de fluxos de trabalho de aplicações lógicas](../logic-apps/logic-apps-custom-api-host-deploy-call.md)

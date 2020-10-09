@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 5b7ec1843d279e8c0477ed1c7754746d4f3044ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Diretório Ativo Azure com o Planeamento do Sortido De Predictix
@@ -92,7 +92,7 @@ Para configurar o Azure AD com o Planeamento do Sortido De Previsãoix, tome est
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD com o Planeamento do Sortido De Previsãoix, tome est
     > [!NOTE]
     > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Contacte a [equipa de apoio ao Planeamento do Sortido de Previsão](https://www.infor.com/support) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na **configuração de um único sign-on com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 

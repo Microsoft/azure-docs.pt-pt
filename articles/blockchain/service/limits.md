@@ -5,10 +5,10 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80676522"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço Azure Blockchain
@@ -21,7 +21,7 @@ Os limites máximos nas transações e nos nós validadores dependem de se forne
 
 | Escalão de preço | Nó de transações máximas | Nódoa máximo validador |
 |:---|:---:|:---:|
-| Básica | 10 | 1 |
+| Básico | 10 | 1 |
 | Standard | 10 | 2 |
 
 A sua rede de consórcios deve ter pelo menos dois nós de nível padrão do Serviço Azure Blockchain. Os nós de nível padrão incluem dois nós validadores. Quatro nós validadores são necessários para cumprir o consenso de Tolerância à [Falha Bizantina de Istambul.](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
@@ -65,6 +65,6 @@ Não utilize a função de gás *eth.estima* para cada submissão de transação
 
 Se possível, utilize um valor de gás conservador para submeter transações e minimize a utilização da estimativa de *eth.estima*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre políticas de patching e upgrades de sistemas - [Patching, atualizações e versões](ledger-versions.md).

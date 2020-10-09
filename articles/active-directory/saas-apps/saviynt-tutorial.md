@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/03/2020
 ms.author: jeedes
 ms.openlocfilehash: df8b995eef4f8bd79fd6c01cd5a22724fb3d41da
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500877"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saviynt"></a>Tutorial: Azure Ative Directory integração única (SSO) com Saviynt

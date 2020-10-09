@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871869"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual Azure Monitor Dependency para Windows
 
@@ -71,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão do agente de dependência Azur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor/Exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publicador | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -125,7 +125,7 @@ Quando coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma r
 }
 ```
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 Pode utilizar o `Set-AzVMExtension` comando para implantar a extensão da máquina virtual do agente Desadependante a uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de haxixe PowerShell.
 

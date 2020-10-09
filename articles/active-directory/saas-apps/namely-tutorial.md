@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Diretório Ativo Azure com nomeadamente
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com um único sinal de acesso com a namely, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Nomeadamente o Sign-On único](#configure-namely-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Nomeadamente o Sign-On Único](#configure-namely-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Namely test user](#create-namely-test-user)** - para ter uma contraparte de Britta Simon em Ad nomeadamente que está ligada à representação AD AZure do utilizador.
@@ -93,7 +93,7 @@ Para configurar a Azure AD um único sinal de inscrição com a namely, execute 
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar a Azure AD um único sinal de inscrição com a namely, execute 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de apoio ao Cliente](https://www.namely.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -122,25 +122,25 @@ Para configurar a Azure AD um único sinal de inscrição com a namely, execute 
 
     c. Logout URL
 
-### <a name="configure-namely-single-sign-on"></a>Configuração Nomeadamente sign-on único
+### <a name="configure-namely-single-sign-on"></a>Configurar nomeadamente Sign-On individuais
 
 1. Em outra janela do navegador, inscreva-se no seu site da empresa, como administrador.
 
 2. Na barra de ferramentas em cima, clique em **Empresa**.
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Clique no separador **Definições**.
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Clique **em SAML**.
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Na página **definições DE SAML,** execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Clique **em Ativar o SAML**. 
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Nomeadamente**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Nomeadamente**.
 
@@ -211,15 +211,15 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Nome.
 
 2. Na barra de ferramentas em cima, clique em **People**.
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Clique no **separador Diretório.**
    
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Clique **em Adicionar Nova Pessoa.**
 
-    ![Configurar um único sign-on](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. No diálogo **Add New Person,** execute os seguintes passos:
 

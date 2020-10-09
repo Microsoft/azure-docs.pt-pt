@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85356479"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Resolução de problemas um objeto que não está sincronizado com o Azure Ative Directory
@@ -208,6 +208,6 @@ Se faltar o conector ao Azure AD, reveja a secção nos [atributos MV](#mv-attri
 
 A partir do **separador Conectores** também pode ir ao objeto espacial do [conector.](#connector-space-object-properties) Selecione uma linha e clique em **Propriedades**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a sincronização Azure AD Connect](how-to-connect-sync-whatis.md).
 - Saiba mais sobre [identidade híbrida.](whatis-hybrid-identity.md)

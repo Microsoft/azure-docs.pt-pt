@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/18/2020
 ms.author: jeedes
 ms.openlocfilehash: cfbb704799a1884c689bd0de547526a33f1ba7ce
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88651926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Ative Directory com o Citrix ShareFile
@@ -66,7 +66,7 @@ Para configurar e testar o Azure AD com citrix ShareFile, é necessário complet
     
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-2. **[Configure citrix ShareFile SSO](#configure-citrix-sharefile-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure citrix ShareFile SSO](#configure-citrix-sharefile-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - para ter uma contraparte de Britta Simon no Citrix ShareFile que está ligada à representação AD Ad Azure do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -99,9 +99,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     - `https://<tenant-name>.sharefile.com/saml/<URL path>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a equipa de suporte do Cliente Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Contacte [a equipa de suporte do Cliente Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

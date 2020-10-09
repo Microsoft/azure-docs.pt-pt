@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral das mensagens do Azure Service
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341686"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
@@ -75,7 +75,7 @@ Recomendamos geralmente json e Apache Avro como formatos de carga útil para dad
 
 As variantes .NET Standard e Java API apenas aceitam arrays byte, o que significa que a aplicação deve lidar com o controlo de serialização de objetos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

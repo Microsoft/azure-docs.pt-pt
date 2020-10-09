@@ -1,5 +1,5 @@
 ---
-title: Autenticar para cofre de chave Azure
+title: Autenticar para o Azure Key Vault
 description: Saiba como autenticar para a Azure Key Vault
 author: ShaneBala-keyvault
 ms.author: sudbalas
@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89481380"
 ---
-# <a name="authenticate-to-azure-key-vault"></a>Autenticar para cofre de chave Azure
+# <a name="authenticate-to-azure-key-vault"></a>Autenticar para o Azure Key Vault
 
 O Azure Key Vault permite-lhe armazenar segredos e controlar a sua distribuição num repositório de nuvem centralizado e seguro, o que elimina a necessidade de armazenar credenciais em aplicações. As aplicações só precisam de autenticar com o Key Vault na hora de execução para aceder a esses segredos.
 
@@ -62,7 +62,7 @@ O Cofre-Chave funciona com dois níveis de autorização distintos:
 
     A Key Vault suporta atualmente o papel [de Contribuinte,](/azure/role-based-access-control/built-in-roles#key-vault-contributor) que permite operações de gestão em recursos key vault. Uma série de outras funções estão atualmente em pré-visualização. Também pode criar funções personalizadas, conforme descrito nas [funções personalizadas Azure](/azure/role-based-access-control/custom-roles).
 
-    Para obter informações gerais sobre funções, consulte [o que é o Controlo de Acesso Baseado em Função Azure (RBAC)?](/azure/role-based-access-control/overview)
+    Para obter informações gerais sobre funções, consulte [O que é Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
 
 
 > [!IMPORTANT]
@@ -125,4 +125,4 @@ A tabela a seguir liga-se a diferentes artigos que demonstram como trabalhar com
 - [Resolução de problemas da política de acesso ao cofre chave](troubleshooting-access-issues.md)
 - [Códigos de erro da API do Cofre de Chaves](rest-error-codes.md)
 - [Guia do desenvolvedor do Cofre chave](developers-guide.md)
-- [O que é O Controlo de Acesso Baseado em Função (RBAC)?](/azure/role-based-access-control/overview)
+- [O que é Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)

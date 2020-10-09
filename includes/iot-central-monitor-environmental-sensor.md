@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,19 +9,19 @@ ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 6a4b078342cbd62209b092a37fa95b08383789be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80673979"
 ---
 Como operador na sua aplicação Azure IoT Central, pode:
 
-* Veja a telemetria enviada pelo dispositivo na página **'Visão Geral':**
+* Ver a telemetria enviada pelo dispositivo na página **'Vista Geral':**
 
     ![Ver telemetria](./media/iot-central-monitor-environmental-sensor/view-telemetry.png)
 
-* Veja as propriedades do dispositivo na página **Sobre:**
+* Ver as propriedades do dispositivo na página **Sobre:**
 
     ![Ver propriedades](./media/iot-central-monitor-environmental-sensor/about-properties.png)
 
@@ -29,8 +29,8 @@ Como operador na sua aplicação Azure IoT Central, pode:
 
     ![Atualizar propriedades](./media/iot-central-monitor-environmental-sensor/update-properties.png)
 
-* Ligue para os comandos da página **comandos:**
+* Ligue para os comandos da página **Comandos:**
 
-    ![Chamar o comando piscar](./media/iot-central-monitor-environmental-sensor/call-command.png)
+    ![Chamar comando blink](./media/iot-central-monitor-environmental-sensor/call-command.png)
 
-    ![Ver história do comando](media/iot-central-monitor-environmental-sensor/command-response.png)
+    ![Ver histórico de comando](media/iot-central-monitor-environmental-sensor/command-response.png)

@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperfq1
 ms.openlocfilehash: 1a83385c7f384f7727a0fd10e238c6511950abfe
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612721"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
@@ -132,7 +132,7 @@ O Azure Application Insights Logs fornece uma linguagem de consulta rica que lhe
 ## <a name="share-dashboard"></a>Partilhar dashboard
 
 1. No topo do painel, **selecione Partilhar** para publicar as suas alterações.
-2. Opcionalmente, pode definir utilizadores específicos que devem ter acesso ao dashboard. Para obter mais informações, consulte [os dashboards Share Azure utilizando o Controlo de Acesso Baseado em Funções](../../azure-portal/azure-portal-dashboard-share-access.md).
+2. Opcionalmente, pode definir utilizadores específicos que devem ter acesso ao dashboard. Para obter mais informações, consulte [os dashboards Share Azure utilizando Role-Based Access Control](../../azure-portal/azure-portal-dashboard-share-access.md).
 3. Selecione **Publicar**.
 
 ## <a name="next-steps"></a>Passos seguintes

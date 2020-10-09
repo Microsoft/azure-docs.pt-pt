@@ -12,10 +12,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881666"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Uma aplicação web que chama APIs web: Mover para a produção
@@ -24,7 +24,7 @@ Agora que sabe como adquirir um símbolo para chamar APIs web, aprenda a mudar-s
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais experimentando o tutorial completo e progressivo para ASP.NET web Core. O tutorial:
 

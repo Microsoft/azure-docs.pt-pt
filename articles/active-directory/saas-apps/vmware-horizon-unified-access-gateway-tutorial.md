@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500894"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com VMware Horizon - Portal de Acesso Unificado
@@ -60,8 +60,8 @@ Para configurar e testar Azure AD SSO com VMware Horizon - Portal de Acesso Unif
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure vMware Horizon-Unified Access Gateway SSO](#configure-vmware-horizon-unified-access-gateway-sso)** - para configurar as definições de sinalização única no lado da aplicação.
-    1. **[Crie o utilizador de teste VMware Horizon-Unified Access Gateway](#create-vmware-horizon-unified-access-gateway-test-user)** - para ter uma contrapartida de B.Simon em VMware Horizon - Portal de Acesso Unificado que está ligada à representação AD AD do utilizador.
+1. **[Configure o VMware Horizon-Unified Access Gateway SSO](#configure-vmware-horizon-unified-access-gateway-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Crie vMware Horizon-Unified utilizador](#create-vmware-horizon-unified-access-gateway-test-user)** de teste Access Gateway - para ter uma contrapartida de B.Simon em VMware Horizon - Portal de Acesso Unificado que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -119,11 +119,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Configure VMware Horizon-Unified Access Gateway SSO
+## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Configurar VMware Horizon-Unified Access Gateway SSO
 
 Para configurar um único sign-on no **VMware Horizon - Lado do Gateway de acesso unificado,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para [vMware Horizon - Equipa de suporte de Access Gateway Unificado](mailto:support@vmware.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Criar utilizador de teste de gateway de acesso unificado vMware Horizon
+### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Criar VMware Horizon-Unified utilizador de teste Access Gateway
 
 Nesta secção, cria-se um utilizador chamado B.Simon in VMware Horizon - Unified Access Gateway. Trabalhe com [a equipa de suporte VMware Horizon - Uniified Access Gateway](mailto:support@vmware.com) para adicionar os utilizadores na plataforma VMware Horizon - Portal de Acesso Unificado. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 

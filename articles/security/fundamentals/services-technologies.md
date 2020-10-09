@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549210"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
@@ -35,7 +35,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 |--------|--------|
 |[&nbsp;Centro de Segurança Azure &nbsp;](/azure/security-center/security-center-intro)| Uma solução de proteção da carga de trabalho em nuvem que fornece gestão de segurança e proteção avançada de ameaças através de cargas de trabalho em nuvem híbrida.|
 |[Azure Key Vault](/azure/key-vault/key-vault-overview)| Uma loja de segredos seguro para as palavras-passe, cordas de conexão e outras informações que precisa para manter as suas apps funcionando. |
-|[Registos do Azure Monitor](/azure/log-analytics/log-analytics-overview)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
+|[Registos do Monitor Azure](/azure/log-analytics/log-analytics-overview)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
 |[Laboratórios Azure Dev/Test](/azure/lab-services/devtest-lab-overview)|Um serviço que ajuda desenvolvedores e testadores a criar rapidamente ambientes em Azure, minimizando o desperdício e controlando os custos.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -45,7 +45,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 |------|--------|
 | [&nbsp;Encriptação do Serviço de Armazenamento Azure &nbsp; &nbsp;](/azure/storage/common/storage-service-encryption)|Uma funcionalidade de segurança que encripta automaticamente os seus dados no armazenamento do Azure.   |
 |[Armazenamento híbrido encriptado StorSimple](/azure/storsimple/storsimple-ova-overview)| Uma solução de armazenamento integrada que gere tarefas de armazenamento entre dispositivos no local e armazenamento em nuvem Azure.|
-|[Encriptação do lado do cliente Azure](/azure/storage/common/storage-client-side-encryption)| Uma solução de encriptação do lado do cliente que encripta dados dentro das aplicações do cliente antes de enviar para o Azure Storage; também desencripta os dados durante o download. |
+|[Encriptação Azure Client-Side](/azure/storage/common/storage-client-side-encryption)| Uma solução de encriptação do lado do cliente que encripta dados dentro das aplicações do cliente antes de enviar para o Azure Storage; também desencripta os dados durante o download. |
 | [Assinaturas de acesso compartilhados de armazenamento Azure](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|Uma assinatura de acesso partilhado proporciona acesso delegado aos recursos na sua conta de armazenamento.  |
 |[Chaves da conta de armazenamento Azure](/azure/storage/common/storage-create-storage-account)| Um método de controlo de acesso para armazenamento Azure que é usado para autenticação quando a conta de armazenamento é acedida. |
 |[Azure File partilha com encriptação SMB 3.0](/azure/storage/files/storage-files-introduction)|Uma tecnologia de segurança de rede que permite encriptação automática da rede para o protocolo de partilha de ficheiros do Bloco de Mensagens do Servidor (SMB). |
@@ -79,17 +79,17 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 | [&nbsp;Reserva Azure](/azure/backup/backup-introduction-to-azure-backup)| Um serviço baseado em Azure usado para fazer o back up e restaurar dados na nuvem Azure. |
 | [&nbsp;Recuperação do local de Azure &nbsp;](/azure/site-recovery/site-recovery-overview)|Um serviço online que replica cargas de trabalho em máquinas físicas e virtuais (VMs) de um site primário para um local secundário para permitir a recuperação de serviços após uma falha. |
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 |Serviço|Description|
 |------|--------|
 | [&nbsp;Grupos de Segurança de &nbsp; Rede](/azure/virtual-network/virtual-networks-nsg)| Uma funcionalidade de controlo de acesso baseada em rede utilizando um 5-tuple para tomar ou negar decisões.  |
 | [Gateway de VPN do Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Um dispositivo de rede utilizado como ponto final VPN para permitir o acesso das instalações cruzadas às Redes Virtuais Azure.  |
 | [Gateway de Aplicação do Azure](/azure/application-gateway/application-gateway-introduction)|Um equilibrador avançado de carga de aplicações web que pode fazer rota com base em URL e executar o descarregamento de SSL. |
 |[Firewall de aplicação web](/azure/frontdoor/waf-overview) (WAF)|Uma funcionalidade do Application Gateway que fornece proteção centralizada das suas aplicações web de explorações e vulnerabilidades comuns|
-| [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)|Um equilibrador de rede de aplicações TCP/UDP. |
+| [Balanceador de Carga do Azure](/azure/load-balancer/load-balancer-overview)|Um equilibrador de rede de aplicações TCP/UDP. |
 | [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Uma ligação WAN dedicada entre redes no local e redes virtuais Azure. |
-| [Traffic Manager do Azure](/azure/traffic-manager/traffic-manager-overview)| Um equilibrador global de carga de DNS.|
+| [Gestor de Tráfego do Azure](/azure/traffic-manager/traffic-manager-overview)| Um equilibrador global de carga de DNS.|
 | [Procuração de aplicação Azure](/azure/active-directory/active-directory-application-proxy-get-started)| Uma linha frontal autenticadora usada para garantir o acesso remoto para aplicações web hospedadas no local. |
 |[Azure Firewall](/azure/firewall/overview)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.|
-|[Proteção Azure DDoS](/azure/virtual-network/ddos-protection-overview)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
+|[Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
 |[Pontos finais de serviço de rede virtual](/azure/virtual-network/virtual-network-service-endpoints-overview)|Estende o espaço de endereço privado da sua rede virtual e a identidade do seu VNet aos serviços Azure, através de uma ligação direta.|

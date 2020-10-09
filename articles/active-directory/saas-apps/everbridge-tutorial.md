@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 1da2fd879dbeac1836469d46567566769f6163a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Azure Ative Directory com a Everbridge
@@ -54,7 +54,7 @@ Para adicionar Everbridge do Azure Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
@@ -93,7 +93,7 @@ Para configurar a Azure AD um único sinal de inscrição com Everbridge, siga e
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão's Single Com página SAML,** selecione **Editar** para abrir a caixa de diálogo **de configuração DE SAML Básica.**
+3. Na **configuração single Sign-On com página SAML,** selecione **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -130,7 +130,7 @@ Para configurar a Azure AD um único sinal de inscrição com Everbridge, siga e
      > [!NOTE]
      > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e assine os valores de URL. Para obter estes valores, contacte a equipa de apoio da [Everbridge.](mailto:support@everbridge.com) Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** selecione **Descarregue** para descarregar o **Metadadata XML da Federação**. Guarde no seu computador.
+6. Na **configuração single Sign-On com página SAML,** na secção certificado de assinatura **SAML,** selecione **Descarregue** para descarregar o **Metadadata XML da Federação**. Guarde no seu computador.
 
     ![Link de descarregamento de certificado](common/metadataxml.png)
 
@@ -200,7 +200,7 @@ Permita a Britta Simon utilizar o Azure single sign-on, concedendo acesso a Ever
 
 1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  > **Everbridge**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Everbridge**.
 

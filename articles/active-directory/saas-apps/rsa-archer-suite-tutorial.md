@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: fa8b150e7b5e1bd5bfc5e05b3b00a13522b52f87
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500872"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com ASA Archer Suite
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     ![Configurar A Suíte RSA Archer SSO](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
 
-    a. Vá ao separador **'Sign-on' único** e selecione **o SAML** como um **único modo de inscrição** a partir do dropdown.
+    a. Vá ao separador **'Sign-on' único** e selecione **o SAML** como um **modo de Sign-On único** a partir do dropdown.
 
     b. Selecione Deixe a caixa **de verificação manual de bypass.**
 
@@ -153,7 +153,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     e. Clique no botão **Select** e carre fique no upload do ficheiro **XML da Federação** descarregada a partir do portal Azure.
 
-    f. **Guarde** as definições de inscrição única. 
+    f. **Guarde** as definições de Sign-On única. 
 
 ### <a name="create-rsa-archer-suite-test-user"></a>Criar utilizador de teste RSA Archer Suite
 

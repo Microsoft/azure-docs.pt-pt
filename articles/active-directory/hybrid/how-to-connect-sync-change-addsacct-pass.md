@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4077146292db1266d5dbc51cc577f952b2bff191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85357516"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
@@ -52,7 +52,7 @@ Para atualizar o Serviço de Sincronização com a nova senha:
 
 8. Reinicie o Serviço de Sincronização AZure AD Connect Syncsinsind. Isto é para garantir que qualquer referência à senha antiga é removida da cache de memória.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)

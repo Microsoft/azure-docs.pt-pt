@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d5b0be147b8aa25e6c737d423eaf4a8a23cde083
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integração do Diretório Ativo Azure com TargetProcess
@@ -74,7 +74,7 @@ Para um único pré-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o Azure AD com o TargetProcess, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o TargetProcess Single Sign-On](#configure-targetprocess-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Target Process Single Sign-On](#configure-targetprocess-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create TargetProcess test user](#create-targetprocess-test-user)** - para ter uma contraparte de Britta Simon no TargetProcess que está ligada à representação AD AZure do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o TargetProcess, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com o TargetProcess, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente TargetProcess](mailto:support@targetprocess.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com o TargetProcess, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-targetprocess-single-sign-on"></a>Configurar targetProcess Single Sign-On
+### <a name="configure-targetprocess-single-sign-on"></a>Configurar o Sign-On único do target Process Process
 
 1. Para automatizar a configuração dentro **do TargetProcess,** é necessário instalar a **extensão do navegador 'As aplicações' Secure's,** clicando **em instalar a extensão**.
 
@@ -147,11 +147,11 @@ Para configurar o Azure AD com o TargetProcess, execute os seguintes passos:
 
 1. Clique **no separador 'S'c.'** único.
 
-    ![clique em 'Sign-On' único](./media/target-process-tutorial/tutorial_target_process_07.png)
+    ![clique em Sign-On Única](./media/target-process-tutorial/tutorial_target_process_07.png)
 
 1. No diálogo de definições de inscrição única, execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/target-process-tutorial/tutorial_target_process_08.png)
+    ![Configurar Sign-On Individuais](./media/target-process-tutorial/tutorial_target_process_08.png)
 
     a. Clique **em Ativar o Sign-on único.**
 
@@ -194,7 +194,7 @@ Nesta secção, permite que Britta Simon utilize o Azure como único sinal, conc
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **TargetProcess**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **TargetProcess**.
 

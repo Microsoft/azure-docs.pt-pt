@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609779"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurar atores fiáveis -- KVSActorStateProvider
@@ -41,7 +41,7 @@ A configuração padrão é gerada pelo modelo de Estúdio Visual e deve ser suf
 &lt;ActorName &gt; ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Name | Unidade | Valor predefinido | Observações |
+| Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAckAckNownowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta um aviso para o primário. Quaisquer outros avisos a serem enviados para operações processadas dentro deste intervalo são enviados como uma resposta. |
 | Ponto de réplica |N/D |Sem parâmetro padrão-necessário |Endereço IP e porta que o replicador primário/secundário utilizará para comunicar com outros replicadores no conjunto de réplicas. Isto deve fazer referência a um ponto final de recurso TCP no manifesto de serviço. Consulte os [recursos manifestos do Serviço](service-fabric-service-manifest-resources.md) para ler mais sobre a definição de recursos de ponto final no manifesto de serviço. |
@@ -58,7 +58,7 @@ A configuração padrão é gerada pelo modelo de Estúdio Visual e deve ser suf
 &lt;Serviço &gt; actorNameLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Name | Unidade | Valor predefinido | Observações |
+| Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o intervalo máximo de loteamento para a loja local durável. |
 | MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão na base de dados da loja local. Determina o número máximo de transações pendentes. |

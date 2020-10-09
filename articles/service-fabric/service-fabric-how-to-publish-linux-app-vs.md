@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614354"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Utilize o Visual Studio para criar e publicar aplicações .Net Core direcionadas para um cluster remoto de tecido de serviço Linux
@@ -64,5 +64,5 @@ Com a ferramenta Visual Studio, pode desenvolver e publicar aplicações Service
 [edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [aplicação de publicação]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba [como começar com o Tecido de Serviço com .Net Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)

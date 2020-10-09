@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485809"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
@@ -136,7 +136,7 @@ As regras de equilíbrio de carga configuram como o balanceador de carga encamin
    | **Tempo de 20 minutos (minutos)** |*4* |
    | **IP flutuante (retorno direto do servidor)** |**Ativado** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar regra de equilíbrio de carga":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Adicionar piscina de backend":::
 
 4. Clique em **OK**. 
 5. Azure configura a regra de equilíbrio de carga. Agora, o equilibrador de carga está configurado para encaminhar o tráfego para a instância do SQL Server que hospeda o ouvinte para o grupo de disponibilidade. 
@@ -176,7 +176,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
 
     ```output
     Location Constraints:

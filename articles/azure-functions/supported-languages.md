@@ -4,10 +4,10 @@ description: Saiba quais as línguas apoiadas (GA) e que estão em pré-visualiz
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83994906"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Línguas apoiadas em Funções Azure
@@ -35,7 +35,7 @@ Os manipuladores personalizados são servidores web leves que recebem eventos do
 
 Começando pela versão 2.x, o tempo de execução foi concebido para oferecer [extensibilidade linguística.](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) As línguas JavaScript e Java no tempo de execução de 2.x são construídas com esta extensibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como desenvolver funções nas línguas apoiadas, consulte os seguintes recursos:
 

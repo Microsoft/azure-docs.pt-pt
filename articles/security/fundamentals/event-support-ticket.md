@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80548591"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como Registar um Pedido de Suporte de Evento de Segurança
@@ -43,7 +43,7 @@ ms.locfileid: "80548591"
     - Se precisar de comunicar connosco sobre o seu problema, utilize o número de confirmação em toda a correspondência.
     - Pode ver o progresso no seu assunto a qualquer momento.
 
-5. O que acontece depois? Dependendo da questão e da gravidade, podem ser tomadas as seguintes medidas:
+5. O que acontece a seguir? Dependendo da questão e da gravidade, podem ser tomadas as seguintes medidas:
 
     - Vamos comunicar-lhe o resultado da nossa avaliação. Dependendo do resultado, podemos remover ou solicitar que modifique a sua oferta. Neste evento, trabalharemos consigo para garantir que a perturbação para clientes impactados seja minimizada.
     - Trabalharemos consigo para ajudar a mitigar o impacto do incidente/vulnerabilidade para os nossos clientes mútuos.

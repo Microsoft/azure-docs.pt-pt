@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75551867"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilidade de serviços de tecido de serviço
@@ -31,7 +31,7 @@ Se a réplica primária cair, o Tecido de Serviço faz uma das réplicas secund�
 
 O conceito de réplica sendo um Secundário Primário ou Ativo, é conhecido como o *papel de réplica*. Estas réplicas são descritas mais adiante no artigo [de Replicas e Instâncias.](service-fabric-concepts-replica-lifecycle.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
 - [Serviços de tecido de escala](service-fabric-concepts-scalability.md)

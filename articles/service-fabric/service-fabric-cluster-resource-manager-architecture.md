@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75551697"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Visão geral da arquitetura do gestor de recursos do cluster
@@ -55,7 +55,7 @@ Vamos ver o seguinte diagrama e ver o que acontece a seguir. Digamos que o Gesto
 ![Arquitetura do Equilibrador de Recursos][Image2]
 </center>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de Tecido de Serviço](./service-fabric-cluster-resource-manager-cluster-description.md)
 - As funções primárias do Cluster Resource Manager são reequilibrar o cluster e impor as regras de colocação. Para obter mais informações sobre a configuração destes comportamentos, consulte [o equilíbrio do seu cluster de Tecido de Serviço](./service-fabric-cluster-resource-manager-balancing.md)
 

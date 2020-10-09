@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Ative Directory com Procore SSO
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o Procore SSO, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure procore Procore SSO Single Sign-On](#configure-procore-sso-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure procore Procore SSO Single Sign-On](#configure-procore-sso-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Procore SSO test user](#create-procore-sso-test-user)** - para ter uma contraparte de Britta Simon em Procore SSO que está ligada à representação AD Ad Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Procore SSO, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com o Procore SSO, execute os seguintes passos:
 
     ![Procore SSO Domain e URLs informações únicas de sindúsia](common/preintegrated.png)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -115,17 +115,17 @@ Para configurar o Azure AD com o Procore SSO, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-procore-sso-single-sign-on"></a>Configurar procore SSO single sign-on
+### <a name="configure-procore-sso-single-sign-on"></a>Configurar procore SSO Single Sign-On
 
 1. Para configurar um único sinal no lado **Procore SSO,** inscreva-se no site da empresa procore como administrador.
 
 2. A partir da queda da caixa de ferramentas, clique no **Administrador** para abrir a página de definições SSO.
 
-    ![Configurar um único sign-on](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Cole os valores nas caixas como descrito abaixo...
 
-    ![Configurar um único sign-on](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/procore_setting_admin.png)  
 
     a. Na caixa de texto **URL de sinal único no emitente,** cole o valor do **Identificador AD AD Azure** que copiou a partir do portal Azure.
 
@@ -167,7 +167,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Procore SSO**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Procore SSO**.
 
@@ -195,11 +195,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no lado Procore 
 
 2. A partir da queda da caixa de ferramentas, clique no **Diretório** para abrir a página do diretório da empresa.
 
-    ![Configurar um único sign-on](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Clique em **Adicionar a Opção Pessoa** para abrir o formulário e introduzir executar as seguintes opções -
 
-    ![Configurar um único sign-on](./media/procoresso-tutorial/Procore_user_add.png)
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. Na caixa de texto **Name Name,** escreva o primeiro nome do utilizador como **Britta**.
 
@@ -213,11 +213,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no lado Procore 
 
 4. Verifique e atualize os detalhes para o contacto recém-adicionado.
 
-    ![Configurar um único sign-on](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Clique em **Salvar e Enviar Convite** (se for necessário um convite por correio) ou **Guardar** (Guardar diretamente) para completar o registo do utilizador.
     
-    ![Configurar um único sign-on](./media/procoresso-tutorial/Procore_user_save.png)
+    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

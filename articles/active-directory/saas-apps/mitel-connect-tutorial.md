@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Tutorial: Integração do Azure Ative Directory com Mitel MiCloud Connect ou CloudLink Platform
@@ -104,11 +104,11 @@ Para configurar o MiCloud Connect com o SSO para Azure AD, é mais fácil abrir 
 
     1. À direita do **Sign-On único,** selecione **Ativar** ou **Configurações**.
     
-    Aparece a caixa de diálogo de definições única de ligação.
+    Aparece a caixa de diálogo de definições de Sign-On única de ligação.
     
 3. Selecione **a caixa de verificação 'Sign-On' única** ativada.
     
-    ![Screenshot que mostra a página De Configurações de Sinais únicos de Ligação Mitel, com a caixa de verificação "Sign-On único" selecionada.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
+    ![Screenshot que mostra a página Configurações de Sign-On Únicas mitel Connect, com a caixa de verificação Enable Single Sign-On selecionada.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
 
 4. No portal Azure, selecione o ícone **Editar** na secção **Configuração Básica SAML.**
    
@@ -148,7 +148,7 @@ Para configurar o MiCloud Connect com o SSO para Azure AD, é mais fácil abrir 
          
          ![image](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
-12. **Selecione Guardar** na caixa de diálogo de **definições únicas de ligação** no portal da conta Mitel.
+12. **Selecione Guardar** na caixa de diálogo de **definições de Sign-On única** de ligação no portal da Conta Mitel.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -180,7 +180,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Mitel Connect**.
 
@@ -335,7 +335,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Mitel Connect**.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614422"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar recipiente de tecido de serviço executando o servidor Apache Tomcat em Linux
@@ -75,8 +75,8 @@ Siga os passos nesta secção para construir uma imagem docker baseada numa imag
    docker run -itd --name tomcat-site -p 8080:8080 tomcattest.
    ```
    
-   * `--name`nomeia o recipiente, para que possa recorrer a ele usando um nome amigável em vez do seu ID.
-   * `-p`especifica o mapeamento da porta entre o recipiente e o so hospedeiro. 
+   * `--name` nomeia o recipiente, para que possa recorrer a ele usando um nome amigável em vez do seu ID.
+   * `-p` especifica o mapeamento da porta entre o recipiente e o so hospedeiro. 
 
    > [!Note]
    > A porta que abre com o `-p` parâmetro deve ser a porta onde a sua aplicação Tomcat ouve os pedidos. No exemplo atual, existe um Conector configurado no ficheiro *ApacheTomcat/conf/server.xml* para ouvir na porta 8080 para pedidos HTTP. Esta porta está mapeada para o porto 8080 no hospedeiro. 
@@ -229,7 +229,7 @@ docker rmi tomcattest
 docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para passos rápidos sobre as funcionalidades adicionais do recipiente Linux, leia [Criar a sua primeira aplicação de recipiente de tecido de serviço no Linux](service-fabric-get-started-containers-linux.md).
 * Para passos mais detalhados em recipientes Linux, leia o tutorial tutorial da aplicação de [recipientes Create a Linux.](service-fabric-tutorial-create-container-images.md)
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).

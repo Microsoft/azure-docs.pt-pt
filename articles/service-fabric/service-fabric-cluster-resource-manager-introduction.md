@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75563331"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Apresentando o gestor de recursos do cluster de tecido de serviço
@@ -44,7 +44,7 @@ Embora algumas destas estratégias sejam interessantes, o Service Fabric Cluster
 
 Uma vez que o Cluster Resource Manager é responsável pela movimentação de serviços, contém um conjunto de funcionalidades diferente em comparação com o que se encontra num equilibrador de carga de rede. Isto porque os equilibradores de carga de rede fornecem tráfego de rede para onde os serviços já estão, mesmo que essa localização não seja ideal para executar o próprio serviço. O Service Fabric Cluster Resource Manager emprega estratégias fundamentalmente diferentes para garantir que os recursos no cluster são eficientemente utilizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter informações sobre a arquitetura e o fluxo de informação dentro do Cluster Resource Manager, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md)
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre métricas, confira este artigo sobre [a descrição de um cluster de Tecido de Serviço](service-fabric-cluster-resource-manager-cluster-description.md)
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)

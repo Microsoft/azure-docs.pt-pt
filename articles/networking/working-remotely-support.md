@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982859"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhando remotamente utilizando serviços de networking Azure
@@ -76,7 +76,7 @@ Durante os momentos em que mais pessoas ficam online, muitos sites corporativos 
 
 Para as suas implementações em outras nuvens públicas, a Microsoft pode fornecer conectividade global. Azure Virtual WAN, VPN ou ExpressRoute podem ajudar neste aspeto. Para estender a conectividade de Azure a outras nuvens, pode configurar a VPN S2S entre as duas nuvens. Também pode estabelecer conectividade de Azure a outras nuvens públicas usando ExpressRoute. A nuvem oráculo faz parte do ecossistema parceiro ExpressRoute. Pode [configurar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud Infrastructure][Az-OCI]. A maioria dos prestadores de serviços que fazem parte do ecossistema parceiro ExpressRoute também oferecem conectividade privada a outras nuvens públicas. Aproveitando estes prestadores de serviços, pode estabelecer conectividade privada entre as suas implementações em Azure e outras nuvens via ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos discutem como diferentes funcionalidades de rede Azure podem ser usadas para escalar os utilizadores para trabalhar remotamente:
 

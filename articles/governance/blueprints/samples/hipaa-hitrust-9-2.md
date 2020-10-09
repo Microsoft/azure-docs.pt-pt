@@ -4,10 +4,10 @@ description: Visão geral da amostra de planta HIPAA HITRUST 9.2. Esta amostra d
 ms.date: 09/04/2020
 ms.topic: sample
 ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89493693"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Amostra de planta HIPAA HITRUST 9.2
@@ -23,81 +23,81 @@ O [mapeamento de controlo de política Azure](../../policy/samples/hipaa-hitrust
 Para implantar a amostra de planta Azure Blueprints HIPAA HITRUST 9.2, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
-> - Criar uma nova planta a partir da amostra
-> - Marque a sua cópia da amostra como **Publicada**
-> - Atribua a sua cópia da planta a uma subscrição existente
+> - Criar um esquema novo a partir do exemplo
+> - Marcar a cópia do exemplo como **Publicada**
+> - Atribuir a cópia do esquema a uma subscrição já existente
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ### <a name="create-blueprint-from-sample"></a>Criar planta a partir de amostra
 
-Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
+Primeiro, crie um esquema novo no ambiente utilizando o exemplo como ponto de partida, para implementar o esquema de exemplo.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
-1. A partir da página **'Iniciar'** à esquerda, selecione o botão **Criar** _uma plantação_.
+1. Na página **Começar** à esquerda, selecione o botão **Criar** em _Criar um esquema_.
 
 1. Encontre a amostra de planta **HIPAA HITRUST** em _Outras Amostras_ e selecione **Utilize esta amostra**.
 
-1. Introduza os _fundamentos_ da amostra da planta:
+1. Introduza as _Informações Básicas_ do esquema de exemplo:
 
    - **Nome da planta**: Forneça um nome para a sua cópia da amostra de planta HIPAA HITRUST 9.2.
    - **Localização de definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione o _separador Artefactos_ na parte superior da página ou **seguinte: Artefactos** na parte inferior da página.
+1. Selecione o separador _Artefactos_, na parte superior da página, ou **Seguinte: Artefactos**, na parte inferior.
 
-1. Reveja a lista de artefactos que compõem a amostra de planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. **Selecione Save Draft** quando terminar de rever a amostra de planta.
+1. Reveja a lista de artefactos que compõem o esquema de exemplo. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
 
-### <a name="publish-the-sample-copy"></a>Publique a cópia da amostra
+### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 
-A sua cópia da amostra foi agora criada no seu ambiente. É criado no modo **Draft** e deve ser **publicado** antes de poder ser atribuído e implementado. A cópia da amostra de planta pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode movê-la para longe do alinhamento com os controlos HIPAA HITRUST 9.2.
+A cópia do esquema de exemplo está agora criada no seu ambiente. Está criada no modo **Rascunho** e tem de ser **Publicada** antes de poder ser atribuída e implementada. A cópia da amostra de planta pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode movê-la para longe do alinhamento com os controlos HIPAA HITRUST 9.2.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
-1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
+1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para localizar a cópia do esquema de exemplo e selecione-a.
 
-1. **Selecione Publicar** a planta no topo da página. Na nova página à direita, forneça uma **versão** para a sua cópia da amostra de planta. Esta propriedade é útil para se você fizer uma modificação mais tarde. Fornecer **notas de alteração** tais como "Primeira versão publicada a partir da amostra de planta HIPAA HITRUST 9.2." Em seguida, **selecione Publicar** na parte inferior da página.
+1. Selecione **Publicar esquema**, na parte superior da página. Na página nova à direita, indique uma **Versão** para a cópia do esquema de exemplo. Esta propriedade é útil se fizer modificações mais tarde. Fornecer **notas de alteração** tais como "Primeira versão publicada a partir da amostra de planta HIPAA HITRUST 9.2." Em seguida, selecione **Publicar**, na parte inferior da página.
 
-### <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
+### <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
-Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de planta única.
+Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. É neste passo que são fornecidos os parâmetros que fazem com que cada implementação da cópia do esquema de exemplo seja única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
-1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de planta e, em seguida, selecione-a.
+1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para localizar a cópia do esquema de exemplo e selecione-a.
 
-1. Selecione Atribuir a **planta** no topo da página de definição de planta.
+1. Selecione **Atribuir esquema**, na parte superior da página de definição do esquema.
 
-1. Fornecer os valores dos parâmetros para a atribuição do projeto:
+1. Indique os valores dos parâmetros para a atribuição do esquema:
 
    - Noções básicas
 
-     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, será criada uma atribuição para cada um utilizando os parâmetros introduzidos.
+     - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, é criada uma atribuição para cada uma mediante a utilização dos parâmetros introduzidos.
      - **Nome da atribuição**: O nome é pré-povoado para si com base no nome da planta.
-       Mude o que for necessário ou saia como for.
+       Mude-o se necessário ou deixe-o como está.
      - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para recursos Azure.](../../../active-directory/managed-identities-azure-resources/overview.md)
      - **Versão de definição de planta**: Escolha uma versão **publicada** da sua cópia da amostra de planta.
 
    - Atribuição de bloqueio
 
-     Selecione a definição de bloqueio de planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
+     Selecione a definição de bloqueio do esquema no seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
    - Identidade Gerida
 
      Deixe a opção de identidade gerida _por defeito atribuída._
 
-   - Parâmetros de artefactos
+   - Parâmetros dos artefactos
 
-     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos,](../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte [a tabela de parâmetros do Artefacto](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto no qual são definidos. Estes parâmetros são [parâmetros dinâmicos,](../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte [a tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. A implantação leva cerca de uma hora. Para verificar o estado de implantação, abra a atribuição do projeto.
+1. Depois de introduzidos todos os parâmetros, selecione **Atribuir**, na parte inferior da página. A atribuição do esquema é criada e a implementação do artefacto inicia-se. A implantação leva cerca de uma hora. Para verificar o estado, abra a atribuição do esquema.
 
 > [!WARNING]
-> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **livres de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo de funcionamento dos recursos utilizados por esta amostra de planta.
+> O serviço Azure Blueprints e os esquemas de exemplo incorporados são **gratuitos**. Os preços dos recursos do Azure são os [preços por produto](https://azure.microsoft.com/pricing/). Utilize a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para prever o custo da execução de recursos implementados por este esquema de exemplo.
 
-### <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefacto
+### <a name="artifact-parameters-table"></a>Tabela de parâmetros dos artefactos
 
-A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
+A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 
 |Nome do artefacto |Nome do parâmetro |Descrição |
 |---|---|---|
@@ -119,7 +119,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Ativar logons de hóspedes inseguros |Especifica se o cliente SMB permitirá logons de hóspedes inseguros para um servidor SMB. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais |Ativar ou desativar a monitorização da rede apenas no acesso a tempo |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |As portas de gestão devem ser fechadas nas suas máquinas virtuais |Ativar ou desativar a monitorização de portas de gestão abertas em Máquinas Virtuais |
-|Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |MFA deve ser ativado contas com permissões de escrita na sua subscrição |Ativar ou desativar a monitorização do MFA para contas com permissões de escrita na subscrição |
+|Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |A MFA deve ser ativada em contas com permissões de escrita na sua subscrição |Ativar ou desativar a monitorização do MFA para contas com permissões de escrita na subscrição |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição |Ativar ou desativar a monitorização do MFA para contas com permissões do proprietário na subscrição |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Acesso de rede: caminhos de registo remotamente acessíveis |Especifica quais os caminhos de registo acessíveis através da rede, independentemente dos utilizadores ou grupos listados na lista de controlo de acesso (ACL) da chave de `winreg` registo. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Acesso à rede: Caminhos de registo e sub-caminhos acessíveis remotamente |Especifica quais os caminhos de registo e sub-caminhos acessíveis através da rede, independentemente dos utilizadores ou grupos listados na lista de controlo de acesso (ACL) da chave de `winreg` registo. |
@@ -131,7 +131,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Retenção necessária (em dias) de registos no serviço de Pesquisa Azure |O período de retenção de registos de diagnóstico necessário em dias |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Retenção necessária (em dias) de registos nas contas do Event Hub |O período de retenção de registos de diagnóstico necessário em dias |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Nome do grupo de recursos para conta de armazenamento (deve existir) para implementar definições de diagnóstico para grupos de segurança de rede |O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir. |
-|Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |O Controlo de Acesso Baseado em Função (RBAC) deve ser utilizado nos serviços kubernetes |Ativar ou desativar a monitorização dos Serviços Kubernetes sem o RBAC ativado |
+|Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Role-Based Access Control (RBAC) deve ser usado nos serviços Kubernetes |Ativar ou desativar a monitorização dos Serviços Kubernetes sem o RBAC ativado |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |O protetor TDE de caso gerido pela SQL deve ser encriptado com a sua própria chave |Ative ou desative a monitorização da Encriptação de Dados Transparente (TDE) com o seu próprio suporte de chave. O TDE com o seu próprio suporte chave proporciona maior transparência e controlo sobre o Protetor TDE, maior segurança com um serviço externo apoiado pelo HSM e promoção da separação de direitos. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |O protetor TDE do servidor SQL deve ser encriptado com a sua própria chave |Ative ou desative a monitorização da Encriptação de Dados Transparente (TDE) com o seu próprio suporte de chave. O TDE com o seu próprio suporte chave proporciona maior transparência e controlo sobre o Protetor TDE, maior segurança com um serviço externo apoiado pelo HSM e promoção da separação de direitos. |
 |Auditoria HiTRUST/HIPAA controla e implementa extensões VM específicas para apoiar os requisitos de auditoria |Prefixo de conta de armazenamento para conta de armazenamento regional para implementar definições de diagnóstico para grupos de segurança de rede |Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada. |

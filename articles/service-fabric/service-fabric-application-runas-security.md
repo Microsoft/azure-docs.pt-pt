@@ -1,13 +1,13 @@
 ---
 title: Executar um serviço sob sistema e contas de segurança local
-description: Saiba como executar uma aplicação de Tecido de Serviço sob sistema e contas de segurança locais.  Crie princípios de segurança e aplique a política run-as para executar os seus serviços de forma segura.
+description: Saiba como executar uma aplicação de Tecido de Serviço sob sistema e contas de segurança locais.  Crie princípios de segurança e aplique a política de Run-As para gerir de forma segura os seus serviços.
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75610131"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de utilizador local ou conta do sistema local
@@ -172,7 +172,7 @@ O exemplo manifesto de serviço que se segue mostra a reorientação da consola 
 ```
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Compreender o modelo de aplicação](service-fabric-application-model.md)
 * [Especificar recursos num manifesto de serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)

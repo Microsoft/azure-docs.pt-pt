@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489906"
 ---
-# <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados usando a Azure Data Share  
+# <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados com o Azure Data Share  
 
 Neste tutorial, você vai aprender a configurar uma nova Azure Data Share e começar a partilhar os seus dados com clientes e parceiros fora da sua organização Azure. 
 
@@ -34,14 +34,14 @@ Neste tutorial, irá aprender a:
 ### <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento:
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuinte.
-* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função Proprietário. 
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor.
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário. 
 
 
 ### <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL:
 
 * Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente SQL Data Warehouse) com tabelas e vistas que pretende partilhar.
-* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuinte.
+* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor.
 * Permissão para que a partilha de dados aceda ao armazém de dados. Isto pode ser feito através dos seguintes passos: 
     1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
     1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Azure Ative Directory.
@@ -62,8 +62,8 @@ Neste tutorial, irá aprender a:
 
 ### <a name="share-from-azure-data-explorer"></a>Partilhar a partir do Azure Data Explorer
 * Um cluster Azure Data Explorer com bases de dados que pretende partilhar.
-* Permissão para escrever ao cluster Azure Data Explorer, que está presente no *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuinte.
-* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função Proprietário.
+* Permissão para escrever ao cluster Azure Data Explorer, que está presente no *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuidor.
+* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função de Proprietário.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -107,7 +107,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![EnterShareDetails](./media/enter-share-details.png "Insira detalhes de partilha") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Para adicionar Conjuntos de Dados à sua parte, selecione **Adicionar Conjuntos de Dados**. 
 
@@ -125,7 +125,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![AdicionarRecipients](./media/add-recipient.png "Adicionar destinatários") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Se tiver selecionado o tipo de partilha snapshot, pode configurar o calendário de instantâneos para fornecer atualizações dos seus dados ao seu consumidor de dados. 
 
@@ -133,7 +133,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione um intervalo de tempo de início e recorrência. 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. No separador 'Rever + Criar', rever os conteúdos, definições, destinatários e definições de sincronização do pacote. Selecione **Criar**.
 

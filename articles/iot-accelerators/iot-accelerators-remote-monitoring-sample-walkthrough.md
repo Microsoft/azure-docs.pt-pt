@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80546317"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Monitorização Remota
@@ -64,7 +64,7 @@ O microserviço fornece um ponto final RESTful para criar, iniciar e parar as si
 
 Pode providenciar dispositivos simulados a partir do painel de instrumentos no portal da solução.
 
-### <a name="iot-hub"></a>Hub IoT
+### <a name="iot-hub"></a>IoT Hub
 
 O [hub IoT](../iot-hub/index.yml) ingere telemetria enviada de ambos os dispositivos reais e simulados para a nuvem. O hub IoT disponibiliza a telemetria aos serviços na solução IoT para processamento.
 

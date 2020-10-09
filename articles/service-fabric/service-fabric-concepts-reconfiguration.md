@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75610000"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguração em Tecido de Serviço Azure
@@ -48,7 +48,7 @@ As reconfigurações podem ficar *presas* por uma variedade de razões. Algumas 
 
 Utilize relatórios de saúde de componentes do sistema, tais como System.FM, System.RA e System.RAP, para diagnosticar onde uma reconfiguração está presa. A [página do relatório de saúde do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) descreve estes relatórios de saúde.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
 - [Ciclo de vida do Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

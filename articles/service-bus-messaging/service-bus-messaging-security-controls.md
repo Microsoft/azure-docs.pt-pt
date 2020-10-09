@@ -4,10 +4,10 @@ description: Uma lista de controlos de segurança para avaliar as mensagens de a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341625"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controlos de segurança para mensagens de autocarro da Azure Service
@@ -18,7 +18,7 @@ Este artigo documenta os controlos de segurança incorporados nas mensagens de a
 
 ## <a name="network"></a>Rede
 
-| Controlo de segurança | Sim/Não | Notas | Documentation |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
 | Suporte ao ponto final de serviço| Sim (apenas nível premium) | Os pontos finais do serviço VNet são suportados apenas para [o nível Service Bus Premium.](service-bus-premium-messaging.md) |  |
 | Suporte à injeção VNet| Não | |  |
@@ -27,7 +27,7 @@ Este artigo documenta os controlos de segurança incorporados nas mensagens de a
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | Suportado através do [Monitor e Alertas Azure](service-bus-metrics-azure-monitor.md). |  |
 | Registo e auditoria de avião de controlo e gestão| Sim | Os registos de operações estão disponíveis.  | [Registos de diagnóstico de ônibus de serviço](service-bus-diagnostic-logs.md) |
@@ -35,14 +35,14 @@ Este artigo documenta os controlos de segurança incorporados nas mensagens de a
 
 ## <a name="identity"></a>Identidade
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Autenticação| Sim | Gerido através da [Identidade de Serviço Gerido pelo Diretório Ativo Azure](service-bus-managed-service-identity.md).| [Autenticação e autorização do Service Bus](service-bus-authentication-and-authorization.md). |
 | Autorização| Sim | Suporta a autorização através [do símbolo RBAC](authenticate-application.md) e SAS. | [Autenticação e autorização do Service Bus](service-bus-authentication-and-authorization.md). |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controlo de segurança | Sim/Não | Notas | Documentation |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
 | Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft |  Sim para encriptação do lado do servidor em repouso por predefinição. |  |  |
 | Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Sim. | Uma chave gerida pelo cliente em Azure KeyVault pode ser usada para encriptar os dados no Service Bus Namespace em repouso. | [Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure](configure-customer-managed-key.md)  |
@@ -52,10 +52,10 @@ Este artigo documenta os controlos de segurança incorporados nas mensagens de a
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Suporta a versão do fornecedor de recursos através da [API Azure Resource Manager](/rest/api/resources/).|   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

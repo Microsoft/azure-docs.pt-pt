@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614337"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilize o Visual Studio para simplificar a escrita e gerir as suas aplicações de Tecido de Serviço
@@ -71,7 +71,7 @@ Pode executar operações básicas de gestão de clusters a partir do Estúdio V
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Modelo de aplicação de tecido de serviço](service-fabric-application-model.md)
 * [Implementação de aplicações de tecido de serviço](service-fabric-deploy-remove-applications.md)
 * [Gestão de parâmetros de aplicação para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)

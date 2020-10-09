@@ -12,10 +12,10 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991574"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP utilizando a Azure Data Factory
@@ -50,7 +50,7 @@ Pode criar um pipeline que tenha uma atividade de cópia para mover dados de uma
 
 A tabela a seguir descreve elementos JSON específicos do serviço ligado HTTP:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo | A propriedade **tipo** deve ser definida para **Http**. | Sim |
 | url | O URL base para o servidor web. | Sim |
@@ -65,7 +65,7 @@ Para obter mais informações sobre a definição de credenciais para uma fonte 
 
 Definir **autenticaçãoType** para **Basic**, **Digest**ou **Windows**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, definir as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | userName | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Sim |
 | palavra-passe | A palavra-passe para o utilizador **(nome de utilizador).** | Sim |
@@ -93,7 +93,7 @@ Definir **autenticaçãoType** para **Basic**, **Digest**ou **Windows**. Para al
 
 Para utilizar a autenticação básica, **defie a autenticaçãoType** ao **ClienteCerti.** Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, definir as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | EmbeddedCertData | O conteúdo codificado da Base64 dos dados binários do ficheiro PFX. | Especifique ou **incorporasseCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado na loja de certificados da sua máquina de gateway. Aplicar apenas quando copiar dados de uma fonte HTTP no local. | Especifique ou **incorporasseCertData** ou **certThumbprint** |
@@ -157,7 +157,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção **typeProperties** fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para um conjunto de dados do tipo **Http** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O **tipo** de conjunto de dados deve ser definido em **Http**. | Sim |
 | relativoUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. <br><br> Para construir um URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema.](data-factory-functions-variables.md) Exemplo: **relativoUrl**: **$$Text.Formato('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
@@ -220,7 +220,7 @@ As propriedades que estão disponíveis na secção **de tipoProperties** da ati
 
 Atualmente, quando a fonte em Atividade de Cópia é do tipo **HttpSource,** as seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não<br />(valor predefinido: **00:01:40)** |
 

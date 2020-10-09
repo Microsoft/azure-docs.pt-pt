@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: victorh
 ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89536008"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteja o seu hub virtual usando o Azure Firewall Manager
@@ -120,7 +120,7 @@ Repita para ligar a rede virtual **Spoke-02:** nome de ligação - **hub-spoke-0
    |---------|---------|
    |Grupo de recursos     |**fw-manager**|
    |Nome da máquina virtual     |**Srv-workload-01**|
-   |Region     |**(EUA) Leste dos EUA)**|
+   |Região     |**(EUA) Leste dos EUA)**|
    |Nome do utilizador do administrador     |escrever um nome de utilizador|
    |Palavra-passe     |escrever uma senha|
 

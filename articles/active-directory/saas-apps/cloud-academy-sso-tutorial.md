@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 37ed9bb09b6b15af0c32f489cbc3c02ec27c2827
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461974"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutorial: Azure Ative Directory integração única com cloud Academy - SSO
@@ -74,13 +74,13 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações SSO da Cloud Academy - **SSO,** na secção **Gerir,** selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de um único registo com** a página SAML, selecione o botão de lápis para **configuração SAML básica** para editar as definições:
+1. Na **configuração de Sign-On única com** a página SAML, selecione o botão de lápis para **configuração SAML Básica** para editar as definições:
 
    ![Screenshot que mostra o botão de lápis para editar a configuração básica do SAML.](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** na caixa **URL de inscrição,** insira `https://cloudacademy.com/login/enterprise/` .
 
-1. Na **configuração de um único sinal com** a página SAML, na secção certificado de assinatura **SAML,** selecione o botão de cópia para copiar o **Url de Metadados da Federação de Aplicações**. Salve a URL.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o botão de cópia para copiar o **Url de Metadados da Federação de Aplicações**. Salve a URL.
 
     ![Screenshot que mostra o botão de cópia para o URL de metadados da federação de aplicações.](common/copy-metadataurl.png)
 

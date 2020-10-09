@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2222c1d5e434e1c51cb66c2c5943badd58f95af9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84013032"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Índice de artigos de "controlos de segurança incorporados" para serviços Azure
@@ -29,7 +29,7 @@ Os artigos de controlo de segurança incorporados estão disponíveis para os se
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
 - [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
-- [Azure Load Balancer](../../load-balancer/load-balancer-security-controls.md)
+- [Balanceador de Carga do Azure](../../load-balancer/load-balancer-security-controls.md)
 - [Mensagens de autocarro da Azure Service](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Relé de ônibus de serviço Azure](../../service-bus-relay/service-bus-relay-security-controls.md)
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)

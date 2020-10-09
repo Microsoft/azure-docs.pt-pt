@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: ae2c1072b9490931609dd61f1cac2a47f1cffef3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469954"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Apagar um aglomerado de chapéu vermelho Azure OpenShift 4
@@ -22,7 +22,7 @@ Neste tutorial, parte três de três, é eliminado um cluster Azure Red Hat Open
 > * Eliminar um cluster do Azure Red Hat OpenShift
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Em tutoriais anteriores, um cluster Azure Red Hat OpenShift foi criado e ligado à utilização da consola web OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 

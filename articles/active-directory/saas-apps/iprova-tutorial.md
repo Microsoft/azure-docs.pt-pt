@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 187ec5c42c733837689de95c8111b557519f8b7b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552846"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>Tutorial: Azure Ative Directory integração única (SSO) com iProva
@@ -65,7 +65,7 @@ Para configurar e testar o Azure AD SSO com iProva, complete os seguintes blocos
 1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Create iProva test user](#create-iprova-test-user)** - para ter uma contraparte de B.Simon no iProva que está ligada à representação AZure AD do utilizador.
-1. **[Configure iProva SSO](#configure-iprova-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configure iProva SSO](#configure-iprova-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="retrieve-configuration-information-from-iprova"></a>Recuperar informações de configuração do iProva
@@ -107,7 +107,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação iProva espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem| Espaço de Nomes  |
+    | Nome | Atributo de origem| Espaço de Nomes  |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
