@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Diretório Ativo Azure com o HubSpot
@@ -95,7 +95,7 @@ Nesta secção, configurar o Azure AD com o HubSpot no portal Azure.
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ Nesta secção, configurar o Azure AD com o HubSpot no portal Azure.
 
     ![A opção UrLs adicionais set](common/metadata-upload-additional-signon.png)
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregamento** ao lado **do Certificado (Base64)**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** selecione **Download** ao lado do **Certificado (Base64)**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
 
     ![A opção de descarregamento do Certificado (Base64)](common/certificatebase64.png)
 
@@ -154,7 +154,7 @@ Nesta secção, configurar o Azure AD com o HubSpot no portal Azure.
 
     1. No HubSpot, na caixa **de URL do Fornecedor de Identidade ou do Emitente,** cole o valor para **identificador AD AD Azure** que copiou no portal Azure.
 
-    1. No HubSpot, na caixa **URL de assinatura única do fornecedor de identidade,** cole o valor para URL de **login** que copiou no portal Azure.
+    1. No HubSpot, na caixa **DE URL do Fornecedor de Identidade Single Sign-On,** cole o valor para URL de **Login** que copiou no portal Azure.
 
     1. No Bloco de Notas do Windows, abra o ficheiro Certificado (Base64) que descarregou. Selecione e copie o conteúdo do ficheiro. Em seguida, no HubSpot, cole-o na caixa de **certificado X.509.**
 

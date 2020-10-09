@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: c15241a2508a5d35f8eb84339cc584a651fcd5f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415173"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados da Spark utilizando a Azure Data Factory 
@@ -48,23 +48,23 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Spark:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Faísca** | Yes |
-| anfitrião | Endereço IP ou nome de anfitrião do servidor Spark  | Yes |
-| porta | A porta TCP que o servidor Spark utiliza para ouvir as ligações do cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Yes |
-| serverType | O tipo de servidor Spark. <br/>Os valores permitidos são: **SharkServer,** **SharkServer2,** **SparkThriftServer** | No |
-| thriftTransportProtocol | O protocolo de transporte para usar na camada Thrift. <br/>Os valores permitidos são: **Binário,** **SASL,** **HTTP** | No |
-| authenticationType | O método de autenticação utilizado para aceder ao servidor Spark. <br/>Os valores permitidos são: **Anónimo,** **Nome de Utilizador,** **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao Spark Server.  | No |
-| palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| httpPath | O URL parcial correspondente ao servidor Spark.  | No |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | No |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para: **Faísca** | Sim |
+| anfitrião | Endereço IP ou nome de anfitrião do servidor Spark  | Sim |
+| porta | A porta TCP que o servidor Spark utiliza para ouvir as ligações do cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| serverType | O tipo de servidor Spark. <br/>Os valores permitidos são: **SharkServer,** **SharkServer2,** **SparkThriftServer** | Não |
+| thriftTransportProtocol | O protocolo de transporte para usar na camada Thrift. <br/>Os valores permitidos são: **Binário,** **SASL,** **HTTP** | Não |
+| authenticationType | O método de autenticação utilizado para aceder ao servidor Spark. <br/>Os valores permitidos são: **Anónimo,** **Nome de Utilizador,** **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| nome de utilizador | O nome de utilizador que utiliza para aceder ao Spark Server.  | Não |
+| palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| httpPath | O URL parcial correspondente ao servidor Spark.  | Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | Não |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 **Exemplo:**
 
@@ -93,9 +93,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Spark, defina a propriedade tipo do conjunto de dados para **o SparkObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SparkObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SparkObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -125,9 +125,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Spark, desaperte o tipo de origem na atividade de cópia para **o SparkSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SparkSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SparkSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

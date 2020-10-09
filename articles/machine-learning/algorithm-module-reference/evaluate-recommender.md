@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76312265"
 ---
 # <a name="evaluate-recommender"></a>Avaliar Recomendador
 
-Este artigo descreve como utilizar o módulo De Avaliação De Avaliação no Azure Machine Learning designer (pré-visualização). O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Ao utilizar este módulo, pode avaliar diferentes tipos de recomendações:  
+Este artigo descreve como utilizar o módulo De Avaliação De Recomendação no designer de Aprendizagem automática Azure. O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Ao utilizar este módulo, pode avaliar diferentes tipos de recomendações:  
   
 -   Classificações previstas para um utilizador e um item    
 -   Itens recomendados para um utilizador  
@@ -35,7 +35,7 @@ O módulo também aplica as métricas de desempenho apropriadas, com base no tip
 
 O módulo 'Avaliador' compara a saída de previsão utilizando um modelo de recomendação com os dados correspondentes de "verdade do solo". Por exemplo, o módulo [Score SVD Recommender](score-svd-recommender.md) produz conjuntos de dados pontuados que pode analisar utilizando o Avaliador de Avaliação.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 Avaliar o Recomendador requer os seguintes conjuntos de dados como entrada. 
   
@@ -88,6 +88,6 @@ Avaliar o Recomendador calcula o ganho acumulado médio normalizado (NDCG) e dev
 Como é impossível saber a verdadeira "verdade básica" para os itens recomendados, o Assess Recommender utiliza as classificações de produto do utilizador no conjunto de dados de teste como ganhos no cálculo do NDCG. Para avaliar, o módulo de pontuação recomendador só deve produzir recomendações para itens com classificações de "verdade no solo" (no conjunto de dados de teste).  
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

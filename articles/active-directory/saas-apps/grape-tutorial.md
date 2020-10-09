@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Gra-Pe Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com Gra-Pe [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Gra-Pe.
 services: active-directory
 author: jeevansd
@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 99357c01774ef10d9c759df89b94c538abc720f3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551587"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Diretório Ativo Azure com a Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Diretório Ativo Azure com Gra-Pe
 
-Neste tutorial, aprende-se a integrar o Gra-Pe com o Azure Ative Directory (Azure AD).
-A integração da Gra-Pe com a AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, aprende-se a integrar Gra-Pe com o Azure Ative Directory (Azure AD).
+Integrar Gra-Pe com a Azure AD proporciona-lhe os seguintes benefícios:
 
 * Você pode controlar em Azure AD que tem acesso a Gra-Pe.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Gra-Pe (Sign-On Único) com as suas contas AD Azure.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos para Gra-Pe (Sign-on Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
 Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,17 +35,17 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para configurar a integração AZure AD com a Gra-Pe, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura ativada única Gra-Pe
+* Gra-Pe subscrição ativada por cada um
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Gra-Pe suporta **SP** iniciado SSO
+* Gra-Pe apoia SSO iniciado **pela SP**
 
-## <a name="adding-gra-pe-from-the-gallery"></a>Adicionando Gra-Pe da galeria
+## <a name="adding-gra-pe-from-the-gallery"></a>Adicionar Gra-Pe da galeria
 
-Para configurar a integração do Gra-Pe em AD Azure, precisa adicionar Gra-Pe da galeria à sua lista de aplicações geridas pelo SaaS.
+Para configurar a integração de Gra-Pe no AD Azure, é necessário adicionar Gra-Pe da galeria à sua lista de aplicações geridas pelo SaaS.
 
 **Para adicionar Gra-Pe da galeria, execute os seguintes passos:**
 
@@ -67,16 +67,16 @@ Para configurar a integração do Gra-Pe em AD Azure, precisa adicionar Gra-Pe d
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Gra-Pe com base em um utilizador de teste chamado **Britta Simon**.
-Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Gra-Pe.
+Nesta secção, configura e testa o Azure AD com Gra-Pe com base num utilizador de teste chamado **Britta Simon**.
+Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Gra-Pe.
 
 Para configurar e testar o Azure AD com o Gra-Pe, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único Gra-Pe](#configure-gra-pe-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure Gra-Pe Único Sign-On](#configure-gra-pe-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Gra-Pe test user](#create-gra-pe-test-user)** - para ter uma contraparte de Britta Simon em Gra-Pe que está ligada à representação AD AD do utilizador.
+5. **[Crie Gra-Pe utilizador de teste](#create-gra-pe-test-user)** - para ter uma contraparte de Britta Simon em Gra-Pe que está ligada à representação AD do utilizador.
 6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
@@ -93,17 +93,17 @@ Para configurar o Azure AD com gra-pe, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![Gra-Pe Domain e URLs informações únicas de assinatura](common/sp-signonurl.png)
+    ![Gra-Pe Informações de assinatura única do domínio e URLs](common/sp-signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD com gra-pe, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-gra-pe-single-sign-on"></a>Configurar gra-pe single sign-on
+### <a name="configure-gra-pe-single-sign-on"></a>Configurar Gra-Pe Sign-On Único
 
 Para configurar um único sign-on no lado **Gra-Pe,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a [equipa de suporte Gra-Pe](https://www.toppantravel.com/inquiry/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -152,7 +152,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Gra-Pe**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Gra-Pe**.
 
@@ -172,7 +172,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-gra-pe-test-user"></a>Criar utilizador de teste Gra-Pe
+### <a name="create-gra-pe-test-user"></a>Criar Gra-Pe utilizador de teste
 
 Nesta secção, cria-se um utilizador chamado Britta Simon em Gra-Pe. Trabalhe com a [equipa de suporte Gra-Pe](https://www.toppantravel.com/inquiry/) para adicionar os utilizadores na plataforma Gra-Pe. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
@@ -180,7 +180,7 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Gra-Pe. Trabalhe c
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Gra-Pe no Painel de Acesso, deverá ser automaticamente inscrito no Gra-Pe para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo Gra-Pe no Painel de Acesso, deverá ser automaticamente inscrito no Gra-Pe para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

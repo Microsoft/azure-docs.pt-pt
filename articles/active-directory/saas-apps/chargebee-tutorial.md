@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
 ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760653"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Tutorial: Integrar Chargebee com diretório ativo Azure
@@ -61,7 +61,7 @@ Para configurar e testar a Azure AD SSO com Chargebee, complete os seguintes blo
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-2. **[Configure Chargebee SSO](#configure-chargebee-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Chargebee SSO](#configure-chargebee-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create Chargebee test user](#create-chargebee-test-user)** - para ter uma contraparte de B.Simon in Chargebee que está ligada à representação AD AD do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -71,7 +71,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Chargebee,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > `<domainname>` é o nome do domínio que o utilizador cria após a reclamação da conta. Em caso de qualquer outra informação, contacte [a equipa de suporte do Cliente Chargebee.](mailto:support@chargebee.com) Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -136,7 +136,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 5. No **pop-up Single Sign-On,** execute os seguintes passos:
 
-    ![A screenshot mostra a caixa de diálogo sign-on única com SAML selecionada e a opção de confirmar.](./media/chargebee-tutorial/config02.png)
+    ![A screenshot mostra a caixa de diálogo Single Sign-On com SAML selecionada e a opção de confirmar.](./media/chargebee-tutorial/config02.png)
 
     a. Selecione **SAML**.
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75976611"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Crie um hub IoT utilizando o modelo Azure Resource Manager (PowerShell)
@@ -23,7 +23,7 @@ Saiba como usar um modelo de Gestor de Recursos Azure para criar um Hub IoT e um
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 O modelo de Gestor de Recursos utilizado neste arranque rápido é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Aqui está uma cópia do modelo:
 
@@ -49,7 +49,7 @@ New-AzResourceGroupDeployment `
 
 Como pode ver no script PowerShell, o modelo utilizado é a partir de modelos Azure Quickstart. Para utilizar o seu próprio, tem de carregar primeiro o ficheiro do modelo para a concha cloud e, em seguida, utilizar o `-TemplateFile` interruptor para especificar o nome do ficheiro.  Por exemplo, consulte [Implementar o modelo](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou um hub IoT utilizando um modelo de Gestor de Recursos Azure, talvez queira explorar mais:
 

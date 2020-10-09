@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76046295"
 ---
 # <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Implementar e gerir instâncias de contentores Azure utilizando aplicações lógicas Azure
@@ -70,7 +70,7 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logi
 
 Para obter detalhes técnicos sobre os gatilhos, ações e limites, descritos pela descrição do conector OpenAPI (anteriormente Swagger), reveja a página de [referência](/connectors/aci/) do conector ou [a referência YAML](../container-instances/container-instances-reference-yaml.md)do grupo de contentores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte uma [aplicação lógica de amostra](https://github.com/Azure-Samples/aci-logicapps-integration) que executa um contentor em Instâncias de Contentores Azure para analisar o sentimento de e-mail ou texto do Twitter
 

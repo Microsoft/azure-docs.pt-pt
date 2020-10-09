@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 01db7128cd990098caa25ba2cd79f2f2a2b28d78
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90108885"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Tutorial: Avaliar VMware VMs para migração para VMs Azure
@@ -44,8 +44,8 @@ Decida se pretende executar uma avaliação utilizando critérios de dimensionam
 
 **Avaliação** | **Detalhes** | **Recomendação**
 --- | --- | ---
-**As-is in-ins** | Avaliar com base em dados de configuração da máquina/metadados.  | O tamanho Azure VM recomendado baseia-se no tamanho VM no local.<br/><br> O tipo de disco Azure recomendado baseia-se no que seleciona na definição do tipo de armazenamento na avaliação.
-**Baseado no desempenho** | Avaliar com base em dados de desempenho dinâmicos recolhidos. | O tamanho Azure VM recomendado baseia-se em dados de CPU e utilização da memória.<br/><br/> O tipo de disco recomendado baseia-se no IOPS e na produção dos discos no local.
+**Como está no local** | Avaliar com base em dados de configuração da máquina/metadados.  | O tamanho Azure VM recomendado baseia-se no tamanho VM no local.<br/><br> O tipo de disco Azure recomendado baseia-se no que seleciona na definição do tipo de armazenamento na avaliação.
+**Com base no desempenho** | Avaliar com base em dados de desempenho dinâmicos recolhidos. | O tamanho Azure VM recomendado baseia-se em dados de CPU e utilização da memória.<br/><br/> O tipo de disco recomendado baseia-se no IOPS e na produção dos discos no local.
 
 
 ## <a name="run-an-assessment"></a>Executar uma avaliação
@@ -105,7 +105,7 @@ E executar uma avaliação da seguinte forma:
 
 9. Clique **em Guardar** se escoda alterações.
 
-    ![Propriedades de avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+    ![Propriedades da avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
 10. In **Assess Servers**, clique **em Seguinte**.
 11. Nas **máquinas Select para avaliar,** selecione **Create New**e especifique um nome de grupo. 
@@ -125,12 +125,12 @@ Uma avaliação descreve:
 
 - **Prontidão azul**: Se os VM são adequados para a migração para Azure.
 - **Estimativa mensal dos custos**: Os custos estimados mensalmente de cálculo e armazenamento para a execução dos VMs em Azure.
-- **Estimativa mensal dos custos de armazenamento**: Custos estimados para o armazenamento do disco após a migração.
+- **Estimativa do custo de armazenamento mensal**: Custos estimados do armazenamento em disco após a migração.
 
 Para visualizar uma avaliação:
 
 1. Nos **servidores**  >  **Azure Migrate: Avaliação do servidor,** clique no número ao lado **das Avaliações**.
-2. Em **Avaliações,** selecione uma avaliação para abri-la. Como exemplo (estimativas e custos, por exemplo: 
+2. Em **Avaliações**, selecione uma avaliação para a abrir. Como exemplo (estimativas e custos, por exemplo: 
 
     ![Resumo da avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
 
@@ -146,7 +146,7 @@ Para visualizar uma avaliação:
     - **Não está pronto para o Azure**: Apresenta problemas e sugeriu a reparação.
     - **Prontidão desconhecida**: Usado quando a Azure Migrate não consegue avaliar a prontidão, devido a problemas de disponibilidade de dados.
 
-3. Selecione um estado **de prontidão Azure.** Pode ver detalhes de prontidão em VM. Também pode perfurar para ver detalhes do VM, incluindo configurações de computação, armazenamento e rede.
+3. Selecione um estado de **Preparação para o Azure**. Pode ver detalhes de prontidão em VM. Também pode perfurar para ver detalhes do VM, incluindo configurações de computação, armazenamento e rede.
 
 ### <a name="review-cost-estimates"></a>Rever as estimativas de custos
 
@@ -155,7 +155,7 @@ O resumo da avaliação mostra o custo estimado do cálculo e armazenamento dos 
 1. Reveja os custos totais mensais. Os custos são agregados para todos os VMs do grupo avaliado.
 
     - As estimativas de custos baseiam-se nas recomendações de tamanho para uma máquina, nos seus discos e nas suas propriedades.
-    - São apresentados custos mensais estimados para o cálculo e armazenamento.
+    - Os custos mensais estimados para computação e armazenamento são mostrados.
     - A estimativa de custos é para a execução dos VMs no local em VMs Azure. A estimativa não considera os custos do PaaS ou do SaaS.
 
 2. Reveja os custos de armazenamento mensais. A vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento. 

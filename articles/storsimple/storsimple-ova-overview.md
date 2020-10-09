@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76273876"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao Array Virtual StorSimple
@@ -69,7 +69,7 @@ A tabela seguinte descreve alguns dos principais benefícios que a solução Sto
 
 Um resumo das cargas de trabalho StorSimple suportadas é tabulado abaixo.
 
-|Scenario     |Carga de trabalho     |Suportado      |Restrições               | Versões aplicáveis|
+|Cenário     |Carga de trabalho     |Suportado      |Restrições               | Versões aplicáveis|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |Escritório remoto/sucursal (ROBO)  |Partilha de ficheiros     |Sim      |Consulte [os limites máximos para o servidor de ficheiros.](storsimple-ova-limits.md)<br></br>Consulte [os requisitos do sistema para versões SMB suportadas](storsimple-ova-system-requirements.md).| Todas as versões     |
 |Arquivo de nuvens  |Partilha de arquivo     |Sim      |Consulte [os limites máximos para o servidor de ficheiros.](storsimple-ova-limits.md)<br></br>Consulte [os requisitos do sistema para versões SMB suportadas](storsimple-ova-system-requirements.md).| Todas as versões     |
@@ -210,6 +210,6 @@ O Gestor de Dispositivos StorSimple para séries virtuais recolhe informações 
 
 Para mais informações, reveja a política de privacidade da [Microsoft no Trust Center.](https://www.microsoft.com/trustcenter)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [preparar o portal de matrizes virtuais.](storsimple-virtual-array-deploy1-portal-prep.md)

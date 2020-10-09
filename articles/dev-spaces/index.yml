@@ -12,10 +12,10 @@ metadata:
   manager: gwallace
   ms.date: 09/30/2019
   ms.openlocfilehash: a3583cf57725acfdc812e44c921842acebbfd0a0
-  ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/06/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "91773319"
 landingContent:
 - title: Acerca do Azure Dev Spaces

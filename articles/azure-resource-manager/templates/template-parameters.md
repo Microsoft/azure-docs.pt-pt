@@ -4,13 +4,13 @@ description: Descreve como definir parâmetros num modelo de Gestor de Recursos 
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76122428"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros em modelos de gestor de recursos Azure
+# <a name="parameters-in-azure-resource-manager-templates"></a>Parameters in Azure Resource Manager templates (Parâmetros nos modelos do Azure Resource Manager)
 
 Este artigo descreve como definir e usar parâmetros no seu modelo de Gestor de Recursos Azure. Ao fornecer diferentes valores para parâmetros, pode reutilizar um modelo para diferentes ambientes.
 
@@ -158,7 +158,7 @@ Os exemplos a seguir demonstram cenários para a utilização de parâmetros.
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra usar um objeto para um parâmetro. O modelo não implementa recursos. Constrói valores de parâmetros e devolve esses valores. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer as propriedades disponíveis para parâmetros, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
 * Para saber como passar os valores dos parâmetros como ficheiro, consulte [o ficheiro de parâmetros Do Gestor de Recursos](parameter-files.md).

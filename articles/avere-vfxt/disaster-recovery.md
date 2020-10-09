@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75966653"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Orientação de recuperação de desastres para Avere vFXT para Azure
@@ -112,7 +112,7 @@ Para aceder ao recipiente de backup a partir de um agrupamento Avere vFXT para A
 
 1. Se necessário, atualize os clientes de modo a que montem o novo cluster ou o novo ficheiro principal em vez do original. (Se adicionar o ficheiro principal de substituição com o mesmo nome e caminho de junção que o recipiente original, não necessitará de atualizar os processos do cliente a menos que precise de montar o novo cluster num novo endereço IP.)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a personalização das definições para Avere vFXT para Azure, leia [afinação do Cluster](avere-vfxt-tuning.md).
 * Saiba mais sobre a recuperação de desastres e a construção de aplicações resilientes em Azure:

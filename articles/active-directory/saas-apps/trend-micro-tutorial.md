@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: f2a6598cc28c39719d73be333bd74c24fce9371b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Trend Micro Web Security (TMWS)
@@ -72,7 +72,7 @@ Complete estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Trend Micro Web Security (TMWS),** na secção **Gerir,** selecione um único sinal de **sing.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set up Single Sign-On com** a página SAML, selecione o botão de caneta para **configuração SAML básica** para editar as definições:
+1. Na **configuração única Sign-On com** a página SAML, selecione o botão de caneta para **configuração SAML básica** para editar as definições:
 
    ![Editar as definições básicas de configuração SAML](common/edit-urls.png)
 
@@ -95,7 +95,7 @@ Complete estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Além dos atributos na imagem anterior, a TMWS espera que mais dois atributos sejam repercutidos na resposta SAML. Estes atributos são apresentados na tabela seguinte. Os atributos são pré-povoados, mas pode alterá-los para satisfazer os seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | --------------- | --------- |
     | sAMAccountName | user.onpremisessamaccountname |
     | uPN | user.userprincipalname |

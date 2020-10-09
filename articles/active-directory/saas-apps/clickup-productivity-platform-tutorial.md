@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma de Produtividade ClickUp
@@ -93,7 +93,7 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,11 +108,11 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
     > [!NOTE]
     > O valor do Identificador não é real. Atualize este valor com o identificador real, que é explicado mais tarde neste tutorial.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-clickup-productivity-platform-single-sign-on"></a>Configurar a plataforma de produtividade clickUp único sign-on
+### <a name="configure-clickup-productivity-platform-single-sign-on"></a>Configurar plataforma de produtividade clickUp única Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino da Plataforma de Produtividade ClickUp como administrador.
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com a Plataforma de Produtividade ClickUp, execute os
 
     ![A imagem mostra definições.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
-3. Selecione **Microsoft**, em Fornecedor único de SSO (SSO).
+3. Selecione **Microsoft**, em Fornecedor de Sign-On (SSO).
 
     ![A screenshot mostra o painel de autenticação com a Microsoft selecionada.](./media/clickup-productivity-platform-tutorial/configure2.png)
 

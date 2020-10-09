@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: ec5a0d6e8c0a5236ae3929560e81033d983d4dfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895117"
 ---
 # <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Cenário: Aplicação Apache Tez está pendurada no Azure HDInsight
@@ -32,7 +32,7 @@ Dimensione o aglomerado, ou espere até que a fila do Fio seja drenada.
 
 Por `yarn.scheduler.capacity.maximum-applications` predefinição controla o número máximo de aplicações que estão em execução ou pendentes, e por defeito de `10000` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

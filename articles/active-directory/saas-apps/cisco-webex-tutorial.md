@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 466e69ece993ca34f8f6770c0465471d01b9c3ed
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760942"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Azure Ative Directory integração única (SSO) com reuniões webex da Cisco
@@ -76,7 +76,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **da Cisco Webex Meetings,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set up Single Sign-On com** a página SAML, pode configurar a aplicação no modo iniciado pelo **IDP,** carregando o ficheiro **de metadados do Fornecedor de Serviço** da seguinte forma:
+1. No **Sign-On Único configurado com** a página SAML, pode configurar a aplicação no modo iniciado pelo **IDP,** carregando o ficheiro **de metadados do Fornecedor de Serviço** da seguinte forma:
 
     a. Clique **em Carregar o ficheiro de metadados**.
 
@@ -101,7 +101,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 6. Além de acima, a aplicação Cisco Webex Meetings espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo: 
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------|  --------- |
     |   nome de primeiro nome    | user.givenname |
     |   último nome    | utilizador.sobrenome |

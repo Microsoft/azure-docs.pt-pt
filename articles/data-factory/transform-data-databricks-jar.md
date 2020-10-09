@@ -12,10 +12,10 @@ author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
 ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81414615"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transforme os dados executando uma atividade jar em Azure Databricks
@@ -56,14 +56,14 @@ Aqui está a definição JSON de uma atividade de frasco de dados:
 
 A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
-|Propriedade|Descrição|Necessário|
+|Propriedade|Descrição|Obrigatório|
 |:--|---|:-:|
-|name|O nome da atividade no oleoduto.|Yes|
-|descrição|Texto descrevendo o que a atividade faz.|No|
-|tipo|Para a Atividade do Jar databricks, o tipo de atividade é DatabricksSparkJar.|Yes|
-|linkedServiceName|Nome do Serviço Ligado databricks no qual a atividade do Jar é executado. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Yes|
-|mainClassName|O nome completo da classe que contém o método principal a ser executado. Esta classe deve ser contida num JAR fornecido como biblioteca.|Yes|
-|parâmetros|Parâmetros que serão passados para o método principal.  Esta é uma variedade de cordas.|No|
+|name|O nome da atividade no oleoduto.|Sim|
+|descrição|Texto descrevendo o que a atividade faz.|Não|
+|tipo|Para a Atividade do Jar databricks, o tipo de atividade é DatabricksSparkJar.|Sim|
+|linkedServiceName|Nome do Serviço Ligado databricks no qual a atividade do Jar é executado. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim|
+|mainClassName|O nome completo da classe que contém o método principal a ser executado. Esta classe deve ser contida num JAR fornecido como biblioteca.|Sim|
+|parâmetros|Parâmetros que serão passados para o método principal.  Esta é uma variedade de cordas.|Não|
 |bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade de <cordas, objeto>|Sim (pelo menos um contendo o método principal Do Nome De Classe)|
 
 > [!NOTE]

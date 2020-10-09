@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Azure Ative Directory com o Adobe Experience Manager
@@ -95,7 +95,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     Na caixa de texto **URL de entrada de sinais,** digite o URL do seu servidor Adobe Experience Manager.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     c. Logout URL
 
-### <a name="configure-adobe-experience-manager-single-sign-on"></a>Configurar Adobe Experience Manager Single Sign-On
+### <a name="configure-adobe-experience-manager-single-sign-on"></a>Configurar adobe Experience Manager Single Sign-On
 
 1. Noutra janela do navegador, abra o portal de administração **Adobe Experience Manager.**
 
@@ -176,7 +176,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 11. Tome as seguintes ações nesta página.
 
-    ![Configure o botão único de poupança de sinal](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
+    ![Configure botão de poupança de Sign-On único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
     a. Na caixa **Caminho,** insira. **/**
 

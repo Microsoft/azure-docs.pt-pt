@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415314"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade da função Azure na Fábrica de Dados Azure
@@ -46,7 +46,7 @@ O tipo de devolução da função Azure tem de ser válido `JObject` . (Tenha em
 | serviço ligado | O serviço ligado à Função Azure para a app de função Azure correspondente  | Referência de serviço ligada | sim |
 | nome de função  | Nome da função na App de Função Azure a que esta atividade chama | String | sim |
 | método  | Método DE API REST para a chamada de função | Tipos suportados por cordas: "GET", "POST", "PUT"   | sim |
-| cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos": { "Aceitar linguagem": "en-us", "Content-Type": "application/json" } | Corda (ou expressão com resultadoType de corda) | No |
+| cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos": { "Aceitar linguagem": "en-us", "Content-Type": "application/json" } | Corda (ou expressão com resultadoType de corda) | Não |
 | body  | corpo que é enviado juntamente com o pedido para o método função api  | Corda (ou expressão com resultadoTipo de corda) ou objeto.   | Necessário para os métodos PUT/POST |
 |   |   |   | |
 
@@ -54,7 +54,7 @@ Consulte o esquema da carga útil do pedido na secção [de esquemas de carga �
 
 ## <a name="routing-and-queries"></a>Encaminhamento e consultas
 
-A Atividade de Função Azure suporta **o encaminhamento**. Por exemplo, se a sua Função Azure tiver o ponto `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` final, então `functionName` a utilização na Função Azul é `<functionName>/<value>` . Pode parametrizar esta função para fornecer o desejado `functionName` no tempo de execução.
+A Atividade de Função Azure suporta **o encaminhamento**. Por exemplo, se a sua Função Azure tiver o ponto  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` final, então `functionName` a utilização na Função Azul é `<functionName>/<value>` . Pode parametrizar esta função para fornecer o desejado `functionName` no tempo de execução.
 
 A Atividade de Função Azure também suporta **consultas.** Uma consulta tem de ser incluída como parte do `functionName` . Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que pretende incluir é , `name=hello` então pode construir a atividade da `functionName` função Azure como `HttpTriggerCSharp?name=hello` . Esta função pode ser parametrizada para que o valor possa ser determinado no tempo de execução.
 

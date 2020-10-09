@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Ative Directory com o Software RH cezanne
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com um único sinal de acesso com o Software RH Cezanne, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o software cezanne HR single sign-on](#configure-cezanne-hr-software-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o software cezanne HR single sign-on](#configure-cezanne-hr-software-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Cezanne HR Software test user](#create-cezanne-hr-software-test-user)** - para ter uma contraparte de Britta Simon em Cezanne HR Software que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Software CEzanne HR, execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,9 +108,9 @@ Para configurar o Azure AD com o Software CEzanne HR, execute os seguintes passo
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
     
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de sôm. Contacte a [equipa de suporte do Cliente do Cezanne HR Software](https://cezannehr.com/services/support/) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta Sign-On reais. Contacte a [equipa de suporte do Cliente do Cezanne HR Software](https://cezannehr.com/services/support/) para obter estes valores.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -124,15 +124,15 @@ Para configurar o Azure AD com o Software CEzanne HR, execute os seguintes passo
 
     c. Logout URL
 
-### <a name="configure-cezanne-hr-software-single-sign-on"></a>Configurar o software cezanne HR single sign-on
+### <a name="configure-cezanne-hr-software-single-sign-on"></a>Configurar software cezanne HR single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino de Software Cezanne HR como administrador.
 
-2. No painel de navegação esquerdo, clique na **configuração do sistema**. Ir para **definições de segurança**. Em seguida, navegue para a **configuração de inscrição única**.
+2. No painel de navegação esquerdo, clique na **configuração do sistema**. Ir para **definições de segurança**. Em seguida, navegue para a **Configuração Sign-On Única**.
 
-    ![O Screenshot mostra o inquilino do Software Cezanne H R com definições de segurança e configuração única de sinal de acesso selecionado.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![O Screenshot mostra o inquilino de Software Cezanne H R com definições de segurança e configuração de Sign-On única selecionada.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-3. No **Permitir que os utilizadores iniciem sessão utilizando o seguinte painel de serviço de registo único (SSO),** verifique a caixa **SAML 2.0** e selecione a opção **Configuração Avançada.**
+3. No **Painel de Serviço De Sign-On Único (SSO),** verifique a caixa **SAML 2.0** e selecione a opção **Configuração Avançada.**
 
     ![A screenshot mostra o painel de permitir que os utilizadores se despeçam com SAML 2.0 e Configuração Avançada selecionada.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
@@ -251,7 +251,7 @@ Para permitir que os utilizadores de Azure AD acedam ao Software Rh cezanne, dev
 
 5. Navegue para **o separador 'Sign-on' único** e selecione **Adicionar Novo** na área dos **identificadores SAML 2.0.**
 
-    ![A screenshot mostra o separador 'Sign-on' único, onde pode selecionar Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilizador")
+    ![A screenshot mostra o separador Single Sign-On onde pode selecionar Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilizador")
 
 6. Escolha o seu Fornecedor de Identidade para o **Fornecedor de Identidade** e na caixa de texto do User **Identifier,** insira o endereço de e-mail da conta Britta Simon.
 

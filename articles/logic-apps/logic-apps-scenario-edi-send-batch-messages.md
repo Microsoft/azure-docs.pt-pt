@@ -8,10 +8,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75666674"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Trocar mensagens EDI como lotes ou grupos entre parceiros comerciais em Azure Logic Apps
@@ -107,7 +107,7 @@ Para este recetor de lote, especifique o modo de lote, nome, critérios de liber
 
       ![Artigos de ação do Lote Encode](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
-6. Guarde a aplicação lógica. 
+6. Guarde a sua aplicação lógica. 
 
 7. Se estiver a utilizar o Visual Studio, certifique-se de [que implementa a sua aplicação lógica recetora de lote para a Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Caso contrário, não é possível selecionar o recetor do lote quando criar o remetente do lote.
 
@@ -132,7 +132,7 @@ Para se certificar de que o recetor do lote funciona como esperado, pode adicion
 
    ![Fornecer detalhes de ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
 
-4. Guarde a aplicação lógica. 
+4. Guarde a sua aplicação lógica. 
 
    A sua aplicação lógica recetora de lote parece este exemplo: 
 
@@ -181,7 +181,7 @@ Agora crie uma ou mais aplicações lógicas que enviam mensagens para a aplica�
    
    ![Definir propriedades de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
-5. Guarde a aplicação lógica. 
+5. Guarde a sua aplicação lógica. 
 
    A sua aplicação lógica de remetente de lote parece este exemplo:
 
@@ -191,6 +191,6 @@ Agora crie uma ou mais aplicações lógicas que enviam mensagens para a aplica�
 
 Para testar a sua solução de loteamento, publique mensagens X12 na sua aplicação lógica de remetente de lote a partir do [Carteiro](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. Em breve, começará a receber mensagens X12 no seu contentor de pedidos, a cada 10 minutos ou em lotes de 10, todos com a mesma chave de partição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Processar mensagens como lotes](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 

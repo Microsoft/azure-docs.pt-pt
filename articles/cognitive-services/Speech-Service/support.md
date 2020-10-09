@@ -1,7 +1,7 @@
 ---
 title: Opções de apoio e ajuda - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Como obter ajuda e apoio a questões e problemas quando cria aplicações que se integram com o serviço de Fala
+description: Como obter ajuda e apoio para questões e problemas quando cria aplicações que se integram com o serviço Discurso
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,67 +11,67 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
 ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169514"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
-Está apenas começando a explorar a funcionalidade do serviço de Fala? Está a implementar uma nova funcionalidade na sua aplicação? Aqui estão sugestões sobre onde você pode obter ajuda como um desenvolvedor.
+Está apenas começando a explorar a funcionalidade do serviço Speech? Está a implementar uma nova funcionalidade para a sua aplicação? Aqui ficam as sugestões sobre onde pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
-> * Mantenha-se informado sobre novos desenvolvimentos nos *Serviços Cognitivos do Azure,* ou encontre as últimas notícias relacionadas com o *serviço de Fala.*
-> * As notas de lançamento contêm informações para todos os lançamentos.
-> * Procure se o seu problema foi discutido pela comunidade, ou se a documentação existente para a funcionalidade que pretende implementar já existe.
-> * Se não encontrar uma resposta satisfatória, faça uma pergunta sobre *Stack Overflow*.
-> * Se encontrar um problema com uma das amostras no GitHub, levante um problema *gitHub.*
+> * Mantenha-se informado sobre novos desenvolvimentos nos *Serviços Cognitivos Azure,* ou encontre as últimas notícias relacionadas com o *serviço Desemaçado*.
+> * As notas de libertação contêm informações para todas as versões.
+> * Procure se o seu problema foi discutido pela comunidade ou se já existe documentação existente para a funcionalidade que pretende implementar.
+> * Se não encontrar uma resposta satisfatória, faça uma pergunta sobre *Stack Overflow.*
+> * Se encontrar um problema com uma das amostras no GitHub, levante um problema *do GitHub.*
 > * Procure uma solução no *fórum UserVoice*.
 
 ## <a name="stay-informed"></a>Manter-se informado
 
-As notícias sobre os Serviços Cognitivos são recolhidas no [blog Serviços Cognitivos.](https://azure.microsoft.com/blog/topics/cognitive-services/) Para obter as informações mais recentes sobre o serviço speech, acompanhe o [blog do serviço Speech](https://azure.microsoft.com/blog/tag/speech-service/).
+As notícias sobre os Serviços Cognitivos são recolhidas no [blogue dos Serviços Cognitivos.](https://azure.microsoft.com/blog/topics/cognitive-services/) Para obter as informações mais recentes sobre o serviço Speech, acompanhe o [blog do serviço Speech](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de versão
 
-As notas de [lançamento](https://aka.ms/csspeech/whatsnew) são atualizadas assim que um novo lançamento estiver disponível. As notas contêm informações sobre novas funcionalidades, melhorias e correções de bugs.
+As [notas de lançamento](https://aka.ms/csspeech/whatsnew) são atualizadas assim que um novo lançamento estiver disponível. As notas contêm informações sobre novas funcionalidades, melhorias e correções de bugs.
 
 ## <a name="search"></a>Pesquisa
 
-Você pode encontrar a resposta que você precisa na documentação, as amostras, ou respostas para [perguntas de Stack Overflow](https://www.stackoverflow.com) ou nas amostras.
+Pode encontrar a resposta necessária na documentação, nas amostras ou nas respostas às perguntas [do Stack Overflow](https://www.stackoverflow.com) ou nas amostras.
 
-### <a name="scoped-search"></a>Pesquisa de âmbito
+### <a name="scoped-search"></a>Pesquisa scoped
 
-Para obter resultados mais rápidos, procure a Stack Overflow, a documentação e as amostras de código utilizando a seguinte consulta no seu motor de [pesquisa favorito:](https://bing.com)
+Para obter resultados mais rápidos, procure o Stack Overflow, a documentação e as amostras de código utilizando a seguinte consulta no seu [motor de pesquisa favorito:](https://bing.com)
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-Onde *{Os seus termos* de pesquisa} são as suas palavras-chave de pesquisa.
+Onde *{Os seus Termos de Pesquisa}* são as suas palavras-chave de pesquisa.
 
 ## <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
-Os clientes azure podem criar e gerir pedidos de apoio no portal Azure.
+Os clientes Azure podem criar e gerir pedidos de suporte no portal Azure.
 
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Portal azure para o governo dos Estados Unidos](https://portal.azure.us)
+* [Portal Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
-## <a name="create-a-github-issue"></a>Criar um problema GitHub
+## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
-As amostras são frequentemente publicadas como fonte aberta. Para questões e questões, crie um *problema* no respetivo repositório GitHub. Pode submeter um pedido de atração, também. A lista seguinte contém links para os repositórios da amostra:
+As amostras são frequentemente postadas como fonte aberta. Para questões e questões, crie um *problema* no respetivo repositório gitHub. Também pode apresentar um pedido de adiamento. A lista que se segue contém ligações com os repositórios de amostras:
 
 * [API de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [SDK de Dispositivos de Voz](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-Pode criar um relatório de bugs, solicitar funcionalidades ou fazer uma pergunta geral e partilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
+Você pode criar um relatório de bug, pedido de funcionalidade, ou fazer uma pergunta geral e compartilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
 
-**Descreva o inseto**
+**Descreva o bug**
 
 Uma descrição clara e concisa do que é o inseto.
 
-**Para reproduzir**
+**Para Reproduzir**
 
 Passos para reproduzir o comportamento:
 1. ...
@@ -81,9 +81,9 @@ Passos para reproduzir o comportamento:
 
 Uma descrição clara e concisa do que esperava que acontecesse.
 
-**Versão do SDK do Discurso dos Serviços Cognitivos**
+**Versão do Discurso dos Serviços Cognitivos SDK**
 
-Qual a versão do SDK que estás a usar.
+Que versão do SDK estás a usar.
 
 **Plataforma, Sistema Operativo e Linguagem de Programação**
 
@@ -93,23 +93,23 @@ Qual a versão do SDK que estás a usar.
 
 **Contexto adicional**
 
- - Mensagens de erro, informações de registo, vestígios de pilha, ...
+ - Mensagens de erro, informação de registo, traço de pilha, ...
  - Se reportar um erro para uma interação específica do serviço, reporte o SessionId e o tempo (incl. timezone) dos incidentes relatados. O SessionId é relatado em todas as chamadas/eventos que recebe.
  - Qualquer outra informação adicional
 
-## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
+## <a name="post-a-question-to-stack-overflow"></a>Postar uma pergunta para Stack Overflow
 
 Stack Overflow é o canal preferido para questões relacionadas com o desenvolvimento. É onde membros da comunidade e membros da equipa da Microsoft estão diretamente envolvidos em ajudá-lo a resolver os seus problemas.
 
-Se não encontrar uma resposta para o seu problema através de pesquisa, envie uma nova pergunta ao Stack Overflow utilizando tags [ \[de linguagem\]\[\]cognitiva microsoft.](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)
+Se não conseguir encontrar uma resposta para o seu problema através da pesquisa, submeta uma nova pergunta ao Stack Overflow utilizando tags [ \[ microsoft-cognitive \] \[ speech \] ](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
 
 > [!TIP]
-> Os seguintes posts do Stack Overflow contêm dicas sobre como formar perguntas e adicionar código fonte. Seguir estas orientações pode ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem rapidamente à sua pergunta:  
+> Os seguintes posts do Stack Overflow contêm dicas sobre como formar perguntas e adicionar código fonte. Seguir estas orientações pode ajudar a aumentar as chances que os membros da comunidade avaliam e respondem rapidamente à sua pergunta:  
 > * [Como faço uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
 > * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>Fórum do UserVoice
 
-Partilhe as suas ideias para que os Serviços Cognitivos e as APIs que o acompanham funcionem melhor para as aplicações que desenvolve. Use a nossa Crescente Base de Conhecimento para encontrar respostas a questões comuns:
+Partilhe as suas ideias para que os Serviços Cognitivos e as APIs que o acompanham funcionem melhor para as aplicações que desenvolve. Use a nossa crescente Base de Conhecimento para encontrar respostas a questões comuns:
 
 [UserVoice](https://cognitive.uservoice.com/)

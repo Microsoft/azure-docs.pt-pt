@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: dcc304febe6fcebe3aba3047d1773e695b80f9e2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551945"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Trelica
@@ -77,7 +77,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set up Single Sign-on com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-   ![Destaque para o set-on único com página SAML, com o ícone de lápis para configuração SAML Básica](common/edit-urls.png)
+   ![O set up Single Sign-On com página SAML, com o ícone de lápis para configuração básica SAML em destaque](common/edit-urls.png)
 
 1. Na **configuração de 'Sind on' único com** a página SAML, insira os seguintes valores:
 

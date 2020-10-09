@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81413684"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformação de achatado no fluxo de dados de mapeamento
@@ -68,7 +68,7 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação do ac
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens.clientes | Nenhuma | name <br> cliente = bens.cliente |
+| bens.clientes | Nenhum | name <br> cliente = bens.cliente |
 
 #### <a name="output"></a>Saída
 
@@ -86,7 +86,7 @@ Consulte o seguinte objeto JSON para os exemplos abaixo da transformação do ac
 
 | Desenrolar por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| goods.orders.envio.orderItems | Nenhuma | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.hipped.orderItems.itemName <br> itemQty = goods.orders.envio.orderItems.itemQty <br> localização = localização |
+| goods.orders.envio.orderItems | Nenhum | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.hipped.orderItems.itemName <br> itemQty = goods.orders.envio.orderItems.itemQty <br> localização = localização |
 
 #### <a name="output"></a>Saída
 

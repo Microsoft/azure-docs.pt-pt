@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73666968"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando o portal Azure e o PowerShell
@@ -90,7 +90,7 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
     <th align="left">Estado</th><th align="left">Subestulo</th><th align="left">Descrição</th>
 </tr>
 <tr>
-    <td rowspan="8">A aguardar</td><td>Horário</td><td>Ainda não chegou a hora da fatia correr.</td>
+    <td rowspan="8">Em espera</td><td>Horário</td><td>Ainda não chegou a hora da fatia correr.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>As dependências a montante não estão prontas.</td>
@@ -105,7 +105,7 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
 <td>AtividadesResume</td><td>A atividade é interrompida e não pode executar as fatias até que a atividade seja retomada.</td>
 </tr>
 <tr>
-<td>Tentar novamente</td><td>A execução da atividade está a ser novamente julgada.</td>
+<td>Repetir</td><td>A execução da atividade está a ser novamente julgada.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não começou.</td>
@@ -121,7 +121,7 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
 <td>A fatia está a ser processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A fatia foi cancelada pela ação do utilizador.</td>
@@ -135,10 +135,10 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
 <td>Pronto</td><td>-</td><td>A fatia está pronta para consumo.</td>
 </tr>
 <tr>
-<td>Ignorado</td><td>Nenhuma</td><td>A fatia não está a ser processada.</td>
+<td>Ignorado</td><td>Nenhum</td><td>A fatia não está a ser processada.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Uma fatia costumava existir com um estatuto diferente, mas foi reposta.</td>
+<td>Nenhum</td><td>-</td><td>Uma fatia costumava existir com um estatuto diferente, mas foi reposta.</td>
 </tr>
 </table>
 

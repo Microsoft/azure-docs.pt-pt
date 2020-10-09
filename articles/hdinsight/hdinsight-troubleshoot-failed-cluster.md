@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895324"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de um trabalho lento ou com falhas num cluster HDInsight
@@ -63,7 +63,7 @@ az hdinsight list --resource-group <ResourceGroup>
 az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Outra opção é usar o PowerShell. Para obter mais informações, consulte [gerir os clusters Apache Hadoop em HDInsight com a Azure PowerShell](hdinsight-administer-use-powershell.md).
+Outra opção é usar o PowerShell. Para obter mais informações, consulte  [gerir os clusters Apache Hadoop em HDInsight com a Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Passo 2: Validar o ambiente de cluster HDInsight
 
@@ -148,7 +148,7 @@ As seguintes secções descrevem algumas causas possíveis para os intervalos do
 
 ##### <a name="webhcat-level-timeout"></a>Tempo limite de nível WebHCat
 
-Quando o WebHCat está sob carga, com mais de 10 tomadas abertas, demora mais tempo a estabelecer novas ligações de tomadas, o que pode resultar num intervalo. Para listar as ligações de rede de e para o WebHCat, utilize `netstat` no cabeçano ativo atual:
+Quando o WebHCat está sob carga, com mais de 10 tomadas abertas, demora mais tempo a estabelecer novas ligações de tomadas, o que pode resultar num intervalo. Para listar as ligações de rede de e para o WebHCat, utilize `netstat`  no cabeçano ativo atual:
 
 ```bash
 netstat | grep 30111
@@ -202,11 +202,11 @@ Para diagnosticar estas questões:
 
     Pode haver casos em que as interações com o WebHCat são bem sucedidas, mas os trabalhos estão a falhar.
 
-    Templeton recolhe a saída da consola de trabalho como `stderr` em , o que é `statusdir` frequentemente útil para a resolução de problemas. `stderr`contém o identificador de aplicação YARN da consulta real.
+    Templeton recolhe a saída da consola de trabalho como `stderr` em , o que é `statusdir` frequentemente útil para a resolução de problemas. `stderr` contém o identificador de aplicação YARN da consulta real.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Passo 4: Rever a pilha de ambiente e versões
 
-A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões**.  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
+A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida,  **Stacks e Versões**.  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
 
 ![Pilha e versões Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -259,7 +259,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 5. Continue até que todos os passos corram sem erros.
 6. Quando terminar de depurar o cluster de teste, elimine-o.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 * [Analisar registos HDInsight](hdinsight-debug-jobs.md)

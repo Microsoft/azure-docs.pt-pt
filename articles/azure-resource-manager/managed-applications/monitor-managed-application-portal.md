@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651751"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorize uma instância implantada de uma aplicação gerida
@@ -22,7 +22,7 @@ Depois de ter implementado uma aplicação gerida para a sua subscrição Azure,
 
    ![Selecione a aplicação gerida](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. Selecione **Saúde de Recursos**.
+1. Selecione **Estado de funcionamento do recurso**.
 
    ![Selecione a saúde dos recursos](./media/monitor-managed-application-portal/select-resource-health.png)
 
@@ -46,7 +46,7 @@ Depois de ter implementado uma aplicação gerida para a sua subscrição Azure,
 
 Pode criar alertas para a sua aplicação gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para exemplos de aplicações geridos, consulte [projetos de amostra para aplicações geridas pela Azure](sample-projects.md).
 * Para implementar uma aplicação gerida, consulte [a aplicação do catálogo de serviços Implementar através do portal Azure.](deploy-service-catalog-quickstart.md)

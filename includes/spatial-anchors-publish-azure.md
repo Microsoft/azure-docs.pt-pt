@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183948"
 ---
 ### <a name="open-the-publish-wizard"></a>Abra o assistente de publicação
 
-No **Solution Explorer,** clique no projeto **SharingService** e selecione **Publicar**.
+No **Solution Explorer,** clique com o botão direito no projeto **SharingService** e selecione **Publicar**.
 
-Começa o Assistente editorial. Selecione **App Service** > **Publish** para abrir a caixa de diálogo Create **App Service.**
+O Assistente de Publicação começa. Selecione **App Service**  >  **Publish** para abrir a caixa de diálogo Do Serviço de **Aplicações Create.**
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Na caixa de diálogo **Create App Service,** selecione **Adicionar uma conta** e iniciar sessão na subscrição do Azure. Se já se inscreveu, selecione a conta que deseja da lista de entregas.
+Na caixa de diálogo **'Serviço de Aplicação Create',** selecione **Adicionar uma conta** e iniciar sessão na sua subscrição Azure. Se já fez a sua assinatura, selecione a conta que pretende da lista de entrega.
 
 > [!NOTE]
 > Se já tiver sessão iniciada, não selecione ainda **Criar**.
@@ -39,24 +39,24 @@ Atribua ao grupo de recursos o nome **myResourceGroup** e selecione **OK**.
 
 Junto a **Plano de Alojamento**, selecione **Novo**.
 
-Na caixa de diálogo do Plano de **Hospedagem Configurar,** utilize estas definições:
+Na caixa de diálogo **do Plano de Alojamento Configurado,** utilize estas definições:
 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| MySharingServicePlan | Nome do plano de serviço de aplicações. |
 | Localização | E.U.A. Oeste | O centro de dados onde o a aplicação Web está alojada. |
-| Tamanho | Gratuito | O [nível de preços](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina as características de hospedagem. |
+| Tamanho | Gratuito | O [nível de preços](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina as funcionalidades de hospedagem. |
 
 Selecione **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Criar e publicar a aplicação Web
 
-No Nome da **Aplicação,** introduza `a-z`um `0-9`nome `-`de aplicação único (caracteres válidos são, e , ou aceite o nome único gerado automaticamente. O URL da aplicação Web é `https://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
+No **Nome da App,** insira um nome de aplicação único (caracteres válidos são `a-z` , e ) ou aceite o nome único gerado `0-9` `-` automaticamente. O URL da aplicação Web é `https://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
 
 Selecione **Criar** para começar a criar os recursos do Azure.
 
-Depois de o assistente terminar, publica a ASP.NET aplicação web Core para o Azure e, em seguida, abre a aplicação no seu navegador predefinido.
+Depois de o assistente terminar, publica a aplicação web Core ASP.NET para o Azure e, em seguida, abre a aplicação no seu navegador padrão.
 
 ![Aplicação Web ASP.NET publicada no Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-O nome da aplicação que usou nesta secção é `https://<app_name>.azurewebsites.net`usado como prefixo URL no formato . Tome nota desta URL porque vai precisar.
+O nome da aplicação que usou nesta secção é usado como prefixo URL no formato `https://<app_name>.azurewebsites.net` . Tome nota desta URL porque vai precisar.

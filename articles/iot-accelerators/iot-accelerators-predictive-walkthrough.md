@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73827418"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Manutenção Preditiva
@@ -79,7 +79,7 @@ O acelerador de soluções de Manutenção Preditiva do Azure IoT utiliza o mode
 
 *\[1 \] A. Saxena e K. Goebel (2008). "Turbofan Engine Degradation Simulation Data set", Repositório de Dados da NASA Ames Prognostics https://c3.nasa.gov/dashlink/resources/139/) (, Centro de Investigação da NASA Ames, Campo Moffett, CA*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que viu os principais componentes do acelerador de soluções de Manutenção Preditiva, deverá personalizá-los.
 
 Também pode explorar algumas das outras características dos aceleradores de solução IoT:

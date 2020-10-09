@@ -7,10 +7,10 @@ ms.author: rohogue
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76152974"
 ---
 # <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Azure vFXT para azure whitepapers e outros recursos
@@ -35,7 +35,7 @@ Este resumo de duas páginas tem informações básicas e diagramas que explicam
 
 Este gráfico mostra componentes e layouts para usar Avere vFXT para a Azure para adicionar infraestrutura de nuvem ao seu sistema existente. Utilize o Avere vFXT para aumentar a capacidade de computação com a sua infraestrutura existente no local, ou mover dados e computação para a nuvem de forma temporária ou permanente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para continuar a planear uma implementação Avere vFXT para a Azure, leia [Plano do seu sistema Avere vFXT](avere-vfxt-deploy-plan.md).
 * Para obter respostas a perguntas específicas, consulte o [Avere vFXT para a Azure FAQ](avere-vfxt-faq.md).

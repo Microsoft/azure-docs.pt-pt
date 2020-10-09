@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73682207"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho VM certo para o seu cluster Azure HDInsight
@@ -41,9 +41,9 @@ As famílias de máquinas virtuais em Azure são otimizadas para se adequarem a 
 | Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Nível de entrada](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Tenha configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. São económicos e oferecem uma opção de baixo custo para começar com o Azure. |
-| [Fins gerais](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
-| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)        | F           | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações.        |
-| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md)         | Esv3  | Relação memória alta-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Fins gerais](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Proporção equilibrada entre CPU e memória. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
+| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)        | F           | Proporção elevada de CPU para memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações.        |
+| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md)         | Esv3  | Proporção elevada de memória para CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 
 - Para obter informações sobre os preços dos casos de VM disponíveis em todas as regiões apoiadas por HDInsight, consulte [o HdInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -71,7 +71,7 @@ O benchmarking é o processo de execução de cargas de trabalho simuladas em di
 
 Para obter mais informações sobre o benchmarking para SKUs VM e tamanhos de cluster, consulte [o planeamento da capacidade do Cluster em Azure HDInsight ](hdinsight-capacity-planning.md#choose-the-vm-size-and-type).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurações de nó suportado por Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Tamanhos de máquinas virtuais do Windows no Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)

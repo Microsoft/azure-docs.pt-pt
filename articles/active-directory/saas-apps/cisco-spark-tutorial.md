@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759852"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com a Cisco Webex
@@ -73,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **da Cisco Webex,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -96,11 +96,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Cisco Webex espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
   
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -161,7 +161,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 7. Selecione **Test SSO Connection**, e quando um novo separador de navegador abrir, autente com Azure AD ao iniciar sessão.
 
-8. Volte ao separador de navegador **Cisco Cloud Collaboration Management.** Se o teste tiver sido bem sucedido, selecione **Este teste foi bem sucedido. Ativar a opção 'Sign-On' única** e clicar em **Seguinte**.
+8. Volte ao separador de navegador **Cisco Cloud Collaboration Management.** Se o teste tiver sido bem sucedido, selecione **Este teste foi bem sucedido. Ativar a opção Single Sign-On** e clicar **em Seguinte**.
 
 ### <a name="create-cisco-webex-test-user"></a>Criar utilizador de teste Cisco Webex
 

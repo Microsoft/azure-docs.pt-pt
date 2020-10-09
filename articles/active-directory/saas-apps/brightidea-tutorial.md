@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Diretório Ativo Azure com Brightidea
@@ -76,7 +76,7 @@ Para um único início de sação a funcionar, é necessário estabelecer uma re
 Para configurar e testar o Azure AD com Brightidea, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Brightidea Single Sign-On](#configure-brightidea-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Brightidea Single Sign-On](#configure-brightidea-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Brightidea test user](#create-brightidea-test-user)** - para ter uma contraparte de Britta Simon em Brightidea que está ligada à representação AD AD do utilizador.
@@ -96,7 +96,7 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.brightidea.com`
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração Single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -137,7 +137,7 @@ Para configurar o Azure AD single sign-on com Brightidea, execute os seguintes p
 
     c. Logout URL
 
-### <a name="configure-brightidea-single-sign-on"></a>Configurar Brightidea Single Sign-On
+### <a name="configure-brightidea-single-sign-on"></a>Configurar brightidea single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se em Brightidea usando as credenciais de administrador.
 

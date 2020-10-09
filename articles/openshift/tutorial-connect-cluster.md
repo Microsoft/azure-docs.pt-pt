@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469121"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Ligue-se a um aglomerado Azure Red Hat OpenShift 4
@@ -21,7 +21,7 @@ Neste tutorial, parte dois de três, você vai ligar-se a um cluster Azure Red H
 > * Instale o CLI OpenShift
 > * Ligue-se a um cluster Azure Red Hat OpenShift utilizando o CLI OpenShift
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Em tutoriais anteriores, foi criado um cluster Azure Red Hat OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
 

@@ -110,18 +110,26 @@
   items:
     - name: Atribuir utilizadores e gerir o acesso às aplicações
       items:
-        - name: Configurar o consentimento do utilizador
-          href: configure-user-consent.md
-        - name: Gerir e avaliar pedidos de consentimento
-          href: manage-consent-requests.md
-        - name: Conceder consentimento de administrador ao nível do inquilino
-          href: grant-admin-consent.md
-        - name: Configurar o fluxo de trabalho de consentimento do administrador (pré-visualização)
-          href: configure-admin-consent-workflow.md
+        - name: Consentimento e permissões
+          items:
+            - name: Configurar o consentimento do utilizador
+              href: configure-user-consent.md
+            - name: Configurar o consentimento do proprietário do grupo
+              href: configure-user-consent-groups.md
+            - name: Configurar as classificações de permissão
+              href: configure-permission-classifications.md
+            - name: Gerir as políticas de consentimento da aplicação
+              href: manage-app-consent-policies.md
+            - name: Configurar o fluxo de trabalho de consentimento do administrador (pré-visualização)
+              href: configure-admin-consent-workflow.md
+            - name: Gerir e avaliar pedidos de consentimento
+              href: manage-consent-requests.md
+            - name: Conceder consentimento de administrador ao nível do inquilino
+              href: grant-admin-consent.md
+            - name: Rever as permissões concedidas às aplicações
+              href: manage-application-permissions.md
         - name: Gerir a atribuição de utilizadores de uma aplicação
           href: assign-user-or-group-access-portal.md
-        - name: Rever as permissões concedidas às aplicações
-          href: manage-application-permissions.md
         - name: Criar coleções em As Minhas Aplicações
           href: access-panel-collections.md
         - name: Utilizar o acesso personalizado às aplicações

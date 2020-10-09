@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73667658"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de Dados Azure - Funções e Variáveis do Sistema
@@ -80,18 +80,18 @@ As tabelas a seguir enumeram todas as funções na Azure Data Factory:
 | Hora |AddHours (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona Y horas ao tempo X dado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona minutos Y a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Hora |StartOfHour(X) |X: Hora da data |Obtém a hora de partida para a hora representada pelo componente de hora de X. <br/><br/>Exemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |AddDays (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona os dias Y a X. <br/><br/>Exemplo: 9/15/2013 12:00:00 PM + 2 dias = 9/17/2013 12:00:00 PM.<br/><br/>Também pode subtrair dias especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |AddMonths (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y meses a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Também pode subtrair meses especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |AddQuarters (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona Y * 3 meses a X.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |AddWeeks (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y * 7 dias a X<br/><br/>Exemplo: 9/15/2013 12:00:00 + 1 semana = 22/2013 12:00:00:00<br/><br/>Também pode subtrair semanas especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |AddYears (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y anos a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Também pode subtrair anos especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Dia (X) |X: DataTime |Obtém o componente do dia de X.<br/><br/>Exemplo: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek (X) |X: DataTime |Recebe o componente do dia da semana de X.<br/><br/>Exemplo: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |DayOfYear (X) |X: DataTime |Recebe o dia do ano representado pela componente do ano de X.<br/><br/>Exemplos:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth(X) |X: DataTime |Recebe os dias do mês representados pela componente mensal do parâmetro X.<br/><br/>Exemplo: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |Fim do Dia(X) |X: DataTime |Obtém a data-hora que representa o final do dia (componente do dia) de X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |EndOfMonth(X) |X: DataTime |Recebe o final do mês representado por componente mensal do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data que representa o final do mês de setembro) |
-| Data |Início da Jornada (X) |X: DataTime |Obtém o início do dia representado pelo componente do dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Date |AddDays (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona os dias Y a X. <br/><br/>Exemplo: 9/15/2013 12:00:00 PM + 2 dias = 9/17/2013 12:00:00 PM.<br/><br/>Também pode subtrair dias especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y meses a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Também pode subtrair meses especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona Y * 3 meses a X.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y * 7 dias a X<br/><br/>Exemplo: 9/15/2013 12:00:00 + 1 semana = 22/2013 12:00:00:00<br/><br/>Também pode subtrair semanas especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears (X,Y) |X: DataTime<br/><br/>Y: int |Adiciona Y anos a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Também pode subtrair anos especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Dia (X) |X: DataTime |Obtém o componente do dia de X.<br/><br/>Exemplo: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek (X) |X: DataTime |Recebe o componente do dia da semana de X.<br/><br/>Exemplo: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear (X) |X: DataTime |Recebe o dia do ano representado pela componente do ano de X.<br/><br/>Exemplos:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: DataTime |Recebe os dias do mês representados pela componente mensal do parâmetro X.<br/><br/>Exemplo: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |Fim do Dia(X) |X: DataTime |Obtém a data-hora que representa o final do dia (componente do dia) de X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: DataTime |Recebe o final do mês representado por componente mensal do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data que representa o final do mês de setembro) |
+| Date |Início da Jornada (X) |X: DataTime |Obtém o início do dia representado pelo componente do dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |De(X) |X: Corda |Parse string X para uma hora de data. |
 | DateTime |Carrapatos(X) |X: DataTime |Obtém a propriedade do parâmetro X. Um carrapato é igual a 100 nanosegundos. O valor deste imóvel representa o número de carraças que decorreram desde as 12:00:00 da meia-noite, 1 de janeiro de 0001. |
 | Texto |Formato (X) |X: Variável de corda |Formatos do texto (utilizar `\\'` a combinação para escapar ao `'` carácter).|

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
 ms.openlocfilehash: c445bc06983aeb72d13f2bea5e2f39e73374d93a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716655"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Descubra instâncias da Plataforma Google Cloud (GCP) com avaliação do servidor
@@ -17,7 +17,7 @@ Como parte da sua viagem de migração para Azure, você descobre os seus servid
 
 Este tutorial mostra-lhe como descobrir instâncias da Plataforma Google Cloud (GCP) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Coloca o aparelho numa instância GCP VM, para descobrir continuamente metadados de máquina e desempenho.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma conta Azure.
@@ -260,7 +260,7 @@ Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar os servidores GCP](tutorial-assess-gcp.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---physical) que o aparelho recolhe durante a descoberta.

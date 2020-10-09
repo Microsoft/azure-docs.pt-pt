@@ -11,10 +11,10 @@ metadata:
   ms.author: estfan; logicappspm
   ms.date: 09/18/2019
   ms.openlocfilehash: e8f9f48693d0ff9ea2505f92afa0e41284cd304c
-  ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/06/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "91761401"
 landingContent:
 - title: Acerca do Azure Logic Apps

@@ -9,10 +9,10 @@ ms.date: 07/10/2020
 ms.author: dominicbetts
 ms.custom: include file
 ms.openlocfilehash: 4905d04b140b99adbcb8afe14bba401aa6642a38
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504082"
 ---
 > [!div class="op_single_selector"]

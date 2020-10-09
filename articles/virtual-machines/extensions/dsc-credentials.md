@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73748965"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passe credenciais ao manipulador Azure DSCExtension
@@ -85,7 +85,7 @@ Executar este código sugere uma credencial. Depois da credencial ser fornecida,
 
 Este processo é diferente de [utilizar configurações seguras sem o manipulador de extensão](/powershell/scripting/dsc/pull-server/securemof). O ambiente Azure dá-lhe uma forma de transmitir os dados de configuração de forma segura através de certificados. Quando utilizar o controlador de extensão DSC, não precisa de fornecer **$CertificatePath** ou uma **entrada $Thumbprint** /  **$CertificateID** no **ConfigurationData**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha uma [introdução ao controlador de extensão Azure DSC](dsc-overview.md).
 - Examine o [modelo do Gestor de Recursos Azure para a extensão DSC](dsc-template.md).

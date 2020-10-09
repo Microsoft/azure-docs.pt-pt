@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415030"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiar dados do Google AdWords usando a Azure Data Factory
@@ -47,19 +47,19 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao Google AdWords:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **GoogleAdWords** | Yes |
-| clienteStomerID | O ID do cliente cliente da conta AdWords para a quais pretende obter dados de relatório.  | Yes |
-| developerToken | O símbolo do programador associado à conta de gestor que utiliza para conceder acesso à API do AdWords.  Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Yes |
-| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para a autenticação. Serviço A autorização de serviço só pode ser utilizada em IR auto-hospedado. <br/>Os valores permitidos são: **Concessão de Serviço,** **Concessão de Utilizador** | Yes |
-| refreshToken | O token de atualização obtido pela Google para autorizar o acesso ao AdWords para a Autorização de Utilizador. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | No |
-| clientId | O ID do cliente da aplicação google usado para adquirir o token de atualização. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | No |
-| segredo de clientes | O segredo do cliente da aplicação google usado para adquirir o token de atualização. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | No |
-| e-mail | O ID de e-mail da conta de serviço que é usado para a Autorização de Serviço e só pode ser usado em IR auto-hospedado.  | No |
-| keyFilePath | O caminho completo para o ficheiro de chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço e só pode ser utilizado em IR auto-hospedado.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
+| tipo | A propriedade tipo deve ser definida para: **GoogleAdWords** | Sim |
+| clienteStomerID | O ID do cliente cliente da conta AdWords para a quais pretende obter dados de relatório.  | Sim |
+| developerToken | O símbolo do programador associado à conta de gestor que utiliza para conceder acesso à API do AdWords.  Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Sim |
+| authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para a autenticação. Serviço A autorização de serviço só pode ser utilizada em IR auto-hospedado. <br/>Os valores permitidos são: **Concessão de Serviço,** **Concessão de Utilizador** | Sim |
+| refreshToken | O token de atualização obtido pela Google para autorizar o acesso ao AdWords para a Autorização de Utilizador. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Não |
+| clientId | O ID do cliente da aplicação google usado para adquirir o token de atualização. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Não |
+| segredo de clientes | O segredo do cliente da aplicação google usado para adquirir o token de atualização. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Não |
+| e-mail | O ID de e-mail da conta de serviço que é usado para a Autorização de Serviço e só pode ser usado em IR auto-hospedado.  | Não |
+| keyFilePath | O caminho completo para o ficheiro de chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço e só pode ser utilizado em IR auto-hospedado.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
 
 **Exemplo:**
 
@@ -103,9 +103,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Google AdWords, defina a propriedade tipo do conjunto de dados para **o GoogleAdWordsObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **GoogleAdWordsObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **GoogleAdWordsObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -134,9 +134,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Google AdWords, desa estale o tipo de origem na atividade de cópia para **o GoogleAdWordsSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **GoogleAdWordsSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **GoogleAdWordsSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 28e15cb7e0b519932eeee3a6a6445449affe2f35
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integração do Azure Ative Directory com o ArcGIS Online
@@ -76,7 +76,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o ArcGIS Online, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único Online ArcGIS -](#configure-arcgis-online-single-sign-on)** para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único Online ArcGIS -](#configure-arcgis-online-single-sign-on)** para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ArcGIS Online test user](#create-arcgis-online-test-user)** - para ter uma contraparte de Britta Simon no ArcGIS Online que está ligada à representação AD AD Azure do utilizador.
@@ -96,7 +96,7 @@ Para configurar o Azure AD com o ArcGIS Online, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Para configurar o Azure AD com o ArcGIS Online, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte ao Cliente Online ArcGIS](https://support.esri.com/en/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD com o ArcGIS Online, execute os seguintes passos:
 
 7. Depois de adicionar extensão ao navegador, clique na **configuração ArcGIS Online** irá direcioná-lo para a aplicação ArcGIS Online. A partir daí, forneça as credenciais de administração para assinar no ArcGIS Online. A extensão do navegador configurará automaticamente a aplicação para si e automatizará passos na secção **Configure ArcGIS Online Single Sign-On**.
 
-### <a name="configure-arcgis-online-single-sign-on"></a>Configurar arcgis online single sign-on
+### <a name="configure-arcgis-online-single-sign-on"></a>Configurar o Sign-On único online do ArcGIS
 
 1. Se pretender configurar o ArcGIS Online manualmente, abra uma nova janela do navegador web e inicie sessão no site da empresa ArcGIS como administrador e execute os seguintes passos:
 
@@ -180,7 +180,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **ArcGIS Online**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, escreva e selecione **ArcGIS Online**.
 
