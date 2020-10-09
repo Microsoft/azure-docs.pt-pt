@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554843"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Diretório Ativo Azure com M-Files
 
@@ -93,7 +93,7 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do cliente M-Files](mailto:support@m-files.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
 
     c. Logout URL
 
-### <a name="configure-m-files-single-sign-on"></a>Configurar M-Files único sign-on
+### <a name="configure-m-files-single-sign-on"></a>Configurar M-Files Sign-On única
 
 1. Para obter sSO configurado para a sua aplicação, contacte [a equipa de suporte M-Files](mailto:support@m-files.com) e forneça-lhes os Metadados descarregados.
    
@@ -133,11 +133,11 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
 
 1. Abra a janela **definições de ambiente de trabalho M-Files.** Em seguida, clique em **Adicionar**.
    
-    ![Configurar um único sign-on](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![A screenshot mostra as definições de ambiente de trabalho dos ficheiros M onde pode selecionar Adicionar.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. Na janela Propriedades de **Conexão de Abóbada** de Documento, execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![A screenshot mostra propriedades de conexão de abóbada de documento onde pode introduzir os valores descritos.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     Sob o tipo de secção servidor, os valores são os seguintes:  
 
@@ -184,7 +184,7 @@ Nesta secção, permite que Britta Simon utilize o Azure como único sinal, perm
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **M-Files**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **M-Files**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f4569a45b9ed0eee7c375e660df97925335313b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5dcd705719510cce3a113c5b0fdc46d016313b6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549811"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856418"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Tutorial: Azure Ative Directory integração única (SSO) com LinkedIn Elevate
 
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação LinkedIn Elevate espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | -------| -------------|
     | departamento | user.department |
 
@@ -144,11 +144,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No **Centro de Contas**, clique em **Definições** **Globais**. Além disso, **selecione Elevate - Elevate AAD Test** a partir da lista de dropdown.
 
-    ![Configurar um único sign-on](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![A screenshot mostra as Definições Globais onde pode selecionar Elevate A A D Test.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Clique em **OR Clique aqui para carregar e copiar campos individuais a partir do formulário** e executar os seguintes passos:
 
-    ![Configurar um único sign-on](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![A screenshot mostra single Sign-On onde pode introduzir os valores descritos.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
     a. Copiar **iD da entidade** e colá-lo na caixa de texto **identifier** na **Configuração Básica SAML** no portal Azure.
 
@@ -156,11 +156,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Aceda à secção **de Definições de Administração LinkedIn.** Faça o upload do ficheiro XML que descarregou a partir do portal Azure clicando na opção de ficheiro Upload XML.
 
-    ![Configurar um único sign-on](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![O Screenshot mostra configurar as definições do fornecedor de serviços LinkedIn S S O onde pode carregar um ficheiro X M L.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Clique **em** para ativar SSO. O estado de SSO mudará de **Não Ligado** a **Conectado**
 
-    ![Configurar um único sign-on](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![A screenshot mostra Sign-On única onde pode selecionar licenças de atribuição automática.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-elevate-test-user"></a>Criar utilizador de teste LinkedIn Elevate
 

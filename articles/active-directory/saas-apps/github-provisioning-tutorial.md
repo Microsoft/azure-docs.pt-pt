@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358326"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857542"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores
 
@@ -28,6 +28,7 @@ O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 * Um inquilino de diretório Azure Ative
 * Uma organização GitHub criada em [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) da GitHub Enterprise
 * Uma conta de utilizador no GitHub com permissões de administração para a organização
+* [SAML configurado para a organização GitHub Enterprise Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Certifique-se de que o acesso da OAuth foi fornecido para a sua organização, como descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * O fornecimento de SCIM a uma única organização só é suportado quando o SSO é ativado a nível da organização
 
@@ -51,9 +52,6 @@ Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os
 ## <a name="configuring-user-provisioning-to-github"></a>Configurar o fornecimento de utilizadores ao GitHub
 
 Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador do GitHub que fornece a API e configura o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas no GitHub com base na atribuição de utilizadores e grupos em Azure AD.
-
-> [!TIP]
-> Pode também optar por ativar um único sign-on baseado em SAML para o GitHub, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configure o fornecimento automático de conta de utilizador ao GitHub em Azure AD
 
@@ -79,7 +77,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 8. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
 
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 
 10. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users para GitHub**.
 
@@ -87,7 +85,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 12. Para ativar o serviço de prestação de Ad Azure para o GitHub, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
-13. Clique em **Save** (Guardar).
+13. Clique em **Guardar**.
 
 Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos ao GitHub na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
 

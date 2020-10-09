@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521574"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856828"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Azure Ative Directory integração única (SSO) com SignalFx
 
@@ -92,7 +92,7 @@ Utilize estas instruções para ativar o Azure AD SSO no portal Azure.
     
 1. Reveja e verifique se o seguinte mapa de reclamações aos atributos de origem que são povoados no Diretório Ativo. 
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ------------------- | -------------------- |
     | User.FirstName  | user.givenname |
     | User.email  | user.mail |
@@ -159,7 +159,7 @@ Reveja as seguintes informações sobre como testar sSO, bem como as expectativa
         * Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 * A aplicação SignalFx pode ser acedida a partir do Painel de Acesso ou através de uma página de login personalizada atribuída à organização. O utilizador de teste deve testar a integração a partir de qualquer um destes locais.
-    * O utilizador de teste pode utilizar as credenciais criadas anteriormente neste processo para **b.simon@contoso.com** .
+    * O utilizador de teste pode utilizar as credenciais criadas anteriormente neste processo para **b.simon \@ contoso.com**.
 
 ### <a name="first-time-logins"></a>Logins pela primeira vez
 

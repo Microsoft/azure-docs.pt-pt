@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078970"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856233"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
-Saiba como usar as ações de script para adicionar *contas* adicionais de Armazenamento Azure ao HDInsight. Os passos deste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo aplica-se às *contas* de armazenamento (não à conta de armazenamento padrão), e não ao armazenamento adicional, tais como [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
+Saiba como usar as ações de script para adicionar *contas* adicionais de Armazenamento Azure ao HDInsight. Os passos deste documento adicionam uma *conta* de armazenamento a um cluster HDInsight existente. Este artigo aplica-se às *contas* de armazenamento (não à conta de armazenamento padrão), e não ao armazenamento adicional, tais como [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > A informação neste documento tem a ver com a adição de contas de armazenamento adicionais a um cluster depois de ter sido criada. Para obter informações sobre a adição de contas de armazenamento durante a criação de [clusters, consulte Configurar clusters em HDInsight com Apache Hadoop, Apache Spark, Apache Kafka, entre outros](hdinsight-hadoop-provision-linux-clusters.md).
@@ -55,8 +55,8 @@ Utilize [a Ação do Script](hdinsight-hadoop-customize-cluster-linux.md#script-
 |Tipo de nó(s)|Head|
 |Parâmetros|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opcional)|
 
-* `ACCOUNTNAME`é o nome da conta de armazenamento a adicionar ao cluster HDInsight.
-* `ACCOUNTKEY`é a chave de acesso para `ACCOUNTNAME` .
+* `ACCOUNTNAME` é o nome da conta de armazenamento a adicionar ao cluster HDInsight.
+* `ACCOUNTKEY` é a chave de acesso para `ACCOUNTNAME` .
 * `-p` é opcional. Se especificado, a chave não é encriptada e é armazenada no ficheiro core-site.xml como texto simples.
 
 ## <a name="verification"></a>Verificação

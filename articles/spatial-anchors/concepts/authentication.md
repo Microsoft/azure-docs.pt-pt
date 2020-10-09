@@ -5,20 +5,20 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538250"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857729"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
-Nesta secção, cobriremos as várias formas de autenticar as Âncoras Espaciais Azure a partir da sua aplicação ou serviço web, e as formas como pode utilizar o Controlo de Acesso Baseado em Função no Diretório Azure (AD) para controlar o acesso às suas contas de Âncoras Espaciais.
+Nesta secção, cobriremos as várias formas de autenticar a Azure Spatial Anchors a partir da sua aplicação ou serviço web, e as formas pelas quais pode utilizar Role-Based Controlo de Acesso em Diretório Azure (Azure AD) para controlar o acesso às suas contas de Âncoras Espaciais.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -95,28 +95,28 @@ Uma vez feito, o SDK tratará da troca da chave de conta para um token de acesso
 Para aplicações direcionadas aos utilizadores do Azure Ative Directory, a abordagem recomendada é utilizar um token AD Azure para o utilizador, que pode obter através da [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Deve seguir os passos listados no [registo de um quickstart de aplicação,](../../active-directory/develop/quickstart-register-app.md)que inclui:
 
 1. Configuração no portal Azure
-    1.  Registe a sua candidatura na Azure AD como **candidatura nativa.** Como parte do registo, você precisará determinar se a sua aplicação deve ser multi-inquilino ou não, e fornecer os URLs de redirecionamento permitidos para a sua aplicação.
+    1.    Registe a sua candidatura na Azure AD como **candidatura nativa.** Como parte do registo, você precisará determinar se a sua aplicação deve ser multi-inquilino ou não, e fornecer os URLs de redirecionamento permitidos para a sua aplicação.
         1.  Mude para o separador **permissões API**
         2.  **Selecione Adicionar uma permissão**
-            1.  Selecione **Microsoft Mixed Reality** em **APIs a minha organização usa** separador
+            1.  Selecione **Fornecedor de Recursos de Realidade Mista** em **APIs a minha organização usa** separador
             2.  Selecione **permissões delegadas**
             3.  Verifique se a caixa é **de realidade mista.signin** em **misturão**
             4.  Selecione **Permissões adicionar**
         3.  Selecione **o consentimento de administração grant**
-    2.  Conceder à sua aplicação ou aos seus utilizadores acesso ao seu recurso:
-        1.  Navegue para o seu recurso De Âncoras Espaciais no portal Azure
-        2.  Mudar para o **separador Controlo de Acesso (IAM)**
-        3.  Hit **Add atribuição de função**
-            1.  [Selecionar uma função](#role-based-access-control)
-            2.  No campo **Select,** insira o nome do(s)(s)(s) do(s) do utilizador, grupo e/ou aplicações a que pretende atribuir acesso.
-            3.  Prima **Guardar**.
+    2.    Conceder à sua aplicação ou aos seus utilizadores acesso ao seu recurso:
+        1.    Navegue para o seu recurso De Âncoras Espaciais no portal Azure
+        2.    Mudar para o **separador Controlo de Acesso (IAM)**
+        3.    Hit **Add atribuição de função**
+            1.    [Selecionar uma função](#role-based-access-control)
+            2.    No campo **Select,** insira o nome do(s)(s)(s) do(s) do utilizador, grupo e/ou aplicações a que pretende atribuir acesso.
+            3.    Prima **Guardar**.
 2. No seu código:
-    1.  Certifique-se de usar o ID da **aplicação** e **redirecionar Uri** da sua própria aplicação AD Azure como os parâmetros **de ID** e **RedirectUri** do cliente em MSAL
-    2.  Desa esta medida de informação do arrendatário:
-        1.  Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo seu **ID** do Inquilino ou **nome de Inquilino** (por exemplo, contoso.microsoft.com)
-        2.  Se a sua candidatura apoiar **contas em qualquer diretório organizacional,** substitua este valor por **Organizações**
-        3.  Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** substitua este valor por **Common**
-    3.  No seu pedido simbólico, desemosse o **âmbito** para https://sts.mixedreality.azure.com//.default " " Este âmbito indicará à Azure AD que a sua aplicação está a solicitar um sinal para o Serviço de Token de Segurança de Realidade Mista (STS).
+    1.    Certifique-se de usar o ID da **aplicação** e **redirecionar Uri** da sua própria aplicação AD Azure como os parâmetros **de ID** e **RedirectUri** do cliente em MSAL
+    2.    Desa esta medida de informação do arrendatário:
+        1.    Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo seu **ID** do Inquilino ou **nome de Inquilino** (por exemplo, contoso.microsoft.com)
+        2.    Se a sua candidatura apoiar **contas em qualquer diretório organizacional,** substitua este valor por **Organizações**
+        3.    Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** substitua este valor por **Common**
+    3.    No seu pedido simbólico, desemosse o **âmbito** para https://sts.mixedreality.azure.com//.default " " Este âmbito indicará à Azure AD que a sua aplicação está a solicitar um sinal para o Serviço de Token de Segurança de Realidade Mista (STS).
 
 Com isso, a sua aplicação deverá ser capaz de obter da MSAL um token AD Azure; pode definir o token AD AD do Azure como o **conjunto de autenticação** no seu objeto config de sessão de nuvem.
 
@@ -170,24 +170,24 @@ Aqui, presume-se que a sua aplicação utiliza o seu próprio mecanismo (por exe
 
 O token de acesso Azure AD é recuperado através da [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Deve seguir os passos listados no [registo de um quickstart de aplicação,](../../active-directory/develop/quickstart-register-app.md)que inclui:
 
-1.  Configuração no portal Azure:
-    1.  Registe a sua candidatura no Azure AD:
-        1.  No portal Azure, navegue para **o Azure Ative Directory**e selecione **registos de aplicações**
-        2.  Selecione **novo registo de candidaturas**
-        3.  Introduza o nome da sua aplicação, selecione **Web app /API** como o tipo de aplicação e insira o URL auth para o seu serviço. Em seguida, bata **em Criar**.
-        4.  Nessa aplicação, acerte **As Definições**e, em seguida, selecione o **separador Certificados e Segredos.** Crie um novo segredo de cliente, selecione uma duração e atinja **Add.** Certifique-se de guardar o valor secreto, pois terá de o incluir no código do seu serviço web.
-    2.  Conceder à sua aplicação e/ou ao acesso dos utilizadores ao seu recurso:
-        1.  Navegue para o seu recurso De Âncoras Espaciais no portal Azure
-        2.  Mudar para o **separador Controlo de Acesso (IAM)**
-        3.  Hit **Add atribuição de função**
-        1.  [Selecionar uma função](#role-based-access-control)
-        2.  No campo **selecionado,** insira o nome das(s) aplicações que criou e a que pretende atribuir acesso. Se quiser que os utilizadores da sua aplicação tenham papéis diferentes contra a conta Spatial Anchors, deverá registar várias aplicações em AD Azure e atribuir a cada um um papel diferente. Em seguida, implemente a sua lógica de autorização para utilizar o papel certo para os seus utilizadores.
-        3.  Nota - Na seleção **de atribuição de funções Add** pretende que o acesso do **Atribua** seja definido para "Utilizador, grupo ou principal de serviço Azure".
-    3.  Prima **Guardar**.
-2.  No seu código (nota: pode utilizar a amostra de serviço incluída no GitHub):
-    1.  Certifique-se de usar o ID da aplicação, o segredo da aplicação e redirecione Uri da sua própria aplicação AZure AD como os parâmetros de ID, segredo e RedirectUri do cliente em MSAL
-    2.  Coloque a identificação do inquilino para o seu próprio ID do inquilino Azure ADD no parâmetro de autoridade na MSAL.
-    3.  No seu pedido simbólico, desacordo o **âmbito** para https://sts.mixedreality.azure.com//.default "
+1.    Configuração no portal Azure:
+    1.    Registe a sua candidatura no Azure AD:
+        1.    No portal Azure, navegue para **o Azure Ative Directory**e selecione **registos de aplicações**
+        2.    Selecione **novo registo de candidaturas**
+        3.    Introduza o nome da sua aplicação, selecione **Web app /API** como o tipo de aplicação e insira o URL auth para o seu serviço. Em seguida, bata **em Criar**.
+        4.    Nessa aplicação, acerte **As Definições**e, em seguida, selecione o **separador Certificados e Segredos.** Crie um novo segredo de cliente, selecione uma duração e atinja **Add.** Certifique-se de guardar o valor secreto, pois terá de o incluir no código do seu serviço web.
+    2.    Conceder à sua aplicação e/ou ao acesso dos utilizadores ao seu recurso:
+        1.    Navegue para o seu recurso De Âncoras Espaciais no portal Azure
+        2.    Mudar para o **separador Controlo de Acesso (IAM)**
+        3.    Hit **Add atribuição de função**
+        1.    [Selecionar uma função](#role-based-access-control)
+        2.    No campo **selecionado,** insira o nome das(s) aplicações que criou e a que pretende atribuir acesso. Se quiser que os utilizadores da sua aplicação tenham papéis diferentes contra a conta Spatial Anchors, deverá registar várias aplicações em AD Azure e atribuir a cada um um papel diferente. Em seguida, implemente a sua lógica de autorização para utilizar o papel certo para os seus utilizadores.
+        3.    Nota - Na seleção **de atribuição de funções Add** pretende que o acesso do **Atribua** seja definido para "Utilizador, grupo ou principal de serviço Azure".
+    3.    Prima **Guardar**.
+2.    No seu código (nota: pode utilizar a amostra de serviço incluída no GitHub):
+    1.    Certifique-se de usar o ID da aplicação, o segredo da aplicação e redirecione Uri da sua própria aplicação AZure AD como os parâmetros de ID, segredo e RedirectUri do cliente em MSAL
+    2.    Coloque a identificação do inquilino para o seu próprio ID do inquilino Azure ADD no parâmetro de autoridade na MSAL.
+    3.    No seu pedido simbólico, desacordo o **âmbito** para https://sts.mixedreality.azure.com//.default "
 
 Com isso, o seu serviço de backend pode recuperar um sinal AD Azure. Pode então trocá-lo por um sinal de MR que voltará ao cliente. A utilização de um token AD Azure para recuperar um token MR é feita através de uma chamada REST. Aqui está uma chamada de amostra:
 
@@ -260,7 +260,7 @@ Para ajudar a controlar o nível de acesso concedido a aplicações, serviços o
 - **Contribuinte de Conta De Âncoras Espaciais**: aplicações ou utilizadores com esta função são capazes de criar âncoras espaciais, consulta para elas, mas não podem eliminá-las.
 - **Leitor de contas de âncoras espaciais**: aplicações ou utilizadores com esta função só podem consultar âncoras espaciais, mas não podem criar novas, eliminar as existentes ou atualizar metadados em âncoras espaciais. Isto é normalmente usado para aplicações onde alguns utilizadores curam o ambiente, enquanto outros só podem recordar âncoras anteriormente colocadas nesse ambiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie a sua primeira aplicação com âncoras espaciais Azure.
 

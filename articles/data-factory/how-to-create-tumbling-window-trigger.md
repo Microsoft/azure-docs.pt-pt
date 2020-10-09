@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996691"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856490"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -99,8 +99,8 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 | **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sim |
 | **estado de tempo de execução** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | String | "Iniciado", "Parado", "Deficiente" | Sim |
 | **frequência** | Uma corda que representa a unidade de frequência (minutos ou horas) em que o gatilho se repete. Se os valores da data **de início do Tempo** forem mais granulares do que o valor da **frequência,** as datas **de início são** consideradas quando os limites da janela são calculados. Por exemplo, se o valor da **frequência** for de hora em hora e o valor inicial do Tempo de **Arranque** for 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-011:10:10Z). | String | "minuto", "hora"  | Sim |
-| **intervalo** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
-| **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de disparo é **(startTime**, intervalo **startTime**  +  **interval**). | DateTime | Um valor de DataTime. | Sim |
+| **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
+| **horário de início**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de disparo é **(startTime**, intervalo **startTime**  +  **interval**). | DateTime | Um valor de DataTime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DataTime. | Sim |
 | **atraso** | O tempo para atrasar o início do processamento de dados para a janela. O gasoduto é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define quanto tempo o gatilho espera para além do tempo devido antes de desencadear uma nova execução. O **atraso** não altera a janela **de inícioTime**. Por exemplo, um valor de **atraso** de 00:10:00 implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo em que o padrão é 00:00:00. | Não |
 | **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas que estão prontas. Por exemplo, voltar a encher as horas por hora para ontem resulta em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, o gatilho é disparado para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 percursos totais de gasoduto. Se só houver uma janela pronta, só há 1 oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
@@ -147,7 +147,7 @@ Para utilizar os valores variáveis do sistema **WindowStart** e **WindowEnd** n
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordem de execução das janelas em um cenário de enchimento
 
-Se o startTime do gatilho estiver no passado, então com base nesta fórmula, M=(CurrentTime- TriggerStartTime)/TriggerSliceSize, o gatilho gerará cadeias de backfill {M} (passado) em paralelo, honrando a conurrency do gatilho, antes de executar as futuras execuções. A ordem de execução das janelas é determinística, desde os intervalos mais antigos até aos mais recentes. Atualmente, não é possível modificar este comportamento.
+Se o startTime do gatilho estiver no passado, então com base nesta fórmula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, o gatilho gerará cadeias de backfill {M} (passado) em paralelo, honrando a conúência do gatilho, antes de executar as futuras execuções. A ordem de execução das janelas é determinística, desde os intervalos mais antigos até aos mais recentes. Atualmente, não é possível modificar este comportamento.
 
 ### <a name="existing-triggerresource-elements"></a>Elementos existentes do TriggerResource
 
@@ -238,7 +238,7 @@ Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e 
     
 Para monitorizar as correções do gatilho e o gasoduto funciona no portal Azure, consulte [o gasoduto Monitor](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações detalhadas sobre os gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Criar uma dependência de acionamento de janela em cascata](tumbling-window-trigger-dependency.md)

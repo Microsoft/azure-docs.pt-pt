@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
-ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078629"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856675"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
 
 > [!IMPORTANT]
 > O conector AS2 original está a ser depreciado, por isso, a menos que precise de capacidades de rastreio, utilize o conector **AS2 (v2).** Com exceção do rastreio, o conector V2 fornece as mesmas capacidades que a versão original, é nativo do tempo de funcionaamento das Aplicações Lógicas, e tem melhorias significativas no desempenho no tamanho, produção e latência da mensagem. Além disso, o conector V2 não requer que crie uma ligação à sua conta de integração. Em vez disso, conforme descrito nos pré-requisitos, certifique-se de que liga a sua conta de integração à aplicação lógica onde planeia utilizar o conector.
 
-Para trabalhar com mensagens AS2 no Azure Logic Apps, pode utilizar o conector AS2, que proporciona acionadores e ações para gerir a comunicação AS2. Por exemplo, para estabelecer segurança e fiabilidade ao transmitir mensagens, pode utilizar estas ações:
+Para trabalhar com mensagens AS2 em Azure Logic Apps, pode utilizar o conector AS2, que fornece gatilhos e ações que suportam e gerem a comunicação AS2 (versão 1.2). Por exemplo, para estabelecer segurança e fiabilidade ao transmitir mensagens, pode utilizar estas ações:
 
 * [ **As2 Codificam** a ação](#encode) para fornecer encriptação, assinatura digital e reconhecimentos através de Notificações de Disposição de Mensagens (MDN), que ajudam a suportar o não-repúdio. Por exemplo, esta ação aplica cabeçalhos AS2/HTTP e executa estas tarefas quando configuradas:
 

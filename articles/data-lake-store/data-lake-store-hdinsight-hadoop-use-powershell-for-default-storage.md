@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d96718176c3cd7486c51e57942c4d12bf0d57992
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: db29b6743458a4a3ec87dfec9e367bef0c946a15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620020"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857015"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crie clusters HDInsight com Azure Data Lake Storage Gen1 como armazenamento padrão usando PowerShell
 
@@ -46,7 +46,7 @@ Antes de iniciar este tutorial, certifique-se de que cumpre os seguintes requisi
     >Só pode criar um principal de serviço se for administrador da AD Azure. O administrador AD Azure deve criar um principal de serviço antes de criar um cluster HDInsight com a Data Lake Storage Gen1. O comitado deve ser criado com um certificado, conforme descrito na [Criar um com certificado de serviço.](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)
     >
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta Azure Data Lake Storage Gen1
 
 Para criar uma conta Desemarramento de Dados Da Gen1, faça o seguinte:
 
@@ -281,8 +281,8 @@ hdfs dfs -ls adl:///
 
 Também pode usar o `hdfs dfs -put` comando para enviar alguns ficheiros para data lake storage gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os ficheiros foram carregados com sucesso.
 
-## <a name="see-also"></a>Ver também
-* [Use data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+## <a name="see-also"></a>Consulte também
+* [Use data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal Azure: Criar um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

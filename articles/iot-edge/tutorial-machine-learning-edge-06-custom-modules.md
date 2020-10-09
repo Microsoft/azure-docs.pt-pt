@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997936"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857440"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos IoT Edge personalizados
 
@@ -809,14 +809,6 @@ Ao iniciar sessão no dispositivo IoT Edge (o Linux VM no nosso caso), pode obte
 Neste artigo, criámos uma Solução IoT Edge em Código de Estúdio Visual com três módulos: um classificador, um router e um carregador de ficheiros. Configuramos as rotas para permitir que os módulos se comuniquem uns com os outros no dispositivo de borda. Modificámos a configuração do dispositivo de borda e atualizámos os Dockerfiles para instalar dependências e adicionar suportes de ligação aos contentores dos módulos. 
 
 Em seguida, atualizámos a configuração do Hub IoT para encaminhar as nossas mensagens com base no tipo e para lidar com uploads de ficheiros. Com tudo no lugar, implantamos os módulos para o dispositivo IoT Edge e garantimos que os módulos estavam a funcionar corretamente.
-
-Consulte os seguintes artigos para obter mais orientação:
-
-* [Saiba como implementar módulos e estabelecer rotas no IoT Edge](module-composition.md)
-* [Sintaxe de consulta do encaminhamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [Encaminhamento de mensagens IoT Hub: agora com encaminhamento no corpo da mensagem](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Carregar ficheiros com o Hub IoT](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Faça upload de ficheiros do seu dispositivo para a nuvem com ioT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Continue até ao próximo artigo para começar a enviar dados e ver a sua solução em ação.
 

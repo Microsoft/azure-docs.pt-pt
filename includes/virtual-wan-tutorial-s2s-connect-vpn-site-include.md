@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606589"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856734"
 ---
 1. Selecione **Connect VPN Sites** para abrir a página **de sites Connect.**
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606589"
    Complete os seguintes campos:
 
    * Introduza uma chave pré-partilhada. Se não introduzires uma chave, o Azure autogera-te uma.
-   * Selecione as definições de Protocolo e IPsec. Consulte [detalhes IPSec predefinidos/personalizados] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Selecione as definições de Protocolo e IPsec. Para obter mais informações, consulte [o IPsec predefinido/personalizado](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Selecione a opção adequada para **Propagar a Rota Padrão**. A opção **Enable** permite que o hub virtual propague uma rota padrão aprendida para esta ligação. Esta bandeira só permite a propagação por padrão da rota para uma ligação se a rota padrão já for aprendida pelo hub Virtual WAN como resultado da implantação de uma firewall no hub, ou se outro site conectado tiver feito um túnel forçado. A rota padrão não tem origem no hub Virtual WAN.
 
 2. Selecione **Ligar**.

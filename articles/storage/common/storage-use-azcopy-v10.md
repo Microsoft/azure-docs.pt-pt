@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716063"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856790"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -32,7 +32,7 @@ Em primeiro lugar, descarregue o ficheiro executável AzCopy V10 para qualquer d
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (alcatrão)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Estes ficheiros são comprimidos como um ficheiro zip (Windows e Mac) ou um ficheiro de alcatrão (Linux). Para descarregar e descomprimir o ficheiro de alcatrão no Linux, consulte a documentação para a sua distribuição Linux.
 
@@ -50,7 +50,9 @@ Para ver uma lista de comandos, escreva `azcopy -h` e, em seguida, prima a tecla
 
 Para conhecer um comando específico, basta incluir o nome do comando (por exemplo: `azcopy list -h` ).
 
-![Ajuda inline](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Ajuda inline](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 Para encontrar documentação de referência detalhada para cada parâmetro de comando e comando, consulte [a azcopy](storage-ref-azcopy.md)
 
@@ -318,6 +320,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 Consulte [Configuração, otimização e resolução de problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

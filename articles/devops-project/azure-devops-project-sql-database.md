@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85318629"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856012"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implemente a sua app de ASP.NET e código de base de dados Azure SQL utilizando o Azure DevOps Starter
 
@@ -34,7 +34,7 @@ Neste tutorial, irá:
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
 > * Ligar à Base de Dados SQL do Azure 
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -163,7 +163,7 @@ Precisa de permissões adequadas para se ligar à Base de Dados Azure SQL.
    > [!NOTE]
    > Se alterar a sua palavra-passe para o login DO SQL, tem de alterar a palavra-passe na variável do pipeline de desbloqueio, conforme descrito na secção [de pipeline cd.](#examine-the-cd-pipeline)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se estiver a testar, pode evitar acumular encargos de faturação limpando os seus recursos. Quando já não são necessários, pode eliminar a Base de Dados Azure SQL e os recursos relacionados que criou neste tutorial. Para tal, utilize a funcionalidade **Eliminar** no painel de arranque de DevOps.
 
@@ -185,12 +185,12 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 > * Examinar o pipeline de CD
 > * Cometa alterações no Azure Repos e desloque-os automaticamente para a Azure
 > * Ligar à Base de Dados SQL do Azure 
-> * Limpar recursos
+> * Limpar os recursos
 
 Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Defina o seu pipeline de implantação contínua em várias fases (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Vídeos
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549947"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858137"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integrar conhecimento em qualquer lugar LMS com Diretório Ativo Azure
 
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Do Conhecimento em Qualquer lugar,** encontre a secção **Gerir** e selecione **'Único sinal de sismo'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor url de inscrição não é real. Atualize este valor com o URL de inscrição real. Contacte [a equipa de suporte do cliente LMS para](https://knowany.zendesk.com/hc/en-us/articles/360000469034-SAML-2-0-Single-Sign-On-SSO-Set-Up-Guide) obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -111,19 +111,19 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Selecione no **separador Site.**
 
-    ![Conhecimento em qualquer lugar configuração LMS](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![A imagem mostra o separador Site.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Selecione no separador **Definições SAML.**
 
-    ![Conhecimento em qualquer lugar configuração LMS](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![A screenshot mostra a página 'Conhecimento' em qualquer lugar com definições SAML selecionadas.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Clique no **Add New**.
 
-    ![Conhecimento em qualquer lugar configuração LMS](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![A screenshot mostra o botão Adicionar Novo nas Definições do Fornecedor de Serviços.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. Na página **'Configurações SAML's Add/Update,** execute os seguintes passos:
 
-    ![Conhecimento em qualquer lugar configuração LMS](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![A screenshot mostra a página de Definições SAML de Adição/Atualização onde pode escriminar as alterações descritas aqui.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Insira o Nome IDP de acordo com a sua organização. Para ex:- `Azure` .
 

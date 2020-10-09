@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: b6a7b9d4e4b8a7caf79e2dbcc1059adc3c9122d7
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843980"
+ms.locfileid: "91857746"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Como utilizar a replicação da Colmeia Apache em clusters Azure HDInsight
 
@@ -224,8 +224,7 @@ A seguinte sequência de código fornece um exemplo de como a colocação de bot
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 
-- [Referência Apache Ambari REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-- [Instalar e configurar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-- [Instalar e configurar módulo Azure PowerShell Az](/powershell/azure/)
-- [Gerir HDInsight usando Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
-- [Provision Clusters HDInsight baseados em Linux](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Continuidade do negócio Azure HDInsight](../hdinsight-business-continuity.md)
+- [Azure HDInsight arquiteturas de continuidade de negócios](../hdinsight-business-continuity-architecture.md)
+- [Azure HDInsight estudo de caso de arquitetura de solução altamente disponível](../hdinsight-high-availability-case-study.md)
+- [O que é Apache Hive e HiveQL em Azure HDInsight?](../hadoop/hdinsight-use-hive.md)

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604395"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856160"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Compreender o âmbito para o Azure RBAC
 
@@ -25,6 +25,10 @@ ms.locfileid: "91604395"
 Em Azure, pode especificar um âmbito a quatro níveis: [grupo de gestão,](../governance/management-groups/overview.md)subscrição, [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups)e recursos. Os âmbitos são estruturados numa relação de principal-subordinado. Cada nível de hierarquia torna o âmbito mais específico. Pode atribuir funções em qualquer um destes níveis de âmbito. O nível selecionado determina a largura da função. Níveis mais baixos herdam permissões de função de níveis mais altos. 
 
 ![Âmbito de uma atribuição de função](./media/scope-overview/rbac-scope-no-label.png)
+
+Os grupos de gestão são um nível de âmbito acima das subscrições, mas os grupos de gestão apoiam hierarquias mais complexas. O diagrama que se segue mostra um exemplo de uma hierarquia de grupos de gestão e subscrições que pode definir. Para obter mais informações sobre grupos de gestão, veja [o que são os grupos de gestão Azure?](../governance/management-groups/overview.md)
+
+![Grupo de gestão e hierarquia de subscrição](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>Formato de âmbito
 
@@ -118,6 +122,6 @@ Os grupos de gestão são um nível superior às subscrições e têm o âmbito 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Passos para adicionar uma atribuição de papel](role-assignments-steps.md)
+- [Passos para adicionar uma atribuição de função](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md) (Fornecedor de recursos para serviços do Azure)
-- [Organize your resources with Azure management groups](../governance/management-groups/overview.md) (Organizar os recursos com os grupos de gestão do Azure)
+- [O que são os grupos de gestão do Azure?](../governance/management-groups/overview.md)

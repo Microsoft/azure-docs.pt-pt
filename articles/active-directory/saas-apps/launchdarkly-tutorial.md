@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519844"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Ative Directory com o LaunchDarkly
 
@@ -94,13 +94,13 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![LaunchDarkly Domain and URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um URL: `app.launchdarkly.com`
 
@@ -113,9 +113,9 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://app.launchdarkly.com`
 
-    ![LaunchDarkly Domain and URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -129,25 +129,25 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     c. Logout URL
 
-### <a name="configure-launchdarkly-single-sign-on"></a>Configurar lançamentoDarkly single sign-on
+### <a name="configure-launchdarkly-single-sign-on"></a>Configure lançamentoDarkly single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no seu site da empresa LaunchDarkly como administrador.
 
 2. Selecione **Definições** de Conta do painel de navegação esquerdo.
 
-    ![Configuração LaunchDarkly](./media/launchdarkly-tutorial/configure1.png)
+    ![A screenshot mostra o item Definições de Conta selecionados em Produção.](./media/launchdarkly-tutorial/configure1.png)
 
 3. Clique no separador **Segurança.**
 
-    ![Configuração LaunchDarkly](./media/launchdarkly-tutorial/configure2.png)
+    ![A screenshot mostra o separador segurança das definições de Conta.](./media/launchdarkly-tutorial/configure2.png)
 
 4. Clique **EM ATIVAR SSO** e, em seguida, **EDITAR CONFIGURAÇÃO SAML**.
 
-    ![Configuração LaunchDarkly](./media/launchdarkly-tutorial/configure3.png)
+    ![A screenshot mostra a página de assinatura única onde pode ATIVAR S S O e EDIT SAML CONFIGURAÇÃO.](./media/launchdarkly-tutorial/configure3.png)
 
 5. Na secção **de configuração da Editar,** execute os seguintes passos:
 
-    ![Configuração LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
+    ![A screenshot mostra a secção de configuração DOML onde pode escriminar as alterações descritas aqui.](./media/launchdarkly-tutorial/configure4.png)
 
     a. Copie o **URL de serviço ao consumidor SAML** para o seu exemplo e cole-o na caixa de texto de URL de resposta na secção **LaunchDarkly Domain and URLs** no portal Azure.
 
@@ -188,7 +188,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LaunchDarkly**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LaunchDarkly**.
 

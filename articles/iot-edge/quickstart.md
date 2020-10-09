@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56f17f6c60f30a38431ee347c7bdfc5b200b641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328599"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856964"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -22,12 +22,10 @@ Experimente o Azure IoT Edge neste arranque rápido, implantando código content
 
 Neste início rápido, vai aprender a:
 
-> [!div class="checklist"]
->
-> * Criar um hub IoT.
-> * Registar um dispositivo IoT Edge no seu hub IoT.
-> * Instale e inicie o tempo de funcionaamento do IoT Edge no seu dispositivo virtual.
-> * Implementar remotamente um módulo num dispositivo IoT Edge e enviar telemetria para o Hub IoT.
+* Criar um hub IoT.
+* Registar um dispositivo IoT Edge no seu hub IoT.
+* Instale e inicie o tempo de funcionaamento do IoT Edge no seu dispositivo virtual.
+* Implementar remotamente um módulo num dispositivo IoT Edge e enviar telemetria para o Hub IoT.
 
 ![Diagrama - Arquitetura quickstart para dispositivo e nuvem](./media/quickstart/install-edge-full.png)
 
@@ -236,7 +234,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
 Também pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos Azure que criou para evitar encargos.
 

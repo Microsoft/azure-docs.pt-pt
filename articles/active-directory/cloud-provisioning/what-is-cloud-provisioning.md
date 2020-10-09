@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728357"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856811"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é o aprovisionamento na cloud do Azure AD Connect?
 O Azure AD Connect cloud provisioning é um novo agente da Microsoft projetado para cumprir e cumprir os seus objetivos de identidade híbrida para a sincronização de utilizadores, grupos e contactos com a Azure AD.  Pode ser usado ao lado da sincronização Azure AD Connect e proporciona os seguintes benefícios:
@@ -34,7 +34,7 @@ Com o fornecimento de nuvem AZure AD Connect, o fornecimento de AD a Azure AD é
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Vídeo de provisão de nuvem Azure AD Connect
 O vídeo curto seguinte fornece uma excelente sobreposição de provisões em nuvem AZure AD Connect:
 
-> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Comparação entre Azure AD Connect e provisionamento em nuvem
@@ -58,7 +58,7 @@ A tabela a seguir fornece uma comparação entre o Azure AD Connect e o Azure AD
 | Synconize atributos de extensão 1-15 |● |● |
 | Sincronizar atributos de AD definidos pelo cliente (extensões de diretório) |● | |
 | Suporte para Password Hash Sync |●|●|
-| Suporte para autenticação pass-through |●||
+| Apoio à Autenticação Pass-Through |●||
 | Apoio à federação |●|●|
 | Início de Sessão Único totalmente integrado|● |●|
 | Suporta a instalação num Controlador de Domínio |● |● |

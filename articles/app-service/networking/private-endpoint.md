@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773149"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857270"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilização de pontos finais privados para app Web Azure
 
@@ -114,6 +114,8 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Privado, para executar ou executar a função no portal Azure Web, tem de ter acesso direto à rede ou receberá um erro HTTP 403. Por outras palavras, o seu navegador deve ser capaz de chegar ao Ponto Final Privado para executar a função a partir do portal Azure Web. 
 
 Pode ligar até 100 Pontos Finais Privados a uma determinada Aplicação Web.
+
+A funcionalidade de depuração remota não está disponível quando o Private Endpoint está ativado para a Web App. A recomendação é colocar o código numa ranhura e desativá-lo remotamente lá.
 
 O Private Endpoint está disponível para a App PremiumV2, PremiumV3, Windows e Linux, contentorizada ou não, e o plano Azure Functions Premium (por vezes referido como o plano Elastic Premium). 
 

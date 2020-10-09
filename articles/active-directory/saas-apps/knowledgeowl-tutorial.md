@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549896"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858103"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutorial: Azure Ative Directory integração única (SSO) com KnowledgeOwl
 
@@ -111,7 +111,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ```
 
     > [!NOTE]
-    > Estes valores não são reais. Você precisará atualizar estes valores a partir de identificador real, URL de resposta e URL de inscrição, que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Você precisará atualizar estes valores a partir de identificador real, URL de resposta e URL Sign-On que é explicado mais tarde no tutorial.
 
 1. A aplicação KnowledgeOwl espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -119,7 +119,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação KnowledgeOwl espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem | Espaço de Nomes |
+    | Nome | Atributo de origem | Espaço de Nomes |
     | ------------ | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
@@ -167,11 +167,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **Definições** e, em seguida, **selecione Segurança**.
 
-    ![Configuração KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+    ![A screenshot mostra segurança selecionada a partir do menu Definições.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Percorra a **INTEGRAÇÃO SSO SAML** e execute os seguintes passos:
 
-    ![Configuração KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+    ![O Screenshot mostra a INTEGRAÇÃO SAML S S O onde pode fazer as alterações descritas aqui.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. Selecione **Ative SAML SSO**.
 
@@ -189,7 +189,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     h. Clique em **Atributos SAML do mapa** para mapear atributos e execute os seguintes passos:
 
-    ![Configuração KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+    ![A screenshot mostra atributos SAML do mapa onde pode fazer as alterações descritas aqui.](./media/knowledgeowl-tutorial/configure3.png)
 
     * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`Introduza na caixa de texto **SSO ID**
     * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`Introduza a caixa de texto **username/Email.**
@@ -199,7 +199,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     i. Clique em **Guardar** na parte inferior da página.
 
-    ![Configuração KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+    ![A imagem mostra o botão Guardar.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Criar utilizador de teste KnowledgeOwl
 

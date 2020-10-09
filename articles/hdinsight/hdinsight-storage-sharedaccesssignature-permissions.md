@@ -1,6 +1,6 @@
 ---
 title: Restringir o acesso usando assinaturas de acesso compartilhado - Azure HDInsight
-description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso hdInsight aos dados armazenados em bolhas de armazenamento Azure.
+description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso hdInsight aos dados armazenados no armazenamento de Azure Blob.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006318"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856569"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar Assinaturas de Acesso Partilhado do Armazenamento do Azure para restringir o acesso aos dados no HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Use Azure Blob armazenamento Assinaturas de acesso compartilhados para restringir o acesso a dados em HDInsight
 
-O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associadas ao cluster. Pode utilizar assinaturas de acesso partilhado no recipiente blob para restringir o acesso aos dados. As Assinaturas de Acesso Partilhado (SAS) são uma funcionalidade das contas de armazenamento Azure que lhe permite limitar o acesso aos dados. Por exemplo, fornecer acesso apenas de leitura aos dados.
+O HDInsight tem acesso total aos dados nas contas de armazenamento Azure Blob associadas ao cluster. Pode utilizar assinaturas de acesso partilhado no recipiente blob para restringir o acesso aos dados. As Assinaturas de Acesso Partilhado (SAS) são uma funcionalidade das contas de armazenamento Azure Blob que permite limitar o acesso aos dados. Por exemplo, fornecer acesso apenas de leitura aos dados.
 
 > [!IMPORTANT]  
 > Para obter uma solução utilizando o Apache Ranger, considere utilizar o HDInsight de domínio. Para obter mais informações, consulte o documento [HDInsight de domínio de Configuração.](./domain-joined/apache-domain-joined-configure.md)
@@ -39,7 +39,7 @@ O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associa
 
 * Se utilizar C#, o Visual Studio deve ser versão 2013 ou superior.
 
-* O esquema URI para a sua conta de armazenamento. Este esquema seria `wasb://` para o Azure Storage, `abfs://` para a Azure Data Lake Storage Gen2 ou `adl://` para a Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` .
+* O esquema URI para a sua conta de armazenamento. Este esquema seria `wasb://` para o armazenamento de Azure Blob, para a `abfs://` Azure Data Lake Storage Gen2 ou `adl://` para a Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o armazenamento do Azure Blob, o URI será `wasbs://` .
 
 * Um cluster HDInsight existente para adicionar uma Assinatura de Acesso Partilhado. Caso contrário, pode utilizar o Azure PowerShell para criar um cluster e adicionar uma Assinatura de Acesso Partilhado durante a criação do cluster.
 
@@ -48,7 +48,7 @@ O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associa
   * Um projeto visual studio que pode criar um recipiente de armazenamento, política armazenada e SAS para uso com HDInsight
   * Um script Python que pode criar um recipiente de armazenamento, política armazenada e SAS para uso com HDInsight
   * Um script PowerShell que pode criar um cluster HDInsight e configurá-lo para usar o SAS. Uma versão atualizada é usada mais abaixo.
-  * Um ficheiro de amostra:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Um ficheiro de amostra: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Assinaturas de Acesso Partilhado
 

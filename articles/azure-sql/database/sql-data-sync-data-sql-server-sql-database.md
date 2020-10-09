@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332969"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856114"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -126,7 +126,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 > - Os dados entre o hub e o membro podem ser perdidos, mesmo que a sincronização não reporte qualquer problema.
 > - O Sync pode falhar porque a tabela de rastreio tem uma linha não existente a partir da fonte devido à mudança de tecla primária.
 
-- O isolamento de instantâneos tem de estar ativado. Para obter mais informações, veja [Snapshot Isolation in SQL Server (Isolamento de Instantâneo no SQL Server)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- O isolamento instantâneo deve ser ativado tanto para os membros do Sync como para o hub. Para obter mais informações, veja [Snapshot Isolation in SQL Server (Isolamento de Instantâneo no SQL Server)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitações gerais
 
@@ -137,7 +137,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), suporte quadrado esquerdo ([) ou suporte quadrado direito (]).
 - A autenticação do Diretório Ativo Azure não é suportada.
 - As tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) não são suportados.
-- Colunas com tipos de dados definidos pelo utilizador não são suportadas
+- Colunas com User-Defined Tipos de Dados não são suportadas
 - A movimentação de servidores entre diferentes subscrições não é suportada. 
 
 #### <a name="unsupported-data-types"></a>Tipos de dados não suportados
@@ -224,7 +224,7 @@ Para obter uma técnica de backup recomendada, consulte [copiar uma base de dado
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Pode sincronizar tabelas e colunas encriptadas de dados
 
 - Se uma base de dados utilizar Sempre Encriptado, pode sincronizar apenas as tabelas e colunas que *não* estão encriptadas. Não é possível sincronizar as colunas encriptadas, porque o Data Sync não consegue desencriptar os dados.
-- Se uma coluna utilizar encriptação de nível de coluna (CLE), pode sincronizar a coluna, desde que o tamanho da linha seja inferior ao tamanho máximo de 24 Mb. O Data Sync trata a coluna encriptada por chave (CLE) como dados binários normais. Para desencriptar os dados de outros membros sincronizados, precisa de ter o mesmo certificado.
+- Se uma coluna utilizar Column-Level Encriptação (CLE), pode sincronizar a coluna, desde que o tamanho da linha seja inferior ao tamanho máximo de 24 Mb. O Data Sync trata a coluna encriptada por chave (CLE) como dados binários normais. Para desencriptar os dados de outros membros sincronizados, precisa de ter o mesmo certificado.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>É colagem suportada no SQL Data Sync
 

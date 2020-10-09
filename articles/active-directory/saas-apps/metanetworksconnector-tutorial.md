@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528909"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Diretório Ativo Azure com o Conector meta networks
 
@@ -75,7 +75,7 @@ Para um único sinal de saúde a funcionar, é necessário estabelecer uma rela�
 Para configurar e testar o único sinal de Azure AD com o Conector Meta Networks, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o conector meta redes único sinal-on](#configure-meta-networks-connector-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
+2. **[Configure o conector meta networks único sinal-on](#configure-meta-networks-connector-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Meta Networks Connector test user](#create-meta-networks-connector-test-user)** - para ter uma contraparte de Britta Simon no Meta Networks Connector que está ligada à representação AZure AD do utilizador.
@@ -95,13 +95,13 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Meta Networks Connector Domain e URLs informações únicas de sinal](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,22 +109,22 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Meta Networks Connector Domain e URLs informações únicas de sinal](common/both-advanced-urls.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-advanced-urls.png)
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
     b. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
-    > Estes valores não são reais. A atualização destes valores com o identificador real, URL de resposta e URL de inscrição são explicados mais tarde no tutorial.
+    > Estes valores não são reais. Atualizar estes valores com o identificador real, URL de resposta e URL de Sign-On são explicados mais tarde no tutorial.
 
 6. A aplicação Meta Networks Connector espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
     
 7. Além de acima, a aplicação Meta Networks Connector espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
     
-    | Name | Atributo de origem | Espaço de Nomes|
+    | Nome | Atributo de origem | Espaço de Nomes|
     | ---------------| --------------- | -------- |
     | nome de primeiro nome | user.givenname | |
     | último nome | utilizador.sobrenome | |
@@ -134,9 +134,9 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
@@ -150,7 +150,7 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
 
     exemplo, Clique em **Guardar**.
 
-8. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -164,7 +164,7 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
 
     c. Logout URL
 
-### <a name="configure-meta-networks-connector-single-sign-on"></a>Configurar meta redes connector único sinal-on
+### <a name="configure-meta-networks-connector-single-sign-on"></a>Configurar meta redes connector único Sign-On
 
 1. Abra um novo separador no seu navegador e inicie sessão na sua conta de administrador meta networks Connector.
     
@@ -173,19 +173,19 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
     
 2. Vá ao **Administrador** e selecione **Definições**.
     
-    ![Configurar um único sign-on](./media/metanetworksconnector-tutorial/configure3.png)
+    ![A screenshot mostra definições selecionadas a partir do menu Administração.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Certifique-se de que **o Tráfego de Internet** e o **MFA de Força VPN** estão prontos para desligar.
     
-    ![Configurar um único sign-on](./media/metanetworksconnector-tutorial/configure1.png)
+    ![A screenshot mostra desligar estas definições.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Vá ao **Administrador** e selecione **SAML**.
     
-    ![Configurar um único sign-on](./media/metanetworksconnector-tutorial/configure4.png)
+    ![A screenshot mostra SAML selecionado a partir do menu Administração.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Execute os seguintes passos na página **DETAILS:**
     
-    ![Configurar um único sign-on](./media/metanetworksconnector-tutorial/configure2.png)
+    ![A screenshot mostra a página DETAILS onde pode introduzir os valores descritos.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copie o valor **do URL SSO** e **cole-o** na caixa de texto URL de entrada na secção **De Tector de Meta Networks e URLs.**
     
@@ -197,9 +197,9 @@ Para configurar o Azure AD com o Conector Meta Networks, execute os seguintes pa
     
 6. No separador **GENERAL.** Efetuar os seguintes passos:
 
-    ![Configurar um único sign-on](./media/metanetworksconnector-tutorial/configure5.png)
+    ![A screenshot mostra a página GENERAL onde pode introduzir os valores descritos.](./media/metanetworksconnector-tutorial/configure5.png)
 
-    a. No **URL único de entrada de assinatura**do fornecedor de identidade, cole o valor URL de **login** que copiou a partir do portal Azure.
+    a. No **URL de Sign-On único fornecedor de identidade,** cole o valor URL de **login** que copiou a partir do portal Azure.
 
     b. No **Emitente fornecedor de identidade,** cole o valor **do identificador Azure AD** que copiou do portal Azure.
 
@@ -238,7 +238,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Meta Networks Connector**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Meta Networks Connector**.
 

@@ -3,18 +3,18 @@ title: Começa com o armazenamento da Fila Azure usando .NET - Azure Storage
 description: As Filas do Azure fornecem um serviço de mensagens fiável e assíncrono entre componentes da aplicação. O serviço de mensagens na nuvem permite que os componentes da sua aplicação sejam dimensionados de forma independente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001115"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855927"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 
@@ -33,9 +33,6 @@ Este tutorial demonstra como escrever código .NET para alguns cenários comuns 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Biblioteca cliente comum de Armazenamento Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Biblioteca de clientes da Fila de Armazenamento Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - Uma [conta de armazenamento Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -72,7 +69,7 @@ Você precisa fazer referência aos seguintes quatro pacotes no seu projeto para
 - [Biblioteca de fila de armazenamento Azure para .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): Este pacote permite trabalhar com o serviço de Fila de Armazenamento Azure para armazenar mensagens que possam ser acedidas por um cliente.
 - [Biblioteca do Gestor de Configuração para .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Este pacote fornece acesso a ficheiros de configuração para aplicações de clientes.
 
-Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
+Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
 1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
@@ -87,7 +84,7 @@ Tem de fazer referência aos seguintes três pacotes do seu projeto para complet
 - [Microsoft Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Esta biblioteca de clientes permite trabalhar com o serviço microsoft Azure Storage Queue para armazenar mensagens que possam ser acedidas por um cliente.
 - [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
 
-Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
+Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
 1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
@@ -95,11 +92,6 @@ Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
 1. Pesse online por "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações Azure.
 
 ---
-
-> [!NOTE]
-> Os pacotes de bibliotecas de clientes de armazenamento também estão incluídos no [Azure SDK para .NET](https://azure.microsoft.com/downloads/). No entanto, recomendamos que também instale as bibliotecas de clientes de Armazenamento do NuGet para garantir que tem sempre as versões mais recentes.
->
-> As dependências ODataLib nas bibliotecas de clientes de Armazenamento para .NET são resolvidas pelos pacotes ODataLib disponíveis no NuGet, e não nos Serviços de Dados do WCF. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados pelas bibliotecas de clientes de armazenamento são [OData,](https://nuget.org/packages/Microsoft.Data.OData/) [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial.](https://nuget.org/packages/System.Spatial/) Embora estas bibliotecas sejam utilizadas pelas classes de armazenamento da Tabela Azure, são necessárias dependências para programação com as bibliotecas de clientes de armazenamento.
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
 
@@ -185,7 +177,7 @@ A classe [QueueClient](/dotnet/api/azure.storage.queues.queueclient) permite-lhe
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-A classe [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) permite-lhe obter filas armazenadas no Armazenamento de filas. Eis uma forma de criar o cliente do serviço:
+A classe [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) permite-lhe obter filas armazenadas no Armazenamento de filas. Eis uma forma de criar o cliente do serviço:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ Para inserir uma mensagem numa fila existente, ligue para o método [SendMessage
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para introduzir uma mensagem numa fila existente, primeiro crie um novo [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Em seguida, chame o método [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy). Um `CloudQueueMessage` pode ser criado a partir de um `string` (em formato UTF-8) ou de uma `byte` matriz. Aqui está o código que cria uma fila (se não existir) e insere a mensagem "Olá, Mundo":
+Para introduzir uma mensagem numa fila existente, primeiro crie um novo [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Em seguida, chame o método [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). Um `CloudQueueMessage` pode ser criado a partir de um `string` (em formato UTF-8) ou de uma `byte` matriz. Aqui está o código que cria uma fila (se não existir) e insere a mensagem "Olá, Mundo":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ Pode espreitar as mensagens na fila sem as retirar da fila, chamando o método [
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Pode pré-visualizar a mensagem no início de um fila sem a remover da fila ao chamar o método [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy).
+Pode pré-visualizar a mensagem no início de um fila sem a remover da fila ao chamar o método [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true).
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ Des-fila uma mensagem de uma fila em dois passos. Quando ligar para [o ReceiveMe
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-O código remove uma mensagem da fila em dois passos. Quando chamar [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), obterá a seguinte mensagem numa fila. Uma mensagem devolvida `GetMessage` torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para acabar de remover a mensagem da fila, também tem de chamar [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código liga `DeleteMessage` logo após a mensagem ter sido processada.
+O código remove uma mensagem da fila em dois passos. Quando chamar [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), obterá a seguinte mensagem numa fila. Uma mensagem devolvida `GetMessage` torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para acabar de remover a mensagem da fila, também tem de chamar [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código liga `DeleteMessage` logo após a mensagem ter sido processada.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -406,7 +398,7 @@ O seguinte exemplo de código utiliza o método [ReceiveMessages](/dotnet/api/az
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-O seguinte código de exemplo utiliza o método [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) para obter 20 mensagens numa chamada. Em seguida, processa cada mensagem usando um `foreach` loop. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem. Tenha em atenção que os 5 minutos começam para todas as mensagens ao mesmo tempo, pelo que, após 5 minutos passados desde a `GetMessages` chamada, quaisquer mensagens que não tenham sido apagadas tornar-se-ão visíveis novamente.
+O seguinte código de exemplo utiliza o método [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) para obter 20 mensagens numa chamada. Em seguida, processa cada mensagem usando um `foreach` loop. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem. Tenha em atenção que os 5 minutos começam para todas as mensagens ao mesmo tempo, pelo que, após 5 minutos passados desde a `GetMessages` chamada, quaisquer mensagens que não tenham sido apagadas tornar-se-ão visíveis novamente.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ Pode obter uma estimativa do número de mensagens numa fila. O método [GetPrope
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Pode obter uma estimativa do número de mensagens numa fila. O método [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) pede ao serviço Fila que devolva os atributos de fila, incluindo a contagem de mensagens. A [propriedade ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) devolve o último valor recuperado pelo `FetchAttributes` método, sem chamar o serviço de Fila.
+Pode obter uma estimativa do número de mensagens numa fila. O método [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) pede ao serviço Fila que devolva os atributos de fila, incluindo a contagem de mensagens. A [propriedade ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) devolve o último valor recuperado pelo `FetchAttributes` método, sem chamar o serviço de Fila.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Para eliminar uma fila e todas as mensagens nela contidas, chame o método [Elim
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Para eliminar uma fila e todas as mensagens nela contidas, chame o método [Eliminar](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) no objeto de fila.
+Para eliminar uma fila e todas as mensagens nela contidas, chame o método [Eliminar](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) no objeto de fila.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -499,16 +491,8 @@ Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas li
 - Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
   - [Referência da Biblioteca de Clientes do Storage para o .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
-- Aprenda a simplificar o código que escreve para trabalhar com o Azure Storage utilizando o [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
   - [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.
   - [Introdução ao Blob Storage do Azure utilizando o .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
   - [Ligar à Base de Dados SQL com o .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) para armazenar dados relacionais.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Aprenda a simplificar o código que escreve para trabalhar com o Azure Storage utilizando o [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

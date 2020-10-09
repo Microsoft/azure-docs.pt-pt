@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318624"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856216"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um gasoduto CI/CD em Pipelines Azure para Node.js com arranque Azure DevOps
 
@@ -73,7 +73,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
     ![Painel de Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. A partir do seu projeto Azure DevOps, você pode convidar os membros da equipa a colaborar e estabelecer um conselho Kanban para começar a rastrear o seu trabalho. Para mais informações, consulte [aqui.](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+1. A partir do seu projeto Azure DevOps, você pode convidar os membros da equipa a colaborar e estabelecer um conselho Kanban para começar a rastrear o seu trabalho. Para mais informações, consulte [aqui.](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
 
 ![Visão geral de Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -186,7 +186,7 @@ Nos dois passos anteriores, adicionou um Gatsby gerado PWA ao seu repo git e edi
 
 3. Após alguns minutos, os seus gasodutos de construção e libertação devem terminar e o seu PWA deve ser colocado num recipiente. Clique no link de ponto final da **Aplicação** a partir do painel de instrumentos acima e deverá ver um projeto de arranque Gatsby para blogs.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa dos recursos. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
@@ -195,5 +195,4 @@ Pode eliminar o Azure App Service e outros recursos relacionados que criou quand
 Quando configurar o seu processo CI/CD, os gasodutos de construção e libertação são automaticamente criados. Pode alterar estes oleodutos de construção e libertação para atender às necessidades da sua equipa. Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
-
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: d598017c8b41dffc486bfef4b9af63c6942cef58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fde0bcdb70384e791d7337d212d7353b6ea168bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549801"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Tutorial: Azure Ative Directory integração única (SSO) com o LinkedIn Learning
 
@@ -141,19 +141,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No **Centro de Contas**, clique em **Definições** **Globais**. Além disso, **selecione Learning - Predefinição** da lista de abandono.
 
-    ![Configurar um único sign-on](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![A screenshot mostra as Definições Globais onde pode selecionar Predefinido.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Clique **em OR Clique aqui para carregar e copiar campos individuais a partir do formulário** e copiar o url do **Id** da Entidade e **do Serviço de Apoio ao Consumidor de Afirmação (ACS)** e colá-lo na secção **de Configuração Básica SAML** no portal Azure.
 
-    ![Configurar um único sign-on](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![A screenshot mostra single Sign-On onde pode introduzir os valores descritos.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Aceda à secção **de Definições de Administração LinkedIn.** Faça o upload do ficheiro XML que descarregou a partir do portal Azure clicando na opção **de ficheiro Upload XML.**
 
-    ![Configurar um único sign-on](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![O Screenshot mostra configurar as definições do fornecedor de serviços LinkedIn S S O onde pode carregar um ficheiro X M L.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Clique **em** para ativar SSO. Alterações de estado SSO **de Não Ligado a** **Conectado**
 
-    ![Configurar um único sign-on](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![O Screenshot mostra single Sign-On onde pode ativar os utilizadores Autenticados com S S O.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-learning-test-user"></a>Criar utilizador de teste linkedIn Learning
 

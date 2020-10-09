@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7bb4974620323de45fd621ae2ed73d3655244d8b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606259"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856733"
 ---
 1. Na página do portal para o seu wan virtual, na secção **Conectividade,** selecione **sites VPN** para abrir a página de sites VPN.
 2. Na página **Sites de VPN**, clique em **+Criar site**.
@@ -26,6 +26,10 @@ ms.locfileid: "90606259"
     * **Fornecedor de dispositivos** - O nome do fornecedor de dispositivos VPN (por exemplo: Citrix, Cisco, Barracuda). Ao fazê-lo, a Equipa Azure pode compreender melhor o seu ambiente para adicionar possibilidades de otimização adicionais no futuro ou para ajudá-lo a resolver problemas.
     * **Protocolo border gateway** - Enable implica que todas as ligações do site estarão ativadas no BGP. Irá eventualmente configurar as informações do BGP para cada link a partir do Site VPN na secção Links. Configurar o BGP num WAN virtual equivale a configurar o BGP numa VPN de gateway de rede virtual Azure. O seu endereço de pares BGP no local não deve ser o mesmo que o endereço IP público do seu VPN para dispositivo ou o espaço de endereço VNet do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface loopback do dispositivo. Especifique este endereço no site VPN correspondente que representa a localização. Para pré-requisitos BGP, consulte [Sobre o BGP com o Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Pode sempre editar uma ligação VPN para atualizar os seus parâmetros BGP (Peering IP no link e o AS #) uma vez que a definição de VPN Site BGP esteja ativada.
     * **Espaço de endereço privado** - O espaço de endereço IP localizado no seu site no local. O tráfego destinado a este espaço de endereços é encaminhado para o site local. Isto é necessário quando o BGP não está ativado para o site.
+    
+      >[!NOTE]
+      >Se editar o espaço do endereço após a criação do site (por exemplo, adicionar um espaço de endereço adicional) pode demorar 8-10 minutos a atualizar as rotas eficazes enquanto os componentes são recriados.
+      >
     * **Hubs** - O hub ao que pretende que o seu Site se conecte. Um site só pode ser conectado aos centros que têm um Gateway VPN. Se não vir um hub, crie uma porta de entrada VPN naquele centro primeiro.
 4. Selecione **Links** para adicionar informações sobre as ligações físicas no ramo. Se tiver um dispositivo CPE parceiro virtual, consulte com eles para ver se esta informação é trocada com o Azure como parte do upload de informações da sucursal configurados a partir dos seus sistemas.
 

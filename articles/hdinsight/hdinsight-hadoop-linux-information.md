@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961817"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856590"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -101,15 +101,15 @@ Os dados de exemplo e os ficheiros JAR podem ser encontrados no Sistema de Fiche
 
 Na maioria das distribuições de Hadoop, os dados são armazenados em HDFS. O HDFS é apoiado pelo armazenamento local nas máquinas do cluster. A utilização de armazenamento local pode ser dispendiosa para uma solução baseada na nuvem, onde é cobrado de hora a hora ou por minuto para obter recursos de computação.
 
-Ao utilizar o HDInsight, os ficheiros de dados são armazenados de forma adaptável e resiliente na nuvem utilizando o Armazenamento Azure Blob e opcionalmente o Armazenamento do Lago de Dados Azure. Estes serviços proporcionam os seguintes benefícios:
+Ao utilizar o HDInsight, os ficheiros de dados são armazenados de forma adaptável e resiliente na nuvem utilizando o Azure Blob Storage e opcionalmente Azure Data Lake Storage Gen1/Gen2. Estes serviços proporcionam os seguintes benefícios:
 
 * Armazenamento barato a longo prazo.
 * Acessibilidade de serviços externos, tais como websites, serviços de upload de ficheiros/descarregamento, vários SDKs de idioma e navegadores web.
 * Grande capacidade de ficheiro e grande armazenamento adaptável.
 
-Para obter mais informações, consulte [a Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [o Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Para mais informações, consulte [o armazenamento Azure Blob,](../storage/common/storage-introduction.md) [Azure Data Lake Storage Gen1,](../data-lake-store/data-lake-store-overview.md)ou [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-Ao utilizar o Azure Storage ou o Data Lake Storage, não tem de fazer nada de especial desde o HDInsight para aceder aos dados. Por exemplo, os seguintes ficheiros de comando na `/example/data` pasta, quer sejam armazenados no Armazenamento Azure ou no Armazenamento do Lago de Dados:
+Ao utilizar o armazenamento Azure Blob ou o Data Lake Storage Gen1/Gen2, não tem de fazer nada de especial desde o HDInsight para aceder aos dados. Por exemplo, os seguintes ficheiros de comando na `/example/data` pasta, quer sejam armazenados no Armazenamento Azure ou no Armazenamento do Lago de Dados:
 
 ```console
 hdfs dfs -ls /example/data
@@ -135,7 +135,7 @@ Ao utilizar [**a Azure Data Lake Storage Gen2,**](./hdinsight-hadoop-use-data-la
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Utilizado na comunicação com uma conta de armazenamento não padrão. Por exemplo, quando tem uma conta de armazenamento adicional ou ao aceder aos dados armazenados numa conta de armazenamento acessível ao público.
 
-Ao utilizar [**a Azure Data Lake Storage Gen1,**](./hdinsight-hadoop-use-data-lake-store.md)utilize um dos seguintes esquemas URI:
+Ao utilizar [**a Azure Data Lake Storage Gen1,**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)utilize um dos seguintes esquemas URI:
 
 * `adl:///`: Aceda ao armazenamento predefinido do Data Lake para o cluster.
 
@@ -159,11 +159,11 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 Este comando devolve um valor semelhante aos seguintes URIs:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`se utilizar uma conta de Armazenamento Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` se utilizar uma conta de Armazenamento Azure.
 
     O nome da conta é o nome da conta Azure Storage. O nome do recipiente é o recipiente blob que é a raiz do armazenamento do cluster.
 
-* `adl://home`se utilizar o Azure Data Lake Storage. Para obter o nome de armazenamento do Data Lake, use a seguinte chamada REST:
+* `adl://home` se utilizar o Azure Data Lake Storage. Para obter o nome de armazenamento do Data Lake, use a seguinte chamada REST:
 
      ```bash
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
@@ -189,9 +189,9 @@ Também pode encontrar as informações de armazenamento utilizando o portal Azu
 
 Existem várias formas de aceder a dados de fora do cluster HDInsight. Seguem-se algumas ligações a utilitários e SDKs que podem ser utilizados para trabalhar com os seus dados:
 
-Se utilizar __o Azure Storage,__ consulte os seguintes links para obter as formas de aceder aos seus dados:
+Se utilizar __o armazenamento Azure Blob,__ consulte os seguintes links para obter formas de aceder aos seus dados:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com o Azure. Depois de instalar, utilize o `az storage` comando para obter ajuda na utilização do armazenamento ou para `az storage blob` comandos específicos da bolha.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): comandos de interface Command-Line para trabalhar com o Azure. Depois de instalar, utilize o `az storage` comando para obter ajuda na utilização do armazenamento ou para `az storage blob` comandos específicos da bolha.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Um roteiro python para trabalhar com bolhas no Azure Storage.
 * Vários SDKs:
 
@@ -203,7 +203,7 @@ Se utilizar __o Azure Storage,__ consulte os seguintes links para obter as forma
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST de Armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Se utilizar __o Azure Data Lake Storage,__ consulte os seguintes links para obter as seguintes formas de aceder aos seus dados:
+Se utilizar __a Azure Data Lake Storage Gen1,__ consulte os seguintes links para obter formas de aceder aos seus dados:
 
 * [Navegador web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -247,7 +247,7 @@ Para utilizar uma versão diferente de um componente, faça o upload da versão 
 >
 > Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org) , por exemplo: [Hadoop,](https://hadoop.apache.org/) [Spark](https://spark.apache.org/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir os clusters HDInsight utilizando a API Apache Ambari REST](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Use a Colmeia Apache com HDInsight](hadoop/hdinsight-use-hive.md)
