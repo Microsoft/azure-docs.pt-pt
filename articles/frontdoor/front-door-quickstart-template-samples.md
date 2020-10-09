@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: duau
 ms.openlocfilehash: 961214b3a815eb8ae9b0fcb283599b3474d4706e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89399366"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelos de implementação do Azure Resource Manager para o Front Door
@@ -36,7 +36,7 @@ A tabela seguinte inclui links para modelos de modelos de implementação do Azu
 | [Configurar a taxa da porta frontal limitando](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-rate-limiting)| Configura um Front Door para limitar as taxas do tráfego recebido para um anfitrião de front-end especificado. |
 | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

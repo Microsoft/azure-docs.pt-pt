@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76961117"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
@@ -21,7 +21,7 @@ Este artigo descreve as causas e soluções para **403002 erros IoTHubQuotaExcee
 
 ## <a name="symptoms"></a>Sintomas
 
-Todos os pedidos ao IoT Hub falham com o erro **403002 IoTHubQuotaExceed**. No portal Azure, a lista de dispositivos do hub IoT não carrega.
+Todos os pedidos ao IoT Hub falham com o erro  **403002 IoTHubQuotaExceed**. No portal Azure, a lista de dispositivos do hub IoT não carrega.
 
 ## <a name="cause"></a>Causa
 
@@ -31,7 +31,7 @@ A quota de mensagem diária para o hub IoT é excedida.
 
 [Atualize ou aumente o número de unidades no hub IoT](iot-hub-upgrade.md) ou aguarde o próximo dia utc para que a quota diária se atualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para entender como as operações são contadas para a quota, tais como consultas gémeas e métodos diretos, consulte [os preços do Hub de Compreensão](iot-hub-devguide-pricing.md#charges-per-operation)
 * Para configurar a monitorização para a utilização diária de quotas, crie um alerta com a métrica *Número Total de mensagens utilizadas*. Para obter instruções passo a passo, consulte [Configurar métricas e alertas com IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics)

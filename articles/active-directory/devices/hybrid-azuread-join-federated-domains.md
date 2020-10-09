@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268439"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
@@ -32,7 +32,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie os seguintes
 
 - **WIAORMULTIAUTHN reivindicação:** Esta alegação é necessária para fazer a junção híbrida Azure AD para dispositivos de nível baixo do Windows.
 - **Protocolo WS-Trust:** Este protocolo é necessário para autenticar dispositivos híbridos Azure AD atuais do Windows com Azure AD.
-  Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust: `/adfs/services/trust/2005/windowstransport`
+  Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais WS-Trust: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -40,7 +40,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie os seguintes
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto **adfs/serviços/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar os pontos finais do Windows WS-Trust, consulte [os pontos finais do Windows WS-Trust desativado no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
+> Tanto **adfs/serviços/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar WS-Trust pontos finais do Windows, consulte [pontos finais do Windows desativar WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
 
 Neste tutorial, aprende-se a configurar a ad AD híbrida adere a dispositivos de computadores de domínio ativo num ambiente federado utilizando AD FS.
 

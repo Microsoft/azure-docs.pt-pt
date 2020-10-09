@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: azul, kinect, rgb, IR, gravação, sensor, sdk, acesso, profundidade, vídeo, câmara, imu, movimento, sensor, áudio, microfone, matroska, sensor sdk, download, corpo, rastreamento, suporte
 ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277613"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Opções e recursos de suporte da Azure Kinect
@@ -57,6 +57,6 @@ Você também pode querer verificar os [nossos problemas conhecidos e resoluçã
 
 Para obter mais informações sobre ofertas de suporte, saiba mais sobre [o suporte da Microsoft para o negócio.](https://support.microsoft.com/help/4341255/support-for-business)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Resolução de problemas do Azure Kinect](troubleshooting.md)

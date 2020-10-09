@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262672"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
@@ -70,11 +70,11 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 
 5. Uma vez que a aplicação é implementada. A partir do portal Azure, navegue para a web app que implementou, e ligue a identidade de **serviço gerido** desta aplicação.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identidade de serviço gerida":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Criar um segredo":::
 
 Se executar a aplicação agora, verá o seguinte erro, uma vez que não deu qualquer permissão a esta aplicação no Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App implementada sem acesso":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Criar um segredo":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registe o pedido & conceder permissões para ler o Cofre-Chave
 
@@ -84,15 +84,15 @@ Nesta secção, registe o pedido com o Azure Ative Directory e dá permissões p
 
 2. Políticas **de Acesso Aberto**, selecione **+Add New** find the web app que implementou, selecione permissões e selecione **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Adicionar política de acesso":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Criar um segredo":::
 
 Agora, se executar o formulário, pode ler o segredo de Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="App implementada com segredo":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Criar um segredo":::
  
 Da mesma forma, pode adicionar um utilizador para aceder ao cofre da chave. Tem de se adicionar ao Cofre-Chave selecionando **As Políticas** de Acesso e, em seguida, conceder todas as permissões necessárias para executar a aplicação a partir do estúdio Visual. Quando esta aplicação está a funcionar a partir do seu ambiente de trabalho, retira a sua identidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar uma firewall para Azure Cosmos DB ver artigo [de suporte de firewall.](firewall-support.md)
 * Para configurar o ponto final do serviço de rede virtual, consulte o acesso seguro utilizando o artigo [de ponto final do serviço VNet.](vnet-service-endpoint.md)

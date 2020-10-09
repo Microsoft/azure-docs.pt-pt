@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0f2e1d901e674c3fecf957bd10314e51195f8b84
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295993"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e submeter uma tarefa

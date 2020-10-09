@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882969"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplicativo de desktop que chama APIs web: Ligue para uma API web
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Ligue para uma API web em MSAL para iOS e macOS
 
-Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade que pode ser usada para chamar uma API web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de escorria a chamada para aceder à API web protegida.
+Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult` expõe uma `accessToken` propriedade que pode ser usada para chamar uma API web. Adicione um token de acesso ao cabeçalho de autorização HTTP antes de escorria a chamada para aceder à API web protegida.
 
 Objetivo C:
 
@@ -127,7 +127,7 @@ catch(MsalUiRequiredException ex)
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover-se para a produção](scenario-desktop-production.md)
+> [Mover para produção](scenario-desktop-production.md)

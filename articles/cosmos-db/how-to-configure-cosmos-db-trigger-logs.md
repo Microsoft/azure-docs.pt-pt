@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 31c9f9d94acab7322cf11d084e4010f2defd6f3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261703"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Como configurar e ler os registos ao utilizar o gatilho de Funções Azure para Cosmos DB
@@ -25,7 +25,7 @@ Os registos de saúde descrevem como o gatilho das Funções Azure para o Cosmos
 
 ## <a name="enabling-logging"></a>Habilitação de exploração madeireira
 
-Para ativar o registo ao utilizar o gatilho de Funções Azure para Cosmos DB, localizar o `host.json` ficheiro no seu projeto Azure Functions ou app Azure Functions e [configurar o nível de registo necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Tem de ativar os `Host.Triggers.CosmosDB` vestígios, como mostrado na amostra seguinte:
+Para ativar o registo ao utilizar o gatilho de Funções Azure para Cosmos DB, localizar o `host.json` ficheiro no seu projeto Azure Functions ou app Azure Functions e [configurar o nível de registo necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Tem de ativar os  `Host.Triggers.CosmosDB` vestígios, como mostrado na amostra seguinte:
 
 ```js
 {
@@ -50,7 +50,7 @@ traces
 | where customDimensions.Category == "Host.Triggers.CosmosDB"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ativar a monitorização](../azure-functions/functions-monitoring.md) nas suas aplicações Azure Functions.
 * Aprenda a [diagnosticar e resolver problemas comuns](./troubleshoot-changefeed-functions.md) ao utilizar o gatilho de Funções Azure para Cosmos DB.

@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
 ms.openlocfilehash: e682a1546297e7715a00c7c174ad9a17021e6029
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320484"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos geridos na mesma subscrição ou subscrição diferente com PowerShell
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos para criar um novo disco gerido na sub
 | [Novo AzDisco](/powershell/module/az.compute/new-azdisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual a partir de um disco gerido](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

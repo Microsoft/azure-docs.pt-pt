@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
 ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597868"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade e redundância do Azure Key Vault

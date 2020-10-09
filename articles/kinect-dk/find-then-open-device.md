@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, dispositivo, encontrar, abrir
 ms.openlocfilehash: 67fc93b924d5d663bb43098969c54d1975bd5895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277474"
 ---
 # <a name="find-then-open-the-azure-kinect-device"></a>Encontre então abra o dispositivo Azure Kinect
@@ -124,7 +124,7 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_open(K4A_DEVICE_DEFAULT, &device))
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 >[!div class="nextstepaction"]
 >[Recuperar imagens](retrieve-images.md)

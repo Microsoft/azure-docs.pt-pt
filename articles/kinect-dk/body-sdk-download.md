@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azul, kinect, sdk, atualização de download, mais recente, disponível, instalar, corpo, rastreio
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277583"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Baixar Azure Kinect Body Tracking SDK
@@ -109,12 +109,12 @@ Se o comando for bem sucedido, o SDK está pronto a ser utilizado.
 
 * [Mudança de Rutura] Desvalorizou a dependência da SDK para CUDA 10.0 (da CUDA 10.1). O tempo de funcionação onnx oficialmente só suporta até CUDA 10.0.
 * [Mudança de Rutura] Comutado para tempo de funcionamento ONNX em vez de tempo de execução de tensorflow. Reduz o tempo de lançamento do primeiro quadro e o uso da memória. Também reduz o tamanho binário SDK.
-* [API Change] Renomeado `k4abt_tracker_queue_capture()` para`k4abt_tracker_enqueue_capture()`
+* [API Change] Renomeado `k4abt_tracker_queue_capture()` para `k4abt_tracker_enqueue_capture()`
 * [API Change] Invadiu `k4abt_frame_get_body()` duas funções distintas: `k4abt_frame_get_body_skeleton()` e `k4abt_frame_get_body_id()` . Agora pode consultar a identificação do corpo sem copiar sempre toda a estrutura do esqueleto.
-* [API Change] Função `k4abt_frame_get_timestamp_usec()` adicional para simplificar os passos para os utilizadores consultarem o calendário da moldura do corpo.
+* [API Change] Função  `k4abt_frame_get_timestamp_usec()` adicional para simplificar os passos para os utilizadores consultarem o calendário da moldura do corpo.
 * Melhorou ainda mais a precisão do algoritmo de rastreio do corpo e a fiabilidade do rastreio
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure Kinect DK](about-azure-kinect-dk.md)
 

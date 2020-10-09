@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882323"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicação de uma página: Adquirir um símbolo para chamar uma API
@@ -24,8 +24,8 @@ O padrão para adquirir fichas para APIs com MSAL.js é primeiro tentar um pedid
 
 Os pedidos de token silenciosos para Azure AD podem falhar por razões como uma sessão AD Azure expirada ou uma alteração de senha. Nesse caso, pode invocar um dos métodos interativos (que levarão o utilizador) a adquirir fichas:
 
-* [Janela pop-up,](#acquire-a-token-with-a-pop-up-window)usando`acquireTokenPopup`
-* [Redirecionamento,](#acquire-a-token-with-a-redirect)utilizando`acquireTokenRedirect`
+* [Janela pop-up,](#acquire-a-token-with-a-pop-up-window)usando `acquireTokenPopup`
+* [Redirecionamento,](#acquire-a-token-with-a-redirect)utilizando `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Escolha entre uma experiência pop-up ou redirecionando
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 O invólucro ANGULAR MSAL fornece o intercetor HTTP, que adquirirá automaticamente os tokens de acesso silenciosamente e os anexará aos pedidos HTTP às APIs.
 
-Pode especificar os âmbitos de APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor`solicitará estes âmbitos quando adquirir automaticamente fichas.
+Pode especificar os âmbitos de APIs na `protectedResourceMap` opção de configuração. `MsalInterceptor` solicitará estes âmbitos quando adquirir automaticamente fichas.
 
 ```javascript
 // app.module.ts
@@ -196,7 +196,7 @@ Este código é o mesmo que descrito anteriormente.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Chamar uma API web](scenario-spa-call-api.md)

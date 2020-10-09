@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80804627"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementar o Armazenamento de Blobs do Azure no módulo do IoT Edge no dispositivo
@@ -47,12 +47,12 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
 
    Exemplos:
   
-   - **Nome do módulo IoT Edge**:`azureblobstorageoniotedge`
+   - **Nome do módulo IoT Edge**: `azureblobstorageoniotedge`
    - **Imagem URI:**`mcr.microsoft.com/azure-blob-storage:latest`
 
    ![Configurações twin do módulo](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Não **selecione Adicionar** até ter especificado **valores**nas Definições do Módulo , **Opções de Criação de Recipientes**e Separadores **de Configurações Gémeas do Módulo,** conforme descrito neste procedimento.
+   Não **selecione Adicionar** até ter especificado **valores**nas Definições do Módulo , **Opções de Criação de Recipientes**e Separadores  **de Configurações Gémeas do Módulo,** conforme descrito neste procedimento.
 
    > [!IMPORTANT]
    > O Azure IoT Edge é sensível a casos quando faz chamadas para módulos, e o SDK de armazenamento também falha em minúsculas. Embora o nome do módulo no [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) seja **AzureBlobStorageonIoTEdge,** mudar o nome para minúscula ajuda a garantir que as suas ligações com o Azure Blob Storage no módulo IoT Edge não sejam interrompidas.
@@ -89,7 +89,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
    - Substitua `<storage mount>` de acordo com o seu sistema de funcionamento do contentor. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório existente no seu dispositivo IoT Edge onde o módulo blob irá armazenar os seus dados. O suporte de armazenamento mapeia uma localização no seu dispositivo que fornece para uma localização definida no módulo.
 
      - Para os recipientes Linux, o formato é ** \<your storage path or volume> :/blobroot**. Por exemplo:
-         - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização:`my-volume:/blobroot`
+         - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização: `my-volume:/blobroot`
          - utilizar [o suporte do encaixe](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Certifique-se de seguir as etapas para [conceder acesso ao diretório ao utilizador do contentor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - Para os recipientes windows, o formato é ** \<your storage path or volume> :C:/BlobRoot**. Por exemplo:
          - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização : . `my-volume:C:/BlobRoot` .
@@ -201,7 +201,7 @@ Azure IoT Edge fornece modelos no Código do Estúdio Visual para ajudá-lo a de
 1. Substitua `<storage mount>` de acordo com o seu sistema de funcionamento do contentor. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no seu dispositivo IoT Edge onde pretende que o módulo blob armazene os seus dados. O suporte de armazenamento mapeia uma localização no seu dispositivo que fornece para uma localização definida no módulo.  
 
      - Para os recipientes Linux, o formato é ** \<your storage path or volume> :/blobroot**. Por exemplo:
-         - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização:`my-volume:/blobroot`
+         - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização: `my-volume:/blobroot`
          - utilizar [o suporte do encaixe](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Certifique-se de seguir as etapas para [conceder acesso ao diretório ao utilizador do contentor](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - Para os recipientes windows, o formato é ** \<your storage path or volume> :C:/BlobRoot**. Por exemplo
          - montagem [de volume de](https://docs.docker.com/storage/volumes/)utilização : . `my-volume:C:/BlobRoot` .
@@ -293,7 +293,7 @@ Além disso, um módulo de armazenamento de bolhas também requer a definição 
 
       ![Definir variável de ambiente HTTPS_PROXY](./media/how-to-deploy-blob/verify-proxy-config.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o Azure Blob Storage no IoT Edge](how-to-store-data-blob.md).
 

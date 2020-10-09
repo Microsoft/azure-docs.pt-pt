@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
 ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337986"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Como visualizar implementações (pré-visualização) em tempo real
@@ -60,7 +60,7 @@ Também pode filtrar por eventos de espaço de nome ou cluster. Para saber mais 
 
 ![Implementações visualizam dados ao vivo na consola](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para continuar a aprender a usar o Azure Monitor e monitorizar outros aspetos do seu cluster AKS, consulte [a saúde do Serviço Ver Azure Kubernetes](container-insights-analyze.md).
 

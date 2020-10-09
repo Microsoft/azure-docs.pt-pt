@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e8489ecb9343cf70bd8523aa45f04a6bde171b98
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321757"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Amostras Azure Virtual Machine PowerShell

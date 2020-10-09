@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76277192"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Application Gateway e o Azure Security Center
@@ -40,7 +40,7 @@ Ao clicar numa aplicação web com um problema crítico, obtém a página de sa�
 
 Clique **em Adicionar uma firewall de aplicação web** sob **recomendações** para abrir a página Adicionar uma firewall **de aplicação web.**
 
-Se não tiver um Gateway de aplicações existente, ou quiser criar um novo, clique em **Criar Novo** e na **Criação de uma nova Firewall de Aplicação Web**, e clique em Microsoft - Application **Gateway**. Isto leva-o através dos passos para criar uma porta de aplicação. Neste momento, a sua aplicação web é adicionada como um recurso protegido, o Security Center rastreia agora que este recurso está protegido por uma firewall de aplicação web. Isto não o adiciona como membro da piscina de backend.
+Se não tiver um Gateway de aplicações existente, ou quiser criar um novo, clique em **Criar Novo** e na  **Criação de uma nova Firewall de Aplicação Web**, e clique em Microsoft - Application **Gateway**. Isto leva-o através dos passos para criar uma porta de aplicação. Neste momento, a sua aplicação web é adicionada como um recurso protegido, o Security Center rastreia agora que este recurso está protegido por uma firewall de aplicação web. Isto não o adiciona como membro da piscina de backend.
 
 Se tiver um gateway de aplicações existente, pode escolhê-lo sob **a solução existente**
 
@@ -74,7 +74,7 @@ A seleção de uma regra fornecerá uma lista de alertas para essa regra especí
  
 ![detalhes de alerta][9]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como ativar a firewall de aplicações web em um gateway de aplicações existente, visite [Criar ou atualizar um Gateway de aplicações Azure com firewall de aplicações web](application-gateway-web-application-firewall-portal.md).
 

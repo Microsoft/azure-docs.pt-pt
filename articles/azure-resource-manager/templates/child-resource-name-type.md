@@ -4,10 +4,10 @@ description: Descreve como definir o nome e o tipo de recursos para crianças nu
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80743831"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
@@ -130,7 +130,7 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são ambas definid
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autoria](template-syntax.md).
 

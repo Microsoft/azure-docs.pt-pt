@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420660"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o PowerShell
@@ -174,7 +174,7 @@ No entanto, se o gateway fizer parte de um protótipo, teste ou implementação 
 Remove-AzResourceGroup -Name $RG1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre a criação e gestão básicas do gateway de VPN, como, por exemplo:
 

@@ -11,10 +11,10 @@ ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254060"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicações - SQL Database & SQL Managed Instance
@@ -56,7 +56,7 @@ Para obter mais informações sobre como preparar eventos de manutenção planea
 - As ligações do cliente à Base de Dados Azure SQL por vezes contornam o proxy e interagem diretamente com a base de dados. As portas que não sejam 1433 tornam-se importantes. Para mais informações, [a Azure SQL Database arquitetura de conectividade](connectivity-architecture.md) e [portos além de 1433 para ADO.NET 4.5 e SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Para a configuração de rede para um exemplo de SQL Managed Instance, consulte [a configuração da rede para SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore todas as capacidades da [SqL Database](sql-database-paas-overview.md) e [sql Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 

@@ -7,10 +7,10 @@ ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420885"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure

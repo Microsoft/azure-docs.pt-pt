@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Kafka MirrorMak
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85320195"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Use Kafka MirrorMaker com centros de eventos para Apache Kafka
@@ -44,7 +44,7 @@ Para concluir este tutorial, confirme que tem:
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
-* [Git](https://www.git-scm.com/downloads)
+* [Rio Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
@@ -119,12 +119,12 @@ Veja as seguintes amostras no GitHub:
 - [Código de amostra para este tutorial no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 - [Azure Event Hubs Kafka MirrorMaker correndo em uma instância de recipiente Azure](https://github.com/djrosanova/EventHubsMirrorMaker)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
 - [Integre kafka Connect com um centro de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
-- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)

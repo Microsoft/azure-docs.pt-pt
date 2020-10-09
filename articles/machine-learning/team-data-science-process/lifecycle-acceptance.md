@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76720525"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase de aceitação do cliente do ciclo de vida do processo de ciência de dados da equipa
@@ -48,7 +48,7 @@ O cliente deve validar que o sistema satisfaz as suas necessidades de negócio e
 O principal artefacto produzido nesta fase final é o **relatório Exit do projeto para o cliente.** Este relatório técnico contém todos os detalhes do projeto que são úteis para aprender sobre como operar o sistema. A TDSP fornece um modelo [de relatório de saída.](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) Pode usar o modelo como está, ou pode personalizá-lo para necessidades específicas do cliente. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 

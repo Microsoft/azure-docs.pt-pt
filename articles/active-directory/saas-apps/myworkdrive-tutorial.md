@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: aa0fe40ec28aea7f82ee0e635b3c42140a472816
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552446"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Azure Ative Directory
@@ -57,7 +57,7 @@ Configure e teste Azure AD SSO com MyWorkDrive usando um utilizador de teste cha
 Para configurar e testar o Azure AD SSO com o MyWorkDrive, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure myWorkDrive SSO](#configure-myworkdrive-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure myWorkDrive SSO](#configure-myworkdrive-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create MyWorkDrive test user](#create-myworkdrive-test-user)** - para ter uma contraparte de Britta Simon no MyWorkDrive que está ligada à representação AD AD do utilizador.
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **MyWorkDrive,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Insira o nome de anfitrião do MyWorkDrive Server da sua própria empresa: por exemplo.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Insira o nome de anfitrião do MyWorkDrive Server da sua própria empresa: por exemplo.
     > 
     > URL de resposta: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > 
     > Contacte a [equipa de suporte do MyWorkDrive](mailto:support@myworkdrive.com) se não tiver a certeza de como configurar o seu próprio nome de anfitrião e certificado TLS/SSL para estes valores.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** para a sua área de transferência.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** para a sua área de transferência.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

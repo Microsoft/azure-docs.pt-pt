@@ -13,7 +13,7 @@ ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857440"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos IoT Edge personalizados

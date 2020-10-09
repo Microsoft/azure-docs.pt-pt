@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597496"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
@@ -67,7 +67,7 @@ Um diretório de recursos tem um ou mais recursos para partilhar. Neste passo, v
 
 1. Criar ou configurar os dois utilizadores seguintes. Pode usar estes nomes ou nomes diferentes. **ADmin1** pode ser o utilizador em que está atualmente inscrito como.
 
-    | Name | Função de diretório |
+    | Nome | Função de diretório |
     | --- | --- |
     | **Administrador1** | Administrador global<br/>-ou-<br/>Administrador de utilizadores |
     | **Requestor1** | Utilizador |

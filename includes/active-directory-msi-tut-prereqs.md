@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ea3e135849e07685f81b1cb9a1a63721942d2cb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75971872"
 ---
 - Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](../articles/active-directory/msi-overview.md). Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

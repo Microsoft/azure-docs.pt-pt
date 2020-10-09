@@ -4,10 +4,10 @@ description: Analisa diferenças e semelhanças entre dois tipos de filas oferec
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337636"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas de autocarros de serviço - comparadas e contrastadas
@@ -41,7 +41,7 @@ Como arquiteto/desenvolvedor de soluções, **deve considerar usar as filas de S
 * Pretende que a sua aplicação processe mensagens como streams paralelos de longa duração (as mensagens estão associadas a um stream utilizando a propriedade [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) na mensagem). Neste modelo, cada nó na aplicação consumista compete por streams, ao contrário de mensagens. Quando um fluxo é dado a um nó consumista, o nó pode examinar o estado do fluxo de aplicação usando transações.
 * A sua solução requer comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
 * A sua aplicação trata mensagens que podem exceder 64 KB, mas que provavelmente não se aproximarão do limite de 256 KB.
-* Você lida com a obrigação de fornecer um modelo de acesso baseado em papel às filas, e diferentes direitos/permissões para remetentes e recetores. Para obter mais informações, veja os seguintes artigos:
+* Você lida com a obrigação de fornecer um modelo de acesso baseado em papel às filas, e diferentes direitos/permissões para remetentes e recetores. Para obter mais informações, veja os artigos seguintes:
     - [Autenticar com identidades geridas](service-bus-managed-service-identity.md)
     - [Autenticar a partir de uma aplicação](authenticate-application.md)
 * O tamanho da fila não irá ultrapassar os 80 GB.
@@ -177,7 +177,7 @@ Ao obter uma compreensão mais profunda das duas tecnologias, poderá tomar uma 
 
 Uma vez que as filas do Service Bus fornecem uma série de funcionalidades avançadas, tais como sessões, transações, deteção duplicada, letras automáticas e capacidades de publicação/subscrição duráveis, podem ser uma escolha preferencial se estiver a construir uma aplicação híbrida ou se a sua aplicação de outra forma necessitar destas funcionalidades.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os seguintes artigos fornecem mais orientação e informações sobre a utilização de filas de armazenamento ou filas de autocarros de serviço.
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

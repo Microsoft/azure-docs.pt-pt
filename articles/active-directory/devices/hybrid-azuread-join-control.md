@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252717"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
@@ -100,6 +100,6 @@ Para controlar o registo do dispositivo, deverá implantar o pacote do Instalado
 
 Depois de verificar se tudo funciona como esperado, pode registar automaticamente o resto dos dispositivos atuais e de nível inferior do Windows com AZure AD [configurando o SCP utilizando o Azure AD Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Planeie o seu Azure Ative Directory híbrido junte-se à implementação](hybrid-azuread-join-plan.md)

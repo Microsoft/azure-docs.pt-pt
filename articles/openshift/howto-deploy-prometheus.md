@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, chapéu vermelho
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80886893"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implemente uma instância prometheus autónoma num cluster Azure Red Hat OpenShift
@@ -102,7 +102,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Crie um segredo chamado Alertas de Promoção, introduzindo a seguinte configuração:
+Crie um segredo chamado Prom-Alerts introduzindo a seguinte configuração:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -205,7 +205,7 @@ Para mais detalhes, selecione **Status**  >  **Alvos de**Estado .
 > [!NOTE]
 > Para cada alvo riscado com sucesso, Prometheus adiciona um ponto de dados na métrica de cima. Selecione **Prometheus** no canto superior esquerdo, **introduza-se** como expressão e, em seguida, selecione **Executar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode adicionar instrumentação Prometheus personalizada às suas aplicações. A biblioteca Prometheus Client, que simplifica a preparação das métricas prometheus, está pronta para diferentes linguagens de programação.
 

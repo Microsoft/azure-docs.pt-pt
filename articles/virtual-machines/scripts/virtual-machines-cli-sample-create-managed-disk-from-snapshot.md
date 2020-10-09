@@ -16,10 +16,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 7c5e9e16b81c0befb6524a284d63fb2e106bff7d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323179"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>Criar um disco gerido a partir de um instantâneo com CLI (Linux)
@@ -45,7 +45,7 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 | [az snapshot show](/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo através do nome e das propriedades do grupo de recursos do instantâneo. A propriedade do ID é utilizada para criar o disco gerido.  |
 | [az disk create](/cli/azure/disk) | Cria um disco gerido com o ID de um instantâneo gerido |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual ao anexar um disco gerido como disco do SO](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 

@@ -13,7 +13,7 @@ ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857253"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente

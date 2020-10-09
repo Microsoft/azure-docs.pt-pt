@@ -12,7 +12,7 @@ ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857083"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados simulados do dispositivo

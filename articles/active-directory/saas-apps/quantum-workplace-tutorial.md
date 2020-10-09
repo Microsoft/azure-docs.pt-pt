@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Tutorial: Integração do Diretório Ativo Azure com o Local de Trabalho Quântico
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o Quantum Workplace, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único do local de trabalho quântico](#configure-quantum-workplace-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Sign-On Único do Local de Trabalho Quântico](#configure-quantum-workplace-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Quantum Workplace test user](#create-quantum-workplace-test-user)** - ter uma contraparte de Britta Simon no Quantum Workplace que está ligada à representação AD AZure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com quantum Workplace, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -107,11 +107,11 @@ Para configurar o Azure AD com quantum Workplace, execute os seguintes passos:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://auth.quantumworkplace.com/Account/Login`
 
-6. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-quantum-workplace-single-sign-on"></a>Configurar o sign-on único do local de trabalho quântico
+### <a name="configure-quantum-workplace-single-sign-on"></a>Configurar Sign-On de local de trabalho quântico
 
 Para configurar um único sinal no lado **quantum workplace,** você precisa enviar o **Url de Metadados da Federação de Aplicações** para a [equipa de suporte quantum Workplace](mailto:support@quantumworkplace.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -145,7 +145,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Quantum Workplace**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Quantum Workplace**.
 

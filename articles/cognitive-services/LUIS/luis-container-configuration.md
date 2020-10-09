@@ -1,7 +1,7 @@
 ---
-title: Configurações do contentor do Estivador - LUIS
+title: Configurações do contentor do estivador - LUIS
 titleSuffix: Azure Cognitive Services
-description: O ambiente de tempo de execução do recipiente LUIS é configurado utilizando os argumentos de `docker run` comando. O LUIS tem várias definições necessárias, juntamente com algumas definições opcionais.
+description: O ambiente de funcionamento do recipiente LUIS é configurado utilizando os argumentos de `docker run` comando. O LUIS tem várias configurações necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874216"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configure recipientes de compreensão de linguagem 
+# <a name="configure-language-understanding-docker-containers"></a>Configurar recipientes de estiva de linguagem 
 
-O ambiente de tempo de execução do `docker run` recipiente **de compreensão linguística** (LUIS) é configurado utilizando os argumentos de comando. O LUIS tem várias definições necessárias, juntamente com algumas definições opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do recipiente são as [definições](#mount-settings) de suporte de entrada e as definições de faturação. 
+O ambiente de tempo de funcionamento do recipiente **de compreensão** linguística (LUIS) é configurado utilizando os argumentos de `docker run` comando. O LUIS tem várias configurações necessárias, juntamente com algumas configurações opcionais. Vários [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do contentor são as [definições de montagem de](#mount-settings) entrada e as definições de faturação. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -28,47 +28,47 @@ Este recipiente tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informações de faturação.|
+|Sim|[ApiKey](#apikey-setting)|Usado para rastrear informação de faturação.|
 |Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao seu recipiente.|
 |Sim|[Faturação](#billing-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
 |Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
-|Não|[Fluente](#fluentd-settings)|Escreva registo e, opcionalmente, dados métricos para um servidor Fluente.|
-|Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
-|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de exploração madeireira Core para o seu recipiente. |
-|Sim|[Montes](#mount-settings)|Leia e escreva dados do computador de acolhimento para o contentor e do contentor de volta para o computador anfitrião.|
+|Não|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
+|Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
+|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
+|Sim|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-setting) [`Billing`](#billing-setting)definições [`Eula`](#eula-setting) e as configurações são utilizadas em conjunto, e deve fornecer valores válidos para todos os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas definições de configuração para instantaneamente um recipiente, consulte [a Faturação](luis-container-howto.md#billing).
+> As [`ApiKey`](#apikey-setting) [`Billing`](#billing-setting) definições , e [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e deve fornecer valores válidos para os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas configurações para instantaneaizar um recipiente, consulte [Billing](luis-container-howto.md#billing).
 
-## <a name="apikey-setting"></a>Definição ApiKey
+## <a name="apikey-setting"></a>Definição de ApiKey
 
-A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Deve especificar um valor para o ApiKey e o valor deve ser uma [`Billing`](#billing-setting) chave válida para o recurso dos _Serviços Cognitivos_ especificado para a definição de configuração.
+A `ApiKey` definição especifica a chave de recursos Azure utilizada para rastrear as informações de faturação do recipiente. Tem de especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso _Serviços Cognitivos_ especificado para a definição de [`Billing`](#billing-setting) configuração.
 
 Esta definição pode ser encontrada nos seguintes locais:
 
-* Portal Azure: **Cognitive Services** Resource Management, under **Keys**
-* Portal LUIS: Página de definições de **teclas e ponto final.** 
+* Portal Azure: **Cognitive Services** Resource Management, em **Chaves**
+* Portal LUIS: **Página de definições de chaves e ponto final.** 
 
-Não utilize a tecla de arranque nem a chave de autor. 
+Não utilize a chave de arranque nem a chave de autoria. 
 
-## <a name="applicationinsights-setting"></a>Definição de ApplicationInsights
+## <a name="applicationinsights-setting"></a>Configuração de AplicaçõesInsights
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-setting"></a>Configuração de faturação
+## <a name="billing-setting"></a>Definição de faturação
 
-A `Billing` definição especifica o ponto final URI do recurso _Serviços Cognitivos_ em Azure usado para medir informações de faturação para o recipiente. Deve especificar um valor para esta configuração, e o valor deve ser um uri de ponto final válido para um recurso _de Serviços Cognitivos_ no Azure. O recipiente reporta o uso a cada 10 a 15 minutos.
+A `Billing` definição especifica o ponto final URI do recurso _Serviços Cognitivos_ no Azure utilizado para medir informações de faturação para o recipiente. Deve especificar um valor para esta configuração, e o valor deve ser um URI de ponto final válido para um recurso _de Serviços Cognitivos_ em Azure. O recipiente relata o uso a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada nos seguintes locais:
 
-* Portal Azure: Visão **geral dos serviços cognitivos,** rotulada`Endpoint`
-* Portal LUIS: Página de definições de **chaves e ponto final,** como parte do ponto final URI.
+* Portal Azure: Visão geral **dos Serviços Cognitivos,** rotulada `Endpoint`
+* Portal LUIS: **Página de definições de chaves e ponto final,** como parte do ponto final URI.
 
 | Necessário | Nome | Tipo de dados | Descrição |
 |----------|------|-----------|-------------|
-| Sim      | `Billing` | string | Ponto final de faturação URI. Para obter mais informações sobre a obtenção do URI de faturação, consulte a [recolha de parâmetros necessários](luis-container-howto.md#gathering-required-parameters). Para mais informações e uma lista completa de pontos finais regionais, consulte [nomes de subdomínio personalizado para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+| Sim      | `Billing` | string | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](luis-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
-## <a name="eula-setting"></a>Cenário eula
+## <a name="eula-setting"></a>Definição de Eula
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
@@ -84,45 +84,45 @@ Esta definição pode ser encontrada nos seguintes locais:
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Configurações do monte
+## <a name="mount-settings"></a>Configurações de montagem
 
-Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou `--mount` montagem de saída especificando a opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/) 
+Utilize suportes de ligação para ler e escrever dados de e para o recipiente. Pode especificar um suporte de entrada ou de saída especificando a `--mount` opção no comando de execução do [estivador.](https://docs.docker.com/engine/reference/commandline/run/) 
 
-O recipiente LUIS não utiliza suportes de entrada ou saída para armazenar dados de formação ou de serviço. 
+O recipiente LUIS não utiliza suportes de entrada ou saída para armazenar dados de treino ou serviço. 
 
-A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador hospedeiro](luis-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do suporte do hospedeiro. 
+A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](luis-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do anfitrião. 
 
 A tabela seguinte descreve as definições suportadas.
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Sim| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Não| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta LUIS e registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Sim| `Input` | String | O alvo do suporte de entrada. O valor predefinido é `/input`. Esta é a localização dos ficheiros do pacote LUIS. <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Não| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de consulta LUIS e troncos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Comandos de execução de estivadores exemplo
+## <a name="example-docker-run-commands"></a>Exemplo de estivador executar comandos
 
-Os exemplos seguintes utilizam as definições `docker run` de configuração para ilustrar como escrever e utilizar comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](luis-container-howto.md#stop-the-container)
+Os exemplos a seguir utilizam as definições de configuração para ilustrar como escrever e utilizar `docker run` comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](luis-container-howto.md#stop-the-container)
 
-* Estes exemplos usam o `C:` diretório fora da unidade para evitar quaisquer conflitos de permissões no Windows. Se precisar de usar um diretório específico como diretório de entrada, poderá ter de conceder a permissão de serviço do estivador. 
+* Estes exemplos utilizam o diretório fora da `C:` unidade para evitar quaisquer conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como diretório de entrada, poderá ter de conceder a permissão de serviço do estivador. 
 * Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes de estivadores.
-* Se estiver a utilizar um sistema operativo diferente, utilize a consola/terminal correto, a sintaxe de pasta para os suportes e o carácter de continuação da linha para o seu sistema. Estes exemplos assumem uma consola `^`Windows com um carácter de continuação de linha . Como o recipiente é um sistema operativo Linux, o suporte-alvo usa uma sintaxe de pasta estilo Linux.
+* Se estiver a utilizar um sistema operativo diferente, utilize a sintaxe correta da consola/terminal, a sintaxe da pasta para os suportes e o carácter de continuação da linha para o seu sistema. Estes exemplos assumem uma consola Windows com um carácter de continuação de `^` linha. Como o recipiente é um sistema operativo Linux, o suporte alvo utiliza uma sintaxe de pasta ao estilo Linux.
 
 Substitua {_argument_name_} com os seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave final `LUIS` do recurso na `LUIS` página Azure Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor final da faturação está `LUIS` disponível na página de visão geral do Azure.| Consulte a [recolha de parâmetros necessários](luis-container-howto.md#gathering-required-parameters) para exemplos explícitos. |
+| **{API_KEY}** | A chave de ponta final do `LUIS` recurso na página Azure `LUIS` Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto final de faturação está disponível na página Azure `LUIS` Overview.| Consulte [os parâmetros necessários](luis-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> A `Eula` `Billing`, `ApiKey` e as opções devem ser especificadas para executar o recipiente; caso contrário, o contentor não vai começar. Para mais informações, consulte [billing.](luis-container-howto.md#billing)
-> O valor ApiKey é a **chave** da página Keys e Endpoints no `Cognitive Services` portal LUIS e também está disponível na página de chaves de recursos Azure. 
+> As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca. Para mais informações, consulte [Billing.](luis-container-howto.md#billing)
+> O valor ApiKey é a **chave** da página Chaves e Endpoints no portal LUIS e também está disponível na página de `Cognitive Services` teclas de recursos Azure. 
 
 ### <a name="basic-example"></a>Exemplo básico
 
-O exemplo que se segue tem o menor número de argumentos possíveis para executar o contentor:
+O exemplo a seguir tem o menor número possível de argumentos para executar o contentor:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
@@ -134,9 +134,9 @@ Billing={ENDPOINT_URL} ^
 ApiKey={API_KEY}
 ```
 
-### <a name="applicationinsights-example"></a>Exemplo de ApplicationInsights
+### <a name="applicationinsights-example"></a>Exemplo de AplicaçõesInsights
 
-O exemplo que se segue define o argumento ApplicationInsights para enviar telemetria para A Aplicação Insights enquanto o recipiente está em execução:
+O exemplo a seguir define o argumento ApplicationInsights para enviar telemetria para Insights de Aplicação enquanto o recipiente está em funcionamento:
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
@@ -151,7 +151,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### <a name="logging-example"></a>Exemplo de registo 
 
-O comando seguinte define o `Logging:Console:LogLevel`nível de exploração, para configurar o nível de exploração madeireira para [`Information`](https://msdn.microsoft.com). 
+O comando que se segue define o nível de registo, `Logging:Console:LogLevel` para configurar o nível de registo para [`Information`](https://msdn.microsoft.com) . 
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^

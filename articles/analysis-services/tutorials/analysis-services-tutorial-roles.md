@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89229366"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor

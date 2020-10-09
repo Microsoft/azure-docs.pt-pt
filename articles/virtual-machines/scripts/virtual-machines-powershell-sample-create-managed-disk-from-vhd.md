@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: 1d743d840afc4505cdc39b258b21856b6c3e7aa9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323163"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>Criar um disco gerido a partir de um ficheiro VHD numa conta de armazenamento na mesma subscrição ou numa subscrição diferente com o PowerShell
@@ -41,7 +41,7 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 | [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Cria a configuração de disco que é utilizada para a criação do disco. Inclui tipo de armazenamento, localização, identificação de recursos da conta de armazenamento onde o VHD principal está armazenado, VHD URI do VHD principal. |
 | [Novo AzDisco](/powershell/module/az.compute/new-azdisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual ao anexar um disco gerido como disco do SO](virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md)
 

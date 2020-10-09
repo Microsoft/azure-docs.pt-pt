@@ -16,10 +16,10 @@ ms.custom: mvc, devx-track-csharp
 ms.date: 06/13/2019
 ms.author: inhenkel
 ms.openlocfilehash: b2e456474a9d052d9515c8169ce233e9577a5c53
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256570"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream ao vivo com serviços de mídia

@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322109"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Agendar e executar tarefas para dados contíguos utilizando o gatilho da janela deslizante em Azure Logic Apps
@@ -92,7 +92,7 @@ Este exemplo mostra como uma definição de gatilho da janela deslizante pode pa
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Atrasar a próxima ação nos fluxos de trabalho](../connectors/connectors-native-delay.md)
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

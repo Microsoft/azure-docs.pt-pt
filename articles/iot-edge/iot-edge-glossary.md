@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: menchi
 ms.openlocfilehash: 8fc12dde9f441a972efbc5d91ac53b5f9d738690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76547103"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Glossário de termos para Azure IoT Edge
@@ -21,6 +21,6 @@ Este artigo lista alguns dos termos comuns usados nos artigos IoT Edge.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Glossário IoT Hub](../iot-hub/iot-hub-devguide-glossary.md)

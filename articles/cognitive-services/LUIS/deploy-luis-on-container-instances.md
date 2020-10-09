@@ -1,7 +1,7 @@
 ---
-title: Desloque o contentor LUIS em instâncias de contentores azure
+title: Colocar o contentor LUIS em instâncias do contentor Azure
 titleSuffix: Azure Cognitive Services
-description: Desloque o recipiente LUIS para uma instância de contentores Azure e teste-o num navegador web.
+description: Desloque o recipiente LUIS para uma instância do Recipiente Azure e teste-o num navegador web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879221"
 ---
-# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Implementar o recipiente de compreensão linguística (LUIS) para instâncias de contentores de Azure
+# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Implementar o recipiente de compreensão linguística (LUIS) para instâncias do contentor Azure
 
-Saiba como implantar o recipiente DE Serviços Cognitivos [LUIS](luis-container-howto.md) para instâncias de [contentores](https://docs.microsoft.com/azure/container-instances/)Azure. Este procedimento demonstra a criação de um recurso do Detetor de Anomalias. Depois discutimos a imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
+Saiba como implantar o recipiente [Luis](luis-container-howto.md) dos Serviços Cognitivos para [as instâncias do Contentor](https://docs.microsoft.com/azure/container-instances/)Azure . Este procedimento demonstra a criação de um recurso de detetor de anomalias. Depois discutimos a retirada da imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
@@ -29,16 +29,16 @@ Saiba como implantar o recipiente DE Serviços Cognitivos [LUIS](luis-container-
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 
-O recipiente LUIS `.gz` requer um ficheiro modelo que é puxado em tempo de execução. O recipiente deve poder aceder a este ficheiro modelo através de um volume montado a partir da instância do contentor. Para obter informações sobre a criação de uma partilha de ficheiros Azure, consulte [criar uma partilha de ficheiros](../../storage/files/storage-how-to-create-file-share.md). Tome nota do nome da conta De armazenamento, chave e nome de partilha de ficheiros, pois precisará deles mais tarde.
+O recipiente LUIS requer um `.gz` ficheiro modelo que é puxado para dentro em tempo de execução. O recipiente deve poder aceder a este ficheiro modelo através de um suporte de volume da instância do Recipiente. Para obter informações sobre a criação de uma partilha de ficheiros Azure, consulte [criar uma partilha de ficheiros](../../storage/files/storage-how-to-create-file-share.md). Tome nota do nome da conta, chave e nome da partilha de ficheiros Azure, pois mais tarde necessitará deles.
 
-### <a name="export-and-upload-packaged-luis-app"></a>Exportando e Upload app LUIS embalado
+### <a name="export-and-upload-packaged-luis-app"></a>App LUIS embalada de exportação e upload
 
-Para fazer o upload do modelo LUIS (app embalada) para a partilha de ficheiros Azure, terá de <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">exportá-lo primeiro <span class="docon docon-navigate-external x-hidden-focus"> </span>do portal LUIS </a>. A partir do portal Azure, navegue até à página **de visão geral** do recurso da conta de armazenamento e selecione ações de **Ficheiro**. Selecione o nome da partilha de ficheiros que criou recentemente e, em seguida, selecione o botão **Upload.**
+Para fazer o upload do modelo LUIS (app embalado) para a partilha de ficheiros Azure, terá de <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">exportá-lo primeiro <span class="docon docon-navigate-external x-hidden-focus"></span> a partir do portal LUIS. </a> A partir do portal Azure, navegue para a página **geral** do recurso da conta de armazenamento e selecione **ações de ficheiros.** Selecione o nome de partilha de ficheiros que criou recentemente e, em seguida, selecione o botão **Upload.**
 
 > [!div class="mx-imgBorder"]
 > ![Upload para partilha de ficheiros](media/luis-how-to-deploy-to-aci/upload-file-share.png)
 
-Faça upload do ficheiro modelo LUIS.
+Faça o upload do ficheiro modelo LUIS.
 
 [!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 

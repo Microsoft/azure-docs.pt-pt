@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879603"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do Serviço Azure Blockchain
@@ -57,6 +57,6 @@ As chaves privadas são usadas para assinar transações digitalmente. Em blockc
 
 As teclas de constelação são usadas para identificar um nó quórum. As teclas de constelação são geradas no momento do fornecimento de nó e são especificadas no parâmetro privado de uma transação privada em Qurum.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ver [Como configurar o acesso ao Azure Ative Directory para o Serviço Azure Blockchain](configure-aad.md).

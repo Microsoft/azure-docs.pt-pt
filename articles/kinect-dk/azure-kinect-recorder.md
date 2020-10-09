@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, record, reprodução, leitor, matroska, mkv, streams, profundidade, rgb, câmera, cor, imu, áudio
 ms.openlocfilehash: 5fb6895d4102956a991c67ffab836a26b7a3abb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277514"
 ---
 # <a name="azure-kinect-dk-recorder"></a>Gravador Azure Kinect DK
@@ -82,6 +82,6 @@ Pode abrir o ficheiro output .mkv com [o Azure Kinect Viewer](azure-kinect-viewe
 
 Para extrair faixas ou ver informações de ficheiros, ferramentas como `mkvinfo` estas estão disponíveis como parte do kit de ferramentas [MKVToolNix.](https://mkvtoolnix.download/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilização de gravador com unidades sincronizadas externas](record-external-synchronized-units.md)

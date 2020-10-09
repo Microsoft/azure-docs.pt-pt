@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882884"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de desktop que chama APIs web: Mover para a produção
@@ -35,8 +35,8 @@ Não é possível obter um símbolo de vários recursos ao mesmo tempo com a pla
 
 Por exemplo, pode ter dois recursos que têm dois âmbitos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi`com os âmbitos `customer.read` e`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`com os âmbitos `vendor.read` e`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` com os âmbitos `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` com os âmbitos `vendor.read` e `vendor.write`
 
 Neste exemplo, utilize o `.WithAdditionalPromptToConsent` modificador que tenha o `extraScopesToConsent` parâmetro.
 
@@ -105,6 +105,6 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Para os utilizadores de contas pessoais da Microsoft, repromundo o consentimento em cada cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade do cliente nativo é inerentemente insegura, o que é contrário à identidade confidencial da aplicação do cliente. As aplicações confidenciais de clientes trocam um segredo com a plataforma Microsoft Identity para provar a sua identidade. A plataforma de identidade da Microsoft optou por atenuar esta insegurança para os serviços ao consumidor, solicitando ao utilizador o consentimento sempre que a aplicação é autorizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]

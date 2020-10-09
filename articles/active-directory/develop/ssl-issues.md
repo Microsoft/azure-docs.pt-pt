@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881082"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Como: Resolução de problemas MSAL para problemas iOS e macOS TLS/SSL
@@ -41,8 +41,8 @@ Os certificados que usam hashes SHA-1 têm vulnerabilidades conhecidas. A maiori
 
 ## <a name="captive-portals"></a>Portais em cativeiro
 
-Um portal cativo apresenta uma página web a um utilizador quando acede a uma rede Wi-Fi pela primeira vez e ainda não teve acesso a essa rede. Interceta o tráfego de internet até que o utilizador satisfaça os requisitos do portal. Os erros de rede porque o utilizador não consegue ligar-se aos recursos de rede são esperados até que o utilizador se conecte através do portal.
+Um portal cativo apresenta uma página web a um utilizador quando acede a uma rede Wi-Fi e ainda não teve acesso a essa rede. Interceta o tráfego de internet até que o utilizador satisfaça os requisitos do portal. Os erros de rede porque o utilizador não consegue ligar-se aos recursos de rede são esperados até que o utilizador se conecte através do portal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça [os portais em cativeiro](https://en.wikipedia.org/wiki/Captive_portal) e a nova funcionalidade [de Segurança de Transporte de Aplicações (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) da Apple.

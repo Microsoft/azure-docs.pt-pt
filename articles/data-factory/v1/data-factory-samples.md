@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318914"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de Dados Azure - Amostras
@@ -24,7 +24,7 @@ ms.locfileid: "85318914"
 
 
 ## <a name="samples-on-github"></a>Exemplos no GitHub
-O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém várias amostras que o ajudam a acelerar rapidamente com o serviço Azure Data Factory (ou) modificar os scripts e usá-lo em aplicação própria. A pasta Samples\JSON contém snippets JSON para cenários comuns.
+O [repositório gitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém várias amostras que o ajudam a acelerar rapidamente com o serviço Azure Data Factory (ou) modificar os scripts e usá-lo em aplicação própria. A pasta Samples\JSON contém snippets JSON para cenários comuns.
 
 | Sample | Descrição |
 |:--- |:--- |
@@ -32,7 +32,7 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 | [Amostras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Esta amostra fornece exemplos de JSON para cenários comuns. |
 | [Amostra de download de dados http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Esta amostra mostra o download de dados de um ponto final HTTP para Azure Blob Storage utilizando a atividade personalizada .NET. |
 | [Amostra de atividade líquida de ponto de ponto de appdomínio transversal](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Esta amostra permite-lhe autoria de uma atividade personalizada .NET que não esteja limitada às versões de montagem utilizadas pelo lançador ADF (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Jsem v6.0.x, etc.). |
-| [Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Esta amostra inclui a atividade personalizada da Data Factory que pode ser usada para invocar RScript.exe. Esta amostra funciona apenas com o seu próprio cluster HDInsight (não a pedido) que já tem R Instalado nele. |
+| [Executar o script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Esta amostra inclui a atividade personalizada da Data Factory que pode ser usada para invocar RScript.exe. Esta amostra funciona apenas com o seu próprio cluster HDInsight (não a pedido) que já tem R Instalado nele. |
 | [Invocar empregos de faísca no cluster HDInsight Hadoop](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Esta amostra mostra como usar a atividade MapReduce para invocar um programa Spark. O programa de faíscas apenas copia dados de um contentor Azure Blob para outro. |
 | [Análise do Twitter usando a atividade de pontuação do lote de aprendizagem de máquinas Azure](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Esta amostra mostra como usar a AzureMLBatchScoringActivity para invocar um modelo Azure Machine Learning que executa a análise de sentimentos no Twitter, pontuação, previsão, etc. |
 | [Análise do Twitter usando atividade personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Esta amostra mostra como usar uma atividade personalizada .NET para invocar um modelo Azure Machine Learning que executa a análise de sentimentos no Twitter, pontuação, previsão etc. |

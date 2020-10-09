@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Azure Ative Directory com o XaitPorter
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com o XaitPorter, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único do XaitPorter](#configure-xaitporter-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único do XaitPorter](#configure-xaitporter-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create XaitPorter test user](#create-xaitporter-test-user)** - para ter uma contraparte de Britta Simon em XaitPorter que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o XaitPorter, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,13 +108,13 @@ Para configurar o Azure AD com o XaitPorter, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente XaitPorter](https://www.xait.com/support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
 6. Forneça o **endereço IP** ou o Url **de Metadados da Federação de Aplicações** à [equipa de suporte smartRecruiters,](https://www.smartrecruiters.com/about-us/contact-us/)para que o XaitPorter possa garantir que o endereço IP seja acessível a partir da sua lista de identificação de instâncias XaitPorter ao seu lado. 
 
-### <a name="configure-xaitporter-single-sign-on"></a>Configurar XaitPorter single sign-on
+### <a name="configure-xaitporter-single-sign-on"></a>Configurar XaitPorter Single Sign-On
 
 1. Para automatizar a configuração dentro do XaitPorter, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 
@@ -128,17 +128,17 @@ Para configurar o Azure AD com o XaitPorter, execute os seguintes passos:
 
 4. Clique em **Administração.**
 
-    ![Configurar um único sign-on](./media/xaitporter-tutorial/user1.png)
+    ![Configurar Sign-On Individuais](./media/xaitporter-tutorial/user1.png)
 
 5. **Selecione Gerir o Sign-On único** a partir da lista de desistências da configuração do **sistema.**
 
-    ![Configurar um único sign-on](./media/xaitporter-tutorial/user2.png)
+    ![Configurar Sign-On Individuais](./media/xaitporter-tutorial/user2.png)
 
 6. Na secção **GESTÃO ÚNICA SIGN-ON,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/xaitporter-tutorial/user3.png)
+    ![Configurar Sign-On Individuais](./media/xaitporter-tutorial/user3.png)
 
-    a. **Selecione Ative a autenticação única de sinalização.**
+    a. Selecione **Ativar a autenticação Sign-On única**.
 
     b. Na caixa de texto **de Definições de Fornecedor de Identidade,** cole **url de metadados da Federação de Aplicações** que copiou a partir do portal Azure e clique em **Fetch**.
 
@@ -176,7 +176,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **XaitPorter**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **XaitPorter**.
 

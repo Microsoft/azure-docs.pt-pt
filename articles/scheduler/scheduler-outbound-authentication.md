@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878974"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Azure Scheduler
@@ -159,7 +159,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Básica
+## <a name="basic"></a>Básico
 
 ### <a name="request-body---basic"></a>Corpo de pedido - Básico
 
@@ -404,7 +404,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

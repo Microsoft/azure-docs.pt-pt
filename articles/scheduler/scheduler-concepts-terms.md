@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878396"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
@@ -38,7 +38,7 @@ A API REST do Azure Scheduler expõe e utiliza estas entidades principais ou rec
 
 A um nível elevado, a API REST do Scheduler expõe estas operações para a gestão de entidades.
 
-### <a name="job-management"></a>Gestão de tarefas
+### <a name="job-management"></a>Gestão de trabalhos
 
 Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para estas operações:
 
@@ -84,7 +84,7 @@ A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo 
 
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**horário de início**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**ação**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
 | [**recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
@@ -148,7 +148,7 @@ No objeto **startTime**, pode especificar a hora de início e um desvio de fuso 
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>ação
 
 A tarefa do Scheduler executa uma **ação** primária com base na agenda especificada. O Scheduler suporta ações HTTP, da fila do Armazenamento, da fila do Service Bus e do tópico do Service Bus. Se a **ação** primária falhar, o Scheduler poderá executar uma [**errorAction**](#erroraction) secundária que processará o erro. O objeto **action** descreve estes elementos:
 
@@ -249,7 +249,7 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 | Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequência** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
-| **intervalo** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
+| **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
 | **agendar** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
 | **horas** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
 | **minutos** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
@@ -320,7 +320,7 @@ Por exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)

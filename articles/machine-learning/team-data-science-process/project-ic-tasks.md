@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76721256"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um contribuinte individual no Processo de Ciência de Dados da Equipa
@@ -96,7 +96,7 @@ Para trabalhar com repositórios localmente e empurrar as suas mudanças para a 
 
 Se a sua equipa ou projeto tiver ativos partilhados no armazenamento de ficheiros Azure, monte o armazenamento de ficheiros na sua máquina local ou na DSVM. Siga as instruções no [armazenamento de ficheiros Mount Azure na sua máquina local ou na DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações com descrições detalhadas das outras funções e tarefas definidas pelo Processo de Ciência de Dados de Equipa:
 

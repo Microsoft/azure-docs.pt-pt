@@ -4,13 +4,13 @@ description: Aprenda a implementar e configurar a solução VMware HCX para a su
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.openlocfilehash: 69832d1537f0f1be95d3283f543ef6e54187b58d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91583442"
 ---
-# <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar VMware HCX
+# <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
 Neste artigo, percorremos os procedimentos para implementar e configurar o VMware HCX para a sua nuvem privada Azure VMWare Solution. O VMware HCX permite a migração das suas cargas de trabalho VMware para a Azure VMware Solution e outros sites conectados através de vários tipos de migração.
 
@@ -29,7 +29,7 @@ Então, vamos percorrer todos os procedimentos necessários para:
 
 Uma vez terminado, pode seguir os próximos passos recomendados no final deste artigo.  
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
    
 * Reveja a [série tutorial](tutorial-network-checklist.md)básica do Software Defined Datacenter (SDDC) do Azure VMware Solution .
 * Reveja e refira a [documentação VMware HCX,](https://docs.vmware.com/en/VMware-HCX/index.html)incluindo o guia do utilizador HCX.

@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80681652"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
@@ -29,7 +29,7 @@ A criação da conta de armazenamento e dos recipientes blob pode ser feita com 
 
 - [Portal do Azure](https://portal.azure.com)
 - [linha de comando az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
+- [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
 ## <a name="ensure-azure-remote-rendering-can-access-your-storage-account"></a>Certifique-se de que a Renderização Remota Azure pode aceder à sua conta de armazenamento
@@ -53,7 +53,7 @@ Um SAS URI pode ser gerado usando um dos seguintes:
 - módulo PowerShell az
   - ver o [exemplo Scripts PowerShell](../../samples/powershell-example-scripts.md)
 - [linha de comando az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
+- [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - clique no recipiente "Obter Assinatura de Acesso Partilhado" (ler, listar o acesso ao recipiente de entrada, escrever acesso para recipiente de saída)
 - SDKs (C#, Python ... )
 
@@ -80,7 +80,7 @@ Por exemplo, para recuperar um SAS URI através do [Azure Storage Explorer,](htt
 
 É necessária uma Assinatura de Acesso Partilhado (SAS) para carregar modelos se não tiver ligado a sua conta de armazenamento à sua conta de renderização remota Azure. Pode aprender a ligar a sua conta na [Criar uma Conta.](../create-an-account.md#link-storage-accounts)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a conversão do modelo](configure-model-conversion.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)

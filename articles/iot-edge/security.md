@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76760118"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normas de segurança para Azure IoT Edge
@@ -87,6 +87,6 @@ Com a tecnologia IoT a impulsionar diferentes tipos de transformações de negó
 
 No final, assegurar a vantagem inteligente requer contribuições colaborativas de uma comunidade aberta impulsionada pelo interesse comum em assegurar a IoT. Estas contribuições podem ser sob a forma de tecnologias ou serviços seguros. O quadro de segurança Azure IoT Edge oferece uma base sólida para a segurança que é extensível para a cobertura máxima para oferecer o mesmo nível de confiança e integridade na borda inteligente como com a nuvem Azure.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre como a Azure IoT Edge está [a assegurar a borda inteligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).

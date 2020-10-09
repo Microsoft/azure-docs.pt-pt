@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80811099"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança da rede Azure
@@ -46,7 +46,7 @@ O Azure requer que as máquinas virtuais estejam ligadas a uma Rede Virtual Azur
 
 Saiba mais:
 
-* [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
+* [Descrição geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
 
 ## <a name="network-access-control"></a>Controlo de acesso à rede
 
@@ -283,7 +283,7 @@ Para resolução de nomes internos, tem duas opções:
 
 Saiba mais:
 
-* [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
+* [Descrição geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
 * [Gerir servidores DNS utilizados por uma rede virtual](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 Para resolução de nomes externos, tem duas opções:

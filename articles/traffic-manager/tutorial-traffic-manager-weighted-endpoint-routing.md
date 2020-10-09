@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: duau
 ms.openlocfilehash: 90ed68e36b47d46c47e78407fac3b5fd74924b57
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397088"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos finais ponderados com o Gestor de Tráfego
@@ -60,7 +60,7 @@ Nesta secção, você cria dois VMs (*myIISVMEastUS* e *myIISVMWestEurope*) nas 
    - **Detalhes da**  >  instância **Nome da máquina virtual**: *Digite myIISVMEastUS*.
    - **Detalhes da**  >  instância **Região**: Selecione **East US**.
    - Conta de **Administrador**  >  **Nome de utilizador**: Introduza o nome de utilizador à sua escolha.
-   - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
    - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** e **HTTP** na caixa pull down.
 
@@ -120,7 +120,7 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
    - **Detalhes da**  >  instância **Nome da máquina virtual**: *Digite myVMEastUS*.
    - **Detalhes da**  >  instância **Região**: Selecione **East US**.
    - Conta de **Administrador**  >  **Nome de utilizador**: Introduza o nome de utilizador à sua escolha.
-   - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - Conta de **Administrador**  >  **Senha**: Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
    - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** na caixa pull down.
 
@@ -205,7 +205,7 @@ Nesta seção, pode ver o Gestor de Tráfego em ação.
 
 Quando já não precisar dos grupos de recursos que criou neste tutorial, pode eliminá-los. Para tal, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encaminhar tráfego para pontos finais específicos com base na localização geográfica do utilizador](traffic-manager-configure-geographic-routing-method.md)

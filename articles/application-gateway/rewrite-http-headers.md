@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85248688"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com Gateway de Aplicação
@@ -48,7 +48,7 @@ Pode utilizar uma condição para avaliar se uma variável especificada está pr
 
 Utiliza ações de reescrita para especificar os cabeçalhos de pedido e resposta que pretende reescrever e o novo valor para os cabeçalhos. Pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou apagar um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para este tipo de valores:
 
-- Sms.
+- Texto.
 - Pedido de cabeçalho. Para especificar um cabeçalho de pedido, é necessário utilizar a sintaxe {http_req_*nome do cabeçalho*}.
 - O cabeçalho da resposta. Para especificar um cabeçalho de resposta, é necessário utilizar a sintaxe {http_resp_*nome do cabeçalho*}.
 - Variável do servidor. Para especificar uma variável de servidor, é necessário utilizar a sintaxe {var_*servidorVariable*}.
@@ -156,7 +156,7 @@ Pode avaliar um pedido HTTP ou cabeçalho de resposta para a presença de uma va
 
 ## <a name="limitations"></a>Limitações
 
-- Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto geralmente pode acontecer com o cabeçalho Set-Cookie, uma vez que pode ter mais do que um cabeçalho Set-Cookie numa resposta. Um desses cenários é quando está a usar um serviço de aplicações com um gateway de aplicações e configurar afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um utilizado pelo serviço de aplicações, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade do gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos set-Cookie neste cenário pode resultar na remoção do outro cabeçalho set-Cookie da resposta.
+- Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto pode geralmente acontecer com Set-Cookie cabeçalho, uma vez que pode ter mais de um Set-Cookie cabeçalho numa resposta. Um desses cenários é quando está a usar um serviço de aplicações com um gateway de aplicações e configurar afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um utilizado pelo serviço de aplicações, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade do gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos Set-Cookie neste cenário pode resultar na remoção do outro Set-Cookie cabeçalho da resposta.
 
 - As reescritas não são suportadas quando o gateway de aplicações está configurado para redirecionar os pedidos ou para mostrar uma página de erro personalizada.
 
@@ -164,9 +164,9 @@ Pode avaliar um pedido HTTP ou cabeçalho de resposta para a presença de uma va
 
 - Os nomes dos cabeçalhos podem conter quaisquer caracteres alfanuméricos e símbolos específicos, tal como definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente, não apoiamos o carácter especial sublinhado \_ em nomes de Cabeçalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a reescrever cabeçalhos HTTP, consulte:
 
-- [Reescreva os cabeçalhos HTTP utilizando o portal Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescrever cabeçalhos de HTTP com o portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 - [Reescrever cabeçalhos HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

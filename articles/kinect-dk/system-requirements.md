@@ -12,10 +12,10 @@ ms.date: 03/12/2020
 ms.topic: article
 keywords: azul, cinect, requisitos do sistema, CPU, GPU, USB, configuração, mínimo, requisitos
 ms.openlocfilehash: 5cf313114b62532ee3f2b3d7a5142f79218954c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277589"
 ---
 # <a name="azure-kinect-sensor-sdk-system-requirements"></a>Requisitos do sistema SDK sensor Azure Kinect
@@ -61,7 +61,7 @@ A configuração mínima recomendada pressupõe K4A_DEPTH_MODE_NFOV_UNBINNED mod
 
 Existem problemas de compatibilidade conhecidos com controladores USB Host. Pode encontrar mais informações na [página troubleshooting](troubleshooting.md#usb3-host-controller-compatibility)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure Kinect DK](about-azure-kinect-dk.md)
 

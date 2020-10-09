@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: dff7d4ec02c5a17b51d73b9d81f93984b95a7d22
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401355"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar o método de encaminhamento de tráfego ponderado no Gestor de Tráfego
@@ -44,7 +44,7 @@ Um padrão comum de método de encaminhamento de tráfego é fornecer um conjunt
 
 ![Configurar método de encaminhamento de tráfego ponderado utilizando o Gestor de Tráfego][1]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o método de encaminhamento de tráfego prioritário](traffic-manager-configure-priority-routing-method.md).
 - Saiba mais sobre [o método de encaminhamento de tráfego de desempenho](traffic-manager-configure-performance-routing-method.md).

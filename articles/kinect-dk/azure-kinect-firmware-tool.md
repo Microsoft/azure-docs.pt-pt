@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, firmware, atualização
 ms.openlocfilehash: f8b89751d27fb5a4b18d635f45f63f4f36bd05f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277522"
 ---
 # <a name="azure-kinect-dk-firmware-tool"></a>Ferramenta de firmware Azure Kinect DK
@@ -114,7 +114,7 @@ Examples:
     AzureKinectFirmwareTool.exe -Update c:\data\firmware.bin 0123456
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Instruções passo a passo para atualizar o firmware do dispositivo](update-device-firmware.md)

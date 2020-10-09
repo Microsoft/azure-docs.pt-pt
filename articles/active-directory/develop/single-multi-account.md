@@ -13,10 +13,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881355"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Aplicativos de cliente público de conta única e múltipla
@@ -25,24 +25,24 @@ Este artigo irá ajudá-lo a entender os tipos usados em aplicações de cliente
 
 A Azure Ative Directory Authentication Library (ADAL) modela o servidor.  Em vez disso, a Microsoft Authentication Library (MSAL) modela a sua aplicação para clientes.  A maioria das aplicações Android são consideradas clientes públicos. Um cliente público é uma aplicação que não consegue manter um segredo.  
 
-A MSAL especializa-se na superfície da API para simplificar e clarificar a experiência de `PublicClientApplication` desenvolvimento de apps que permitem a utilização de apenas uma conta de cada vez. `PublicClientApplication`é subclassificado por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  O diagrama que se segue mostra a relação entre estas classes.
+A MSAL especializa-se na superfície da API para simplificar e clarificar a experiência de `PublicClientApplication` desenvolvimento de apps que permitem a utilização de apenas uma conta de cada vez. `PublicClientApplication` é subclassificado por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  O diagrama que se segue mostra a relação entre estas classes.
 
 ![SingleAccountPublicCientApplication UML Class Diagrama](./media/single-multi-account/single-and-multiple-account.png)
 
 ## <a name="single-account-public-client-application"></a>Aplicação de cliente público de conta única
 
-A `SingleAccountPublicClientApplication` classe permite-lhe criar uma aplicação baseada no MSAL que apenas permite que uma única conta seja assinada de cada vez. `SingleAccountPublicClientApplication`difere `PublicClientApplication` das seguintes formas:
+A `SingleAccountPublicClientApplication` classe permite-lhe criar uma aplicação baseada no MSAL que apenas permite que uma única conta seja assinada de cada vez. `SingleAccountPublicClientApplication` difere `PublicClientApplication` das seguintes formas:
 
 - A MSAL rastreia a conta de assinatura.
   - Se a sua aplicação estiver a utilizar um corretor (o padrão durante o registo da aplicação do portal Azure) e estiver instalada num dispositivo onde um corretor esteja presente, a MSAL verificará se a conta ainda está disponível no dispositivo.
-- `signIn`permite-lhe assinar uma conta explicitamente e separadamente de pedidos de âmbito.
-- `acquireTokenSilent`não requer um parâmetro de conta.  Se fornecer uma conta, e a conta que fornece não corresponder à conta corrente rastreada pela MSAL, `MsalClientException` é lançada uma conta.
-- `acquireToken`não permite que o utilizador troque de conta. Se o utilizador tentar mudar para uma conta diferente, é lançada uma exceção.
-- `getCurrentAccount`devolve um objeto de resultado que fornece o seguinte:
+- `signIn` permite-lhe assinar uma conta explicitamente e separadamente de pedidos de âmbito.
+- `acquireTokenSilent` não requer um parâmetro de conta.  Se fornecer uma conta, e a conta que fornece não corresponder à conta corrente rastreada pela MSAL, `MsalClientException` é lançada uma conta.
+- `acquireToken` não permite que o utilizador troque de conta. Se o utilizador tentar mudar para uma conta diferente, é lançada uma exceção.
+- `getCurrentAccount` devolve um objeto de resultado que fornece o seguinte:
   - Um booleano indicando se a conta mudou. Uma conta pode ser alterada em resultado de ser removida do dispositivo, por exemplo.
   - A conta anterior. Isto é útil se precisar de fazer qualquer limpeza de dados local quando a conta for removida do dispositivo ou quando uma nova conta é assinada.
   - O atual Acordo.
-- `signOut`remove quaisquer fichas associadas ao seu cliente do dispositivo.  
+- `signOut` remove quaisquer fichas associadas ao seu cliente do dispositivo.  
 
 Quando um corretor de autenticação Android, como o Microsoft Authenticator ou o Portal da Empresa Intune, estiver instalado no dispositivo e a sua aplicação estiver configurada para utilizar o corretor, `signOut` não removerá a conta do dispositivo.
 

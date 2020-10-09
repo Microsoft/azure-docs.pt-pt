@@ -4,10 +4,10 @@ description: Saiba como aceder a uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578428"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Aceda a uma nuvem privada Azure VMware Solution

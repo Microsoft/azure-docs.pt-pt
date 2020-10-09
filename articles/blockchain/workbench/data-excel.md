@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: how-to
 ms.reviewer: mmercuri
 ms.openlocfilehash: 4dd941abdded6a93510f4a71119769cd73855bcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85253550"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Ver dados do Azure Blockchain Workbench com o Microsoft Excel
@@ -60,7 +60,7 @@ O exemplo seguinte mostra como pode carregar dados de uma vista para um livro do
 
 Agora que tem os dados carregados, pode utilizar as funcionalidades do Excel para criar os seus próprios relatórios com os metadados e os dados de transações da base de dados do Azure Blockchain Workbench.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881253"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configurar SSO em macOS e iOS
@@ -67,9 +67,9 @@ Para que a plataforma de identidade da Microsoft saiba quais as aplicações que
 
 A forma como a plataforma de identidade da Microsoft diz às aplicações que utilizam o mesmo ID de aplicação à parte é através dos seus **URIs de redirecionamento.** Cada aplicação pode ter várias URIs de redirecionamento registadas no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Por exemplo:
 
-App1 Redirecionar URI:`msauth.com.contoso.mytestapp1://auth`  
-App2 Redirecionar URI:`msauth.com.contoso.mytestapp2://auth`  
-App3 Redirecionamento URI:`msauth.com.contoso.mytestapp3://auth`  
+App1 Redirecionar URI: `msauth.com.contoso.mytestapp1://auth`  
+App2 Redirecionar URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 Redirecionamento URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > O formato de redireccionamento uris deve ser compatível com o formato suportes MSAL, que está documentado nos requisitos do [formato MSAL Redirect URI](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -97,8 +97,8 @@ Quando tiver os direitos configurado corretamente, verá um `entitlements.plist`
 #### <a name="add-a-new-keychain-group"></a>Adicione um novo grupo de chaveiros
 
 Adicione um novo grupo de chaveiros ao seu projeto **Capabilities**. O grupo dos porta-chaves deve ser:
-* `com.microsoft.adalcache`no iOS 
-* `com.microsoft.identity.universalstorage`no macOS.
+* `com.microsoft.adalcache` no iOS 
+* `com.microsoft.identity.universalstorage` no macOS.
 
 ![exemplo de porta-chaves](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -137,7 +137,7 @@ do {
 > Isto é particularmente impactante se tiver aplicações que dependem de fichas para fazer trabalhos de fundo.
 > Partilhar um porta-chaves significa que deve ter muito cuidado quando a sua aplicação utiliza operações de remoção de identidade da Microsoft.
 
-Já está! A SDK de identidade da Microsoft irá agora partilhar credenciais em todas as suas aplicações. A lista de contas também será partilhada em todas as instâncias de aplicação.
+Já está. A SDK de identidade da Microsoft irá agora partilhar credenciais em todas as suas aplicações. A lista de contas também será partilhada em todas as instâncias de aplicação.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO através de corretor de autenticação no iOS
 
@@ -215,6 +215,6 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

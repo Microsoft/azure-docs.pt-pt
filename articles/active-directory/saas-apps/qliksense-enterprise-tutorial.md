@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552361"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integre a Qlik Sense Enterprise com o Azure Ative Directory
@@ -63,7 +63,7 @@ Para configurar e testar a Azure AD SSO com a Qlik Sense Enterprise, complete os
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-1. **[Configure qlik Sense Enterprise SSO](#configure-qlik-sense-enterprise-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configure qlik Sense Enterprise SSO](#configure-qlik-sense-enterprise-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Qlik Sense Enterprise test user](#create-qlik-sense-enterprise-test-user)** - para ter uma contraparte de Britta Simon na Qlik Sense Enterprise que está ligada à representação AD AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -73,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Qlik Sense Enterprise,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -93,9 +93,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/samlauthn/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de SÚM, Identificador e URL de Resposta, que são explicados mais tarde neste tutorial ou contacte a [equipa de suporte do Cliente da Qlik Sense Enterprise](https://www.qlik.com/us/services/support) para obter estes valores. A porta padrão para os URLs é 443, mas pode personalizá-la de acordo com as suas necessidades da Organização.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e URL de resposta, que são explicados mais tarde neste tutorial ou contacte a [equipa de suporte do Cliente da Qlik Sense Enterprise](https://www.qlik.com/us/services/support) para obter estes valores. A porta padrão para os URLs é 443, mas pode personalizá-la de acordo com as suas necessidades da Organização.
 
-1. Na **configuração de um único sinal com** a página SAML, na secção Certificado de Assinatura **SAML,** encontre o **Metadados XML** da Federação a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML** da Federação a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

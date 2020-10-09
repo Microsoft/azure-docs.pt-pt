@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: azul, kinect, rgb, IR, gravação, sensor, sdk, acesso, profundidade, vídeo, câmara, imu, movimento, sensor, áudio, microfone, matroska, sensor sdk, download
 ms.openlocfilehash: 17c1b33120eacb5d0c6d3c02e692d1488ef474e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277530"
 ---
 # <a name="about-azure-kinect-sensor-sdk"></a>Sobre a Azure Kinect Sensor SDK
@@ -42,7 +42,7 @@ O Azure Kinect Sensor SDK fornece acesso transversal de baixo nível para a conf
 - O Sensor SDK está disponível em [fonte aberta no GitHub.](https://github.com/microsoft/Azure-Kinect-Sensor-SDK)
 - Para obter mais informações sobre a utilização, consulte [a documentação da API do Sensor SDK](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre o sensor Azure Kinect SDK, também pode:
 >[!div class="nextstepaction"]
