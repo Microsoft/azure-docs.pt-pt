@@ -4,7 +4,7 @@ description: Saiba mais sobre o Defender para o serviço de segurança IoT, fich
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939553"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851238"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compreender o ficheiro de configuração local (agente C#)
 
 O agente de segurança Defender for IoT utiliza configurações a partir de um ficheiro de configuração local.
 
-O agente de segurança lê o ficheiro de configuração uma vez quando o agente começa. As configurações encontradas no ficheiro de configuração local contêm tanto a configuração de autenticação como outras configurações relacionadas com o agente.
+O agente de segurança lê o ficheiro de configuração uma vez quando o agente começa a funcionar. As configurações encontradas no ficheiro de configuração local contêm tanto a configuração de autenticação como outras configurações relacionadas com o agente.
 
 O agente de segurança C# utiliza vários ficheiros de configuração:
 
@@ -57,7 +57,7 @@ Para Windows:
 | highPriorityQueueSizePercentage | 0 < número < 1 | A parte da cache total dedicada a mensagens de alta prioridade. |
 | logLevel | "Off", "Fatal", "Error", "Warning", "Information", "Debug"  | As mensagens de registo iguais e acima desta gravidade são registadas para depurar a consola (Syslog in Linux). |
 | fileLogLevel |  "Off", "Fatal", "Error", "Warning", "Information", "Debug"| As mensagens de registo iguais e acima desta gravidade são registadas para arquivar (Syslog in Linux). |
-| diagnósticoVerbosityLevel | "Nenhum", "Alguns", "Todos", | Nível de verbosidade de eventos de diagnóstico. Nenhum - eventos de diagnóstico não são enviados, Alguns - Apenas eventos de diagnóstico com grande importância são enviados, Todos - todos os registos são enviados como eventos de diagnóstico. |
+| diagnósticoVerbosityLevel | "Nenhum", "Alguns", "Todos", | Nível de verbosidade de eventos de diagnóstico. Nenhum - eventos de diagnóstico não são enviados. Alguns - Apenas são enviados eventos de diagnóstico com grande importância. Todos - todos os registos também são enviados como eventos de diagnóstico. |
 | logFilePath | Caminho para arquivar | Se o ficheiroLogLevel > Desligado, os registos são escritos neste ficheiro. |
 | defaultEventPrioridade | "Alto", "Baixo", "Fora" | Prioridade do evento predefinido. |
 
@@ -85,7 +85,8 @@ Para Windows:
 | Nome de configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
 | nome do módulo | string | Nome da identidade do módulo de segurança. Este nome deve corresponder ao nome de identidade do módulo no dispositivo. |
-| deviceId | string | ID do dispositivo (conforme registado no Azure IoT Hub). || schedulerInterval | Cadeia TimeSpan | Intervalo interno do agendador. |
+| deviceId | string | ID do dispositivo (conforme registado no Azure IoT Hub). |
+| schedulerInterval | Cadeia TimeSpan | Intervalo interno do agendador. |
 | gatewayHostname | string | Nome anfitrião do Azure Iot Hub. Normalmente <o meu hub>.azure-devices.net |
 | filePath | string - caminho para arquivar | Caminho para o ficheiro que contém o segredo de autenticação.|
 | tipo | "SimétricaKey", "SelfSignedCertificate" | O segredo do utilizador para a autenticação. Escolha *o SymmetricKey* se o segredo do utilizador for uma chave simétrica, escolha *o certificado auto-assinado* se o segredo for um certificado auto-assinado. |

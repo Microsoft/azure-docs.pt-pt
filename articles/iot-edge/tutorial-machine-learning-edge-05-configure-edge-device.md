@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448508"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855655"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -294,12 +294,9 @@ Em seguida, atualizaremos os certificados e o nome anfitrião editando diretamen
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Acabamos de configurar um Azure VM como Azure IoT Edge Transparent Gateway. Começamos por gerar certificados de teste que enviamos para o Cofre da Chave Azure. Em seguida, usamos um modelo de script e gestor de recursos para implementar o VM com a imagem "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" do Mercado Azure. Com o VM em funcionamento, ligámos via SSH, assinámos no Azure e descarregamos certificados do Key Vault. Fizemos várias atualizações para a configuração do IoT Edge Runtime atualizando o ficheiro config.yaml.
-
-Para obter mais [informações, consulte como um dispositivo IoT Edge pode ser usado como porta de entrada](iot-edge-as-gateway.md) e [configurar um dispositivo IoT Edge para funcionar como um gateway transparente](how-to-create-transparent-gateway.md).
 
 Continue até ao próximo artigo para construir módulos IoT Edge.
 

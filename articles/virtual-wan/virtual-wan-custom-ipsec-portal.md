@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0ea4523d1558f6887e1aef344198026591dac617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752620"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851183"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configure uma política personalizada do IPsec para o WAN virtual usando o portal
 
-Pode configurar a política personalizada do IPsec para O WAN Virtual no portal Azure. As políticas personalizadas são úteis quando pretende que ambos os lados (no local e gateway Azure VPN) utilizem as mesmas definições para a Fase 1 e fase 2 do IKE.
+Pode configurar uma política IPsec personalizada para uma ligação Virtual WAN VPN no portal Azure. As políticas personalizadas são úteis quando pretende que ambos os lados (no local e gateway Azure VPN) utilizem as mesmas definições para a Fase 1 e fase 2 do IKE.
 
 ## <a name="working-with-custom-policies"></a>Trabalhar com políticas personalizadas
 
@@ -24,17 +24,17 @@ Pode configurar a política personalizada do IPsec para O WAN Virtual no portal 
 
 ## <a name="configure-a-policy"></a>Configure uma política
 
-1. **Localize o centro virtual.** Num browser, navegue para o [Portal do Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sessão com a sua conta do Azure. Localize o centro virtual para o seu site.
-2. **Selecione o site VPN**. Na página do hub, selecione o VPN Site para o qual pretende configurar uma política personalizada.
+1. **Localize o centro virtual.** Num browser, navegue para o [Portal do Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sessão com a sua conta do Azure. Navegue para o seu recurso WAN virtual e localize o hub virtual ao qual o seu site VPN está ligado.
+2. **Selecione o site VPN**. A partir da página de visão geral do hub, clique **em VPN (Site para site)** e selecione o Site VPN para o qual pretende configurar uma política IPsec personalizada.
 
    ![selecionar](./media/virtual-wan-custom-ipsec-portal/locate.png)
 3. **Editar a ligação VPN**. A partir do **menu Contexto** **...**, selecione **Editar Ligação VPN**.
 
    ![editar](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **Configure as definições**. Na página **de ligação Editar VPN,** configure as definições das definições. **Selecione Guardar** para guardar as suas definições.
+4. **Configure as definições**. Na página **de ligação Editar VPN,** altere a definição IPsec de predefinição para personalizada e personalize a política IPsec. **Selecione Guardar** para guardar as suas definições.
 
    ![configurar e salvar](./media/virtual-wan-custom-ipsec-portal/edit.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).

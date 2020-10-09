@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Ligue um cluster Kubernetes ativado pelo Arco Azure com o Arco Azure
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 74a0de494148f1f3315511c0bf6cb10f40cdc416
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540630"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855009"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conecte um cluster Kubernetes ativado pelo Arco Azure (Pré-visualização)
 
 Este documento abrange o processo de ligação de qualquer cluster certificado da Cloud Native Computing Foundation (CNCF) como o motor AKS em Azure, motor AKS no Azure Stack Hub, GKE, EKS e VMware vSphere cluster a Azure Arc.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se tem os seguintes requisitos prontos:
 
@@ -68,10 +68,8 @@ Os agentes da Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Necessário para que o agente se conecte ao Azure e registe o cluster                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Ponto final do plano de dados para o agente empurrar o estado e obter informações de configuração                                      |
-| `https://docker.io`                                                                                            | Obrigado a puxar imagens de contentores                                                                                         |
-| `https://github.com`git://github.com                                                                         | Exemplo GitOps repos estão hospedados no GitHub. O agente de configuração requer conectividade com qualquer ponto final que especifique. |
 | `https://login.microsoftonline.com`                                                                            | Necessário para buscar e atualizar fichas do Gestor de Recursos Azure                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Obrigado a retirar imagens de contentores para agentes do Azure Arc                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Obrigado a retirar imagens de contentores para agentes do Azure Arc                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Obrigado a retirar certificados de identidade geridos atribuídos pelo sistema                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registe os dois fornecedores da Azure Arc habilitado a Kubernetes:
@@ -183,17 +181,36 @@ Se o seu cluster estiver por trás de um servidor de procuração de saída, a A
     az -v
     ```
 
-    Precisa de `connectedk8s` uma versão de extensão >= 0.2.3 para configurar agentes com procuração de saída. Se tiver a versão < 0.2.3 na sua máquina, siga os [passos de atualização](#before-you-begin) para obter a versão mais recente da extensão na sua máquina.
+    Precisa de `connectedk8s` uma versão de extensão >= 0.2.5 para configurar agentes com procuração de saída. Se tiver a versão < 0.2.3 na sua máquina, siga os [passos de atualização](#before-you-begin) para obter a versão mais recente da extensão na sua máquina.
 
-2. Executar o comando de ligação com parâmetros de procuração especificados:
+2. Desaprova as variáveis ambientais necessárias para que o Azure CLI utilize o servidor de procuração de saída:
+
+    * Se estiver a utilizar a bash, executar o seguinte comando com valores apropriados:
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * Se estiver a utilizar o PowerShell, executar o seguinte comando com valores apropriados:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+3. Executar o comando de ligação com parâmetros de procuração especificados:
 
     ```console
-    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. Especificar o CIDR excluído em --proxy-skip-range é importante para garantir que a comunicação no cluster não seja quebrada para os agentes.
-> 2. A especificação de procuração acima é atualmente aplicada apenas aos agentes Arc e não às cápsulas de fluxo utilizadas na fonteControlConfiguration. A equipa da Arc ativada pela Kubernetes está a trabalhar ativamente nesta funcionalidade e estará disponível em breve.
+> 2. Enquanto --proxy-http, -proxy-https e --proxy-skip-range são esperados para a maioria dos ambientes de procuração de saída, --proxy-cert só é necessário se houver certificados fidedignos de procuração que precisam ser injetados em loja de certificados fidedignos de cápsulas de agente.
+> 3. A especificação de procuração acima é atualmente aplicada apenas aos agentes Arc e não às cápsulas de fluxo utilizadas na fonteControlConfiguration. A equipa da Arc ativada pela Kubernetes está a trabalhar ativamente nesta funcionalidade e estará disponível em breve.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
 
@@ -252,7 +269,7 @@ Pode eliminar um `Microsoft.Kubernetes/connectedcluster` recurso utilizando o po
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o GitOps num cluster ligado](./use-gitops-connected-cluster.md)
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

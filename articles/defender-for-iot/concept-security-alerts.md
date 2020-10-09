@@ -4,21 +4,21 @@ description: Saiba mais sobre alertas de segurança e remediação recomendada u
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 09ee0f9d5bd6e789d8acd4c70db866983beb1119
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: c4c92bfa25d9c43d3c654fbd1f23e242effc7577
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940976"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851208"
 ---
 # <a name="defender-for-iot-security-alerts"></a>Alertas de segurança do Defender para IoT
 
@@ -26,13 +26,13 @@ O Defender for IoT analisa continuamente a sua solução IoT utilizando análise
 Além disso, pode criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo.
 Um alerta funciona como um indicador de potencial compromisso, e deve ser investigado e remediado.
 
-Neste artigo, encontrará uma lista de alertas incorporados que podem ser acionados no seu Hub IoT e/ou dispositivos IoT.
+Neste artigo, encontrará uma lista de alertas incorporados, que podem ser acionados no seu Hub IoT e/ou dispositivos IoT.
 Além dos alertas incorporados, o Defender for IoT permite definir alertas personalizados baseados no comportamento esperado do IoT Hub e/ou do dispositivo.
-Para mais detalhes, consulte [alertas personalizáveis.](concept-customizable-security-alerts.md)
+Para mais informações, consulte [alertas personalizáveis.](concept-customizable-security-alerts.md)
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas incorporados para dispositivos IoT
 
-| Name | Gravidade | Origem de dados | Descrição | Medidas de reparação sugeridas|
+| Nome | Gravidade | Origem de dados | Descrição | Medidas de reparação sugeridas|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Alta** gravidade|  |  |  |
 |   Linha de Comando Binário   | Alto | Agente | La Linux binário sendo chamado/executado a partir da linha de comando foi detetado. Este processo pode ser uma atividade legítima, ou uma indicação de que o seu dispositivo está comprometido.|   Reveja o comando com o utilizador que o executou e verifique se se trata de algo que se espera que seja executado no dispositivo. Caso contrário, aumente o alerta para a sua equipa de segurança de informação. |

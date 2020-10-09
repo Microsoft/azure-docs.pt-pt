@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540116"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com a Nuvem Lifesize
 
@@ -78,7 +78,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com uma única placatura com a Nuvem de Tamanho Real, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único em nuvem lifesize](#configure-lifesize-cloud-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o signo único da nuvem lifesize](#configure-lifesize-cloud-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Lifesize Cloud test user](#create-lifesize-cloud-test-user)** - para ter uma contraparte de Britta Simon em Lifesize Cloud que está ligada à representação AD AD do utilizador.
@@ -98,7 +98,7 @@ Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguint
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -115,9 +115,9 @@ Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguint
     d. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://webapp.lifesizecloud.com/?ent=<identifier>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o Estado de identificação e retransmissão. Contacte a equipa de [suporte do Cliente Lifesize Cloud](https://www.lifesize.com/en/support) para obter os valores de URL de Inscrição e Identifier e pode obter o valor do Estado de Retransmissão a partir da Configuração SSO que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o Estado de identificação e retransmissão. Contacte a [equipa de suporte do Lifesize Cloud Client](https://www.lifesize.com/en/support) para obter Sign-On valores de URL e Identifier e pode obter o valor do Estado de Retransmissão a partir da Configuração SSO que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -131,21 +131,21 @@ Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguint
 
     c. Logout URL
 
-### <a name="configure-lifesize-cloud-single-sign-on"></a>Configurar a nuvem de suporte único de nuvem
+### <a name="configure-lifesize-cloud-single-sign-on"></a>Configurar a nuvem de Sign-On
 
 1. Para obter SSO configurado para a sua aplicação, inicie sessão na aplicação Lifesize Cloud com privilégios de Administração.
 
 2. No canto superior direito clique no seu nome e, em seguida, clique nas **Definições De Avanço**.
 
-    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![A screenshot mostra o item do menu Definições Avançadas.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. Nas Definições Avançadas clique agora no link **de configuração SSO.** Abrirá a página de Configuração SSO para o seu exemplo.
 
-    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![A screenshot mostra Definições Avançadas onde pode selecionar a configuração S S O.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Agora, configuure os seguintes valores na UI de configuração SSO.
 
-    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![A screenshot mostra a página de Configuração S S O onde pode introduzir os valores descritos.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Na caixa de texto **do Fornecedor de Identidade,** cole o valor do **Identificador Ad Azure** que copiou do portal Azure.
 
@@ -199,7 +199,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Lifesize Cloud**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Lifesize Cloud**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323520"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851157"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configurar Druva para o fornecimento automático de utilizadores
 
@@ -58,15 +58,15 @@ Antes de configurar a Druva para o fornecimento automático de utilizadores com 
 
 2. Navegue para **gerir**  >  **utilizadores de implementações**  >  **Users**.
 
-    ![Druva Add SCIM](media/druva-provisioning-tutorial/manage.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Screenshot da consola de administração Druva. A gestão é realçada e o menu Gerir é visível. Neste menu, em Implementações, destaca-se o Utilizadores." border="false":::
 
 3.  Navegar para **definições**. Clique **em gerar token**.
 
-    ![Druva Add SCIM](media/druva-provisioning-tutorial/settings.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Screenshot da consola de administração Druva. A gestão é realçada e o menu Gerir é visível. Neste menu, em Implementações, destaca-se o Utilizadores." border="false":::
 
 4.  Copie o valor **simbólico de Auth.** Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Druva no portal Azure.
     
-    ![Druva Add SCIM](media/druva-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Screenshot da consola de administração Druva. A gestão é realçada e o menu Gerir é visível. Neste menu, em Implementações, destaca-se o Utilizadores." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Adicione Druva da galeria
 
@@ -123,7 +123,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Druva**.
 

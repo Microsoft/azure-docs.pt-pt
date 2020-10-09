@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233130"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854618"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Crie um pipeline CI/CD para ir usando a Azure DevOps Starter
 
@@ -114,7 +114,7 @@ O DevOps Starter configura automaticamente um gasoduto CI/CD completo em Azure R
 
 1. Selecionar **Registos**. Os registos contêm informações úteis sobre o processo de implementação. Pode vê-los durante e após as missões.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não são necessários, pode eliminar a instância do Serviço de Aplicações Azure e os recursos relacionados que criou neste arranque rápido. Para tal, utilize a funcionalidade **Eliminar** no painel de arranque de DevOps.
 
@@ -123,4 +123,4 @@ Quando já não são necessários, pode eliminar a instância do Serviço de Apl
 Para saber mais sobre a modificação dos oleodutos de construção e libertação para atender às necessidades da sua equipa, consulte:
 
 > [!div class="nextstepaction"]
-> [Defina o seu pipeline de implantação contínua em várias fases (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

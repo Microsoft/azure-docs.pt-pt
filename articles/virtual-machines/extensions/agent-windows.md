@@ -2,23 +2,17 @@
 title: Descrição Geral do Agente da Máquina Virtual do Azure
 description: Descrição Geral do Agente da Máquina Virtual do Azure
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612834"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855780"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.
@@ -70,9 +64,9 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- O Agente VM do Windows precisa de pelo menos o Windows Server 2008 SP2 (64-bit) para ser executado, com o .Net Framework 4.0. Veja [Suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- O Windows VM Agent precisa de pelo menos o Windows Server 2008 SP2 (64-bit) para ser executado, com o Quadro .NET 4.0. Consulte [o suporte mínimo da versão para agentes de máquinas virtuais em Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-- Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, veja [O que é o endereço IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+- Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para mais informações, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 - Certifique-se de que o DHCP está ativado dentro do VM convidado. Isto é necessário para obter o endereço de anfitrião ou tecido da DHCP para o Agente VM IaaS e extensões para funcionar. Se precisar de um IP estático privado, deve configurá-lo através do portal Azure ou PowerShell, e certifique-se de que a opção DHCP dentro do VM está ativada. [Saiba mais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre a configuração de um endereço IP estático com o PowerShell.
 
@@ -87,7 +81,7 @@ O módulo do PowerShell do Azure Resource Manager pode ser utilizado para recupe
 Get-AzVM
 ```
 
-O seguinte exemplo condensado mostra a saída da propriedade *ProvisionVMAgent* aninhada no interior de *OSProfile*. Esta propriedade poderá ser utilizada para determinar se o agente da VM foi implementado na VM:
+A seguinte produção de exemplo condensado mostra a propriedade *ProvisionVMAgent* aninhada no interior `OSProfile` . Esta propriedade poderá ser utilizada para determinar se o agente da VM foi implementado na VM:
 
 ```powershell
 OSProfile                  :
@@ -115,10 +109,19 @@ Quando inicia sessão numa VM do Windows, pode utilizar o Gestor de Tarefas para
 
 
 ## <a name="upgrade-the-vm-agent"></a>Atualizar o Agente da VM
-O Agente VM Azure para Windows é automaticamente atualizado em imagens implementadas a partir do mercado Azure. À medida que as novas VMs são implementadas no Azure, recebem o agente da VM mais recente no momento do aprovisionamento da VM. Se instalou o agente manualmente ou está a implementar imagens VM personalizadas, terá de atualizar manualmente para incluir o novo agente VM na hora da criação de imagem.
+O Agente VM Azure para Windows é automaticamente atualizado em imagens implementadas a partir do Mercado Azure. À medida que as novas VMs são implementadas no Azure, recebem o agente da VM mais recente no momento do aprovisionamento da VM. Se instalou o agente manualmente ou está a implementar imagens VM personalizadas, terá de atualizar manualmente para incluir o novo agente VM na hora da criação de imagem.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Recolha de Registos Automática do Agente Convidado do Windows
 O Agente Convidado do Windows possui uma funcionalidade para recolher automaticamente alguns registos. Esta funcionalidade é controlada pelo processo CollectGuestLogs.exe. Existe para os Serviços Cloud PaaS e para Máquinas Virtuais IaaS e o seu objetivo é recolher rápida e automaticamente alguns registos de diagnóstico de uma VM, para poderem ser utilizados na análise offline. Os registos recolhidos são Registos de Eventos, Registos de SO, Registos do Azure e algumas chaves de registo. Produzem um ficheiro ZIP que é transferido para o Anfitrião da VM. Em seguida, este ficheiro ZIP pode ser analisado pelas Equipas de Engenharia e profissionais de Suporte para investigar problemas a pedido do cliente proprietário da VM.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Agente Convidado e certificados OSProfile
+O Agente VM Azure é responsável pela instalação dos certificados referenciados no `OSProfile` conjunto de escala de VM ou de máquina virtual. Se retirar manualmente estes certificados da consola MMC dos certificados dentro do VM convidado, espera-se que o agente convidado os adicione de volta.
+Para remover permanentemente um certificado, terá de o retirar do `OSProfile` sistema operativo , e depois removê-lo do sistema operativo do hóspede.
+
+Para uma máquina virtual, utilize o [Remove-AzVMSecret]() para remover os certificados do `OSProfile` .
+
+Para obter mais informações sobre certificados de conjunto de escala de máquina virtual, consulte [conjuntos de escala de máquina virtual - Como remover certificados precários?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre as extensões de VM, veja [Descrição geral das funcionalidades e extensões de máquinas virtuais do Azure](overview.md).

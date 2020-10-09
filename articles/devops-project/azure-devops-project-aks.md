@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233334"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855457"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementar aplicativos core ASP.NET para o serviço Azure Kubernetes com Azure DevOps Starter
 
@@ -24,7 +24,7 @@ DevOps Starter também:
 * Cria automaticamente recursos Azure, como o Serviço Azure Kubernetes (AKS).
 * Cria e configura um gasoduto de libertação em Azure DevOps que cria um gasoduto de construção e libertação para CI/CD.
 * Cria um recurso Azure Application Insights para monitorização.
-* Permite ao [Monitor Azure para os contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) monitorizar o desempenho das cargas de trabalho dos contentores no cluster AKS
+* Permite ao [Monitor Azure para os contentores](../azure-monitor/insights/container-insights-overview.md) monitorizar o desempenho das cargas de trabalho dos contentores no cluster AKS
 
 Neste tutorial, irá:
 
@@ -171,4 +171,4 @@ Opcionalmente, pode modificar estes pipelines de compilação e versão para sat
 Para saber mais sobre a utilização do painel Kubernetes, consulte:
 
 > [!div class="nextstepaction"]
-> [Utilizar o dashboard do Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Utilizar o dashboard do Kubernetes](../aks/kubernetes-dashboard.md)

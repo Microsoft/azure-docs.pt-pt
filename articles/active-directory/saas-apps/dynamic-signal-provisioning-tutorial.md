@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323874"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851225"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configure o Sinal Dinâmico para o provisionamento automático do utilizador
 
@@ -100,11 +100,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 6. Na consola de administração De Sinal Dinâmico, navegue para **a API > de > Avançada de >**.
 
-    ![Provisão de sinal dinâmico](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Screenshot da consola de administração Dynamic Signal. Avançado é destacado no menu Admin. O menu Avançado também é visível, com A P I em destaque." border="false":::
 
     Copie o **URL da API SCIM** para o **URL do inquilino.** Clique em **Gerar Novo Token** para gerar um **Token portador** e copiar o valor para Secret **Token**.
 
-    ![Provisão de sinal dinâmico](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot da consola de administração Dynamic Signal. Avançado é destacado no menu Admin. O menu Avançado também é visível, com A P I em destaque." border="false":::
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Sinal Dinâmico. Se a ligação falhar, certifique-se de que a sua conta De Sinal Dinâmico tem permissões de Administração e tente novamente.
 
@@ -114,7 +114,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Dynamic Signal**.
 

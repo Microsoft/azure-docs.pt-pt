@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233215"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854652"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Crie um pipeline CI/CD para gitHub repo usando Azure DevOps Starter
 
@@ -83,7 +83,7 @@ O Azure DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma
 
 Está agora pronto para colaborar na sua aplicação com uma equipa. O processo CI/CD implementa automaticamente o seu último trabalho no seu website. Cada mudança para o gitHub repo inicia uma construção em Azure DevOps, e um oleoduto de CD executa uma implantação para Azure.
 
-1. A partir do seu painel de arranque DevOps, **selecione Repositórios**. O seu repositório GitHub abre-se num novo separador de navegador. Faça uma alteração na sua aplicação e, em seguida, **selecione Altere as alterações**.
+1. A partir do seu painel de arranque DevOps, **selecione Repositórios**. O seu repositório GitHub abre-se num novo separador de navegador. Faça uma alteração na sua aplicação e, em seguida, **selecione Alterar o compromisso**.
 
 1. Após alguns momentos, uma construção começa em Azure Pipelines. Pode monitorizar o estado de construção no painel de arranque de devOps. Também pode monitorá-lo na sua organização Azure DevOps selecionando o separador **de gasodutos Build** a partir do painel de arranque de DevOps.
 
@@ -118,9 +118,9 @@ Quando configuraste o teu processo ci/CD neste tutorial, criaste automaticamente
 Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Defina o seu pipeline de implantação contínua em várias fases (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Defina o seu pipeline de implantação contínua em várias fases (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 Para saber mais sobre a monitorização de aplicações, consulte:
   
  > [!div class="nextstepaction"]
- > [O que é o monitor Azure?](https://docs.microsoft.com/azure/azure-monitor/overview)
+ > [O que é o monitor Azure?](../azure-monitor/overview.md)

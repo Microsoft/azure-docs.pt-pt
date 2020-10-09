@@ -4,21 +4,21 @@ description: Saiba mais sobre o Defender para configurações locais de agente p
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 46b3009a7a57f726457a767afe501bfb28a06606
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843367"
+ms.locfileid: "91851259"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Compreender o ficheiro LocalConfiguration.json - Agente C
 

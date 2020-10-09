@@ -3,12 +3,12 @@ title: Executar ações usando o Backup Center
 description: Este artigo explica como realizar ações usando o Backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997716"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854431"
 ---
 # <a name="perform-actions-using-backup-center"></a>Executar ações usando o Backup Center
 
@@ -70,7 +70,7 @@ Dependendo do tipo de fonte de dados que pretende restaurar, siga as instruçõe
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Se estiver a restaurar uma base de dados Azure para o Servidor PostgreSQL
 
 1. Navegue no Backup Center e **selecione Restaurar** na parte superior do **separador Vista Geral.**
-2. Selecione o tipo de fonte de dados que pretende fazer (Base de Dados Azure para o Servidor PostgreSQL neste caso).
+2. Selecione o tipo de fonte de dados que deseja restaurar (Azure Database for PostgreSQL Server neste caso).
 
     ![Selecione a fonte de dados para a base de dados Azure para restaurar o servidor pós-greSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

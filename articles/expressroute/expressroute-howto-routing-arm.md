@@ -1,22 +1,22 @@
 ---
-title: 'Azure ExpressRoute: Configure peering: PowerShell'
-description: Aprenda a criar e gerir a configuração de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o PowerShell.
+title: 'Tutorial: Configure peering para o circuito ExpressRoute - Azure PowerShell'
+description: Este tutorial mostra-lhe como criar e gerir a configuração de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 12/13/2019
+ms.topic: tutorial
+ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 2c29dc051780b15fb55d446d3f4002c3870fb529
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 641d7eeef96af84f0f058aebd19d795083e3567f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968393"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855366"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o espreitamento para um circuito ExpressRoute usando PowerShell
+# <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Tutorial: Criar e modificar o espreitamento para um circuito ExpressRoute usando PowerShell
 
-Este artigo ajuda-o a criar e gerir a configuração de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o PowerShell. Também pode verificar o estado, a atualização ou eliminação e desprovisionamento de um circuito ExpressRoute. Se pretender utilizar um método diferente para trabalhar com o seu circuito, selecione um artigo da seguinte lista:
+Este tutorial ajuda-o a criar e gerir a configuração de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o PowerShell. Também pode verificar o estado, a atualização ou eliminação e desprovisionamento de um circuito ExpressRoute. Se pretender utilizar um método diferente para trabalhar com o seu circuito, selecione um artigo da seguinte lista:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
@@ -28,26 +28,28 @@ Este artigo ajuda-o a criar e gerir a configuração de encaminhamento para um c
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-
 Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que fornecem serviços de conectividade de Camada 2. Se estiver a utilizar um prestador de serviços que oferece serviços geridos da Camada 3 (normalmente um IPVPN, como o MPLS), o seu fornecedor de conectividade configurará e gerirá o encaminhamento para si.
 
 > [!IMPORTANT]
 > Atualmente, não estamos a anunciar peerings configuradas por fornecedores de serviços através do portal de gestão do serviço. Estamos a trabalhar para ativar essa capacidade brevemente. Consulte o seu fornecedor de serviços antes de configurar os seus pares BGP.
 > 
-> 
 
 Pode configurar o espreitamento privado e a Microsoft a espreitar por um circuito ExpressRoute (o espremiamento público Azure é precotado para novos circuitos). Os seus pares podem ser configurados em qualquer ordem que escolherem. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e observação, consulte [os domínios de encaminhamento ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre olhando o público, consulte [o público ExpressRoute.](about-public-peering.md)
 
-## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
+Neste tutorial, ficará a saber como:
+> [!div class="checklist"]
+> - Configurar, atualizar e eliminar a Microsoft a espreitar por um circuito
+> - Configurar, atualizar e apagar Azure private espreitar por um circuito
 
-* Confirme que reviu as páginas [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md) página e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
-* Deve ter um circuito ExpressRoute ativo. Siga as instruções para [Criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao seu fornecedor de conectividade para ativar o circuito antes de continuar. O circuito ExpressRoute deve estar num estado a provisionado e habilitado para que possa executar os cmdlets neste artigo.
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
+* Certifique-se de que reviu as seguintes páginas antes de iniciar a configuração:
+    * [Pré-requisitos](expressroute-prerequisites.md) 
+    * [Requisitos do encaminhamento](expressroute-routing.md)
+    * [Fluxos de trabalho](expressroute-workflows.md)
+* Deve ter um circuito ExpressRoute ativo. Siga as instruções para [criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e tenha o circuito ativado pelo seu fornecedor de conectividade antes de continuar. O circuito ExpressRoute deve estar em estado a provisionado e habilitado para que você execute os cmdlets neste artigo.
 
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
-
-[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
 
@@ -55,7 +57,6 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de e
 
 > [!IMPORTANT]
 > O perspitamento da Microsoft nos circuitos ExpressRoute que foram configurados antes de 1 de agosto de 2017 terá todos os prefixos de serviço anunciados através do olho da Microsoft, mesmo que os filtros de rota não estejam definidos. O perspitamento da Microsoft dos circuitos ExpressRoute que estejam configurados em ou depois de 1 de agosto de 2017 não terá quaisquer prefixos anunciados até que um filtro de rota seja ligado ao circuito. Para obter mais informações, consulte [configurar um filtro de rota para o microsoft espreitar.](how-to-routefilter-powershell.md)
-> 
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
@@ -75,7 +76,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de e
    ```
 2. Crie um circuito ExpressRoute.
 
-   Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao fornecedor de conectividade que o aprovisione. f o seu fornecedor de conectividade oferece serviços geridos da Camada 3, pode pedir ao seu fornecedor de conectividade para ativar o seu olhar pela Microsoft. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gerir o encaminhamento para si, depois de criar o seu circuito, continue a sua configuração utilizando os próximos passos. 
+   Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos da Camada 3, pode pedir ao seu fornecedor de conectividade para ativar o seu olhar pela Microsoft. Não precisa de seguir as instruções listadas nas próximas secções. No entanto, se o seu fornecedor de conectividade não gerir o encaminhamento para si, depois de criar o seu circuito, continue a sua configuração utilizando os próximos passos. 
 
 3. Verifique o circuito ExpressRoute para se certificar de que está a provisionado e também ativado. Utilize o seguinte exemplo:
 
@@ -108,24 +109,23 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de e
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Configure o peering da Microsoft para o circuito. Confirme que tem as seguintes informações antes de continuar.
+4. Configure o peering da Microsoft para o circuito. Certifique-se de que tem as seguintes informações antes de continuar.
 
-   * Uma sub-rede /30 ou /126 para a ligação primária. Este deve ser um prefixo IPv4 ou IPv6 válido que lhe é propriedade e registado num RIR/IRR.
-   * Uma sub-rede /30 ou/126 para a ligação secundária. Este deve ser um prefixo IPv4 ou IPv6 válido que lhe é propriedade e registado num RIR/IRR.
+   * Uma sub-rede /30 ou /126 para a ligação primária. O bloco de endereços deve ser um prefixo IPv4 ou IPv6 válido que lhe é propriedade e registado num RIR/IRR.
+   * Uma sub-rede /30 ou/126 para a ligação secundária. O bloco de endereços deve ser um prefixo IPv4 ou IPv6 válido que lhe é propriedade e registado num RIR/IRR.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
-   * Prefixos anunciados: tem de fornecer uma lista de todos os prefixos que planeia anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Se pretender enviar um conjunto de prefixos, pode enviar uma lista separada por vírgula. Estes prefixos têm de ser registados para si num RIR/TIR. As sessões de BGP IPv4 requerem prefixos anunciados IPv4 e as sessões de BGP IPv6 requerem prefixos anunciados IPv6. 
+   * Prefixos anunciados: Você fornece uma lista de todos os prefixos que pretende anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Se pretender enviar um conjunto de prefixos, pode enviar uma lista separada por vírgula. Estes prefixos têm de ser registados para si num RIR/TIR. As sessões de BGP IPv4 requerem prefixos anunciados IPv4 e as sessões de BGP IPv6 requerem prefixos anunciados IPv6. 
    * Nome do registo de encaminhamento: pode especificar o RIR/TIR de acordo com o número AS e os prefixos aos quais estão registados.
    * Opcional:
-     * Cliente ASN: se estiver a anunciar prefixos que não estão registados para o número AS de peering, pode especificar o número AS no qual estão registados.
+     * Cliente ASN: Se estiver a publicitar prefixos não registados no número AS, pode especificar o número AS em que estão registados.
      * Um hash MD5 se optar por utilizar um.
 
 > [!IMPORTANT]
-> A Microsoft verifica se os prefixos públicos anunciados especificados e 'Peer ASN' (ou 'Cliente ASN') são-lhe atribuídos no Registo de Encaminhamento de Internet. Se estiver a receber os prefixos públicos de outra entidade e se a atribuição não for registada com o registo de encaminhamento, a validação automática não será completa e exigirá validação manual. Se a validação automática falhar, verá o comando 'PublicdPublicPrefixesState' como "Validação necessária" na saída do comando "Get-AzExpressRorcCircuitPeeringConfig" (ver "Obter detalhes de espreitar a Microsoft" abaixo). 
+> A Microsoft verifica se os prefixos públicos anunciados especificados e 'Peer ASN' (ou 'Cliente ASN') são-lhe atribuídos no Registo de Encaminhamento de Internet. Se estiver a receber os prefixos públicos de outra entidade e se a atribuição não for registada com o registo de encaminhamento, a validação automática não será completa e exigirá validação manual. Se a validação automática falhar, verá 'PublicimentdPublicPrefixesState' como 'Validação necessária' na saída de "Get-AzExpressRouteCircuitPeeringConfig" (ver "Obter detalhes de peering da Microsoft" na secção seguinte). 
 > 
-> Se vir a mensagem "Validação necessária", recolha os documentos que mostram que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registo de encaminhamento e submeta esses documentos para validação manual, abrindo um bilhete de apoio como mostrado abaixo. 
+> Se vir a mensagem 'Validação necessária', recolha os documentos(s) que mostram que os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registo de encaminhamento e submeta esses documentos para validação manual através da abertura de um bilhete de apoio. 
 > 
->
 
    Utilize o seguinte exemplo para configurar o olhar da Microsoft para o seu circuito:
 
@@ -159,16 +159,6 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Para eliminar o peering da Microsoft
-
-Pode remover a sua configuração de espreguiçadamento executando o seguinte cmdlet:
-
-```azurepowershell-interactive
-Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
-
-Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
 ## <a name="azure-private-peering"></a><a name="private"></a>Peering privado do Azure
 
 Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de observação privada Azure para um circuito ExpressRoute.
@@ -177,7 +167,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
 
 1. Importe o módulo do PowerShell para ExpressRoute.
 
-   Instale o programa de instalação mais recente do PowerShell a partir da [Galeria do PowerShell](https://www.powershellgallery.com/) e importe os módulos do Azure Resource Manager para a sessão do PowerShell para poder começar a utilizar os cmdlets ExpressRoute. Terá de executar o PowerShell como Administrador.
+   Instale o mais recente instalador PowerShell da [PowerShell Gallery](https://www.powershellgallery.com/). Em seguida, importe os módulos Azure Resource Manager para a sessão PowerShell para começar a utilizar os cmdlets ExpressRoute. Terás de executar o PowerShell como administrador.
 
    ```azurepowershell-interactive
    Install-Module Az
@@ -208,7 +198,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
    ```
 2. Crie um circuito ExpressRoute.
 
-   Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos da Camada 3, pode pedir ao seu fornecedor de conectividade para ativar o seu olhar privado Azure. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gerir o encaminhamento para si, depois de criar o seu circuito, continue a sua configuração utilizando os próximos passos.
+   Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos da Camada 3, pode pedir ao seu fornecedor de conectividade para ativar o seu olhar privado Azure. Não precisa de seguir as instruções listadas nas próximas secções. No entanto, se o seu fornecedor de conectividade não gerir o encaminhamento para si, depois de criar o seu circuito, continue a sua configuração utilizando os próximos passos.
 
 3. Verifique o circuito ExpressRoute para se certificar de que está a provisionado e também ativado. Utilize o seguinte exemplo:
 
@@ -241,12 +231,12 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Configure o peering privado do Azure para o circuito. Confirme que tem os seguintes itens antes de continuar com os passos seguintes:
+4. Configure o peering privado do Azure para o circuito. Certifique-se de que tem os seguintes itens antes de continuar com os próximos passos:
 
    * Uma sub-rede /30 para a ligação primária. A sub-rede não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
    * Uma sub-rede /30 para a ligação secundária. A sub-rede não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
-   * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Assegure que não está a utilizar 65515.
+   * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Certifique-se de que não está a usar o 65515.
    * Opcional:
      * Um hash MD5 se optar por utilizar um.
 
@@ -289,13 +279,24 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Para eliminar o peering da Microsoft
+
+Pode remover a sua configuração de espreguiçadamento executando o seguinte cmdlet:
+
+```azurepowershell-interactive
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
 ### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Para eliminar um peering privado do Azure
 
 Pode remover a sua configuração de espreguiçadamento executando o seguinte exemplo:
 
 > [!WARNING]
 > Deve certificar-se de que todas as redes virtuais e as ligações ExpressRoute Global Reach são removidas antes de executar este exemplo. 
-> 
 > 
 
 ```azurepowershell-interactive
@@ -304,11 +305,9 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRo
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Passo seguinte, [Ligar uma VNet a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
+Depois de configurar o Azure em privado, pode criar uma porta de entrada ExpressRoute para ligar uma rede virtual ao circuito. 
 
-* Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
-* Para obter mais informações sobre peering do circuito, veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
-* Para obter mais informações sobre como trabalhar com redes virtuais, veja [Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md).
+> [!div class="nextstepaction"]
+> [Configurar um gateway de rede virtual para o ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)

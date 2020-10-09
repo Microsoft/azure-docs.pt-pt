@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823018"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854584"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Azure Ative Directory integração única (SSO) com Litmus
 
@@ -129,11 +129,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique na **Segurança** a partir do painel de navegação esquerdo.
 
-    ![Configuração de Litmus](./media/litmus-tutorial/security-img.png)
+    ![A screenshot mostra o item de Segurança selecionado.](./media/litmus-tutorial/security-img.png)
 
 1. Na secção **de Autenticação SAML configurada,** execute os seguintes passos:
 
-    ![Configuração de Litmus](./media/litmus-tutorial/configure1.png)
+    ![A screenshot mostra a secção de autenticação configure SAML onde pode introduzir os valores descritos.](./media/litmus-tutorial/configure1.png)
 
     a. Ligue o **interruptor ATIVAR SAML.**
 
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Efetue os seguintes passos:
 
-    ![Configuração de Litmus](./media/litmus-tutorial/configure3.png)
+    ![A imagem mostra a secção onde pode introduzir os valores descritos.](./media/litmus-tutorial/configure3.png)
 
     a. Na caixa de texto **SAML 2.0 Endpoint (HTTP),** cole o valor URL de **login,** que copiou a partir do portal Azure.
 
@@ -157,15 +157,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique nas **Contas** a partir do painel de navegação esquerdo.
 
-    ![Configuração de Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![A screenshot mostra o item contas selecionado.](./media/litmus-tutorial/accounts-img.png)
 
 1. Clique **em Adicionar novo separador de utilizador.**
 
-    ![Configuração de Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![A screenshot mostra o item Adicionar Novo Utilizador selecionado.](./media/litmus-tutorial/add-new-user.png)
 
 1. Na secção **Adicionar Utilizador,** execute os seguintes passos:
 
-    ![Configuração de Litmus](./media/litmus-tutorial/user-profile.png)
+    ![A screenshot mostra a secção 'Adicionar utilizador' onde pode introduzir os valores descritos.](./media/litmus-tutorial/user-profile.png)
 
     a. Na caixa de sms **do Email,** insira o endereço de e-mail do utilizador como **B.Simon \@ contoso.com**
 
