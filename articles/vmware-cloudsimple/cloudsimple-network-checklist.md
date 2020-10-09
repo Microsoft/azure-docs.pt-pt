@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025015"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Pré-requisitos de networking para Azure VMware Solution by CloudSimple
@@ -56,7 +56,7 @@ Uma ligação VPN ponto-a-local permite o acesso à rede CloudSimple a partir de
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sub-rede de clientes         | Os endereços DHCP são fornecidos pela sub-rede do cliente quando se conecta utilizando uma VPN ponto-a-local. Esta sub-rede é necessária enquanto está a criar uma porta VPN ponto a local num portal CloudSimple.  A rede é dividida em duas sub-redes; um para a ligação UDP e o outro para ligações TCP. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configuração de firewall no local para aceder à sua nuvem privada](on-premises-firewall-configuration.md)
 * [Quickstart - Criar um serviço CloudSimple](quickstart-create-cloudsimple-service.md)

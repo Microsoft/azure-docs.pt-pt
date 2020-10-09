@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300059"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integração SSO do Azure Ative Directory com integração de AD Kemp LoadMaster Azure
@@ -113,7 +113,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -336,7 +336,7 @@ Vá a Kemp LoadMaster Azure Ad integração Web Consola > Serviços Virtuais > G
 
 a. Navegue para o sinal único do lado do servidor nas configurações.
 
-b. Digite nome em Adicionar nova configuração do lado do servidor e clique em Adicionar.
+b. Digite nome em Adicionar nova configuração Server-Side e clique em Adicionar.
 
 c. Selecione Kerberos Delegação Restrita no Protocolo de Autenticação.
 
@@ -368,7 +368,7 @@ b. Clique em Opções ESP.
     
 c. No modo de autenticação do servidor, selecione KCD.
         
-d. Na configuração server-side, selecione o perfil do lado do servidor previamente criado.
+d. Na configuração Server-Side, selecione o perfil do lado do servidor previamente criado.
 
 ### <a name="create-kemp-loadmaster-azure-ad-integration-test-user"></a>Criar utilizador de teste de integração AD Kemp LoadMaster Azure
 

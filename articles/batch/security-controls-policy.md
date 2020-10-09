@@ -8,10 +8,10 @@ ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: f6e6643bfebf71cd69bc2abab641acbd5807d7a0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818505"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Controlos de conformidade regulamentar da política Azure para o Azure Batch

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74666380"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e agregação de dados em Análise de Tráfego
@@ -96,7 +96,7 @@ Traffic Analytics é construído em cima do Log Analytics, para que você possa 
 
 Listados abaixo estão os campos no esquema e o que eles significam
 
-| Campo | Formatar | Comentários |
+| Campo | Formato | Comentários |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabela para dados de Análise de Tráfego
 | SubType_s | Fluxolog | Subtipo para os registos de fluxo. Utilize apenas "FlowLog", outros valores de SubType_s são para o funcionamento interno do produto |

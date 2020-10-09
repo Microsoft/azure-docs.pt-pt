@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e18b088ed4b505517f95146813b399ba62504d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91820466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutorial: Integração do Azure Ative Directory com o Insight4GRC
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o Insight4GRC, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -115,11 +115,11 @@ Para configurar o Azure AD com o Insight4GRC, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte ao cliente Insight4GRC](mailto:support.ss@rsmuk.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-insight4grc-single-sign-on"></a>Configurar insight4GRC único sign-on
+### <a name="configure-insight4grc-single-sign-on"></a>Configurar insight4GRC Sign-On única
 
 Para configurar um único sinal no lado **insight4GRC,** é necessário enviar o **Url de Metadados da Federação de Aplicações** para a [equipa de suporte Insight4GRC](mailto:support.ss@rsmuk.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203100"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -40,7 +40,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 |---------- | -------- | ----------- |
-| PolíticaSesoversão | Sim | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser`0.3.0.0` |
+| PolíticaSesoversão | Sim | A versão do esquema que deve ser usada para executar a apólice. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não | O identificador de objetos único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador único do inquilino a que esta política pertence. |
 | PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado por *B2C_1A_* |

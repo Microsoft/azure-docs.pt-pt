@@ -4,10 +4,10 @@ description: Experimente as tarefas de registo de contentores do Azure (Tarefas 
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74456093"
 ---
 # <a name="acr-tasks-samples"></a>Amostras de tarefas ACR
@@ -33,7 +33,7 @@ Para outros exemplos, consulte as [amostras Azure][task-examples] repo.
 * **Construir e empurrar imagens para vários registos**  -  [YAML,](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml) [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as Tarefas ACR:
 

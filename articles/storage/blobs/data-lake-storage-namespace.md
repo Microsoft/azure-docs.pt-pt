@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77153082"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espaço hierárquico de nome hierárquico Azure Data Lake De armazenamento Gen2
@@ -45,6 +45,6 @@ As razões para permitir um espaço hierárquico são determinadas por uma anál
 
 Para analisar as diferenças nos preços de armazenamento de dados, preços de transação e preços de reserva de capacidade de armazenamento entre contas que têm um espaço hierárquico plano e um espaço hierárquico de nomes, consulte [o preço da Azure Data Lake Storage Gen2.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta de Armazenamento](./data-lake-storage-quickstart-create-account.md)

@@ -4,10 +4,10 @@ description: Utilize um script PowerShell para instalar silenciosamente o Servid
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74172235"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação não acompanhada do Azure Backup Server
@@ -55,7 +55,7 @@ Pode utilizar estas bandeiras para a instalação:</br>
 **/i**: Caminho de instalação</br>
 **/x**: Desinstalar caminho</br>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de instalar o Backup Server, aprenda a preparar o seu servidor ou comece a proteger uma carga de trabalho.
 

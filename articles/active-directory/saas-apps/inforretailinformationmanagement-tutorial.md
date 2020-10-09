@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integração do Azure Ative Directory com o Infor Retail – Information Management
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sign-on com a Infor Retail – Information 
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ Para configurar o Azure AD um único sign-on com a Infor Retail – Information 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a Equipa de Apoio ao Cliente da Infor Retail – Gestão de Informação](mailto:innovate@infor.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD um único sign-on com a Infor Retail – Information 
 
     c. Logout URL
 
-### <a name="configure-infor-retail--information-management-single-sign-on"></a>Configuração Infor Retail – Gestão de Informação Único Sign-On
+### <a name="configure-infor-retail--information-management-single-sign-on"></a>Configure Infor Retail – Information Management Single Sign-On
 
 Para configurar um único sign-on **inFor Retail – Information Management** side, é necessário enviar os **Metadadata XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte infor retail – Information Management.](mailto:innovate@infor.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

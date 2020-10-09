@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d3dccc8d34852b967bffcf57e2f3609d9786279
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826677"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutorial: Azure Ative Directory integração única (SSO) com Egress

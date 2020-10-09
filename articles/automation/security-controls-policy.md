@@ -8,10 +8,10 @@ ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: c38b51fbf2dcc528b0795d8289e14cfd18f3d9e2
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825853"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Controlos de conformidade regulamentar da Política Azure para a Azure Automation

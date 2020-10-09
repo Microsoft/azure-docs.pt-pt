@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74232762"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versão em Funções Duradouras (Funções Azure)
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Esta função simplista leva os resultados de **Foo** e passa-o para **o Bar.** Vamos supor que precisamos mudar o valor de retorno do **Foo** `bool` de para suportar uma maior variedade de `int` valores de resultados. O resultado é o seguinte:
+Esta função simplista leva os resultados de **Foo** e passa-o para **o Bar.** Vamos supor que precisamos mudar o valor de retorno do **Foo** `bool` de para suportar uma maior variedade de `int` valores de resultados. O resultado tem o seguinte aspeto:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -153,7 +153,7 @@ Recomendamos que implemente a nova versão da aplicação de função para uma n
 > [!NOTE]
 > Esta estratégia funciona melhor quando utiliza os gatilhos HTTP e webhook para funções de orquestradores. Para os gatilhos não-HTTP, tais como filas ou Centros de Eventos, a definição de gatilho deve [derivar de uma definição de aplicação](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que seja atualizada como parte da operação de troca.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com questões de desempenho e escala](durable-functions-perf-and-scale.md)

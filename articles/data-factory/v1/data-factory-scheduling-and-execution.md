@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85319725"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução da Fábrica de Dados
@@ -182,10 +182,10 @@ Viu o uso de propriedades de frequência e intervalo na secção de disponibilid
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
 A tabela a seguir descreve propriedades que pode utilizar na secção **de disponibilidade:**
 
-| Propriedade | Descrição | Necessário | Predefinição |
+| Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se necessitar do conjunto de dados para ser cortado de hora a hora, define <b>a frequência</b> para a <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar a frequência como Minuto, recomendamos que desemende o intervalo para nada menos do que 15 |Sim |ND |
+| interval |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se necessitar do conjunto de dados para ser cortado de hora a hora, define <b>a frequência</b> para a <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota:</b>Se especificar a frequência como Minuto, recomendamos que desemende o intervalo para nada menos do que 15 |Sim |ND |
 | estilo |Especifica se a fatia deve ser produzida no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para mês e o estilo está definido para EndOfInterval, a fatia é produzida no último dia do mês. Se o estilo estiver definido para StartOfInterval, a fatia é produzida no primeiro dia do mês.<br/><br/>Se a frequência estiver definida para o Dia e o estilo estiver definido para EndOfInterval, a fatia é produzida na última hora do dia.<br/><br/>Se a frequência estiver definida para Hora e o estilo estiver definido para EndOfInterval, a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/><b>Nota:</b>Se o AnchorDateTime tiver peças de data mais granulares do que a frequência, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>de hora</b> a hora (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos,</b>então as partes de <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |Não |01/01/0001 |
 | offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Nota:</b>Se forem especificados tanto o anchorDateTime como o offset, o resultado é a mudança combinada. |Não |ND |
@@ -597,7 +597,7 @@ A atividade da colmeia pega as duas entradas e produz uma fatia de saída todos 
 
 Consulte [as funções da Data Factory e as variáveis](data-factory-functions-variables.md) do sistema para uma lista de funções e variáveis do sistema que a Data Factory suporta.
 
-## <a name="appendix"></a>Anexo
+## <a name="appendix"></a>Apêndice
 
 ### <a name="example-copy-sequentially"></a>Exemplo: copiar sequencialmente
 É possível executar várias operações de cópia uma após a outra de forma sequencial/ordenada. Por exemplo, pode ter duas atividades de cópia num pipeline (CopyActivity1 e CopyActivity2) com os seguintes conjuntos de dados de saída de dados de entrada:   

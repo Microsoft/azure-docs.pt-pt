@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77593772"
 ---
 # <a name="linkerd"></a>Linkerd
@@ -81,7 +81,7 @@ Linkerd é adequado e sugerido para os seguintes cenários:
 - Baixa latência, sobrecarga baixa, com foco na observabilidade e gestão simples do tráfego
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A documentação que se segue descreve como pode instalar o Linkerd no Serviço Azure Kubernetes (AKS):
 

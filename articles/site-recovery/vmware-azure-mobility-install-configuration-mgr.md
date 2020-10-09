@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77252232"
 ---
 # <a name="automate-mobility-service-installation"></a>Instalação do Serviço de Mobilidade Automatizada
@@ -364,7 +364,7 @@ cd /tmp
 1. Em **Especificar os requisitos para este programa padrão,** faça as seguintes tarefas:
 
    - Para máquinas Windows, selecione **Este programa só pode ser executado em plataformas especificadas.** Em seguida, selecione os [sistemas operativos Windows suportados](vmware-physical-azure-support-matrix.md#replicated-machines) e selecione **Next**.
-   - Para máquinas Linux, selecione **Este programa pode ser executado em qualquer plataforma**. Em seguida, selecione **Seguinte**.
+   - Para máquinas Linux, selecione **Este programa pode ser executado em qualquer plataforma**. e selecione **Seguinte**.
 
 1. Conclua o assistente.
 
@@ -418,6 +418,6 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 :ENDSCRIPT
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Ativar a replicação](vmware-azure-enable-replication.md) dos VMs.

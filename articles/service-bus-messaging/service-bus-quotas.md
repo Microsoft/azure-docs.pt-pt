@@ -4,10 +4,10 @@ description: Este artigo lista quotas básicas e limiares de estrangulamento nas
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: dd7d4d5b9f9d4034b4d4524fa1e0503c0ea713d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337092"
 ---
 # <a name="service-bus-quotas"></a>Quotas do Service Bus

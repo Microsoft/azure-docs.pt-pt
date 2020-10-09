@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, estúdio visual 2017, estúdio visual 2019, nuget
 ms.openlocfilehash: b0395118481cbaecd5ad0b6a3a6b3e89cc29dfaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277521"
 ---
 # <a name="add-azure-kinect-library-to-your-visual-studio-project"></a>Adicione a biblioteca Azure Kinect ao seu projeto visual Studio
@@ -35,7 +35,7 @@ Uma vez adicionado o pacote, adicione o ficheiro de cabeçalho inclui o código 
 - `#include <k4arecord/record.h>`
 - `#include <k4arecord/playback.h>`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Agora está pronto para construir a sua primeira aplicação](build-first-app.md)

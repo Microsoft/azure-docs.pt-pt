@@ -12,10 +12,10 @@ ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201859"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Sinal de uma página única na utilização do fluxo implícito OAuth 2.0 em Azure Ative Directory B2C
@@ -241,7 +241,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 > Direcionar o utilizador para a `end_session_endpoint` eliminação de alguns dos únicos estados de entrada do utilizador com O Azure AD B2C. No entanto, não assina o utilizador fora da sessão de provedor de identidade social do utilizador. Se o utilizador selecionar o mesmo fornecedor de identidade durante uma sintrodução subsequente, o utilizador é reautentado sem introduzir as suas credenciais. Se um utilizador quiser assinar a sua aplicação Azure AD B2C, não significa necessariamente que queira assinar completamente fora da sua conta de Facebook, por exemplo. No entanto, para as contas locais, a sessão do utilizador terminará corretamente.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>Amostra de código: Azure AD B2C com a Microsoft Authentication Library for JavaScript
 

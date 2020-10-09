@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74184260"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Azure Internet Analyzer FAQ (Pré-visualização)
@@ -73,12 +73,12 @@ Os seguintes pontos finais pré-configurados estão disponíveis durante a pré-
     * Oeste do Japão
     * Europa do Norte
     * África do Sul Norte
-    * Ásia Sudeste
+    * Sudeste Asiático
     * Uae Norte
     * Oeste do Reino Unido  
     * Europa Ocidental
     * E.U.A. Oeste
-    * E.U.A.Oeste 2
+    * E.U.A. Oeste 2
 * **Múltiplas combinações da região de Azure**
     * East US, Brasil Sul
     * Leste dos EUA, Ásia Oriental
@@ -103,6 +103,6 @@ O Internet Analyzer ajuda-o a compreender o desempenho dos seus utilizadores fin
 
 O Azure tem [processos de segurança fortes e cumpre uma ampla gama de normas de conformidade.](https://azure.microsoft.com/support/trust-center/) Só você e a sua equipa designada têm acesso aos seus dados. O pessoal da Microsoft só pode ter acesso restrito a ele em circunstâncias limitadas específicas com o seu conhecimento. Está encriptado em trânsito e em repouso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte a nossa [Visão Geral do Analisador de Internet.](internet-analyzer-overview.md)

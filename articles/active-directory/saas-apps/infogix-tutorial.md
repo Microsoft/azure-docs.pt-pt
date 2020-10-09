@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 0f4874a16e12c5c9e7e5a0fd9858d3e42f2bb1cd
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Ative Directory com Infogix Data3Sixty Govern
@@ -74,7 +74,7 @@ Para um único login no trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o Infogix Data3Sixty Govern, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure infogix Data3Sixty Regem o Único Sinal](#configure-infogix-data3sixty-govern-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure infogix Data3Sixty Regem o Único Sinal](#configure-infogix-data3sixty-govern-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Infogix Data3Sixty Govern utilizador](#create-infogix-data3sixty-govern-test-user)** de teste - para ter uma contraparte de Britta Simon em Infogix Data3Sixty Govern que está ligada à representação AD Ad Azure do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,9 +113,9 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.data3sixty.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Contacte a [equipa de suporte do Cliente Infogix Data3Sixty Para](mailto:data3sixtysupport@infogix.com) obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Contacte a [equipa de suporte do Cliente Infogix Data3Sixty Para](mailto:data3sixtysupport@infogix.com) obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. A aplicação Infogix Data3Sixty Govern espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+6. A aplicação Infogix Data3Sixty Govern espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
@@ -145,7 +145,7 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
     exemplo, Clique em **Guardar**.
 
-8. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -159,7 +159,7 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
     c. Logout URL
 
-### <a name="configure-infogix-data3sixty-govern-single-sign-on"></a>Configurar infogix data3Sixty Governar único sinal
+### <a name="configure-infogix-data3sixty-govern-single-sign-on"></a>Configure Infogix Data3Sixty Govern single Sign-On
 
 Para configurar um único sign-on no lado **infogix Data3Sixty Govern,** é necessário enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

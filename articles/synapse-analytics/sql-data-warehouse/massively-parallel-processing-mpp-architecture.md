@@ -11,15 +11,15 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85210971"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (anteriormente SQL DW) arquitetura
 
-O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. A Azure Synapse junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e servir dados para necessidades imediatas de BI e machine learning.
+O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento de dados empresariais e a análise de macrodados. Dá-lhe a liberdade de consultar dados nos seus termos, através de recursos a pedido ou aprovisionados sem servidor, em escala. O Azure Synapse Analytics junta estes dois mundos com uma experiência unificada para ingerir, preparar, gerir e apresentar dados mais para as suas necessidades imediatas de BI e de machine learning.
 
  Azure Synapse tem quatro componentes:
 
@@ -60,7 +60,7 @@ O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador segur
 
 ### <a name="control-node"></a>Nó de controlo
 
-O nó de controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. O motor de MPP é executado no nó de Controlo para otimizar e coordenar as consultas paralelas. Quando submete uma consulta T-SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
+O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. O motor de MPP é executado no nó de Controlo para otimizar e coordenar as consultas paralelas. Quando submete uma consulta T-SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
 
 ### <a name="compute-nodes"></a>Nós de computação
 
@@ -110,7 +110,7 @@ O diagrama abaixo mostra uma tabela replicada que é em cache na primeira distri
 
 ![Tabela replicada](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Tabela replicada")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe um pouco sobre a Azure Synapse, aprenda a criar rapidamente [uma piscina SQL](create-data-warehouse-portal.md) e [carregue dados de amostras.](load-data-from-azure-blob-storage-using-polybase.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quando se deparar com terminologia nova. Ou olhe para alguns destes outros Recursos Azure Synapse.  
 

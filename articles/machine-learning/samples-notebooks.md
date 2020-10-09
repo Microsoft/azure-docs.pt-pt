@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653720"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explore a aprendizagem da máquina de Azure com cadernos Jupyter
@@ -49,7 +49,7 @@ Estas instruções instalam os pacotes SDK base necessários para os cadernos de
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Obtenha amostras em DSVM
 
-A Data Science Virtual Machine (DSVM) é uma imagem VM personalizada construída especificamente para fazer ciência de dados. Se [criar um DSVM,](how-to-configure-environment.md#dsvm)o SDK e o servidor de portátil estão instalados e configurados para si. No entanto, ainda terá de criar um espaço de trabalho e clonar o repositório de amostras.
+A Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada criada especificamente para a ciência de dados. Se [criar um DSVM,](how-to-configure-environment.md#dsvm)o SDK e o servidor de portátil estão instalados e configurados para si. No entanto, ainda terá de criar um espaço de trabalho e clonar o repositório de amostras.
 
 [!INCLUDE [aml-dsvm-server](../../includes/aml-dsvm-server.md)]
 

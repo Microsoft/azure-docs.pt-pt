@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792159"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar o XML para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
@@ -31,7 +31,7 @@ Muitas vezes em cenários B2B, os parceiros comerciais num acordo precisam de se
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
-1. Se tiver uma aplicação lógica em branco, no Logic App Designer, na caixa de pesquisa, introduza `HTTP request` como filtro e selecione o gatilho **Quando um pedido HTTP é recebido.** Caso contrário, continue para o próximo passo.
+1. Se tiver uma aplicação lógica em branco, no Logic App Designer, na caixa de pesquisa, introduza `HTTP request` como filtro e selecione o gatilho **Quando um pedido HTTP é recebido.** Caso contrário, avance para o passo seguinte.
 
 1. Sob o último passo do seu fluxo de trabalho, selecione **Novo passo**.
 
@@ -57,12 +57,12 @@ Muitas vezes em cenários B2B, os parceiros comerciais num acordo precisam de se
 
    ![Selecione esquema para usar para validação](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
    Já acabou de preparar a sua validação. Numa aplicação do mundo real, é possível que queira armazenar os dados validados numa aplicação de linha de negócios (LOB), como a SalesForce. Para enviar a saída validada para a Salesforce, adicione uma ação.
 
 1. Para testar a sua ação de validação, pode enviar um pedido para desencadear o fluxo de trabalho da sua aplicação lógica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azul, cinect, sensor, espectador, visualização, profundidade, rgb, cor, imu, áudio, microfone, nuvem de ponto
 ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277486"
 ---
 # <a name="azure-kinect-viewer"></a>Espectador Azure Kinect
@@ -108,7 +108,7 @@ Ao alterar a configuração ou inserir/remover o cabo de sincronização, seleci
 
 ![Controlo de sincronização externa](./media/how-to-guides/sync-control.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Guia de configuração de sincronização externa](https://support.microsoft.com/help/4494429/sync-multiple-azure-kinect-dk-devices)

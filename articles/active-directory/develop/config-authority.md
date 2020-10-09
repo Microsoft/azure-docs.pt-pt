@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77085205"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como: Configurar a MSAL para iOS e macOS utilizarem diferentes fornecedores de identidade
@@ -26,7 +26,7 @@ Este artigo irá mostrar-lhe como configurar a sua app de biblioteca de autentic
 
 ## <a name="default-authority-configuration"></a>Configuração de autoridade predefinido
 
-`MSALPublicClientApplication`é configurado com um URL de autoridade padrão de , que é adequado para a maioria dos `https://login.microsoftonline.com/common` cenários do Azure Ative Directory (AAD). A menos que esteja a implementar cenários avançados como nuvens nacionais, ou a trabalhar com b2C, não precisará mudá-lo.
+`MSALPublicClientApplication` é configurado com um URL de autoridade padrão de , que é adequado para a maioria dos `https://login.microsoftonline.com/common` cenários do Azure Ative Directory (AAD). A menos que esteja a implementar cenários avançados como nuvens nacionais, ou a trabalhar com b2C, não precisará mudá-lo.
 
 > [!NOTE]
 > A autenticação moderna com serviços da Federação de Diretório Ativo como fornecedor de identidade (ADFS) não é suportada (ver [ADFS para desenvolvedores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para mais detalhes). A ADFS é apoiada através da federação.
@@ -240,12 +240,12 @@ Seguem-se subclasses `MSALAuthority` de que pode instantaneamente, dependendo da
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`representa uma autoridade da AAD. O url de autoridade deve estar no seguinte formato, sempre que `<port>` seja opcional:`https://<host>:<port>/<tenant>`
+`MSALAADAuthority` representa uma autoridade da AAD. O url de autoridade deve estar no seguinte formato, sempre que `<port>` seja opcional: `https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`representa uma autoridade B2C. Por predefinição, o url de autoridade B2C deve estar no seguinte formato, onde `<port>` é opcional: `https://<host>:<port>/tfp/<tenant>/<policy>` . No entanto, a MSAL também suporta outros formatos arbitrários de autoridade B2C.
+`MSALB2CAuthority` representa uma autoridade B2C. Por predefinição, o url de autoridade B2C deve estar no seguinte formato, onde `<port>` é opcional: `https://<host>:<port>/tfp/<tenant>/<policy>` . No entanto, a MSAL também suporta outros formatos arbitrários de autoridade B2C.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

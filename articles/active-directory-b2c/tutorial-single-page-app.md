@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258919"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
@@ -150,13 +150,13 @@ Esta aplicação de amostra suporta a inscrição, o início e o reset da palavr
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Inscreva-se na página exibida pelo fluxo de utilizador Azure AD B2C":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Navegador web mostrando aplicação de página única executando localmente":::
 
 1. Selecione **Criar** para criar uma conta local no diretório Azure AD B2C.
 
 Quando seleciona **Criar,** a aplicação mostra o nome do utilizador assinado.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navegador web mostrando aplicação de página única com registrado no utilizador":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navegador web mostrando aplicação de página única executando localmente":::
 
 Se quiser testar o s-in, selecione o botão **Iniciar sê-lo,** em seguida, selecione **Iniciar sôs e** iniciar sôs com o endereço de e-mail e a palavra-passe que inseriu quando se inscreveu.
 

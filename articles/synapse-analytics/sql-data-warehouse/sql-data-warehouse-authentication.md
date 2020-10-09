@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
 ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85206735"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autenticar para Azure Synapse Analytics
@@ -83,6 +83,6 @@ Atualmente, os utilizadores do Azure Ative Directory não são apresentados no S
 * Os passos para configurar e utilizar a autenticação do Azure Ative Directory são quase idênticos para a Base de Dados Azure SQL e sinapse SQL em Azure Synapse. Siga os passos detalhados no tópico [Ligando à Base de Dados SQL ou piscina SQL Utilizando a autenticação do Diretório Ativo Azure](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Crie funções de base de dados personalizadas e adicione utilizadores às funções. Em seguida, conceda permissões granulares para os papéis. Para obter mais informações, consulte ["Começar com permissões de motores de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a consultar o Visual Studio e outras aplicações, consulte [Consulta com o Visual Studio](sql-data-warehouse-query-visual-studio.md).

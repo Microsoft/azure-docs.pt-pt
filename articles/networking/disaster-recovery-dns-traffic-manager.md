@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74483539"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
@@ -51,7 +51,7 @@ Para saber mais sobre falhas e alta disponibilidade, consulte [a Recuperação d
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planejando a sua arquitetura de recuperação de desastres
 
 Existem dois aspetos técnicos para a criação da sua arquitetura de recuperação de desastres:
--  Utilizando um mecanismo de implantação para replicar casos, dados e configurações entre ambientes primários e de espera. Este tipo de recuperação de desastres pode ser feito de forma nativa através do Azure Site-Recovery via microsoft Azure partner appliances/services como Veritas ou NetApp. 
+-  Utilizando um mecanismo de implantação para replicar casos, dados e configurações entre ambientes primários e de espera. Este tipo de recuperação de desastres pode ser feito de forma nativa através do Azure Site-Recovery através de eletrodomésticos parceiros da Microsoft Azure, como veritas ou NetApp. 
 - Desenvolver uma solução para desviar o tráfego de rede/web do local primário para o local de espera. Este tipo de recuperação de desastres pode ser alcançado através de Azure DNS, Azure Traffic Manager (DNS), ou equilibradores globais de carga de terceiros.
 
 Este artigo limita-se a abordagens através da reorientação de tráfego da Rede e da Web. Para obter instruções para configurar a recuperação do local de Azure, consulte [a documentação de recuperação do local do Azure](https://docs.microsoft.com/azure/site-recovery/).
@@ -167,7 +167,7 @@ Se a Retry estiver definida para 1 e TTL estiver definida para 10 segundos, ent�
 
 Durante um desastre, o principal ponto final é sondado e o estado muda para **degradar-se** e o local de recuperação de desastres permanece **On-line**. Por predefinição, o Gestor de Tráfego envia todo o tráfego para o ponto final primário (com a prioridade mais alta). Se o ponto final primário parecer degradado, o Gestor de Tráfego encaminha o tráfego para o segundo ponto final, desde que se mantenha saudável. Uma pessoa tem a opção de configurar mais pontos finais dentro do Traffic Manager que podem servir como pontos finais adicionais de failover, ou, como equilibradores de carga que partilham a carga entre pontos finais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre [o Azure DNS](../dns/dns-overview.md).
 

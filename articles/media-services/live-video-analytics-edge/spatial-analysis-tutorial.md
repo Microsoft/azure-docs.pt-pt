@@ -4,10 +4,10 @@ description: Este tutorial mostra-lhe como usar o Live Video Analytics juntament
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824131"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analise vídeo ao vivo com visão de computador para análise espacial (pré-visualização)
@@ -51,7 +51,7 @@ Seguem-se os pré-requisitos para a ligação do módulo de análise espacial ao
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Visão geral da análise espacial":::
  
-Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor de Protocolo de Streaming em Tempo Real (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do [processador do processador da taxa de fotogramas.](media-graph-concept.md#frame-rate-filter-processor) Este processador limita a taxa de fotogramas do fluxo de vídeo que atinge o nó do processador MediaGraphGraphCognitiveServicesVisionExtension.
+Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do [processador do processador da taxa de fotogramas.](media-graph-concept.md#frame-rate-filter-processor) Este processador limita a taxa de fotogramas do fluxo de vídeo que atinge o nó do processador MediaGraphGraphCognitiveServicesVisionExtension.
 
 O nó de mediaGraphCognitiveServicesVisionExtension desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre **memória partilhada** para outro módulo de borda que executa operações de IA atrás de um ponto final gRPC. Neste exemplo, este módulo de borda é o módulo de análise espacial. O nó do processador MediaGraphGraphCognitiveServicesVisionExtension faz duas coisas:
 
@@ -184,7 +184,7 @@ Siga estes passos para gerar o manifesto a partir do ficheiro do modelo e, em se
 1. Após cerca de 30 segundos, no canto inferior esquerdo da janela, refresque o Azure IoT Hub. O dispositivo de borda mostra agora os seguintes módulos implantados:
     
     * Vídeo ao vivo Analytics no IoT Edge (nome do módulo lvaEdge).
-    * Simulador de protocolo de streaming em tempo real (RTSP) (nome do módulo rtspsim).
+    * Real-Time simulador de Protocolo de Streaming (RTSP) (nome do módulo rtspsim).
     * Análise Espacial (nome do módulo espacialAnalysis).
     
 Se implementar com sucesso, haverá uma mensagem no OUTPUT como esta:

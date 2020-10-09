@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203440"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
@@ -80,8 +80,8 @@ O perfil técnico autoafirmado chama o perfil técnico **de login-NonInteractive
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
   - **stringComparison**: ordinalIgnoreCase
 - Resultado: Erro lançado
@@ -183,8 +183,8 @@ Utilize esta transformação de sinistros para verificar se uma reclamação é 
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
     - **operador**: NÃO IGUAL
     - **ignoreCase**: verdadeiro
@@ -297,7 +297,7 @@ Formatar uma reclamação de acordo com a cadeia de formato fornecida. Esta tran
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |O ClaimType que funciona como parâmetro de formato de {0} corda. |
-| InputParameter | stringFormat | string | O formato de corda, incluindo o {0} parâmetro. Este parâmetro de entrada suporta [expressões de transformação de alegações de cordas.](string-transformations.md#string-claim-transformations-expressions)  |
+| InputParameter | stringFormat | string | O formato de corda, incluindo o {0}  parâmetro. Este parâmetro de entrada suporta [expressões de transformação de alegações de cordas.](string-transformations.md#string-claim-transformations-expressions)  |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido após esta transformação de alegações foi invocado. |
 
 Utilize esta transformação de sinistros para formatar qualquer cadeia com um parâmetro {0} . O exemplo a seguir cria um **nome de utilizadorPrincipalName**. Todos os perfis técnicos do fornecedor de identidade social, tais como `Facebook-OAUTH` chamadas **de Nome CreateUserPrincipal** para gerar um **nome de utilizadorPrincipalName**.
@@ -602,7 +602,7 @@ Utilize esta transformação de alegações para analisar o nome de domínio ap�
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **e-mailAddress**:joe@outlook.com
+  - **e-mailAddress**: joe@outlook.com
 - Reclamações de saída:
     - **domínio**: outlook.com
 
@@ -778,7 +778,7 @@ Por exemplo, a transformação de reclamações a seguir verifica se o valor da 
 
 ## <a name="stringcontains"></a>CordasContains
 
-Determinar se um sub-adcção especificado ocorre dentro da reclamação de entrada. O resultado é um novo Boolean ClaimType com um valor de `true` ou `false` . `true`se o parâmetro de valor ocorrer dentro desta cadeia, caso contrário, `false` .
+Determinar se um sub-adcção especificado ocorre dentro da reclamação de entrada. O resultado é um novo Boolean ClaimType com um valor de `true` ou `false` . `true` se o parâmetro de valor ocorrer dentro desta cadeia, caso contrário, `false` .
 
 | Item | TransformaçãoClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -860,7 +860,7 @@ Procura uma cadeia tipo de reclamação para obter um valor especificado e devol
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | O tipo de reclamação, que contém a corda. |
 | InputParameter | oldValue | string | A corda a ser revistada. |
-| InputParameter | newValue | string | A cadeia para substituir todas as ocorrências de`oldValue` |
+| InputParameter | newValue | string | A cadeia para substituir todas as ocorrências de `oldValue` |
 | OutputClaim | outputClaim | boolean | Uma corda que é equivalente à cadeia atual, exceto que todas as instâncias do velhoVal são substituídas por newValue. Se o velhoValue não for encontrado no caso atual, o método retorna a instância atual inalterada. |
 
 Por exemplo, normalizar um número de telefone, removendo os `-` caracteres

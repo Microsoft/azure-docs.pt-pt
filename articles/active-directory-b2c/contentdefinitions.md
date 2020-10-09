@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202862"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -44,7 +44,7 @@ O exemplo a seguir mostra o identificador de definição de conteúdo e a defini
     ...
 ```
 
-Os metadados do perfil técnico autoafirmado **localAccountSignUpWithLogonEmail** contém o identificador de definição de **conteúdoDefinitionReferenceId** definido para`api.localaccountsignup`
+Os metadados do perfil técnico autoafirmado **localAccountSignUpWithLogonEmail** contém o identificador de definição de **conteúdoDefinitionReferenceId** definido para `api.localaccountsignup`
 
 ```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -83,7 +83,7 @@ O elemento **DataUri** é utilizado para especificar o identificador de página.
 | ----- | ----------- |
 | `globalexception` | Apresenta uma página de erro quando se encontra uma exceção ou um erro. |
 | `providerselection`, `idpselection` | Lista os fornecedores de identidade que os utilizadores podem escolher durante a sin-in.  |
-| `unifiedssp` | Apresenta um formulário para iniciar sessão com uma conta local que se baseia num endereço de e-mail ou num nome de utilizador. Este valor também fornece a funcionalidade "mantenha-me em funções" e "Esqueci-me da sua palavra-passe?" ligação. |
+| `unifiedssp` | Apresenta um formulário para iniciar sessão com uma conta local que se baseia num endereço de e-mail ou num nome de utilizador. Este valor também fornece a funcionalidade "mantenha-me em funções" e "Esqueci-me da sua palavra-passe?" . |
 | `unifiedssd` | Apresenta um formulário para iniciar sessão com uma conta local que se baseia num endereço de e-mail ou num nome de utilizador. |
 | `multifactor` | Verifique os números de telefone utilizando texto ou voz durante a inscrição ou o registo. |
 | `selfasserted` | Apresenta um formulário para recolher dados de um utilizador. Por exemplo, permite que os utilizadores criem ou atualizem o seu perfil. |
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` `1.2.0` versão:
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements:**contract**:p age-name:version_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
 
 | Valor DataUri antigo | Novo valor DataUri |
 | ----------------- | ----------------- |
@@ -161,7 +161,7 @@ O elemento **LocalresourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Linguagem | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
+| Idioma | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
 | Resources LocalizadoreferenceId | Sim | O identificador do elemento **Recursos Locais.** |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou de inscrição com referência à localização para inglês, francês e espanhol:
@@ -201,7 +201,7 @@ O atributo ID do elemento **ContentDefinition** especifica o tipo de página que
 | **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfis** - Exibe um formulário que os utilizadores podem aceder para atualizar o seu perfil. Esta página é semelhante à página de inscrição da conta social, exceto para os campos de entrada de senha. |
 | **api.signuporsignin** | [unificado.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou inscrição unificada** - Trata do processo de inscrição e inscrição do utilizador. Os utilizadores podem usar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um exemplo de personalização da interface do utilizador utilizando definições de conteúdo, consulte:
 

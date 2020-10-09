@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, record, reprodução, matroska, mkv
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277468"
 ---
 # <a name="the-azure-kinect-playback-api"></a>A AZure Kinect reprodução API
@@ -134,13 +134,13 @@ Abaixo está uma lista de todas as tags predefinidos que podem ser incluídas nu
 
 Se uma etiqueta não existe, presume-se que tem o valor padrão.
 
-| Nome da Etiqueta                     | Valor Predefinido      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html)Campo | Notas     |
+| Nome da Etiqueta                     | Valor Predefinido      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Campo | Notas     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | "OFF"              | `color_format` / `color_resolution`  | Valores possíveis: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P", e assim por diante                                      |
 | `K4A_DEPTH_MODE`             | "OFF"              | `depth_mode` / `depth_track_enabled` | Valores possíveis: "OFF, "NFOV_UNBINNED", "PASSIVE_IR", e assim por diante                                                |
 | `K4A_IR_MODE`                | "OFF"              | `depth_mode` / `ir_track_enabled`    | Valores possíveis: "OFF", "ATIVE", "PASSIVO"                                                                    |
 | `K4A_IMU_MODE`               | "OFF"              | `imu_track_enabled`                  | Valores possíveis: "ON", "OFF"                                                                                   |
-| `K4A_CALIBRATION_FILE`       | "calibration.jsligado" | N/D                                  | Ver[`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_CALIBRATION_FILE`       | "calibration.jsligado" | N/D                                  | Ver [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
 | `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | Valor armazenado em nanossegundos, a API fornece microsegundos.                                                        |
 | `K4A_WIRED_SYNC_MODE`        | "AUTÓNOMO"       | `wired_sync_mode`                    | Valores possíveis: "AUTÓNOMO", "MESTRE", "SUBORDINADO"                                                         |
 | `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | Valor armazenado em nanossegundos, a API fornece microsegundos.                                                        |
@@ -148,10 +148,10 @@ Se uma etiqueta não existe, presume-se que tem o valor padrão.
 | `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/D                                  | Versão de firmware de profundidade do dispositivo, por exemplo "1.x.xx"                                                            |
 | `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/D                                  | Número de série do dispositivo de gravação                                                                                 |
 | `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | Consulte a [sincronização do timetamp](record-playback-api.md#timestamp-synchronization) abaixo.                       |
-| `K4A_COLOR_TRACK`            | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_DEPTH_TRACK`            | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_IR_TRACK`               | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
-| `K4A_IMU_TRACK`              | Nenhuma               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_COLOR_TRACK`            | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_DEPTH_TRACK`            | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_IR_TRACK`               | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
+| `K4A_IMU_TRACK`              | Nenhum               | N/D                                  | Ver [Formato de Ficheiro de Gravação - Identificação de faixas](record-file-format.md#identifying-tracks).                     |
 
 ## <a name="timestamp-synchronization"></a>Sincronização do timetamp
 

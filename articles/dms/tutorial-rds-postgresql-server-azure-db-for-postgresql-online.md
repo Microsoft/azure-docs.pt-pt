@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
 ms.openlocfilehash: 627c03409b0808ff2bcdbb24e961800e944dcfc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291304"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migrar RDS PostgreSQL para Azure DB para PostgreSQL on-line usando DMS
@@ -77,7 +77,7 @@ Para concluir este tutorial, precisa de:
 
 1. Extrair o esquema da base de dados de origem e aplicar na base de dados-alvo para completar a migração de todos os objetos de base de dados, tais como esquemas de tabelas, índices e procedimentos armazenados.
 
-    A maneira mais fácil de migrar apenas o esquema é usápg_dump com a opção -s. Para mais informações, consulte os [exemplos](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) no tutorial de pg_dump Postgres.
+    A maneira mais fácil de migrar apenas o esquema é usá pg_dump com a opção -s. Para mais informações, consulte os [exemplos](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) no tutorial de pg_dump Postgres.
 
     ```
     pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql

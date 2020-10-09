@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
 ms.openlocfilehash: fa457bf930978965b7ad37ea032e6517bda2e9d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291202"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS via Azure CLI
@@ -182,7 +182,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
        ```azurecli
        az extension list -otable
        ```
-       Deverá ver o resultado seguinte:
+       Deverá ver o seguinte resultado:
 
        ```output
        ExtensionType    Name

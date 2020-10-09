@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617008"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
@@ -61,7 +61,7 @@ Para a matriz de compatibilidade do sistema operativo e as versões de firmware/
 > Para as unidades do tipo II, apenas a versão SLES 12 SP2 OS é suportada neste momento. 
 
 
-**Base de Dados**
+**Base de dados**
 
 - Licenças e componentes de instalação de software para SAP HANA (plataforma ou edição empresarial).
 

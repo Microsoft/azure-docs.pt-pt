@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74083995"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do apoio de vários inquilinos para a recuperação de desastres da VMware para Azure com CSP
@@ -91,7 +91,7 @@ Configurar o servidor de configuração com uma conta que tenha uma função esp
 
 >| Objeto | Função | Observações |
 >| --- | --- | --- |
->| vCenter | Apenas leitura | Necessário apenas para permitir o acesso do vCenter para a gestão de diferentes objetos. Pode remover esta permissão se a conta nunca for fornecida a um inquilino ou utilizado para quaisquer operações de gestão no vCenter. |
+>| vCenter | Read-Only | Necessário apenas para permitir o acesso do vCenter para a gestão de diferentes objetos. Pode remover esta permissão se a conta nunca for fornecida a um inquilino ou utilizado para quaisquer operações de gestão no vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
 >| Agrupamento de anfitriões e anfitriões | Azure_Site_Recovery | Re-garante que o acesso está ao nível do objeto, de modo que apenas os anfitriões acessíveis têm VMs inquilinos antes de falhar e depois do failback. |
 >| Datastore e cluster de datastore | Azure_Site_Recovery | O mesmo que antes. |
@@ -136,7 +136,7 @@ Como mostrado no diagrama seguinte, a diferença arquitetónica numa solução d
 ![arquitetura-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Cenário de serviço gerido com vários vCenters**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais](site-recovery-role-based-linked-access-control.md) sobre o controlo de acesso baseado em funções na Recuperação do Local.
 - Saiba como configurar a [recuperação de VMware VMs para Azure](vmware-azure-tutorial.md).
 - Saiba mais sobre [o multi-arrendamento com CSP para VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md).

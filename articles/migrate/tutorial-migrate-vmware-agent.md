@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
 ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296149"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
@@ -100,7 +100,7 @@ O Serviço de mobilidade tem de ser instalado em cada computador que queira repl
 Prepare a conta da seguinte forma:
 
 1. Prepare um domínio ou uma conta local com permissões para instalar na VM.
-2. Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto na máquina local adicionando a entrada DWORD **LocalAccountTokenFilterPolicy,** com um valor de registo, em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\System**
+2. Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto na máquina local adicionando a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de registo, sob **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
 3. Para os VMs Linux, prepare uma conta raiz no servidor Linux de origem.
 
 

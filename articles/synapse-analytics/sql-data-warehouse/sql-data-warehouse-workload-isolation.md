@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: a9ebee68c7abd90f5fb3345eec1ee929fc30ca20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212314"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics, grupo de trabalho de carga de trabalho
@@ -50,7 +50,7 @@ Os utilizadores devem evitar uma solução de gestão da carga de trabalho que c
 
 ## <a name="workload-containment"></a>Contenção da carga de trabalho
 
-A contenção da carga de trabalho refere-se à limitação da quantidade de recursos que um grupo de carga de trabalho pode consumir.  A contenção da carga de trabalho é conseguida configurando o parâmetro CAP_PERCENTAGE_RESOURCE para menos de 100 na sintaxe do [GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) CREATE.  Considere o cenário em que os utilizadores precisam de ler o acesso ao sistema para que possam executar uma análise do "e se" através de consultas ad-hoc.  Este tipo de pedidos pode ter um impacto negativo em outras cargas de trabalho que estão a decorrer no sistema.  A configuração da contenção garante que a quantidade de recursos é limitada.
+A contenção da carga de trabalho refere-se à limitação da quantidade de recursos que um grupo de carga de trabalho pode consumir.  A contenção da carga de trabalho é conseguida configurando o parâmetro CAP_PERCENTAGE_RESOURCE para menos de 100 na sintaxe do [GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  CREATE.  Considere o cenário em que os utilizadores precisam de ler o acesso ao sistema para que possam executar uma análise do "e se" através de consultas ad-hoc.  Este tipo de pedidos pode ter um impacto negativo em outras cargas de trabalho que estão a decorrer no sistema.  A configuração da contenção garante que a quantidade de recursos é limitada.
 
 Configurar a contenção da carga de trabalho define implicitamente um nível máximo de concordância.  Com um CAP_PERCENTAGE_RESOURCE definido para 60% e um REQUEST_MIN_RESOURCE_GRANT_PERCENT definido para 1%, até um nível de 60-concuncy é permitido para o grupo de carga de trabalho.  Considere o método abaixo incluído para determinar a máxima concordância:
 
@@ -85,7 +85,7 @@ Os recursos partilhados do pool são os recursos não configurados para o isolam
 
 O acesso aos recursos na piscina partilhada é atribuído numa base [de importância.](sql-data-warehouse-workload-importance.md)  Os pedidos com o mesmo nível de importância terão acesso aos recursos partilhados do pool numa base inicial de in/first out.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: configurar o isolamento da carga de trabalho](quickstart-configure-workload-isolation-tsql.md)
 - [CRIAR GRUPO DE CARGA DE TRABALHO](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

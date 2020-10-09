@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74158203"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagir aos eventos do Azure SignalR Service
@@ -58,7 +58,7 @@ Aqui está um exemplo de um evento ligado à ligação do cliente:
 
 Para mais informações, consulte [o esquema de eventos do Serviço SignalR](../event-grid/event-schema-azure-signalr.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Grelha de Eventos e dê um teste aos eventos do Serviço Azure SignalR:
 

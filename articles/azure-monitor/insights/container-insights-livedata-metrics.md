@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
 ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85338021"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como ver métricas em tempo real
@@ -58,7 +58,7 @@ Os cálculos percentil funcionarão em aglomerados maiores para ajudar a identif
 
 Isto também ajuda a entender quais os nós que estão a ser empurrados para os seus limites e se a escala pode ser necessária. A utilização das agregações **Max** e **P95** pode ajudá-lo a ver se existem nós no cluster com alta utilização de recursos. Para mais investigação, mudaria novamente para a conta **Nodes.**
 
-### <a name="node-count"></a>Contagem de nó
+### <a name="node-count"></a>Contagem de nós
 
 Este gráfico de desempenho mapeia para um equivalente a invocar `kubectl get nodes` e mapear a coluna **STATUS** para um gráfico agrupado por tipos de estado.
 
@@ -80,6 +80,6 @@ Este gráfico de desempenho mapeia para um equivalente de invocar `kubectl get p
 >[!NOTE]
 >Os nomes de estado interpretados por `kubectl` podem não corresponder exatamente à tabela.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [exemplos de consulta de registos](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas e exemplos predefinidos para criar alertas, visualizações ou realizar uma análise mais aprofundada dos seus clusters.

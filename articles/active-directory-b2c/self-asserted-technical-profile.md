@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203457"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Azure Ative Directory B2C
@@ -26,7 +26,7 @@ Todas as interações no Azure Ative Directory B2C (Azure AD B2C) onde se espera
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo utilizado pela Azure AD B2C, para autoafirmação:`Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo utilizado pela Azure AD B2C, para autoafirmação: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 O exemplo a seguir mostra um perfil técnico autoafirmado para inscrição de e-mail:
 
@@ -197,9 +197,9 @@ Também pode chamar um perfil técnico de API REST com a sua lógica de negócio
 | Reforçar aVerificação | Não | Para inscrição ou edição de perfil, aplica a verificação de e-mail. Valores possíveis: `true` (padrão), ou `false` . |
 | definição.retripsLimit | Não | Controla o número de vezes que um utilizador pode tentar fornecer os dados que são verificados com um perfil técnico de validação. Por exemplo, um utilizador tenta inscrever-se com uma conta que já existe e continua a tentar até que o limite seja atingido.
 | SignUpTarget <sup>1</sup>| Não | O identificador de troca de alvo de inscrição. Quando o utilizador clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
-| definição.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão), ou`false` |
-| setting.showContinueButton | Não | Exibe o botão de continuidade. Valores possíveis: `true` (padrão), ou`false` |
-| definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão), ou`false` |
+| definição.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão), ou `false` |
+| setting.showContinueButton | Não | Exibe o botão de continuidade. Valores possíveis: `true` (padrão), ou `false` |
+| definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão), ou `false` |
 | definição.forgotPasswordLinkLocation <sup>2</sup>| Não| Apresenta o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.|
 | definição.enableRememberMe <sup>2</sup>| Não| Exibe o [Keep me assinado na](custom-policy-keep-me-signed-in.md) caixa de verificação. Valores possíveis: `true` , ou `false` (predefinição). |
 | IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |

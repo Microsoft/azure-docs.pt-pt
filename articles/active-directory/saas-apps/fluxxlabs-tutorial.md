@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826377"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Azure Ative Directory integração única (SSO) com Fluxx Labs
@@ -76,7 +76,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+1. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
 
@@ -155,7 +155,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Na caixa de texto **Callback Path,** tipo **/auth/saml/callback**.
 
-    d. Na caixa de texto **do Url de Serviço ao Consumidor de Afirmação (URL único sinal-on),** insira o valor URL de **resposta,** que inseriu no portal Azure.
+    d. Na caixa de texto **"Url de serviço ao consumidor de afirmação" (URL de Sign-On único),** insira o valor **URL de resposta,** que inseriu no portal Azure.
 
     e. Na caixa de texto **(Sp Entity ID)** insira o valor **identificador,** que inseriu no portal Azure.
 

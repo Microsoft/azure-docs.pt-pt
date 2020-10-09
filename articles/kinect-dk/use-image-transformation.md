@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: kinect, azul, sensor, sdk, sistema de coordenadas, calibração, projeto, nãoprojecto, transformação, rgb-d, nuvem de ponto
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277459"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Use transformações de imagem SDK sensor Azure Kinect
@@ -92,7 +92,7 @@ A função [k4a_transformation_depth_image_to_point_cloud()](https://microsoft.g
 
 [Exemplo de transformação](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/transformation)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você sabe como usar as funções de transformação de imagem do sensor Azure Kinect SDK, você também pode aprender sobre
 

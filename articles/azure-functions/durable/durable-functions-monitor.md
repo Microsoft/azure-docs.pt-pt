@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77562127"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor em Funções Duradouras - Amostra de observador meteorológico
@@ -17,7 +17,7 @@ O padrão do monitor refere-se a um processo *recorrente* flexível num fluxo de
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 Esta amostra monitoriza as condições meteorológicas atuais de um local e alerta um utilizador por SMS quando o céu está limpo. Pode utilizar uma função regular de acionamento do temporizador para verificar o tempo e enviar alertas. No entanto, um dos problemas com esta abordagem é **a gestão vitalícia.** Se apenas um alerta for enviado, o monitor deve desativar-se depois de ser detetado tempo limpo. O padrão de monitorização pode terminar a sua própria execução, entre outros benefícios:
 
@@ -175,7 +175,7 @@ A orquestração [terminará](durable-functions-instance-management.md) assim qu
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta amostra demonstrou como utilizar funções duráveis para monitorizar o estado de uma fonte externa utilizando [temporizadores duradouros](durable-functions-timers.md) e lógica condicional. A próxima amostra mostra como usar eventos externos e [temporizadores duráveis](durable-functions-timers.md) para lidar com a interação humana.
 

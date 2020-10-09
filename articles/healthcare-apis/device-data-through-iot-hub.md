@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308230"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receba dados do dispositivo através do Azure IoT Hub
@@ -48,10 +48,10 @@ Este passo define um ponto final para o qual o Hub IoT iria encaminhar os dados.
 
 Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto final:
 
-|Parâmetro PowerShell|Parâmetro CLI|Description|
+|Parâmetro PowerShell|Parâmetro CLI|Descrição|
 |---|---|---|
 |ResourceGroupName|resource-group|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Name|nome do hub|Nome do seu recurso IoT Hub.|
+|Nome|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Use um nome que gostaria de atribuir ao ponto final que está a ser criado.|
 |Tipo de ponto final|endpoint-type|Tipo de ponto final com o que o IoT Hub precisa de se conectar. Utilize o valor literal de "EventHub" para PowerShell e "eventhub" para CLI.|
 |EndpointResourceGroup|endpoint-recursos-grupo|Nome do grupo de recursos para o seu Conector Azure IoT para Azure API da FHIR para recurso FHIR. Pode obter este valor na página geral da Azure API para FHIR.|
@@ -63,10 +63,10 @@ Este passo define uma rota de mensagem utilizando o ponto final acima criado. Cr
 
 Aqui está a lista de parâmetros a utilizar com o comando para adicionar uma rota de mensagem:
 
-|Parâmetro PowerShell|Parâmetro CLI|Description|
+|Parâmetro PowerShell|Parâmetro CLI|Descrição|
 |---|---|---|
 |ResourceGroupName|g|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Name|nome do hub|Nome do seu recurso IoT Hub.|
+|Nome|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Nome do ponto final que criou acima.|
 |Nome da Rota|nome de rota|Um nome que pretende atribuir à rota de mensagem que está a ser criada.|
 |Origem|fonte-tipo|Tipo de dados para enviar para o ponto final. Utilize o valor literal de "DeviceMessages" para PowerShell e "devicemessages" para OCli.|

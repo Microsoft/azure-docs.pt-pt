@@ -1,7 +1,7 @@
 ---
-title: O que são as APIs de Pesquisa bing?
+title: Quais são as APIs de Pesquisa de Bing?
 titleSuffix: Azure Cognitive Services
-description: Use este artigo para saber sobre as APIs de Pesquisa de Bing e como pode permitir pesquisas cognitivas na Internet nas suas apps e serviços.
+description: Use este artigo para aprender sobre as APIs de Pesquisa de Bing e como pode ativar pesquisas cognitivas na Internet nas suas apps e serviços.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74775545"
 ---
-# <a name="what-are-the-bing-search-apis"></a>O que são as APIs de Pesquisa bing?
+# <a name="what-are-the-bing-search-apis"></a>Quais são as APIs de Pesquisa de Bing?
 
-As APIs de Pesquisa do Bing permitem-lhe criar aplicações e serviços ligados à Web capazes de encontrar páginas Web, imagens, notícias, localizações e muito mais sem anúncios. Ao enviar pedidos de pesquisa utilizando as APIs ou SDKs de Pesquisa bing, pode obter informações e conteúdos relevantes para pesquisas web. Use este artigo para saber sobre as diferentes APIs de pesquisa de Bing e como pode integrar pesquisas cognitivas nas suas aplicações e serviços. Os preços e os limites de taxas podem variar entre APIs.
+As APIs de Pesquisa do Bing permitem-lhe criar aplicações e serviços ligados à Web capazes de encontrar páginas Web, imagens, notícias, localizações e muito mais sem anúncios. Ao enviar pedidos de pesquisa utilizando as APIs ou SDKs de pesquisa de Bing Search, pode obter informações e conteúdos relevantes para pesquisas na Web. Use este artigo para aprender sobre as diferentes APIs de pesquisa de Bing e como você pode integrar pesquisas cognitivas nas suas aplicações e serviços. Os limites de preços e de tarifas podem variar entre as APIs.
 
-## <a name="the-bing-web-search-api"></a>A API de Pesquisa web bing
+## <a name="the-bing-web-search-api"></a>A API de Pesquisa Web Bing
 
-A [API bing Web Search](../Bing-Web-Search/overview.md) retorna páginas web, imagens, vídeo, notícias e muito mais. Pode filtrar as consultas de pesquisa enviadas para esta API para incluir ou excluir certos tipos de conteúdo.
+A [API de Pesquisa Web Bing](../Bing-Web-Search/overview.md) retorna páginas web, imagens, vídeo, notícias e muito mais. Pode filtrar as consultas de pesquisa enviadas a esta API para incluir ou excluir certos tipos de conteúdo.
 
-Considere utilizar a API bing Web Search em aplicações que possam precisar de procurar todos os tipos de conteúdo web relevantes. Se a sua aplicação procurar um tipo específico de conteúdo online, considere uma das APIs de pesquisa abaixo:
+Considere usar a API de Pesquisa Web Bing em aplicações que possam necessitar de procurar por todos os tipos de conteúdo web relevante. Se a sua aplicação procurar um tipo específico de conteúdo online, considere uma das APIs de pesquisa abaixo:
 
-## <a name="content-specific-bing-search-apis"></a>APIs de pesquisa de Bing específicos do conteúdo
+## <a name="content-specific-bing-search-apis"></a>APIs de pesquisa de Bing específicas de conteúdo
 
-As APIs de pesquisa de Bing retornam conteúdo específico da web como imagens, notícias, empresas locais e vídeos.
+As APIs de pesquisa bing seguintes devolvem conteúdo específico da web como imagens, notícias, negócios locais e vídeos.
 
 | Bing API | Descrição |
 | -- | -- |
-| [Pesquisa de Entidades](../Bing-Entities-Search/overview.md) | A API de Pesquisa de Entidades Bing devolve resultados de pesquisa contendo entidades, que podem ser pessoas, lugares ou coisas. Dependendo da consulta, a API devolverá uma ou mais entidades que satisfaçam a consulta de pesquisa. A consulta de pesquisa pode incluir indivíduos notáveis, empresas locais, marcos históricos, destinos, e muito mais. |
-| [Pesquisa de Imagens](../Bing-Image-Search/overview.md) | A API de Pesquisa de Imagem Bing permite-lhe pesquisar e encontrar imagens estáticas e animadas de alta qualidade semelhantes a [Bing.com/images](https://www.Bing.com/images). Pode refinar pesquisas para incluir ou excluir imagens por atributo, incluindo tamanho, cor, licença e frescura. Também pode pesquisar imagens de tendência, carregar imagens para obter informações sobre elas e apresentar pré-visualizações de miniaturas. |
-| [Pesquisa de Notícias](../Bing-News-Search/search-the-web.md) | A API de Pesquisa de Notícias Bing permite encontrar notícias semelhantes a [Bing.com/news](https://www.Bing.com/news). A API devolve artigos noticiosos de múltiplas fontes ou domínios específicos. Você pode pesquisar em todas as categorias para obter artigos de tendência, histórias de topo e manchetes. |
-| [Pesquisa de Vídeos](../Bing-Video-Search/overview.md) | A API de Pesquisa de Vídeo Bing permite-lhe encontrar vídeos através da web. Obtenha vídeos de tendência, conteúdo relacionado e pré-visualizações de miniaturas. |
-| [Pesquisa Visual](../Bing-visual-search/overview.md) | Faça upload de uma imagem ou use um URL para obter informações perspicazes sobre a mesma, como produtos, imagens e pesquisas relacionadas visualmente. |
- [Pesquisa de Negócios Locais](../bing-local-business-search/overview.md) | A API de Pesquisa de Negócios Local Bing permite que as suas aplicações encontrem informações de contacto e localização sobre empresas locais com base em consultas de pesquisa. |
+| [Pesquisa de entidades](../Bing-Entities-Search/overview.md) | A API de Pesquisa de Entidade Bing devolve os resultados da pesquisa que contêm entidades, que podem ser pessoas, locais ou coisas. Dependendo da consulta, a API devolverá uma ou mais entidades que satisfaçam a consulta de pesquisa. A consulta de pesquisa pode incluir indivíduos notáveis, empresas locais, marcos, destinos e muito mais. |
+| [Pesquisa de Imagens](../Bing-Image-Search/overview.md) | A API de Pesquisa de Imagem Bing permite-lhe procurar e encontrar imagens estáticas e animadas de alta qualidade semelhantes a [Bing.com/images](https://www.Bing.com/images). Pode refinar pesquisas para incluir ou excluir imagens por atributo, incluindo tamanho, cor, licença e frescura. Também pode pesquisar imagens de tendência, fazer upload de imagens para obter insights sobre elas e exibir pré-visualizações de miniaturas. |
+| [Pesquisa de Notícias](../Bing-News-Search/search-the-web.md) | A API de Pesquisa de Notícias Bing permite-lhe encontrar notícias semelhantes a [Bing.com/news](https://www.Bing.com/news). A API devolve artigos noticiosos de várias fontes ou domínios específicos. Você pode pesquisar através de categorias para obter artigos de tendência, histórias de topo e manchetes. |
+| [Pesquisa de Vídeos](../Bing-Video-Search/overview.md) | A API de Pesquisa de Vídeo Bing permite encontrar vídeos em toda a web. Obtenha vídeos de tendência, conteúdo relacionado e pré-visualizações de miniaturas. |
+| [Pesquisa Visual](../Bing-visual-search/overview.md) | Faça upload de uma imagem ou use um URL para obter informações perspicazes sobre o mesmo, como produtos, imagens e pesquisas relacionadas visualmente similares. |
+ [Pesquisa de negócios locais](../bing-local-business-search/overview.md) | A API de Pesquisa de Negócios Locais de Bing permite que as suas aplicações encontrem informações de contacto e localização sobre empresas locais com base em consultas de pesquisa. |
 
-## <a name="the-bing-custom-search-api"></a>A API de Pesquisa Personalizada bing
+## <a name="the-bing-custom-search-api"></a>A API de Pesquisa Personalizada Bing
 
-Criar uma instância de pesquisa personalizada com a [API](../Bing-Custom-Search/overview.md) de pesquisa personalizada do Bing permite-lhe criar uma experiência de pesquisa focada apenas em conteúdos e tópicos com os seus interesses. Por exemplo, depois de especificar os domínios, websites e páginas web específicas que bing irá pesquisar, bing Custom Search irá adaptar os resultados a esse conteúdo específico. Pode incorporar as APIs de Pesquisa Personalizada si, Imagem e Pesquisa de Vídeo bing custom para personalizar ainda mais a sua experiência de pesquisa.
+Criar um caso de pesquisa personalizado com a [API de Pesquisa Personalizada Bing](../Bing-Custom-Search/overview.md) permite-lhe criar uma experiência de pesquisa focada apenas em conteúdos e tópicos que lhe interessam. Por exemplo, depois de especificar os domínios, websites e páginas web específicas que o Bing irá pesquisar, a Bing Custom Search adaptará os resultados a esse conteúdo específico. Pode incorporar as APIs de pesquisa automática, imagem e pesquisa de vídeo bing para personalizar ainda mais a sua experiência de pesquisa.
 
-## <a name="additional-bing-search-apis"></a>APIs de pesquisa de bing adicional
+## <a name="additional-bing-search-apis"></a>APIs adicionais de pesquisa de Bing
 
-As seguintes APIs de Pesquisa bing permitem-lhe melhorar a sua experiência de pesquisa combinando-as com outras APIs de pesquisa bing.
+As APIs de pesquisa de Bing seguintes permitem-lhe melhorar a sua experiência de pesquisa, combinando-as com outras APIs de pesquisa de Bing.
 
 | API | Descrição |
 | -- | -- |
-| [Sugestão Automática do Bing](../Bing-Autosuggest/get-suggested-search-terms.md) | Melhore a experiência de pesquisa da sua aplicação com a API Bing Autosuggest, devolvendo pesquisas sugeridas em tempo real.  |
-| [Estatísticas bing](bing-web-stats.md) | Bing Statistics fornece análisepara as APIs de pesquisa de bing que a sua aplicação utiliza. Algumas das análises disponíveis incluem volume de chamadas, cordas de consulta superior e distribuição geográfica. |
+| [Sugestão Automática do Bing](../Bing-Autosuggest/get-suggested-search-terms.md) | Melhore a experiência de pesquisa da sua aplicação com a Bing Autosuggest API, devolvendo as pesquisas sugeridas em tempo real.  |
+| [Estatísticas Bing](bing-web-stats.md) | Bing Statistics fornece análise para as APIs de pesquisa de Bing que a sua aplicação utiliza. Algumas das análises disponíveis incluem volume de chamadas, cadeias de consulta superior e distribuição geográfica. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Detalhes de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) da API de pesquisa de bing
+* Bing Search Detalhes [de preços da](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) API
 * Os [Requisitos de apresentação e utilização do Bing](./use-display-requirements.md) especificam as utilizações aceitáveis do conteúdo e as informações obtidas por meio das APIs de Pesquisa do Bing.

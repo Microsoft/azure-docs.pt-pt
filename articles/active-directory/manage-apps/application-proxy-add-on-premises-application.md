@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 7d94b8604b2f947463dd760ca7baf25f19a15a26
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642151"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
@@ -199,7 +199,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
     | Campo | Descrição |
     | :---- | :---------- |
     | **Tempo de tempo da aplicação backend** | Desaça este valor **apenas** para Long se a sua aplicação for lenta a autenticar e a ligar. Por predefinição, o tempo limite de tempo da aplicação backend tem um comprimento de 85 segundos. Quando definido para longo, o tempo de reencaminhar é aumentado para 180 segundos. |
-    | **Use cookie apenas HTTP** | Desaprote este valor para **Sim** para ter cookies Proxy de aplicação incluem a bandeira HTTPOnly no cabeçalho de resposta HTTP. Se utilizar serviços de ambiente de trabalho remoto, desa um valor para **O**.|
+    | **Use HTTP-Only Cookie** | Desaprote este valor para **Sim** para ter cookies Proxy de aplicação incluem a bandeira HTTPOnly no cabeçalho de resposta HTTP. Se utilizar serviços de ambiente de trabalho remoto, desa um valor para **O**.|
     | **Use Secure Cookie**| Desagure este valor para **Sim** para transmitir cookies através de um canal seguro, como um pedido HTTPS encriptado.
     | **Use cookie persistente**| Mantenha este valor definido para **nº**. Utilize apenas esta definição para aplicações que não podem partilhar cookies entre processos. Para obter mais informações sobre as definições de cookies, consulte [as definições de Cookies para aceder a aplicações no local no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
     | **Traduzir URLs em Cabeçalhos** | Mantenha este valor como **Sim,** a menos que a sua aplicação tenha exigido o cabeçalho original do anfitrião no pedido de autenticação. |
@@ -234,7 +234,7 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 

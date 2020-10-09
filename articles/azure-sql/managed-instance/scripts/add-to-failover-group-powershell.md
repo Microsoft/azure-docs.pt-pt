@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 07/16/2019
 ms.openlocfilehash: cd954f07d733e4d80054d6f429a748ca59b5747d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273233"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Use o PowerShell para adicionar uma instância gerida a um grupo de failover 
@@ -37,7 +37,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados. Terá de remover o grupo de recursos duas vezes. Remover o grupo de recursos pela primeira vez removerá a instância gerida e os clusters virtuais, mas depois falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Executar o comando Remove-AzResourceGroup uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados. Terá de remover o grupo de recursos duas vezes. Remover o grupo de recursos pela primeira vez removerá a instância gerida e os clusters virtuais, mas depois falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Executar o Remove-AzResourceGroup comandar uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025304"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>Expandir uma nuvem Simple Nuvem
@@ -27,7 +27,7 @@ Como parte da nova configuração do cluster, o CloudSimple configura a infraest
 
 Uma Nuvem Privada pode ser expandida várias vezes. A expansão só pode ser feita quando se mantém dentro dos limites globais do nó. Cada vez que expande uma Nuvem Privada, adiciona-se ao cluster existente ou cria-se um novo.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os nós devem ser a provisionados antes de poder expandir a sua Nuvem Privada.  Para obter mais informações sobre os nós de provisionamento, consulte [nós de provisão para Solução VMware por CloudSimple - Artigo Azure.](create-nodes.md)  Para criar um novo cluster, você deve ter pelo menos três nós disponíveis do mesmo SKU.
 
@@ -54,7 +54,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 5. Clique **em Enviar** para expandir a nuvem privada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba mais sobre [Nuvens Privadas](cloudsimple-private-cloud.md)

@@ -8,10 +8,10 @@ keywords: serviço de aplicativos azure, web app, linux, janelas, estivador, rec
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312061"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Azure App Service usando um recipiente personalizado
@@ -64,7 +64,7 @@ Uma vez que a aplicação utiliza um tipo de letra instalado, não é possível 
 
 No Explorador de Soluções, clique com o botão direito do rato no projeto **CustomFontSample** e selecione **Adicionar** > **Suporte de Orquestração de Contentores**.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot da janela Solution Explorer mostrando o projeto CustomFontSample, Add e Container Orchestrator Support itens selecionados.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot mostrando a aplicação exibida no navegador predefinido.":::
 
 Selecione **Docker Compose**  >  **OK**.
 
@@ -98,13 +98,13 @@ Pode encontrar _InstallFont.ps1_ no projeto **CustomFontSample**. É um script s
 
 No Explorador de Soluções, clique com o botão direito do rato no projeto **CustomFontSample** e selecione **Publicar**.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot do Solution Explorer mostrando o projeto CustomFontSample e Publicar selecionado.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot mostrando a aplicação exibida no navegador predefinido.":::
 
 ### <a name="create-registry-and-publish"></a>Criar registo e publicar
 
 No assistente de publicação, selecione **Registo de Contentores**  >  **Crie a Nova Publicação do Registo de Contentores Azure**  >  **Publish**.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot do assistente de publicação que mostra o registo do contentor, crie o registo do novo azure e o botão Publicar selecionado.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot mostrando a aplicação exibida no navegador predefinido.":::
 
 ### <a name="sign-in-with-azure-account"></a>Iniciar sessão com a conta do Azure
 

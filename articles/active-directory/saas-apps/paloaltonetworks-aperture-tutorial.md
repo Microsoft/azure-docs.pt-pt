@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Diretório Ativo Azure com redes Palo Alto - Abertura
@@ -61,7 +61,7 @@ Para configurar e testar a Azure AD com a Palo Alto Networks - Abertura, execute
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-2. **[Configure as Redes Palo Alto - Abertura SSO](#configure-palo-alto-networks---aperture-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure as Redes Palo Alto - Abertura SSO](#configure-palo-alto-networks---aperture-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Criar Redes Palo Alto - Utilizador de teste de abertura](#create-palo-alto-networks---aperture-test-user)** - para ter uma contrapartida de Britta Simon em Palo Alto Networks - Abertura que está ligada à representação AD AZure do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -92,7 +92,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a Palo Alto Networks - Equipa de suporte ao Cliente de Abertura](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a709700deb59d28dbb8063410dba0a60954029d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Tutorial: Integração do Azure Ative Directory com o Asset Bank
@@ -94,7 +94,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Asset Bank, exec
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Asset Bank, exec
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente do Asset Bank](mailto:support@assetbank.co.uk) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Asset Bank, exec
 
     c. Logout URL
 
-### <a name="configure-asset-bank-single-sign-on"></a>Configurar o banco de ativos único sign-on
+### <a name="configure-asset-bank-single-sign-on"></a>Configure o Sign-On Único do Banco de Ativos
 
 Para configurar um único sign-on no lado **do Asset Bank,** você precisa enviar os **metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte do Banco de Ativos](mailto:support@assetbank.co.uk). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -158,7 +158,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **o Asset Bank**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Asset Bank**.
 

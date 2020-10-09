@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019626"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Ligue-se de instalações para CloudSimple usando ExpressRoute
@@ -21,7 +21,7 @@ Se já tiver uma ligação Azure ExpressRoute de uma localização externa (como
 
 [![Ligação ExpressRoute - Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 É necessário um bloco de endereços de rede **/29** para estabelecer a ligação Global Reach a partir do local.  O espaço de endereço /29 é utilizado para a rede de trânsito entre os circuitos ExpressRoute.  A rede de trânsito não deve sobrepor-se a nenhuma das suas redes virtuais Azure, redes no local ou redes CloudSimple Private Cloud.
 
@@ -77,6 +77,6 @@ Para estabelecer a ligação ExpressRoute, deve criar uma autorização no seu c
     > [!IMPORTANT]
     > O envio de uma rota predefinidora permite-lhe enviar todo o tráfego de internet da Private Cloud utilizando a sua ligação à Internet no local.  Para desativar a rota predefinida configurada na Nuvem Privada e utilizar a rota padrão de ligação no local, forneça os detalhes no bilhete de suporte.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre as ligações à rede Azure](cloudsimple-azure-network-connection.md)  

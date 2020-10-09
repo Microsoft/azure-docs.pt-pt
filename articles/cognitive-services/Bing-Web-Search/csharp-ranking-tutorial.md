@@ -13,10 +13,10 @@ ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933227"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Construa um cliente de pesquisa de aplicativos de consola em C #

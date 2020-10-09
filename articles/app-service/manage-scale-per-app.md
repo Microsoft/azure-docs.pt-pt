@@ -8,10 +8,10 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74672356"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedagem de alta densidade no Azure App Service usando escalamento por aplicação
@@ -65,7 +65,7 @@ Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers`é diferente de `$newapp.MaxNumberOfWorkers` . Por aplicação de escala utiliza `$newapp.SiteConfig.NumberOfWorkers` para determinar as características da escala da aplicação.
+> `$newapp.SiteConfig.NumberOfWorkers` é diferente de `$newapp.MaxNumberOfWorkers` . Por aplicação de escala utiliza `$newapp.SiteConfig.NumberOfWorkers` para determinar as características da escala da aplicação.
 
 ## <a name="per-app-scaling-using-azure-resource-manager"></a>Escala por aplicação usando Azure Resource Manager
 
@@ -137,7 +137,7 @@ Siga estes passos para configurar hospedagem de alta densidade para as suas apli
    - Uma aplicação de alta utilização pode definir **o númeroOfWorkers** para **3** para ter mais capacidade de processamento para essa aplicação.
    - Aplicações de baixo uso definiriam **o númeroOfWorkers** para **1**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure App Service planeia uma visão geral aprofundada](overview-hosting-plans.md)
 - [Introdução ao Ambiente do Serviço de Aplicações](environment/app-service-app-service-environment-intro.md)
