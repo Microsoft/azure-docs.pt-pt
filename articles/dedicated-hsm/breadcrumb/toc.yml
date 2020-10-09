@@ -2,6 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: HSM Dedicado
+    - name: Dedicated HSM
       tocHref: /azure/
       topicHref: /azure/dedicated-hsm/index

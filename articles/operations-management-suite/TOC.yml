@@ -8,13 +8,13 @@
       href: ../log-analytics/log-analytics-get-started.md
     - name: Automatização
       href: /azure/automation/
-    - name: Cópia de segurança
+    - name: Backup
       href: ../backup/backup-introduction-to-azure-backup.md
-    - name: Site Recovery
+    - name: Recuperação de sites
       href: ../site-recovery/site-recovery-overview.md
 - name: Procedimento
   items:
-    - name: Analisar
+    - name: Análise
       items:
         - name: Registos do Azure Monitor
           href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
@@ -22,7 +22,7 @@
       items:
         - name: Descrição geral da Automatização do Azure
           href: ../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-    - name: Cópia de segurança
+    - name: Backup
       items:
         - name: Descrição geral da Cópia de Segurança
           href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json

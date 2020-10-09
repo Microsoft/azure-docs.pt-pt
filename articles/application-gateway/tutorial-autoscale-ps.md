@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74011370"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Criar um gateway de aplicações que melhore o acesso a aplicações web
@@ -180,7 +180,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Utilize o Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicações. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
+Utilize Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicações. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
 
 `Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 

@@ -12,10 +12,10 @@ metadata:
   ms.author: tamram
   ms.date: 12/23/2019
   ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "75551901"
 landingContent:
 - title: Acerca do Armazenamento de tabelas

@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73044651"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar as políticas apache HBase em HDInsight com pacote de segurança empresarial
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 > * Criar tabelas num cluster HBase
 > * Testar as políticas do Ranger
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
@@ -239,7 +239,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou
 2. Na caixa **de pesquisa** no topo, escreva **HDInsight**. 
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial. 
-1. Clique em **Eliminar**. Clique **em Sim**.
+1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

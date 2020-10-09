@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Saiba mais sobre o Video Indexer dos Serviços de Multimédia do Azure
-summary: O Video Indexer dos Serviços de Multimédia do Azure é uma aplicação na cloud criada com base na Análise de Multimédia do Azure, no Azure Cognitive Search e nos Serviços Cognitivos (como a API Face, o Microsoft Translator, a API de Imagem Digitalizada e o Serviço de Discurso Personalizado). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer.
+summary: O Video Indexer dos Serviços de Multimédia do Azure é uma aplicação na cloud criada com base na Análise de Multimédia do Azure, no Azure Cognitive Search e nos Serviços Cognitivos (como a API Face, o Microsoft Translator, a API de Imagem Digitalizada e o Serviço de Voz Personalizada). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer.
 metadata:
   title: Documentação do Video Indexer dos Serviços de Multimédia do Azure
-  description: O Video Indexer dos Serviços de Multimédia do Azure é uma aplicação na cloud criada com base na Análise de Multimédia do Azure, no Azure Cognitive Search e nos Serviços Cognitivos (como a API Face, o Microsoft Translator, a API de Imagem Digitalizada e o Serviço de Discurso Personalizado). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer.
+  description: O Video Indexer dos Serviços de Multimédia do Azure é uma aplicação na cloud criada com base na Análise de Multimédia do Azure, no Azure Cognitive Search e nos Serviços Cognitivos (como a API Face, o Microsoft Translator, a API de Imagem Digitalizada e o Serviço de Voz Personalizada). Esta aplicação permite-lhe extrair as informações dos seus vídeos através dos modelos de vídeo e áudio do Video Indexer.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,10 +13,10 @@ metadata:
   ms.author: juliako
   ms.date: 02/18/2020
   ms.openlocfilehash: a3e1ec7b97d76287614b4e154143899acf7fd902
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "77485119"
 landingContent:
 - title: Sobre o Video Indexer dos Serviços de Multimédia do Azure

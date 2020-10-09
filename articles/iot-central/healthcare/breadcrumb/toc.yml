@@ -6,7 +6,7 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/index
       items:
-        - name: Centro de IoT
+        - name: IoT Central
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:

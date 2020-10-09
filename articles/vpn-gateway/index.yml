@@ -11,10 +11,10 @@ metadata:
   ms.author: cherylmc
   ms.date: 08/28/2019
   ms.openlocfilehash: 5a75e2ef81c2ea584e7819d278f63e5ae53b9ce9
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "70885616"
 landingContent:
 - title: Acerca do VPN Gateway
@@ -25,7 +25,7 @@ landingContent:
       url: vpn-gateway-about-vpngateways.md
   - linkListType: concept
     links:
-    - text: Ligações Ponto a Site
+    - text: Ligações ponto a site
       url: point-to-site-about.md
     - text: BGP
       url: vpn-gateway-bgp-overview.md
@@ -69,7 +69,7 @@ landingContent:
       url: vpn-gateway-about-vpn-gateway-settings.md
     - text: Encaminhamento ponto a site
       url: vpn-gateway-about-point-to-site-routing.md
-    - text: SKUs de gateway
+    - text: SKUs de Gateway
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
   - linkListType: how-to-guide
     links:

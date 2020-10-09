@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74186361"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual através do portal do Azure
@@ -56,7 +56,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |Subscrição| Selecione a sua subscrição|
    |Grupo de recursos | Selecione **Criar novo** e introduza *myResourceGroup*.|
    |Localização| Selecione **E.U.A. Leste**. |
-   |Nome da Sub-rede| Públicos|
+   |Nome da Sub-rede| Público|
    |Intervalo de Endereços da Sub-rede| 10.0.0.0/24|
    |Proteção contra DDoS| Básico|
    |Pontos finais de serviço| Desativado|
@@ -77,7 +77,7 @@ Os pontos finais de serviço são ativados por serviço, por sub-rede. Crie uma 
 
     |Definição|Valor|
     |----|----|
-    |Nome| Privada |
+    |Nome| Privado |
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos finais de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
@@ -219,7 +219,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
    |----|----|
    |Nome| myVmPublic|
    |Nome de utilizador|Introduza um nome de utilizador à sua escolha.|
-   |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscrição| Selecione a sua subscrição.|
    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
    |Localização| Selecione **East US**.|

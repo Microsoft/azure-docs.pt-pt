@@ -10,7 +10,7 @@
   items:
     - name: API REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
@@ -22,9 +22,9 @@
       href: concepts/send-ink-data.md
 - name: Amostras
   items:
-    - name: 'C# e Plataforma Universal do Windows (UWP)'
+    - name: C# e Plataforma Universal do Windows (UWP)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# e Windows Presentation Foundation (WPF)'
+    - name: C# e Windows Presentation Foundation (WPF)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: Aplicação de browser Javascript
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'

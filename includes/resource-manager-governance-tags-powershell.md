@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 069baf627c0230b6a4727c375494352ab3e6a803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184193"
 ---
 Para adicionar duas tags a um grupo de recursos, utilize o comando [Set-AzResourceGroup:](/powershell/module/az.resources/set-azresourcegroup)
@@ -86,7 +86,7 @@ Para combinar vários valores numa única etiqueta, utilize uma cadeia JSON.
 Set-AzResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
-Para adicionar uma nova etiqueta com vários valores sem perder as etiquetas existentes, deve recuperar as etiquetas existentes, utilizar uma corda JSON para a nova etiqueta e reaplicar a coleção de etiquetas:
+Para adicionar uma nova etiqueta com vários valores sem perder as etiquetas existentes, deve recuperar as etiquetas existentes, usar uma corda JSON para a nova etiqueta e reaplicar a coleção de tags:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag

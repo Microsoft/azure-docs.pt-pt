@@ -9,10 +9,10 @@ metadata:
   ms.service: mariadb
   ms.topic: landing-page
   ms.openlocfilehash: bd4bb93a43bd493069ed03f6197595fe782d605a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "70735382"
 landingContent:
 - title: Acerca do Azure Database for MariaDB
@@ -23,7 +23,7 @@ landingContent:
       url: overview.md
   - linkListType: whats-new
     links:
-    - text: Veja o nosso blogue
+    - text: Consultar o nosso blogue
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/bg-p/ADforMariaDB
 - title: Criar um servidor
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     links:
     - text: Criar uma Base de Dados com o portal do Azure
       url: tutorial-design-database-using-portal.md
-    - text: Criar uma Base de Dados com a CLI do Azure
+    - text: Conceber uma Base de Dados com a CLI do Azure
       url: tutorial-design-database-cli.md
 - title: Criar cópias de segurança e restaurar dados
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
       url: howto-data-in-replication.md
     - text: Criar uma réplica de leitura com o portal do Azure
       url: howto-read-replicas-portal.md
-- title: Programar com as APIs de programação
+- title: Codificar com APIs de programação
   linkLists:
   - linkListType: get-started
     links:

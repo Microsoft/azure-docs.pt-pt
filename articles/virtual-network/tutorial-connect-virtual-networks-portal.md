@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77201303"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
@@ -48,7 +48,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
-    |Region| Selecione **East US**.|
+    |Região| Selecione **East US**.|
     |Nome|myVirtualNetwork1|
 
 4. No separador **endereços IP, insira** 10.0.0.0/16 para o campo **Address Space.** Clique no botão **de sub-rede Adicionar** abaixo e introduza *a Sub-rede1* para **nome da sub-rede** e 10.0.0.0/24 para **a gama de endereços sub-rede**.
@@ -104,7 +104,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
     |Nome|myVm1|
     |Localização| Selecione **East US**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Selecione um tamanho VM para a opção **Tamanho.**
 5. Selecione os seguintes valores para em **Rede:**

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71121926"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Use R num contexto computo Spark em Azure HDInsight
@@ -363,7 +363,7 @@ Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a usar funções R em Apache Spark que estão a funcionar num cluster de serviços de aprendizagem automática HDInsight. Para obter mais informações, veja os seguintes artigos:
+Neste tutorial, aprendeu a usar funções R em Apache Spark que estão a funcionar num cluster de serviços de aprendizagem automática HDInsight. Para obter mais informações, veja os artigos seguintes:
 
 * [Opções de contexto computacional para um cluster de serviços de machine learning Azure HDInsight](r-server-compute-contexts.md)
 * [Funções R para faísca em Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
