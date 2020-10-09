@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9538e51e5dc623539909f9c9efa2ac1b86a2303b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88538302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Diretório Ativo Azure com Accredible
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com accredible, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure accredible Single Sign-On](#configure-accredible-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure accredible Single Sign-On](#configure-accredible-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Accredible test user](#create-accredible-test-user)** - ter uma contraparte de Britta Simon em Accredible que está ligada à representação AD AD do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com accredible, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Informações de assinatura de domínio e URLs credíveis](common/idp-intiated.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com accredible, execute os seguintes passos:
     > [!NOTE]
     > O valor URL de resposta não é real. De acordo com o papel do utilizador, utilize o valor do identificador respectivamente. Cada cliente tem um URL de resposta único, dependendo do seu ID. Contacte a [equipa de apoio da Accredible](mailto:support@accredible.com) para obter estes valores.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração Single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD com accredible, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-accredible-single-sign-on"></a>Configurar accredible Single Sign-On
+### <a name="configure-accredible-single-sign-on"></a>Configurar Sign-On single credível
 
 Para configurar um único sign-on no lado **accredible,** você precisa enviar os **metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Accredible](mailto:support@accredible.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -162,7 +162,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Accredible**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Accredible**.
 

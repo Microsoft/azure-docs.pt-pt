@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: ab62ed396be4832f09d5eb26e3d732a01bdb905d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cyara-cx-assurance-platform"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Cyara CX Assurance Platform

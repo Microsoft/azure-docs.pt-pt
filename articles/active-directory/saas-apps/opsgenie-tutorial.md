@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543912"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Azure Ative Directory integração única (SSO) com OpsGenie
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real, que é explicado mais tarde neste tutorial.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
@@ -129,7 +129,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique em **Definições**e, em seguida, clique no **sinal único no** separador .
    
-    ![Sinal único opsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
+    ![Sign-On Única OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
 
 3. Para ativar o SSO, **selecione Ativado**.
    

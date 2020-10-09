@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 089a4a2a8185251850d303fb9b7e9225c82c05f0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542722"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutorial: Azure Ative Directory integração única (SSO) com Blink
@@ -62,7 +62,7 @@ Para configurar e testar o Azure AD SSO com blink, complete os seguintes blocos 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o Blink SSO](#configure-blink-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+1. **[Configure o Blink SSO](#configure-blink-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create Blink test user](#create-blink-test-user)** - para ter uma contraparte de B.Simon em Blink que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Blink,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Blink Meetings espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------|  --------- |
     |   first_name    | user.givenname |
     |   second_name    | utilizador.sobrenome |
@@ -115,7 +115,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     f. Clique em **Guardar**.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

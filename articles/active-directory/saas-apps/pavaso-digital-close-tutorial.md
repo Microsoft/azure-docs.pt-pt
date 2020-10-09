@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutorial: Integração do Diretório Ativo Azure com Pavaso Digital Close
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o único sinal de Azure AD com [Nome da aplicação], é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sinal único de fecho único do Pavaso Digital Close](#configure-pavaso-digital-close-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o sinal único de fecho digital pavaso -](#configure-pavaso-digital-close-single-sign-on)** para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. Crie o utilizador de **[teste Pavaso Digital Close](#create-pavaso-digital-close-test-user)** - para ter uma contraparte de Britta Simon no Pavaso Digital Close que está ligada à representação AD AZure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Imediato Digital Pavaso](mailto:support@pavaso.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -163,7 +163,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Pavaso Digital Close**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Pavaso Digital Close**.
 

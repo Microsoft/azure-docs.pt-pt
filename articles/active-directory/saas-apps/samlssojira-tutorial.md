@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Jira por resolução GmbH
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar um único sinal, é necessário completar os seguintes passos:
 
 1. **[Configure o pedido de empresa Azure AD para um único sign-on](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** - Configure o pedido de empresa Azure AD para o único sign-on
-2. **[Configure o plugin SAML SSO da sua instância Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** - Configure as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o plugin SAML SSO do seu exemplo Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** - Configure as definições de Sign-On única no lado da aplicação.
 3. Criar um utilizador de **[teste AZure AD](#create-an-azure-ad-test-user)** - Criar um utilizador de teste em Azure AD.
 1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - Ativando o utilizador de teste para utilizar o único sinal no lado Azure.
 1. **[Criar o utilizador de teste em Jira](#create-the-test-user-also-in-jira)** - Criar um utilizador de teste de contraparte em Jira para o utilizador de teste Azure.
@@ -114,7 +114,7 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     > [!NOTE]
     > Para o Identificador, URL de resposta e URL de inscrição, substitua **\<server-base-url>** o URL base da sua instância Jira. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure. Se tiver algum problema, contacte-nos na [SAML SSO para a Jira através da resolução da equipa de apoio ao cliente da GmbH.](https://www.resolution.de/go/support)
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** faça o download do **Metadadata XML da Federação** e guarde-o para o seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** faça o download do **Metadados XML da Federação** e guarde-o para o seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -124,37 +124,37 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
 2. Passe por cima da engrenagem no lado direito e clique em **Gerir aplicações**.
     
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon1.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon1.png)
 
 3. Se for redirecionado para a página De Acesso ao Administrador, insira a **Palavra-passe** e clique no botão **Confirmar.**
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon2.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon2.png)
 
 4. Jira normalmente redireciona-o para o mercado atlassiano. Caso contrário, clique em **Localizar novas aplicações** no painel esquerdo. Procure por **SAML Single Sign On (SSO) para JIRA** e clique no botão **Instalar** para instalar o plugin SAML.
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/store.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store.png)
 
 5. A instalação plugin irá arrancar. Quando estiver pronto, clique no botão **Fechar.**
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/store-2.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-2.png)
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/store-3.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-3.png)
 
 6. Em seguida, clique em **Gerir**.
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/store-4.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-4.png)
     
 8. Em seguida, clique em **Configurar** para configurar o plugin acabado de instalar.
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/store-5.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-5.png)
 
 9. No assistente **de configuração do plugin singleSignOn SAML,** clique em **Adicionar novo IdP** para configurar a Azure AD como um novo Fornecedor de Identidade.
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon4.png) 
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon4.png) 
 
 10. Na página Escolha a sua página **de Fornecedor de Identidade SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon5a.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5a.png)
  
     a. Desagrafe **o AD AD** como o tipo IdP.
     
@@ -166,11 +166,11 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     
 11. Na página **de configuração do fornecedor de identidade,** clique em **Seguinte**.
  
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon5b.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5b.png)
 
 12. Na página **de Metadados IdP de Importação SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon5c.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5c.png)
 
     a. Clique no botão **De ficheiro Select Metadas XML** e escolha o ficheiro **Federação de Metadados XML** que descarregou anteriormente.
 
@@ -182,19 +182,19 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     
 13. Na página de id do utilizador e na página **de transformação,** clique no botão **Seguinte.**
 
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon5d.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5d.png)
     
 14. Na página de **criação e atualização** do Utilizador, clique em **Guardar & Seguinte** para guardar as definições.
     
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon6a.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6a.png)
     
 15. Na página **Test your settings,** clique em **"Saltar & configurar manualmente** para saltar o teste do utilizador por enquanto. Isto será realizado na secção seguinte e requer algumas configurações no portal Azure.
     
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon6b.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6b.png)
     
 16. Clique **em OK** para saltar o aviso.
     
-    ![Configurar um único sign-on](./media/samlssojira-tutorial/addon6c.png)
+    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -226,7 +226,7 @@ Nesta secção, adicione Britta Simon à aplicação da empresa, que lhe permite
 
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**. 
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, procure a aplicação da empresa que criou no início deste tutorial. Se está a seguir os passos do tutorial, chama-se **SAML SSO para Jira por resolução GmbH.** Se lhe deu outro nome, procure por esse nome.
 

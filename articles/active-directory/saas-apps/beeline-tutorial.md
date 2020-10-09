@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 571ab3c3943faf6ef5cbccb401a5416c327e3975
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88537840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutorial: Integração do Diretório Ativo Azure com a Beeline
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com a Beeline, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único beeline](#configure-beeline-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único da Beeline](#configure-beeline-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Beeline test user](#create-beeline-test-user)** - para ter uma contraparte de Britta Simon em Beeline que está ligada à representação AD AZure do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com a Beeline, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![BeeLine Domain e URLs informações únicas de súpr-on](common/idp-intiated.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com a Beeline, execute os seguintes passos:
 
     ![image](common/edit-attribute.png)
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD com a Beeline, execute os seguintes passos:
     ![URL de acesso ao utilizador de cópia](media/beeline-tutorial/client-access-url.png)
 
 
-### <a name="configure-beeline-single-sign-on"></a>Configurar o sign-on único beeline
+### <a name="configure-beeline-single-sign-on"></a>Configurar Sign-On únicas de beeline
 
 Para configurar um único sinal no lado **beeline,** é necessário enviar o **Metadados XML da Federação** descarregado e o URL de acesso ao utilizador a partir das propriedades do portal Azure para a equipa de [suporte da Beeline.](https://www.beeline.com/support-beeline/) Requerem os metadados e o URL de acesso ao utilizador para que a ligação SSO SAML seja configurada corretamente em ambos os lados.
 
@@ -160,7 +160,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Beeline**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Beeline**.
 

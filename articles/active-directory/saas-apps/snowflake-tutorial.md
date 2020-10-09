@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.openlocfilehash: 485e55d7a17027fa8b8ec1f313a326ddbc5f40eb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Diretório Ativo Azure com Floco de Neve
@@ -74,7 +74,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar um único sinal de Azure AD com Floco de Neve, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único](#configure-snowflake-single-sign-on)** do floco de neve - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o único sign-on](#configure-snowflake-single-sign-on)** do floco de neve - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Snowflake test user](#create-snowflake-test-user)** - para ter uma contraparte de Britta Simon em Snowflake que está ligada à representação AZure AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes pa
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes pa
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Snowflake](https://support.snowflake.net/s/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD single sign-on com Snowflake, execute os seguintes pa
 
     c. Logout URL
 
-### <a name="configure-snowflake-single-sign-on"></a>Configurar snowflake single sign-on
+### <a name="configure-snowflake-single-sign-on"></a>Configure snowflake Single Sign-On
 
 1. Numa janela diferente do navegador web, faça login em Snowflake como Administrador de Segurança.
 
@@ -188,7 +188,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Snowflake**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **Snowflake**.
 

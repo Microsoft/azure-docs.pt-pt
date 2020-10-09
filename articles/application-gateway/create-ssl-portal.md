@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: victorh
 ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245745"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicações com rescisão de TLS usando o portal Azure
@@ -260,7 +260,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
     ![Testar o URL base no gateway de aplicação](./media/create-ssl-portal/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos conexões. Para tal, selecione o grupo de recursos e selecione **Eliminar o grupo de recursos**.
 

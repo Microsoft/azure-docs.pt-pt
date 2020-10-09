@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "65827228"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configure os controlos de acesso para o explorador de telemetria Time Series Insights

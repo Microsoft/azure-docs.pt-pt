@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
 ms.openlocfilehash: a8366699988d2a2c14fbdf38b5a1226ba5db0d56
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543810"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Oracle Fusion ERP
@@ -61,7 +61,7 @@ Para configurar e testar o Azure AD SSO com o Oracle Fusion ERP, complete os seg
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o Oracle Fusion ERP SSO](#configure-oracle-fusion-erp-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configure o Oracle Fusion ERP SSO](#configure-oracle-fusion-erp-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create Oracle Fusion ERP test user](#create-oracle-fusion-erp-test-user)** - para ter uma contraparte de B.Simon em Oracle Fusion ERP que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -71,7 +71,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ERP da Oracle Fusion,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente ERP da Oracle Fusion](https://www.oracle.com/applications/erp/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

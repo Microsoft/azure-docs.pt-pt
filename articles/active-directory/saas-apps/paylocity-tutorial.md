@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543657"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Azure Ative Directory integração única (SSO) com Paylocity
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Paylocity espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas você tem que atualizar estes atributos com os valores reais.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------------- |
     | PartnerID | `P8000010` |
     | PaylocityUser | `user.mail`|

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: db47849575c097cf56824b623dddbb6e0835d1b4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543618"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integrar RunMyProcess com Diretório Ativo Azure
@@ -59,7 +59,7 @@ Configure e teste Azure AD SSO com RunMyProcess usando um utilizador de teste ch
 Para configurar e testar o Azure AD SSO com o RunMyProcess, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o RunMyProcess SSO](#configure-runmyprocess-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o RunMyProcess SSO](#configure-runmyprocess-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 5. **[Create RunMyProcess test user](#create-runmyprocess-test-user)** - para ter uma contraparte de B.Simon no RunMyProcess que está ligada à representação AD AZure do utilizador.
@@ -71,7 +71,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **RunMyProcess,** encontre a secção **Gerir** e selecione **'Único sinal de sismo'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -80,9 +80,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente RunMyProcess](mailto:support@runmyprocess.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte do Cliente RunMyProcess](mailto:support@runmyprocess.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -96,11 +96,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No painel de navegação à esquerda, clique em **'Conta'** e selecione **Configuração.**
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. Aceda à secção **de método de autenticação** e execute abaixo dos passos:
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. Como **Método**, selecione **SSO com Samlv2**.
 

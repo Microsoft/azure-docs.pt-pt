@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60334799"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple Virtual Array Update 0.4 notas de lançamento
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As seguintes notas de lançamento identificam os problemas abertos críticos e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array.
 
@@ -53,7 +53,7 @@ A atualização 0.4 é principalmente uma construção de correção de erros ju
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Desempenho de backup|Nos lançamentos anteriores, as cópias de segurança que envolvem um grande número de ficheiros demorariam muito tempo a ser concluídas (na ordem dos dias). Nesta versão, tanto os backups completos como incrementais vêem uma redução significativa no tempo de conclusão. |
 | 2 |Pacote de apoio|As estatísticas de disco, CPU, memória, rede e nuvem estão agora registadas nos registos de Suporte, tornando os pacotes de Suporte muito eficazes na resolução de problemas de qualquer problema do dispositivo.|
@@ -65,7 +65,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores. 
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |

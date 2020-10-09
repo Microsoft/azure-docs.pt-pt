@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.openlocfilehash: cc7c591711866dffe9f0c3ae0d6da41e67d6b7ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88536902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bis"></a>Tutorial: Azure Ative Directy integração única (SSO) com o BIS

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
 ms.openlocfilehash: c446d5d6c0d4acee00668368160d8859cdd637bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544881"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-synchronet-click"></a>Tutorial: Azure Ative Directory integração única (SSO) com SynchroNet CLICK

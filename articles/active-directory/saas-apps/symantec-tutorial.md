@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.openlocfilehash: 7e2087fdd5568156a96645b25cb105cc5f3ca6b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Azure Ative Directory com o Symantec Web Security Service (WSS)
@@ -96,7 +96,7 @@ Para configurar o Azure AD com o Symantec Web Security Service (WSS), execute os
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -111,11 +111,11 @@ Para configurar o Azure AD com o Symantec Web Security Service (WSS), execute os
     > [!NOTE]
     > Contacte [a Symantec Web Security Service (WSS) A equipa de suporte](https://www.symantec.com/contact-us) ao cliente f os valores para o URL de **identificação** e **resposta** não estão a funcionar por alguma razão.. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-symantec-web-security-service-wss-single-sign-on"></a>Configurar o Serviço de Segurança Web Symantec (WSS) único sinal
+### <a name="configure-symantec-web-security-service-wss-single-sign-on"></a>Configurar o Serviço de Segurança Web Symantec (WSS) Sign-On
 
 Para configurar um único sinal no lado do Symantec Web Security Service (WSS), consulte a documentação on-line da WSS. O **Metdata XML da Federação** descarregado terá de ser importado para o portal WSS. Contacte a equipa de suporte do [Symantec Web Security Service (WSS)](https://www.symantec.com/contact-us) se precisar de assistência com a configuração no portal WSS.
 
@@ -150,7 +150,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Symantec Web Security Service (WSS)**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **o Symantec Web Security Service (WSS)**.
 

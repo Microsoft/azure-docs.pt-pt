@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60735056"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar os carregamentos de ficheiros do Hub IoT com o portal do Azure

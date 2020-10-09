@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61454504"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ligue o seu dispositivo ao acelerador de solução de monitorização remota (Linux)

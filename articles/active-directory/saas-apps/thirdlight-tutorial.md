@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integração do Diretório Ativo Azure com o ThirdLight
@@ -53,7 +53,7 @@ Para configurar a integração do ThirdLight em Azure AD, precisa de adicionar T
 
 2. Ir para **aplicações da Empresa**  >  **Todas as aplicações**:
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
@@ -91,7 +91,7 @@ Para configurar o Azure AD single sign-on com ThirdLight, tome estes passos:
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD single sign-on com ThirdLight, tome estes passos:
        > [!NOTE]
        > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Contacte a [equipa de apoio da ThirdLight](https://www.thirdlight.com/support) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na **configuração de um único Sessão de Sessão com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **descarregamento** ao lado **do Metadados XML da Federação,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador:
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o link **de descarregamento** ao lado **do Metadados XML da Federação,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador:
 
     ![Link de descarregamento de certificado](common/metadataxml.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD single sign-on com ThirdLight, tome estes passos:
 
 1. Ir para a Administração do Sistema **de Configuração**  >  **System Administration**  >  **SAML2:**
 
-    ![Administração do Sistema](./media/thirdlight-tutorial/ic805843.png "Administração do Sistema")
+    ![Administração de Sistema](./media/thirdlight-tutorial/ic805843.png "Administração de Sistema")
 
 1. Na secção de configuração SAML2, tome os seguintes passos.
   
@@ -174,7 +174,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **ThirdLight**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **ThirdLight**.
 

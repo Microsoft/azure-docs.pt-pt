@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.openlocfilehash: c6e70268dcc252964a0b046488c399f474660ca5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Diretório Ativo Azure com a Formação de Sensibilização para a Segurança KnowBe4
@@ -95,7 +95,7 @@ Para configurar o Azure AD com o KnowBe4 Security Awareness Training, execute os
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com o KnowBe4 Security Awareness Training, execute os
     > [!NOTE]
     > Isto é sensível a casos.
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD com o KnowBe4 Security Awareness Training, execute os
 
     c. Logout URL
 
-### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>Configurar KnowBe4 Formação de Sensibilização para a Segurança Único Sign-On
+### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>Configure KnowBe4 Formação de Sensibilização para a Segurança Sign-On
 
 Para configurar um único sign-on no lado **do KnowBe4 Security Awareness Training,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipe de apoio de [formação de consciência de segurança KnowBe4](mailto:support@KnowBe4.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -162,7 +162,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **KnowBe4 Security Awareness Training**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **KnowBe4 Security Awareness Training**.
 

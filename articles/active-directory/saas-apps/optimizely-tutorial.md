@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Ative Directory com a Optimizely
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com a Optimizely, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure optimizamente o sign-on único](#configure-optimizely-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure optimizamente o sign-on único](#configure-optimizely-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Crie o utilizador de teste Optimizely](#create-optimizely-test-user)** - para ter uma contraparte de Britta Simon em Optimizely que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
 6. Além de acima, a aplicação Optimizely espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ---------------| --------------- |
     | e-mail | user.mail |
     
@@ -136,7 +136,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
     exemplo, Clique em **Guardar**.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -150,7 +150,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-optimizely-single-sign-on"></a>Configurar otimizar o sign-on único
+### <a name="configure-optimizely-single-sign-on"></a>Configurar otimizar Sign-On única
 
 1. Para configurar um único sign-on no lado **Optimizely,** contacte o seu Gestor de Conta Optimizely e forneça o Certificado descarregado **(Base64)** e URLs copiados apropriados.
 
@@ -203,7 +203,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Optimizely**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, **selecione Optimizely**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 4ff6154e17408b9e2daaf3c81321ae31693de3aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Azure Ative Directory integração única de sign-on com Citrix NetScaler (autenticação baseada em Kerberos)
@@ -91,7 +91,7 @@ Para ativar o Azure AD SSO utilizando o portal Azure, complete estes passos:
 
 1. No painel **de método de inscrição,** selecione **SAML**.
 
-1. No **set up Single Sign-On com painel SAML,** selecione o ícone **de edição** de caneta para **configuração SAML básica** para editar as definições.
+1. Na **configuração single Sign-On com painel SAML,** selecione o ícone de **edição** de caneta para **configuração SAML básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Para ativar o Azure AD SSO utilizando o portal Azure, complete estes passos:
     > * Os URLs que são usados nesta secção não são valores reais. Atualize estes valores com os valores reais para Identifier, URL de resposta e URL de inscrição. Contacte a [equipa de apoio ao cliente Citrix NetScaler](https://www.citrix.com/contact/technical-support.html) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
     > * Para criar SSO, os URLs devem estar acessíveis a partir de sites públicos. Tem de ativar a firewall ou outras definições de segurança do lado Citrix NetScaler para escorrê-lo Azure AD para colocar o token no URL configurado.
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** para **url de metadados da Federação de Aplicações,** copie o URL e guarde-o no Bloco de Notas.
+1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** para **url de metadados da Federação de Aplicações,** copie o URL e guarde-o no Bloco de Notas.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -281,7 +281,7 @@ Para criar um servidor virtual de autenticação:
 
     1. Selecione **OK**.
     
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 ### <a name="configure-the-authentication-virtual-server-to-use-azure-ad"></a>Configurar o servidor virtual de autenticação para usar o Azure AD
 

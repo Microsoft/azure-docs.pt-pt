@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 6797d169dbdfdd63ae9cc96ac9fed133bc8d1adc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544487"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Tutorial: Azure Ative Directory integração única (SSO) com Concur Travel and Expense
@@ -34,7 +34,7 @@ Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * Assinatura Concur Viagens e Despesas.
-* Uma função de "Administrador da Empresa" na sua conta de utilizador Concur. Pode testar se tem o acesso certo indo para a [Ferramenta de Self-Service Concur SSO](https://www.concursolutions.com/nui/authadmin/ssoadmin). Se não tiver acesso, contacte o suporte do Concur ou gestor de projetos de implementação. 
+* Uma função de "Administrador da Empresa" na sua conta de utilizador Concur. Pode testar se tem o acesso certo indo para [a Ferramenta de Self-Service SSO Concur](https://www.concursolutions.com/nui/authadmin/ssoadmin). Se não tiver acesso, contacte o suporte do Concur ou gestor de projetos de implementação. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O identificador (ID da entidade) e o URL de resposta (URL do Serviço ao Consumidor de Afirmação) são específicos da região. Por favor, selecione com base no datacenter da sua entidade Concur. Se não conhecer o datacenter da sua entidade Concur, contacte o suporte da Concur. 
 
-5. No **set up Single Sign-On com** a página SAML, clique no ícone edit/pen para **atributo do utilizador** para editar as definições. O identificador de utilizador único tem de corresponder ao login_id do utilizador Concur. Normalmente, deve alterar **o nome user.userprincipal para** **user.mail**.
+5. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Atributo do Utilizador** para editar as definições. O identificador de utilizador único tem de corresponder ao login_id do utilizador Concur. Normalmente, deve alterar **o nome user.userprincipal para** **user.mail**.
 
     ![Editar atributo do utilizador](common/edit-attribute.png)
 
@@ -149,7 +149,7 @@ Para ativar o SSO móvel Concur, tem de dar URL de acesso ao **utilizador**da eq
 1. Copie **URL de acesso ao utilizador** e dê este URL para suporte concur
 
 > [!NOTE]
-> A opção self-Service para configurar o SSO não está disponível, por isso trabalhe com a equipa de suporte da Concur para ativar o SSO móvel. 
+> Self-Service opção de configurar o SSO não está disponível, por isso trabalhe com a equipa de suporte da Concur para ativar o SSO móvel. 
 
 ## <a name="test-sso"></a>Teste SSO 
 

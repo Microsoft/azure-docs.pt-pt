@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 61807f90caad9e6be2a25e54dcaa837595afc729
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Diretório Ativo Azure com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific
@@ -73,7 +73,7 @@ Para um único sinal de funcionamento, é necessário estabelecer uma relação 
 Para configurar e testar o único sinal de Adure com o Sistema de Monitorização da Temperatura Sem Fios SensoScientific, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sistema de monitorização da temperatura sem fios SensoScientific Single Sign-On](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)** - para configurar as definições de sign-on única no lado da aplicação.
+2. **[Configure o sistema de monitorização da temperatura sem fios SensoScientific Single Sign-On](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. Crie o utilizador do Sistema de **[Monitorização da Temperatura Sem Fios SensoScientific](#create-sensoscientific-wireless-temperature-monitoring-system-test-user)** - para ter uma contraparte de Britta Simon no Sistema de Monitorização da Temperatura Sem Fios SensoScientific que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Sistema de Monitorização da Temperatura Sem F
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com o Sistema de Monitorização da Temperatura Sem F
 
     ![SensoScientific Wireless Temperature Monitoring System Domain and URLs single sign-on](common/preintegrated.png)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -115,21 +115,21 @@ Para configurar o Azure AD com o Sistema de Monitorização da Temperatura Sem F
 
     c. Logout URL
 
-### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Configurar sensoScientific sistema de monitorização da temperatura sem fios único sinal-on
+### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Configurar o sistema de monitorização da temperatura sem fios SensoScientific Sign-On
 
 1. Inscreva-se na aplicação sensoScientific Wireless Temperature Monitoring System como administrador.
 
 1. No menu de navegação no topo, clique em **Configuração** e goto **Configure** sob **o Signo Único Para** abrir o único sinal nas definições e executar os seguintes passos:
 
-    ![Configurar um único sign-on](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png)
+    ![Configurar Sign-On Individuais](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png)
 
     a. **Selecione nome do emitente** como Azure AD.
 
     b. Na caixa de texto URL do **emitente,** cole o **identificador Azure AD** que copiou do portal Azure.
 
-    c. Na caixa de texto **URL de serviço único,** cole o URL de **login** que copiou do portal Azure.
+    c. Na caixa de texto **URL de serviço de Sign-On único,** cole o URL de **login** que copiou do portal Azure.
 
-    d. Na caixa de texto **URL de serviço de súbtar único,** cole o URL **logout** que copiou do portal Azure.
+    d. Na caixa de texto **URL de serviço de Sign-Out única,** cole o URL **logout** que copiou do portal Azure.
 
     e. Navegue no certificado que descarregou do portal Azure e faça o upload aqui.
 
@@ -165,7 +165,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SensoScientific Wireless Temperature Monitoring System**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, **selecione SensoScientific Wireless Temperature Monitoring System**.
 

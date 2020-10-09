@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 4ec0a3082b5978e0c540a2e0a70843081201a29b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Azure Ative Directory com AOVEit Transfer - Integração AZURE AD
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com a MOVEit Transfer - Integração AD Azure, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure A Transferência de MOVEit - Integração AD AD Única Sign-On](#configure-moveit-transfer---azure-ad-integration-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure A Transferência de MOVEit - Integração AD AD Única Sign-On](#configure-moveit-transfer---azure-ad-integration-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Criar MOVEit Transfer - utilizador de teste de integração AD Azure](#create-moveit-transfer---azure-ad-integration-test-user)** - para ter uma contrapartida de Britta Simon na MOVEit Transfer - Integração AZURE AD que está ligada à representação AD Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com a MOVEit Transfer - Integração AD Azure, execut
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,9 +114,9 @@ Para configurar o Azure AD com a MOVEit Transfer - Integração AD Azure, execut
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://contoso.com`
 
     > [!NOTE]
-    > O valor **url de inscrição** não é real. Atualize o valor com o URL de inscrição real. Contacte [a MOVEit Transfer - Azure AD integração Equipa de suporte ao cliente](https://community.ipswitch.com/s/support) para obter o valor. Pode descarregar o **ficheiro de metadados do Fornecedor** de Serviços a partir do URL de **Metadados do Fornecedor** de Serviços, que é explicado mais tarde na secção **Configure MOVEit Transfer - Azure AD integração única sign-on** do tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor **url de inscrição** não é real. Atualize o valor com o URL de Sign-On real. Contacte [a MOVEit Transfer - Azure AD integração Equipa de suporte ao cliente](https://community.ipswitch.com/s/support) para obter o valor. Pode descarregar o **ficheiro de metadados do Fornecedor** de Serviços a partir do URL de **Metadados do Fornecedor** de Serviços, que é explicado mais tarde na secção **Configure MOVEit Transfer - Azure AD integração única sign-on** do tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com a MOVEit Transfer - Integração AD Azure, execut
 
     c. Logout URL
 
-### <a name="configure-moveit-transfer---azure-ad-integration-single-sign-on"></a>Configure Transferência MOVEit - Integração AD AD única sign-on
+### <a name="configure-moveit-transfer---azure-ad-integration-single-sign-on"></a>Configure MOVEit Transfer - Azure AD integração single Sign-On
 
 1. Inscreva-se no seu inquilino da MOVEit Transfer como administrador.
 
@@ -149,7 +149,7 @@ Para configurar o Azure AD com a MOVEit Transfer - Integração AD Azure, execut
    * Verifique se **a entidadeID** corresponde **ao identificador** na secção **de Configuração Básica SAML** .
    * Verifique **afirmaçõesConsumerService** Location URL corresponde **a URL de resposta** na secção de **configuração básica saml.**
     
-     ![Configure único sinal no lado da aplicação](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Configurar Sign-On única no lado da app](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 5. Clique no botão **Adicionar Fornecedor de Identidade** para adicionar um novo Fornecedor de Identidade Federado.
 
@@ -208,7 +208,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **MOVEit Transfer - Azure AD integração**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **MOVEit Transfer - Integração AD Azure**.
 

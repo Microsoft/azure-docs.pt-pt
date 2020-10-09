@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543844"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integrar consola de infraestruturas de nuvem oracle com diretório ativo Azure
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **oracle Cloud Infrastructure Console,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -93,9 +93,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
       Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
-      > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do cliente da Oracle Cloud Infrastructure Console](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+      > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte do cliente da Oracle Cloud Infrastructure Console](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/metadataxml.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544048"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Azure Ative Directory integração única (SSO) com Moxtra
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Moxtra espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção 'Reclamações de Utilizador' no diálogo 'Atributos do Utilizador', execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------------- | -------------------- |    
     | nome de primeiro nome | user.givenname |
     | último nome | utilizador.sobrenome |
@@ -156,11 +156,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Na barra de ferramentas à esquerda, clique na **Consola de Admin > S.A. 'Sign-on' único SAML**e, em seguida, clique em **New**.
    
-    ![Configurar um único sign-on](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Na página **SAML,** execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Na caixa de texto **Name,** digite um nome para a sua configuração (por exemplo: *SAML*). 
   
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador chamado B.simon em Moxtra.
 
 1. Na barra de ferramentas à esquerda, clique na **Consola de Admin > Gestão do Utilizador**, e, em seguida, Adicione o **Utilizador**.
    
-    ![Configurar um único sign-on](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. No diálogo **do Utilizador Adicionar,** execute os seguintes passos:
   

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Soloinsight-CloudGate SSO Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Soloinsight-CloudGate SSO.
+title: 'Tutorial: Integração do Azure Ative Directory com Soloinsight-CloudGate SSO [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e Soloinsight-CloudGate SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 5ac0f0777ea341036950550e19c5d8e7fb71a91f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545068"
 ---
-# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integrar Soloinsight-CloudGate SSO com Diretório Ativo Azure
+# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integre Soloinsight-CloudGate SSO com diretório ativo Azure
 
-Neste tutorial, você vai aprender a integrar Soloinsight-CloudGate SSO com Azure Ative Directory (Azure AD). Quando integrar o Soloinsight-CloudGate SSO com Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Soloinsight-CloudGate SSO com Azure Ative Directory (Azure AD). Quando integra Soloinsight-CloudGate SSO com AZure AD, pode:
 
-* Control em Azure AD que tem acesso a Soloinsight-CloudGate SSO.
-* Ative os seus utilizadores a serem automaticamente inscritos no Soloinsight-CloudGate SSO com as suas contas AD Azure.
+* Controlo em Azure AD que tem acesso a Soloinsight-CloudGate SSO.
+* Permita que os seus utilizadores sejam automaticamente inscritos para Soloinsight-CloudGate SSO com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -33,15 +33,15 @@ Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consult
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode ter um mês de teste gratuito [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Soloinsight-CloudGate SSO única subscrição ativada (SSO).
+* Soloinsight-CloudGate assinatura única ativada sSO (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. Soloinsight-CloudGate SSO suporta SSO iniciado **SP.**
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. Soloinsight-CloudGate SSO suporta sSO iniciado **SP.**
 
-## <a name="adding-soloinsight-cloudgate-sso-from-the-gallery"></a>Adicionar Soloinsight-CloudGate SSO da galeria
+## <a name="adding-soloinsight-cloudgate-sso-from-the-gallery"></a>Adicionando Soloinsight-CloudGate SSO da galeria
 
-Para configurar a integração do Soloinsight-CloudGate SSO em Azure AD, é necessário adicionar o Soloinsight-CloudGate SSO da galeria à sua lista de aplicações geridas para o SaaS.
+Para configurar a integração de Soloinsight-CloudGate SSO em AD Azure, você precisa adicionar Soloinsight-CloudGate SSO da galeria à sua lista de aplicações geridas saaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
@@ -52,15 +52,15 @@ Para configurar a integração do Soloinsight-CloudGate SSO em Azure AD, é nece
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Configure e teste Azure AD SSO com Soloinsight-CloudGate SSO usando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Soloinsight-CloudGate SSO.
+Configure e teste Azure AD SSO com Soloinsight-CloudGate SSO utilizando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Soloinsight-CloudGate SSO.
 
 Para configurar e testar o Azure AD SSO com Soloinsight-CloudGate SSO, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure soloinsight-CloudGate SSO](#configure-soloinsight-cloudgate-sso)** para configurar as definições SSO no lado da aplicação.
+2. **[Configurar Soloinsight-CloudGate SSO](#configure-soloinsight-cloudgate-sso)** para configurar as definições SSO no lado da aplicação.
 3. **[Crie um utilizador de teste AZure AD](#create-an-azure-ad-test-user)** para testar o Azure AD com Britta Simon.
 4. **[Atribua ao utilizador de teste AZure AD](#assign-the-azure-ad-test-user)** para permitir que a Britta Simon utilize um único sinal de Ad AD.
-5. **[Crie o utilizador de teste Soloinsight-CloudGate SSO](#create-soloinsight-cloudgate-sso-test-user)** para ter uma contraparte de Britta Simon em Soloinsight-CloudGate SSO que está ligada à representação AD Azure do utilizador.
+5. Crie Soloinsight-CloudGate utilizador de **[teste SSO](#create-soloinsight-cloudgate-sso-test-user)** para ter uma contraparte de Britta Simon em Soloinsight-CloudGate SSO que está ligada à representação AD Ad do utilizador.
 6. **[Teste SSO](#test-sso)** para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Soloinsight-CloudGate SSO,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -82,25 +82,25 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
    > [!NOTE]
    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador, que é explicado mais tarde na secção **Configure Soloinsight-CloudGate SSO Single Sign-On** do tutorial.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-1. Na secção **Configurar Soloinsight-CloudGate SSO,** copie os URL(s) apropriados com base na sua exigência.
+1. Na secção **Configuração Soloinsight-CloudGate SSO,** copie os URL(s) apropriados com base no seu requisito.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-soloinsight-cloudgate-sso"></a>Configurar soloinsight-cloudGate Sso
+### <a name="configure-soloinsight-cloudgate-sso"></a>Configurar Soloinsight-CloudGate SSO
 
-1. Para automatizar a configuração dentro do Soloinsight-CloudGate SSO, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro Soloinsight-CloudGate SSO, é necessário instalar a extensão do **navegador 'As aplicações' Secure'in,** clicando **em instalar a extensão**.
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-2. Depois de adicionar extensão ao navegador, clique em **Setup Soloinsight-CloudGate SSO** irá direcioná-lo para a aplicação Soloinsight-CloudGate SSO. A partir daí, forneça as credenciais de administração para assinar no Soloinsight-CloudGate SSO. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-8.
+2. Depois de adicionar extensão ao navegador, clique em **Configuração Soloinsight-CloudGate SSO** irá direcioná-lo para a aplicação SSO Soloinsight-CloudGate. A partir daí, forneça as credenciais de administração para assinar Soloinsight-CloudGate SSO. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-8.
 
     ![Configuração de configuração](common/setup-sso.png)
 
-3. Se pretender configurar manualmente o Soloinsight-CloudGate SSO, abra manualmente uma nova janela do navegador web e inscreva-se no site da empresa Soloinsight-CloudGate SSO como administrador e execute os seguintes passos:
+3. Se pretender configurar Soloinsight-CloudGate SSO manualmente, abra uma nova janela do navegador web e inscreva-se no seu site da empresa SSO Soloinsight-CloudGate como administrador e execute os seguintes passos:
 
 4. Para obter os valores que devem ser colados no portal Azure enquanto configura o BASIC SAML, inscreva-se no Portal Web CloudGate utilizando as suas credenciais e aceda às definições SSO, que podem ser encontradas no seguinte caminho **As definições do Sistema de Administração>>casa>Geral**.
 
@@ -134,7 +134,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 8. **Identificador de AD e URL de login**
 
-    * O URL de **Login** copiado a partir do portal Azure Configura as configurações **SSO Soloinsight-CloudGate** devem ser introduzidos na secção de definições SSO do Portal Web CloudGate.
+    * O URL de **Login** copiado a partir do portal Azure Configurar Soloinsight-CloudGate as configurações **SSO** devem ser inseridas na secção de definições SSO do Portal Web CloudGate.
 
     * Cole a ligação URL de **Login** do portal Azure no campo **URL de login** do Portal Web CloudGate.
 
@@ -156,7 +156,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Soloinsight-CloudGate SSO.
+Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, permitindo o acesso a Soloinsight-CloudGate SSO.
 
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Soloinsight-CloudGate SSO**.
@@ -172,7 +172,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="create-soloinsight-cloudgate-sso-test-user"></a>Criar utilizador de teste Soloinsight-CloudGate SSO
+### <a name="create-soloinsight-cloudgate-sso-test-user"></a>Criar Soloinsight-CloudGate utilizador de teste SSO
 
 Para criar um utilizador de teste, selecione **os colaboradores** do menu principal do seu Portal Web CloudGate e preencha o formulário de empregado Add New. O Nível de Autoridade que deve ser atribuído ao utilizador de teste é **O Administrador de Negócios** Clique no **Criar** uma vez que todos os campos necessários estejam preenchidos.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: a705119120af9e5eca5815880096b884b5199a09
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88537927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integração do Azure Ative Directory com a Adobe Captivate Prime
@@ -93,11 +93,11 @@ Para configurar o Azure AD com o Adobe Captivate Prime, execute os seguintes pas
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Adobe Captivate Prime Domain e URLs informações únicas de súplica](common/idp-intiated.png)
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD com o Adobe Captivate Prime, execute os seguintes pas
 
     b. Na caixa de texto **URL de resposta,** digite um URL: `https://captivateprime.adobe.com/saml/SSO`
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com o Adobe Captivate Prime, execute os seguintes pas
 
     ![O link de acesso ao utilizador](./media/adobecaptivateprime-tutorial/tutorial_adobecaptivateprime_appprop.png)
 
-### <a name="configure-adobe-captivate-prime-single-sign-on"></a>Configurar Adobe Cativar prime single sign-on
+### <a name="configure-adobe-captivate-prime-single-sign-on"></a>Configure Adobe Cativar Prime Single Sign-On
 
 Para configurar um único sinal de acesso no **Adobe Captivate Prime** side, é necessário enviar o **Metadadata XML da Federação**descarregado, **o URL** de acesso ao utilizador copiado e urls copiados apropriados do portal Azure para a equipa de suporte Prime Da [Adobe Captivate.](mailto:captivateprimesupport@adobe.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -158,7 +158,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Adobe Captivate Prime**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Adobe Captivate Prime**.
 

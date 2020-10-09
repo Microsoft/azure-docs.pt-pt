@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542586"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar RingCentral com Diretório Ativo Azure
@@ -74,7 +74,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **RingCentral,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -103,7 +103,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
     | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
-1. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

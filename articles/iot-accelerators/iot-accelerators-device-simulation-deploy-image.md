@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61448416"
 ---
 # <a name="deploy-a-custom-device-simulation-docker-image"></a>Implemente uma imagem personalizada do estivador de simulação de dispositivo
@@ -32,7 +32,7 @@ Os passos deste guia mostram-lhe como:
 Para completar os passos neste guia de como guiar, você precisa:
 
 * Uma instância de [simulação de dispositivo](quickstart-device-simulation-deploy.md) implantada.
-* Docker. Descarregue a [Edição Comunitária do Docker](https://www.docker.com/products/docker-engine#/download) para a sua plataforma.
+* O Docker. Descarregue a [Edição Comunitária do Docker](https://www.docker.com/products/docker-engine#/download) para a sua plataforma.
 * Uma [conta Docker Hub](https://hub.docker.com/) onde podes fazer o upload das tuas imagens do Docker. Na sua conta Docker Hub, crie um repositório público chamado **simulação de dispositivo.**
 * Uma solução de [simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) modificada e testada na sua máquina local. Por exemplo, pode modificar a solução para [serializar a telemetria utilizando tampões de protocolo](iot-accelerators-device-simulation-protobuf.md).
 * Uma concha que pode correr SSH. Se instalar o Git For Windows, pode utilizar a casca de **bata** que faz parte da instalação. Também pode utilizar o [seu Azure Cloud Shell](https://shell.azure.com/).

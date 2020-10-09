@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 3206d00520d31607bf4fcec8c0bb4a2cd6611f62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88541396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wisdom-by-invictus"></a>Tutorial: Azure Ative Directory integração única (SSO) com Sabedoria da Invictus

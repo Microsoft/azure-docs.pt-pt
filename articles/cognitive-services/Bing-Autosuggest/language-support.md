@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60547341"
 ---
-# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Apoio à língua e à região para a API Bing Autosuggest
+# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Suporte linguístico e regional para a API Bing Autosuggest
 
-As seguintes listas as línguas suportadas pela Bing Autosuggest API.
+As seguintes listas são as línguas suportadas pela Bing Autosuggest API.
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
-| Chinês (Hong Kong SAR)    | `zh-HK`          |
+| Chinês (HONG KONG SAR)    | `zh-HK`          |
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
 | Neerlandês (Bélgica)       | `nl-BE`          |
@@ -66,5 +66,5 @@ As seguintes listas as línguas suportadas pela Bing Autosuggest API.
 
 ## <a name="see-also"></a>Consulte também
 
-- [Página de Documentação de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/)
-- [Página de produto de serviços cognitivos azure](https://azure.microsoft.com/services/cognitive-services/)
+- [Página de documentação de serviços cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página de produto de serviços cognitivos Azure](https://azure.microsoft.com/services/cognitive-services/)

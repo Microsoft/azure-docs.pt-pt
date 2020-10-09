@@ -13,10 +13,10 @@ ms.date: 01/10/2020
 ms.author: jeedes
 ms.custom: devx-track-terraform
 ms.openlocfilehash: ea3dc98c6a86b4ce7723790fe048c43d31581000
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88541787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-enterprise"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Terraform Enterprise

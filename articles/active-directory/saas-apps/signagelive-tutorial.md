@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88539764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Diretório Ativo Azure com Signagelive
@@ -107,7 +107,7 @@ Para configurar o Azure AD com a Signagelive, tome os seguintes passos:
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Para obter o valor, contacte a equipa de suporte do [Cliente Signagelive.](mailto:support@signagelive.com) Também pode consultar os padrões que são mostrados na secção **Configuração Básica SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito. Então guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito. Então guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -155,7 +155,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Signagelive**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Signagelive**.
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61244349"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilize rotas de mensagens e pontos finais personalizados para mensagens dispositivo-a-nuvem
@@ -25,8 +25,8 @@ ms.locfileid: "61244349"
 | ------------- | ----------- |
 | **Nome**      | O nome único que identifica a consulta. |
 | **Origem**    | A origem do fluxo de dados a ser agia. Por exemplo, telemetria do dispositivo. |
-| **Condição** | A expressão de consulta para a consulta de encaminhamento que é executada contra as propriedades da aplicação de mensagens, propriedades do sistema, corpo de mensagem, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo para determinar se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma consulta, consulte a [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md) |
-| **Ponto Final**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à consulta. Recomendamos que escolha um ponto final na mesma região que o seu hub IoT. |
+| **Condition** | A expressão de consulta para a consulta de encaminhamento que é executada contra as propriedades da aplicação de mensagens, propriedades do sistema, corpo de mensagem, etiquetas gémeas do dispositivo e propriedades gémeas do dispositivo para determinar se é uma correspondência para o ponto final. Para obter mais informações sobre a construção de uma consulta, consulte a [sintaxe de consulta de encaminhamento de mensagens](iot-hub-devguide-routing-query-syntax.md) |
+| **Ponto final**  | O nome do ponto final onde o IoT Hub envia mensagens que correspondem à consulta. Recomendamos que escolha um ponto final na mesma região que o seu hub IoT. |
 
 Uma única mensagem pode coincidir com a condição em várias consultas de encaminhamento, caso em que o IoT Hub entrega a mensagem ao ponto final associado a cada consulta correspondida. O IoT Hub também desafia automaticamente a entrega de mensagens, por isso, se uma mensagem corresponder a múltiplas consultas que tenham o mesmo destino, só é escrita uma vez para esse destino.
 

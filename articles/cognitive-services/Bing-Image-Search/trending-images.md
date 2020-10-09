@@ -1,7 +1,7 @@
 ---
 title: Obtenha imagens de tendência com a API de Pesquisa de Imagem Bing
 titleSuffix: Azure Cognitive Services
-description: Procure as imagens de tendência de hoje a partir da web com a API de Pesquisa de Imagem Bing.
+description: Procure as imagens de tendência de hoje da web com a API de Pesquisa de Imagem Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -13,13 +13,13 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66383440"
 ---
-# <a name="get-trending-images-from-the-web"></a>Obtenha imagens de tendência a partir da web
+# <a name="get-trending-images-from-the-web"></a>Obtenha imagens de tendência da web
 
 Para obter as imagens de tendência de hoje, envie o seguinte pedido GET:  
 
@@ -32,14 +32,14 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-A API trending Images suporta atualmente apenas os seguintes mercados:  
+A API de Imagens de Tendência suporta apenas os seguintes mercados:  
 
-- en-EUA (Inglês, Estados Unidos)  
+- en-US (Inglês, Estados Unidos)  
 - en-CA (Inglês, Canadá)  
-- en-UA (Inglês, Austrália)  
-- zh-CN (China, China)
+- en-AU (Inglês, Austrália)  
+- zh-CN (Chinês, China)
 
-A resposta contém um objeto [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) que lista imagens por categoria. Utilize a categoria `title` para agrupar as imagens na sua experiência de utilizador. As categorias podem mudar diariamente.  
+A resposta contém um objeto [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) que lista imagens por categoria. Utilize as categorias `title` para agrupar as imagens na sua experiência de utilizador. As categorias podem mudar diariamente.  
 
 ```json
 {
@@ -88,11 +88,11 @@ A resposta contém um objeto [TrendingImages](https://docs.microsoft.com/rest/ap
 }  
 ```  
 
-Cada azulejo contém uma imagem e opções para obter imagens relacionadas. Para obter as imagens relacionadas, `text` pode utilizar a consulta para ligar para a [API](./search-the-web.md) de Pesquisa de Imagem e exibir as imagens relacionadas por si mesmo. Ou, pode utilizar o `webSearchUrl` URL para levar o utilizador à página de resultados de pesquisa de imagens do Bing, que contém as imagens relacionadas.
+Cada azulejo contém uma imagem e opções para obter imagens relacionadas. Para obter as imagens relacionadas, pode utilizar a consulta `text` para ligar para a [API de Pesquisa de Imagem](./search-the-web.md) e exibir as imagens relacionadas. Ou, pode utilizar o URL `webSearchUrl` para levar o utilizador à página de resultados de pesquisa de imagens de Bing, que contém as imagens relacionadas.
 
-Se ligar para a API de Pesquisa de Imagem para obter as imagens relacionadas, defina o parâmetro de consulta [de id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) para o ID no `id` campo. Especificar o ID garante que a resposta contém a imagem (é a primeira imagem na resposta) e as suas imagens relacionadas. Além disso, defina o parâmetro de `query` consulta `text` [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) para o texto no campo do objeto.
+Se ligar para a API de Pesquisa de Imagem para obter as imagens relacionadas, desafine o parâmetro de consulta de [identificação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) para o ID no `id` campo. Especificar o ID garante que a resposta contém a imagem (é a primeira imagem na resposta) e as suas imagens relacionadas. Além disso, desajei o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ao texto no `query` campo do `text` objeto.
 
-O exemplo que se segue mostra como usar o ID de imagem para obter imagens relacionadas do Sr. Smith na resposta API de Imagens de Tendência anterior.
+O exemplo a seguir mostra como usar o ID de imagem para obter imagens relacionadas do Sr. Smith na resposta aPI de Imagens de Tendências anteriores.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=Smith&id=77FDE4A1C6529A23C7CF0EC073FAA64843E828F2&mkt=en-us HTTP/1.1  

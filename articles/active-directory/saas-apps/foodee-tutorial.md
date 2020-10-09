@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.openlocfilehash: a618e6018d07bfa316acd9bbcf9e4c6027a615ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544150"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foodee"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Foodee
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://concierge.food.ee/sso/saml/<INSTANCENAME>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Contacte [a equipa de suporte do Cliente Foodee](mailto:dev@food.ee) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Contacte [a equipa de suporte do Cliente Foodee](mailto:dev@food.ee) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 

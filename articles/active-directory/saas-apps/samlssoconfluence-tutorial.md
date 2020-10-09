@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.openlocfilehash: 87c24cf61974c284772aae23e48ffc907792895b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO for Confluence por resolução GmbH
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com sSo sso para confluência por resolução GmbH, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o SSO SAML para Confluência por resolução GmbH Single Sign-On](#configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o SSO SAML para Confluência por resolução GmbH Single Sign-On](#configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Criar SAML SSO para Confluência por resolução Utilizador](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)** de teste GmbH - para ter uma contraparte de Britta Simon em SAML SSO para Confluência por resolução GmbH que está ligada à representação AZure AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,55 +114,55 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a SAML SSO para a Confluence por resolução a equipa de suporte do cliente gmbH](https://www.resolution.de/go/support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on"></a>Configure SAML SSO para confluência por resolução GmbH Single Sign-On
+### <a name="configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on"></a>Configure SAML SSO para a Confluência por resolução GmbH Single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no seu **SSO SAML para Confluence por resolução O portal de administração GmbH** como administrador.
 
 2. Hover on cog e clique nos **Add-ons**.
     
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon1.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon1.png)
 
 3. É redirecionado para a página de Acesso ao Administrador. Introduza a palavra-passe e clique no botão **Confirmar.**
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon2.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon2.png)
 
 4. No **separador ATLASSIAN MARKETPLACE,** clique **em Localizar novos addons**. 
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon.png)
 
 5. Procure **o sinal único SAML On (SSO) para confluência** e clique no botão **Instalar** para instalar o novo plugin SAML.
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon7.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon7.png)
 
 6. A instalação plugin irá arrancar. Clique em **Close** (Fechar).
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon8.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon8.png)
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon9.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon9.png)
 
 7.  Clique em **Gerir**.
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon10.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon10.png)
     
 8. Clique **em Configurar** para configurar o novo plugin.
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon11.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon11.png)
 
 9. Este novo plugin também pode ser encontrado no separador & SEGURANÇA dos **UTILIZADORES.**
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon3.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon3.png)
     
 10. Na página **de configuração do plugin singleSignOn SAML,** clique em Adicionar novo botão **IdP** para configurar as definições do Fornecedor de Identidade.
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon4.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon4.png)
 
 11. Na escolha da sua página **de Fornecedor de Identidade SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon5a.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5a.png)
  
     a. Desagrafe **o AD AD** como o tipo IdP.
     
@@ -174,11 +174,11 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
 12. Na página **de configuração do fornecedor de identidade,** clique no botão **Seguinte.**
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon5b.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5b.png)
 
 13. Na página **de Metadados IdP de Importação SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon5c.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5c.png)
 
     a. Clique no botão **'Ficheiro de Carga'** e escolha o ficheiro XML dos metadados que descarregou no Passo 5.
 
@@ -190,19 +190,19 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
 14. Na página de id do utilizador e página **de transformação,** clique no botão **Seguinte.**
 
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon5d.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5d.png)
     
 15. Na **página de criação e atualização do Utilizador,** clique em **Guardar & Seguinte** para guardar as definições.   
     
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. Na página **de Teste das definições,** clique em **fazer o teste de saltar & configurar manualmente** para saltar o teste do utilizador por enquanto. Isto será realizado na secção seguinte e requer algumas configurações no portal Azure. 
     
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. Na leitura do diálogo que **aparece, ignorando o teste significa...** clique **em OK**.
     
-    ![Configurar um único sign-on](./media/samlssoconfluence-tutorial/addon6c.png)
+    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -235,7 +235,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal, 
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAML SSO para Confluência por resolução GmbH**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, escreva e selecione **SAML SSO para Confluência por resolução GmbH**.
 

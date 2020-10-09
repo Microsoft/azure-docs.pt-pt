@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Ative Directory com a HackerOne
@@ -74,7 +74,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar um único sinal de Ad AD com hackerOne, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure hackerOne single sign-on](#configure-hackerone-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure hackerOne single sign-on](#configure-hackerone-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create HackerOne test user](#create-hackerone-test-user)** - para ter uma contraparte de Britta Simon em HackerOne que está ligada à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
     b. Na caixa de texto **identifier (Entity ID),** insira o seguinte: `hackerone.com`
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -120,21 +120,21 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-hackerone-single-sign-on"></a>Configurar hacker Um único sign-on
+### <a name="configure-hackerone-single-sign-on"></a>Configurar hacker Um único Sign-On
 
 1. Inscreva-se no seu inquilino HackerOne como administrador.
 
 2. No menu em cima, clique nas **Definições**.
 
-    ![Configurar um único sign-on](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Navegue para **autenticação** e clique **em Adicionar as definições DE SAML**.
 
-    ![Configurar um único sign-on](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. No diálogo **de Definições SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/hackerone-tutorial/tutorial_hackerone_004.png)
+    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_004.png)
 
     a. Na caixa de texto **do Domínio de E-mail,** digite um domínio registado.
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
 5. No diálogo Definições de Autenticação, execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Clique **no teste de execução**.
 
@@ -189,7 +189,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **HackerOne**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **HackerOne**.
 

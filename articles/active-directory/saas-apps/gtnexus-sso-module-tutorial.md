@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integração do Azure Ative Directory com o Sistema SSO GTNexus
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Sistema SSO GTNexus, execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,11 +114,11 @@ Para configurar o Azure AD com o Sistema SSO GTNexus, execute os seguintes passo
     > [!Note]
     > Se os valores de URL **de identificação** e **resposta** não estiverem a ser automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Configurar o sistema SSO SSO único sinal
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Configurar o sistema SSO SSO single Sign-On
 
 Para configurar um único sign-on no lado **do Sistema SSO GTNexus,** é necessário enviar a equipa de suporte do Sistema SSO da **Federação metadados XML** para [a equipa de suporte do Sistema SSO GTNexus](mailto:support@gtnexus.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -153,7 +153,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **GTNexus SSO System**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **GTNexus SSO System**.
 

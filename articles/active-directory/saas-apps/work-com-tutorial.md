@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 5fe8697327203a84f91b42e8742db75150b6cb19
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88541462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Diretório Ativo Azure com Work.com
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com Work.com, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Work.com único sign-on](#configure-workcom-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Work.com único sign-on](#configure-workcom-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Crie Work.com utilizador de teste](#create-workcom-test-user)** - para ter uma contraparte de Britta Simon em Work.com que está ligada à representação AD do utilizador.
@@ -96,7 +96,7 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -107,9 +107,9 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `http://<companyname>.my.salesforce.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [Work.com equipa de apoio ao Cliente](https://help.salesforce.com/articleView?id=000159855&type=3) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [Work.com equipa de apoio ao Cliente](https://help.salesforce.com/articleView?id=000159855&type=3) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-workcom-single-sign-on"></a>Configurar Work.com único sign-on
+### <a name="configure-workcom-single-sign-on"></a>Configurar Work.com Sign-On único
 
 1. Inscreva-se no seu inquilino Work.com como administrador.
 
@@ -145,11 +145,11 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
     
     ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
 
-7. Expanda o menu **Controlos de Segurança** e, em seguida, clique em **Definições de Sposição Única .**
+7. Expanda o menu **Controlos de Segurança** e, em seguida, clique em **Definições de Sign-On únicas**.
     
-    ![Definições únicas de inscrição](./media/work-com-tutorial/ic794113.png "Definições únicas de inscrição")
+    ![Definições de Sign-On única](./media/work-com-tutorial/ic794113.png "Definições de Sign-On única")
 
-8. Na página de diálogo de **definições de sinais únicos,** execute os seguintes passos:
+8. Na página de diálogo **de definições de Sign-On única,** execute os seguintes passos:
     
     ![ATIVADO SAML](./media/work-com-tutorial/ic781026.png "ATIVADO SAML")
     
@@ -157,9 +157,9 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
     
     b. Clique **em Novo**.
 
-9. Na secção **Definições únicas de sinalização SAML,** execute os seguintes passos:
+9. Na secção **Definições de Sign-On Única SAML,** execute os seguintes passos:
     
-    ![Definição de sinal único DE SAML](./media/work-com-tutorial/ic794114.png "Definição de sinal único DE SAML")
+    ![Configuração de Sign-On única saml](./media/work-com-tutorial/ic794114.png "Configuração de Sign-On única saml")
     
     a. Na caixa de texto **'Nome',** digite um nome para a sua configuração.  
        
@@ -226,7 +226,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Work.com**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Work.com**.
 

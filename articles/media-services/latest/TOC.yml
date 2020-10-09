@@ -385,7 +385,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

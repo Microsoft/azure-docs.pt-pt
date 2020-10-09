@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
 ms.openlocfilehash: 30971c9c5280bfba37f46aaab0aaf2c2506502c0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Tutorial: Azure Ative Directy integração única (SSO) com a Teamphoria
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<sub-domain>.teamphoria.com/login`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de apoio ao cliente da Teamphoria](https://www.teamphoria.com/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de apoio ao cliente da Teamphoria](https://www.teamphoria.com/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -134,15 +134,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Aceda à opção **ADMIN SETTINGS** na barra de ferramentas esquerda e sob o separador configurar clique no **SIGN-ON ÚNICO** para abrir a janela de configuração SSO.
 
-    ![Configurar um único sign-on](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Clique na opção **ADD NEW IDENTITY PROVIDER** no canto superior direito para abrir o formulário para adicionar as definições de SSO.
 
-    ![Configurar um único sign-on](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Insira os detalhes nos campos como descrito abaixo...
 
-    ![Configurar um único sign-on](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **NOME DO VISÃO**: Introduza o nome do visor do plugin na página de administração.
 

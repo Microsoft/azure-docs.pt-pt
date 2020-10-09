@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542527"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutorial: Azure Ative Directory integração única (SSO) com Tableau Online
@@ -81,7 +81,7 @@ Para configurar o Azure AD single sign-on com Tableau Online, execute os seguint
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -96,7 +96,7 @@ Para configurar o Azure AD single sign-on com Tableau Online, execute os seguint
     > [!NOTE]
     > Você receberá o `<entityid>` valor da secção **Configurar Tableau Online** neste tutorial. O valor de ID da entidade será o valor **do identificador Azure AD** na secção **Configurar Tableau Online.**
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -141,7 +141,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Tableau Online**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Tableau Online**.
 
@@ -165,15 +165,15 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. Numa janela de navegador diferente, inscreva-se na sua aplicação Tableau Online. Ir para **Definições** e, em seguida, **Autenticação**.
 
-    ![Configurar um único sign-on](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. Para ativar a secção SAML, **Tipos de Autenticação Sub-Autenticação.** Verifique **Ativar um método de autenticação adicional** e, em seguida, verifique a caixa de verificação **SAML.**
 
-    ![Configurar um único sign-on](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Desloque-se até ao **ficheiro de metadados de importação para a secção Tableau Online.**  Clique em Procurar e importe o ficheiro metadados, que descarregou a partir de Azure AD. Em seguida, clique **em Aplicar**.
 
-   ![Configurar um único sign-on](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 4. Na secção **de afirmações match, insira** o nome de afirmação do Fornecedor de Identidade correspondente para **endereço de e-mail,** **nome próprio**e **apelido**. Para obter esta informação da Azure AD: 
   
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     b. Na secção **Atributos & Pedidos** de Utilizador, clique no ícone de edição.
 
-   ![Configurar um único sign-on](./media/tableauonline-tutorial/attributesection.png)
+   ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/attributesection.png)
 
     c. Copie o valor do espaço de nome para estes atributos: nome dado, e-mail e apelido utilizando os seguintes passos:
 
@@ -191,7 +191,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     e. Copie o valor da caixa de texto **Namespace.**
 
-    ![Configurar um único sign-on](./media/tableauonline-tutorial/attributesection2.png)
+    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Para copiar os valores do espaço de nome para o e-mail e sobrenome repita os passos acima.
 
@@ -203,7 +203,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     * Apelido: **apelido**
 
-    ![Configurar um único sign-on](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="create-tableau-online-test-user"></a>Criar utilizador de teste Online Tableau
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 323d6324bc99028a3df4cb9cada133ad8cd990aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543268"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Tutorial: Azure Ative Directy integração única (SSO) com Elementos SD
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação SD Elements espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | --- | --- |
     | e-mail |user.mail |
     | nome de primeiro nome |user.givenname |
@@ -143,17 +143,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu em cima, clique em **Sistema**e, em seguida, **Sign-on único**.
 
-    ![Configurar um único sign-on](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Configurar Sign-On Individuais](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
-1. No **diálogo 'Definições de inscrição única',** execute os seguintes passos:
+1. No **diálogo de definições de Sign-On único,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
+    ![Configurar Sign-On Individuais](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
     a. Como **Tipo SSO,** selecione **SAML**.
 
     b. Na caixa de texto **ID da Entidade fornecedora** de identidade, cole o valor do **Identificador AD Azure,** que copiou do portal Azure.
 
-    c. Na caixa de texto de Serviço único de acesso ao serviço de acesso ao **fornecedor de identidade,** cole o valor do URL de **login,** que copiou do portal Azure.
+    c. Na caixa de texto do Serviço de Sign-On Único Fornecedor de **Identidade,** cole o valor do URL de **Login,** que copiou do portal Azure.
 
     d. Clique em **Guardar**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 1fa8f6f0382312951905476ad6fee06e180c6f35
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543150"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutorial: Azure Ative Directy integração única (SSO) com Segmento
@@ -150,7 +150,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configuração do segmento](./media/segment-tutorial/segment4.PNG)
 
-    a. Copie o valor **URL único de inscrição** e cole-o na caixa **URL de resposta** na caixa de diálogo **de configuração SAML básica** no portal Azure.
+    a. Copie o valor **DE URL de Sign-On único** e cole-o na caixa URL de **resposta** na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
     b. Copie o valor URL***** do público e cole-o na caixa **de URL do Identificador** na caixa de diálogo **de configuração SAML básica** no portal Azure.
 

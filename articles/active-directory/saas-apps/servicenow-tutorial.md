@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, selecione o ícone de caneta para **configuração SAML básica** para editar as definições.
 
-   ![Screenshot de Configurar Único Sinal com página SAML, com ícone de caneta em destaque](common/edit-urls.png)
+   ![Screenshot de Configurar Single Sign-On com página SAML, com ícone de caneta em destaque](common/edit-urls.png)
 
 1. Na secção **De Configuração Básica SAML,** execute os seguintes passos:
 
@@ -204,7 +204,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Pesquisa de **Integração - Instalador único de assinatura de fornecedor de múltiplos fornecedores.**
 
-     ![Screenshot da página de Plugins do Sistema, com Integração - Instalador único de sign-on de fornecedor único em destaque](./media/servicenow-tutorial/tutorial_servicenow_04.png "Ativar plugin")
+     ![Screenshot da página de Plugins do Sistema, com Integração - Instalador de Sign-On único fornecedor em destaque](./media/servicenow-tutorial/tutorial_servicenow_04.png "Ativar plugin")
 
     c. Selecione o plug-in. Clique com o botão direito e **selecione Ativar/Atualizar**.
 
@@ -246,7 +246,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. Inscreva-se na sua aplicação ServiceNow como administrador.
 
-       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos.
+       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos:
 
          1. No painel esquerdo, procure a secção **SSO multi-fornecedor** da caixa de pesquisa e selecione **Fornecedores de Identidade**.
 
@@ -337,7 +337,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
         * Confirme que **a Política NameID** está definida para `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` valorizar.
 
-        * Selecione **Avançado**. No **Campo do Utilizador,** insira **o e-mail**.
+        * Selecione **Avançadas**. No **Campo do Utilizador,** insira **o e-mail**.
 
             > [!NOTE]
             > Pode configurar a Azure AD para emitir o ID do utilizador Azure (nome principal do utilizador) ou o endereço de e-mail como o identificador único no token SAML. Faça-o indo **ServiceNow**para a secção de  >  **Attributes**  >  **sinalização ServiceNow Atributos Únicos** do portal Azure e mapeando o campo desejado para o atributo **nameidentifier.** O valor armazenado para o atributo selecionado em Azure AD (por exemplo, nome principal do utilizador) deve corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name).
@@ -366,11 +366,11 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
 
 2. No painel esquerdo, selecione **Single Sign-On**.
 
-    ![Screenshot da aplicação ServiceNow Express, com sign-on único em destaque](./media/servicenow-tutorial/ic7694980ex.png "URL de aplicativo configurar")
+    ![Screenshot da aplicação ServiceNow Express, com single Sign-On em destaque](./media/servicenow-tutorial/ic7694980ex.png "URL de aplicativo configurar")
 
 3. Na caixa de diálogo **'Sign-On' único,** selecione o ícone de configuração no canto superior direito e defina as seguintes propriedades:
 
-    ![Screenshot da caixa de diálogo sign-on única](./media/servicenow-tutorial/ic7694981ex.png "URL de aplicativo configurar")
+    ![Screenshot da caixa de diálogo single Sign-On](./media/servicenow-tutorial/ic7694981ex.png "URL de aplicativo configurar")
 
     a. Alternância **Ative o SSO de vários fornecedores** à direita.
 
@@ -380,7 +380,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
 
 4. Na **caixa de** diálogo de inscrição única, selecione **Adicionar Novo Certificado**.
 
-    ![Screenshot da caixa de diálogo sign-on única, com adicionar novo certificado em destaque](./media/servicenow-tutorial/ic7694973ex.png "Configurar o início de sessão único")
+    ![Screenshot da caixa de diálogo single Sign-On, com adicionar novo certificado em destaque](./media/servicenow-tutorial/ic7694973ex.png "Configurar o início de sessão único")
 
 5. Na caixa de diálogo **X.509 Certificados,** execute os seguintes passos:
 
@@ -396,11 +396,11 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
 
     e. Abra o seu certificado codificado Base64 descarregado do portal Azure no Bloco de Notas. Copie o conteúdo da sua pasta e, em seguida, cole-o na caixa de texto **do Certificado PEM.**
 
-    f. Selecione **Atualização**
+    f. Selecione **Atualizar**
 
 6. Na caixa de diálogo **'Sign-On' única,** selecione **Adicionar Novo IdP**.
 
-    ![Screenshot da caixa de diálogo sign-on única, com add New IdP em destaque](./media/servicenow-tutorial/ic7694976ex.png "Configurar o início de sessão único")
+    ![Screenshot da caixa de diálogo single Sign-On, com Add New IdP em destaque](./media/servicenow-tutorial/ic7694976ex.png "Configurar o início de sessão único")
 
 7. Na caixa de diálogo **Add New Identity Provider,** no **âmbito do Configure Identity Provider,** execute os seguintes passos:
 

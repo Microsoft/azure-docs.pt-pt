@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 9b6abb280a505264a8092cfd700e225e93aa74a1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544413"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutorial: Azure Ative Directy integração única (SSO) com Contentful
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     - Na caixa de texto **URL de inscrição,** copie o mesmo URL ACS (Serviço de Apoio ao Consumidor de Afirmação). Vai ficar assim: `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição copiando o URL ACS (Serviço de Apoio ao Consumidor de Afirmação) a partir da página de configuração SSO em Contentful.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL copiando o URL ACS (Serviço de Apoio ao Consumidor de Afirmação) a partir da página de configuração SSO em Contentful.
 
 1. A aplicação contentiosa espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Contentful espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | --------------- | --------- |
     | e-mail | user.userprincipalname |
 

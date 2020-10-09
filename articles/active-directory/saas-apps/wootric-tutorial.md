@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: e96cdaf6b8d1d3127753c1f186fa8c0c227f6bde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88541386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wootric"></a>Tutorial: Azure Ative Directory integração única (SSO) com Wootric
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Wootric espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  Atributo de origem |
+    | Nome |  Atributo de origem |
     | -------------- | --------- |
     | ID | user.objectid |
 
@@ -146,7 +146,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     ![Configuração ](./media/wootric-tutorial/configure-3.PNG)
 
 
-    a. Na caixa de texto **URL de URL do Fornecedor de Identidade,** cole o valor URL de **login** que copiou a partir do portal Azure.
+    a. Na caixa de texto **de URL do Fornecedor de Identidade Single Sign-On,** cole o valor URL de **login** que copiou a partir do portal Azure.
 
     b. Na caixa de texto **do Fornecedor de Identidade,** cole o valor **de ID** da Entidade que copiou do portal Azure.
 

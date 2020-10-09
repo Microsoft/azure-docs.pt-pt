@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Ative Directory com o OnTrack
@@ -93,11 +93,11 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Informações de súmis de súmis e URLs on on on](common/idp-intiated.png)
 
@@ -122,10 +122,10 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
 6. Além de acima, a aplicação OnTrack espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | -------------- | ----------------|    
-    | Função de Utilizador      | "42F432" |
-    | Hiperion-Code  | "12345" |
+    | User-Role      | "42F432" |
+    | Hyperion-Code  | "12345" |
 
     > [!NOTE]
     > Os atributos **user-Role** e **Hyperion-Code** são mapeados com o Código de Função do Utilizador de Autonação e Revendedor, respectivamente. Estes valores são apenas exemplo, por favor, use o código correto para a sua integração. Pode contactar [o suporte de autonação](mailto:CustomerService@insigniagroup.com) para estes valores.
@@ -148,7 +148,7 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
     exemplo, Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -162,7 +162,7 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-ontrack-single-sign-on"></a>Configurar onTrack single sign-on
+### <a name="configure-ontrack-single-sign-on"></a>Configurar onTrack Single Sign-On
 
 Para configurar um único sign-on on **on on OnTrack** side, você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte OnTrack](mailto:CustomerService@insigniagroup.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -197,7 +197,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **OnTrack**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **OnTrack**.
 
