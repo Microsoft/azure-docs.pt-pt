@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85105940"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar as políticas apache kafka em HDInsight com pacote de segurança empresarial (pré-visualização)
@@ -142,7 +142,7 @@ Com base nas políticas dos Rangers configuradas, **sales_user** podem produzir/
 3. Siga o Passo 3 em **Build e implemente o exemplo** em [Tutorial: Use as APIs do Produtor e do Consumidor Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que o `kafka-producer-consumer.jar` também está disponível para **sales_user**.
 
    > [!NOTE]  
-   > Para este tutorial, utilize o kafka-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o do projeto Produtor-Consumidor, que é para cenários não de domínio aderidos).
+   > Para este tutorial, utilize o kafka-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o Producer-Consumer projeto, que é para cenários não de domínio).
 
 4. Verifique se **sales_user1** pode produzir para o tópico `salesevents` executando o seguinte comando:
 
@@ -214,7 +214,7 @@ Para produzir e consumir tópicos em ESP Kafka utilizando a consola:
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine o cluster Kafka que criou com os seguintes passos:
 
@@ -222,10 +222,10 @@ Se não vai continuar a utilizar esta aplicação, elimine o cluster Kafka que c
 1. Na caixa **de pesquisa** no topo, escreva **HDInsight**.
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial. 
-1. Clique em **Eliminar**. Clique **em Sim**.
+1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se o kafka-produtor-consumidor.jar não funcionar num cluster de domínios, certifique-se de que está a utilizar o kafka-produtor-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o projeto "Produtor-Consumidor", que é para cenários não de domínio aderidos).
+Se kafka-produtor-consumidor.jar não funcionar num cluster de domínio, certifique-se de que está a utilizar o kafka-produtor-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o Producer-Consumer projeto, que é para cenários não de domínio).
 
 ## <a name="next-steps"></a>Passos seguintes
 

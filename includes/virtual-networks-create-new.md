@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78244987"
 ---
 ## <a name="create-the-virtual-network"></a>Criar a rede virtual
@@ -30,7 +30,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | **Selecione Criar novo,** **\<resource-group-name>** insira, em seguida, selecione OK ou selecione um existente **\<resource-group-name>** com base em parâmetros. |
     | **Detalhes da instância** |                                                                 |
     | Name             | Inserir **\<virtual-network-name>**                                    |
-    | Region           | Selecione **\<region-name>** |
+    | Região           | Selecione **\<region-name>** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 

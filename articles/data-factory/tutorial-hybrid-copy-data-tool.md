@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
 ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660938"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie os dados de uma base de dados do SQL Server para o armazenamento do Azure Blob utilizando a ferramenta Dados de Cópia
@@ -141,7 +141,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    ![Página Introdução](./media/doc-common-process/get-started-page.png)
 
-1. Na página **Propriedades** da ferramenta Copiar Dados, em **Nome da tarefa**, introduza **CopyFromOnPremSqlToAzureBlobPipeline**. Em seguida, selecione **Seguinte**. A ferramenta Copiar Dados cria um pipeline com o nome que especificar para este campo.
+1. Na página **Propriedades** da ferramenta Copiar Dados, em **Nome da tarefa**, introduza **CopyFromOnPremSqlToAzureBlobPipeline**. e selecione **Seguinte**. A ferramenta Copiar Dados cria um pipeline com o nome que especificar para este campo.
   ![Nome da tarefa](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. Na página **Arquivo de dados de origem**, clique em **Criar nova ligação**.
@@ -201,7 +201,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    d. Selecione **Concluir**.
 
-1. No **diálogo da loja de dados destino,** certifique-se de que o Armazenamento **Azure Blob** está selecionado. Em seguida, selecione **Seguinte**.
+1. No **diálogo da loja de dados destino,** certifique-se de que o Armazenamento **Azure Blob** está selecionado. e selecione **Seguinte**.
 
 1. Na caixa de diálogo **Escolher ficheiro ou pasta de saída**, em **Caminho da pasta**, introduza **adftutorial/fromonprem**. Criou o contentor **adftutorial** como parte dos pré-requisitos. Se a pasta de saída não existir (neste caso **fromonprem**), o Data Factory cria-a automaticamente. Também pode utilizar o botão **Procurar** para navegar no armazenamento da bolha e nos seus recipientes/pastas. Se não especificar qualquer valor em **Nome de ficheiro**, por predefinição o nome da origem deverá ser utilizado (neste caso **dbo.emp**).
 

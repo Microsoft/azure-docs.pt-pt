@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513267"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
@@ -97,7 +97,7 @@ Utilizando o Visual Studio, crie uma aplicação de consola C# .NET.
 
 1. Abra o Visual Studio.
 2. Na janela **Iniciar,** **selecione Criar um novo projeto.**
-3. Na nova janela do **projeto,** escolha a versão C# da **App consola (.NET Framework)** da lista de tipos de projetos. Em seguida, selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha a versão C# da **App consola (.NET Framework)** da lista de tipos de projetos. e selecione **Seguinte**.
 4. Na **configuração** da sua nova janela de projeto, insira um nome de **Projeto** de *ADFv2Tutorial.* Para **localização,** navegue para e/ou crie o diretório para guardar o projeto em. Em seguida, selecione **Criar**. O novo projeto aparece no IDE do Estúdio Visual.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
@@ -436,7 +436,7 @@ Construa a aplicação escolhendo a **Build**  >  **Build Build Solution.** Em s
 
 A consola imprime o progresso da criação de uma fábrica de dados, do serviço ligado, dos conjuntos de dados, do pipeline e da execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver a atividade da cópia executar detalhes com o tamanho de leitura/escrita de dados. Em seguida, utilizando ferramentas como SQL Server Management Studio (SSMS) ou Visual Studio, pode ligar-se ao seu destino Azure SQL Database e verificar se a tabela de destino especificada contém os dados copiados.
 
-### <a name="sample-output"></a>Resultado da amostra
+### <a name="sample-output"></a>Saída de exemplo
 
 ```json
 Creating a data factory AdfV2Tutorial...

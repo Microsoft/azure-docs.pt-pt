@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80116941"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -55,7 +55,7 @@ Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes a
 
 ## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web 
 
-Por predefinição, só são permitidas ligações SSH a VMs do Linux implementadas no Azure. Uma vez que esta VM vai ser um servidor Web, tem de abrir a porta 80 a partir da Internet. Utilize o comando [az vm open-port](/cli/azure/vm) para abrir a porta desejada.  
+Por predefinição, só são permitidas ligações SSH a VMs do Linux implementadas no Azure. Uma vez que esta VM vai ser um servidor Web, tem de abrir a porta 80 a partir da Internet. Utilize o comando [az vm de porta aberta](/cli/azure/vm) para abrir a porta desejada.  
  
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -64,7 +64,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>Aceder através de SSH à VM
 
 
-Se ainda não conhece o endereço IP público do seu VM, dirija o comando da lista ip pública da [rede AZ.](/cli/azure/network/public-ip) Precisará deste endereço IP para vários passos posteriores.
+Se ainda não conhece o endereço IP público do seu VM, execute o comando [da lista de ip público da rede Az.](/cli/azure/network/public-ip) Precisará deste endereço IP para vários passos posteriores.
 
 
 ```azurecli-interactive

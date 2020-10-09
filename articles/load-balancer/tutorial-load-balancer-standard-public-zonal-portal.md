@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78251897"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga dentro de uma zona de disponibilidade com o Balanceador de Carga Standard através do portal do Azure
@@ -55,7 +55,7 @@ O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Qua
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupZLB* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
-    | Region         | Selecione **Europa Ocidental**.                                        |
+    | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
@@ -96,7 +96,7 @@ Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas inf
 Nesta secção, vai criar regras de NSG para permitir ligações de entrada que utilizem os protocolos HTTP e RDP (Microsoft Remote Desktop Protocol) no portal do Azure.
 
 1. No portal do Azure, selecione **Todos os recursos**, no menu mais à esquerda. Em seguida, procure e selecione **myNetworkSecurityGroup**. Está localizado no grupo de recursos **myResourceGroupZLB**.
-2. Em **Definições**, selecione **regras de segurança de entrada**. Em seguida, **selecione Adicionar**.
+2. Em **Definições**, selecione **regras de segurança de entrada**. Em seguida, selecione **Adicionar**.
 3. Introduza estes valores para a regra de segurança de entrada com o nome **myHTTPRule** para permitir ligações HTTP de entrada que utilizem a porta 80:
     - **Service Tag**, na **Origem**.
     - **Internet**, na **Etiqueta do serviço de origem**.
@@ -171,7 +171,7 @@ Nesta secção, vai configurar as definições do balanceador de carga de um con
 Para distribuir o tráfego pelas VMs, um conjunto de endereços de back-end contém os endereços IP das placas de interface de rede que estão ligadas ao balanceador de carga. Crie o conjunto de endereços de back-end **myBackendPool** de forma a incluir **VM1** e **VM2**.
 
 1. Selecione **Todos os recursos**, no menu mais à esquerda. Em seguida, selecione **myLoadBalancer** a partir da lista de recursos.
-2. Em **Definições**, selecione **piscinas backend**. Em seguida, **selecione Adicionar**.
+2. Em **Definições**, selecione **piscinas backend**. Em seguida, selecione **Adicionar**.
 3. Na página **Adicionar um conjunto de back-ends**, realize as ações seguintes:
     - No nome, introduza **myBackEndPool** como o nome do conjunto de back-ends.
     - Em **Rede virtual**, no menu pendente, selecione **myVNet**. 
@@ -186,7 +186,7 @@ Para distribuir o tráfego pelas VMs, um conjunto de endereços de back-end cont
 Utilize uma sonda de estado de funcionamento para que o balanceador de carga possa monitorizar o estado da sua aplicação. A sonda de estado de funcionamento adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na respetiva resposta às verificações de estado de funcionamento. Crie uma sonda de estado de funcionamento, **myHealthProbe**, para monitorizar o estado de funcionamento das VMs.
 
 1. Selecione **Todos os recursos**, no menu mais à esquerda. Em seguida, selecione **myLoadBalancer** a partir da lista de recursos.
-2. Em **Definições**, selecione **Sondas de estado de funcionamento**. Em seguida, **selecione Adicionar**.
+2. Em **Definições**, selecione **Sondas de estado de funcionamento**. Em seguida, selecione **Adicionar**.
 3. Utilize estes valores para criar a sonda de estado de funcionamento:
     - **myHealthProbe**, no nome da sonda de estado de funcionamento.
     - **HTTP**, no tipo de protocolo.
@@ -202,7 +202,7 @@ Utilize uma sonda de estado de funcionamento para que o balanceador de carga pos
 As regras de balanceador de carga definem a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie a regra de balanceador de carga **myLoadBalancerRuleWeb**, para escutar na porta 80 no front-end **FrontendLoadBalancer**. A regra envia o tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end **myBackEndPool**, também através da porta 80. 
 
 1. Selecione **Todos os recursos**, no menu mais à esquerda. Em seguida, selecione **myLoadBalancer** a partir da lista de recursos.
-2. Em **Definições**, selecione **Regras de balanceamento de carga**. Em seguida, **selecione Adicionar**.
+2. Em **Definições**, selecione **Regras de balanceamento de carga**. Em seguida, selecione **Adicionar**.
 3. Utilize estes valores para configurar a regra de balanceamento de carga:
     - **myHTTPRule**, no nome da regra de balanceamento de carga.
     - **TCP**, no tipo de protocolo.

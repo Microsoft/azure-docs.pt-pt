@@ -9,10 +9,10 @@ ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84750707"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
@@ -49,11 +49,11 @@ Se pretender utilizar o Azure PowerShell para completar este procedimento, consu
 
 Uma rede híbrida utiliza o modelo de arquitetura hub-and-spoke para encaminhar o tráfego entre a Azure VNets e as redes no local. A arquitetura hub-and-spoke tem os seguintes requisitos:
 
-- Desagregar **AllowGatewayTransit** ao espreitar o VNet-Hub para O VNet-Spoke. Numa arquitetura de rede de hub-and-spoke, um trânsito de gateway permite que as redes virtuais falada partilhem a porta de entrada VPN no centro, em vez de implantar gateways VPN em todas as redes virtuais faladas. 
+- Deite **AllowGatewayTransit** ao espreitar VNet-Hub para VNet-Spoke. Numa arquitetura de rede de hub-and-spoke, um trânsito de gateway permite que as redes virtuais falada partilhem a porta de entrada VPN no centro, em vez de implantar gateways VPN em todas as redes virtuais faladas. 
 
    Além disso, as rotas para as redes virtuais ligadas à porta de entrada ou redes no local propagar-se-ão automaticamente para as tabelas de encaminhamento para as redes virtuais espreitadas utilizando o trânsito de gateway. Para obter mais informações, consulte o [trânsito de gateway VPN VPN para espreitar a rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)
 
-- Descreva **As Vias de Utilização** quando espreitar vNet-Spoke para VNet-Hub. Se **o UseRemoteGateways** estiver definido e **o AllowGatewayTransit** no estofo remoto também estiver definido, a rede virtual falada utiliza portais da rede virtual remota para trânsito.
+- Descreva **as Vias De Utilização** Quando espreitar VNet-Spoke ao VNet-Hub. Se **o UseRemoteGateways** estiver definido e **o AllowGatewayTransit** no estofo remoto também estiver definido, a rede virtual falada utiliza portais da rede virtual remota para trânsito.
 - Para encaminhar o tráfego de sub-rede falada através da firewall do hub, pode utilizar uma rota definida pelo utilizador (UDR) que aponta para a firewall com a opção **de propagação** da rota de gateway de rede Virtual desativada. A opção **de propagação da rota de gateway de rede virtual** impede a distribuição de rotas para as sub-redes faladas. Isto evita que as rotas aprendidas entrem em conflito com a sua UDR. Se pretender manter a **propagação da rota de gateway de rede virtual** ativada, certifique-se de definir rotas específicas para a firewall para anular as que são publicadas no local em vez de BGP.
 - Configure um UDR na sub-rede do gateway do hub que aponta para o endereço IP de firewall como o próximo salto para as redes de raios. Não é necessária nenhuma UDR na sub-rede Azure Firewall, uma vez que aprende rotas a partir de BGP.
 
@@ -434,7 +434,7 @@ Em seguida, altere a ação das coleções de regras de rede da firewall para **
 
 Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas. Agora execute os testes novamente. Desta vez, devem falhar todos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 

@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660986"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie os dados do armazenamento do Azure Blob para uma Base de Dados SQL utilizando a ferramenta Dados de Cópia
@@ -113,7 +113,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 1. Na página **Vamos começar**, selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
 
     ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
-1. Na página **Propriedades**, em **Nome da tarefa**, introduza **CopyFromBlobToSqlPipeline**. Em seguida, selecione **Seguinte**. A IU do Data Factory cria um pipeline com o nome de tarefa especificado.
+1. Na página **Propriedades**, em **Nome da tarefa**, introduza **CopyFromBlobToSqlPipeline**. e selecione **Seguinte**. A IU do Data Factory cria um pipeline com o nome de tarefa especificado.
     ![Criar um pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
 
 1. Na página **Arquivo de dados de origem**, conclua os seguintes passos:

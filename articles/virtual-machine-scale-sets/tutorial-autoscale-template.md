@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629541"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
@@ -74,7 +74,7 @@ Os parâmetros seguintes são utilizados para esta regra:
 | *limiar*       | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%             |
 | *direção*       | Define se o conjunto de dimensionamento deve aumentar e reduzir verticalmente quando a regra se aplicar.                                              | Aumentar        |
 | *tipo*            | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Alterar Contagem    |
-| *valor*           | Quantas instâncias de VM devem ser aumentadas ou reduzidas horizontalmente quando a regra se aplicar.                                             | 3               |
+| *value*           | Quantas instâncias de VM devem ser aumentadas ou reduzidas horizontalmente quando a regra se aplicar.                                             | 3               |
 | *tempo de arrefecimento*        | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos       |
 
 A regra seguinte seria adicionada à secção de perfil do fornecedor de recursos *Microsoft.insights/autoscalesettings* da secção anterior:
@@ -257,7 +257,7 @@ Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU médi
 Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de escalas e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com [o grupo AZ eliminar:](/cli/azure/group)
 
 ```azurecli-interactive

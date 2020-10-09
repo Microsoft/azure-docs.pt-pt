@@ -9,10 +9,10 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85296207"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova aplicação Android usando âncoras espaciais Azure
@@ -227,6 +227,6 @@ Agora, vamos ligar o código que será invocado quando a âncora que estamos a p
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Já está! [Reimplantar](#trying-it-out) a sua app uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se ao redor do seu dispositivo, e coloque a sua esfera negra. Em seguida, continue a mover o seu dispositivo para capturar as molduras das câmaras até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
+Já está. [Reimplantar](#trying-it-out) a sua app uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se ao redor do seu dispositivo, e coloque a sua esfera negra. Em seguida, continue a mover o seu dispositivo para capturar as molduras das câmaras até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

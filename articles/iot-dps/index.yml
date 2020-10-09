@@ -11,10 +11,10 @@ metadata:
   ms.date: 03/03/2020
   ms.author: wesmc
   ms.openlocfilehash: 2d89b99005a4e430aca85c109f3d000c3b21674c
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "80133260"
 landingContent:
 - title: Sobre o Serviço Aprovisionamento de Dispositivos (DPS) no Hub IoT do Azure

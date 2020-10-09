@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708686"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migrar utilizadores e grupos windows em uma instância sql servidor para Azure SQL Managed Instance usando a sintaxe T-SQL DDL
@@ -47,7 +47,7 @@ Para completar este tutorial, aplicam-se os seguintes pré-requisitos:
   - A `sysadmin` no SQL Managed Instance deve ser usado para criar logins AD Azure.
 - [Criar um administrador AD Azure para sql Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 - Pode ligar-se à sua SQL Managed Instance dentro da sua rede. Consulte os seguintes artigos para obter informações adicionais:
-  - [Ligue a sua aplicação a Azure SQL Gestded Instance](connect-application-instance.md)
+  - [Ligar a aplicação ao Azure SQL Managed Instance](connect-application-instance.md)
   - [Quickstart: Configurar uma ligação ponto-a-local a uma Instância Gerida Azure SQL a partir de instalações](point-to-site-p2s-configure.md)
   - [Configure o ponto final público em Azure SQL Gestd Instance](public-endpoint-configure.md)
 

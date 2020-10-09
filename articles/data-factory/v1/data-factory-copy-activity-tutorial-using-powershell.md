@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 71b5b3f24b60796cf839b8920de8eae424ea3809
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254366"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move os dados com o Azure PowerShell
@@ -162,7 +162,7 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
      }
     ``` 
 1. No **Azure PowerShell**, mude para a pasta **ADFGetStartedPSH**.
-1. Executar o **cmdlet New-AzDataFactoryLinkedService** para criar o serviço ligado: **AzureStorageLinkedService**. Este cmdlet, e outros cmdlets da Data Factory que utiliza neste tutorial requer que você passe valores para os parâmetros **DeMe** de Grupo de Recursos e **DataFactoryName.** Em alternativa, pode passar o objeto DataFactory devolvido pelo cmdlet New-AzDataFactory sem digitar o ResourceGroupName e o DataFactoryName cada vez que executar um cmdlet. 
+1. Executar o **cmdlet New-AzDataFactoryLinkedService** para criar o serviço ligado: **AzureStorageLinkedService**. Este cmdlet, e outros cmdlets da Data Factory que utiliza neste tutorial requer que você passe valores para os parâmetros **DeMe** de Grupo de Recursos e **DataFactoryName.** Em alternativa, pode passar o objeto DataFactory devolvido pelo New-AzDataFactory cmdlet sem digitar o Nome do Grupo de Recursos e o DataFactoryName cada vez que executar um cmdlet. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json

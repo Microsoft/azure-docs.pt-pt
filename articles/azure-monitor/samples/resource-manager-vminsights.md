@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 3bd14b1caa9ff905a585b12b7e3887d3a7a81d58
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83854511"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Amostras de modelo de gestor de recursos para monitor Azure para VMs

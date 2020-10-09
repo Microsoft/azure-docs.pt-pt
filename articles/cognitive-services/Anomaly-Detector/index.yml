@@ -14,10 +14,10 @@ metadata:
   ms.date: 09/10/2019
   ms.author: aahi
   ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
-  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/22/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "81757297"
 landingContent:
 - title: Sobre a API do Detetor de Anomalias

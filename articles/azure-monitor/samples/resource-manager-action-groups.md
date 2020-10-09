@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: fda9a7e39f1bb103a203cdfa61a5044c51c692f2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83854373"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para grupos de ação no Azure Monitor

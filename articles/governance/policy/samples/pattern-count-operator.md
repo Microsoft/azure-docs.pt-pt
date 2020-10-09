@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como usar o o
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: 807890b7fb08d790deff6e0be9e08ad91c4ec44d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85565756"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Padrão de política Azure: o operador de contagem

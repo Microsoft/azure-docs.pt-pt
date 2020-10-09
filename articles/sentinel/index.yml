@@ -13,10 +13,10 @@ metadata:
   ms.author: yelevin
   ms.date: 06/25/2020
   ms.openlocfilehash: d4e86295020ab68c6769ac34d6259bd78cf9934e
-  ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "85374564"
 landingContent:
 - title: Acerca do Azure Sentinel

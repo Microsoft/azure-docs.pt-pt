@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81409267"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
@@ -214,7 +214,7 @@ Nesta secção, vai criar dois serviços ligados:
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o **separador Monitor.** Confirme que vê um gasoduto a funcionar. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
+1. Mude para o **separador Monitor.** Confirme que vê um oleoduto a funcionar. Demora aproximadamente de 20 minutos para criar um cluster do Spark. 
    
 1. Selecione **Atualizar** periodicamente para verificar o estado da execução do pipeline. 
 
