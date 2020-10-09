@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Druva
@@ -146,18 +146,18 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No **separador 'S-On Único',** clique em **Editar**.
 
-    ![Screenshot que mostra o separador "Definições de acesso - Único Sinal de Acesso" com o botão "Editar" selecionado.](./media/druva-tutorial/ic795092.png "Definições únicas de inscrição")
+    ![Screenshot que mostra o separador "Definições de acesso - Único Sinal de Acesso" com o botão "Editar" selecionado.](./media/druva-tutorial/ic795092.png "Definições de Sign-On única")
 
-1. Na página **'Definições de inscrição única' de edição única,** execute os seguintes passos:
+1. Na página **'Configurações Sign-On Únicas de Edição'** e executa os seguintes passos:
 
-    ![Definições únicas de inscrição](./media/druva-tutorial/ic795095.png "Definições únicas de inscrição")
+    ![Definições de Sign-On única](./media/druva-tutorial/ic795095.png "Definições de Sign-On única")
 
     1. Na caixa de texto **URL do Fornecedor de ID,** cole o valor do URL de **login,** que copiou do portal Azure.
 
     1. Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **do Certificado de Provedor de Identificação**
 
        > [!NOTE]
-       > Para ativar o registo único para administradores, selecione **Administradores para iniciar sessão na Cloud Druva através do provedor SSO** e permita o acesso seguro aos administradores da **Cloud Druva (recomendado).** A Druva recomenda ativar o **Failsafe para os Administradores** para que tenham de aceder à consola DCP em caso de falhas no IdP. Também permite que os administradores utilizem a palavra-passe SSO e DCP para aceder à consola DCP.
+       > Para ativar Sign-On única para administradores, selecione **Administradores para entrar na Nuvem Druva através do provedor SSO** e permita o acesso seguro aos administradores da Cloud **Druva (recomendado).** A Druva recomenda ativar o **Failsafe para os Administradores** para que tenham de aceder à consola DCP em caso de falhas no IdP. Também permite que os administradores utilizem a palavra-passe SSO e DCP para aceder à consola DCP.
 
     1. Clique em **Guardar**. Isto permite o acesso à Plataforma Nuvem Druva utilizando SSO.
 

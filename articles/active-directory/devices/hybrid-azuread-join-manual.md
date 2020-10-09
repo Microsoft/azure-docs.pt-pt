@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268558"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
@@ -177,9 +177,9 @@ Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o c
 
 Numa configuração AD federada, os dispositivos contam com FS AD ou um serviço de federação no local de um parceiro da Microsoft para autenticar a Azure AD. Os dispositivos autenticam-se para obterem um token de acesso para se registarem no Registo de Dispositivos do Azure Active Directory (Azure DRS).
 
-Os dispositivos atuais do Windows autenticam-se utilizando a Autenticação Integrada do Windows num ponto final ativo do WS-Trust (versões 1.3 ou 2005) hospedados pelo serviço da federação no local.
+Os dispositivos atuais do Windows autenticam-se utilizando a Autenticação Integrada do Windows num ponto final de WS-Trust ativo (versões 1.3 ou 2005) hospedados pelo serviço da federação no local.
 
-Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais WS-Trust
+Quando estiver a utilizar OD FS, tem de ativar os seguintes pontos finais WS-Trust
 - `/adfs/services/trust/2005/windowstransport`
 - `/adfs/services/trust/13/windowstransport`
 - `/adfs/services/trust/2005/usernamemixed`
@@ -188,10 +188,10 @@ Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais WS-T
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Tanto **adfs/serviços/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar os pontos finais do Windows WS-Trust, consulte [os pontos finais do Windows WS-Trust desativado no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
+> Tanto **adfs/serviços/trust/2005/windowstransport** e **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar WS-Trust pontos finais do Windows, consulte [pontos finais do Windows desativar WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
 
 > [!NOTE]
->Se não tiver AD FS como serviço da federação no local, siga as instruções do seu fornecedor para se certificar de que suportam pontos finais WS-Trust 1.3 ou 2005 e que estes são publicados através do ficheiro Metadadata Exchange (MEX).
+>Se não tiver AD FS como serviço da federação no local, siga as instruções do seu fornecedor para se certificar de que suporta WS-Trust pontos finais 1.3 ou 2005 e que estes são publicados através do ficheiro Metadadata Exchange (MEX).
 
 Para que o registo do dispositivo termine, devem existir as seguintes alegações no sinal que a Azure DRS recebe. O Azure DRS criará um objeto de dispositivo em Azure AD com algumas destas informações. O Azure AD Connect utiliza então esta informação para associar o objeto do dispositivo recém-criado à conta do computador no local.
 

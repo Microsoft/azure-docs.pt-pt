@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708807"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Azure Ative Directy integração única (SSO) com 8x8
@@ -153,7 +153,7 @@ A próxima parte do tutorial depende do tipo de subscrição que tem com 8x8.
 
     ![Screenshot que realça as opções de Signo Único (SSO) e Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Copie os três URLs e assine o certificado de assinatura a partir do **set up Single Sign-On com** a página SAML em Ad AZure na secção De Definições SAML do Microsoft **Azure AD** em 8x8 Configuration Manager.
+1. Copie os três URLs e assine o certificado de assinatura do **Single Sign-On configurado com** a página SAML em AD Azure na secção De Definições SAML do Microsoft **Azure AD** em 8x8 Configuration Manager.
 
     ![Gestor de Configuração 8x8](./media/8x8virtualoffice-tutorial/configure3.png)
 

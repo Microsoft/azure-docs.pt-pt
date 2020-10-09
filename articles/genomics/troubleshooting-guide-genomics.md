@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82100911"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
@@ -26,10 +26,10 @@ Aqui ficam algumas dicas de resolução de problemas para algumas das questões 
 
 Pode localizar as mensagens de erro associadas ao fluxo de trabalho:
 
-1. Usando a linha de comando e digitando`msgen status`
+1. Usando a linha de comando e digitando  `msgen status`
 2. Examinando o conteúdo de standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. Utilização da linha de comando`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. Utilização da linha de comando `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +82,7 @@ msgen status -w 1001 -f "config.txt"
 ```
 
 ### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examinar o conteúdo da standardoutput.txt 
-Localize o recipiente de saída para o fluxo de trabalho em questão. A MSGEN cria uma `[workflowfilename].logs.zip` pasta após cada execução do fluxo de trabalho. Desaperte a pasta para ver o seu conteúdo:
+Localize o recipiente de saída para o fluxo de trabalho em questão. A MSGEN cria uma   `[workflowfilename].logs.zip` pasta após cada execução do fluxo de trabalho. Desaperte a pasta para ver o seu conteúdo:
 
 * outputFileList.txt - uma lista dos ficheiros de saída produzidos durante o fluxo de trabalho
 * standarderror.txt- este ficheiro está em branco.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82233470"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Enviar dados da extensão de diagnóstico do Windows Azure para os Hubs de Eventos Azure
@@ -38,7 +38,7 @@ O Azure Diagnostics envia sempre registos e métricas para uma conta de Armazena
 
 | Propriedade | Descrição |
 |:---|:---|
-| Name | Nome descritivo para a pia. Usado na configuração para especificar quais fontes de dados enviar para a pia. |
+| Nome | Nome descritivo para a pia. Usado na configuração para especificar quais fontes de dados enviar para a pia. |
 | Url  | Url do centro de eventos no formulário \<event-hubs-namespace\> .servicebus.windows.net/ \<event-hub-name\> .          |
 | SharedAccessKeyName | Nome de uma política de acesso partilhado para o centro de eventos que tem pelo menos **enviar** autoridade. |
 | SharedAccessKey     | Chave primária ou secundária da política de acesso partilhado para o centro do evento. |

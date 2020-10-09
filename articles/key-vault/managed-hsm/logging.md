@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000789"
 ---
 # <a name="managed-hsm-logging"></a>Registo de HSM gerido 
@@ -126,7 +126,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 | Nome do campo | Descrição |
 | --- | --- |
 | **TenantId** | ID do inquilino do Azure Ative Directory de subscrição onde o HSM gerido é criado |
-| **hora** |Data e hora na UTC. |
+| **Hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para registos geridos de HSM, este é sempre o ID de recurso gerido do HSM. |
 | **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
 ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825253"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
@@ -102,7 +102,7 @@ Se um utilizador eliminar acidentalmente um cofre ou segredo de uma chave, pode 
 
 ### <a name="how-do-i-find-out-if-i-need-to-take-action"></a>Como é que descundo se preciso de agir?
 
-Siga os passos acima na secção intitulada "Procedimento para auditar os cofres das chaves para verificar se o soft-delete está ligado". Qualquer cofre-chave que não tenha a eliminação suave ligada será afetado por esta alteração. Em breve, estarão disponíveis ferramentas adicionais para ajudar na auditoria e este documento será atualizado.
+Siga os passos acima na secção intitulada "Procedimento para auditar os cofres das chaves para verificar se Soft-Delete está ligado". Qualquer cofre-chave que não tenha a eliminação suave ligada será afetado por esta alteração. Em breve, estarão disponíveis ferramentas adicionais para ajudar na auditoria e este documento será atualizado.
 
 ### <a name="what-action-do-i-need-to-take"></a>Que ação preciso de tomar?
 

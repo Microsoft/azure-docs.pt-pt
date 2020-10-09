@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Diretório Ativo Azure com o AnswerHub
@@ -93,9 +93,9 @@ Nesta secção, você configura Azure AD único sinal no portal Azure.
 
     ![Caixa de diálogo de método de s seletor único](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, selecione o ícone de edição para abrir a caixa de diálogo **de configuração SAML básica.**
+3. Na **configuração single Sign-On com** a página SAML, selecione o ícone de edição para abrir a caixa de diálogo **de configuração SAML básica.**
 
-    ![Configurar um único sign-on com página SAML](common/edit-urls.png)
+    ![Configurar Sign-On único com página SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** complete os seguintes passos:
 
@@ -108,7 +108,7 @@ Nesta secção, você configura Azure AD único sinal no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. Contacte a [equipa de apoio do AnswerHub](mailto:success@answerhub.com) para obter os valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o link **descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador.
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 

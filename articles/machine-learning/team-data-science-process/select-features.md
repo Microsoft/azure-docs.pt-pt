@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76716678"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
@@ -44,7 +44,7 @@ No Azure Machine Learning Studio, existem módulos fornecidos para a seleção d
 
 Considere, por exemplo, a utilização do módulo [de seleção de recursos baseado em filtros.][filter-based-feature-selection] Por conveniência, continue a usar o exemplo de mineração de texto. Assuma que pretende construir um modelo de regressão depois de um conjunto de 256 funcionalidades serem criadas através do módulo [de Hashing de Recurso,][feature-hashing] e que a variável de resposta é o "Col1" que contém classificações de revisão de livros que variam de 1 a 5. Ao definir "Método de pontuação de recurso" para ser "Pearson Correlation", a "coluna-alvo" é "Col1", e o "Número de características desejadas" para 50. Em seguida, a [seleção de recursos baseada em filtros][filter-based-feature-selection] do módulo produz um conjunto de dados contendo 50 funcionalidades juntamente com o atributo-alvo "Col1". A seguinte figura mostra o fluxo desta experiência e os parâmetros de entrada:
 
-![Propriedades do módulo de seleção de recursos baseados em filtros](./media/select-features/feature-Selection1.png)
+![Filter-Based Propriedades do módulo de seleção de recursos](./media/select-features/feature-Selection1.png)
 
 O seguinte número mostra os conjuntos de dados resultantes:
 

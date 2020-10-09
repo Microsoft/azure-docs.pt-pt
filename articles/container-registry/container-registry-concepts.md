@@ -4,10 +4,10 @@ description: Introdução a conceitos-chave de registos de contentores Azure, re
 ms.topic: article
 ms.date: 06/16/2020
 ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85390453"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
@@ -133,7 +133,7 @@ Por exemplo, retire uma imagem do repositório "acr-helloworld" por razão de di
 > [!IMPORTANT]
 > Se premir repetidamente imagens modificadas com etiquetas idênticas, poderá criar imagens órfãs-- imagens que não são gravadas, mas que ainda consomem espaço no seu registo. Imagens não assinaladas não são mostradas no CLI Azure ou no portal Azure quando lista ou vê imagens por marcação. No entanto, as suas camadas ainda existem e consomem espaço no seu registo. Excluir uma imagem não assinala liberta espaço de registo quando o manifesto é o único, ou o último, apontando para uma camada particular. Para obter informações sobre a libertação do espaço utilizado por imagens não gravadas, consulte [apagar imagens de contentores no Registo de Contentores Azure](container-registry-delete.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [armazenamento de imagem](container-registry-storage.md) e [formatos de conteúdo suportado no](container-registry-image-formats.md) Registo de Contentores Azure.
 

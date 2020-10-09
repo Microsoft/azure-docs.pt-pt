@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714478"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integrar avaliação com diretório ativo Azure
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **avaliadas,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![A screenshot mostra o painel de atributos do utilizador com o ícone de edição realçado.](common/edit-attribute.png)
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -116,9 +116,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O screenshot mostra as opções de Configuração com a opção de inscrição única SAML realçada.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
-6. Na página de **configuração single Sign-On DO SAML 2.0,** execute os seguintes passos:
+6. Na página de **configuração Sign-On única SAML 2.0,** execute os seguintes passos:
 
-    ![A screenshot mostra a página de configuração de sign-on única SAML 2.0 onde pode editar o Estado de Retransmissão padrão e o login iniciado pelo serviço U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![A screenshot mostra a página de configuração single Sign-On SAML 2.0 onde pode editar o Estado de Retransmissão padrão e o login iniciado pelo serviço U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Copie o valor **padrão do Estado do retransmissor** e cole-o na caixa de texto **do Estado de retransmissão** na **Configuração Básica SAML** no portal Azure.
 
@@ -128,7 +128,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![A screenshot mostra identificar os utilizadores onde pode introduzir valores a partir deste passo.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
-    a. Na caixa de texto **URL de URL do Fornecedor de Identidade,** cole o valor do URL de **login,** que copiou a partir do portal Azure e clique em **Guardar**.
+    a. Na caixa de texto de URL Sign-On fornecedor de **identidade,** cole o valor do URL de **login,** que copiou a partir do portal Azure e clique em **Guardar**.
 
     b. Na caixa de texto URL do **Fornecedor de Identidade,** cole o valor do **Identificador AD AD Azure,** que copiou a partir do portal Azure e clique em **Guardar**.
 

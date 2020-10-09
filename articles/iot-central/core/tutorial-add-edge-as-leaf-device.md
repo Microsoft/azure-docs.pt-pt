@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 - iot-edge
 ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987025"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central
@@ -99,7 +99,7 @@ Para adicionar as definições de telemetria ao modelo do dispositivo:
 
 A interface **Manage** inclui agora a **máquina,** **o ambiente**e os tipos de telemetria **cronometrado:**
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interface com máquina e tipos de telemetria ambiente":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 ### <a name="add-views-to-template"></a>Adicionar vistas ao modelo
 
@@ -115,7 +115,7 @@ O modelo do dispositivo ainda não tem uma visão que permita a um operador ver 
 
 1. **Selecione Guardar** para guardar a vista **de telemetria do dispositivo View IoT Edge.**
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modelo de dispositivo com vista de telemetria":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 ### <a name="publish-the-template"></a>Publicar o modelo
 
@@ -123,7 +123,7 @@ Antes de poder adicionar um dispositivo que utilize o modelo do **Dispositivo de
 
 Navegue para o modelo do **dispositivo de borda do sensor ambiental** e selecione **Publicar**. No modelo de publicação deste dispositivo para o painel **de aplicações,** selecione **Publicar** para publicar o modelo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicar o modelo de dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 ## <a name="add-iot-edge-device"></a>Adicionar dispositivo IoT Edge
 
@@ -135,7 +135,7 @@ Agora que publicou o modelo do **Dispositivo de Borda de Sensor Ambiental,** pod
 
 Tem agora um novo dispositivo com o estado **registado:**
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Dispositivo novo e registado":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 ### <a name="get-the-device-credentials"></a>Obtenha as credenciais do dispositivo
 
@@ -181,7 +181,7 @@ Na página **de implementação personalizada:**
 
 1. Reveja as suas escolhas e, em seguida, **selecione Criar**:
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Criar um IoT Edge VM":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 A implantação leva alguns minutos para ser concluída. Quando a implantação estiver concluída, navegue para o grupo de recursos **de ponta central** no portal Azure.
 
@@ -269,15 +269,15 @@ Para configurar ioT Edge no VM para utilizar DPS para registar e ligar à sua ap
 
 O dispositivo IoT Edge simulado está agora em funcionamento no VM. Na sua aplicação IoT Central, o estado do dispositivo está agora **previsto** na página **dispositivos:**
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Dispositivo IoT Edge provisionado":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 Pode ver a telemetria do dispositivo na página de **telemetria do dispositivo View IoT Edge:**
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetria do dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 A página **módulos** mostra o estado dos módulos IoT Edge no dispositivo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Estado do módulo do dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Modelo de dispositivo criado a partir do manifesto IoT Edge":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -4,10 +4,10 @@ description: Aprende a criar um laboratório para ensinar a escrever em Linux.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444969"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Crie um laboratório para ensinar scripts de conchas em Linux
@@ -29,7 +29,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 | Configurações de laboratório | Valor/instruções | 
 | ------------ | ------------------ |
 | Tamanho da máquina virtual (VM) | Pequeno  |
-| Imagem VM | Servidor Ubuntu 18.04 LTS|
+| Imagem VM | Ubuntu Server 18.04 LTS|
 | Ativar a ligação remota do ambiente de trabalho | Ativar. <p>Ativar esta definição permitirá que professores e alunos se conectem aos seus VMs utilizando o ambiente de trabalho remoto (PDR). Para obter mais informações, consulte [Ative o ambiente de trabalho remoto para máquinas virtuais Linux em laboratório em Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
 ## <a name="install-desktop-and-rdp"></a>Instalar desktop e RDP
@@ -69,7 +69,7 @@ Esta secção mostra como instalar um par de editores de texto. Gedit é o edito
 
     O modelo é agora atualizado e tem tanto a linguagem de programação como as ferramentas de desenvolvimento necessárias para completar o laboratório. A imagem do modelo pode agora ser publicada no laboratório. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.  
 
-## <a name="cost"></a>Custo 
+## <a name="cost"></a>Cost 
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo:
  
 Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria: 
@@ -81,7 +81,7 @@ Para obter mais informações sobre o preço pode ser consultado no seguinte doc
 ## <a name="conclusion"></a>Conclusão
 Este artigo acompanhou-te pelos degraus para criar um laboratório para aulas de guiões. Enquanto este artigo se focou na configuração de ferramentas de script ruby na máquina Linux, a mesma configuração pode ser usada para outras aulas de scripts como Python em Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

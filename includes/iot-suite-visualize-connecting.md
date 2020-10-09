@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184693"
 ---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
@@ -52,6 +52,6 @@ Para invocar métodos nos seus dispositivos, utilize a página Explorer do **Dis
 > [!NOTE]
 > Para acompanhar o estado do trabalho na solução, escolha **Ver Situação do Trabalho**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O artigo [Personalize o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.

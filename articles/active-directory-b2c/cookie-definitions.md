@@ -12,10 +12,10 @@ ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389348"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definições de cookies para Azure AD B2C
@@ -39,7 +39,7 @@ Para obter mais informações, consulte:
 
 A tabela que se segue lista os cookies utilizados no Azure AD B2C.
 
-| Name | Domain | Expiração | Objetivo |
+| Nome | Domínio | Expiração | Objetivo |
 | ----------- | ------ | -------------------------- | --------- |
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Fim da [sessão](session-behavior.md) do navegador | Contém dados de adesão de utilizadores entre inquilinos. Os inquilinos um utilizador é membro e nível de adesão (Administrador ou Utilizador). |
 | `x-ms-cpim-slice` | domínio b2clogin.com, login.microsoftonline.com e de marca | Fim da [sessão](session-behavior.md) do navegador | Utilizado para encaminhar os pedidos para a instância de produção apropriada. |

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 768cb43e961d3dc3e64e33c641169a27fc5a12d0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89237217"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fexa"></a>Tutorial: Azure Ative Directory integração única (SSO) com Fexa
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Fexa espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ------------------ | --------- |
     | Nome Próprio | user.givenname |
     | Apelido | utilizador.sobrenome |

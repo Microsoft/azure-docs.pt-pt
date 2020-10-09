@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81458288"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acesso chave cofre secreto ao implementar aplicações geridas a Azure
@@ -22,7 +22,7 @@ Este artigo descreve como configurar o Cofre de Chaves para trabalhar com Aplica
 
 1. No portal, selecione o seu Cofre de Chaves.
 
-1. Selecione **Políticas de acesso**.   
+1. Selecione **as políticas de acesso**.   
 
    ![Selecione políticas de acesso](./media/key-vault-access/select-access-policies.png)
 

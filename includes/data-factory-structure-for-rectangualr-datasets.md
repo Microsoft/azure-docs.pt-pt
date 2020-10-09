@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184929"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificar a definição de estrutura para conjuntos de dados retangulares
@@ -16,7 +16,7 @@ A secção de estrutura nos conjuntos de dados JSON é uma secção **opcional**
 
 Cada coluna contém as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | name |O nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna. Consulte a secção de conversões de tipo abaixo para obter mais detalhes sobre quando deve especificar as informações do tipo |Não |
@@ -39,7 +39,7 @@ Por favor, utilize as seguintes diretrizes para quando incluir informações de 
 * **Para fontes de dados estruturadas** que armazenam esquemas de dados e informações de tipo, juntamente com os próprios dados (fontes como SQL Server, Oracle, Azure table, etc.), deve especificar a secção "estrutura" apenas se pretender fazer o mapeamento de colunas de colunas específicas para colunas específicas na pia e os seus nomes não são os mesmos (ver detalhes na secção de mapeamento de colunas abaixo). 
   
     Como mencionado acima, a informação do tipo é opcional na secção "estrutura". Para fontes estruturadas, a informação do tipo já está disponível como parte da definição de conjunto de dados na loja de dados, pelo que não deve incluir informações de tipo quando incluir a secção "estrutura".
-* **Para esquemas em fontes de dados de leitura (especificamente Azure blob)** pode optar por armazenar dados sem armazenar qualquer esquema ou tipo de informação com os dados. Para este tipo de fontes de dados deve incluir "estrutura" nos seguintes 2 casos:
+* **Para esquemas em fontes de dados de leitura (especificamente Azure blob)**  pode optar por armazenar dados sem armazenar qualquer esquema ou tipo de informação com os dados. Para este tipo de fontes de dados deve incluir "estrutura" nos seguintes 2 casos:
   * Quer fazer mapeamento de colunas.
   * Quando o conjunto de dados é uma fonte numa atividade de Cópia, pode fornecer informações de tipo em "estrutura" e a fábrica de dados utilizará este tipo de informação para conversão em tipos nativos para o lavatório. Consulte os dados de e para o artigo [Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) para obter mais informações.
 
@@ -50,11 +50,11 @@ A fábrica de dados suporta os seguintes valores de tipo cls .NET compatíveis c
 * Int32 
 * Int64
 * Único
-* Double
+* Double (Duplo)
 * Decimal
 * Byte[]
 * Booleano
-* String 
+* Cadeia 
 * GUID
 * Datetime
 * Datatimeoff

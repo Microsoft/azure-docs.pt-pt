@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Ative Directory com Clear Review
@@ -76,7 +76,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com clear review, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Clear Review Single Sign-On](#configure-clear-review-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Clear Review Single Sign-On](#configure-clear-review-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Clear Review test user](#create-clear-review-test-user)** - para ter uma contraparte de Britta Simon em Clear Review que está ligada à representação AD AD do utilizador.
@@ -96,7 +96,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     c. Clique em **Guardar**.
 
-8. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -147,7 +147,7 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     c. Logout URL
 
-### <a name="configure-clear-review-single-sign-on"></a>Configure claro revisão simples de inscrição
+### <a name="configure-clear-review-single-sign-on"></a>Configurar revisão clara Sign-On
 
 1. Para configurar um único sinal no lado **clear review,** abra o portal **Clear Review** com credenciais de administração.
 
@@ -155,13 +155,13 @@ Para configurar o Azure AD um único sinal de inscrição com clear review, exec
 
     ![A screenshot mostra o portal Clear Review com o Administrador selecionado.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Na secção **Integrações** na parte inferior da página clique no botão **Alterar** para a direita de **Definições únicas de início de sposição**.
+3. Na secção **Integrações** na parte inferior da página clique no botão **Alterar** à direita de **Definições de Sign-On Únicas**.
 
-    ![A screenshot mostra o botão de alteração de sinal único.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![A screenshot mostra o botão Single Sign-On Change.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-4. Execute os passos seguintes na página **de definições de inscrição única**
+4. Execute os passos seguintes na página **De Definições Sign-On Única**
 
-    ![A screenshot mostra a página 'Definições de entrada única' onde pode introduzir as informações neste passo.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![A screenshot mostra a página Definições de Sign-On única onde pode introduzir as informações neste passo.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. Na caixa de texto URL do **emitente,** cole o valor do **Identificador AD AZure** que copiou do portal Azure.
 

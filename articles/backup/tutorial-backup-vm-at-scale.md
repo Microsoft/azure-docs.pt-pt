@@ -5,10 +5,10 @@ ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180580"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
@@ -30,19 +30,19 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 O cofre dos Serviços de Recuperação também contém os dados para os quais foi criada a cópia de segurança, bem como a política de cópia de segurança aplicada às máquinas virtuais protegidas. A cópia de segurança das máquinas virtuais é um processo local. Não se pode fazer uma rede virtual de um local para um cofre dos Serviços de Recuperação noutro local. Por isso, para cada localização do Azure com máquinas virtuais para as quais criar cópias de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
 
-1. No menu à esquerda, selecione **Todos os serviços**.
+1. No menu esquerdo, selecione **Todos os serviços**.
 
-    ![Selecione Todos os serviços](./media/tutorial-backup-vm-at-scale/click-all-services.png)
+    ![Selecionar Todos os serviços](./media/tutorial-backup-vm-at-scale/click-all-services.png)
 
-1. Na caixa de diálogo **de todos os serviços,** insira *os Serviços de Recuperação.* A lista de filtros de recursos de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação.**
+1. Na caixa de diálogo **Todos os serviços**, introduza *Serviços de Recuperação*. A lista de recursos é filtrada de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação**.
 
-    ![Insira e escolha cofres dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/all-services.png)
+    ![Introduzir e escolher cofres dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/all-services.png)
 
-    A lista de cofres dos Serviços de Recuperação na subscrição aparece.
+    É apresentada a lista dos cofres dos Serviços de Recuperação na subscrição.
 
-1. No painel de **cofres dos Serviços de Recuperação,** selecione **Add**.
+1. No dashboard **Cofres dos Serviços de Recuperação**, selecione **Adicionar**.
 
-    ![Adicione um cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
+    ![Adicionar um cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
 
 1. No menu do cofre dos Serviços de Recuperação,
 
@@ -59,9 +59,9 @@ O cofre dos Serviços de Recuperação também contém os dados para os quais fo
 
     ![Criar o cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/click-create-button.png)
 
-1. Pode levar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **de Notificações** no canto superior direito do portal. Depois do seu cofre ser criado, está visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Refresh**.
+1. Pode demorar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **Notificações** no canto superior direito do portal. Depois de o cofre ser criado, é visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Atualizar**.
 
-     ![Refresque a lista de cofres de reserva](./media/tutorial-backup-vm-at-scale/refresh-button.png)
+     ![Atualizar a lista de cofres de cópia de segurança](./media/tutorial-backup-vm-at-scale/refresh-button.png)
 
 Quando criar um cofre dos Serviços de Recuperação, esse cofre tem o armazenamento georredundante por predefinição. De modo a proporcionar resiliência de dados, o armazenamento georredundante replica os dados várias vezes em duas regiões do Azure.
 

@@ -8,15 +8,15 @@ ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079902"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Crie regras personalizadas de Firewall de Aplicação Web (WAF) com Azure PowerShell
 
-Este script cria uma Firewall de Aplicação Gateway Web que utiliza regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho de pedido contiver *o evilbot*do Agente utilizador .
+Este script cria uma Firewall de Aplicação Gateway Web que utiliza regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho do pedido contiver User-Agent *evilbot*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

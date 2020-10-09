@@ -12,10 +12,10 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389008"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configure a complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C
@@ -150,7 +150,7 @@ Para configurar a complexidade da palavra-passe, substitua os `newPassword` tipo
 3. Clique em **Executar agora**.
 4. Selecione **Iniciar surgiu agora,** insira um endereço de e-mail e introduza uma nova palavra-passe. A orientação é apresentada sobre as restrições de senha. Termine de introduzir as informações do utilizador e, em seguida, clique em **Criar**. Devia ver o conteúdo do símbolo que foi devolvido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar a [mudança de senha utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-change.md).
 - Saiba mais sobre os [elementos Predicados](predicates.md) e [PredicateValidations](predicates.md#predicatevalidations) na referência IEF.

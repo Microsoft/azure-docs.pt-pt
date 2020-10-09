@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76314543"
 ---
 # <a name="apply-sql-transformation"></a>Aplicar Transformação SQL
 
-Este artigo descreve um módulo de Azure Machine Learning designer (pré-visualização).
+Este artigo descreve um módulo de Azure Machine Learning designer.
 
 Utilizando o módulo de transformação DE Apply SQL, pode:
   
@@ -53,7 +53,7 @@ Embora a SQLite suporte grande parte da norma ANSI SQL, não inclui muitas funci
   
 - A SQLite utiliza dactilografia dinâmica para valores, em vez de atribuir um tipo a uma coluna como na maioria dos sistemas de base de dados relacionais. É fracamente dactilografado, e permite a conversão implícita do tipo.  
   
-- `LEFT OUTER JOIN`é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN` . .  
+- `LEFT OUTER JOIN` é implementado, mas não `RIGHT OUTER JOIN` ou `FULL OUTER JOIN` . .  
 
 - Pode usar `RENAME TABLE` e `ADD COLUMN` declarações com o `ALTER TABLE` comando, mas outras cláusulas não são apoiadas, incluindo `DROP COLUMN` , e `ALTER COLUMN` `ADD CONSTRAINT` .  
   
@@ -62,6 +62,6 @@ Embora a SQLite suporte grande parte da norma ANSI SQL, não inclui muitas funci
 
 Além da lista de funções não suportadas fornecidas no site oficial da SQLite, o seguinte wiki fornece uma lista de outras funcionalidades não apoiadas: [SQLite - SQL não suportado](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

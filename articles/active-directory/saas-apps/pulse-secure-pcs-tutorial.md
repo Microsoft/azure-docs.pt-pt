@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: c46565f7eaa060a060183cf321bb1df1903b945c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000904"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Pulse Secure PCS
@@ -104,7 +104,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -162,7 +162,7 @@ Execute os seguintes passos na seguinte página:
 
     d. Selecione valor de Id da Entidade AD Azure da lista de entrega de **Id da Entidade fornecedora**de identidade .
 
-    e. Selecione o valor URL de login Azure Ad da **lista de confirmação do URL de serviço único**do fornecedor de identidade.
+    e. Selecione o valor URL de login Azure Ad da lista de lançamento do URL de **serviço de Sign-On único do fornecedor de identidade**.
 
     f. **O Logout único** é uma definição opcional. Se esta opção for selecionada, solicita uma nova autenticação após o início de súm. Se esta opção não for selecionada e não tiver fechado o navegador, poderá voltar a ligar-se sem autenticação.
 

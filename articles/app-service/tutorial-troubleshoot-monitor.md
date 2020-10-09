@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88959022"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Resolução de problemas de uma aplicação do Serviço de Aplicações com o Azure Monitor
@@ -22,7 +22,7 @@ Este tutorial mostra como resolver problemas numa aplicação [do Serviço de Ap
 
 [O Azure Monitor](../azure-monitor/overview.md) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e agir em telemetria a partir dos seus ambientes de nuvem e no local.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure uma aplicação web com o Azure Monitor
@@ -37,7 +37,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para completar este tutorial, você precisará:
 
-- [Subscrição do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Assinatura Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [CLI do Azure](/cli/azure/install-azure-cli)
 - [Rio Git](https://git-scm.com/)
 

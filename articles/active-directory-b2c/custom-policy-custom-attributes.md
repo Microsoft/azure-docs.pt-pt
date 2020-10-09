@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389331"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Ative Directory B2C: Ative atributos personalizados numa política de perfil personalizado
@@ -50,14 +50,14 @@ Os termos *propriedade de extensão,* *atributo personalizado,* e *reivindicaç�
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Selecione **as inscrições da App**e, em seguida, selecione Todas as **aplicações**.
-1. Selecione a `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` inscrição.
+1. Selecione a aplicação `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copie os seguintes identificadores para a sua área de transferência e guarde-os:
-    * **Identificação de aplicação**. Exemplo: `11111111-1111-1111-1111-111111111111`.
+    * **ID da Aplicação**. Exemplo: `11111111-1111-1111-1111-111111111111`.
     * **Identificação de objetos.** Exemplo: `22222222-2222-2222-2222-222222222222`.
 
 ## <a name="modify-your-custom-policy"></a>Modifique a sua política personalizada
 
-Para ativar atributos personalizados na sua política, forneça **ID de aplicação** e **ID de objeto de** aplicação nos metadados de perfil técnico AAD-Common. O perfil técnico *AAD-Common encontra-se* no perfil técnico do [Azure Ative Directory](active-directory-technical-profile.md) e fornece suporte para a gestão do utilizador Azure AD. Outros perfis técnicos AZure AD incluem o AAD-Common para alavancar a sua configuração. Anular o perfil técnico AAD-Common no ficheiro de extensão.
+Para ativar atributos personalizados na sua política, forneça **ID de Aplicação** e **ID de Objeto** de Aplicação nos metadados de perfil técnico AAD-Common. O perfil técnico *AAD-Common encontra-se* no perfil técnico do [Azure Ative Directory](active-directory-technical-profile.md) e fornece suporte para a gestão do utilizador Azure AD. Outros perfis técnicos AZure AD incluem o AAD-Common para alavancar a sua configuração. Anular o perfil técnico AAD-Common no ficheiro de extensão.
 
 1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Encontre o elemento ClaimsProviders. Adicione um novo Provider de Reclamações ao elemento ClaimsProviders.
@@ -96,7 +96,7 @@ Os mesmos atributos de extensão são partilhados entre políticas incorporadas 
 
 Pode criar estes atributos utilizando o UI do portal antes ou depois de os utilizar nas suas políticas personalizadas. Siga as orientações para definir [atributos personalizados no Azure Ative Directory B2C](user-flow-custom-attributes.md). Quando criar um **atributo de fidelid** no portal, deve consultar-se da seguinte forma:
 
-|Name     |Usado em |
+|Nome     |Usado em |
 |---------|---------|
 |`extension_loyaltyId`  | Política personalizada|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
@@ -135,7 +135,7 @@ O exemplo a seguir demonstra a utilização de um atributo personalizado na pol�
 Siga as orientações para adicionar [reclamações e personalizar](custom-policy-configure-user-input.md)a entrada do utilizador utilizando políticas personalizadas . Esta amostra usa uma reivindicação incorporada de "cidade". Para utilizar um atributo personalizado, substitua a 'cidade' com os seus próprios atributos personalizados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 

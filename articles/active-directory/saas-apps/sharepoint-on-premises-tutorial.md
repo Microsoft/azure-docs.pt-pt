@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Tutorial: Azure Ative Directory integração única com SharePoint no local
@@ -89,7 +89,7 @@ Para configurar a Azure AD SSO com o SharePoint no local:
 
 1. Na caixa de diálogo **de método de inscrição única,** selecione o modo **SAML** para ativar o SSO.
  
-1. Na **configuração de 'Sessão única' com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração SAML básica.**
+1. Na **configuração single Sign-On com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração SAML básica.**
 
 1. Na secção **De Configuração Básica SAML,** siga estes passos:
 
@@ -105,7 +105,7 @@ Para configurar a Azure AD SSO com o SharePoint no local:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, identificador e URL de resposta.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar o **Certificado (Base64)** das opções dadas com base nos seus requisitos e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar o **Certificado (Base64)** das opções dadas com base nos seus requisitos e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
 
@@ -216,7 +216,7 @@ Para atribuir grupos de segurança Azure AD ao SharePoint no local, é necessár
 
 1. No portal Azure, selecione aplicações **Azure Ative Directory**  >  **Enterprise**. Selecione o nome de aplicação da empresa previamente criado e selecione **Single sign-on**.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, edite a secção **Atributos & Reclamações** do Utilizador.
+1. Na **configuração single Sign-On com página SAML,** edite a secção **Atributos & Reclamações** do Utilizador.
 
 1. **Selecione Adicionar uma reivindicação de grupo**.
 
@@ -236,7 +236,7 @@ Pode conceder acesso ao seu site SharePoint a uma conta de hóspedes de forma co
 
 1. No portal Azure, selecione aplicações **Azure Ative Directory**  >  **Enterprise**. Selecione o nome de aplicação da empresa previamente criado e selecione **Single sign-on**.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, edite a secção **Atributos & Reclamações** do Utilizador.
+1. Na **configuração single Sign-On com página SAML,** edite a secção **Atributos & Reclamações** do Utilizador.
 
 1. Na zona **de reclamação requerida,** selecione **O Identificador único do utilizador (ID nome)**.
 
@@ -267,7 +267,7 @@ A configuração funciona para uma única aplicação web, mas é necessária um
 
 1. No portal Azure, selecione aplicações **Azure Ative Directory**  >  **Enterprise**. Selecione o nome de aplicação da empresa previamente criado e selecione **Single sign-on**.
 
-1. Na **configuração de um único sinal com página SAML,** edite a **Configuração Básica SAML**.
+1. Na **configuração single Sign-On com página SAML,** edite a **Configuração Básica SAML**.
 
     ![Configuração BÁSICA SAML](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
 

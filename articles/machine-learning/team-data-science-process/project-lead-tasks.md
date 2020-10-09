@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76714423"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas de liderança do projeto no Processo de Ciência de Dados de Equipa
@@ -85,13 +85,13 @@ Para preencher o seu repositório de projeto com o conteúdo do repositório do 
    
 1. No diálogo **repositório de repositório Import a Git,** selecione **Git** como o **tipo Origem**, e introduza o URL para o seu repositório **TeamTemplate** em **URL Clone**. O URL é *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *. Por exemplo: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
-1. Selecione **Importar**. O conteúdo do repositório de modelos da sua equipa é importado para o seu repositório de projeto. 
+1. Selecione **Import** (Importar). O conteúdo do repositório de modelos da sua equipa é importado para o seu repositório de projeto. 
    
    ![Repositório de modelo de equipa de importação](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
 Se precisar de personalizar o conteúdo do seu repositório de projeto para atender às necessidades específicas do seu projeto, pode adicionar, eliminar ou modificar ficheiros e pastas de repositórios. Pode trabalhar diretamente em Azure Repos, ou clonar o repositório para a sua máquina local ou DSVM, fazer alterações e comprometer e empurrar as suas atualizações para o repositório de projeto partilhado. Siga as instruções da [Personalização do conteúdo dos repositórios da equipa](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações com descrições detalhadas das outras funções e tarefas definidas pelo Processo de Ciência de Dados de Equipa:
 
