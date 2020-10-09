@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854062"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859349"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -75,7 +75,6 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recursos de backend por Balanceador de Carga <sup> 1<sup> | 150                   |
 | Portas de alta disponibilidade                 | 1 por frontend interno       |
 | Regras de saída por Balanceador de Carga        | 600                           |
-| [Tempo de tempo inativo da TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomos, recursos definidos de disponibilidade e grupos de colocação de escala de máquina virtual.
 
@@ -88,7 +87,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras por NIC (em todos os IPs de um NIC) | 300                          |
 | Configurações IP frontend              | 200                          |
 | Tamanho da piscina backend                       | 300 configurações IP, conjunto de disponibilidade única |
-| Conjuntos de disponibilidade por balanceador de carga     | 150                          |
+| Conjuntos de disponibilidade por balanceador de carga     | 1                            |
 
 <a name="virtual-networking-limits-classic"></a>Os seguintes limites aplicam-se apenas aos recursos de networking geridos através do modelo **clássico** de implementação por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
 

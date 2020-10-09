@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 80255790129468857e1115f3034516f04bc86d26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef0791eeec169bb925b8f667523203beaacdd2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322985"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859707"
 ---
 Começa com o reconhecimento facial utilizando a biblioteca do cliente Face para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -24,7 +24,6 @@ Utilize a biblioteca cliente Face para .NET para:
 * [Encontre rostos semelhantes](#find-similar-faces)
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
 * [Identificar um rosto](#identify-a-face)
-* [Tire uma foto para a migração de dados](#take-a-snapshot-for-data-migration)
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -106,8 +105,6 @@ Os snippets de código abaixo mostram-lhe como fazer as seguintes tarefas com a 
 * [Encontre rostos semelhantes](#find-similar-faces)
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
 * [Identificar um rosto](#identify-a-face)
-* [Tire uma foto para a migração de dados](#take-a-snapshot-for-data-migration)
-
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -216,56 +213,6 @@ O próximo código chama a operação **IdentifyAsync** e imprime os resultados 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Tire uma foto para a migração de dados
-
-A funcionalidade Snapshots permite-lhe mover os dados do Face guardados, como um **PersonGroup**treinado, para uma subscrição diferente do Azure Cognitive Services Face. Pode querer utilizar esta funcionalidade se, por exemplo, criou um objeto **Do PersonGroup** usando uma subscrição gratuita e quiser emigrá-la para uma subscrição paga. Consulte [os dados do seu rosto](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para obter uma visão geral da funcionalidade Snapshots.
-
-Neste exemplo, migrará o **PersonGroup** que criou na [Create e treinará um grupo de pessoas.](#create-and-train-a-person-group) Pode completar essa secção primeiro, ou criar os seus próprios dados face para migrar.
-
-### <a name="set-up-target-subscription"></a>Configurar a subscrição-alvo
-
-Em primeiro lugar, deve ter uma segunda subscrição do Azure com recurso Face; pode fazê-lo seguindo os passos na secção [Configuração.](#setting-up) 
-
-Em seguida, defina as seguintes variáveis no `Main` método do seu programa. Terá de criar novas variáveis ambientais para o ID de subscrição da sua conta Azure, bem como a chave, ponto final e ID de subscrição da sua nova conta (alvo). 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-Para este exemplo, declare uma variável para o ID do **Target PersonGroup** &mdash; o objeto que pertence à nova subscrição, à qual irá copiar os seus dados.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-### <a name="authenticate-target-client"></a>Autenticar cliente alvo
-
-Em seguida, adicione o código para autenticar a sua subscrição secundária face.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_client)]
-
-### <a name="use-a-snapshot"></a>Use um instantâneo
-
-O resto das operações instantâneas devem ser efetuadas num método assíncronos. 
-
-1. O primeiro passo é **tirar** o instantâneo, que guarda os dados faciais da sua subscrição original para uma localização temporária na nuvem. Este método devolve um ID que utiliza para consultar o estado da operação.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take)]
-
-1. Em seguida, consultar o ID até que a operação esteja concluída.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take_wait)]
-
-1. Em seguida, utilize a operação **de aplicação** para escrever os seus dados faciais na subscrição-alvo. Este método também devolve um valor de ID.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Mais uma vez, consulta o novo ID até que a operação esteja concluída.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Por fim, complete o bloco de tentativa/captura e termine o método.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_trycatch)]
-
-Neste momento, o seu novo objeto **PersonGroup** deve ter os mesmos dados que o original e deve estar acessível a partir da sua nova subscrição (target) Azure Face.
-
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Execute a sua aplicação de reconhecimento facial a partir do diretório de aplicações com o `dotnet run` comando.
@@ -274,7 +221,7 @@ Execute a sua aplicação de reconhecimento facial a partir do diretório de apl
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -288,10 +235,6 @@ Se criou um **PersonGroup** neste arranque rápido e pretende eliminá-lo, execu
 Defina o método de eliminação com o seguinte código:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
-
-Além disso, se migrar dados utilizando a funcionalidade Snapshot neste arranque rápido, também terá de eliminar o **PersonGroup** guardado para a subscrição-alvo.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_target_persongroup_delete)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

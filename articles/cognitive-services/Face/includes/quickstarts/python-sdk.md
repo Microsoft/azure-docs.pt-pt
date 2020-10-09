@@ -1,20 +1,20 @@
 ---
 title: Face Python biblioteca cliente quickstart
-description: Utilize a biblioteca cliente Face para Python detetar rostos, encontrar semelhantes (procura facial por imagem), identificar rostos (pesquisa de reconhecimento facial) e migrar os dados do seu rosto.
+description: Utilize a biblioteca cliente Face para Python detetar rostos, encontrar semelhantes (procura facial por imagem) e identificar rostos (pesquisa de reconhecimento facial).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322986"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859637"
 ---
 Começa com o reconhecimento facial usando a biblioteca do cliente Face para Python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -25,7 +25,6 @@ Utilize a biblioteca do cliente Face para Python para:
 * Criar e treinar um grupo de pessoas
 * Identificar um rosto
 * Verificar rostos
-* Tire uma foto para a migração de dados
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)  |  [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  |  [Amostras](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
 * [Identificar um rosto](#identify-a-face)
 * [Verificar rostos](#verify-faces)
-* [Tire uma foto para a migração de dados](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -207,52 +205,6 @@ O código seguinte compara cada uma das imagens de origem com a imagem do alvo e
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Tire uma foto para a migração de dados
-
-A funcionalidade Snapshots permite-lhe mover os dados do rosto guardado, como um **PersonGroup**treinado, para uma subscrição diferente do Azure Cognitive Services Face. Pode querer utilizar esta funcionalidade se, por exemplo, criou um objeto **do PersonGroup** usando uma subscrição gratuita e agora pretende migrar para uma subscrição paga. Consulte os [dados do seu rosto para](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) obter uma visão geral da funcionalidade Snapshots.
-
-Neste exemplo, migrará o **PersonGroup** que criou na [Create e treinará um grupo de pessoas.](#create-and-train-a-person-group) Pode completar essa secção primeiro ou utilizar os seus próprios dados face.
-
-### <a name="set-up-target-subscription"></a>Configurar a subscrição-alvo
-
-Em primeiro lugar, deve ter uma segunda subscrição do Azure com recurso Face; pode fazê-lo seguindo os passos na secção [Configuração.](#setting-up) 
-
-Em seguida, crie as seguintes variáveis perto do topo do seu script. Também terá de criar novas variáveis ambientais para o ID de subscrição da sua conta Azure, bem como a chave, ponto final e ID de subscrição da sua nova conta (alvo). 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>Autenticar cliente alvo
-
-Mais tarde no seu script, guarde o seu objeto cliente atual como cliente de origem e, em seguida, autenha um novo objeto de cliente para a subscrição do seu alvo. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>Use um instantâneo
-
-O resto das operações instantâneas ocorrem dentro de uma função assíncronea. 
-
-1. O primeiro passo é **tirar** o instantâneo, que guarda os dados faciais da sua subscrição original para uma localização temporária na nuvem. Este método devolve um ID que utiliza para consultar o estado da operação.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Em seguida, consultar o ID até que a operação esteja concluída.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    Este código faz uso da `wait_for_operation` função, que deve definir separadamente:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Volta para a tua função assíncronea. Utilize a operação **de aplicação** para escrever os dados do seu rosto na subscrição do seu alvo. Este método também devolve um ID.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. Mais uma vez, utilize `wait_for_operation` a função para consultar o ID até que a operação esteja concluída.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Uma vez concluídas estes passos, poderá aceder às construções de dados do seu rosto a partir da sua nova subscrição (alvo).
-
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Execute a sua aplicação de reconhecimento facial a partir do diretório de aplicações com o `python` comando.
@@ -261,7 +213,7 @@ Execute a sua aplicação de reconhecimento facial a partir do diretório de apl
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -271,10 +223,6 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 Se criou um **PersonGroup** neste arranque rápido e pretende eliminá-lo, execute o seguinte código no seu script:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-Se migrar dados utilizando a função Snapshot neste arranque rápido, também terá de eliminar o **PersonGroup** guardado para a subscrição-alvo.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
