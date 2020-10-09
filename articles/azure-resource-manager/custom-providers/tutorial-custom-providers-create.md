@@ -7,10 +7,10 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4f425af7681b666b42fbcc70ac0e4c31d9df6d49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503757"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Criar e utilizar um fornecedor personalizado
@@ -32,7 +32,7 @@ Depois de criar um ponto final, pode criar um fornecedor personalizado para gera
 }
 ```
 
-Propriedade | Obrigatório | Descrição
+Propriedade | Necessário | Descrição
 ---|---|---
 **nome** | Sim | O nome da definição de ponto final. O Azure expõe este nome através da sua API em /subscrições/{subscriçãoD}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
 **roteamentoType** | Não | O tipo de contrato de ponto final. Se o valor não for especificado, é por defeito de "Proxy".
@@ -218,7 +218,7 @@ Parâmetro | Obrigatório | Descrição
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre fornecedores personalizados. Para obter mais informações, veja:
+Neste artigo, aprendeu sobre fornecedores personalizados. Para obter mais informações, consulte:
 
 - [Como: Adicionar ações personalizadas à Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Como: Adicionar recursos personalizados à Azure REST API](./custom-providers-resources-endpoint-how-to.md)

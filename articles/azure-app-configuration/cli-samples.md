@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d6e644a73a18cdfda71ae6a4e5360b713c08f4f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504403"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
@@ -22,7 +22,7 @@ A tabela seguinte inclui links para fazer scripts para a Configuração da Aplic
 |-|-|
 |**Criar**||
 | [Criar uma loja de configuração de aplicativos](./scripts/cli-create-service.md) | Cria um grupo de recursos e uma aplicação de loja.  |
-|**Uso**||
+|**Utilização**||
 | [Trabalhar com valores-chave](./scripts/cli-work-with-keys.md) | Cria, visualizações, atualizações e elimina valores-chave. |
 | [Valores-chave de importação](./scripts/cli-import.md) | Importa valores-chave de outras fontes. |
 | [Valores-chave de exportação](./scripts/cli-export.md) | Exporta valores-chave para outros alvos. |

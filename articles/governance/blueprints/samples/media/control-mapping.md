@@ -4,10 +4,10 @@ description: Controlo do mapeamento das amostras de plantas da mídia. Cada cont
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208472"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapeamento de controlo da amostra de planta dos media
@@ -47,7 +47,7 @@ Os seguintes mapeamentos são para os controlos **dos meios de comunicação.** 
 
 ### <a name="ac-1-21---separation-of-duties-must-be-enforced-through-appropriate-assignment-of-role"></a>AC-1-21 - A separação dos deveres deve ser executada através da atribuição adequada de funções.
 
-- \][Pré-visualização : O Controlo de Acesso baseado em funções (RBAC) deve ser utilizado nos serviços kubernetes
+- [Pré-visualização \] : Role-Based Access Control (RBAC) deve ser usado em Serviços Kubernetes
 
 ### <a name="ac-140--ensure-that-systems-are-not-connecting-trusted-network-and-untrusted-networks-at-the-same-time"></a>AC-1.40- Certifique-se de que os sistemas não estão a ligar redes fidedignos e redes não fidedignas ao mesmo tempo.
 
@@ -63,7 +63,7 @@ Os seguintes mapeamentos são para os controlos **dos meios de comunicação.** 
 
 ### <a name="ac-154--ensure-multi-factor-authentication-mfa-is-enabled-for-all-cloud-console-users"></a>AC-1.54- Certifique-se de que a autenticação multi-factor (MFA) está ativada para todos os utilizadores de consolas em nuvem.
 
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - A Autenticação Multi-Factor (MFA) deve ser ativada para todas as contas de subscrição com privilégios de escrita para evitar uma quebra de contas ou recursos.
 
 ## <a name="auditing--logging"></a>Registo de & de Auditoria

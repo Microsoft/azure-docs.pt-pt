@@ -8,10 +8,10 @@ metadata:
   ms.service: app-service
   ms.date: 08/06/2020
   ms.openlocfilehash: 3fc31095ec0d8e1ecdbe44c0751c55164d20e088
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88080033"
 landingContent:
 - title: Acerca do Serviço de Aplicações

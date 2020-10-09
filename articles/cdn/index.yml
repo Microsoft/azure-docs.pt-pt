@@ -10,10 +10,10 @@ metadata:
   ms.author: allensu
   ms.date: 02/24/2020
   ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
-  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/13/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88192448"
 landingContent:
 - title: Sobre a CDN do Azure

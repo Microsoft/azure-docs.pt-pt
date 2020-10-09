@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
 ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844852"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
@@ -23,15 +23,15 @@ Uma aplicação de cliente acederia a uma API FHIR através de uma [API REST](ht
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um ponto final da FHIR em Azure. Pode configurar isso utilizando o Azure API gerido para FHIR ou o servidor FHIR open source para o Azure. Configurar a Azure API gerida para fHIR utilizando [o portal Azure](fhir-paas-portal-quickstart.md), [PowerShell,](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
-- Uma [aplicação ao cliente](register-confidential-azure-ad-client-app.md) que você vai usar para aceder ao serviço FHIR
-- Carteiro instalado. Pode obtê-lo de[https://www.getpostman.com](https://www.getpostman.com)
+- Uma  [aplicação ao cliente](register-confidential-azure-ad-client-app.md) que você vai usar para aceder ao serviço FHIR
+- Carteiro instalado. Pode obtê-lo de [https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>Servidor FHIR e detalhes de autenticação
 
 Para utilizar o Carteiro, são necessários os seguintes detalhes:
 
-- O URL do seu servidor FHIR, por exemplo`https://MYACCOUNT.azurehealthcareapis.com`
-- O fornecedor de identidade `Authority` do seu servidor FHIR, por exemplo,`https://login.microsoftonline.com/{TENANT-ID}`
+- O URL do seu servidor FHIR, por exemplo `https://MYACCOUNT.azurehealthcareapis.com`
+- O fornecedor de identidade `Authority` do seu servidor FHIR, por exemplo, `https://login.microsoftonline.com/{TENANT-ID}`
 - Os `audience` configurados. Este é geralmente o URL do servidor FHIR, por exemplo `https://MYACCOUNT.azurehealthcareapis.com` ou apenas `https://azurehealthcareapis.com` .
 - O `client_id` (ou ID de aplicação) da [aplicação](register-confidential-azure-ad-client-app.md) do cliente que você vai usar para aceder ao serviço FHIR.
 - O `client_secret` (ou segredo de aplicação) da aplicação do cliente.
@@ -67,7 +67,7 @@ Precisará de alguns detalhes:
 | Nome do Token            | MYTOKEN                                                                                                         | Um nome que escolher          |
 | Tipo de Concessão            | Código de Autorização                                                                                              |                            |
 | URL de chamada de retorno          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
-| URL Auth              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience`é `https://MYACCOUNT.azurehealthcareapis.com` para Azure API para FHIR |
+| URL Auth              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` é `https://MYACCOUNT.azurehealthcareapis.com` para Azure API para FHIR |
 | URL do Token de Acesso      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
 | ID de Cliente             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | ID da Aplicação             |
 | Segredo do Cliente         | `XXXXXXXX`                                                                                                        | Chave de cliente secreto          |

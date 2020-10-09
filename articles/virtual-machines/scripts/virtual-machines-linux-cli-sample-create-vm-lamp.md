@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure CLI - Implemente a pilha de lâmpadas num conjunto de balança de máquina virtual equilibrado em carga
+title: Amostra de script Azure CLI - Implemente a pilha de lâmpadas num conjunto de balança de máquina virtual Load-Balanced
 description: Utilize uma extensão de script personalizado para implementar a Pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
 ms.openlocfilehash: e71b2f940c637a8b1375be71f9b6ca95fd76628e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501870"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga

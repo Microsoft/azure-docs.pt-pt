@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922137"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Azure Ative Directory B2C
@@ -141,7 +141,7 @@ Neste tutorial, armazena os ficheiros que criou na conta de armazenamento para q
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 2. Selecione **os fluxos do Utilizador**e, em seguida, selecione o fluxo do utilizador *B2C_1_signupsignin1.*
 3. Selecione **os layouts de página**e, em seguida, na página de **inscrição ou de inscrição unificada**, clique em **Sim** para Utilizar o conteúdo da **página personalizada**.
-4. Na **página personalizada URI**, insira o URI para o *ficheirocustom-ui.html* que gravou anteriormente.
+4. Na **página personalizada URI**, insira o URI para o * ficheirocustom-ui.html* que gravou anteriormente.
 5. No topo da página, **selecione Guardar**.
 
 ## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador

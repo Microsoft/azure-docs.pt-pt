@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501206"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
@@ -104,7 +104,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-o antes de registar o servidor no cofre. Adicionar mais adaptadores não é suportado após o registo.
 
 1. No inventário do vSphere Client, clique na VM com o botão direito do rato e selecione **Editar Definições**.
-2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Seguinte**.
+2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. e selecione **Seguinte**.
 3. Selecione um tipo de adaptador e uma rede.
 4. Para ligar o NIC virtual quando a VM estiver ligada, selecione **Estabelecer ligação ao ligar**. Selecione **Seguinte** > **Concluir**. Em seguida, selecione **OK**.
 
@@ -117,7 +117,7 @@ Depois de configurar o servidor de configuração, regista-o no cofre.
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, inicie sessão na VM como administrador.
 4. Da primeira vez que iniciar sessão, a Ferramenta de Configuração do Azure Site Recovery é iniciada em poucos segundos.
-5. Introduza um nome que será utilizado para registar o servidor de configuração no Site Recovery. Em seguida, selecione **Seguinte**.
+5. Introduza um nome que será utilizado para registar o servidor de configuração no Site Recovery. e selecione **Seguinte**.
 6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure. As credenciais têm de ter acesso ao cofre no qual pretende registar o servidor de configuração. Certifique-se de que as [funções](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) necessárias são atribuídas a este utilizador.
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reiniciada.
 8. Inicie sessão na máquina novamente. Em poucos segundos, o Assistente de Gestão do Servidor de Configuração inicia automaticamente.

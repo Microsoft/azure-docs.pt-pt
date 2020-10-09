@@ -11,10 +11,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 45712632ebfb2da4b713038503965ce908c1dfc6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498893"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcular o tamanho de um contentor de armazenamento de Blobs
@@ -47,8 +47,8 @@ Este script utiliza os seguintes comandos para calcular o tamanho do contentor d
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage blob upload](/cli/azure/storage/account) | Carrega ficheiros locais para um contentor de armazenamento de Blobs do Azure. |
-| [az storage blob list](/cli/azure/storage/account/keys) | Lista os blobs num contentor de armazenamento de Blobs do Azure. |
+| [Carregamento de blobs de armazenamento az](/cli/azure/storage/account) | Carrega ficheiros locais para um contentor de armazenamento de Blobs do Azure. |
+| [Lista de blobs de armazenamento az](/cli/azure/storage/account/keys) | Lista os blobs num contentor de armazenamento de Blobs do Azure. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

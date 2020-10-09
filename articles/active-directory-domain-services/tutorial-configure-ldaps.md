@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054345"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
@@ -44,7 +44,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
     * Se necessário, [crie e configuure um domínio gerido por Azure Ative Directory Domain Services][create-azure-ad-ds-instance].
-* A *ferramentaLDP.exe* instalada no seu computador.
+* A * ferramentaLDP.exe* instalada no seu computador.
     * Se necessário, [instale as Ferramentas de Administração do Servidor Remoto (RSAT)][rsat] para *Serviços de Domínio de Diretório Ativo e LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -150,9 +150,9 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 
 1. Uma vez que este certificado é utilizado para desencriptar dados, deve controlar cuidadosamente o acesso. Uma palavra-passe pode ser usada para proteger a utilização do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
-    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *. *Arquivo de certificado PFX. O algoritmo de encriptação deve ser *TripleDES-SHA1*. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
+    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *. * Arquivo de certificado PFX. O algoritmo de encriptação deve ser *TripleDES-SHA1*. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
 1. Na página **"Ficheiro para Exportação",** especifique o nome do ficheiro e o local onde pretende exportar o certificado, tais como *C:\Users\accountname\azure-ad-ds.pfx*. Mantenha uma nota da senha e localização do *. Ficheiro PFX,* uma vez que esta informação seria necessária nos próximos passos.
-1. Na página de análise, **selecione Finish** para exportar o certificado para um *. *Arquivo de certificado PFX. É apresentado um diálogo de confirmação quando o certificado foi exportado com sucesso.
+1. Na página de análise, **selecione Finish** para exportar o certificado para um *. * Arquivo de certificado PFX. É apresentado um diálogo de confirmação quando o certificado foi exportado com sucesso.
 1. Deixe o MMC aberto para utilização na secção seguinte.
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exportar um certificado para computadores clientes
@@ -280,13 +280,13 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 
 1. Na sua máquina local, abra *o Bloco de Notas* como administrador
 1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc\anfitriões*
-1. Apague a linha para o registo que adicionou, tal como`168.62.205.103    ldaps.aaddscontoso.com`
+1. Apague a linha para o registo que adicionou, tal como `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passos seguintes
 

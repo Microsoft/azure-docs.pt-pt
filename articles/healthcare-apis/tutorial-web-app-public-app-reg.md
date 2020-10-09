@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852978"
 ---
 # <a name="client-application-registration"></a>Registo de inscrição de cliente
@@ -21,7 +21,7 @@ No tutorial anterior, implementou e montou a sua API Azure para fHIR. Agora que 
 
 1. Navegue para o Diretório Ativo Azure
 1. Selecione **registo de**  -->  **aplicações novo registo**
-1. Nomeie a sua aplicação e crie o URI de redirecionamento parahttps://www.getpostman.com/oauth2/callback
+1. Nomeie a sua aplicação e crie o URI de redirecionamento para https://www.getpostman.com/oauth2/callback
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 
@@ -29,7 +29,7 @@ No tutorial anterior, implementou e montou a sua API Azure para fHIR. Agora que 
 
 Assim que o seu pedido de cliente estiver registado, copie o ID da Aplicação (cliente) e o ID do Inquilino na Página geral. Vai precisar destes dois valores mais tarde ao aceder ao cliente.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Screenshot do painel de configurações da aplicação do cliente, com os IDs de aplicação e diretório em destaque.":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 
 ### <a name="connect-with-web-app"></a>Conecte-se com a aplicação web
 
@@ -43,7 +43,7 @@ Se escreveu [a sua aplicação web](tutorial-web-app-write-web-app.md) para se c
 
 1. Selecione as caixas de verificação **de token de acesso** e **id.**
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot da app A imagem de configurações de autenticação lâmina, com os passos para adicionar uma plataforma realçada.":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 
 ## <a name="add-api-permissions"></a>Adicionar permissões de APIs
 
@@ -53,7 +53,7 @@ Agora que configurar a autenticação correta, desa um conjunto das permissões 
 1. Segundo **as APIs, a minha organização usa,** procure apis de cuidados de saúde Azure.
 1. Selecione **user_impersonation** e clique **em adicionar permissões**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot da lâmina de permissões Add API, com os passos para adicionar permissões API realçadas.":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora tem uma aplicação de cliente público. No próximo tutorial, vamos percorrer testes e ter acesso a esta aplicação através do Carteiro.

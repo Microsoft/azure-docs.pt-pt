@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema Media. Este exemplo de esqu
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: db7e67cb7f96a19a04efc001bc7752f7c9a02e73
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208252"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Descrição geral do exemplo de esquema Media

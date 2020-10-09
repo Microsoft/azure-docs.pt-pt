@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
 ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038389"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Intel NUC)
@@ -73,7 +73,7 @@ Para adicionar o *state.jsno* ficheiro de configuração à pasta */dados/armaze
 
 1. Atualize os `iotCentral > appKeys` espaços reservados com os valores que fez no ficheiro *scratchpad.txt* no tutorial anterior. Guarde as alterações.
 
-1. Utilize o utilitário PuTTY `scp` num pedido de comando para copiar ostate.js*no* ficheiro que acaba de editar para */pasta de armazenamento /dados/armazenamento* no seu dispositivo IoT Edge. Este exemplo utiliza `192.168.0.144` como exemplo endereço IP, substitua-o pelo endereço IP do seu dispositivo IoT Edge:
+1. Utilize o utilitário PuTTY `scp` num pedido de comando para copiar ostate.js* no* ficheiro que acaba de editar para */pasta de armazenamento /dados/armazenamento* no seu dispositivo IoT Edge. Este exemplo utiliza `192.168.0.144` como exemplo endereço IP, substitua-o pelo endereço IP do seu dispositivo IoT Edge:
 
     ```cmd
     scp state.json YourUserName@192.168.0.144:/data/storage/state.json`

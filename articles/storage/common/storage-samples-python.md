@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
 ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848191"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 Python
@@ -578,7 +578,7 @@ Para ver as bibliotecas completas da amostra python, vá a:
 
 Pode navegar e clonar o repositório GitHub para cada biblioteca.
 
-## <a name="getting-started-guides"></a>Começar guias
+## <a name="getting-started-guides"></a>Guias de introdução
 
 Consulte os seguintes guias se estiver à procura de instruções sobre como instalar e começar com as bibliotecas do cliente do Azure Storage.
 

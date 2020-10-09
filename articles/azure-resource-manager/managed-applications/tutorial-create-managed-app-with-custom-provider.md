@@ -7,10 +7,10 @@ author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494507"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar aplicação gerida com ações e recursos personalizados
@@ -41,7 +41,7 @@ Para completar este tutorial, precisa de saber:
 
 Neste tutorial, cria-se uma aplicação gerida e o seu grupo de recursos geridos conterá a instância personalizada do fornecedor, a conta de armazenamento e a função. A Função Azure utilizada neste exemplo implementa uma API que trata de operações personalizadas de fornecedores para ações e recursos. A Conta de Armazenamento Azure é usada como armazenamento básico para os seus recursos de fornecedor personalizados.
 
-A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUIDefinition.js*em*:
+A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUIDefinition.js* em*:
 
 ```json
 {

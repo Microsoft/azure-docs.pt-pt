@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136002"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
@@ -80,7 +80,7 @@ Dado o documento familiar da amostra acima, a consulta SQL retorna os documentos
     WHERE f.id = "WakefieldFamily"
 ```
 
-**Resultados**
+**Results**
 
 ```json
 {
@@ -124,7 +124,7 @@ A próxima consulta devolve todos os nomes de crianças da família cuja identif
     WHERE f.id = 'WakefieldFamily'
 ```
 
-**Resultados**
+**Results**
 
 ```
 [
@@ -138,7 +138,7 @@ A próxima consulta devolve todos os nomes de crianças da família cuja identif
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez as seguintes tarefas:
 

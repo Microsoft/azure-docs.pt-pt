@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852927"
 ---
 # <a name="testing-the-fhir-api"></a>Testar a FHIR API
@@ -85,7 +85,7 @@ Este POST criará um novo paciente no seu servidor FHIR com o nome James Tiberio
 
 Se fizeres o PASSO GET acima para recuperares um paciente outra vez, verás o James Tiberious Kirk listado na saída.
 
-## <a name="troubleshooting-access-issues"></a>Problemas de acesso à resolução de problemas
+## <a name="troubleshooting-access-issues"></a>Resolução de problemas de acesso
 Se tiver problemas durante qualquer uma destas etapas, reveja os documentos que reunimos no Azure Ative Directory e na AZure API para a FHIR. 
 
 * [AZure AD e Azure API para fHIR](azure-ad-hcapi.md) - Este documento descreve alguns dos princípios básicos do Azure Ative Directory e como interage com a API Azure para fHIR.

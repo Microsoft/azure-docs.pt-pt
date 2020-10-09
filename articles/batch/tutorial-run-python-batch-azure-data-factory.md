@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185116"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Uma distribuição [de Python](https://www.python.org/downloads/) instalada para testes locais.
 * O pacote [Azure.](https://pypi.org/project/azure/) `pip`
-* O [conjunto de dadosiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* O [ conjunto de dadosiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [a conta De criar um Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas batch a contas de armazenamento.
 * Uma conta da Azure Data Factory. Consulte [Criar uma fábrica de dados](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para obter mais informações sobre como criar uma fábrica de dados através do portal Azure.
 * [Explorador de Lote](https://azure.github.io/BatchExplorer/).

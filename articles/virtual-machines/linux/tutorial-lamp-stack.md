@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
 ms.openlocfilehash: d0d86e1a9c40eb6860508cf136ab9d466cc28ecd
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225908"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LAMP numa máquina virtual do Linux no Azure
@@ -111,7 +111,7 @@ Agora pode verificar a página de informações do PHP que criou. Abra um browse
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, implementou um servidor LAMP no Azure. Aprendeu a:
 

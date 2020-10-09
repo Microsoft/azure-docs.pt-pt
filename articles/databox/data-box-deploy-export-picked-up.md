@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142116"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Caixa de Dados do Azure (Pré-visualização)
@@ -71,7 +71,7 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 2. Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparação para envio** foi executada com êxito.
 3. Desligue o dispositivo e remova os cabos.
 4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-5. Reserve uma pick-up on-line no [DHL Link.](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference)
+5. Marque uma recolha online através da [Ligação da DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ## <a name="japan"></a>[Japão](#tab/in-japan)
 
@@ -135,7 +135,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 4. Para reservar uma pick-up com DHL, escolha uma das seguintes opções:
 
     * Ligue para o centro de contacto de atendimento ao cliente antes das 14:00 em **+27(0) 11 9213600**, selecione a opção 1 e, em seguida, especifique o número de waybill.
-    * Envie um e-mail para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) usar o seguinte modelo:
+    * Envie um e-mail para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com o seguinte modelo:
 
     ```output
     To: Priority.Support@dhl.com
@@ -145,20 +145,20 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```
 
-    * Em alternativa, pode deixar a encomenda no ponto de serviço DHL mais próximo.
+    * Em alternativa, pode levantar a embalagem no ponto de serviço da DHL mais próximo.
 
-5. Se encontrar algum problema, envie um e-mail [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes da(s) que se encontrou e coloque o número de waybill no Assunto: linha. Também pode ligar para +27(0)119213902.
+5. Se encontrar algum problema, envie um e-mail [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes sobre o problema encontrado e coloque o número da carta de porte na linha de assunto. Também pode ligar para +27(0)119213902.
 
-## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
-1. Embale o dispositivo para envio de devolução na caixa original.
+1. Embale o dispositivo para devolução na embalagem original.
 2. Note o número de referência (número de rastreio para envio inverso) mostrado na UI web local do dispositivo. Este número é apresentado após o **funcionar do prepare-se para o navio** ter sido bem sucedido.
 3. Descarregue e imprima a etiqueta de envio que está disponível na UI web local do dispositivo e afixe-a no pacote de envio.
 4. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-5. Ligue para a linha telefónica **Quantium Solutions** através **do (852) 2318 1213** durante o horário de expediente (9h às 18h, de segunda a sexta-feira).  
-6. Cite a pickup Microsoft Azure e o número de referência e o número de rastreio (acima do código de barras) na etiqueta de envio de devolução para organizar uma recolha.
-7. Recebe uma confirmação verbal do horário da recolha. Se o estafeta não chegar para recolha, ligue para a linha telefónica da Quantium Solutions para obter arranjos alternativos.
-8. Ao reservar uma pick-up com quantium, partilhe a confirmação com a [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) usando o seguinte modelo:
+5. Ligue para a linha direta da **Quantium Solutions** através do número **(852) 2318 1213** durante o horário de expediente (das 9:00 às 18:00, de segunda a sexta).  
+6. Indique Microsoft Azure pickup (Recolha do Microsoft Azure) e o número de controlo (acima do código de barras) na guia de remessa para devolução para combinar uma recolha.
+7. Recebe uma confirmação verbal do horário da recolha. Se o estafeta não efetuar a recolha, ligue para a linha direta da Quantium Solutions para combinar uma alternativa.
+8. Ao reservar uma recolha com a Quantium, partilhe a confirmação com o [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) com o seguinte modelo:
 
     ```output
     To: adbo@microsoft.com
@@ -176,7 +176,7 @@ Caso encontre algum problema, envie um e-mail para a Data Box Operations Asia [a
 
 ## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged)
 
-Se estiver a utilizar a Data Box no Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental e tiver selecionado a opção de envio auto-gerida durante a criação da encomenda, siga estas instruções.
+Se estiver a utilizar o Data Box no Japão, Singapura, Coreia, Índia, África do Sul ou Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções.
 
 1. Tome nota do Código de autorização apresentado na página Preparação para envio da IU da Web local do Data Box após este passo ser concluído com êxito.
 2. Desligue o dispositivo e remova os cabos. Coloque em segurança o cabo de alimentação enviado com o dispositivo na parte de trás do mesmo.
@@ -197,7 +197,7 @@ Se estiver a utilizar a Data Box no Japão, Singapura, Coreia, Índia, África d
  
 Assim que o dispositivo chegar ao centro de dados Azure, a Caixa de Dados apaga os dados dos seus discos de acordo com as [diretrizes da Revisão 1 do NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre temas como:
 

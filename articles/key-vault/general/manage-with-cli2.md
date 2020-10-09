@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504539"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Cofre de Chaves utilizando o Azure CLI 
@@ -44,10 +44,10 @@ Para uma visão geral do Azure Key Vault, veja [o que é Azure Key Vault?](overv
 Para utilizar os comandos Azure CLI neste artigo, tem de ter os seguintes itens:
 
 * Uma subscrição ao Microsoft Azure. Se não tiver uma, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interface Azure Command-Line versão 2.0 ou posterior. Para instalar a versão mais recente, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+* Azure Command-Line Interface versão 2.0 ou posterior. Para instalar a versão mais recente, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 * Uma aplicação que será configurada para usar a chave ou senha que cria neste artigo. Uma aplicação de exemplo está disponível a partir do [Centro de Transferências da Microsoft](https://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o ficheiro Readme incluído.
 
-### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obter ajuda com a interface de linha de comando cross-platform Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obter ajuda com Azure Cross-Platform Command-Line Interface
 
 Este artigo pressupõe que está familiarizado com a interface de linha de comando (Bash, Terminal, Comando).
 
@@ -58,7 +58,7 @@ az account set --help
 az account set -h
 ```
 
-Também pode ler os seguintes artigos para se familiarizar com o Gestor de Recursos Azure na Interface de Linha de Comando cross-Platform Azure:
+Também pode ler os seguintes artigos para se familiarizar com o Azure Resource Manager na Azure Cross-Platform Command-Line Interface:
 
 * [Instalar O Azure CLI](/cli/azure/install-azure-cli)
 * [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
@@ -92,7 +92,7 @@ Especifique uma subscrição com o parâmetro de subscrição.
 az account set --subscription <subscription name or ID>
 ```
 
-Para obter mais informações sobre a configuração da interface de linha de linha de comando da plataforma transversal Azure, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+Para obter mais informações sobre a configuração da Interface Command-Line da Plataforma Transversal Azure, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-a-new-resource-group"></a>Criar um novo grupo de recursos
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Use o `az keyvault create` comando para criar um cofre de chaves. Este script tem três parâmetros obrigatórios: um nome de grupo de recursos, um nome de cofre chave e a localização geográfica.
 
-Para criar um novo cofre com o nome **ContosoKeyVault,** no grupo de recursos **ContosoResourceGroup,** residente na localização da **Ásia Oriental,** escreva: 
+Para criar um novo cofre com o nome **ContosoKeyVault,** no grupo de recursos  **ContosoResourceGroup,** residente na localização da **Ásia Oriental,** escreva: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -219,7 +219,7 @@ Para autorizar a mesma aplicação a ler segredos no seu cofre, digite o seguint
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a>Definição de políticas avançadas de acesso ao cofre de chaves
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Definição de políticas avançadas de acesso ao cofre de chaves
 
 Utilize [a atualização az keyvault](/cli/azure/keyvault#az-keyvault-update) para permitir políticas avançadas para o cofre da chave.
 
@@ -271,7 +271,7 @@ O próximo comando importa um pacote "traga a sua própria chave" (BYOK). Isto p
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
-Para obter instruções mais detalhadas sobre como gerar este pacote BYOK, consulte [Como utilizar chaves protegidas por HSM com cofre de chave Azure](../keys/hsm-protected-keys.md).
+Para obter instruções mais detalhadas sobre como gerar este pacote BYOK, consulte [Como utilizar chaves HSM-Protected com cofre de chave Azure](../keys/hsm-protected-keys.md).
 
 ## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Apagar o cofre de chaves e chaves e segredos associados
 
@@ -327,4 +327,4 @@ az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 
 - Para obter referências de programação, consulte [o guia do desenvolvedor do Azure Key Vault](developers-guide.md)
 
-- Para obter informações sobre Azure Key Vault e HSMs, consulte [como utilizar chaves protegidas por HSM com cofre de chave Azure](../keys/hsm-protected-keys.md).
+- Para obter informações sobre Azure Key Vault e HSMs, consulte [Como utilizar chaves de HSM-Protected com cofre de chaves Azure](../keys/hsm-protected-keys.md).

@@ -7,10 +7,10 @@ ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ms.openlocfilehash: e12327651165606e6a9b571d410f547a09a8ec8e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87847929"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Criar um livro de bordo python
@@ -101,7 +101,7 @@ O runbook que criou ainda está no modo de Rascunho. Tens de publicá-lo antes d
 
 9. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. Só deve ver `Hello World` na corrente de saída. No entanto, este painel pode mostrar outros streams para um trabalho de runbook, como Verbose e Error, se o livro de bordo lhes escrever.
 
-10. Feche o painel streams e o painel job para voltar ao painel MyFirstRunbook-Python.
+10. Feche o painel de riachos e o painel de trabalho para voltar ao painel de MyFirstRunbook-Python.
 
 11. Clique em **Jobs** para abrir a página Jobs para este livro. Esta página lista todos os empregos criados por este runbook. Apenas deve conseguir ver uma tarefa listada, uma vez que apenas executou a tarefa uma vez.
 
@@ -116,7 +116,7 @@ Para isso, o script tem de autenticar utilizando as credenciais da sua conta Dem
 > A conta Automation deve ter sido criada com a função principal do serviço para que exista um certificado Run As.
 > Se a sua conta Automation não foi criada com o titular do serviço, pode autenticar como descrito na [Authenticate com as Bibliotecas de Gestão Azure para Python.](/azure/python/python-sdk-azure-authenticate)
 
-1. Abra o editor textual clicando em **Editar** no painel MyFirstRunbook-Python.
+1. Abra o editor textual clicando em **Editar** no painel de MyFirstRunbook-Python.
 
 2. Adicione o seguinte código para autenticar ao Azure:
 

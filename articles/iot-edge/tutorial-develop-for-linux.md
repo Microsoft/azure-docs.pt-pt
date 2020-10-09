@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056232"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Linux
@@ -102,7 +102,7 @@ Utilize as extensões IoT para o Código do Estúdio Visual para desenvolver mó
 
 3. Procure **ferramentas Azure IoT**, que na verdade é uma coleção de extensões que o ajudam a interagir com dispositivos IoT Hub e IoT, bem como desenvolver módulos IoT Edge.
 
-4. Selecione **Install** (Instalar). Cada extensão incluída instala-se individualmente.
+4. Selecione **Instalar**. Cada extensão incluída instala-se individualmente.
 
 5. Quando as extensões terminarem de instalar, abra a paleta de comando selecionando **a**  >  **Paleta de Comando ver**.
 
@@ -143,7 +143,7 @@ Assim que a sua nova solução estiver carregada na janela Visual Studio Code, a
 * A pasta **.vscode** contém um ficheiro chamado **launch.jsligado,** que é utilizado para depurar módulos.
 * A pasta **de módulos** contém uma pasta para cada módulo na sua solução. Neste momento, isso deve ser **apenas SampleModule,** ou qualquer nome que tenha dado ao módulo. A pasta SampleModule contém o código de programa principal, os metadados do módulo e vários ficheiros Docker.
 * O ficheiro **.env** contém as credenciais do registo do seu contentor. Estas credenciais são partilhadas com o seu dispositivo IoT Edge para que tenha acesso a retirar as imagens do contentor.
-* Os **deployment.debug.template.jsno** ficheiro edeployment.template.js**no** ficheiro são modelos que o ajudam a criar um manifesto de implantação. Um *manifesto de implantação* é um ficheiro que define exatamente quais os módulos que pretende implantados num dispositivo, como devem ser configurados e como podem comunicar uns com os outros e a nuvem. Os ficheiros do modelo usam ponteiros para alguns valores. Quando transforma o modelo num verdadeiro manifesto de implantação, os ponteiros são substituídos por valores retirados de outros ficheiros de solução. Localize os dois espaços reservados comuns no seu modelo de implantação:
+* Os **deployment.debug.template.jsno** ficheiro edeployment.template.js** no** ficheiro são modelos que o ajudam a criar um manifesto de implantação. Um *manifesto de implantação* é um ficheiro que define exatamente quais os módulos que pretende implantados num dispositivo, como devem ser configurados e como podem comunicar uns com os outros e a nuvem. Os ficheiros do modelo usam ponteiros para alguns valores. Quando transforma o modelo num verdadeiro manifesto de implantação, os ponteiros são substituídos por valores retirados de outros ficheiros de solução. Localize os dois espaços reservados comuns no seu modelo de implantação:
 
   * Na secção de credenciais de registo, o endereço é preenchido automaticamente a partir da informação que forneceu quando criou a solução. No entanto, o nome de utilizador e a palavra-passe referem as variáveis armazenadas no ficheiro .env. Esta configuração é para segurança, uma vez que o ficheiro .env é ignorado, mas o modelo de implementação não é.
   * Na secção SampleModule, a imagem do recipiente não é preenchida, apesar de ter fornecido o repositório de imagens quando criou a solução. Este espaço reservado aponta para a **module.jsno** ficheiro dentro da pasta SampleModule. Se for a esse ficheiro, verá que o campo de imagens contém o repositório, mas também um valor de etiqueta que é composto pela versão e pela plataforma do recipiente. Pode iterar a versão manualmente como parte do seu ciclo de desenvolvimento e selecionar a plataforma do recipiente utilizando um comutador que introduzimos mais tarde nesta secção.
@@ -233,7 +233,7 @@ Forneça as suas credenciais de registo do seu contentor ao Docker para que poss
 
 O Código do Estúdio Visual tem agora acesso ao registo do seu contentor, por isso está na altura de transformar o código da solução numa imagem de contentor.
 
-1. No explorador visual Studio Code, clique comdeployment.template.js**no** ficheiro e selecione **Build and Push IoT Edge Solution**.
+1. No explorador visual Studio Code, clique comdeployment.template.js** no** ficheiro e selecione **Build and Push IoT Edge Solution**.
 
    ![Constroem e empurrem módulos IoT Edge](./media/tutorial-develop-for-linux/build-and-push-modules.png)
 
@@ -254,7 +254,7 @@ O Código do Estúdio Visual tem agora acesso ao registo do seu contentor, por i
 
 6. Guarde as alterações para a module.jsno ficheiro.
 
-7. Clique com o botão direito **no ficheiro de** novodeployment.template.jse volte a selecionar Build and Push **IoT Edge Solution**.
+7. Clique com o botão direito ** no ficheiro de** novodeployment.template.jse volte a selecionar Build and Push **IoT Edge Solution**.
 
 8. Abra novamente o **deployment.amd64.jsarquivado.** Note que um novo ficheiro não foi criado quando executou o comando de construção e push novamente. Pelo contrário, o mesmo ficheiro foi atualizado para refletir as alterações. A imagem SampleModule aponta agora para a versão 0.0.2 do recipiente.
 
@@ -329,7 +329,7 @@ Os comandos desta secção são para o seu dispositivo IoT Edge, não para a sua
 
    Os registos SimulatedTemperatureSensor e SampleModule devem mostrar as mensagens que estão a processar. O módulo EdgeAgent é responsável por iniciar os outros módulos, pelo que os seus registos terão informações sobre a implementação do manifesto de implementação. Se algum módulo não estiver listado ou não estiver em execução, os registos edgeAgent provavelmente terão os erros. O módulo EdgeHub é responsável pelas comunicações entre os módulos e o IoT Hub. Se os módulos estiverem a funcionar, mas as mensagens não chegarem ao seu hub IoT, os registos edgeHub provavelmente terão os erros.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

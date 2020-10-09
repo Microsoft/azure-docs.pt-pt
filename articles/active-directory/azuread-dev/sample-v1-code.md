@@ -15,10 +15,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1efae6563b88f82318f9b8358d255b234c6cb7fd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116211"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)
@@ -120,7 +120,7 @@ As seguintes amostras demonstram uma API web que chama outra API web. A segunda 
 
 Para amostras e tutoriais que demonstrem diferentes padrões de utilização para a API do Gráfico microsoft, incluindo a autenticação com AZure AD, consulte [as amostras comunitárias do Microsoft Graph & Tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Guia do Programador de Diretórios Azure Ative](v1-overview.md)
 - [Bibliotecas de autenticação de diretório ativo Azure](active-directory-authentication-libraries.md)

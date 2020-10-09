@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 432c92bcfa8a2e0df26adf1516f5bdc9ee73d267
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502380"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Falha num VM Azure entre as regiões de Azure

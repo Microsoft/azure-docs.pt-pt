@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848031"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Escreva a aplicação web Azure para ler dados do FHIR
@@ -151,7 +151,7 @@ A partir daqui, pode voltar ao seu recurso de aplicação web e abrir o URL enco
 Implementou com sucesso a API Azure para fHIR, registou uma aplicação de cliente público, testou o acesso e criou uma pequena aplicação web. Confira a Azure API para funcionalidades suportadas pela FHIR como um próximo passo.
 
 >[!div class="nextstepaction"]
->[Funcionalidades suportadas](fhir-features-supported.md)
+>[Funcionalidades Suportadas](fhir-features-supported.md)
 
 
 

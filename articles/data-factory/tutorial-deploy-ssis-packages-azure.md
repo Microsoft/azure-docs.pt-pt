@@ -15,10 +15,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 840ccb00fdc91cc44fee46500bbc7237fe55ff2a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185524"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisão do tempo de integração Azure-SSIS na Azure Data Factory
@@ -235,9 +235,9 @@ Na página **de configurações avançadas** do painel de configuração do temp
 
       Selecione-o se utilizar um servidor de base de dados Azure SQL com regras de firewall IP/pontos finais de serviço de rede virtual ou uma instância gerida com ponto final privado para hospedar o SSISDB, ou se necessitar de acesso a dados no local sem configurar um IR auto-hospedado. Para obter mais informações, consulte [Criar um Azure-SSIS IR numa rede virtual.](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime) 
    
-   1. Selecione o **Tempo de Execução de Integração Auto-hospedada como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS** para escolher se deseja configurar um IR auto-hospedado como proxy para o seu Azure-SSIS IR. Para obter mais informações, consulte [Configurar um IR auto-hospedado como procuração](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).   
+   1. Selecione o **Prazo de Execução de Integração Self-Hosted como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS** para escolher se pretende configurar um IR auto-hospedado como proxy para o seu Azure-SSIS IR. Para obter mais informações, consulte [Configurar um IR auto-hospedado como procuração](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).   
 
-   1. **Selecione Continuar**. 
+   1. Selecione **Continuar**. 
 
 Na página **sumária** do painel de configuração do tempo de execução da **integração,** reveja todas as definições de provisionamento, marque as ligações de documentação recomendadas e selecione **Acabamento** para iniciar a criação do seu tempo de execução de integração. 
 

@@ -17,10 +17,10 @@ ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
 ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88053903"
 ---
 # <a name="create-a-nat-gateway---resource-manager-template"></a>Criar um gateway NAT - Modelo de Gestor de Recursos
@@ -117,7 +117,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
     ![Grupo de recursos NAT de rede virtual](./media/quick-create-template/nat-gateway-template-rg.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 **CLI do Azure**
 

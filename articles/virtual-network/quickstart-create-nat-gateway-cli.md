@@ -16,10 +16,10 @@ ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054030"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Criar um portal NAT usando O Azure CLI
@@ -214,7 +214,7 @@ ssh <ip-address-destination>
 
 Está agora pronto para usar o serviço NAT.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 

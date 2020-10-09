@@ -7,10 +7,10 @@ metadata:
   description: Saiba como utilizar os serviços de contentores do Azure para gerir e desenvolver aplicações de contentor com base na cloud.
   ms.topic: hub-page
   ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88080852"
 highlightedContent:
   items:

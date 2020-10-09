@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
 ms.openlocfilehash: f73fd033f299ffe1656ea1f131bcd78181c026b0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502210"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Amostras de Azure CLI para Azure Database for MariaDB 

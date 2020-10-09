@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852621"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experiências ml para produzir código Python
@@ -431,7 +431,7 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`pode agora ser invocado a partir de um terminal executando `python train.py` .
+`train.py` pode agora ser invocado a partir de um terminal executando `python train.py` .
 As funções de `train.py` outros ficheiros também podem ser chamadas.
 
 O `train_aml.py` ficheiro encontrado no `diabetes_regression/training` diretório do repositório MLOpsPython chama as funções definidas `train.py` no contexto de uma experiência de Aprendizagem automática Azure. As funções também podem ser chamadas em testes de unidade, cobertos posteriormente neste guia.
@@ -493,7 +493,7 @@ def init():
 
 Quarto, crie testes unitários para as suas funções Python. Os testes de unidade protegem o código contra regressões funcionais e facilitam a manutenção. Nesta secção, irá criar testes unitários para as funções em `train.py` .
 
-`train.py`contém múltiplas funções, mas só criaremos um teste unitário único para a `train_model` função usando a estrutura Pytest neste tutorial. O Pytest não é o único quadro de testes da unidade Python, mas é um dos mais utilizados. Para mais informações, visite [Pytest.](https://pytest.org)
+`train.py` contém múltiplas funções, mas só criaremos um teste unitário único para a `train_model` função usando a estrutura Pytest neste tutorial. O Pytest não é o único quadro de testes da unidade Python, mas é um dos mais utilizados. Para mais informações, visite [Pytest.](https://pytest.org)
 
 Um teste de unidade geralmente contém três ações principais:
 

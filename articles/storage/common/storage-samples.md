@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503655"
 ---
 # <a name="azure-storage-samples"></a>Amostras de armazenamento Azure
@@ -59,7 +59,7 @@ Para explorar as amostras C++, descarregue a [Biblioteca c++](https://www.nuget.
 
 Para explorar as amostras do Azure CLI, instale primeiro [o Azure CLI](/cli/azure/install-azure-cli).
 
-* [Começa com o Azure CLI](/cli/azure/get-started-with-azure-cli)
+* [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
 * [Amostras de armazenamento Azure usando o Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
 * [Artigos populares sobre a utilização do CLI Azure com Armazenamento Azure](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
@@ -70,7 +70,7 @@ Para explorar as amostras do Azure CLI, instale primeiro [o Azure CLI](/cli/azur
 | .NET | [Referência da biblioteca de clientes .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código fonte para a biblioteca do cliente de armazenamento .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Referência da Biblioteca do Cliente de Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código fonte para a biblioteca do cliente de armazenamento java](https://github.com/azure/azure-storage-java) |
 | Python | [Referência da biblioteca do cliente python](https://azure-storage.readthedocs.io/) | [Código fonte para a biblioteca do cliente de armazenamento Python](https://github.com/Azure/azure-storage-python) |
-| Node.js | [Referência da biblioteca do clienteNode.js](https://azure.github.io/azure-storage-node) | [Código fonte para a biblioteca do cliente de armazenamento de Node.js](https://github.com/Azure/azure-storage-node) |
+| Node.js | [ Referência da biblioteca do clienteNode.js](https://azure.github.io/azure-storage-node) | [Código fonte para a biblioteca do cliente de armazenamento de Node.js](https://github.com/Azure/azure-storage-node) |
 | C++ | [Referência da biblioteca do cliente C++](https://azure.github.io/azure-storage-cpp/) | [Código fonte para a biblioteca do cliente de armazenamento C++](https://github.com/Azure/azure-storage-cpp)|
 | CLI do Azure | [Referência da Biblioteca Azure CLI](/cli/azure/storage) | [Código fonte para a biblioteca do cliente de armazenamento Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 

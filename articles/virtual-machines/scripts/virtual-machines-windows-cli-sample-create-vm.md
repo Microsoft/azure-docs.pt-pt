@@ -16,10 +16,10 @@ ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bcee06dbd330dbed2f682c31266477df0a3f173b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87497907"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual com a CLI do Azure

@@ -10,13 +10,13 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502397"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Falha e reprotegia os VMs Azure entre regiões
+# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Ativação pós-falha e voltar a proteger as VMs do Azure entre regiões
 
 Este tutorial descreve como falhar sobre uma máquina virtual Azure (VM) para uma região secundária de Azure com o serviço [de Recuperação do Local Azure.](site-recovery-overview.md) Depois de ter falhado, reprotete o VM. Neste tutorial, ficará a saber como:
 
