@@ -2,26 +2,28 @@
 title: Cargas de trabalho de contentor
 description: Aprenda a executar e escalar aplicativos a partir de imagens de contentores em Azure Batch. Crie um conjunto de nós computativos que suportem tarefas de contentores em funcionamento.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018514"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843452"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentores em Azure Batch
 
 O Azure Batch permite-lhe executar e escalar um grande número de trabalhos de computação em lotes em Azure. As tarefas de lote podem ser executadas diretamente em máquinas virtuais (nós) numa piscina de Lote, mas também pode configurar um pool de Lote para executar tarefas em recipientes compatíveis com Docker nos nós. Este artigo mostra-lhe como criar um conjunto de nós de computação que suportam tarefas de contentores em execução e, em seguida, executar tarefas de contentores na piscina.
 
-Você deve estar familiarizado com os conceitos de recipiente e como criar uma piscina e trabalho batch. Os exemplos de código utilizam os SDKs Batch .NET e Python. Também pode utilizar outros SDKs e ferramentas de lote, incluindo o portal Azure, para criar piscinas de lote ativadas por contentores e executar tarefas de contentores.
+Os exemplos de código aqui utilizam os SDKs Batch .NET e Python. Também pode utilizar outros SDKs e ferramentas de lote, incluindo o portal Azure, para criar piscinas de lote ativadas por contentores e executar tarefas de contentores.
 
 ## <a name="why-use-containers"></a>Por que usar recipientes?
 
 A utilização de recipientes proporciona uma forma fácil de executar tarefas de Lote sem ter de gerir um ambiente e dependências para executar aplicações. Os contentores implementam aplicações como unidades leves, portáteis e autossuficientes que podem funcionar em vários ambientes diferentes. Por exemplo, construa e teste um recipiente localmente e, em seguida, carrede a imagem do recipiente para um registo em Azure ou em qualquer outro lugar. O modelo de implantação do contentor garante que o ambiente de funcionamento da sua aplicação está sempre corretamente instalado e configurado onde quer que se hospeda a aplicação. As tarefas baseadas em contentores no Batch também podem tirar partido das funcionalidades de tarefas não contentores, incluindo pacotes de aplicações e gestão de ficheiros de recursos e ficheiros de saída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Você deve estar familiarizado com os conceitos de recipiente e como criar uma piscina e trabalho batch.
 
 - **Versões SDK**: Os SDKs do lote suportam imagens de contentores a partir das seguintes versões:
   - Lote REST Versão API 2017-09-01.6.0
@@ -283,6 +285,12 @@ Para executar uma tarefa de contentor numa piscina ativada por contentores, espe
 
 - Se executar tarefas em imagens de contentores, a [tarefa](/dotnet/api/microsoft.azure.batch.cloudtask) de cloud e [de gestor de emprego](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) requer configurações de contentores. No entanto, a [tarefa inicial](/dotnet/api/microsoft.azure.batch.starttask), [a tarefa de preparação](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)do trabalho e a tarefa de [libertação](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) de emprego não requerem configurações de contentores (isto é, podem funcionar dentro de um contexto de contentor ou diretamente no nó).
 
+- Para o Windows, as tarefas devem ser executadas com [o ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) definido para `admin` . 
+
+- Para o Linux, o Batch mapeará a permissão do utilizador/grupo para o recipiente. Se o acesso a qualquer pasta dentro do recipiente necessitar de permissão do Administrador, poderá ter de executar a tarefa como âmbito de piscina com nível de elevação de administração. Isto garantirá que o Batch executa a tarefa como raiz no contexto do recipiente. Caso contrário, um utilizador não administrativo pode não ter acesso a essas pastas.
+
+- Para piscinas de contentores com hardware ativado pela GPU, o Batch ativará automaticamente a GPU para tarefas de contentores, pelo que não deve incluir o `–gpus` argumento.
+
 ### <a name="container-task-command-line"></a>Linha de comando de tarefa de contentor
 
 Quando executa uma tarefa de contentor, o Batch utiliza automaticamente o comando de criar o [estivador](https://docs.docker.com/engine/reference/commandline/create/) para criar um recipiente utilizando a imagem especificada na tarefa. Em seguida, o lote controla a execução da tarefa no recipiente.
@@ -351,7 +359,7 @@ CloudTask containerTask = new CloudTask (
 containerTask.ContainerSettings = cmdContainerSettings;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para facilitar a implantação das cargas de trabalho dos contentores no Azure Batch através [das receitas do Estaleiro,](https://github.com/Azure/batch-shipyard/tree/master/recipes)consulte o conjunto de ferramentas [do Estaleiro batch.](https://github.com/Azure/batch-shipyard)
 - Para obter informações sobre a instalação e utilização do Docker CE no Linux, consulte a documentação do [Docker.](https://docs.docker.com/engine/installation/)

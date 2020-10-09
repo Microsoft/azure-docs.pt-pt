@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891611"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com JIRA SAML SSO pela Microsoft
 
@@ -114,7 +114,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin Jira, que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin Jira, que é explicado mais tarde no tutorial.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -156,11 +156,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Hover on cog e clique nos **Add-ons**.
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/addon1.png)
+    ![A screenshot mostra add-ons selecionados a partir do menu Definições.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Descarregue o plugin do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56506). Faça o upload manual do plugin fornecido pela Microsoft utilizando o menu **add-on do Upload.** O download do plugin está coberto pelo [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/addon12.png)
+    ![Screenshot mostra Gerir add-ons com o link add-on upload chamado.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. Para executar o cenário de procuração inversa jira ou cenário de balançador de carga execute os seguintes passos:
 
@@ -171,19 +171,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![A screenshot mostra o ficheiro do ponto x m l do servidor num editor com a nova linha adicionada.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. Altere **o URL base** nas **definições do sistema** de acordo com o equilibrador proxy/load.
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![A screenshot mostra as Definições de Administração onde pode alterar a Base U R L.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Uma vez instalado o plugin, aparece na secção de add-ons **instalada pelo utilizador** da secção **'Gerir o Add-on'.** Clique **em Configurar** para configurar o novo plugin.
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/addon14.png)
+    ![A screenshot mostra o Azure A D SAML Single Sign-on para a secção Jira com configuração selecionada.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Execute os seguintes passos na página de configuração:
 
-    ![Configurar um único sign-on](./media/jiramicrosoft-tutorial/addon54.png)
+    ![A screenshot mostra o único sinal de inscrição do Microsoft Azure Ative Directory para a página de configuração Jira.](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado contra a app para que não haja erro na resolução dos metadados. Se houver vários certificados, ao resolver os metadados, a administração recebe um erro.
@@ -230,19 +230,19 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no servidor JIRA no l
 
 2. Hover on cog e clique na **gestão**do Utilizador .
 
-    ![Adicionar Empregado](./media/jiramicrosoft-tutorial/user1.png)
+    ![A screenshot mostra a gestão do utilizador selecionada a partir do menu Definições.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. É redirecionado para a página de Acesso do Administrador para introduzir **palavra-passe** e clicar no botão **Confirmar.**
 
-    ![Adicionar Empregado](./media/jiramicrosoft-tutorial/user2.png)
+    ![A screenshot mostra a página de Acesso do Administrador onde introduz as suas credenciais.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. Na secção de separador **de gestão do utilizador,** clique em **criar utilizador.**
 
-    ![Adicionar Empregado](./media/jiramicrosoft-tutorial/user3.png) 
+    ![A screenshot mostra o separador de gestão do Utilizador onde pode criar o utilizador.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. Na página de diálogo **"Criar novo utilizador",** execute os seguintes passos:
 
-    ![Adicionar Empregado](./media/jiramicrosoft-tutorial/user4.png) 
+    ![A screenshot mostra a nova caixa de diálogo do utilizador criar onde pode introduzir as informações neste passo.](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador como B.simon@contoso.com .
 

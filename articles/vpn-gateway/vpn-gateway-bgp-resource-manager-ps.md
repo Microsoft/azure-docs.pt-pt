@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5abfa26f5d897ade963253da81927a48cc65d781
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394079"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843265"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways Azure VPN usando PowerShell
 Este artigo percorre os passos para permitir o BGP numa ligação VPN site-to-site (S2S) transversal e uma ligação VNet-to-VNet utilizando o modelo de implementação do Gestor de Recursos e powerShell.
@@ -44,7 +44,7 @@ Os passos de configuração configuram os parâmetros BGP do gateway Azure VPN, 
 
 ![Porta de entrada BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Instale os cmdlets PowerShell do Gestor de Recursos Azure. Para obter mais informações sobre como instalar os cmdlets do PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) . 
 
@@ -109,7 +109,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Criar o portal VPN com o número AS
-Crie o gateway de rede virtual para TestVNet1. O BGP requer um gateway VPN baseado na rota, e também o parâmetro de adição, -Asn, para definir o ASN (Número AS) para o TestVNet1. Se não definir o parâmetro ASN, é atribuído o ASN 65515. A criação de um gateway pode demorar algum tempo (30 minutos ou mais).
+Crie o gateway de rede virtual para TestVNet1. O BGP requer uma Route-Based gateway VPN, e também o parâmetro de adição, -Asn, para definir o ASN (Número AS) para o TestVNet1. Se não definir o parâmetro ASN, é atribuído o ASN 65515. A criação de um gateway pode demorar algum tempo (30 minutos ou mais).
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
@@ -214,7 +214,7 @@ A ligação é estabelecida após alguns minutos, e a sessão de observação BG
 
 Esta secção adiciona uma ligação VNet-to-VNet com BGP, como mostra o seguinte diagrama:
 
-![BGP para VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagrama que mostra uma ligação V Net a V Net.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 As seguintes instruções continuam a partir dos passos anteriores. Tem de completar a [Parte I](#enablebgp) para criar e configurar o TestVNet1 e o Gateway VPN com BGP. 
 
@@ -313,6 +313,6 @@ Se completou as três partes deste exercício, estabeleceu a seguinte topologia 
 
 ![BGP para VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md) para obter os passos.

@@ -3,15 +3,15 @@ title: Criar um conjunto com a encriptação de disco ativada
 description: Aprenda a usar a configuração de encriptação do disco para encriptar nós com uma chave gerida pela plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267054"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849267"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Criar um conjunto com a encriptação de disco ativada
 
@@ -21,7 +21,7 @@ Este artigo explica como criar um pool de Lote com encriptação de disco ativad
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Porquê usar uma piscina com configuração de encriptação de disco?
 
-Com um pool de Lote, você pode aceder e armazenar dados no SO e discos temporários do nó computacional. Encriptar o disco do lado do servidor com uma chave gerida pela plataforma irá salvaguardar estes dados com baixa sobrecarga e conveniência.  
+Com um pool de Lote, você pode aceder e armazenar dados no SO e discos temporários do nó computacional. Encriptar o disco do lado do servidor com uma chave gerida pela plataforma irá salvaguardar estes dados com baixa sobrecarga e conveniência.
 
 O Batch aplicará uma destas tecnologias de encriptação de discos em nós computativos, com base na configuração da piscina e na capacidade de suporte regional.
 
@@ -35,8 +35,8 @@ O Batch aplicará uma destas tecnologias de encriptação de discos em nós comp
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Não poderá especificar qual o método de encriptação que será aplicado nos nós da sua piscina. Em vez disso, fornece os discos-alvo que pretende encriptar nos seus nós, e o Batch pode escolher o método de encriptação apropriado, garantindo que os discos especificados são encriptados no nó de computação.
- 
-## <a name="azure-portal"></a>Portal do Azure 
+
+## <a name="azure-portal"></a>Portal do Azure
 
 Ao criar um pool de Lote no portal Azure, selecione **TemporaryDisk** ou **OsAndTemporaryDisk** sob **a Configuração de Encriptação do Disco**.
 
@@ -44,7 +44,7 @@ Ao criar um pool de Lote no portal Azure, selecione **TemporaryDisk** ou **OsAnd
 
 Após a criação da piscina, pode ver os alvos de configuração da encriptação do disco na secção **Propriedades** da piscina.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot mostrando os alvos de configuração de encriptação do disco no portal Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot da opção de configuração de encriptação do disco no portal Azure.":::
 
 ## <a name="examples"></a>Exemplos
 
@@ -87,7 +87,7 @@ Corpo do pedido:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

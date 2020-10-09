@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552733"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850046"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Tutorial: Azure Ative Directy integração única (SSO) com iSAMS
 
@@ -132,16 +132,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Navegue no Painel de Controlo e abra o módulo **de autenticação.**
 1. A partir do menu da mão direita, selecione **Fornecedores de Identidade**
 
-    ![Configuração](./media/isams-tutorial/click-identity-provider.png)
+    ![A screenshot mostra a configuração do diretório ativo com os fornecedores de identidade selecionados.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Selecione **Adicionar Fornecedor**
 
-    ![Configuração](./media/isams-tutorial/add-identity-provider.png)
+    ![A Screenshot mostra fornecedores de identidade com fornecedores de adicionar selecionados.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Execute os seguintes passos na seguinte página:
 
-    ![Configuração](./media/isams-tutorial/configure-isams.png)
+    ![A screenshot mostra o Assistente de Fornecedores de Identidade onde pode fazer os passos descritos.](./media/isams-tutorial/configure-isams.png)
 
     a. Na caixa de texto **Name,** dê um nome válido como `Saml2 Azure` . Este é o nome que aparecerá na página de login.
 
@@ -159,12 +159,12 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2.  Aceda ao **Painel de Controlo**Segurança Doméstica &  ->  **permissões**  ->  **Opções de**Utilizador de Contas &  ->  **Tarefas**  ->  **Modificam Propriedades do Utilizador**
 
-    ![Utilizador de teste](./media/isams-tutorial/modify-user-properties.png)
+    ![A screenshot mostra a página contas do utilizador com as propriedades do utilizador selecionadas.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. Na janela popup resultante, selecione o separador **Dados de Conta** e altere a **Autorização** para a do seu fornecedor de identidade recém-criado.
 
-    ![Utilizador de teste](./media/isams-tutorial/account-details.png)
+    ![A Screenshot mostra detalhes da conta com um valor para Autorização.](./media/isams-tutorial/account-details.png)
 
 4. Clique em **Guardar & Fechar**.
 

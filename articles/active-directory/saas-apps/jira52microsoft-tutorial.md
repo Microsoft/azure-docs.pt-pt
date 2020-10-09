@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547571"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Ative Directory com a JIRA SAML SSO pela Microsoft (V5.2)
 
@@ -30,7 +30,7 @@ A integração do JIRA SAML SSO pela Microsoft (V5.2) com a Azure AD proporciona
 Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrição
 
 Utilize a sua conta Microsoft Azure Ative Directory com o servidor Atlassian JIRA para ativar um único s-on. Desta forma, todos os utilizadores da sua organização podem usar as credenciais AZURE AD para iniciar súm na aplicação JIRA. Este plugin usa SAML 2.0 para federação.
 
@@ -119,7 +119,7 @@ Para configurar o único sign-on Azure AD com jira SAML SSO pela Microsoft (V5.2
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -134,35 +134,35 @@ Para configurar o único sign-on Azure AD com jira SAML SSO pela Microsoft (V5.2
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin Jira, que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin Jira, que é explicado mais tarde no tutorial.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-jira-saml-sso-by-microsoft-v52-single-sign-on"></a>Configurar JIRA SAML SSO pela Microsoft (V5.2) Sign-On único
+### <a name="configure-jira-saml-sso-by-microsoft-v52-single-sign-on"></a>Configurar JIRA SAML SSO pela Microsoft (V5.2) Single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se na sua instância JIRA como administrador.
 
 2. Hover on cog e clique nos **Add-ons**.
 
-    ![Configurar um único sign-on](./media/jira52microsoft-tutorial/addon1.png)
+    ![A screenshot mostra add-ons selecionados a partir do menu Definições.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. Na secção de separadores de add-ons, clique **em Gerir suplementos**.
 
-    ![Configurar um único sign-on](./media/jira52microsoft-tutorial/addon7.png)
+    ![Screenshot mostra Gerir os addons selecionados no separador Add-ons.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Descarregue o plugin do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56521). Faça o upload manual do plugin fornecido pela Microsoft utilizando o menu **add-on do Upload.** O download do plugin está coberto pelo [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar um único sign-on](./media/jira52microsoft-tutorial/addon12.png)
+    ![Screenshot mostra Gerir add-ons com o link add-on upload chamado.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Uma vez instalado o plugin, aparece na secção de add-ons **instalados pelo utilizador.** Clique **em Configurar** para configurar o novo plugin.
 
-    ![Configurar um único sign-on](./media/jira52microsoft-tutorial/addon13.png)
+    ![A screenshot mostra o Azure A D SAML Single Sign-on para a secção Jira com configuração selecionada.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Execute os seguintes passos na página de configuração:
 
-    ![Configurar um único sign-on](./media/jira52microsoft-tutorial/addon52.png)
+    ![A screenshot mostra a página de configuração do Conector Microsoft Jira S S O.](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado contra a app para que não haja erro na resolução dos metadados. Se houver vários certificados, ao resolver os metadados, a administração recebe um erro.
@@ -221,7 +221,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** selecione **JIRA SAML SSO pela Microsoft (V5.2)**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **JIRA SAML SSO pela Microsoft (V5.2)**.
 
@@ -251,19 +251,19 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no servidor JIRA no l
 
 2. Hover on cog e clique na **gestão**do Utilizador .
 
-    ![Adicionar Empregado](./media/jira52microsoft-tutorial/user1.png)
+    ![A screenshot mostra a gestão do utilizador selecionada a partir do menu Definições.](./media/jira52microsoft-tutorial/user1.png)
 
 3. É redirecionado para a página de Acesso do Administrador para introduzir **palavra-passe** e clicar no botão **Confirmar.**
 
-    ![Adicionar Empregado](./media/jira52microsoft-tutorial/user2.png)
+    ![A screenshot mostra a página de Acesso do Administrador onde introduz as suas credenciais.](./media/jira52microsoft-tutorial/user2.png)
 
 4. Na secção de separador **de gestão do utilizador,** clique em **criar utilizador.**
 
-    ![Adicionar Empregado](./media/jira52microsoft-tutorial/user3.png) 
+    ![A screenshot mostra o separador de gestão do Utilizador onde pode criar o utilizador.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. Na página de diálogo **"Criar novo utilizador",** execute os seguintes passos:
 
-    ![Adicionar Empregado](./media/jira52microsoft-tutorial/user4.png)
+    ![A screenshot mostra a nova caixa de diálogo do utilizador criar onde pode introduzir as informações neste passo.](./media/jira52microsoft-tutorial/user4.png)
 
     a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador como Brittasimon@contoso.com .
 

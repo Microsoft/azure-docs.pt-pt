@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360621"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850086"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  Faça login na [consola de administração MediusFlow](https://office365.cloudapp.mediusflow.com/) fornecendo o ID do inquilino.
 
-    ![Autenticar](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 2. Verifique a ligação com MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Guarde a configuração.
 
-    ![Autenticar](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 5. Selecione o fornecimento do utilizador e clique **em OK**.
 
-    ![Autenticar](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 6. Clique em **Gerar Chave Secreta.** Copie e guarde este valor. Este valor será introduzido no campo **Secret Token** no **separador Provisioning** da sua aplicação MediusFLow no portal Azure.
 
-    ![Autenticar](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 7. Clique em **OK**.
 
-    ![Autenticar](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 8. Para que os utilizadores sejam importados com um conjunto pré-definido de funções, empresas e outras configurações gerais no MediusFlow, terá de o configurar primeiro. Comece por adicionar a configuração clicando na **Nova configuração**.
 
-    ![Utilizadores config](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 9. Forneça as definições predefinidos para os utilizadores. Nesta perspetiva, é possível definir o atributo predefinido. Se as definições padrão estiverem bem, basta fornecer apenas um nome de empresa válido. Uma vez que estas configurações são recolhidas a partir do Mediusflow, precisam de ser configuradas primeiro. Para mais informações consulte a secção **Pré-Requisitos** deste artigo.
 
-    ![Utilizadores config](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 10. Clique em **Guardar** para guardar a configuração do utilizador.
 
-    ![Utilizadores config](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 11. Para obter o link de provisionamento do utilizador clique no **Link Copy SCIM**. Copie e guarde este valor. Este valor é introduzido no campo URL do **inquilino** no **separador Provisioning** da sua aplicação MediusFLow no portal Azure.
  
-    ![Utilizadores config](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione MediusFlow da galeria de aplicações AZure AD
 
@@ -159,12 +159,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |---|---|
    |userName|String|
    |emails[type eq "work"].value|String|
-   |nome.displayName|Cadeia|
+   |nome.displayName|String|
    |active|Booleano|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.formatado|Cadeia|
-   |externalID|Cadeia|
+   |nome.formatado|String|
+   |externalID|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
 
 

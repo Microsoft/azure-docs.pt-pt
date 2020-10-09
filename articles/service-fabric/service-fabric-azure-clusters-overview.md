@@ -3,16 +3,14 @@ title: Criar clusters no Windows Server e Linux
 description: Os clusters de tecido de serviço funcionam no Windows Server e linux. Pode implementar e hospedar aplicações de Tecido de Serviço em qualquer lugar que possa executar Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978708"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843316"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -71,11 +69,11 @@ Além dos certificados de cliente, o Azure Ative Directory também pode ser conf
 Para mais informações, leia [a segurança do Cliente-a-nó](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
-O Controlo de Acesso Baseado em Função (RBAC) permite-lhe atribuir controlos de acesso finos nos recursos Azure.  Pode atribuir diferentes regras de acesso a subscrições, grupos de recursos e recursos.  As regras da RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam ultrapassadas num nível mais baixo.  Pode atribuir qualquer utilizador ou grupo de utilizadores no seu AAD com as regras do RBAC para que os utilizadores e grupos designados possam modificar o seu cluster.  Para mais informações, leia a visão geral do [Azure RBAC.](../role-based-access-control/overview.md)
+Role-Based Access Control (RBAC) permite-lhe atribuir controlos de acesso finos nos recursos Azure.  Pode atribuir diferentes regras de acesso a subscrições, grupos de recursos e recursos.  As regras da RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam ultrapassadas num nível mais baixo.  Pode atribuir qualquer utilizador ou grupo de utilizadores no seu AAD com as regras do RBAC para que os utilizadores e grupos designados possam modificar o seu cluster.  Para mais informações, leia a visão geral do [Azure RBAC.](../role-based-access-control/overview.md)
 
 O Service Fabric também suporta o controlo de acesso para limitar o acesso a certas operações de cluster para diferentes grupos de utilizadores. Isto ajuda a tornar o cluster mais seguro. Dois tipos de controlo de acesso são suportados para clientes que se conectam a um cluster: função de administrador e papel do Utilizador.  
 
-Para obter mais informações, leia [o Controle de Acesso Baseado em Funções de Tecido de Serviço (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para mais informações, leia [o Controle de Acesso Role-Based de Tecidos de Serviço (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Os grupos de segurança da rede (NSGs) controlam o tráfego de entrada e saída de uma sub-rede, VM ou NIC específico.  Por predefinição, quando vários VMs são colocados na mesma rede virtual, podem comunicar entre si através de qualquer porta.  Se quiser limitar as comunicações entre as máquinas, pode definir NSGs para segmentar a rede ou isolar VMs uns dos outros.  Se tiver vários tipos de nós num cluster, pode aplicar NSGs em sub-redes para evitar que máquinas pertencentes a diferentes tipos de nós se comuniquem entre si.  

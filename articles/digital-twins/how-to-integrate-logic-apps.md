@@ -8,18 +8,21 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326586"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849848"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) é um serviço de cloud que o ajuda a automatizar fluxos de trabalho através de apps e serviços. Ao ligar as Aplicações Lógicas às APIs das Gémeas Digitais Azure, pode criar fluxos automatizados em torno das Gémeas Digitais Azure e dos seus dados.
 
 A Azure Digital Twins não tem atualmente um conector certificado (pré-construído) para aplicações lógicas. Em vez disso, o processo atual de utilização de Apps Lógicas com Gémeos Digitais Azure é criar um [**conector de Aplicações Lógicas personalizado**](../logic-apps/custom-connector-overview.md), utilizando um [Azure Digital Twins Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para trabalhar com apps lógicas.
+
+> [!NOTE]
+> Existem várias versões do Swagger contidas na amostra personalizada de Swagger ligada acima. A versão mais recente será encontrada na sub-página com a data mais recente, mas as versões anteriores contidas na amostra também são suportadas.
 
 Neste artigo, você usará o [portal Azure](https://portal.azure.com) para **criar um conector personalizado** que pode ser usado para ligar Apps Lógicas a uma instância Azure Digital Twins. Em seguida, **irá criar uma aplicação lógica** que utiliza esta ligação para um cenário de exemplo, no qual os eventos desencadeados por um temporizador irão atualizar automaticamente um gémeo na sua instância Azure Digital Twins. 
 
@@ -54,11 +57,11 @@ Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do
 
 Introduza os valores que quiser para Descrição e Expira, e bata *Em Adicionar*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Adicionar segredo de cliente":::
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Agora, verifique se o segredo do cliente está visível na página _de segredos & certificados_ com campos _expira_ e _valor._ Tome nota do seu _Valor_ para usar mais tarde (também pode copiá-lo para a área de transferência com o ícone Copy)
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copiar valor secreto do cliente":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 ### <a name="add-a-digital-twin"></a>Adicione um gémeo digital
 
@@ -74,15 +77,15 @@ Neste passo, irá criar um [conector de Apps Lógicas personalizado](../logic-ap
 
 Navegue para a página [de Connector Personalizado de Aplicações Lógicas](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Hit *+ Add*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="A página 'Logic Apps Custom Connector' no portal Azure. Destaque em torno do botão 'Adicionar'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na página *do Conector Personalizado create Logic Apps* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para o seu novo conector. Hit *Review + criar*. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="A página 'Create Logic Apps Custom Connector' no portal Azure.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Isto irá levá-lo ao separador *'Rever +' criar,* onde pode *acertar* criar na parte inferior para criar o seu recurso.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="O separador 'Rever + criar' da página 'Review Logic Apps Custom Connector' no portal Azure. Destaque em torno do botão 'Criar'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Serão levados para a página de implantação do conector. Quando terminar a implementação, premir o botão *Go para o recurso* para visualizar os detalhes do conector no portal.
 
@@ -90,11 +93,16 @@ Serão levados para a página de implantação do conector. Quando terminar a im
 
 Em seguida, configurará o conector que criou para chegar às Gémeas Digitais Azure.
 
-Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **Azure Digital Twins Custom Swaggers** a partir [deste link,](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* descarregada e desaperte-a. O Swagger personalizado para este tutorial está localizado em *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.js.*
+Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **Azure Digital Twins Custom Swaggers** a partir [**deste link,**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* descarregada e desaperte-a. 
 
-Em seguida, vá à página geral do seu conector no [portal Azure](https://portal.azure.com) e atinja *editar*.
+O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_Custom_Swaggers\LogicApps.**_ Esta pasta contém sub-dobradeiras chamadas *estáveis* e *de pré-visualização,* ambas com diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a mais recente cópia do Swagger. Seja qual for a versão que selecionar, o ficheiro Swagger é nomeado _**digitaltwins.js.**_
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="A página 'Visão Geral' para o conector criado no passo anterior. Destaque em torno do botão 'Editar'":::
+> [!NOTE]
+> A menos que esteja a trabalhar com uma funcionalidade de pré-visualização, é geralmente recomendado usar a versão mais recente *e estável* do Swagger. No entanto, versões anteriores e versões de pré-visualização do Swagger também são suportadas. 
+
+Em seguida, vá à página geral do seu conector no [portal Azure](https://portal.azure.com) e bata *em Edit*.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que se segue, configuure estas informações:
 * **Conectores personalizados**
@@ -111,7 +119,7 @@ Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que 
 
 Em seguida, adiem o botão *de Segurança* na parte inferior da janela para continuar até ao próximo passo de configuração.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot da parte inferior da página 'Editar Aplicativos De Lógica'. Destaque em torno do botão para continuar a Segurança":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na etapa de Segurança, *acerte editar* e configuure esta informação:
 * **Tipo de autenticação**: Oauth 2.0
@@ -127,13 +135,13 @@ Na etapa de Segurança, *acerte editar* e configuure esta informação:
 
 Note que o campo URL de redirecionamento diz *Salvar o conector personalizado para gerar o URL de redirecionamento*. Faça isto agora, atingindo o *conector Update* através da parte superior do painel para confirmar as definições do conector.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot do topo da página 'Editar Aplicativos De Lógica'. Destaque em torno do botão 'Update connector'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 <!-- Success message? didn't see one -->
 
 Volte ao campo URL de redirecionamento e copie o valor que foi gerado. Vais usá-lo no próximo passo.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="O campo URL de redirecionamento na página 'Editar Apps Lógicas', tem agora um valor de https://logic-apis-westus2.consent.azure-apim.net/redirect ' O botão para copiar o valor é realçado.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Esta é toda a informação necessária para criar o seu conector (não há necessidade de continuar a ultrapassar a Segurança até ao passo Definição). Pode fechar o painel de *conector personalizado de aplicações lógicas de edição.*
 
@@ -148,11 +156,11 @@ Navegue na página [de inscrições](https://portal.azure.com/#blade/Microsoft_A
 
 Em *Autenticação* do menu do registo, adicione um URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="A página autenticação para o registo da aplicação no portal Azure. Destaca-se a 'autenticação' no menu e, na página, destaca-se o botão 'Adicionar um URI'."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'"::: 
 
 Introduza o URL *de redirecionamento* do conector personalizado para o novo campo e atinja o ícone *Save.*
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="A página autenticação para o registo da aplicação no portal Azure. O novo URL de redirecionamento é realçado e o botão 'Guardar' para a página.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Já terminou a configuração de um conector personalizado que pode aceder às APIs das Gémeas Digitais Azure. 
 
@@ -162,7 +170,7 @@ Em seguida, irá criar uma aplicação lógica que utilizará o seu novo conecto
 
 No [portal Azure,](https://portal.azure.com)procure *aplicações Lógicas* na barra de pesquisa do portal. Selecioná-lo deve levá-lo para a página *de aplicações Lógica.* Acerte no botão *de aplicação lógica Create* para criar uma nova aplicação lógica.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="A página 'Aplicações Lógicas' no portal Azure. Carregar no botão 'Adicionar'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na página *Da Aplicação Lógica* que se segue, insira o seu grupo de subscrição e recursos. Além disso, escolha um nome para a sua aplicação lógica e selecione a localização da implementação.
 
@@ -176,7 +184,7 @@ Você será levado para a página de implementação para a aplicação lógica.
 
 No *Logic Apps Designer*, em *Iniciar com um gatilho comum,* selecione _**Recorrência**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="A página 'Logic Apps Designer' no portal Azure. Destaque em torno do gatilho comum 'Recorrência'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na página *De Design de Aplicações Lógicas* que se segue, altere a Frequência **de Recorrência** para *Segundo*, para que o evento seja desencadeado a cada 3 segundos. Isto facilitará a início dos resultados sem ter de esperar muito tempo.
 
@@ -184,7 +192,7 @@ Hit *+ Novo passo*.
 
 Isto abrirá uma caixa *de ação para escolher.* Mude para o *separador Personalizado.* Deve ver o seu conector personalizado mais cedo na caixa de cima.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Criar um fluxo no Logic Apps Designer no portal Azure. Na caixa 'Escolha uma acção', o separador 'Personalizado' é selecionado. O conector personalizado do utilizador de antes é mostrado na caixa, com um destaque em torno dele.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Selecione-o para visualizar a lista de APIs contidas no conector. Utilize a barra de pesquisa ou percorra a lista para selecionar **DigitalTwins_Add**. (Esta é a API utilizada neste artigo, mas também pode selecionar qualquer outra API como uma escolha válida para uma ligação de Apps Lógicas).
 
@@ -199,7 +207,7 @@ Hit *Save* in the Logic Apps Designer.
 
 Pode escolher outras operações selecionando _+ Novo passo_ na mesma janela.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão Guardar para a janela.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta twin para ver a atualização
 

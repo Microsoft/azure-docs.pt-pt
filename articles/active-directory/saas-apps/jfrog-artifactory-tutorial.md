@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 07ac0ac4d7b86b644ca5d1876b1332fee7358cac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 826ce780fd9196d67adba5bb148a795d3fe4f0f2
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552609"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850358"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integre o Artígino JFrog com o Azure Ative Directory
 
@@ -61,7 +61,7 @@ Configure e teste Azure AD SSO com AFrog Artifactory usando um utilizador de tes
 Para configurar e testar a Azure AD SSO com a JFrog Artifactory, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure jFrog Artifactory SSO](#configure-jfrog-artifactory-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure jFrog Artifactory SSO](#configure-jfrog-artifactory-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 5. **[Create JFrog Artifactory test user](#create-jfrog-artifactory-test-user)** - para ter uma contraparte de B.Simon em JFrog Artifactory que está ligada à representação AD AD do utilizador.
@@ -73,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **JFrog Artifactory,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -92,21 +92,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação JFrog Artifactory espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação JFrog Artifactory espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
     a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
-    ![image](./media/jfrog-artifactory-tutorial/config04.png)
+    ![A screenshot mostra atributos do utilizador & Reclamações com o ícone editar selecionado.](./media/jfrog-artifactory-tutorial/config04.png)
 
-    ![image](./media/jfrog-artifactory-tutorial/config05.png)
+    ![A screenshot mostra a secção 'Reclamações de Grupo' com todos os grupos selecionados.](./media/jfrog-artifactory-tutorial/config05.png)
 
     b. Selecione **Todos os Grupos** da lista de rádio.
 
     c. Clique em **Guardar**.
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre **o Certificado (Raw)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **Certificado (Raw)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 

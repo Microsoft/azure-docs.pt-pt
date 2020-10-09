@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987996"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848913"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para Azure Confidential Computing
 
@@ -32,7 +32,7 @@ Aqui estão algumas formas de implementar um DCsv2 VM:
 
 **Todas as imagens de SO funcionarão com a computação confidencial do Azure?**
 
-Não. As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
+N.º As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
 
 **As máquinas virtuais DCsv2 estão acinzentadas no portal e não posso selecionar uma**
 
@@ -51,11 +51,15 @@ Certifique-se de ter selecionado uma [região disponível.](https://azure.micros
 
 **Qual é a diferença entre DCsv2-Series e DC-Series VMs?**
 
-Os VMs da Série DC funcionam em processadores Intel de 6 núcleos mais antigos com Intel SGX e têm menos memória total, menos memória de Enclave Page Cache (EPC) e estão disponíveis em apenas duas regiões (EUA Leste e Europa Oeste em tamanhos Standard_DC2s e Standard_DC4s). Não existem planos para disponibilizar estes VM geralmente e não são recomendados para uso de produção. Para implementar estes VMs, utilize a instância  [confidencial da Série VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace.
+DC-Series VMs funcionam em processadores Intel de 6 núcleos mais antigos com Intel SGX e têm menos memória total, menos memória de Enclave Page Cache (EPC) e estão disponíveis em apenas duas regiões (EUA Leste e Europa Oeste em tamanhos Standard_DC2s e Standard_DC4s). Não existem planos para disponibilizar estes VM geralmente e não são recomendados para uso de produção. Para implementar estes VMs, utilize o  [Relatório Confidencial DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace.
 
 **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 
-Não. Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
+N.º Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
+
+**A hiper-rosca está desligada nestas máquinas?**
+
+O hiper-roscado é desativado para todos os clusters de computação confidencial Azure.
 
 **Como posso instalar o Open Enclave SDK nas máquinas virtuais DCsv2?**
    

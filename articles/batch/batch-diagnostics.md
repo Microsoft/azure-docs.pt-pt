@@ -2,22 +2,22 @@
 title: Métricas, alertas e registos de diagnóstico
 description: Grave e analise os eventos de registo de diagnóstico para recursos de conta Azure Batch, como piscinas e tarefas.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145095"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848692"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
- 
+
 Este artigo explica como monitorizar uma conta batch utilizando características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na sua conta Batch. Recolher e consumir estes dados de várias formas de monitorizar a sua conta Batch e diagnosticar problemas. Também pode configurar [alertas métricos](../azure-monitor/platform/alerts-overview.md) para que receba notificações quando uma métrica atinge um valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas de lote
 
-As métricas são dados de telemetria Azure (também chamados contadores de desempenho) que são emitidos pelos seus recursos Azure e consumidos pelo serviço Azure Monitor. Exemplos de métricas numa conta de Lote são Eventos de Criação de Pool, Contagem de Nós de Baixa Prioridade e Eventos Completos de Tarefas.
+As métricas são dados de telemetria Azure (também chamados contadores de desempenho) que são emitidos pelos seus recursos Azure e consumidos pelo serviço Azure Monitor. Exemplos de métricas numa conta de Lote são Eventos de Criação de Pool, Low-Priority Contagem de Nó e Eventos Completos de Tarefas.
 
 Consulte a [lista de métricas do Lote suportado.](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)
 
@@ -57,7 +57,7 @@ Pode configurar perto de *alertas métricos* em tempo real que desencadeiam quan
 
 Os alertas que desencadeiam um único ponto de dados não são recomendados, uma vez que as métricas estão sujeitas a entrega fora de encomenda, perda de dados e/ou duplicação. Ao criar os seus alertas, pode utilizar limiares para responder a estas inconsistências.
 
-Por exemplo, é melhor configurar um alerta métrico quando a sua contagem de núcleo de baixa prioridade cai para um determinado nível, para que possa ajustar a composição das suas piscinas. Para obter os melhores resultados, desaccione um período de 10 ou mais minutos, onde os alertas disparam se a contagem média de base de baixa prioridade ficar abaixo do valor limiar de todo o período. Isto permite que mais tempo para as métricas se agregarem para obter resultados mais precisos. 
+Por exemplo, é melhor configurar um alerta métrico quando a sua contagem de núcleo de baixa prioridade cai para um determinado nível, para que possa ajustar a composição das suas piscinas. Para obter os melhores resultados, desaccione um período de 10 ou mais minutos, onde os alertas disparam se a contagem média de base de baixa prioridade ficar abaixo do valor limiar de todo o período. Isto permite que mais tempo para as métricas se agregarem para obter resultados mais precisos.
 
 Para configurar um alerta métrico no portal Azure:
 
@@ -87,11 +87,11 @@ Um cenário comum é selecionar uma conta de Armazenamento Azure como destino de
 
 Alternadamente, pode:
 
-- Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
+- Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real.
 - Envie registos de diagnóstico para [registos do Azure Monitor,](../azure-monitor/log-query/log-query-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
 
 > [!NOTE]
-> Pode incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico com os serviços Azure. 
+> Pode incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico com os serviços Azure.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Ativar a recolha de registos de diagnóstico batch
 
@@ -155,7 +155,7 @@ Os registos de serviço Azure Batch, se recolhidos, contêm eventos emitidos pel
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Os eventos de registo de serviço emitidos pelo serviço Batch incluem o seguint
 - [Excluir piscina completa](batch-pool-delete-complete-event.md)
 - [Início de redimensionar piscina](batch-pool-resize-start-event.md)
 - [Piscina redimensionar completo](batch-pool-resize-complete-event.md)
+- [Autoescala da piscina](batch-pool-autoscale-event.md)
 - [Início de tarefa](batch-task-start-event.md)
 - [Tarefa concluída](batch-task-complete-event.md)
 - [Falha de tarefa](batch-task-fail-event.md)
+- [Falha no horário de tarefas](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

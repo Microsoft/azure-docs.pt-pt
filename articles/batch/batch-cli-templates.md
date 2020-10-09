@@ -2,14 +2,14 @@
 title: Executar empregos de ponta a ponta usando modelos
 description: Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas e descarregar os dados de saída resultantes.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494932"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848726"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Use modelos CLI de lote de Azure e transferência de ficheiros
 
@@ -65,7 +65,7 @@ Os modelos do Azure Batch são semelhantes aos modelos do Gestor de Recursos Azu
 -   **Parâmetros**
 
     -   Permitir que os valores de propriedade sejam especificados numa secção do corpo, com apenas valores de parâmetros que precisam de ser fornecidos quando o modelo é utilizado. Por exemplo, a definição completa de uma piscina poderia ser colocada no corpo e apenas um parâmetro definido `poolId` para; apenas uma cadeia de ID de piscina precisa, portanto, ser fornecida para criar uma piscina.
-        
+
     -   O corpo do modelo pode ser da autoria de alguém com conhecimento de Batch e das aplicações a executar por Batch; só devem ser fornecidos valores para os parâmetros definidos pelo autor quando o gabarito for utilizado. Um utilizador sem o conhecimento aprofundado do Lote e/ou da aplicação pode, portanto, utilizar os modelos.
 
 -   **Variáveis**
@@ -121,7 +121,7 @@ Segue-se um exemplo de um modelo que cria uma piscina de VMs Linux com ffmpeg in
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ Segue-se um exemplo de um modelo que cria um trabalho para transcodificar fichei
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Um grupo de ficheiros equivale a um recipiente que é criado na conta de armazen
 A extensão do Lote CLI fornece comandos para carregar ficheiros do cliente para um grupo de ficheiros especificado e transferir ficheiros do grupo de ficheiros especificado para um cliente.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321988"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850508"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configurar as minhas Políticas para o provisionamento automático do utilizador
 
@@ -114,11 +114,11 @@ Exemplo: `<demo0-qa>` .mypolicies.com.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Guardar).
+8. Clique em **Guardar**.
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to myPolicies**.
 
-    ![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Screenshot da secção mappings. Em Nome, é visível o Synchronize Azure Ative Directory Users para personalappsso." border="false":::
 
 10. Reveja os atributos do utilizador que são sincronizados do AD AD do Azure para as minhas Políticas na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no myPolicies para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -129,9 +129,9 @@ Exemplo: `<demo0-qa>` .mypolicies.com.
    |emails[type eq "work"].value|String|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.formatado|Cadeia|
+   |nome.formatado|String|
    |externalId|String|
-   |endereços[tipo eq "work"].país|Cadeia|
+   |endereços[tipo eq "work"].país|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
 
 

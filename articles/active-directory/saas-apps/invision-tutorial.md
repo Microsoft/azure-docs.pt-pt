@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552973"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850558"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Azure Ative Directory integração única (SSO) com o InVision
 
@@ -133,15 +133,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **Equipa** e selecione **Definições**.
 
-    ![Configuração inVision](./media/invision-tutorial/config1.png)
+    ![A screenshot mostra o separador Equipa com Definições selecionadas.](./media/invision-tutorial/config1.png)
 
 1. Desloque-se para baixo para **um único sinal de inscrição** e, em seguida, clique em **Alterar**.
 
-    ![Configuração inVision](./media/invision-tutorial/config3.png)
+    ![A screenshot mostra o botão De alteração para um único sinal de inscrição.](./media/invision-tutorial/config3.png)
 
 1. Na página **de inscrição única,** execute os seguintes passos:
 
-    ![Configuração inVision](./media/invision-tutorial/config4.png)
+    ![A screenshot mostra a página de assinatura única onde introduz os valores neste passo.](./media/invision-tutorial/config4.png)
 
     a. Alterar **Requer SSO para cada membro da < nome da conta >** para **On**.
 
@@ -169,19 +169,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **Equipa** e selecione **Pessoas.**
 
-    ![Configuração inVision](./media/invision-tutorial/config2.png)
+    ![A screenshot mostra o separador Equipa com pessoas selecionadas.](./media/invision-tutorial/config2.png)
 
 1. Clique no **+ ICON** para adicionar novo utilizador.
 
-    ![Configuração inVision](./media/invision-tutorial/user1.png)
+    ![A screenshot mostra o ícone + para adicionar um utilizador.](./media/invision-tutorial/user1.png)
 
 1. Introduza o endereço de e-mail do utilizador e clique em **Seguinte**.
 
-    ![Configuração inVision](./media/invision-tutorial/user2.png)
+    ![A screenshot mostra a caixa de diálogo Convite para dialogar onde pode introduzir endereços.](./media/invision-tutorial/user2.png)
 
 1. Uma vez que verifique o endereço de e-mail e, em seguida, clique em **Convidar**.
 
-    ![Configuração inVision](./media/invision-tutorial/user3.png)
+    ![A screenshot mostra o diálogo do Convite onde pode selecionar Convidar a prosseguir.](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Teste SSO
 

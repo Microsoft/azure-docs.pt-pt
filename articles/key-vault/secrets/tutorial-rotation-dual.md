@@ -6,16 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: rotation
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: e2729a5dca54bb7e65e9504f89bd203f9928b120
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251648"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843282"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -205,7 +205,7 @@ az storage account keys list -n akvrotationstorage
 - [Conta de Armazenamento](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Cache de Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)
 - Como: Criar a [sua primeira função no portal Azure](../../azure-functions/functions-create-first-azure-function.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)

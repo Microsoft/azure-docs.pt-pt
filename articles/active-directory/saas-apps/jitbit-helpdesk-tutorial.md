@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5d4900713cd8d96180bf74b300a738a8b676421e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bd47a528b6c9aef354df8e52da63409002f6fb32
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547159"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integração do Diretório Ativo Azure com Jitbit Helpdesk
 
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o Jitbit Helpdesk, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Igigure Jitbit Helpdesk Single Sign-On](#configure-jitbit-helpdesk-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Igigure Jitbit Helpdesk Single Sign-On](#configure-jitbit-helpdesk-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Jitbit Helpdesk test user](#create-jitbit-helpdesk-test-user)** - para ter uma contraparte de Britta Simon em Jitbit Helpdesk que está ligada à representação AD Ad Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com Jitbit Helpdesk, execute os seguin
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,11 +109,11 @@ Para configurar o Azure AD single sign-on com Jitbit Helpdesk, execute os seguin
     | |
     
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de inscrição real. Contacte [a equipa de suporte do cliente Jitbit Helpdesk](https://www.jitbit.com/support/) para obter este valor.
+    > Este valor não é real. Atualize este valor com o URL Sign-On real. Contacte [a equipa de suporte do cliente Jitbit Helpdesk](https://www.jitbit.com/support/) para obter este valor.
 
     b. Na caixa de texto **identifier (Entity ID),** escreva um URL como seguinte: `https://www.jitbit.com/web-helpdesk/`
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD single sign-on com Jitbit Helpdesk, execute os seguin
 
     c. Logout URL
 
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Configurar Jitbit Helpdesk Single Sign-On
+### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Configure Jitbit Helpdesk Single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Jitbit Helpdesk como administrador.
 
@@ -137,13 +137,13 @@ Para configurar o Azure AD single sign-on com Jitbit Helpdesk, execute os seguin
 
 1. Clique **nas definições gerais**.
 
-    ![Utilizadores, empresas e permissões](./media/jitbit-helpdesk-tutorial/ic777680.png "Utilizadores, empresas e permissões")
+    ![A screenshot mostra a ligação Configurações Gerais.](./media/jitbit-helpdesk-tutorial/ic777680.png "Utilizadores, empresas e permissões")
 
 1. Na secção de configuração de **configuração de definições de autenticação,** execute os seguintes passos:
 
     ![Definições de autenticação](./media/jitbit-helpdesk-tutorial/ic777683.png "Definições de autenticação")
 
-    a. **Selecione Ativar o sinal único SAML 2.0**, para iniciar sinsuusando o Sign-On Único (SSO), com **OneLogin**.
+    a. **Selecione Ativar o sinal único SAML 2.0**, para iniciar sinsução utilizando Sign-On único (SSO), com **OneLogin**.
 
     b. Na caixa de texto **url do EndPoint,** cole o valor do URL de **login** que copiou do portal Azure.
 
@@ -182,7 +182,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Jitbit Helpdesk**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Jitbit Helpdesk**.
 

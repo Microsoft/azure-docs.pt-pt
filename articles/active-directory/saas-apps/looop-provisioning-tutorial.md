@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333567"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850698"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configure Looop para o fornecimento automático de utilizadores
 
@@ -55,11 +55,11 @@ Antes de configurar o Looop para o fornecimento automático do utilizador com a 
 
 1. Inscreva-se na consola [de administração Looop](https://app.looop.co/#/login) e selecione **Conta.** Em **Definições de Conta** selecione **autenticação**.
 
-    ![Looop Add SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Screenshot da consola de administração Looop. O separador Conta está realçado e aberto. Nas definições de Conta, destaque-se a autenticação." border="false":::
 
 2. Gere um novo token clicando **em Reset Token** em **integração SCIM**.
 
-    ![Looop Add SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot da consola de administração Looop. O separador Conta está realçado e aberto. Nas definições de Conta, destaque-se a autenticação." border="false":::
 
 3. Copie o **ponto final scim** e **o token**. Estes valores serão introduzidos nos campos **URL** e **Secret Token** no separador Provisioning da sua aplicação Looop no portal Azure. 
 
@@ -127,7 +127,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Looop**.
 

@@ -3,15 +3,15 @@ title: Criar um conjunto do Azure Batch sem endereços IP públicos
 description: Saiba como criar uma piscina sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743663"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850936"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
@@ -31,13 +31,10 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 
 - **Autenticação.** Para utilizar uma piscina sem endereços IP públicos dentro de uma [rede virtual,](./batch-virtual-network.md)a API do cliente Batch deve utilizar a autenticação do Azure Ative Directory (AD). O suporte do Azure Batch para o Azure AD está documentado em [Autenticar soluções de serviço do Batch com o Active Directory](batch-aad-auth.md). Se não estiver a criar a sua piscina dentro de uma rede virtual, pode ser utilizada a autenticação AD AZure ou a autenticação baseada em chaves.
 
-- **Um Azure VNet.** Se estiver a criar a sua piscina numa [rede virtual,](batch-virtual-network.md)siga estes requisitos e configurações. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface da Linha de Comando Azure (CLI) ou outros métodos.
+- **Um Azure VNet.** Se estiver a criar a sua piscina numa [rede virtual,](batch-virtual-network.md)siga estes requisitos e configurações. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface Azure Command-Line (CLI) ou outros métodos.
   - A VNet tem de estar na mesma subscrição e região da conta do Batch utilizada para criar o conjunto.
   - A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento.
-  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI:
-    ```azurecli
-    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
-    ```
+  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui um serviço de ligação privada e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para piscinas grandes, você pode precisar [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos. Além disso, não devem ser aplicados bloqueios de recursos a qualquer recurso criado pelo Batch, uma vez que tal impede a limpeza de recursos como resultado de ações iniciadas pelo utilizador, tais como a eliminação de uma piscina ou a redimensionamento para zero.
@@ -50,7 +47,7 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Criar uma piscina sem endereços IP públicos no portal Azure
 
-1. No portal do Azure, navegue para a sua conta do Batch. 
+1. No portal do Azure, navegue para a sua conta do Batch.
 1. Na janela **Definições** à esquerda, selecione **Pools**.
 1. Na janela **Pools,** **selecione Adicionar**.
 1. Na janela **Add Pool,** selecione a opção que pretende utilizar a partir do **dropdown do Tipo** de Imagem.
@@ -95,7 +92,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

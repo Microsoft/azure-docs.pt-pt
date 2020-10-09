@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cc6886b5341d8bc8a82288ad8a2a699381a953c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46b3009a7a57f726457a767afe501bfb28a06606
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937782"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843367"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Compreender o ficheiro LocalConfiguration.json - Agente C
 
@@ -42,7 +42,7 @@ As alterações no ficheiro de configuração ocorrem quando o agente é reinici
 | Identidade | "DPS", "SecurityModule", "Dispositivo" | Identidade de autenticação - DPS se a autenticação for feita através de DPS, SecurityModule se a autenticação for feita através de credenciais de módulo de segurança ou dispositivo se a autenticação for feita com credenciais do Dispositivo |
 | AutenticaçãoMethod | "SasToken", "SelfSignedCertificate" | o segredo do utilizador para a autenticação - Escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado auto-assinado se o segredo for um certificado auto-assinado  |
 | FilePath | Caminho para arquivar (cadeia) | Caminho para o arquivo que contém o segredo de autenticação |
-| Nome do Anfitrião | string | O nome hospedeiro do centro azure iot. geralmente <o meu hub>.azure-devices.net |
+| Nome do Anfitrião | string | O nome anfitrião do hub Azure IoT. geralmente <o meu hub>.azure-devices.net |
 | DeviceId | string | O ID do dispositivo (conforme registado no Azure IoT Hub) |
 | DPS | JsonObject | Configurações relacionadas com dPS |
 | IDScope | string | ID âmbito de DPS |

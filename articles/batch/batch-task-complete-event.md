@@ -2,13 +2,13 @@
 title: Evento completo de tarefas Azure Batch
 description: Referência para evento completo de tarefas batch. Este evento é emitido uma vez que uma tarefa esteja concluída, independentemente do código de saída.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 42860836e294780649616b0843db6ba19718dd64
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965183"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850896"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965183"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 0,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -49,31 +50,32 @@ ms.locfileid: "85965183"
 |`id`|String|A identificação da tarefa.|
 |`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
 |`systemTaskVersion`|Int32|Este é o contra-ataque interno de uma tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a problemas transitórios. Estas questões podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em mau estado.|
+|`requiredSlots`|Int32|As ranhuras necessárias para executar a tarefa.|
 |[`nodeInfo`](#nodeInfo)|Tipo Complexo|Contém informações sobre o nó de computação em que a tarefa foi executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo Complexo|Especifica que a tarefa é uma Tarefa multi-instância que requer múltiplos nós de computação.  Veja [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) mais detalhes.|
 |[`constraints`](#constraints)|Tipo Complexo|Os constrangimentos de execução que se aplicam a esta tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo Complexo|Contém informações sobre a execução da tarefa.|
 
-###  <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`poolId`|String|A identificação da piscina em que a tarefa funcionou.|
 |`nodeId`|String|A identificação do nó em que a tarefa funcionou.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|O número de nós de computação exigidos pela tarefa.|
 
-###  <a name="constraints"></a><a name="constraints"></a>constrangimentos
+###  <a name="constraints"></a><a name="constraints"></a> constrangimentos
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser novamente julgado. O serviço Batch retrição uma tarefa se o seu código de saída não for zero.<br /><br /> Note que este valor controla especificamente o número de retrações. O serviço Batch tentará a tarefa uma vez e poderá voltar a tentar até este limite. Por exemplo, se a contagem máxima de repetição for 3, Batch tenta uma tarefa até 4 vezes (uma tentativa inicial e 3 retrórias).<br /><br /> Se a contagem máxima de repetição for 0, o serviço Batch não relemca as tarefas.<br /><br /> Se a contagem máxima de repetição for de -1, o serviço de recauchutagem do Lote tarefas sem limite.<br /><br /> O valor predefinido é 0 (sem retrações).|
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>execuçãoInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a> execuçãoInfo
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|

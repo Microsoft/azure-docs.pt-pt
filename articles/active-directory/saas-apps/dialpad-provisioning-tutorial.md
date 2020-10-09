@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328076"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848964"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: Configure o Dialport para o fornecimento automático do utilizador
 
@@ -54,13 +54,13 @@ Antes de configurar o Dialpad para o fornecimento automático do utilizador com 
 
 1. Inscreva-se na consola [de admin do Dialport e](https://dialpadbeta.com/login) selecione **as definições de Administração**. Certifique-se de que **a My Company** é selecionada a partir do dropdown. Navegue para **autenticação > teclas API**.
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
 2. Gere uma nova tecla clicando **Em adicionar uma chave** e configurar as propriedades do seu token secreto.
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
 3. Clique no botão **Click para mostrar o botão de valor** para a sua tecla API recentemente criada e copie o valor mostrado. Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Dialpad no portal Azure. 
 
@@ -89,19 +89,19 @@ Para configurar o Dialpad para o fornecimento automático de utilizadores com Az
 
 5. Navegue para o **URL** realçado abaixo num navegador separado. 
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
 6. No canto superior direito, selecione **Iniciar > Use o Dialpad online**.
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
 7. Como o Dialpad é uma aplicação OpenIDConnect, opte por iniciar sessão no Dialpad utilizando a sua conta de trabalho da Microsoft.
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
 8. Após uma autenticação bem sucedida, aceite o pedido de consentimento para a página de consentimento. A aplicação será então automaticamente adicionada ao seu inquilino e será redirecionado para a sua conta Dialpad.
 
-    ![Dialpad Adicionar SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configure o fornecimento automático do utilizador ao Dialpad
 
@@ -133,7 +133,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para o Dialpad**.
 

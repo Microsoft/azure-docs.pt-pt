@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825486"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843435"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 <sup>1</sup> Os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) nos índices. O nível básico é o único SKU com um limite inferior de 100 campos por índice.
 
-<sup>2</sup> Existe um limite superior para os elementos, pois ter um grande número deles provoca uma elevada utilização do armazenamento. Um elemento de uma coleção complexa é definido como um membro dessa coleção. Por exemplo, assuma um [documento de hotel com uma coleção complexa de quartos,](search-howto-complex-data-types.md#indexing-complex-types)cada quarto na coleção de quartos é considerado um elemento. Durante a indexação, o motor de indexação pode processar com segurança um máximo de 3000 elementos em todo o documento como um todo. [Este limite](search-api-migration.md#upgrade-to-2019-05-06) foi introduzido `api-version=2019-05-06` e aplica-se apenas a coleções complexas, e não a coleções de cordas ou a campos complexos.
+<sup>2</sup> Existe um limite superior para os elementos porque ter um grande número deles aumenta significativamente o armazenamento necessário para o seu índice. Um elemento de uma coleção complexa é definido como um membro dessa coleção. Por exemplo, assuma um [documento de hotel com uma coleção complexa de quartos,](search-howto-complex-data-types.md#indexing-complex-types)cada quarto na coleção de quartos é considerado um elemento. Durante a indexação, o motor de indexação pode processar com segurança um máximo de 3000 elementos em todo o documento como um todo. [Este limite](search-api-migration.md#upgrade-to-2019-05-06) foi introduzido `api-version=2019-05-06` e aplica-se apenas a coleções complexas, e não a coleções de cordas ou a campos complexos.
 
 <a name="document-limits"></a>
 

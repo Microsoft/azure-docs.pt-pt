@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535866"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850579"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integrar Sage Intacct com diretório ativo Azure
 
@@ -62,7 +62,7 @@ Para configurar e testar o Azure AD SSO com Sage Intacct, complete os seguintes 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
-2. **[Configure sage Intacct SSO](#configure-sage-intacct-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure sage Intacct SSO](#configure-sage-intacct-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create Sage Intacct test user](#create-sage-intacct-test-user)** - para ter uma contraparte de B.Simon em Sage Intacct que está ligada à representação AD AD do utilizador.
 6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Sage Intacct,** encontre a secção **Gerir** e selecione **'Único sinal de snúncio'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -105,7 +105,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     exemplo, Clique em **Guardar**.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -189,7 +189,7 @@ Para configurar os utilizadores Azure AD para que possam iniciar sage Intacct, d
 
 1. Na secção Informação do **Utilizador,** execute os seguintes passos:
 
-    ![Informação do Utilizador](./media/intacct-tutorial/ic790043.png "Informação do Utilizador")
+    ![A screenshot mostra a secção de Informação do Utilizador onde pode introduzir as informações neste passo.](./media/intacct-tutorial/ic790043.png "Informação do Utilizador")
 
     a. Introduza o **ID**do Utilizador , o **apelido**, **o nome próprio,** o **endereço de e-mail,** o **título,** e o **telefone** de uma conta AD Azure que pretende introduzir na secção Informação do **Utilizador.**
 
@@ -204,7 +204,7 @@ Para configurar os utilizadores Azure AD para que possam iniciar sage Intacct, d
 
 1. Clique **no separador 'Sign-on' único e certifique-se** de que o **ID do utilizador SSO federado** na imagem abaixo e o valor **do Atributo Fonte** que está mapeado com a secção `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` **atributos** do utilizador no portal Azure devem ser os mesmos.
 
-    ![Informação do Utilizador](./media/intacct-tutorial/ic790044.png "Informação do Utilizador")
+    ![A screenshot mostra a secção de Informação do Utilizador onde pode introduzir o utilizador Federated S O i d.](./media/intacct-tutorial/ic790044.png "Informação do Utilizador")
 
 > [!NOTE]
 > Para fornecer contas de utilizador Azure AD, pode utilizar outras ferramentas de criação de conta de utilizador Sage Intacct ou APIs fornecidas pela Sage Intacct.

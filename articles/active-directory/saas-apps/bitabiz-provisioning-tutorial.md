@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329198"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849351"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configurar BitaBIZ para o provisionamento automático do utilizador
 
@@ -54,11 +54,11 @@ Antes de configurar o BitaBIZ para o fornecimento automático de utilizadores co
 
 1. Inscreva-se na sua [Consola de Administração BitaBIZ.](https://www.bitabiz.com/login?lang=en) Clique em **SETUP ADMIN**.
 
-    ![Consola BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="Screenshot da Consola de Administração BitaBIZ, com o administrador de configuração em destaque." border="false":::
 
 2.  Navegar para a **INTEGRAÇÃO.**
 
-    ![Consola BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot da Consola de Administração BitaBIZ, com o administrador de configuração em destaque." border="false":::
 
 2.  Navegue para o **Microsoft Azure AD Provisioning**.  Selecione **Ativado** no fornecimento automático do utilizador. Copie os valores para **SCIM Provisioning ENDpoint URL** e  **Bearer Token**. Estes valores serão introduzidos nos campos URL e Secret Token no separador Provisioning da sua aplicação BitaBIZ no portal Azure.
 
@@ -120,7 +120,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para BitaBIZ**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546838"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Azure Ative Directory integração única (SSO) com Kanbanize
 
@@ -153,15 +153,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 5. Na página do painel da Administração a partir do lado esquerdo do menu clique em **Integrações** e, em seguida, ative **o Sign-On único**.
 
-    ![Integrações kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![A screenshot mostra o painel de Administração com integração selecionada.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
-6. Na secção Integrações, clique em **CONFIGURAR** para abrir a página **única de Integração Sign-On.**
+6. Na secção Integrações, clique em **CONFIGURAR** para abrir a página **de Integração Sign-On Única.**
 
     ![Config kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
 
-7. Na página **de integração de sinais únicos em** **Configurações,** execute os seguintes passos:
+7. Na página **de Integração de Sign-On única** em **Configurações,** execute os seguintes passos:
 
-    ![Integrações kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![A screenshot mostra a página de Integração Sign-On Única onde introduz os valores neste passo.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. Na caixa de texto **Idp Entity ID,** cole o valor do **Identificador AD Azure,** que copiou a partir do portal Azure.
 

@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como adicionar um ponto fin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552990"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843384"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
 
@@ -54,6 +54,10 @@ Isto significa que as suas soluções de nuvem sensíveis à segurança não só
 Ligar um espaço de nome de Service Bus a uma rede virtual é um processo em duas etapas. Primeiro, tem de criar um **ponto final de serviço de Rede Virtual** numa sub-rede de Rede Virtual e capacitá-lo para o **Microsoft.ServiceBus,** conforme explicado na [visão geral][vnet-sep]do ponto final do serviço . Depois de ter adicionado o ponto final do serviço, liga-lhe o espaço de nomes do Service Bus com uma **regra de rede virtual**.
 
 A regra da rede virtual é uma associação do espaço de nomes do Service Bus com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho ligadas à sub-rede têm acesso ao espaço de nomes do Service Bus. A Service Bus nunca estabelece ligações de saída, não precisa de ter acesso e, portanto, nunca tem acesso à sua sub-rede, permitindo esta regra.
+
+> [!NOTE]
+> Lembre-se que um ponto final de serviço de rede fornece aplicações em execução na rede virtual o acesso ao espaço de nomes do Service Bus. A rede virtual controla a capacidade de acesso do ponto final, mas não que operações podem ser feitas nas entidades do Service Bus (filas, tópicos ou subscrições). Utilize o Azure Ative Directory (Azure AD) para autorizar operações que as aplicações possam realizar no espaço de nomes e suas entidades. Para mais informações, consulte [Authenticate e autorize uma aplicação com a Azure AD para aceder a entidades do Service Bus.](authenticate-application.md)
+
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final de serviço de rede virtual. Para limitar o acesso, é necessário integrar o ponto final do serviço de rede virtual para este espaço de nomes do Event Hubs.
@@ -217,7 +221,7 @@ Modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 

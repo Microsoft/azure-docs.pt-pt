@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146543"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849494"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -109,7 +109,7 @@ As tarefas podem ser submetidas individualmente ou em coleções. Submeta tarefa
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Definir tarefas máximas por nó adequadamente
 
-O lote suporta tarefas de subscrição excessiva nos nóns (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si assegurar que as suas tarefas "encaixem" nos nós da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina `maxTasksPerNode = 8` com).
+O lote suporta tarefas de subscrição excessiva nos nóns (executando mais tarefas do que um nó tem núcleos). Cabe-lhe a si assegurar que as suas tarefas "encaixem" nos nós da sua piscina. Por exemplo, pode ter uma experiência degradada se tentar agendar oito tarefas que cada uma consome 25% de uso de CPU num nó (numa piscina `taskSlotsPerNode = 8` com).
 
 ### <a name="design-for-retries-and-re-execution"></a>Desenho para recauchutagem e re-execução
 
@@ -217,6 +217,6 @@ O Azure Batch cria e gere um conjunto de utilizadores e grupos no VM, que não d
 
 ### <a name="file-cleanup"></a>Limpeza de ficheiros
 
-O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são executadas, uma vez que o seu tempo de retenção expira. Quaisquer ficheiros escritos fora deste diretório são [da sua responsabilidade de limpar para](#manage-task-lifetime) evitar preencher o espaço do disco. 
+O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são executadas, uma vez que o seu tempo de retenção expira. Quaisquer ficheiros escritos fora deste diretório são [da sua responsabilidade de limpar para](#manage-task-lifetime) evitar preencher o espaço do disco.
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.

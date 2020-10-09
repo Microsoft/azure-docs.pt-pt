@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547108"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850758"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutorial: Azure Ative Directory integração única (SSO) com Jive
 
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Jive Client](https://www.jivesoftware.com/services-support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu em cima, Clique em **SAML**.
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/jive-tutorial/tutorial_jive_002.png)
+    ![A screenshot mostra o separador SAML com o selecionado.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Selecione **Ativado** no separador **Geral.**
 
@@ -148,7 +148,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Navegue para o separador **METADADOS do IDP.**
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/jive-tutorial/tutorial_jive_003.png)
+    ![A screenshot mostra o separador SAML I D METADADOS selecionados.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Copie o conteúdo do ficheiro XML de metadados descarregado e, em seguida, cole-o na caixa de texto **de Metadados do Fornecedor de Identidade (IDP).**
 
@@ -156,7 +156,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Selecione **O SEPARADOR DE MAPEAMENTO DO ATRIBUTO DO UTILIZADOR.**
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/jive-tutorial/tutorial_jive_004.png)
+    ![A screenshot mostra o separador SAML com o USER ATTRIBUTE MAPPING selecionado.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. Na caixa de texto **por e-mail,** copie e cole o nome de atributo do valor do **correio.**
 

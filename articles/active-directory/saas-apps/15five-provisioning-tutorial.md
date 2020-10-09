@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 40fd048e1ace56af7a9198088d6129925033be93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331221"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850137"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configurar 15Five para fornecimento automático de utilizadores
 
@@ -54,19 +54,19 @@ Antes de configurar 15Five para o fornecimento automático de utilizadores com A
 
 1. Inscreva-se na sua [Consola de Administração 15Five](https://my.15five.com/). Navegue para **funcionalidades > Integrações.**
 
-    ![Consola de administração 15Five](media/15five-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
 
 2.  Clique no **SCIM 2.0**.
 
-    ![Consola de administração 15Five](media/15five-provisioning-tutorial/image00.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
 
 3.  Navegue para a **integração SCIM > Gere o símbolo da OAuth**.
 
-    ![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
 
 4.  Copie os valores para **SCIM 2.0 base URL** e **Access Token**. Este valor será inserido no campo **URL** e **Secret Token** no separador Provisioning da sua aplicação 15Five no portal Azure.
     
-    ![15Five Add SCIM](media/15five-provisioning-tutorial/image03.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione 15Five da galeria de aplicações Azure AD
 
@@ -110,7 +110,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para 15Five**.
 
@@ -127,9 +127,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.familyName|String|
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
-   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:Utilizador:localização|Cadeia|
-   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:User:startDate|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:Utilizador:localização|String|
+   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:User:startDate|String|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups a 15Five**.
 

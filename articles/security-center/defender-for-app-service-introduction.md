@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449115"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850970"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -27,7 +27,7 @@ Ao usar a visibilidade que o Azure tem como fornecedor de nuvem, o Security Cent
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Pré-visualizar|
+|Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|[O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)|
 |Planos de Serviço de Aplicações suportados:|![Sim ](./media/icons/yes-icon.png) Básico, Standard, Premium, Isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) Consumo Gratuito, Partilhado ou Partilhado<br>[Saiba mais sobre Planos de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|

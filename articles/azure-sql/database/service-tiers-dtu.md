@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321361"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848862"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 |**Uptime SLA**|99,99%|99,99%|99,99%|
 |**Retenção máxima de backup**|7 dias|35 dias|35 dias|
 |**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|**Produção de IO (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximadamente)**\* |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |**Indexação de colunas** |N/D|S3 e acima|Suportado|
 |**OLTP dentro da memória**|N/D|N/D|Suportado|
 
+\* Todos leiam e escrevam IOPS contra ficheiros de dados, incluindo IO de fundo (checkpoint e escritor preguiçoso)
+
 > [!IMPORTANT]
-> Os níveis de serviço Basic, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas de CPU, recomenda-se um nível de serviço de S3 ou superior. 
+> Os objetivos de serviço Básico, S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas da CPU, recomenda-se um objetivo de serviço de S3 ou superior. 
 >
->No que diz respeito ao armazenamento de dados, os níveis de serviço Basic, Standard S0 e S1 são colocados em Blobs de Página Padrão. As Blobs Standard Page utilizam suportes de armazenamento baseados em discos rígidos (HDD) e são mais adequados para desenvolvimento, testes e outras cargas de trabalho pouco frequentes que são menos sensíveis à variabilidade do desempenho.
+> Nos objetivos de serviço Basic, S0 e S1, os ficheiros de base de dados são armazenados no Azure Standard Storage, que utiliza suportes de armazenamento baseados em discos rígidos (HDD). Estes objetivos de serviço são mais adequados para o desenvolvimento, testes e outras cargas de trabalho pouco frequentes que são menos sensíveis à variabilidade do desempenho.
 >
+
+> [!TIP]
+> Para ver os limites reais [de governação dos recursos](resource-limits-logical-server.md#resource-governance) para uma base de dados ou piscina elástica, consulte a vista [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)
 
 > [!NOTE]
 > Você pode obter uma base de dados gratuita na Base de Dados Azure SQL no nível de serviço Básico em conjunto com uma conta gratuita Azure para explorar Azure. Para obter informações, consulte [criar uma base de dados de nuvem gerida com a sua conta gratuita Azure.](https://azure.microsoft.com/free/services/sql-database/)
@@ -109,7 +114,7 @@ A base de dados é dimensionada com base num "fator de escala". O fator de escal
 
 A carga de trabalho consiste em nove tipos de transações, conforme indicado no quadro abaixo. Cada transação foi concebida para destacar um conjunto específico de características do sistema no motor de base de dados e hardware do sistema, com elevado contraste das outras transações. Esta abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho global. Por exemplo, a transação "Read Heavy" produz um número significativo de operações de leitura a partir do disco.
 
-| Tipo de Transação | Description |
+| Tipo de Transação | Descrição |
 | --- | --- |
 | Ler Lite |SELECIONE; na memória; read-only |
 | Ler Médio |SELECIONE; principalmente na memória; read-only |

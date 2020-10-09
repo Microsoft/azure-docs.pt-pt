@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273540"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849253"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar meta-redes connector para fornecimento automático de utilizadores
 
@@ -60,7 +60,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 3.  Desa estatudo o **nome da chave API** e **a descrição da chave API**.
 
-    ![Meta Networks Connector Criar Token](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Screenshot da Consola de Admin Meta Networks Connector com nome chave P I realçado e valores de descrição chave de Azure A D e A P I." border="false":::
 
 4.  Ligue os privilégios **de escrita** para **grupos** e **utilizadores.**
 
@@ -68,7 +68,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 5.  Clique em **Adicionar**. Copie o **SECRET** e guarde-o pois esta será a única altura em que poderá vê-lo. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Meta Networks Connector no portal Azure.
 
-    ![Meta Networks Connector Criar Token](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot da Consola de Admin Meta Networks Connector com nome chave P I realçado e valores de descrição chave de Azure A D e A P I." border="false":::
 
 6.  Adicione um IdP navegando para **a Administração > Configurações > IdP > Criar Novo**.
 
@@ -143,7 +143,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Meta Networks Connector**.
 

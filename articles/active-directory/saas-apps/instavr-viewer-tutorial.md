@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ba3c504819eb30da8d21aa47aafc313d16eec51d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5271dbc5e571fdc624c6861c8919e11950320507
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550372"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Azure Ative Directory com o InstaVR Viewer
 
@@ -74,7 +74,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com o InstaVR Viewer, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o único sign-on do visualizador do InstaVR](#configure-instavr-viewer-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Único Sign-on do Espectador Do InstaVR](#configure-instavr-viewer-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. Crie o utilizador de **[teste do InstaVR Viewer](#create-instavr-viewer-test-user)** - para ter uma contrapartida de Britta Simon no InstaVR Viewer que está ligada à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o InstaVR Viewer, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com o InstaVR Viewer, execute os seguintes passos:
     > [!NOTE]
     > O valor do Identificador não é real. Atualize este valor com o valor real do Identificador que é explicado mais tarde neste tutorial.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** e o Ficheiro de **Metadados da Federação** a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração Single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** e **o Arquivo de Metadados da Federação** a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/metadata-certificatebase64.png)
 
@@ -126,17 +126,17 @@ Para configurar o Azure AD com o InstaVR Viewer, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-instavr-viewer-single-sign-on"></a>Configurar o visualizador do InstaVR único sign-on
+### <a name="configure-instavr-viewer-single-sign-on"></a>Configurar o Sign-On único do espectador do InstaVR
 
 1. Abra uma nova janela do navegador web e inicie sessão no site da empresa Do InstaVR Viewer como administrador.
 
 2. Clique no **Ícone do Utilizador** e selecione **Conta.**
 
-    ![Configuração do Espectador Do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![A screenshot mostra o seu site do InstaVR Viewer com um utilizador selecionado.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Desloque-se até ao **Auth SAML** e execute os seguintes passos:
 
-    ![Configuração do Espectador Do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![A screenshot mostra a página SAML Auth onde pode introduzir os valores descritos neste passo.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. Na caixa de texto **SSO URL,** cole o valor URL de **login,** que copiou a partir do portal Azure.
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** em seguida, selecione **InstaVR Viewer**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **o InstaVR Viewer.**
 
@@ -211,15 +211,15 @@ Nesta secção, um utilizador chamado Britta Simon é criado no InstaVR Viewer. 
 
 2. Selecione **Pacote** a partir do painel de navegação esquerdo e selecione **Faça o pacote para web**.
 
-    ![Configuração do Espectador Do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![O Screenshot mostra o site da empresa do InstaVR Viewer com pacote select e fazer pacote para web selecionado.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Selecione **Transferir**.
 
-    ![Configuração do Espectador Do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![A screenshot mostra o ícone de Descarregamento selecionado.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Selecione **Open Hosted Page** depois disso, será redirecionado para Azure AD para login.
 
-    ![Configuração do Espectador Do InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![A screenshot mostra a página de anfitriões aberta selecionada.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Insira as suas credenciais AZure AD para iniciar sessão com sucesso no AD AZure via SSO.
 

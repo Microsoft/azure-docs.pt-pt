@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265481"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850664"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar Lucidchart para o provisionamento automático do utilizador
 
@@ -49,11 +49,11 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 1. Faça login na [consola de administração Lucidchart](https://www.lucidchart.com). Navegue para a **Integração de Aplicativos team >.**
 
-      ![Scim lucidchart](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Screenshot da consola de administração Lucidchart. O menu Team está em destaque e aberto. No âmbito da Administração, destaca-se a Integração de Aplicações." border="false":::
 
 2. Navegue até **SCIM**.
 
-      ![Scim lucidchart](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Screenshot da consola de administração Lucidchart. O menu Team está em destaque e aberto. No âmbito da Administração, destaca-se a Integração de Aplicações." border="false":::
 
 3. Percorra para baixo para ver o **token do Portador** e **o URL base de Lucidchart.** Copie e guarde o **símbolo do Portador.** Este valor será introduzido no campo **Secret Token** * no separador Provisioning da sua aplicação LucidChart no portal Azure. 
 
@@ -115,11 +115,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |active|Booleano|
    |name.givenName|String|
    |name.familyName|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
    |urn:ietf:params:scim:schemas:extensão:lucidchart:1.0:User:canEdit|Booleano|
 

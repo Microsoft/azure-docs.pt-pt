@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547074"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Diretório Ativo Azure com a Jobscience
 
@@ -61,19 +61,19 @@ Para configurar a integração da Jobscience no Azure AD, é necessário adicion
 
 1. Navegue para **aplicações da Enterprise.** Em seguida, vá a **Todas as aplicações**.
 
-    ![Aplicações][2]
+    ![O Screenshot mostra o portal Azure Enterprise Applications selecionado em Manage, com todas as aplicações selecionadas.][2]
     
 1. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
-    ![Aplicações][3]
+    ![A screenshot mostra nova aplicação selecionada.][3]
 
 1. Na caixa de pesquisa, **escreva Jobscience.**
 
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/tutorial_jobscience_search.png)
+    ![Screenshot mostra Adicionar da galeria com a ciência do trabalho inserida.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
 1. No painel de resultados, selecione **Jobscience**e, em seguida, clique em **Adicionar** o botão Adicionar a aplicação.
 
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
+    ![A screenshot mostra os resultados que incluíam a Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD único sinal de acesso
 Nesta secção, você configura e testa Azure AD single sign-on com Jobscience baseado em um utilizador de teste chamado "Britta Simon".
@@ -98,38 +98,38 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. No portal Azure, na página de integração da aplicação **Jobscience,** clique **em 'SÚM'.**
 
-    ![Configurar um único sign-on][4]
+    ![A screenshot mostra um único sinal selecionado sob o comando de Manage no portal Azure.][4]
 
 1. No diálogo **de assinatura único,** selecione **Mode** como    **Sign-on baseado em SAML** para ativar um único sinal de súplica.
  
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
+    ![A screenshot mostra o modo de inscrição baseado em SAML selecionado.](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
 1. Na secção **Domínio de Jobscience e URLs,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_url.png)
+    ![A imagem mostra o sinal de U R L.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
     Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de inscrição real. Obtenha este valor pela equipa de [suporte do Cliente Jobscience](http://www.jobscience.com/support) ou pelo perfil SSO que irá criar, o que é explicado mais tarde no tutorial. 
+    > Este valor não é real. Atualize este valor com o URL Sign-On real. Obtenha este valor pela equipa de [suporte do Cliente Jobscience](http://www.jobscience.com/support) ou pelo perfil SSO que irá criar, o que é explicado mais tarde no tutorial. 
  
 1. Na secção **Certificado de Assinatura SAML,** clique em **Certificado (Base64)** e guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![A screenshot mostra o painel de certificado de assinatura SAML onde pode descarregar um certificado.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. Clique no botão **Guardar.**
 
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_general_400.png)
+    ![A imagem mostra o botão de salvamento.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. Na secção configuração de **Trabalhoscience,** clique em **Configurar Ciência** de Emprego para abrir a janela **de inscrição de configuração.** Copie o **URL de inscrição, o ID da Entidade SAML e** o URL de Serviço Único DE INSCRIÇÃO SAML a partir da secção de Referência **Rápida.**
+1. Na secção configuração de **Trabalhoscience,** clique em **Configurar Ciência** de Emprego para abrir a janela **de inscrição de configuração.** Copie o **URL de inscrição, o ID da Entidade SAML e** o URL de Serviço de Sign-On Único SAML da secção de Referência **Rápida.**
 
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
+    ![A imagem mostra a janela de configuração da Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
 1. Faça login no seu site da empresa jobscience como administrador.
 
 1. Ir para **a Configuração**.
    
-   ![Configuração](./media/jobscience-tutorial/IC784358.png "Configuração")
+   ![A screenshot mostra o item configuração para a sua empresa.](./media/jobscience-tutorial/IC784358.png "Configuração")
 
 1. No painel de navegação à esquerda, na secção Gestão de **Dados,** clique em **Gestão de Domínio** para expandir a secção relacionada e, em seguida, clique em My **Domain** para abrir a página **My Domain.** 
    
@@ -139,21 +139,21 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Domínio implantado para utilizador](./media/jobscience-tutorial/ic784377.png "Domínio implantado para utilizador")
 
-1. No site da empresa Jobscience, clique em **Controlos de Segurança**e, em seguida, clique em **Definições de Inscrição Única .**
+1. No site da empresa Jobscience, clique em **Controlos de Segurança**e, em seguida, clique em **Definições de Sign-On Únicas**.
     
-    ![Controlos de Segurança](./media/jobscience-tutorial/ic784364.png "Controlos de Segurança")
+    ![A screenshot mostra configurações de Sign-On única selecionadas a partir de controlos de segurança.](./media/jobscience-tutorial/ic784364.png "Controlos de Segurança")
 
-1. Na secção **Definições de Inscrição Única,** execute os seguintes passos:
+1. Na secção **Definições de Sign-On Única,** execute os seguintes passos:
     
-    ![Definições únicas de inscrição](./media/jobscience-tutorial/ic781026.png "Definições únicas de inscrição")
+    ![Definições de Sign-On única](./media/jobscience-tutorial/ic781026.png "Definições de Sign-On única")
     
     a. Selecione **SAML Ativado**.
 
     b. Clique **em Novo**.
 
-1. No diálogo **de definição de marcação de sinais único SAML,** execute os seguintes passos:
+1. No **diálogo de Sign-On de definição de definição de saml,** execute os seguintes passos:
     
-    ![Definição de sinal único DE SAML](./media/jobscience-tutorial/ic784365.png "Definição de sinal único DE SAML")
+    ![Configuração de Sign-On única saml](./media/jobscience-tutorial/ic784365.png "Configuração de Sign-On única saml")
     
     a. Na caixa de texto **'Nome',** digite um nome para a sua configuração.
 
@@ -167,7 +167,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     f. Como **Local de Identidade SAML,** selecione Identidade está no elemento **NomeIdentfier da declaração do sujeito**.
 
-    exemplo, Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL de Serviço Único de Sessão DE **SAML,** que copiou do portal Azure.
+    exemplo, Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL de serviço de Sign-On único **SAML,** que copiou do portal Azure.
 
     h. Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL de acesso a **assinatura,** que copiou do portal Azure.
 
@@ -179,15 +179,15 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Na página **My Domain,** na secção de Marcação de Página de Início de **Sessão,** clique em **Editar**.
     
-    ![Marcação de página de login](./media/jobscience-tutorial/ic767826.png "Marcação de página de login")
+    ![A screenshot mostra a secção de marcação de página de login com o botão Editar.](./media/jobscience-tutorial/ic767826.png "Marcação de página de login")
 
 1. Na página de **marcação de página de início de sessão,** na secção Serviço de **Autenticação,** é apresentado o nome das suas **Definições SSO SAML.** Selecione-o e, em seguida, clique em **Guardar**.
     
-    ![Marcação de página de login](./media/jobscience-tutorial/ic784366.png "Marcação de página de login")
+    ![A screenshot mostra a secção de marcação de página de login com PPE e Save selecionados.](./media/jobscience-tutorial/ic784366.png "Marcação de página de login")
 
 1. Para obter o sinal único iniciado SP no URL de início de Sessão clique nas **definições** de sinal único na secção menu **Controlos de Segurança.**
 
-    ![Controlos de Segurança](./media/jobscience-tutorial/ic784368.png "Controlos de Segurança")
+    ![A screenshot mostra a administração de controlos de segurança com configurações de Sign-On única selecionadas.](./media/jobscience-tutorial/ic784368.png "Controlos de Segurança")
     
     Clique no perfil SSO que criou no degrau acima. Esta página mostra o Sinal Único no URL da sua empresa (por exemplo, `https://companyname.my.salesforce.com?so=companyid` .    
 
@@ -204,19 +204,19 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 1. No **portal Azure**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/create_aaduser_01.png) 
+    ![A screenshot mostra o ícone Azure A D no portal Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
 1. Para apresentar a lista de utilizadores, vá aos **Utilizadores e aos grupos** e clique em **Todos os utilizadores**.
     
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/create_aaduser_02.png) 
+    ![O Screenshot mostra utilizadores e grupos selecionados a partir do menu Gerir, com todos os utilizadores selecionados.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
 1. Para abrir o diálogo **do Utilizador,** clique em **Adicionar** na parte superior do diálogo.
  
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/create_aaduser_03.png) 
+    ![A screenshot mostra o botão Adicionar para abrir a caixa de diálogo do utilizador.](./media/jobscience-tutorial/create_aaduser_03.png) 
 
 1. Na página de diálogo do **Utilizador,** execute os seguintes passos:
  
-    ![Criar um utilizador de teste AZure AD](./media/jobscience-tutorial/create_aaduser_04.png) 
+    ![A screenshot mostra a caixa de diálogo do utilizador onde pode introduzir os valores neste passo.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
     a. Na caixa de texto **Name,** **digite BrittaSimon**.
 
@@ -240,7 +240,7 @@ Para permitir que os utilizadores de Azure AD iniciem sessão no Jobscience, dev
 
 1. Vai para a instalação.
    
-   ![Configuração](./media/jobscience-tutorial/ic784358.png "Configuração")
+   ![A imagem mostra o item de configuração.](./media/jobscience-tutorial/ic784358.png "Configuração")
 1. Vá a **Gerir \> utilizadores.**
    
    ![Utilizadores](./media/jobscience-tutorial/ic784369.png "Utilizadores")
@@ -273,25 +273,25 @@ Para permitir que os utilizadores de Azure AD iniciem sessão no Jobscience, dev
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Jobscience.
 
-![Atribuir Utilizador][200] 
+![A imagem mostra um nome de exibição de conta.][200] 
 
 **Para atribuir Britta Simon à Jobscience, execute os seguintes passos:**
 
 1. No portal Azure, abra a vista das aplicações e, em seguida, navegue para a vista do diretório e vá para **as aplicações da Enterprise** e, em seguida, clique em Todas as **aplicações**.
 
-    ![Atribuir Utilizador][201] 
+    ![O Screenshot mostra aplicações empresariais no menu do portal Azure com todas as aplicações selecionadas.][201] 
 
 1. Na lista de candidaturas, selecione **Jobscience**.
 
-    ![Configurar um único sign-on](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
+    ![A screenshot mostra o Trabalhoscience selecionado.](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
 1. No menu à esquerda, clique em **Utilizadores e grupos**.
 
-    ![Atribuir Utilizador][202] 
+    ![O Screenshot mostra utilizadores e grupos selecionados a partir do menu do portal Azure.][202] 
 
 1. Clique no botão **Adicionar.** Em seguida, selecione **Utilizadores e grupos** no diálogo De Atribuição de **Adicionar.**
 
-    ![Atribuir Utilizador][203]
+    ![A screenshot mostra o botão Adicionar, usado para adicionar atribuições.][203]
 
 1. No **diálogo de Utilizadores e grupos,** selecione **Britta Simon** na lista de Utilizadores.
 

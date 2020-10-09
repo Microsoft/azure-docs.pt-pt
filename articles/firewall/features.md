@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408512"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850596"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall
 
@@ -101,7 +101,11 @@ Isto permite os seguintes cenários:
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
-Todos os eventos são integrados com o Azure Monitor, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Centro de Eventos ou enviá-los para registos do Azure Monitor. Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md).
+Todos os eventos são integrados com o Azure Monitor, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Centro de Eventos ou enviá-los para registos do Azure Monitor. Para amostras de registo do Monitor Azure, consulte [os registos do Monitor Azure para Azure Firewall](log-analytics-samples.md).
+
+Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md). 
+
+O Azure Firewall Workbook fornece uma tela flexível para a análise de dados do Azure Firewall. Pode usá-lo para criar relatórios visuais ricos dentro do portal Azure. Para obter mais informações, consulte [os registos do Monitor utilizando o Livro de Trabalho da Firewall Azure](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Túnel forçado
 

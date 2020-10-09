@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312621"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850908"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configure Flock para o fornecimento automático de utilizadores
 
@@ -54,15 +54,15 @@ Antes de configurar o Flock para o fornecimento automático de utilizadores com 
 
 1. Faça login no [Flock.](https://web.flock.com/?) Clique **em Definições Ícone**Gerir a sua  >  **equipa**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
 
 2. Selecione **Auth e Provisioning**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
 
 3. Copie o **Token da API**. Estes valores serão inseridos no campo **Secret Token** no separador Provisioning da sua aplicação Flock no portal Azure.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Adicione o rebanho da galeria
@@ -120,7 +120,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Flock**.
 

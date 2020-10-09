@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812323"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850384"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -29,8 +29,9 @@ Para completar tudo isto, é necessário ter acesso a um grupo de recursos para 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
-1. No **Básico, insira**os campos necessários e escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
-1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
+1. No **Básico, insira**a sua **Assinatura**Preferida, **Grupo de Recursos,** **Região,** e, em seguida, escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
+1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
+    1. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos spark e dados para tabelas Spark.
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Navegue para **selecionar data lake storage Gen 2**. 
     1. Clique **em Criar Novo** e nomeie-o **contosolake**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 5956623876646d976c2c93b4953adab33e8231b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429820f41025eda262742ac9aec1de3b646b141f
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535599"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850557"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Tutorial: Azure Ative Directory integração única (SSO) com o IntelligenceBank
 
@@ -137,11 +137,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **Autenticador** e clique em **Adicionar Novo**
 
-    ![Configuração do IntelligenceBank](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![A screenshot mostra o separador Administrador selecionado e o ícone Add New.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Efetue os seguintes passos:
 
-    ![Configuração do IntelligenceBank](./media/intelligencebank-tutorial/urls.PNG)
+    ![A screenshot mostra os campos onde introduz a informação neste passo.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. Na caixa de texto **'Nome',** insira o nome por exemplo como `azureadsso` .
 
@@ -165,11 +165,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Vá aos **Utilizadores de**  ->  **Administração** e selecione **Adicionar Novo Ícone do Utilizador** para adicionar o **Utilizador**.
 
-    ![Configuração do IntelligenceBank](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![A screenshot mostra o ícone do Utilizadores selecionado no separador Utilizadores.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Preencha os campos necessários de acordo com os requisitos da sua organização e clique em **Guardar**.
 
-    ![Configuração do IntelligenceBank](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![A screenshot mostra a página 'Adicionar Novo Utilizador' onde introduz as informações do utilizador.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## <a name="test-sso"></a>Teste SSO 
 

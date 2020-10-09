@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552803"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Ative Directory com a ITRP
 
@@ -54,7 +54,7 @@ Para configurar a integração do ITRP no Azure AD, é necessário adicionar ITR
 
 2. Ir para **aplicações da Empresa**  >  **Todas as aplicações**:
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
@@ -92,9 +92,9 @@ Para configurar o Azure AD com o ITRP, tome estes passos:
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
-    ![Ícone editar](common/edit-urls.png)
+    ![A screenshot mostra o Conjunto Single Sign-On com a página SAML com o ícone de edição selecionado.](common/edit-urls.png)
 
 4. Na caixa de diálogo **de configuração DE SAML Básico,** tome os seguintes passos.
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com o ITRP, tome estes passos:
 
 5. Na secção **Certificado de Assinatura SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo do Certificado de **Assinatura SAML:**
 
-    ![Ícone editar](common/edit-certificate.png)
+    ![A screenshot mostra a página do Certificado de Assinatura SAML com o ícone de edição selecionado.](common/edit-certificate.png)
 
 6. Na caixa de diálogo do Certificado de **Assinatura SAML,** copie o valor **da impressão digital** e guarde-o:
 
@@ -139,13 +139,13 @@ Para configurar o Azure AD com o ITRP, tome estes passos:
 
 1. No painel esquerdo, selecione **Single Sign-On**:
 
-    ![Selecione um único sinal de inscrição](./media/itrp-tutorial/ic775571.png "Selecione um único sinal de inscrição")
+    ![Selecione um único sinal de inscrição](./media/itrp-tutorial/ic775571.png "Selecione Sign-On única")
 
 1. Na secção de configuração **'Sign-On' único,** tome os seguintes passos.
 
-    ![Secção única de inscrição](./media/itrp-tutorial/ic775572.png "Secção única de inscrição")
+    ![A screenshot mostra a secção single Sign-On com o selecionado Ativado.](./media/itrp-tutorial/ic775572.png "Seção de Sign-On única")
 
-    ![Secção única de inscrição](./media/itrp-tutorial/ic775573.png "Secção única de inscrição")
+    ![A screenshot mostra a secção single Sign-On onde pode adicionar as informações descritas neste passo.](./media/itrp-tutorial/ic775573.png "Seção de Sign-On única")
 
     1. Selecione **Ativado**.
 
@@ -187,7 +187,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **ITRP**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **ITRP**.
 

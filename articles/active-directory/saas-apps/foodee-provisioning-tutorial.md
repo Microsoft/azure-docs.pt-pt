@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331170"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850460"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configurar Foodee para o fornecimento automático de utilizadores
 
@@ -55,7 +55,7 @@ Antes de configurar a Foodee para o fornecimento automático de utilizadores uti
 
 1. Inscreva-se na [Foodee](https://www.food.ee/login/)e, em seguida, selecione a sua identificação de inquilino.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 1. No **portal Enterprise**, selecione Single Sign **On**.
 
@@ -63,7 +63,7 @@ Antes de configurar a Foodee para o fornecimento automático de utilizadores uti
 
 1. Copie o valor na caixa token da **API** para posterior utilização. Você vai inseri-lo na caixa **Secret Token** no **separador Provisioning** da sua aplicação Foodee no portal Azure.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Adicione Foodee da galeria
 
@@ -130,20 +130,20 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
 1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Users to Foodee**.
 
-    ![Mapeamentos de utilizadores de foodee](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 1. Em **'Mappings' de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Foodee. Os atributos que são selecionados como propriedades **de correspondência** são *usados* para combinar as contas do utilizador em Foodee para operações de atualização. 
 
-    ![Mapeamentos de utilizadores de foodee](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 1. Para cometer as suas alterações, **selecione Guardar**.
 1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Groups to Foodee**.
 
-    ![Mapeamentos de utilizadores de foodee](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 1. Em **'Mappings' de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Foodee. Os atributos que são selecionados como propriedades **de correspondência** são *usados* para combinar as contas do grupo em Foodee para operações de atualização.
 
-    ![Mapeamentos de utilizadores de foodee](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
 1. Para cometer as suas alterações, **selecione Guardar**.
 1. Configure os filtros de deteção. Para saber como, consulte as instruções no tutorial do [filtro Scoping](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

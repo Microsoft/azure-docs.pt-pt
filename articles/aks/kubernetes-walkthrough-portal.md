@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação e monitorizar o desempenho no Serviço Azure Kubernetes (AKS) utilizando o portal Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 10/06/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 2331f2a9dc4ca0e94b251a03e7917547f360af4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459800"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850449"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -37,15 +37,15 @@ Para criar um cluster do AKS, execute os seguintes passos:
 
 3. Na página **Informações Básicas**, configure as opções seguintes:
     - **Detalhes do projeto**: Selecione uma **subscrição**Azure, em seguida, selecione ou crie um **grupo de Recursos**Azure , como o *myResourceGroup*.
-    - **Detalhes do cluster**: Introduza um **nome de cluster Kubernetes,** como *myAKSCluster*. Selecione uma **Região**, uma **Versão do Kubernetes** e um **Prefixo do nome DNS** para o cluster do AKS.
-    - **Piscina de nó primário**: Selecione um **tamanho de nó** VM para os nós AKS. O tamanho VM *não pode* ser alterado uma vez que um cluster AKS foi implantado. 
+    - **Detalhes do cluster**: Introduza um **nome de cluster Kubernetes,** como *myAKSCluster*. Selecione uma **versão Região** e **Kubernetes** para o cluster AKS.
+    - **Piscina de nó primário**: Selecione um **tamanho de nó** VM para os nós AKS. O tamanho VM *não pode* ser alterado uma vez que um cluster AKS foi implantado.
             - Selecione o número de nós para implantar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós *pode* ser ajustado após a implementação do cluster.
     
     ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecione **Seguinte: Dimensionar** quando terminar.
+    Selecione **Seguinte: Piscinas de nó quando concluídas.**
 
-4. Na página **'Escala',** mantenha as opções predefinidos. Na parte inferior do ecrã, clique em **Seguinte: Autenticação**.
+4. Na página de **piscinas de nó,** mantenha as opções predefinidos. Na parte inferior do ecrã, clique em **Seguinte: Autenticação**.
     > [!CAUTION]
     > A criação de novos diretores de serviços AAD pode demorar vários minutos a propagar-se e a tornar-se disponível, não tendo sido encontrados erros e falhas de validação no portal Azure. Se você chegar a isso, por favor, visite [aqui](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) para mitigação.
 
