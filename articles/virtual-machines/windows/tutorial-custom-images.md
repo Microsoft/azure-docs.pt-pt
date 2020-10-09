@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: cf8fc9916384c9eef24c4c50f7647632c0e6b7a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077463"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Criar imagens VM do Windows com Azure PowerShell
@@ -29,7 +29,7 @@ As imagens podem ser usadas para implantar botas e garantir consistência em vá
 
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos abaixo detalham como tomar um VM existente e transformá-lo numa imagem personalizada reutilizável que pode usar para criar novos VMs.
 
@@ -193,7 +193,7 @@ New-AzRoleAssignment `
    -ResourceGroupName $resourceGroup.ResourceGroupName
 ```
    
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
 

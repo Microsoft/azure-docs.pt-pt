@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: v-grpr
 ms.openlocfilehash: e0caab566a464ab1e83fdf7d955ace8b16046dc0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86200425"
 ---
 Antes de começar, certifique-se de que:

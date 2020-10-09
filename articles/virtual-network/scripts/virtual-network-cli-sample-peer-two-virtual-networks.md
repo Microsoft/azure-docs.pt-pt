@@ -14,10 +14,10 @@ ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6cd6d61ba1404ca6b6de63a0151ec414b2df54e7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87492467"
 ---
 # <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Peer duas redes virtuais com uma amostra de script Azure CLI

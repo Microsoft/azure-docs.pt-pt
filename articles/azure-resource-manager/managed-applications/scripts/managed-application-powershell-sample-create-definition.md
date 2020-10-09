@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: b605d63db09b81bfe73eca8f4abd7a38d2325004
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86056026"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicação gerida com o PowerShell

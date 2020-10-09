@@ -15,10 +15,10 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 8b4b07288ce2c3570da5482a446b9418c7319011
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086205"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Remova uma aplicação de um cluster de tecido de serviço usando Powershell

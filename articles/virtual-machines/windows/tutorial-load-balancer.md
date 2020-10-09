@@ -9,10 +9,10 @@ ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b93c8d48313dc41928400efdddf14e88c8a7e6c2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508125"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Windows no Azure para criar uma aplicação de elevada disponibilidade com o Azure PowerShell
@@ -281,7 +281,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um balanceador de carga e anexou VMs ao mesmo. Aprendeu a:
 

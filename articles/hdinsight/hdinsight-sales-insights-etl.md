@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006437"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight
@@ -271,7 +271,7 @@ Para outras formas de transformar dados utilizando o HDInsight, consulte [este a
 * [Introdução aos dashboards para designers do Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutorial: Introdução ao serviço Power BI](https://docs.microsoft.com/power-bi/service-get-started)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine todos os recursos utilizando o seguinte comando para que não seja cobrado por eles.
 

@@ -15,10 +15,10 @@ ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7964f96afc59464c28cabb9e1d5c7961fc765a3d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501777"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Fixe um servidor web numa máquina virtual Linux em Azure com certificados TLS/SSL armazenados no Cofre de Chaves
@@ -35,7 +35,7 @@ Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/over
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure Key Vault salvaguarda as chaves criptográficas e os segredos, como os certificados ou as palavras-passe. O Key Vault ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo das chaves que acedem a esses certificados. Pode criar um certificado autoassinado no Key Vault ou carregar um certificado fidedigno que já possui.
 
 Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integrados, pode inserir certificados numa VM em execução. Este processo garante que são instalados os certificados mais atualizados num servidor Web durante a implementação. Se renovar ou substituir um certificado, também não tem de criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente à medida que cria VMs adicionais. Durante todo o processo, os certificados nunca saem da plataforma do Azure nem são expostos num script, histórico de linha de comandos ou modelo.
@@ -144,7 +144,7 @@ O site NGINX protegido é apresentado como no exemplo seguinte:
 ![Ver site NGINX seguro em execução](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você garantiu um servidor web NGINX com um certificado TLS/SSL armazenado no Cofre da Chave Azure. Aprendeu a:
 

@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027516"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark

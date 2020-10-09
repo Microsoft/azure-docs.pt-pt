@@ -6,10 +6,10 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119315"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Condição de utilização em modelos ARM
@@ -26,7 +26,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Abrir um modelo de Início Rápido
 > * Modificar o modelo
 > * Implementar o modelo
-> * Limpar recursos
+> * Limpar os recursos
 
 Este tutorial cobre apenas um cenário básico de utilização de condições. Para obter mais informações, consulte:
 
@@ -176,7 +176,7 @@ Este é o procedimento para fazer as alterações:
 
 Tente fazer outra implementação com **o novo ConjuntoOrExisting** para "existente" e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir o Cloud Shell. Para colar o script PowerShell, clique com o botão direito da vidraça e, em seguida, **selecione Pasta**.
 

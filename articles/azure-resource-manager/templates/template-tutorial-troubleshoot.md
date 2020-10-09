@@ -6,10 +6,10 @@ ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119349"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Implementações de modelos de braço de resolução de problemas
@@ -29,7 +29,7 @@ Este tutorial abrange as seguintes tarefas:
 > - Criar um modelo problemático
 > - Erros de validação de resolução de problemas
 > - Resolver erros de implementação
-> - Limpar recursos
+> - Limpar os recursos
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -117,7 +117,7 @@ Utilize o Código do Estúdio Visual para corrigir o problema e, em seguida, rep
 
 Para obter uma lista de erros comuns, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
 ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372455"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Crie uma função em Java com um gatilho do Event Hub e uma ligação de saída DB Azure Cosmos
@@ -444,7 +444,7 @@ Quando já não precisar dos recursos do Azure criados neste tutorial, pode util
 az group delete --name $RESOURCE_GROUP
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar uma Função Azure que lida com eventos do Event Hub e atualiza um Cosmos DB. Para mais informações, consulte o [guia de desenvolvimento da Azure Functions Java](./functions-reference-java.md). Para obter informações sobre as anotações utilizadas, consulte a referência [com.microsoft.azure.functions.anotação.](/java/api/com.microsoft.azure.functions.annotation)
 

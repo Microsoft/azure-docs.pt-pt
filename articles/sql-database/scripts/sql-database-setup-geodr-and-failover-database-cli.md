@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 48ebf87a732380188b1c5f03954385b61bc765f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528830"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utilize o CLI para configurar a geo-replicação ativa para uma única base de dados na Base de Dados Azure SQL
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az sql db réplica](/cli/azure/sql/db/replica) | Comandos de réplica de base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

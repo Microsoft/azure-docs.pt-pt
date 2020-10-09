@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419636"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Utilize deteções de risco para iniciar alterações de autenticação ou palavra-passe do Azure Multi-Factor
@@ -127,7 +127,7 @@ Para testar as políticas de Proteção de Identidade Azure AD criadas nos passo
 
 Se tiver concluído os testes e deixar de querer ter as políticas baseadas no risco ativadas, volte a cada política que pretende desativar e desative a Política de **Execução** para *desligar*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, permitiu políticas de utilizador baseadas em riscos para a Proteção de Identidade Azure AD. Aprendeu a:
 

@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
 ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322300"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para regras de alerta métrico no Azure Monitor

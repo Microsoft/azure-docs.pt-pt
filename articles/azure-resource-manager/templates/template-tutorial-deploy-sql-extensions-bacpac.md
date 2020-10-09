@@ -6,10 +6,10 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86101890"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar ficheiros BACPAC SQL com modelos ARM
@@ -245,7 +245,7 @@ No portal Azure, selecione a base de dados do grupo de recursos recém-implantad
 
 ![Editor de consulta (pré-visualização)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
@@ -259,4 +259,4 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 Neste tutorial, implementou um servidor e uma base de dados e importou um ficheiro BACPAC. Para aprender a resolver problemas na implementação do modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [Implementações de modelos DE BRAÇO de resolução de problemas](./template-tutorial-troubleshoot.md)
+> [Resolver problemas de implementações de modelos do Resource Manager](./template-tutorial-troubleshoot.md)

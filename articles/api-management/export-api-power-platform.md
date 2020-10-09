@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252864"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>APIs de exportação da Azure API Management para a Plataforma de Energia 

@@ -12,10 +12,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419653"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
@@ -57,8 +57,8 @@ O Azure AD Connect permite sincronizar utilizadores, grupos e credenciais entre 
 Para trabalhar corretamente com a gravação do SSPR, a conta especificada no Azure AD Connect deve ter as permissões e opções adequadas definidas. Se não tiver a certeza de que conta está atualmente a ser utilizada, abra o Azure AD Connect e selecione a opção **de configuração atual Do View.** A conta a que precisa de adicionar permissões está listada nos **Diretórios Sincronizados.** As seguintes permissões e opções devem ser definidas na conta:
 
 * **Repor palavra-passe**
-* **Escrever permissões** em`lockoutTime`
-* **Escrever permissões** em`pwdLastSet`
+* **Escrever permissões** em `lockoutTime`
+* **Escrever permissões** em `pwdLastSet`
 * **Direitos alargados** para "Unexpire Password" no objeto raiz de *cada domínio* naquela floresta, se não já definido.
 
 Se não atribuir estas permissões, o writeback pode parecer configurado corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. As permissões devem ser aplicadas a **este objeto e a todos os objetos descendentes** para que apareçam "Unexpire Password".  
@@ -147,7 +147,7 @@ Se já não pretender utilizar qualquer funcionalidade de palavra-passe, complet
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, permitiu que o Azure AD SSPR fosse retratado para um ambiente AD DS no local. Aprendeu a:
 

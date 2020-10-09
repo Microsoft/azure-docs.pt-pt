@@ -10,10 +10,10 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065256"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais de elevada disponibilidade com o Azure PowerShell
@@ -135,4 +135,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para saber mais sobre os conjuntos de dimensionamento de máquinas virtuais.
 
 > [!div class="nextstepaction"]
-> [Criar um conjunto de escala VM](tutorial-create-vmss.md)
+> [Criar um conjunto de dimensionamento de VM](tutorial-create-vmss.md)

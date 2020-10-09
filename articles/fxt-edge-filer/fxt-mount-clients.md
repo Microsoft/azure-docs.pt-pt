@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231357"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Monte o aglomerado
@@ -49,7 +49,7 @@ Outros métodos de equilíbrio de carga podem ser adequados para sistemas grande
 
 A partir do seu cliente, o ``mount`` comando mapeia o servidor virtual (vserver) no cluster Azure FXT Edge Filer para um caminho no sistema de ficheiros local.
 
-O formato é``mount <FXT cluster path> <local path> {options}``
+O formato é ``mount <FXT cluster path> <local path> {options}``
 
 Há três elementos no comando de montagem:
 
@@ -77,7 +77,7 @@ O endereço IP é um dos endereços IP virados para o cliente definidos para o v
 
 Combine o endereço IP e o caminho do espaço de nome para formar o caminho do cluster para o comando de montagem.
 
-Exemplo de comando de montagem de clientes:``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
+Exemplo de comando de montagem de clientes: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
 
 ### <a name="create-the-local-path"></a>Criar o caminho local
 

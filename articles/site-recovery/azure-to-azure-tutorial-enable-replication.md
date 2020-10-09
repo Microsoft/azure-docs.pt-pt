@@ -6,10 +6,10 @@ ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421421"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Preparar a recuperação de desastres para os VMs do Azure
@@ -66,7 +66,7 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -182,7 +182,7 @@ Depois de a replicação estar ativada, pode rastrear o estado do trabalho.
    1. Acompanhe o progresso do trabalho de **proteção de enable** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação de Empregos**.
    1. Em **Definições**  >  **Itens Replicados,** pode ver o estado dos VMs e o progresso da replicação inicial. Selecione o VM para perfurar as suas definições.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. Agora podes fazer um exercício de recuperação de desastres para verificar se o falhanço funciona como esperado.
 

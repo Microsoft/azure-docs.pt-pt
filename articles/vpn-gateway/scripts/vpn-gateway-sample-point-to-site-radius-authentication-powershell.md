@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 05/30/2018
 ms.author: alzam
 ms.openlocfilehash: d546fe2568c0c061c9a08e7fa4a98aa8c5e55c55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068552"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Crie um Gateway de VPN e adicione a configuração de ponto a site com o PowerShell
@@ -79,7 +79,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
  -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos criados, utilize o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para eliminar o grupo de recursos. Isto elimina o grupo de recursos e todos os recursos contidos no mesmo.
 

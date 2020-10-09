@@ -13,10 +13,10 @@ ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
 ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080136"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configurar a estratégia de implantação azul-verde para máquinas virtuais Azure Linux
@@ -53,7 +53,7 @@ Utilizando a opção de entrega contínua, pode configurar implementações verd
 1. Na **estratégia de implantação**, selecione **Blue-Green**.
 1. Adicione uma etiqueta "azul" ou "verde" aos VMs que devem fazer parte de implantações verde-azulais. Se um VM for para um papel de standby, marque-o como "verde". Caso contrário, marque-o como "azul".
 
-   ![O painel de entrega contínua, com o valor de estratégia de implantação Blue-Green escolhido](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+   ![O painel de entrega contínua, com o valor de estratégia de implementação Blue-Green escolhido](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
 1. Selecione **OK** para configurar o gasoduto de entrega contínua para implantar na máquina virtual.
 
@@ -65,7 +65,7 @@ Utilizando a opção de entrega contínua, pode configurar implementações verd
    1. Nesta fase, o gasoduto para e aguarda a intervenção manual para retomar o funcionado. Os utilizadores podem retomar a execução do gasoduto uma vez que tenham assegurado manualmente a estabilidade da implantação para VMs marcados como "verdes".
    1. Esta fase troca as etiquetas "azul" e "verde" nos VMs. Isto garante que os VMs com versões de aplicação mais antigas são agora marcados como "verdes". Durante o próximo gasoduto, serão implementadas aplicações nestes VMs.
 
-      ![O painel de grupo de implantação para a tarefa Deploy Blue-Green](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+      ![O painel de grupo de implantação para a tarefa de Blue-Green de implantação](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
 
 1. A tarefa 'Executar executar script' por predefinição executa o script de implementação deploy.ps1 ou deploy.sh. O script está na pasta de implementação na pasta raiz do pacote publicado. Certifique-se de que o gasoduto de construção selecionado publica a implantação na pasta raiz da embalagem.
 

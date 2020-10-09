@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461277"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar alterações de máquina virtual através do Azure Event Grid e do Logic Apps
@@ -190,7 +190,7 @@ Adicione agora uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-con
 
 1. Se ainda não tiver uma ligação para o seu fornecedor de e-mail, inicie sessão na sua conta de e-mail quando lhe for pedido para autenticar.
 
-1. Mude o nome da ação de envio de e-mail para este título:`Send email when virtual machine updated`
+1. Mude o nome da ação de envio de e-mail para este título: `Send email when virtual machine updated`
 
 1. Forneça informações sobre o e-mail conforme especificado no quadro seguinte:
 
@@ -202,8 +202,8 @@ Adicione agora uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-con
    | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
    | **Para** | Sim | <*domínio destinatário \@*> | Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto** | Sim | `Resource updated:`**Sujeito** | Introduza o conteúdo para o assunto do e-mail. Para este tutorial, insira o texto especificado e selecione o campo **Assunto** do evento. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). |
-   | **Corpo** | Sim | `Resource:` **Tópico** <p>`Event type:`**Tipo de Evento**<p>`Event ID:` **ID**<p>`Time:`**Hora do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, insira o texto especificado e selecione os campos **tópico,** **tipo de evento,** **ID**e **tempo de evento** para que o seu e-mail inclua o recurso que disparou o evento, tipo de evento, relógio de eventos e ID do evento para a atualização. Para este tutorial, o recurso é o grupo de recursos Azure selecionado no gatilho. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
+   | **Assunto** | Sim | `Resource updated:` **Assunto** | Introduza o conteúdo para o assunto do e-mail. Para este tutorial, insira o texto especificado e selecione o campo **Assunto** do evento. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). |
+   | **Corpo** | Sim | `Resource:` **Tópico** <p>`Event type:` **Tipo de Evento**<p>`Event ID:` **ID**<p>`Time:`**Hora do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, insira o texto especificado e selecione os campos **tópico,** **tipo de evento,** **ID**e **tempo de evento** para que o seu e-mail inclua o recurso que disparou o evento, tipo de evento, relógio de eventos e ID do evento para a atualização. Para este tutorial, o recurso é o grupo de recursos Azure selecionado no gatilho. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
    ||||
 
    > [!NOTE]

@@ -6,10 +6,10 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3ed653c511dbd775d124e1abd6f4bb02923edb25
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86102077"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos ARM com recursos dependentes
@@ -169,7 +169,7 @@ Ao especificar as dependências, o Resource Manager implementa a solução de fo
 
 1. Faça o RDP à máquina virtual para verificar se a máquina virtual foi criada com êxito.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

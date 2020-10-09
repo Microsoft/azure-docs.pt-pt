@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322232"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 Java
@@ -437,7 +437,7 @@ Para ver as bibliotecas completas da amostra de Java, vá a:
 
 Pode navegar e clonar o repositório GitHub para cada biblioteca.
 
-## <a name="getting-started-guides"></a>Começar guias
+## <a name="getting-started-guides"></a>Guias de introdução
 
 Consulte os seguintes guias se estiver à procura de instruções sobre como instalar e começar com as Bibliotecas do Cliente de Armazenamento Azure.
 

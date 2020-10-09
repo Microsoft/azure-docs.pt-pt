@@ -6,7 +6,7 @@
       href: azure-media-player-release-notes.md
     - name: Registo de alterações
       href: azure-media-player-changelog.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Início rápido do Leitor de Multimédia do Azure
       href: azure-media-player-quickstart.md

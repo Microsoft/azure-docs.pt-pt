@@ -10,10 +10,10 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 01a58207d893b6e4dcadf0b8b295d4bf7ed2ec31
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319036"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-java"></a>Como criar e localizar âncoras usando a relocalização grosseira em Java

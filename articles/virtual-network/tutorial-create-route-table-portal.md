@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079654"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
@@ -53,14 +53,14 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
     | **Detalhes do projeto** | Subscrição | Escolha a sua subscrição. |
     | | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e selecione **OK**. |
     | **Detalhes da instância** | Nome da máquina virtual | Insira *myVmNva*. |
-    | | Region | Escolha **(EUA) Leste DOS EUA.** |
+    | | Região | Escolha **(EUA) Leste DOS EUA.** |
     | | Opções de disponibilidade | Escolha **Não é necessário um despedimento de infraestrutura**. |
     | | Imagem | Escolha **o Centro de Dados 2016 do Windows Server**. |
     | | Tamanho | Mantenha o padrão, **Standard DS1 v2**. |
     | **Conta de administrador** | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | | Palavra-passe | Introduza uma palavra-passe à sua escolha, que deve ter pelo menos 12 caracteres de comprimento e satisfaça os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
     | | Confirmar Palavra-passe | Introduza a senha novamente. |
-    | **Regras da porta de entrada** | Portas de entrada públicas | Escolha **Nenhum.** |
+    | **Regras portuárias de entrada** | Portas de entrada públicas | Escolha **Nenhum.** |
     | **Poupe dinheiro** | Já tem uma licença do Windows Server? | Escolha **nº.** |
 
     ![Básico, Criar uma máquina virtual, portal Azure](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
@@ -82,7 +82,7 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
         | Nome da sub-rede | Intervalo de endereços |
         | ----------- | ------------- |
         | *Público* | *10.0.0.0/24* |
-        | *Privada* | *10.0.1.0/24* |
+        | *Privado* | *10.0.1.0/24* |
         | *Rede de Perímetro* | *10.0.2.0/24* |
 
     1. Selecione **OK** para sair da caixa de diálogo.
@@ -110,7 +110,7 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
 
     1. Selecione **Rever + criar**. É levado para a página **Review + create,** e o Azure valida a sua configuração.
 
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
     A criação da VM demora alguns minutos. Espere até que Azure termine de criar o VM. A **página de implementação está em curso** mostra-lhe detalhes de implementação.
 
@@ -131,7 +131,7 @@ Os aparelhos virtuais de rede (NVAs) são máquinas virtuais que ajudam nas fun�
     | Nome | *myRouteTablePublic* |
     | Subscrição | A sua subscrição |
     | Grupo de recursos | **myResourceGroup** |
-    | Localização | **(EUA) Leste dos EUA** |
+    | Localização | **(EUA) E.U.A Leste** |
     | Propagação da rota do gateway de rede virtual | **Ativado** |
 
     ![Criar mesa de rotas, portal Azure](./media/tutorial-create-route-table-portal/create-route-table.png)
@@ -208,7 +208,7 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPublic* |
 | | Portas de entrada públicas | **Permitir portas selecionadas** |
-| | Selecione portas de entrada | **RDP** |
+| | Selecione as portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
 | | Sub-rede | **Público (10.0.0.0/24)** |
 | | Endereço IP público | O padrão |
@@ -221,7 +221,7 @@ Antes de selecionar **Criar** para criar o VM público ou privado, vá às duas 
 | Noções básicas | Grupo de recursos | **myResourceGroup** |
 | | Nome da máquina virtual | *myVmPrivate* |
 | | Portas de entrada públicas | **Permitir portas selecionadas** |
-| | Selecione portas de entrada | **RDP** |
+| | Selecione as portas de entrada | **RDP** |
 | Redes | Rede virtual | **myVirtualNetwork** |
 | | Sub-rede | **Privado (10.0.1.0/24)** |
 | | Endereço IP público | O padrão |
@@ -339,7 +339,7 @@ Primeiro, vamos testar o encaminhamento do tráfego de rede do *VM myVmPublic* p
 
 1. Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos já não for necessário, elimine *o myResourceGroup* e todos os recursos que tenha:
 

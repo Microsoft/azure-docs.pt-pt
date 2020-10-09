@@ -10,10 +10,10 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 8a0ee8565d22e935535bbe1e830d8399b2489f5c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527528"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
@@ -29,7 +29,7 @@ Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos abaixo detalham como tomar um VM existente e transformá-lo numa imagem personalizada reutilizável que pode usar para criar um conjunto de escala.
 
@@ -242,7 +242,7 @@ New-AzRoleAssignment `
    -ResourceGroupName $resourceGroup.ResourceGroupName
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
 
@@ -258,7 +258,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](../virtual-machines/windows/image-builder-overview.md) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a criar e utilizar uma imagem de VM personalizada nos seus conjuntos de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

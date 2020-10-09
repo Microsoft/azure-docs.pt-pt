@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 7353366af14ca785c5635e1bde8101c1d71cd47f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079110"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Apache Hadoop a pedido em HDInsight usando Azure Data Factory
@@ -345,7 +345,7 @@ Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dad
 
         ![Verifique a saída do gasoduto Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Verifique a saída do gasoduto Azure Data Factory")
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Com a criação de cluster HDInsight a pedido, não é necessário eliminar explicitamente o cluster HDInsight. O cluster é eliminado com base na configuração fornecida durante a criação do pipeline. Mesmo depois de o cluster ser eliminado, as contas de armazenamento associadas ao cluster continuam a existir. Este comportamento é por design para que possa manter os seus dados intactos. No entanto, se não quiser persistir os dados, poderá apagar a conta de armazenamento que criou.
 

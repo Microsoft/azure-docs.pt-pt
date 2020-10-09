@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87422645"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Mova um cofre de serviços de recuperação e configuração de recuperação do local de Azure para outra região do Azure
@@ -73,7 +73,7 @@ Para cada Azure VM que está a ser replicado, vá a **Itens Protegidos**  >  **P
 Siga os passos nestes artigos com base na sua exigência de mover os VMs Azure para a região alvo:
 
 - [Mover VMs do Azure para outra região](azure-to-azure-tutorial-migrate.md)
-- [Mover VMs do Azure para Zonas de Disponibilidade](move-azure-VMs-AVset-Azone.md)
+- [Mover VMs Azure em Zonas de Disponibilidade](move-azure-VMs-AVset-Azone.md)
 
 ## <a name="set-up-site-recovery-based-on-the-new-source-region-for-the-vms"></a>Criação da Recuperação do Local com base na nova região de origem para os VMs
 

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 4aa938d69f1ea0e80d25cf8db76179a7cb3b0209
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501495"
 ---
 # <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Tráfego de rede seguro entre máquinas virtuais usando um NSG
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network nsg rule update](/cli/azure/network/nsg/rule) | Atualiza uma regra NSG. Neste exemplo, a regra de back-end é atualizada para transmitir o tráfego apenas da sub-rede do front-end. |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

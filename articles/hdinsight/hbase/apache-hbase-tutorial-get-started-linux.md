@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
 ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85958366"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
@@ -302,7 +302,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
    - tarefas
    - atributos de software
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster. Pode utilizar o comando HBase `disable 'Contacts'` . Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 
@@ -310,11 +310,11 @@ Para evitar inconsistências, recomendamos que desative as tabelas do HBase ante
 1. Na caixa **de pesquisa** no topo, escreva **HDInsight**.
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial.
-1. Clique em **Eliminar**. Clique **em Sim**.
+1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar um cluster Apache HBase. E como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu a usar uma consulta de Hive em dados em tabelas HBase. E como utilizar as APIs DE REPOUSO HBase C# para criar uma tabela HBase e obter dados da tabela. Para saber mais, consulte:
+Neste tutorial, aprendeu a criar um cluster Apache HBase. E como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu a usar uma consulta de Hive em dados em tabelas HBase. E como utilizar as APIs DE REPOUSO HBase C# para criar uma tabela HBase e obter dados da tabela. Para saber mais, veja:
 
 > [!div class="nextstepaction"]
 > [Visão geral do HDInsight HBase](./apache-hbase-overview.md)

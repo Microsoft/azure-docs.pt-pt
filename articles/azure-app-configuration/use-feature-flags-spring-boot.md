@@ -15,10 +15,10 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326601"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Use bandeiras de recurso numa aplicação de Boot de primavera
@@ -37,7 +37,7 @@ Neste tutorial, vai aprender a:
 
 ## <a name="set-up-feature-management"></a>Configurar gestão de recursos
 
-O gestor de funcionalidades Spring Boot `FeatureManager` recebe bandeiras de recurso do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que o Boot de mola suporte, incluindo o ficheiro *bootstrap.yml* local ou variáveis ambientais. `FeatureManager`depende da injeção de dependência. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
+O gestor de funcionalidades Spring Boot `FeatureManager` recebe bandeiras de recurso do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que o Boot de mola suporte, incluindo o ficheiro *bootstrap.yml* local ou variáveis ambientais. `FeatureManager` depende da injeção de dependência. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
 
 ```java
 private FeatureManager featureManager;
@@ -96,7 +96,7 @@ Por convenção, a `feature-management` secção deste documento YML é utilizad
 
 * `feature-a`está *ligado.*
 * `feature-b`está *desligado.*
-* `feature-c`especifica um filtro nomeado `Percentage` com uma `parameters` propriedade. `Percentage`é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `feature-c` *em*.
+* `feature-c` especifica um filtro nomeado `Percentage` com uma `parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `feature-c` *em*.
 
 ## <a name="feature-flag-checks"></a>Verificações de bandeira de recurso
 

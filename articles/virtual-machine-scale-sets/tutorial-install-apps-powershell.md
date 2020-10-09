@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: e783f7f0a9be413679e509e4d6124d50bb811821
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87059290"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
@@ -186,7 +186,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 ![Página Web atualizada no IIS](media/tutorial-install-apps-powershell/running-iis-updated.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de escalas e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

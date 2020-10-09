@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: 4d404b1530e58788e5a34eb552d810c1ee40579a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432269"
 ---
 # <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Adicione regiões, mude a prioridade de failover, desencadeie o failover para uma conta Azure Cosmos usando Azure CLI
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb failover-prioridade-mudança](/cli/azure/cosmosdb#az-cosmosdb-failover-priority-change) | Atualizar a prioridade de failover ou desencadear o failover numa conta DB da Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Azure Cosmos DB CLI, consulte [a documentação do Azure Cosmos DB CLI](/cli/azure/cosmosdb).
 

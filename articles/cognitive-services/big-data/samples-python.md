@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86189820"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Amostras de Python para serviços cognitivos para big data
@@ -301,7 +301,7 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 | br | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR",""Id":"LCN","iso2code":"ZJ","valor":"América Latina & Caraíbas "}", adminregion":{"id":"LAC","iso2code":"XJ","valor":"Latim":"Latim"America & Caraíbas (excluindo o rendimento elevado)"}"""""incomeLevel":{"id":"UMC","iso2code":"XT","value":"Rendimento médio superior"},"lendingType":{"id":"IBD "Iso2code":"XF","valor":"IBRD"}"capitalCity":"Brasília","longitude":"-47.9292","latitude":"-15.7801"}]] |
 | EUA  | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"USA","iso2Code":"US","name":"United States","region"":{"Id":"NAC","iso2code":"XU","value":"América do Norte"}",adminregion":{"id":"id":"""iso2code":"XU","value":"América do Norte"}",adminregion":{"id":"""iso2code":"XU","valor":"América do Norte"}","adminregão":"id":"Id":"""Iso2code":"XU","valor":"América do Norte"}",adminregão":"id":"Id":""""Iso2code":"XU","valor":"América do Norte"}","adminregion":"{"id":"Id":"""""valor":""}""incomeLevel":{"id":"HIC","iso2code":"XD","Valor":"Alto rendimento"},"lendingType":{"id":"LNX","iso2code":"XX","valor":"Não classificado"},"capitalCity":"Washington D.C.""Longitude":"-77.032","latitude":"38.8895"}]} |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Receita: Deteção de Anomalias](./recipes/anomaly-detection.md)
-* [Receita: Art Explorer](./recipes/art-explorer.md)
+* [Receita: Explorador de Arte](./recipes/art-explorer.md)

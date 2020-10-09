@@ -11,10 +11,10 @@ ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323575"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual do Windows em Azure

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963534"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com Apache Kafka no HDInsight
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Criar o tópico do Kafka
 > * Iniciar as topologias
 > * Parar as topologias
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -633,7 +633,7 @@ A partir de uma sessão do SSH para o cluster do Storm, utilize os comandos segu
   storm kill kafka-reader
   ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recursos. Ao eliminar o grupo de recursos também elimina o cluster do HDInsight associado e quaisquer outros recursos associados ao grupo de recursos.
 

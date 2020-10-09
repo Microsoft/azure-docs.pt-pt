@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: 5673f2e3fb14999e5d6f0afc7b05e0abd2263fb4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432212"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Crie um bloqueio de recursos para a base de dados e gráfico da Azure Cosmos Gremlin API utilizando o Azure CLI
@@ -38,7 +38,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az lock show](/cli/azure/lock#az-lock-show) | Mostrar propriedades de uma fechadura. |
 | [bloqueio az eliminar](/cli/azure/lock#az-lock-delete) | Apaga uma fechadura. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -[Bloquear recursos para evitar alterações inesperadas](../../../../azure-resource-manager/management/lock-resources.md)
 

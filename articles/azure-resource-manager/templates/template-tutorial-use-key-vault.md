@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119281"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integre o cofre da chave Azure na sua implementação do modelo ARM
@@ -29,7 +29,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Editar o ficheiro de parâmetros
 > * Implementar o modelo
 > * Validar a implementação
-> * Limpar recursos
+> * Limpar os recursos
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -196,7 +196,7 @@ Depois de ter implantado com sucesso a máquina virtual, teste as credenciais de
 1. Selecione **ligar** na parte superior.
 1. Selecione **Baixar Ficheiro RDP**e, em seguida, siga as instruções para iniciar sing na máquina virtual utilizando a palavra-passe que está armazenada no cofre da chave.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos seus recursos Azure, limpe os recursos que implementou eliminando o grupo de recursos.
 

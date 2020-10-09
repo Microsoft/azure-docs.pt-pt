@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: 49ef9405301bce44963814de1be3ebb52453821f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432147"
 ---
 # <a name="create-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Criar uma base de dados e uma recolha para a MongoDB API para Azure Cosmos DB usando Azure CLI
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [coleção az cosmosdb mongodb criar](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Cria uma coleção Azure Cosmos MongoDB API. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Azure Cosmos DB CLI, consulte [a documentação do Azure Cosmos DB CLI](/cli/azure/cosmosdb).
 

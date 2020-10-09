@@ -9,10 +9,10 @@ ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: d80786bbdfc4f53254dc98d79ac3badcf5dd3b24
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111672"
 ---
 Disponibilizamos modelos diferentes para abordar cenários de integração específicos. Escolha a melhor opção para si e certifique-se de que modifica o ficheiro de parâmetros de forma a refletir o seu ambiente. Para obter mais informações sobre como utilizar estes ficheiros na sua implementação, veja [Incluir um cliente no Azure Lighthouse](../articles/lighthouse/how-to/onboard-customer.md).

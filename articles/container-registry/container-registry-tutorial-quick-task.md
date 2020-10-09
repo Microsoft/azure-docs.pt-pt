@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259490"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilar e implementar imagens de contentor na cloud com Tarefas do Azure Container Registry

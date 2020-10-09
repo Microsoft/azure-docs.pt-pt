@@ -8,15 +8,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135661"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V no local para a recuperação após desastre para o Azure
 
-Este artigo descreve como preparar a sua infraestrutura hiper-V no local quando pretender configurar a recuperação de hiper-VMs para Azure, utilizando [a recuperação do local de Azure.](site-recovery-overview.md)
+Este artigo descreve como preparar a sua infraestrutura hiper-V no local quando pretender configurar a recuperação de desastres de Hyper-VMs para Azure, utilizando [a recuperação do local de Azure.](site-recovery-overview.md)
 
 
 Este é o segundo tutorial de uma série que mostra como configurar a recuperação de desastres para Azure para os Hiper-VMs no local. No primeiro tutorial, [criamos os componentes Azure necessários](tutorial-prepare-azure.md) para a recuperação de desastres hiper-V.

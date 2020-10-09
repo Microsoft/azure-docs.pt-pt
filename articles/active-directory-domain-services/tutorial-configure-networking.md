@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86024779"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar a rede virtual para um domínio gerido por Azure Ative Directory Domain Services

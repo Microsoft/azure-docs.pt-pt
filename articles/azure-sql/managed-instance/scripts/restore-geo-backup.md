@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ms.openlocfilehash: 0c6ca03f535201059f107d6b53bc423b92d1c1c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073361"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-managed-instance-database-to-another-geo-region"></a>Use a PowerShell para restaurar uma base de dados de instância gerida Azure SQL para outra geo-região

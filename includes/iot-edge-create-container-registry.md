@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
 ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87406724"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor

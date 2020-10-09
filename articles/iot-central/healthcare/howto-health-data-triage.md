@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86497051"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Construir um painel de fornecedores de Power BI
@@ -144,7 +144,7 @@ O próximo passo será analisar os dados provenientes do seu Centro de Eventos p
     |Parâmetro|Valor|
     |---|---|
     |Nome|Nome da interface|
-    |Tipo|Cadeia|
+    |Tipo|String|
 
     Prima **Guardar**. 
 
@@ -197,7 +197,7 @@ Selecione os três pontos na barra de navegação superior e, em seguida, seleci
 
 Escolha o tipo de azulejo que gostaria de adicionar e personalize a sua aplicação como quiser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine os seus recursos com os seguintes passos:
 
@@ -205,6 +205,6 @@ Se não continuar a utilizar esta aplicação, elimine os seus recursos com os s
 
 2. Para a sua aplicação IoT Central, vá ao separador Administração e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja a orientação contínua da [arquitetura de monitorização do paciente.](concept-continuous-patient-monitoring-architecture.md)

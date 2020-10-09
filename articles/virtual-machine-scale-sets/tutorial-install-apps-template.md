@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87059262"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com um modelo do Azure
@@ -147,7 +147,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 ![Página Web atualizada no Nginx](media/tutorial-install-apps-template/running-nginx-updated.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive

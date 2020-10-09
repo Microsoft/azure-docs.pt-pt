@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87491787"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Permitir a sincronização de palavras-passe em Azure Ative Directory Domain Services para ambientes híbridos

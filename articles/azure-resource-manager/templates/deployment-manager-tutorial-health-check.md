@@ -6,10 +6,10 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058032"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Use o cheque de saúde no Azure Deployment Manager (visualização pública)
@@ -31,7 +31,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Verifique a implementação do lançamento
 > * Implementar o lançamento com um estado saudável
 > * Verifique a implementação do lançamento
-> * Limpar recursos
+> * Limpar os recursos
 
 Recursos adicionais:
 
@@ -352,7 +352,7 @@ Repita esta secção para recolocar o lançamento com o URL de estado saudável.
 2. Navegue para as aplicações Web criadas recentemente, nos grupos de recursos novos que foram criados com a implementação do lançamento.
 3. Abra a aplicação Web num browser. Verifique a localização e a versão no ficheiro index.html.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

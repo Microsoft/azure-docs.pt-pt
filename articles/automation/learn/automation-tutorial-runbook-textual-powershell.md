@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015005"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Tutorial: Criar um livro de execução PowerShell
@@ -119,7 +119,7 @@ O livro de execução que criou ainda está no modo Draft. Tem de ser publicado 
 
    ![Todos os Registos](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-9. Feche o painel streams e o painel job para voltar à página MyFirstRunbook-PowerShell.
+9. Feche o painel de streams e o painel de trabalho para voltar à página MyFirstRunbook-PowerShell.
 
 10. Em **Detalhes,** clique em **Jobs** para abrir a página Jobs para este livro. Esta página lista todos os trabalhos criados pelo seu runbook. Só deve ver um emprego na lista, já que só dirigiu o trabalho uma vez.
 

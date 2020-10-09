@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964809"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Compor uma cena do Blender com o Batch Explorer
@@ -127,7 +127,7 @@ O modelo do trabalho também especifica que o frame de saída e os ficheiros de 
 
 Após a conclusão de todas as tarefas, o trabalho é marcado como concluído: ![Trabalho e todas as tarefas concluídos](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!WARNING]
 > Para parar os custos que as VMs estão a acumular para a subscrição do Azure, o conjunto tem de ser eliminado (também pode ser redimensionado para zero nós).
