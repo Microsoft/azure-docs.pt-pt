@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118955"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Alterar padrões de design de feed em Azure Cosmos DB
@@ -38,7 +38,7 @@ Também pode desencadear seletivamente uma notificação ou enviar uma chamada p
 O feed de alteração DB Azure Cosmos pode ser utilizado para o processamento de fluxo em tempo real para o processamento de IoT ou análise em tempo real em dados operacionais.
 Por exemplo, pode receber e armazenar dados de eventos a partir de dispositivos, sensores, infraestruturas e aplicações, e processar estes eventos em tempo real, utilizando [o Spark](../hdinsight/spark/apache-spark-overview.md). A imagem a seguir mostra como você pode implementar uma arquitetura lambda usando o Azure Cosmos DB através de change feed:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Gasoduto lambda à base de Azure Cosmos para ingestão e consulta" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Utilizando o DB de mudança de Azure Cosmos para alimentar a análise em tempo real e cenários de computação orientados para eventos" border="false":::
 
 Em muitos casos, as implementações de processamento de fluxo recebem primeiro um grande volume de dados de entrada numa fila de mensagens temporárias como O Azure Event Hub ou Apache Kafka. O feed de mudança é uma ótima alternativa devido à capacidade da Azure Cosmos DB de suportar uma taxa sustentada de ingestão de dados com baixa leitura garantida e escrever latência. As vantagens do feed de mudança de DB do Azure Cosmos através de uma fila de mensagens incluem:
 
@@ -112,7 +112,7 @@ Aqui estão alguns exemplos de códigos de feed de mudança de mudança no mundo
 - [Caso de uso de IoT centrado em torno do feed de mudança](https://github.com/AzureCosmosDB/scenario-based-labs)
 - [Caso de uso de retalho centrado em torno do feed de mudança](https://github.com/AzureCosmosDB/scenario-based-labs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do feed de alterações](change-feed.md)
 * [Opções para ler alterar feed](read-change-feed.md)

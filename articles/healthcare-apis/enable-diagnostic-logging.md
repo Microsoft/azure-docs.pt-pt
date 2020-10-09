@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
 ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84871702"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para fHIR®
@@ -60,7 +60,7 @@ Neste momento, a Azure API para o serviço FHIR® devolve os seguintes campos no
 |OperaçãoDuração|int|O tempo que demorou a completar este pedido em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O pedido URI 
-|ResultadoType|String|Os valores disponíveis atualmente são **Iniciados, Bem Sucedidos**ou **Falhados** **Started**
+|ResultType|String|Os valores disponíveis atualmente são **Iniciados, Bem Sucedidos**ou **Falhados** **Started**
 |Código de Estado|int|O código de estado HTTP. (por exemplo, 200) 
 |TimeGenerated|DateTime|Data e hora do evento|
 |Propriedades|String| Descreve as propriedades do fhirResourceType
@@ -99,7 +99,7 @@ Ter acesso a registos de diagnóstico é essencial para monitorizar um serviço 
  
 FHIR® é a marca registada do HL7 e é utilizada com a permissão do HL7.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a permitir registos de auditoria da Azure API para fHIR®. Em seguida, saiba mais sobre outras configurações adicionais que pode configurar na API Azure para FHIR
  
 >[!div class="nextstepaction"]

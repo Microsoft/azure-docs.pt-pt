@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117170"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>Quota-padrão: Aumentar os limites por séries VM
+# <a name="standard-quota-increase-limits-by-vm-series"></a>Quota padrão: aumentar os limites por séries de VM
 
 O Azure Resource Manager suporta dois tipos de quotas vCPU para máquinas virtuais:
 

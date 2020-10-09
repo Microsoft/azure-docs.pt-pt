@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
 ms.openlocfilehash: b67e280824c5e2336aa79e14d3e09d3a670118a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554343"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nitro Productivity Suite
@@ -93,9 +93,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     d. Selecione **Ative o único sinal de inscrição**.
 
 
-1. Regresse ao [portal do Azure](https://portal.azure.com/). Na **configuração de um único sign-on com** a página SAML, selecione o ícone de lápis para **configuração SAML básica** para editar as definições.
+1. Regresse ao [portal do Azure](https://portal.azure.com/). Na **configuração single Sign-On com** a página SAML, selecione o ícone de lápis para **configuração SAML básica** para editar as definições.
 
-   ![Screenshot de Configurar Único Sign-On com página SAML, com ícone de lápis em destaque](common/edit-urls.png)
+   ![Screenshot de Configurar single Sign-On com página SAML, com ícone de lápis em destaque](common/edit-urls.png)
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
@@ -115,7 +115,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além dos atributos anteriores, a aplicação Nitro Productivity Suite espera que mais alguns atributos sejam repercutidos na resposta SAML. Estes atributos são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name  |  Atributo de origem|
+    | Nome  |  Atributo de origem|
     | ---------------| --------------- |
     | número de empregados |  user.objectid |
 

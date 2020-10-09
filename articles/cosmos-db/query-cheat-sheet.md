@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117986"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB consulta folhas de batota
@@ -28,9 +28,9 @@ Baixe as [folhas de fraude do tamanho de uma letra do Azure Cosmos DB](https://g
 ## <a name="oversized-cheat-sheets"></a>Folhas de batota de grandes dimensões
 Descarregue as [folhas de fraude do tamanho de Azure Cosmos DB A3](https://go.microsoft.com/fwlink/?linkid=870413) se for imprimir usando um plotter ou impressora em larga escala em papel de tamanho A3 (11,7" x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB consultas folhas de batota - tamanho A3, com SQL API, JavaScript, MongoDB, Gremlin, e Tabela API consultas e funções" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB consultas folhas de batota - tamanho de letra, com SQL API, JavaScript, MongoDB, Gremlin, e tabela API consultas e funções" border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais ajuda para escrever consultas, consulte os seguintes artigos:
 * Para consultas de API SQL, consulte Consulta utilizando as consultas [SQL API,](tutorial-query-sql-api.md) [SQL para Azure Cosmos DB,](how-to-sql-query.md)e [referência de sintaxe SQL](sql-api-query-reference.md)
 * Para consultas mongoDB, consulte [a Consulta utilizando a API da Azure Cosmos para a MongoDB](tutorial-query-mongodb.md) e a [API da Azure Cosmos DB para suporte e sintaxe de recurso MongoDB](mongodb-feature-support.md)

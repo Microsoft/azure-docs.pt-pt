@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 199a443bf2f0c674f85fec0ecfd0083c92f17fe4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Ative Directory com a Fidelity NetBenefits
@@ -95,11 +95,11 @@ Para configurar o Azure AD com o Fidelity NetBenefits, execute os seguintes pass
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Fidelity NetBenefits Domain e URLs informações únicas de súmis](common/idp-intiated.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com o Fidelity NetBenefits, execute os seguintes pass
     >[!Note]
     >A Fidelity NetBenefits apoia a Federação Estática e Dinâmica. Estático significa que não utilizará SAML com base apenas no fornecimento do utilizador a tempo e a Dinâmica significa que suporta apenas a tempo o fornecimento do utilizador. Para a utilização de clientes com base em JIT, os clientes têm de adicionar mais algumas reclamações no AD Azure, como data de nascimento do utilizador, etc. Estes detalhes são fornecidos pelo gestor de serviços de **clientes da Fidelidade** atribuído e eles têm que ativar esta federação dinâmica para o seu exemplo.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -167,7 +167,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Fidelity NetBenefits**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Fidelity NetBenefits**.
 

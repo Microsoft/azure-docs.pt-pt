@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73953891"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar alvo (VMware para Azure)
@@ -39,5 +39,5 @@ Assim que as validações estiverem concluídas com sucesso, clique em OK para i
 
 Se não tiver uma conta de armazenamento compatível do Gestor de Recursos ou rede virtual, pode criar uma clicando nos botões **+ Conta de Armazenamento** ou + **Rede** no topo da página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Configurar as definições de replicação](vmware-azure-set-up-replication.md).

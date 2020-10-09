@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74048514"
 ---
 # <a name="customize-web-application-firewall-rules-using-powershell"></a>Personalize as regras de Firewall de aplicação web usando o PowerShell
@@ -106,7 +106,7 @@ CRS 3.x específico:
 
 * Pontuação de anomalia de entrada excedeu limiar
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar as suas regras desativadas, pode aprender a ver os seus registos WAF. Para mais informações, consulte [o Application Gateway Diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 

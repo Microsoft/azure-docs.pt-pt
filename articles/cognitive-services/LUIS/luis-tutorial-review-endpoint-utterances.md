@@ -7,10 +7,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324642"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de ponto final
@@ -84,7 +84,7 @@ Reveja as declarações do ponto final para uma intenção corretamente alinhada
 
 1. A partir da secção **Build** do portal, selecione Rever as **expressões** do ponto final da navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot do botão de comentários de ponto final do Review na navegação à esquerda.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Altere da página Versões para a página Intenções.":::
 
     Esta `I'm looking for a job with Natural Language Processing` expressão, não está na intenção correta, _GetJobInformation_. Foi mal indiciado como _ApplyForJob_ devido à semelhança de nomes de emprego e verbos nas duas intenções.
 

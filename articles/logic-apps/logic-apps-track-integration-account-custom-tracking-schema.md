@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76903062"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Crie esquemas de rastreio personalizados que monitorizem fluxos de trabalho de ponta a ponta na Lógica A do Azure
@@ -53,7 +53,7 @@ O Azure Logic Apps tem um rastreio incorporado que pode ativar para partes do se
 
 | Propriedade | Necessário | Tipo | Descrição |
 |----------|----------|------|-------------|
-| origemType | Sim | String | Tipo de fonte de execução com estes valores `Microsoft.Logic/workflows` permitidos:`custom` |
+| origemType | Sim | String | Tipo de fonte de execução com estes valores `Microsoft.Logic/workflows` permitidos: `custom` |
 | source | Sim | String ou JToken | Se o tipo de origem `Microsoft.Logic/workflows` for, a informação de origem tem de seguir este esquema. Se o tipo de origem `custom` for, o esquema é um JToken. |
 | systemId | Sim | String | ID do sistema de aplicativos lógico |
 | runId | Sim | String | ID de execução de aplicativo lógico |
@@ -65,7 +65,7 @@ O Azure Logic Apps tem um rastreio incorporado que pode ativar para partes do se
 | clienteRequestId | Não | String | O cliente pode povoar esta propriedade para correlacionar mensagens |
 | eventoLevel | Sim | String | Nível do evento |
 | eventTime | Sim | DateTime | Hora do evento em formato UTC: *YYYY-MM-DDTHH:MM:SS.0000Z* |
-| gravarType | Sim | String | Tipo de registo de faixa com este valor permitido apenas:`custom` |
+| gravarType | Sim | String | Tipo de registo de faixa com este valor permitido apenas: `custom` |
 | gravar | Sim | JToken | Tipo de gravação personalizado apenas com formato JToken |
 |||||
 
@@ -76,6 +76,6 @@ Para obter informações sobre os esquemas de rastreio do protocolo B2B, consult
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de controlo de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a monitorização de mensagens B2B com registos do Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

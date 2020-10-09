@@ -12,7 +12,7 @@ ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855457"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementar aplicativos core ASP.NET para o serviço Azure Kubernetes com Azure DevOps Starter

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: rohink
 ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76937239"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS trabalha com outros serviços da Azure
@@ -34,8 +34,8 @@ A tabela a seguir descreve os tipos de registo suportados que pode utilizar para
 | Serviço do Azure | Interface de rede | Descrição |
 | --- | --- | --- |
 | Gateway de Aplicação do Azure |[IP público frontal](dns-custom-domain.md#public-ip-address) |Pode criar um registo DNS A ou CNAME. |
-| Azure Load Balancer |[IP público frontal](dns-custom-domain.md#public-ip-address) |Pode criar um registo DNS A ou CNAME. O Balancer de Carga pode ter um endereço IP público IPv6 que é atribuído dinamicamente. Crie um registo CNAME para um endereço IPv6. |
-| Traffic Manager do Azure |Nome público |Pode criar um registo de pseudónimo que mapeie o nome trafficmanager.net atribuído ao seu perfil de Gestor de Tráfego. Para obter mais informações, consulte [Tutorial: Configuure um registo de pseudónimos para suportar nomes de domínio apex com Gestor de Tráfego](tutorial-alias-tm.md). |
+| Balanceador de Carga do Azure |[IP público frontal](dns-custom-domain.md#public-ip-address) |Pode criar um registo DNS A ou CNAME. O Balancer de Carga pode ter um endereço IP público IPv6 que é atribuído dinamicamente. Crie um registo CNAME para um endereço IPv6. |
+| Gestor de Tráfego do Azure |Nome público |Pode criar um registo de pseudónimo que mapeie o nome trafficmanager.net atribuído ao seu perfil de Gestor de Tráfego. Para obter mais informações, consulte [Tutorial: Configuure um registo de pseudónimos para suportar nomes de domínio apex com Gestor de Tráfego](tutorial-alias-tm.md). |
 | Cloud Services do Azure |[IP público](dns-custom-domain.md#public-ip-address) |Para endereços IP atribuídos estáticamente, pode criar um registo DNS A. Para endereços IP atribuídos dinamicamente, deve criar um registo CNAME que mapeie para o *nome cloudapp.net.*|
 | Serviço de Aplicações do Azure | [IP externo](dns-custom-domain.md#app-service-web-apps) |Para endereços IP externos, pode criar um registo DNS A. Caso contrário, deve criar um registo CNAME que mapeie para o nome azurewebsites.net. Para obter mais informações, consulte [mapear um nome de domínio personalizado para uma aplicação Azure.](../app-service/app-service-web-tutorial-custom-domain.md) |
 | VMs do Gestor de Recursos Azure |[IP público](dns-custom-domain.md#public-ip-address) |Os VMs do Gestor de Recursos podem ter endereços IP públicos. Um VM com um endereço IP público também pode estar por trás de um equilibrador de carga. Pode criar um registo DNS A, CNAME ou pseudónimo para o endereço público. Pode utilizar este nome personalizado para contornar o VIP no equilibrador de carga. |

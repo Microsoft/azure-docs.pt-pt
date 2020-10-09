@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335199"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
@@ -209,19 +209,19 @@ Em seguida, cria dois pontos finais [de aplicações lógicas](https://docs.micr
 
 7. Selecione um tipo de gatilho. Desloque-se até ao Início com uma secção **de gatilho comum.** Selecione **Quando um pedido HTTP for recebido**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot de criar uma aplicação lógica HTTP trigger.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 8. No canto superior direito do Logic App Designer, **selecione Save**. O **URL HTTP POST** é gerado automaticamente. Salve a URL. Precisa na secção seguinte para criar um ponto final do evento.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot da Aplicação Lógica HTTP Request URL e JSON.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 9. Selecione **+ Novo Passo**. Agora vais escolher uma ação. Digite `outlook.com email` a caixa de pesquisa. Na lista **de Ações,** desloque-se para baixo e selecione **Enviar por email o artigo V2.**
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot de criar um designer de aplicativos lógico.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 10. Inscreva-se na sua conta Outlook. Certifique-se de selecionar **Sim** para permitir que a aplicação lógica aceda à conta. Preencha os campos para o envio de um e-mail.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot de criar uma aplicação lógica enviar passo de e-mail.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
     >[!TIP]
     > Pode recuperar os dados de resposta da GeoJSON, tais `geometryId` como, `deviceId` por exemplo, nas notificações de e-mail. Pode configurar as Aplicações Lógicas para ler os dados enviados pela Grade de Eventos. Para obter informações sobre como configurar as Aplicações Lógicas para consumir e passar dados de eventos em notificações de email, consulte [Tutorial: Envie notificações de e-mail sobre eventos Azure IoT Hub utilizando a Grade de Eventos e Aplicações Lógicas](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
@@ -238,11 +238,11 @@ Os passos seguintes mostram como criar uma subscrição de eventos para os event
 
 1. Vá à sua conta Azure Maps. No painel de **instrumentos, selecione Subscrições**. Selecione o nome da subscrição e selecione **eventos** a partir do menu de definições.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Screenshot de ir a eventos de conta Azure Maps.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 2. Para criar uma subscrição de eventos, selecione **+ Subscrição** de eventos a partir da página de eventos.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Screenshot de criar uma subscrição de eventos Azure Maps.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 3. Na página **'Criar Subscrição de** Eventos', insira os seguintes valores:
     * O **Nome** da assinatura do evento.
@@ -252,7 +252,7 @@ Os passos seguintes mostram como criar uma subscrição de eventos para os event
     * Para **o tipo de ponto final,** escolha `Web Hook` .
     * Para **Endpoint**, copie o URL HTTP POST para a aplicação lógica insira o ponto final que criou na secção anterior. Se se esqueceu de guardá-lo, pode voltar ao Logic App Designer e copiá-lo a partir do passo do gatilho HTTP.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot dos detalhes da subscrição de eventos Azure Maps.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Screenshot de criar uma aplicação lógica.":::
 
 4. Selecione **Criar**.
 

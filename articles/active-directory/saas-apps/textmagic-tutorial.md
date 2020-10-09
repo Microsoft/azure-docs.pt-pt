@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 81dc3a4f55b214ea6ca7ad0388e57f4b4fdc7124
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Tutorial: Azure Ative Directory integração única (SSO) com TextMagic
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação TextMagic espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name |   Atributo de origem| Espaço de Nomes  |
+    | Nome |   Atributo de origem| Espaço de Nomes  |
     | --------------- | --------------- | --------------- |
     | empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | nomePróprio               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
@@ -151,7 +151,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configuração TextMagic](./media/textmagic-tutorial/config1.png)
 
-5. Clique no **separador 'Sign-On' único (SSO)** e preencha os seguintes campos:  
+5. Clique no separador **Single Sign-On (SSO)** e preencha os seguintes campos:  
 
     ![Configuração TextMagic](./media/textmagic-tutorial/config2.png)
 

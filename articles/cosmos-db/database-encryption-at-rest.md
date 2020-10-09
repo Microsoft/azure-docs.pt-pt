@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85114780"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Encriptação de dados no Azure Cosmos DB 
@@ -34,7 +34,7 @@ O fluxo básico de um pedido de utilizador é o seguinte:
 - Tanto o documento JSON como os dados do índice são escritos para garantir o armazenamento.
 - Periodicamente, os dados são lidos a partir do armazenamento seguro e reservados até à Azure Encrypted Blob Store.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Quanto mais custa o Azure Storage se a Encriptação do Serviço de Armazenamento estiver ativada?
 R: Não há custo adicional.
@@ -57,7 +57,7 @@ R: Não há qualquer impacto ou alterações no desempenho SLAs agora que a encr
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: O emulador local suporta a encriptação em repouso?
 R: O emulador é uma ferramenta autónoma dev/teste e não utiliza os serviços de gestão chave que o serviço Cos DB gerido utiliza. A nossa recomendação é permitir que o BitLocker em unidades onde esteja a armazenar dados sensíveis de teste do emulador. O [emulador suporta alterar o diretório de dados predefinido,](local-emulator.md) bem como usar uma localização bem conhecida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Pode optar por adicionar uma segunda camada de encriptação com as suas próprias chaves, para saber mais, ver o artigo [de chaves gerido pelo cliente.](how-to-setup-cmk.md)
 * Para uma visão geral da segurança da Cosmos DB e das mais recentes melhorias, consulte [a segurança da base de dados Azure Cosmos.](database-security.md)

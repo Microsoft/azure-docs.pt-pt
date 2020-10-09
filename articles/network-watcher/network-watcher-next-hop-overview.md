@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 33c22b5b68b6677e8cf271dc185007316ec44500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76844063"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Use o próximo salto para diagnosticar problemas de encaminhamento de máquinas virtuais
@@ -34,10 +34,10 @@ Os próximos saltos que podem ser devolvidos pela próxima capacidade de lúpulo
 * VirtualNetworkPeering
 * VirtualNetworkServiceEndpoint 
 * MicrosoftEdge
-* Nenhuma
+* Nenhum
 
 Para saber mais sobre cada próximo tipo de lúpulo, consulte [a visão geral do Encaminhamento](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a utilizar o próximo salto para diagnosticar problemas de encaminhamento de rede VM, consulte os problemas de encaminhamento da rede VM do diagnóstico utilizando o [portal Azure](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), ou o [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324659"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos comuns de expressão de modelo de padrão para melhorar as previsões
@@ -217,7 +217,7 @@ Para que um padrão seja igualado a uma expressão, _primeiro_ as entidades dent
 
 **Embora os padrões permitam que forneça menos expressões de exemplo, se as entidades não forem detetadas, o padrão não corresponde.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção orgChart-Manager
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção OrgChart-Manager
 
 1. Selecione **Build** (Criar) no menu superior.
 

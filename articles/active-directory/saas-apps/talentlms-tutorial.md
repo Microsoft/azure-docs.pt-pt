@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 57445d1010e9775e3a1735fd64722c44db8e0a4e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Azure Ative Directory com o TalentLMS
@@ -73,7 +73,7 @@ Para um único sign-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o Azure AD com o TalentLMS, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único talentLMs](#configure-talentlms-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único talentLMs](#configure-talentlms-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create TalentLMS test user](#create-talentlms-test-user)** - para ter uma contrapartida de Britta Simon em TalentLMS que está ligada à representação AD Ad Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o TalentLMS, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com o TalentLMS, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-talentlms-single-sign-on"></a>Configurar talentlms single sign-on
+### <a name="configure-talentlms-single-sign-on"></a>Configurar o Sign-On Único talentlms
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa TalentLMS como administrador.
 
@@ -134,9 +134,9 @@ Para configurar o Azure AD com o TalentLMS, execute os seguintes passos:
 
     ![Definições & conta](./media/talentlms-tutorial/IC777296.png "Definições & conta")
 
-1. Clique **em um único sign-on (SSO)**,
+1. Clique **em Sign-On única (SSO)**,
 
-1. Na secção 'Sign-On' único, execute os seguintes passos:
+1. Na secção Single Sign-On, execute os seguintes passos:
 
     ![Único sign-on](./media/talentlms-tutorial/IC777297.png "Início de Sessão Único")
 
@@ -192,7 +192,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **TalentLMS**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **TalentLMS**.
 

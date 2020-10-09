@@ -15,7 +15,7 @@ ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854584"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Azure Ative Directory integração única (SSO) com Litmus

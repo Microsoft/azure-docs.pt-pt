@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73953189"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Use o Cloud Explorer para o Estúdio Visual para a gestão de dispositivos Azure IoT Hub
@@ -41,7 +41,7 @@ Neste artigo, aprende a usar o Cloud Explorer para Visual Studio com várias op�
 
 Neste artigo, execute o Cloud Explorer para Visual Studio com várias opções de gestão.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 Precisa dos seguintes pré-requisitos:
 
@@ -107,7 +107,7 @@ Para enviar uma mensagem do seu Hub IoT para o seu dispositivo, siga estes passo
 
    Os resultados aparecem na **saída**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a usar o Cloud Explorer para o Visual Studio com várias opções de gestão.
 

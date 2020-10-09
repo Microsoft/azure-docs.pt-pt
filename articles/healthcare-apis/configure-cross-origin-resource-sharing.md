@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.openlocfilehash: dc4c034b0821f1fe5ecb940591fca77d61edc3ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84871751"
 ---
 # <a name="configure-cross-origin-resource-sharing-in-azure-api-for-fhir"></a>Configure a partilha de recursos de origem cruzada na AZure API para o FHIR
@@ -37,7 +37,7 @@ Para configurar uma definição DE CORS na API Azure para FHIR, especifique as s
 >[!NOTE]
 >Não é possível especificar diferentes configurações para diferentes origens de domínio. Todas as definições **(Cabeçalhos**, **Métodos,** **Idade Máxima**e Permitir **credenciais**) aplicam-se a todas as origens especificadas na definição Origens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar a partilha de origem cruzada na Azure API para fHIR. Em seguida, implementar uma Azure API totalmente gerida para FHIR:
  

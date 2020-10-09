@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 651f2b39de457a0d93fd39f841540d50273da3af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Azure Ative Directory integração única (SSO) com easySSO para bambu
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação EasySSO para Bamboo espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ---------------| --------- |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
@@ -165,11 +165,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. Utilize o **Ficheiro de Metadados** da Federação de Aplicações que descarregou para o ficheiro local no seu computador. Selecione **carregar** o botão de rádio e siga o diálogo do ficheiro de upload específico para o seu sistema operativo
 
-    **OU**
+    **OR**
 
     b. Abra o **Ficheiro de Metadados** da Federação de Aplicações para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo na área de transferência. Selecione a opção **entrada** e cole o conteúdo da área de transferência no campo de texto.
  
-    **OU**
+    **OR**
 
     c.  Configuração totalmente manual. Abra o Certificado da Federação de Aplicações **(Base64)** para ver o conteúdo (em qualquer editor de texto simples) do ficheiro e copiá-lo na área de transferência. Cole-o no campo de texto **de assinatura de IdP Token.** Em seguida, navegue para separador **geral** e preencha os campos de URL e **ID de ID** **de ID de encadernação** post com os respetivos valores para **URL de Login** e **identificador AD AD que** guardou anteriormente.
  

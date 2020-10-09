@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 8ea85db0749b2dc95c073072e52a49c795585b55
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Diretório Ativo Azure com a EthicsPoint Incident Management (EPIM)
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com a EthicsPoint Incident Management (EPIM), é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure a Gestão de Incidentes de ÉticaPoint (EPIM) Único Sign-On](#configure-ethicspoint-incident-management-epim-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure a Gestão de Incidentes de ÉticaPoint (EPIM) Single Sign-On](#configure-ethicspoint-incident-management-epim-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create EthicsPoint Incident Management (EPIM) test user](#create-ethicspoint-incident-management-epim-test-user)** - para ter uma contraparte de Britta Simon em EthicsPoint Incident Management (EPIM) que está ligada à representação AD Ad do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de insuflação com a EthicsPoint Inc
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,9 +113,9 @@ Para configurar o Azure AD um único sinal de insuflação com a EthicsPoint Inc
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a equipa de suporte ao cliente da EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Contacte [a equipa de suporte ao cliente da EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD um único sinal de insuflação com a EthicsPoint Inc
 
     c. Logout URL
 
-### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configurar a Gestão de Incidentes de ÉticaPoint (EPIM) Único Sign-On
+### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configure a Gestão de Incidentes de ÉticaPoint (EPIM) Sign-On única
 
 Para configurar o lado único de sinal de acesso à Gestão de **Incidentes de Ética (EPIM),** é necessário enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de suporte de Gestão de [Incidentes de ÉticaPoint (EPIM).](https://www.navexglobal.com/company/contact-us) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -164,7 +164,7 @@ Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** selecione **EthicsPoint Incident Management (EPIM)**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **EthicsPoint Incident Management (EPIM)**.
 

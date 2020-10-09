@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361913"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
@@ -114,7 +114,7 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     2. Em **Detalhes do Destino**, selecione Enviar para Registar **Analytics**e, em seguida, selecione o seu novo espaço de trabalho de analítica de registo. 
    
-    3. Clique em **Save** (Guardar). 
+    3. Clique em **Guardar**. 
 
 ## <a name="run-queries"></a>Executar consultas  
 
@@ -268,7 +268,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     3. Clique em **Rever + criar**. 
 
-    4. Clique em **Create** (Criar).
+    4. Clique em **Criar**.
 
 
 15. Em **ação personalizada,** execute os seguintes passos:

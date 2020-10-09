@@ -15,7 +15,7 @@ ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com a Nuvem Lifesize

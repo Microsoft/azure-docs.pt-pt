@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73888824"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementar o acelerador de solução de monitorização remota localmente - Docker
@@ -33,8 +33,8 @@ Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns
 
 Para completar a implantação local, necessita das seguintes ferramentas instaladas na sua máquina de desenvolvimento local:
 
-* [Git](https://git-scm.com/)
-* [Estivador](https://www.docker.com)
+* [Rio Git](https://git-scm.com/)
+* [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/) - se planeia fazer alterações nos microserviços.
 * [Node.js v8](https://nodejs.org/) - este software é um pré-requisito para o PCS CLI que os scripts usam para criar recursos Azure. Não use Node.js v10.
 
@@ -104,6 +104,6 @@ Para evitar encargos desnecessários, quando terminar os seus testes remova os s
 
 Utilize o `docker-compose down --rmi all` comando para remover as imagens do Docker e liberte espaço na sua máquina local. Também pode eliminar a cópia local do repositório de monitorização remota criado quando clonou o código fonte do GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou a solução de Monitorização Remota, o próximo passo é [explorar as capacidades do painel de instrumentos de solução](quickstart-remote-monitoring-deploy.md).

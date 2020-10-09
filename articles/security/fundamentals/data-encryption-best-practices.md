@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85124056"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança e encriptação de dados do Azure
@@ -37,9 +37,9 @@ Para ajudar a proteger os dados na nuvem, precisa de prestar contas aos possíve
 
 Proteger as suas chaves é essencial para proteger os seus dados na nuvem.
 
-O [Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações na cloud e pelos serviços. A chave de cofre simplifica o processo de gestão de chaves e permite-lhe manter o controlo de teclas que acede e encripta os seus dados. Os programadores podem criar as chaves de desenvolvimento e teste em minutos, e migrá-las para as chaves de produção. Os administradores de segurança podem conceder (e revogar) a permissão para as chaves, conforme necessário.
+O [Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações na cloud e pelos serviços. O Key Vault simplifica o processo de gestão de chaves e permite-lhe manter o controlo das chaves que acedem e encriptam os seus dados. Os programadores podem criar as chaves de desenvolvimento e teste em minutos, e migrá-las para as chaves de produção. Os administradores de segurança podem conceder (e revogar) a permissão para as chaves, conforme necessário.
 
-Pode usar o Cofre chave para criar vários recipientes seguros, chamados cofres. Estes cofres são apoiados por HSMs. Os cofres centralizam o armazenamento dos segredos das aplicações, o que ajuda a reduzir as possibilidades de perda acidental de informações de segurança. Os Cofres de Chaves também controlam e registam o acesso a tudo o que está armazenado nos mesmos. O Azure Key Vault pode lidar com a solicitação e renovação dos certificados de Segurança da Camada de Transporte (TLS). Fornece funcionalidades para uma solução robusta para a gestão do ciclo de vida dos certificados.
+Pode usar o Cofre chave para criar vários recipientes seguros, chamados cofres. Estes cofres são apoiados por HSMs. Os cofres centralizam o armazenamento dos segredos das aplicações, o que ajuda a reduzir as possibilidades de perda acidental de informações de segurança. Os cofres de chaves também controlam e registam o acesso a tudo o que está armazenado nos mesmos. O Azure Key Vault pode lidar com a solicitação e renovação dos certificados de Segurança da Camada de Transporte (TLS). Fornece funcionalidades para uma solução robusta para a gestão do ciclo de vida dos certificados.
 
 O Azure Key Vault foi concebido para suportar chaves de aplicação e segredos. O Key Vault não se destina a ser uma loja para senhas de utilizador.
 
@@ -133,10 +133,10 @@ Esta solução de proteção de informação mantém-no no controlo dos seus dad
 
 As organizações que são fracas na classificação de [dados](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e na proteção de ficheiros podem ser mais suscetíveis a fugas de dados ou uso indevido de dados. Com a proteção adequada de ficheiros, pode analisar fluxos de dados para obter informações sobre o seu negócio, detetar comportamentos de risco e tomar medidas corretivas, rastrear o acesso a documentos, e assim por diante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas informações em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76840813"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacotes variáveis no Observador da Rede Azure
@@ -47,7 +47,7 @@ Para reduzir a informação que captura apenas para as informações que deseja,
 |**Endereço IP remoto** | Este valor filtra a captura do pacote para pacotes onde o IP remoto corresponde a este valor do filtro.|
 |**Porta remota** | Este valor filtra a captura do pacote para pacotes onde a porta remota corresponde a este valor do filtro.|
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Saiba como pode gerir as capturas de pacotes através do portal visitando a captura de [pacotes de gestão no portal Azure](network-watcher-packet-capture-manage-portal.md) ou com o PowerShell visitando [Gerir a Captura de Pacotes com PowerShell.](network-watcher-packet-capture-manage-powershell.md)
 

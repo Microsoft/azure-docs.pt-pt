@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76939331"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Cenários de zonas privadas Azure DNS
+# <a name="azure-dns-private-zones-scenarios"></a>Cenários de zonas Privadas de DNS do Azure
 
 As Zonas Privadas Azure DNS fornecem resolução de nomes dentro de uma rede virtual, bem como entre redes virtuais. Neste artigo, olhamos para alguns cenários comuns que podem ser realizados usando esta funcionalidade.
 
@@ -37,7 +37,7 @@ O diagrama seguinte mostra uma versão simples deste cenário onde existem apena
 
 ![Múltiplas resoluções de rede virtual](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Cenário: Funcionalidade Split-Horizon
+## <a name="scenario-split-horizon-functionality"></a>Cenário: funcionalidade Split-Horizon
 
 Neste cenário, tem um caso de uso em que pretende realizar diferentes comportamentos de resolução de DNS dependendo de onde o cliente se encontra (dentro do Azure ou fora na internet), para a mesma zona de DNS. Por exemplo, pode ter uma versão privada e pública da sua aplicação que tenha diferentes funcionalidades ou comportamentos, mas pretende utilizar o mesmo nome de domínio para ambas as versões. Este cenário pode ser realizado com o Azure DNS através da criação de uma zona de DNS Público, bem como de uma Zona Privada, com o mesmo nome.
 
@@ -47,7 +47,7 @@ Agora, quando um cliente da Internet emite uma consulta de DNS para procurar VNE
 
 ![Resolução de Brian dividida](./media/private-dns-scenarios/split-brain-resolution.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md).
 
 Saiba como [criar uma zona privada de DNS](./private-dns-getstarted-powershell.md) em Azure DNS.

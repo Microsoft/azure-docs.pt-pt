@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: ef57db315fa29a70a604f180671091a5b372f316
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Diretório Ativo Azure com Dossier
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Dossier, execute
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Dossier, execute
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [a equipa de apoio ao Cliente do Dossier](mailto:support@intellimedia.ca) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de um único sinal com** a página SAML, na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** de Aplicações a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação** de Aplicações a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
@@ -138,7 +138,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Dossier, execute
 
     c. Logout URL
 
-### <a name="configure-dossier-single-sign-on"></a>Configure dossier único sign-on
+### <a name="configure-dossier-single-sign-on"></a>Configure Dossier Único Sign-On
 
 Para configurar um único sinal no lado **do Dossier,** é necessário enviar o **Url de Metadados da Federação de Aplicações** para a [equipa de apoio](mailto:support@intellimedia.ca)ao Dossier . Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -172,7 +172,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal d
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Dossier**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Dossier.**
 

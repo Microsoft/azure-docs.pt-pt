@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Ative Directory com o TurboRater
@@ -91,7 +91,7 @@ Para configurar o Azure AD com o TurboRater, tome os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com** a página SAML, selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com página SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com o TurboRater, tome os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real e responda URL. Para obter estes valores, contacte a equipa de apoio do [TurboRater.](https://www.getitc.com/support) Também pode consultar os padrões indicados no painel **de configuração SAML básico** no portal Azure.
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregue** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
 
     ![A opção de descarregamento de metadados XML da Federação](common/metadataxml.png)
 

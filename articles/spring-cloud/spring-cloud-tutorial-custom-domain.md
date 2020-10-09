@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326155"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para Azure Spring Cloud
@@ -38,7 +38,7 @@ Para fazer o upload do seu certificado para o cofre da chave:
 1. No **Criar um** diálogo de certificado ao abrigo **do Método de criação de certificados,** selecione `Import` .
 1. No **Ficheiro de Certificado de Upload,** navegue para a localização do certificado e selecione-o.
 1. Em **Password,** insira a chave privada do seu certificado.
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
     ![Certificado de importação 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
@@ -50,7 +50,7 @@ Para conceder ao Azure Spring Cloud acesso ao seu cofre-chave antes de importar 
 
 | Permissão secreta | Permissão de certificado | Selecione principal |
 |--|--|--|
-| Obter, Lista | Obter, Lista | Gestão do domínio da nuvem de primavera de Azure |
+| Obter, Lista | Obter, Lista | Azure Spring Cloud Domain-Management |
 
 ![Certificado de importação 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
@@ -146,7 +146,7 @@ az spring-cloud app custom-domain list --app <app name> --resource-group <resour
 ## <a name="add-ssl-binding"></a>Adicionar ligação SSL
 Na tabela de domínio personalizado, **selecione Adicionar a ligação ssl** como mostrado na figura anterior.  
 1. Selecione o seu **Certificado** ou importe-o.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
     ![Adicionar encadernação SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
@@ -173,7 +173,7 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 Quando a operação estiver concluída, navegue para qualquer um dos URLs HTTPS que apontam para a sua aplicação. Note que os URLs HTTP não funcionam.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [O que é o Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importar um certificado](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Lance a sua App Cloud Spring utilizando o Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)

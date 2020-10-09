@@ -14,7 +14,7 @@ ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854295"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
@@ -55,7 +55,7 @@ As tabelas seguintes fornecem ligações para exemplos de aplicações, incluind
 |--------| ----------- |
 | [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | Aplicação de teste SAML para testar Azure AD B2C configurado para funcionar como provedor de identidade SAML. |
 
-## <a name="api-connectors"></a>Conectores API
+## <a name="api-connectors"></a>Conectores de API
 
 As tabelas que se seguem fornecem links para amostras de código para alavancar as APIs web nos fluxos do seu utilizador utilizando [conectores API](api-connectors-overview.md).
 

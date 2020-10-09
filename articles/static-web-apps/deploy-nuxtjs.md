@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: bc11dd6113bbf5b07e19b83735c83e4895e4a796
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323601"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implementar sites de Nuxt.js renderizados por servidores na pré-visualização de aplicações web estáticas do Azure
@@ -62,7 +62,7 @@ Navegue `http://localhost:3000` para abrir a app, onde deverá ver o seguinte si
 
 Ao clicar numa estrutura/biblioteca, deverá ver uma página de detalhes sobre o item selecionado:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Página Detalhes":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Início Nuxt.js app":::
 
 ## <a name="generate-a-static-website-from-nuxtjs-build"></a>Gere um site estático a partir de Nuxt.js construir
 
@@ -130,7 +130,7 @@ Os passos a seguir mostram como ligar a app que acabou de empurrar para GitHub p
 1. Na *Região,* escolha uma região mais próxima de si.
 1. Selecione **Free** a partir do drop-down SKU.
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Criar aplicativo web estático":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Início Nuxt.js app":::
 
 ### <a name="add-a-github-repository"></a>Adicione um repositório GitHub
 
@@ -141,7 +141,7 @@ A nova conta Static Web Apps precisa de acesso ao repositório com a sua aplica�
 1. Encontre e selecione o nome do repositório que criou anteriormente.
 1. Escolha **o mestre** como ramo da queda do *Ramo.*
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Ligar o GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Início Nuxt.js app":::
 
 ### <a name="configure-the-build-process"></a>Configure o processo de construção
 
@@ -149,7 +149,7 @@ A azure Static Web Apps é construído para realizar automaticamente tarefas com
 
 1. Clique no separador **'Construir'** para configurar a pasta de saída estática.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Construir separador":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Início Nuxt.js app":::
 
 1. Digitar na caixa de *texto de localização do artefacto* da App. **dist**
 
@@ -178,7 +178,7 @@ Volte ao terminal e executar o seguinte comando `git pull origin master` .
 
 Navegue para o site recém-implantado e clique num dos logótipos da estrutura ou da biblioteca. Em vez de obter uma página de detalhes, obtém uma página de erro 404.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 em rotas dinâmicas":::
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="Início Nuxt.js app":::
 
 A razão para isso é que, Nuxt.js gerou o site estático, só o fez para a página inicial. Nuxt.js pode gerar `.html` ficheiros estáticos equivalentes para cada `.vue` ficheiro de páginas, mas há uma exceção. 
 
@@ -215,7 +215,7 @@ Se a página for uma página dinâmica, por `_id.vue` exemplo, não terá inform
 
 2. Empurre as novas alterações para o seu repositório GitHub e aguarde alguns minutos enquanto o GitHub Actions volta a construir o seu site. Após a construção estar concluída, o erro 404 desaparece.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 em rotas dinâmicas fixas":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="Início Nuxt.js app":::
 
 > [!div class="nextstepaction"]
 > [Configurar um domínio personalizado](custom-domain.md)

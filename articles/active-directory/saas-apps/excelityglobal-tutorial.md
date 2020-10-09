@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 48aa1313dbcc9e56fc50abd64ea167fb1ca8943b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integração do Azure Ative Directory com a ExcelityGlobal
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o ExcelityGlobal, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure excelityGlobal Single Sign-On](#configure-excelityglobal-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure excelityGlobal Single Sign-On](#configure-excelityglobal-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ExcelityGlobal test user](#create-excelityglobal-test-user)** - para ter uma contraparte de Britta Simon em ExcelityGlobal que está ligada à representação AD Azure do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com o ExcelityGlobal, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![ExcelityGlobal Domain e URLs informações únicas de entrada](common/idp-intiated.png)
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD com o ExcelityGlobal, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-excelityglobal-single-sign-on"></a>Configurar ExcelityGlobal Single Sign-On
+### <a name="configure-excelityglobal-single-sign-on"></a>Configurar excelityglobal single Sign-On
 
 Para configurar um único sinal no lado **ExcelityGlobal,** é necessário enviar o valor de **impressão digital** e urls copiados apropriados do portal Azure para a equipa de [suporte excelityGlobal.](https://www.excelityglobal.com/contact-us) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -170,7 +170,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **ExcelityGlobal**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **ExcelityGlobal**.
 

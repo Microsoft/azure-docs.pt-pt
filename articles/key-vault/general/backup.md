@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: sudbalas
 ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88585938"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
@@ -39,7 +39,7 @@ Considere também as seguintes consequências:
 * Um backup cria uma foto pontual. Os segredos podem renovar-se durante uma cópia de segurança, causando uma incompatibilidade de chaves de encriptação.
 * Se exceder os limites de serviço do cofre para pedidos por segundo, o cofre da chave será acelerado e a cópia de segurança falhará.
 
-## <a name="design-considerations"></a>Considerações de design
+## <a name="design-considerations"></a>Considerações de conceção
 
 Quando fizer uma cópia de segurança de um objeto de cofre, como um segredo, chave ou certificado, a operação de backup descarregará o objeto como uma bolha encriptada. Esta bolha não pode ser desencriptada fora de Azure. Para obter dados utilizáveis desta bolha, você deve restaurar a bolha em um cofre chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 

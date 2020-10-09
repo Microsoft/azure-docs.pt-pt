@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76932303"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Visão geral do DNS invertido e suporte em Azure
@@ -87,7 +87,7 @@ Uma pesquisa inversa para o endereço IP '192.0.2.129' consultas para um registo
 
 ### <a name="ipv6"></a>IPv6
 
-O nome de uma zona de procura inversa IPv6 deve ser da seguinte forma:`<IPv6 network prefix in reverse order>.ip6.arpa`
+O nome de uma zona de procura inversa IPv6 deve ser da seguinte forma: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Por exemplo. Ao criar uma zona inversa para hospedar registos para anfitriões com IPs que estão no prefixo 2001:db8:1000:abdc:::64, o nome da zona seria criado isolando o prefixo de rede do endereço (2001:db8:abdc::). Em seguida, expanda o prefixo da rede IPv6 para remover [a compressão zero,](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx)se foi utilizado para encurtar o prefixo de endereço IPv6 (2001:0db8:abdc:0000::). Inverta a ordem, utilizando um período como delimiter entre cada número hexadecimal no prefixo, para construir o prefixo de rede invertido ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) e adicionar o sufixo `.ip6.arpa` .
 
@@ -107,7 +107,7 @@ O Azure DNS pode ser utilizado para [hospedar as suas zonas de pesquisa inversa 
 
 **Configure o registo DNS invertido para o endereço IP atribuído ao seu serviço Azure.** O Azure [permite-lhe configurar o lookup inverso dos endereços IP atribuídos ao seu serviço Azure](dns-reverse-dns-for-azure-services.md).  Esta procura inversa é configurada pelo Azure como um registo PTR na zona ARPA correspondente.  Estas zonas ARPA, correspondentes a todas as gamas IP utilizadas pelo Azure, são hospedadas pela Microsoft
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre DNS invertidos, consulte [a pesquisa reversa do DNS na Wikipédia.](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)
 <br>

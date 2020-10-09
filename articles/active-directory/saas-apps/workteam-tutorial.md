@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.openlocfilehash: c95fceaa90ca379519379d37c19fb15dcd1de321
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546370"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workteam"></a>Tutorial: Azure Ative Directory integração única (SSO) com workteam
@@ -145,7 +145,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. Selecione **SAML IdP** como **AD Azure**.
 
-    b. Na caixa de texto URL de serviço único de inscrição do **SAML,** cole o valor do URL de **login,** que copiou a partir do portal Azure.
+    b. Na caixa de texto URL de **serviço Sign-On único SAML,** cole o valor do URL de **login,** que copiou a partir do portal Azure.
 
     c. Na caixa de texto **ID da Entidade SAML,** cole o valor do **Identificador AD Azure,** que copiou a partir do portal Azure.
 

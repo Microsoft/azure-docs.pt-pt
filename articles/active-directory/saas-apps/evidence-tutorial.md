@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 2c2cc76b47257682c9d9f74f5cd315556a862f5f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555284"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evidencecom"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Evidence.com
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [Evidence.com equipa de apoio ao Cliente](https://communities.taser.com/support/SupportContactUs?typ=LE) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -151,7 +151,7 @@ Para que os utilizadores da AD Azure possam fazer o seu acesso, devem ser proteg
 
 3. Clique em **Adicionar Utilizador**.
 
-4. Clique no botão **Adicionar**.
+4. Clique no botão **Adicionar.**
 
 5. O Endereço de **E-mail** do utilizador adicionado deve corresponder ao nome de utilizador dos utilizadores em Azure AD a quem deseja dar acesso. Se o nome de utilizador e o endereço de e-mail não forem do mesmo valor da sua organização, pode utilizar a secção **Evidence.com > Atributos > Única Sação** do portal Azure para alterar o nameidenitifer enviado para Evidence.com para ser o endereço de e-mail.
 

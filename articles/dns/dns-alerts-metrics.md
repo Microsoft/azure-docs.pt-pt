@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
 ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76937443"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas de DNS do Azure
@@ -64,5 +64,5 @@ A métrica *de utilização da capacidade de fixação de registos* em Azure DNS
 ## <a name="alerts-in-azure-dns"></a>Alertas em DNS Azure
 O Azure Monitor fornece a capacidade de alertar contra os valores métricos disponíveis. As métricas DNS estão disponíveis na nova experiência de configuração de Alerta. Conforme descrito em detalhe na documentação de alertas do [Monitor Azure,](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)pode selecionar a Zona DNS como recurso, escolher o tipo de sinal métrico e configurar a lógica de alerta e outros parâmetros como **Period** e **Frequência**. Pode ainda definir um [Grupo de Ação](../azure-monitor/platform/action-groups.md) para quando a condição de alerta for cumprida, pelo que o alerta será entregue através das ações escolhidas. Para obter mais informações sobre como configurar alertas para métricas do Monitor Azure, consulte [Criar, ver e gerir alertas usando o Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o Azure DNS](dns-overview.md).

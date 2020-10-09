@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Ative Directory com o MobileIron
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o MobileIron, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -112,27 +112,27 @@ Para configurar o Azure AD com o MobileIron, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Você receberá os valores de chave e anfitrião do portal administrativo do MobileIron que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. Você receberá os valores de chave e anfitrião do portal administrativo do MobileIron que é explicado mais tarde no tutorial.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-mobileiron-single-sign-on"></a>Configurar mobileiron single sign-on
+### <a name="configure-mobileiron-single-sign-on"></a>Configurar Sign-On single mobileIron
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa MobileIron como administrador.
 
 2. Vá para a Identidade **de Administrador**  >  **Identity** e selecione a opção **AAD** no campo **Informação na Configuração do IDP da Nuvem.**
 
-    ![Configurar botão de administração único de assinatura](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Configure botão de administração único Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copie os valores de **Chave** e **Anfitrião** e cole-os para completar os URLs na secção **de Configuração Básica SAML** no portal Azure.
 
-    ![Configurar botão de administração único de assinatura](./media/mobileiron-tutorial/key.png)
+    ![Configure botão de administração único Sign-On](./media/mobileiron-tutorial/key.png)
 
 4. No **ficheiro de metadados de exportação a partir de AAD e importado para MobileIron Cloud Field** clique **em Escolher Ficheiro** para carregar os metadados descarregados do portal Azure. Clique em **Fazer** uma vez carregado.
 
-    ![Configure o botão único de metadados de administração de assinatura](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
+    ![Configure botão de metadados únicos Sign-On de administração](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -165,7 +165,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **MobileIron**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **MobileIron**.
 
@@ -196,11 +196,11 @@ No caso do MobileIron, o provisionamento é uma tarefa manual.
 
 1. Vá aos **Utilizadores** e clique em **Adicionar**  >  **Utilizador Único**.
 
-    ![Configurar o botão único de utilizador de inscrição](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
+    ![Configure botão único de utilizador Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
 1. Na página de diálogo **"Único Utilizador",** execute os seguintes passos:
 
-    ![Configure o botão único de adicionar ao utilizador sign-on](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
+    ![Configure botão único Sign-On utilizador adicionar](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
     a. Na caixa de texto **do endereço de e-mail,** insira o e-mail do utilizador como brittasimon@contoso.com .
 
@@ -208,7 +208,7 @@ No caso do MobileIron, o provisionamento é uma tarefa manual.
 
     c. Na caixa de texto **Last Name,** insira o último nome do utilizador como Simon.
 
-    d. Clique em **Concluído**.
+    d. Clique em **Done** (Concluído).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

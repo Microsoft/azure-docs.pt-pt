@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: 9c49f7ac744ee516aefc1571d50264132035ba8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73890592"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Criar um hub IoT utilizando o cmdlet New-AzIotHub
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Criar um hub IoT utilizando o New-AzIotHub cmdlet
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -47,7 +47,7 @@ Para criar um grupo de recursos para o seu hub IoT, utilize o comando [New-AzRes
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Para criar um hub IoT no grupo de recursos que criou no passo anterior, utilize o comando [New-AzIotHub.](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) Este exemplo cria um hub **S1** chamado **MyTestIoTHub** na região **leste dos EUA:**
 
@@ -85,7 +85,7 @@ Em alternativa, pode remover um grupo de recursos e todos os recursos que conté
 Remove-AzResourceGroup -Name MyIoTRG1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou um hub IoT usando um cmdlet PowerShell, se quiser explorar mais, confira os seguintes artigos:
 

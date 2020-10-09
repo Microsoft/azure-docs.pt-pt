@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327623"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticação do Azure SignalR Service com as Funções do Azure Functions
@@ -52,20 +52,20 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Clique no botão **Criar um** **+** recurso () para criar um novo recurso Azure.
 
-1. Procure **SignalR Service** e selecione-o. Clique em **Create** (Criar).
+1. Procure **SignalR Service** e selecione-o. Clique em **Criar**.
 
     ![Novo SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Introduza as seguintes informações.
 
-    | Name | Valor |
+    | Nome | Valor |
     |---|---|
     | Nome do recurso | Nome exclusivo da instância do SignalR Service |
     | Grupo de recursos | Criar um novo grupo de recursos com um nome único |
     | Localização | Selecione uma localização perto de si |
     | Escalão de Preço | Gratuito |
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
 1. Depois de implementada a instância, abra-a no portal e localize a sua página de Definições. Altere a definição do modo de serviço para *sem servidor*.
 
@@ -327,7 +327,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. Introduza as seguintes informações.
 
-    | Name | Valor |
+    | Nome | Valor |
     |---|---|
     | Subscrição | Selecione a subscrição que contém a instância do Serviço SignalR |
     | Grupo de recursos | Selecione o mesmo grupo de recursos |
@@ -350,7 +350,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. No **nome do documento índice**, insiraindex.htm* l*.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 1. Aparece um **ponto final primário.** Reparem neste valor. Será necessário configurar a aplicação de função.
 
@@ -461,7 +461,7 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza os seguintes valores:
 
-    | Name | Valor |
+    | Nome | Valor |
     |---|---|
     | Subscrição | Selecione a sua subscrição |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |
