@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 50b86c4c86391b6ffdee18cdadbdddbdff8642a8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821886"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841140"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * Obtenha um intervalo de endereços IP para a região do seu hub. O hub é uma rede virtual que é criada e usada pela Virtual WAN. O intervalo de endereços que especifica para o hub não pode sobrepor-se a nenhuma das suas redes virtuais existentes a que se conecta. Também não pode sobrepor-se aos intervalos de endereços que liga ao local. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração da rede no local, coordene com alguém que possa fornecer esses detalhes para si.
 
-* O circuito ExpressRoute deve ser um circuito Premium/Standard para ligar ao portão do hub.
+* O circuito ExpressRoute deve ser um circuito Premium ou Standard para ligar ao gateway do hub.
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

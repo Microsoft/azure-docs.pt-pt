@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b8979691d03746634b6282b23b05723c35854e1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91372617"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841531"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -38,8 +38,8 @@ Você precisará de uma subscrição Azure para completar este arranque rápido.
 Também vai precisar de **Node.js** na sua máquina. Pode obter a versão mais recente neste link: [Node.js](https://nodejs.org/).
 
 Finalmente, também terá de descarregar duas amostras para utilizar durante o arranque rápido:
-* A aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação principal que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Para obter a aplicação, navegue aqui: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
-* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [amostras de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina, uma vez que este irá descarregar um . Pasta ZIP para a sua máquina ** comoAzure_Digital_Twins_samples.zip**. Desaperte a pasta e extraa os ficheiros.
+* A aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação principal que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Para obter a aplicação, navegue aqui: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
+* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [amostras de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins_samples.zip**_. Desaperte a pasta e extraa os ficheiros.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 
@@ -313,7 +313,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Embora neste arranque rápido, tenha feito a atualização de temperatura manualmente, é comum na Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Isto permite-lhe construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente, e usar consultas para obter informações sobre o que está a acontecer no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Isto irá desligar a ligação à aplicação ADT Explorer no navegador, e deixará de ser capaz de ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 

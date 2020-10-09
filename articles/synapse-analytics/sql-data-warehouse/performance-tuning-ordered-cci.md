@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795614"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841599"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
@@ -48,9 +48,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
-
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 > [!NOTE] 
 > Numa tabela de CCI encomendada, os novos dados resultantes do mesmo lote de DML ou operações de carregamento de dados são classificados dentro desse lote, não existindo uma triagem global em todos os dados da tabela.  Os utilizadores podem reconstruir o CCI ordenado para classificar todos os dados na tabela.  No Synapse SQL, o índice de loja de colunas REBUILD é uma operação offline.  Para uma mesa dividida, o REBUILD é feito uma divisória de cada vez.  Os dados na partição que está a ser reconstruída estão "offline" e indisponíveis até que o REBUILD esteja completo para essa partição. 
@@ -98,7 +95,7 @@ O desempenho do carregamento de dados numa tabela de CCI encomendada é semelhan
 
 Aqui está um exemplo de comparação de desempenho de carregar dados em tabelas com esquemas diferentes.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Gráfico de barras que mostra a comparação de desempenho de carregar dados em tabelas com esquemas diferentes.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Aqui está um exemplo de comparação de desempenho de consulta entre CCI e CCI ordenado.
@@ -139,7 +136,7 @@ Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, 
 
 ## <a name="examples"></a>Exemplos
 
-**A. Verificar se há colunas e encomendas ordinais encomendados:**
+**A. Para verificar se há colunas e encomendas ordinais encomendados:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -148,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Alterar coluna ordinal, adicionar ou remover colunas da lista de encomendas ou alterar de CCI para CCI ordenado:**
+**B. Para alterar coluna ordinal, adicione ou remova colunas da lista de encomendas, ou para alterar de CCI para CCI ordenado:**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales

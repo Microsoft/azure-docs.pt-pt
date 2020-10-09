@@ -1,16 +1,14 @@
 ---
 title: Garantir um cluster no Windows utilizando certificados
 description: Comunicação segura dentro de um cluster autónomo ou no local do Azure Service Fabric, bem como entre clientes e o cluster.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 477a8e75aef3eb676d17c045f16a5c3f4ecf1b81
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 18af6fd79e03cd67e77ed4d0d4b3b6291f90301d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299705"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841293"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Garantir um cluster autónomo no Windows utilizando certificados X.509
 Este artigo descreve como garantir a comunicação entre os vários nós do seu cluster Windows autónomo. Também descreve como autenticar clientes que se conectam a este cluster utilizando certificados X.509. A autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e às aplicações implementadas e executar tarefas de gestão. A segurança do certificado deve ser ativada no cluster quando o cluster for criado.  

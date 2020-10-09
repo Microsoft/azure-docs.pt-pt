@@ -4,12 +4,12 @@ description: Obtenha a visualização da página e as contagens de sessão, dado
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328909"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841446"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -104,7 +104,7 @@ Cada opção de configuração é mostrada acima numa nova linha, se não preten
 
 As opções de configuração disponíveis são 
 
-| Nome | Tipo | Description
+| Nome | Tipo | Descrição
 |------|------|----------------
 | src | corda **[necessária]** | O URL completo para onde carregar o SDK. Este valor é usado para o atributo "src" de um script/tag dinamicamente &lt; &gt; adicionado. Você pode usar a localização pública da CDN ou a sua própria hospedada privada.
 | name | corda *[opcional]* | O nome global para o SDK inicializado, predefine para `appInsights` . Assim ```window.appInsights``` será uma referência à instância inicializada. Nota: se fornecer um valor de nome ou uma instância anterior parece ser atribuído (através da app de nome globalInsightsSDK) então este valor de nome também será definido no espaço de nome global, pois ```window.appInsightsSDK=<name value>``` , isto é exigido pelo código de inicialização SDK para garantir que está a inicializar e atualizar os métodos corretos de esqueleto e procuração.
@@ -153,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Name | Predefinição | Description |
+| Nome | Predefinição | Descrição |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |
@@ -218,7 +218,7 @@ Ao `autoTrackPageVisitTime: true` configurar, o tempo que um utilizador passa em
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
+| [Angular](javascript-angular-plugin.md) |
 
 ## <a name="correlation"></a>Correlação
 

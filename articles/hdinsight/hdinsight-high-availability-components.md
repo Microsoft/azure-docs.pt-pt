@@ -6,24 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609170"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842585"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
- De forma a proporcionar-lhe os níveis ideais de disponibilidade para os seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura única para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes desta arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes Apache standard que são implantados para suportar serviços específicos. Este artigo explica a arquitetura do modelo de serviço HA em HDInsight, como a HDInsight suporta o failover para os serviços HA, e as melhores práticas para recuperar de outras interrupções de serviço.
+De forma a proporcionar-lhe os níveis ideais de disponibilidade para os seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura única para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes desta arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes Apache standard que são implantados para suportar serviços específicos. Este artigo explica a arquitetura do modelo de serviço HA em HDInsight, como a HDInsight suporta o failover para os serviços HA, e as melhores práticas para recuperar de outras interrupções de serviço.
  
 > [!NOTE]
 > Comunicação sem preconceitos
 >
 > A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
-
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -55,7 +54,7 @@ As seguintes secções fornecerão mais detalhes sobre como estes serviços func
 
 A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte em clusters HDInsight. Para distingui-los dos serviços de alta disponibilidade suportados por componentes da Apache, são chamados *serviços HDInsight HA*.
 
-| Serviço | Nós de cluster | Tipos de cluster | Objetivo |
+| Serviço | Nós do cluster | Tipos de cluster | Objetivo |
 |---|---|---|---|
 | Servidor Apache Ambari| Cabeçano ativo | Todos | Monitoriza e gere o cluster.|
 | Servidor de linha do tempo de aplicação para Apache YARN | Cabeçano ativo | Todos, exceto Kafka. | Mantém informações depurativas sobre os empregos de YARN a funcionar no cluster.|
@@ -100,7 +99,7 @@ O serviço master-ha funciona apenas no headnode ativo, para os serviços HDInsi
 
 ![processo de failover](./media/hdinsight-high-availability-components/failover-steps.png)
 
-Um monitor de saúde corre em cada cabeçada juntamente com o controlador mestre de failover para enviar notificações de hearbeat para o quórum zookeeper. O headnode é considerado um serviço de HA neste cenário. O monitor de saúde verifica se cada serviço de alta disponibilidade é saudável e se está pronto para participar na eleição para a liderança. Se sim, este cabeçanode vai competir na eleição. Se não, sairá da eleição até que se prepare novamente.
+Um monitor de saúde corre em cada cabeçada juntamente com o controlador mestre de failover para enviar notificações de batimentocardíaco para o quórum zookeeper. O headnode é considerado um serviço de HA neste cenário. O monitor de saúde verifica se cada serviço de alta disponibilidade é saudável e se está pronto para participar na eleição para a liderança. Se sim, este cabeçanode vai competir na eleição. Se não, sairá da eleição até que se prepare novamente.
 
 Se o headnode de standby alguma vez alcançar a liderança e se tornar ativo (como no caso de uma falha com o nó ativo anterior), o seu controlador principal de failover iniciará todos os serviços HDInsight HA nele. O controlador principal de failover também irá parar estes serviços no outro headnode.
 
@@ -138,7 +137,7 @@ A alta disponibilidade do Yarn ResourceManager é independente do NameNode e de 
 
 Os clusters HDInsight HBase suportam a alta disponibilidade do HBase Master. Ao contrário de outros serviços ha, que funcionam em headnodes, o HBase Masters funciona nos três nós zookeeper, onde um deles é o mestre ativo e os outros dois estão em espera. Tal como o NameNode, o HBase Master coordena com o Apache Zookeeper para a eleição de líder e faz falhas automáticas quando o atual mestre ativo tem problemas. Há apenas um HBase Master ativo a qualquer momento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](hdinsight-high-availability-linux.md)
 - [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)

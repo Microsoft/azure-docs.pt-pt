@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258610"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841157"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conceção de um sistema de proteção de conteúdos com controlo de acesso usando a Azure Media Services
 
@@ -206,11 +206,11 @@ A implementação inclui as seguintes etapas:
 
 7. Crie uma aplicação MVC ASP.NET para hospedar o seu leitor de vídeo. Esta ASP.NET aplicação está protegida com autenticação do utilizador contra o inquilino AZURE AD. As reclamações adequadas estão incluídas nos tokens de acesso obtidos após a autenticação do utilizador. Recomendamos a API OpenID Connect para este passo. Instale os seguintes pacotes NuGet:
 
-   * Pacote de instalação Microsoft.Azure.ActiveDirectory.GraphClient
-   * Pacote de instalação Microsoft.Owin.Security.OpenIdConnect
-   * Pacote de instalação Microsoft.Owin.Security.Cookies
-   * Pacote de instalação Microsoft.Owin.Host.SystemWeb
-   * Pacote de instalação Microsoft.IdentityModel.Clientes.ActiveDirectory
+   * Install-Package Microsoft.Azure.ActiveDirectory.GraphClient
+   * Install-Package Microsoft.Owin.Security.OpenIdConnect
+   * Install-Package Microsoft.Owin.Security.Cookies
+   * Install-Package Microsoft.Owin.Host.SystemWeb
+   * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 8. Criar um leitor utilizando a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Utilize o [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) para especificar qual a tecnologia DRM a utilizar em diferentes plataformas DE DRM.
 
@@ -421,11 +421,11 @@ As imagens seguintes mostram diferentes páginas de insusição utilizadas por d
 
 **Conta de domínio do inquilino Azure AD personalizado**: A página de inscrição personalizada do domínio de inquilino Azure AD personalizado.
 
-![Conta de domínio do inquilino da Azure AD personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Screenshot que mostra a página de inscrição personalizada do domínio do inquilino Azure A D personalizado.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Conta de domínio da Microsoft com cartão inteligente**: A página de sent-in personalizada pela Microsoft corporate IT com autenticação de dois fatores.
 
-![Conta de domínio do inquilino da Azure AD personalizada](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Screenshot que mostra a página de sent-in personalizada pela Microsoft corporate I T com autenticação de dois fatores.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Conta Microsoft**: A página de sindução da conta Microsoft para os consumidores.
 

@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 58377913d4352038a683c67986ad33e215315457
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 18904987d409f526c2bbd6cd917558e8ce6f751c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708420"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842636"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
@@ -169,7 +169,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|(Índice)|PassengerId|Sobreviveu|Pclass|Name|Sexo|Idade|SibSp|Pergaminho|Pedido de Suporte|Tarifa|Cabana|Embarcado
+|(Índice)|PassengerId|Sobreviveu|Pclass|Nome|Sexo|Idade|SibSp|Pergaminho|Pedido de Suporte|Tarifa|Cabana|Embarcado
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris.|masculino|22.0|1|0|A/5 21171|7.2500||S
 1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs Th...|feminino|38.0|1|0|PC 17599|71.2833|C85|C
@@ -204,7 +204,7 @@ datastore = workspace.get_default_datastore()
 datastore.upload(src_dir='data', target_path='data')
 
 # create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv')]
 ```
 
 > [!TIP]
@@ -255,7 +255,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  create_new_version = True)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
 * Utilize machine learning automatizado para [treinar com OsDatasets Tabular](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).

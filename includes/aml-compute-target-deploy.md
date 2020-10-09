@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542812"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841965"
 ---
-O alvo de computação que utiliza para hospedar o seu modelo irá afetar o custo e a disponibilidade do seu ponto final implantado. Utilize a tabela abaixo para escolher um alvo de computação apropriado.
+O alvo de computação que utiliza para hospedar o seu modelo irá afetar o custo e a disponibilidade do seu ponto final implantado. Utilize esta tabela para escolher um alvo de computação apropriado.
 
 | Destino de computação | Utilizado para | Suporte gpu | Suporte FPGA | Descrição |
 | ----- | ----- | ----- | ----- | ----- |
@@ -26,14 +26,14 @@ O alvo de computação que utiliza para hospedar o seu modelo irá afetar o cust
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Teste ou desenvolvimento | &nbsp;  | &nbsp; | Utilize cargas de trabalho baseadas em CPU de baixa escala que exijam menos de 48 GB de RAM. |
 | [Clusters de computação do Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | &nbsp;Inferência do lote | [Sim](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline de aprendizagem automática) | &nbsp;  | Executar a pontuação do lote no cálculo sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Funções do Azure](../articles/machine-learning/how-to-deploy-functions.md) | (Pré-visualização) Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Pré-visualização) &nbsp;Módulo IoT |  &nbsp; | &nbsp; | Implementar e servir modelos ML em dispositivos IoT. |
-| [Borda da caixa de dados Azure](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implementar e servir modelos ML em dispositivos IoT. |
+| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Pré-visualização) &nbsp;Módulo IoT |  &nbsp; | &nbsp; | Implementar e servir modelos de aprendizagem automática em dispositivos IoT. |
+| [Borda da caixa de dados Azure](../articles/databox-online/azure-stack-edge-overview.md)   | Através do IoT Edge |  &nbsp; | Sim | Implementar e servir modelos de aprendizagem automática em dispositivos IoT. |
 
 > [!NOTE]
-> Embora metas de cálculo como a instância local, Azure Machine Learning compute instance, e Azure Machine Learning clusters suportam GPU para treino e experimentação, usando GPU para inferência __quando implementado como um serviço web__ é suportado apenas no Serviço Azure Kubernetes.
+> Embora metas de cálculo como o local, o cálculo de Azure Machine Learning e os clusters de cálculo Azure Machine Learning apoiem a GPU para treino e experimentação, usando a GPU para inferência _quando implantada como um serviço web_ é suportada apenas em AKS.
 >
-> A utilização de uma GPU para inferência __ao marcar com um pipeline de aprendizagem automática__ é suportada apenas no Azure Machine Learning Compute.
+> A utilização de uma GPU para inferência _ao marcar com um pipeline de aprendizagem automática_ é suportada apenas no cálculo Azure Machine Learning.
 
 > [!NOTE]
-> * As instâncias do recipiente Azure (ACI) são adequadas apenas para pequenos modelos com menos de 1 GB de tamanho. 
-> * Recomendamos a utilização de clusters de serviço de azure Kubernetes (AKS) de nó único para teste dev de modelos maiores.
+> * As instâncias do contentor são adequadas apenas para pequenos modelos com menos de 1 GB de tamanho.
+> * Utilize clusters AKS de nó único para dev/teste de modelos maiores.

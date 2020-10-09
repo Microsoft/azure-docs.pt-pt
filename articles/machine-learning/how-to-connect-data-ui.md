@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542160"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841361"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
 
@@ -87,6 +87,7 @@ Para criar um conjunto de dados no estúdio:
 1. Selecione **Tabular** ou **Ficheiro** para o tipo de conjunto de dados.
 1. Selecione **Seguinte** para abrir o **formulário de seleção de datas e ficheiros.** Neste formulário seleciona onde manter o conjunto de dados após a criação, bem como selecione quais os ficheiros de dados a utilizar para o seu conjunto de dados.
     1. Ativar a validação do skip se os seus dados estiverem numa rede virtual. Saiba mais sobre [o isolamento e privacidade da rede virtual.](how-to-enable-virtual-network.md#machine-learning-studio)
+    1. Para conjuntos de dados tabulares, pode especificar um traço de "timeeries" para ativar operações relacionadas com o tempo no seu conjunto de dados. Saiba como [adicionar o traço de temporias ao seu conjunto de dados](how-to-monitor-datasets.md#studio-dataset).
 1. Selecione **Seguinte** para preencher as **Definições e pré-visualização** e **formulários De Esquema;** são povoados inteligentemente com base no tipo de ficheiro e pode configurar ainda mais o seu conjunto de dados antes da criação destes formulários. 
 1. Selecione **Seguinte** para rever o formulário **de detalhes de Confirmação.** Verifique as suas seleções e crie um perfil de dados opcional para o seu conjunto de dados. Saiba mais sobre [perfis de dados.](#profile)
 1. Selecione **Criar** para completar a sua criação de conjunto de dados.
@@ -119,8 +120,8 @@ Especificamente, o perfil de dados do conjunto de dados de aprendizagem automát
 |Distribuição de tipo| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, pelo que esta visualização é útil para detetar valores ímpares ou em falta.
 |Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cordas, booleans, datas e decimais.
 |Mín.| Valor mínimo da coluna. As entradas em branco aparecem para funcionalidades cujo tipo não tem uma encomenda inerente (como, booleans).
-|Máx| Valor máximo da coluna. 
-|de palavras| Número total de entradas desaparecidas e não desaparecidas na coluna.
+|Máx.| Valor máximo da coluna. 
+|Contagem| Número total de entradas desaparecidas e não desaparecidas na coluna.
 |Contagem não faltando| Número de entradas na coluna que não faltam. Cordas e erros vazios são tratados como valores, para que não contribuam para a "contagem não em falta".
 |Quantis| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
 |Média| Média aritmética ou média da coluna.
@@ -166,7 +167,7 @@ Para o recipiente blob Azure e o armazenamento do Azure Data Lake Gen 2, certifi
 
 Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Um exemplo passo-a-passo de formação com OsDatasets Tabular e a aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 

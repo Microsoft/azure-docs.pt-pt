@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574736"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842568"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho de automatização baseados em horários e recorrentes com apps Azure Logic
 
@@ -335,7 +335,7 @@ Em seguida, teste e execute a sua app lógica, que agora se parece com este exem
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente a sua aplicação lógica, na barra de barras de ferramentas do designer, selecione **Run**.
+Para iniciar manualmente a sua aplicação lógica, na barra de ferramentas do designer, selecione **Run**.
 
 * Se o tempo de viagem atual permanecer abaixo do seu limite, a sua aplicação lógica não faz mais nada e espera ou o intervalo seguinte antes de verificar novamente. 
 
@@ -360,18 +360,18 @@ A sua aplicação lógica continua a funcionar até desativar ou eliminar a apli
 
 1. Na caixa de pesquisa do portal Azure, insira o nome para o grupo de recursos que criou. A partir dos resultados, em **Grupos de Recursos,** selecione o grupo de recursos.
 
-   Este exemplo criou o grupo de recursos denominado `LA-TravelTime-RG` . 
+   Este exemplo criou o grupo de recursos denominado `LA-TravelTime-RG` .
 
    ![Screenshot que mostra a caixa de pesquisa Azure com "la-travel-time-rg" inserida e **LA-TravelTime-RG** selecionada.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Se a página inicial do Azure mostrar o grupo de recursos sob **recursos recentes,** pode selecionar o grupo na página inicial.
 
-1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas do painel de ferramentas do painel de ferramentas, selecione **Delete resource group**. 
+1. No menu do grupo de recursos, verifique **se a visão geral** está selecionada. Na barra de **ferramentas** do painel de ferramentas do painel de ferramentas do painel de ferramentas, selecione **Delete resource group**.
 
    ![Screenshot que mostra o painel "Visão Geral" do grupo de recursos e na barra de ferramentas do painel, "Delete resource group" é selecionado.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. No painel de confirmação, introduza o nome do grupo de recursos e selecione **Delete**.
+1. No painel de confirmação que aparece, introduza o nome do grupo de recursos e selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
