@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: baa33e79b3bba8eccb2d0fc03e110e1a3c4defde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Diretório Ativo Azure com o Zoho One
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o Zoho One, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure zoho One Single Sign-On](#configure-zoho-one-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure zoho One Single Sign-On](#configure-zoho-one-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Zoho One test user](#create-zoho-one-test-user)** - para ter uma contraparte de Britta Simon no Zoho One que está ligada à representação AD AZure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -120,9 +120,9 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
 
     > [!NOTE] 
-    > O valor **URL de inscrição** anterior não é real. Irá atualizar o valor com o URL de inscrição real a partir da secção **Configure Zoho One Single Sign-On,** que é explicada mais tarde no tutorial. 
+    > O valor **URL de inscrição** anterior não é real. Irá atualizar o valor com o URL de Sign-On real da secção **Configure Zoho One Single Sign-On,** que é explicada mais tarde no tutorial. 
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD single sign-on com Zoho One, execute os seguintes pas
 
     c. Logout URL
 
-### <a name="configure-zoho-one-single-sign-on"></a>Configure zoho um único sign-on
+### <a name="configure-zoho-one-single-sign-on"></a>Configure Zoho One Single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no seu site da empresa Zoho One como administrador.
 
@@ -205,7 +205,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Zoho One**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Zoho One**.
 

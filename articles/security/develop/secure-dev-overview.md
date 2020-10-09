@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68934858"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Garantir as melhores práticas de desenvolvimento em Azure
@@ -42,14 +42,14 @@ Seguimos as fases do Microsoft [Security Development Lifecycle (SDL)](https://ms
 As fases SDL são:
 
   - Formação
-  - Requirements
+  - Requisitos
   - Design
   - Implementação
   - Verificação
   - Libertar
   - Resposta
 
-![Ciclo de Vida de Desenvolvimento Centrado na Segurança](./media/secure-dev-overview/01-sdl-phase.png)
+![Ciclo de Vida de Desenvolvimento da Segurança](./media/secure-dev-overview/01-sdl-phase.png)
 
 Nestes artigos agru nos grupos SDL em design, desenvolvimento e implantação.
 
@@ -75,7 +75,7 @@ Use os seguintes recursos para saber mais sobre o desenvolvimento de aplicaçõe
 
 [As Plantas de Segurança e Conformidade em Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) – Azure Security and Compliance Blueprints são recursos que podem ajudá-lo a construir e lançar aplicações alimentadas a nuvem que cumprem os rigorosos regulamentos e padrões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que podem ajudá-lo a projetar, desenvolver e implementar aplicações seguras.
 
 - [Design de aplicações seguras](secure-design.md)

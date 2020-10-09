@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530312"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Azure Ative Directory integração única com Catchpoint
@@ -74,7 +74,7 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Na página de integração da aplicação **Catchpoint,** encontre a secção **'Gerir'** e selecione **um único sinal de sação.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set Up Single Sign-On com** a página SAML, selecione o ícone da caneta para editar as definições básicas de **configuração SAML.**
+1. Na **configuração single Sign-On com** a página SAML, selecione o ícone da caneta para editar as **definições básicas de configuração SAML.**
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -87,26 +87,26 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
 1. A aplicação Catchpoint espera as afirmações DOL num formato específico. Adicione mapeamentos de atributos personalizados à sua configuração de atributos de token SAML. A tabela a seguir contém a lista de atributos predefinidos:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------ | --------- |
     | Nome dado | user.givenneame |
     | Apelido | utilizador.sobrenome |
     | Emailaddress | user.mail |
-    | Name | user.userprincipalname |
+    | Nome | user.userprincipalname |
     | Identificador de utilizador único | user.userprincipalname |
 
     ![Imagem da lista de atributos & de atributos do utilizador](common/default-attributes.png)
 
 1. Além disso, a aplicação Catchpoint espera que outro atributo seja aprovado numa resposta SAML. Consulte a tabela seguinte. Este atributo também é pré-povoado, mas pode revê-lo e atualizá-lo de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------ | --------- |
     | espaço de nomes | user.assignedrole |
 
     > [!NOTE]
     > A `namespace` reclamação precisa de ser mapeada com o nome da conta. Este nome de conta deve ser criado com um papel na Azure AD a ser repercutido na resposta SAML. Para obter mais informações sobre papéis em Azure AD, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-1. Aceda ao **set up single sign-on com** a página SAML. Na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para guardar o certificado para o seu computador.
+1. Vá ao set Up Single Sign-On com a página **SAML.** Na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para guardar o certificado para o seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

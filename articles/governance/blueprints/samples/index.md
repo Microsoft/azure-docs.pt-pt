@@ -4,10 +4,10 @@ description: Índice de exemplos de conformidade e normas para a implementação
 ms.date: 09/14/2020
 ms.topic: sample
 ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530986"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 282b79df09bc90b0e22c96a73868dbc25c1bd98b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Tutorial: Integração do Diretório Ativo Azure com a Plataforma capriza
@@ -74,7 +74,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com a Plataforma Capriza, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure a plataforma de Capriza single Sign-On](#configure-capriza-platform-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure a Plataforma de Capriza Single Sign-On](#configure-capriza-platform-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Capriza Platform test user](#create-capriza-platform-test-user)** - para ter uma contraparte de Britta Simon na Plataforma Capriza que está ligada à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com a Plataforma Capriza, execute os seguintes passos
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -105,9 +105,9 @@ Para configurar o Azure AD com a Plataforma Capriza, execute os seguintes passos
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<companyname>.capriza.com/<tenantid>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de apoio ao cliente da Plataforma Capriza](mailto:support@capriza.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de apoio ao cliente da Plataforma Capriza](mailto:support@capriza.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD com a Plataforma Capriza, execute os seguintes passos
 
     c. Logout URL
 
-### <a name="configure-capriza-platform-single-sign-on"></a>Configurar plataforma de capriza único sign-on
+### <a name="configure-capriza-platform-single-sign-on"></a>Configurar plataforma de Capriza Sign-On
 
 Para configurar um único sign-on no lado **da Plataforma capriza,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte da Plataforma capriza.](mailto:support@capriza.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -156,7 +156,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Capriza Platform**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Capriza Platform**.
 

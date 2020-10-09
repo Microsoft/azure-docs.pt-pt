@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração única (SSO) com Michigan Data Hub Single Sign-On / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única (SSO) com o Michigan Data Hub Single Sign-On [ Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Michigan Data Hub Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 031190bee2dc81398ee0c4ac23ad9ec62469333a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528374"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Michigan Data Hub Single Sign-On
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Michigan Data Hub Single Sign-On
 
 Neste tutorial, você vai aprender a integrar Michigan Data Hub Single Sign-On com Azure Ative Directory (Azure AD). Quando integrar o Michigan Data Hub Single Sign-On com Azure AD, pode:
 
@@ -33,18 +33,18 @@ Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consult
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Michigan Data Hub Único Sinal-On único sinal-on (SSO) ativado subscrição.
+* Michigan Data Hub Single Sign-On subscrição ativada por um único sign-on (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Michigan Data Hub Single Sign-On suporta **SSO** iniciado SP
-* Uma vez configurado Michigan Data Hub Single Sign-On, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Michigan Data Hub Single Sign-On suporta **SSO** iniciado sp
+* Assim que configurar o Michigan Data Hub Single Sign-On pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-michigan-data-hub-single-sign-on-from-the-gallery"></a>Adicionando o Michigan Data Hub Single Sign-On da galeria
+## <a name="adding-michigan-data-hub-single-sign-on-from-the-gallery"></a>Adicionando Michigan Data Hub Single Sign-On da galeria
 
-Para configurar a integração do Michigan Data Hub Single Sign-On em Azure AD, precisa adicionar o Michigan Data Hub Single Sign-On da galeria à sua lista de aplicações geridas para o SaaS.
+Para configurar a integração do Michigan Data Hub Single Sign-On em Azure AD, é necessário adicionar o Michigan Data Hub Single Sign-On da galeria à sua lista de aplicações geridas para o SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
@@ -54,7 +54,7 @@ Para configurar a integração do Michigan Data Hub Single Sign-On em Azure AD, 
 1. Selecione **Michigan Data Hub Single Sign-On** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-michigan-data-hub-single-sign-on"></a>Configurar e testar Azure AD SSO para Michigan Data Hub Single Sign-On
+## <a name="configure-and-test-azure-ad-sso-for-michigan-data-hub-single-sign-on"></a>Configure e teste Azure AD SSO para Michigan Data Hub Single Sign-On
 
 Configure e teste Azure AD SSO com Michigan Data Hub Single Sign-On usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Michigan Data Hub Single Sign-On.
 
@@ -63,8 +63,8 @@ Para configurar e testar o Azure AD SSO com o Michigan Data Hub Single Sign-On, 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o Hub de Dados do Michigan Single Sign-On SSO](#configure-michigan-data-hub-single-sign-on-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Create Michigan Data Hub Single Sign-On user](#create-michigan-data-hub-single-sign-on-test-user)** - para ter uma contraparte de B.Simon no Michigan Data Hub Single Sign-On que está ligada à representação AD Ad Azure do utilizador.
+1. **[Configure o Michigan Data Hub Single Sign-On SSO](#configure-michigan-data-hub-single-sign-on-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create Michigan Data Hub Single Sign-On utilizador](#create-michigan-data-hub-single-sign-on-test-user)** de teste - para ter uma contraparte de B.Simon no Michigan Data Hub Single Sign-On que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -115,19 +115,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-michigan-data-hub-single-sign-on-sso"></a>Configurar o Hub de Dados do Michigan único sinal-on SSO
+## <a name="configure-michigan-data-hub-single-sign-on-sso"></a>Configurar o Centro de Dados de Michigan Single Sign-On SSO
 
-Para configurar um único sinal de sação no lado **único do Centro de Dados do Michigan,** é necessário enviar o url de **metadados da Federação de Aplicações** para a [equipa de suporte de sinal único do Hub de Dados do Michigan.](mailto:support@midatahub.org) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal de sação no lado **único do Michigan Data Hub,** é necessário enviar o url de **metadados da Federação de Aplicações** para a [equipa de suporte individual Sign-On](mailto:support@midatahub.org)do Michigan Data Hub . Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-michigan-data-hub-single-sign-on-test-user"></a>Criar o michigan data hub único utilizador de teste de teste
+### <a name="create-michigan-data-hub-single-sign-on-test-user"></a>Criar o Michigan Data Hub Único Sign-On utilizador de teste
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Michigan Data Hub Single Sign-On. Trabalhe com [a equipa de suporte de sinal único do Michigan Data Hub](mailto:support@midatahub.org) para adicionar os utilizadores na plataforma Michigan Data Hub Single Sign-On. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Michigan Data Hub Single Sign-On. Trabalhe com [o Michigan Data Hub Single Sign-On equipa](mailto:support@midatahub.org) de suporte para adicionar os utilizadores na plataforma de Sign-On Do Michigan Data Hub. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo único de sinalização do Michigan Data Hub no Painel de Acesso, deverá ser automaticamente inscrito no Centro de Dados do Michigan, o Sign-On Único para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo single do Michigan Data Hub Sign-On no Painel de Acesso, deverá ser automaticamente inscrito no Sign-On Único do Hub de Dados do Michigan para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -137,7 +137,7 @@ Quando clicar no azulejo único de sinalização do Michigan Data Hub no Painel 
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o hub de dados de Michigan single sign-on com Azure AD](https://aad.portal.azure.com/)
+- [Experimente o Sign-On Single do Hub de Dados de Michigan com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

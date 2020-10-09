@@ -4,10 +4,10 @@ description: Melhorar o desempenho, pré-mantendo as mensagens do Azure Service 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341047"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Mensagens de autocarro do Serviço Prefetch Azure
@@ -44,7 +44,7 @@ Se você precisa de alta produção e o processamento de mensagens é geralmente
 
 A contagem máxima de pré-venda e a duração do bloqueio configurada na fila ou subscrição devem ser equilibradas de modo a que o tempo de bloqueio exceda pelo menos o tempo de processamento de mensagem esperado cumulativo para o tamanho máximo do tampão pré-detch, mais uma mensagem. Ao mesmo tempo, o tempo de bloqueio não deve ser tão longo que as mensagens possam exceder o seu tempo máximo [DeLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) quando são acidentalmente largadas, exigindo assim que o seu bloqueio expire antes de serem reentreguedas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

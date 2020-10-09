@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533707"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com CRM de açúcar
@@ -92,7 +92,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     - `https://<companyname>.trial.sugarcrm.eu/<companyname>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de sôm. Contacte [a equipa de suporte do Cliente Sugar CRM](https://support.sugarcrm.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta Sign-On reais. Contacte [a equipa de suporte do Cliente Sugar CRM](https://support.sugarcrm.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -138,7 +138,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
 
 1. Na secção **Administração,** clique em **Gestão de Passwords.**
 
@@ -170,7 +170,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. Vá ao **Administrador.**
 
-    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Admin")
+    ![Administração](./media/sugarcrm-tutorial/ic795888.png "Administrador")
 
 1. Na secção **Administração,** clique em **Gestão de Utilizadores.**
 

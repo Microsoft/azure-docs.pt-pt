@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.openlocfilehash: fade4176cbbf432aabae4422553a3caf0235ebed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88526438"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Azure Ative Directory integração única (SSO) com Workplace by Facebook
@@ -68,7 +68,7 @@ Para configurar e testar O SSO Azure AD com Workplace pelo Facebook, complete os
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-2. **[Configure Workplace by Facebook SSO](#configure-workplace-by-facebook-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Workplace by Facebook SSO](#configure-workplace-by-facebook-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Workplace by Facebook test user](#create-workplace-by-facebook-test-user)** - ter uma contrapartida de B.Simon no Local de Trabalho pelo Facebook que está ligada à representação AD AZure do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -78,7 +78,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações workplace **by Facebook,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -91,9 +91,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Consulte a página de autenticação do Painel de Trabalho para obter os valores corretos para a sua comunidade workplace, isto é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Consulte a página de autenticação do Painel de Trabalho para obter os valores corretos para a sua comunidade workplace, isto é explicado mais tarde no tutorial.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

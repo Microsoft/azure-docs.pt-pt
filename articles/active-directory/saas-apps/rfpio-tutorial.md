@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6732857e278285071c9d36c629920ad9e67368f2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integração do Diretório Ativo Azure com o RFPIO
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com rfpio, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único RFPIO](#configure-rfpio-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único RFPIO](#configure-rfpio-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create RFPIO test user](#create-rfpio-test-user)** - ter uma contraparte de Britta Simon em RFPIO que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com RFPIO, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com RFPIO, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real e URL de inscrição. Contacte [a equipa de suporte do cliente RFPIO](https://www.rfpio.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -132,36 +132,36 @@ Para configurar o Azure AD com RFPIO, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-rfpio-single-sign-on"></a>Configurar RFPIO Single Sign-On
+### <a name="configure-rfpio-single-sign-on"></a>Configurar Sign-On únicas rfpio
 
 1. Numa janela diferente do navegador, inscreva-se no site do **RFPIO** como administrador.
 
 1. Clique no canto inferior esquerdo para descer.
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app1.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app1.png)
 
 1. Clique nas **Definições**de Organização . 
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app2.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app2.png)
 
 1. Clique nas **funcionalidades & integração.**
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app4.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app4.png)
 
 1. Na **configuração SSO SSO** **Edit.**
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app3.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app3.png)
 
 1. Nesta Secção executam as seguintes ações:
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app5.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app5.png)
     
     a. Copie o conteúdo do **Metdata Descarregado XML** e cole-o no campo **de configuração de identidade.**
 
     > [!NOTE]
     >Para copiar o conteúdo dos **metadados da Federação descarregadoS XML** Use **Notepad++** ou **o editor XML**adequado .
 
-    b. Clique em **Validar**.
+    b. Clique **em Validar**.
 
     c. Depois de clicar **em validar,** inverta **o SAML (Habilitado)** para ligar.
 
@@ -197,7 +197,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **RFPIO**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **RFPIO**.
 
@@ -223,23 +223,23 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. Clique no canto inferior esquerdo para descer.
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app1.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app1.png)
 
 1. Clique nas **Definições**de Organização . 
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app2.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app2.png)
 
 1. Clique **nos membros da equipa.**
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app6.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app6.png)
 
 1. Clique em **ADD MEMBERS**.
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app7.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app7.png)
 
 1. Na secção **Adicionar Novos Membros.** Executar as seguintes ações:
 
-    ![Configurar um único sign-on](./media/rfpio-tutorial/app8.png)
+    ![Configurar Sign-On Individuais](./media/rfpio-tutorial/app8.png)
 
     a. Introduza o **endereço de e-mail** no campo **De entrada de um e-mail por linha.**
 

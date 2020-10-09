@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: ac19eba35e478fbd30aff647e1605fc7fc4c45a6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88536520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Ative Directory com direto
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, deve ser estabelecida uma relação 
 Para configurar e testar o Azure AD com um único sinal de entrada direta, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único -](#configure-direct-single-sign-on)** para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o sign-on único -](#configure-direct-single-sign-on)** para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Crie o utilizador de teste direto](#create-direct-test-user)** - para ter uma contraparte de Britta Simon em direto que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com um único sinal de entrada direta, execute os seg
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com um único sinal de entrada direta, execute os seg
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://direct4b.com/sso`
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com um único sinal de entrada direta, execute os seg
 
     c. Logout URL
 
-### <a name="configure-direct-single-sign-on"></a>Configurar o sign-on único direto direto
+### <a name="configure-direct-single-sign-on"></a>Configurar Sign-On diretos de single
 
 Para configurar um único sinal no lado **direto,** é necessário enviar os **Metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte direto](https://direct4b.com/ja/support.html#inquiry). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -157,7 +157,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **diretamente**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **diretamente**.
 

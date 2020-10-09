@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 8270bf305fcf749a81f06801b46867e614d85127
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: Integração do Azure Ative Directory com Imagineer WebVision
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o único sinal de Azure AD com o Imagineer WebVision, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o WebVision Single Sign-On](#configure-imagineer-webvision-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o WebVision Single Sign-On](#configure-imagineer-webvision-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Imagineer WebVision test user](#create-imagineer-webvision-test-user)** - para ter uma contraparte de Britta Simon no Imagineer WebVision que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Imagineer WebVision, execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,11 +108,11 @@ Para configurar o Azure AD com o Imagineer WebVision, execute os seguintes passo
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Imagineer WebVision](mailto:support@itgny.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-imagineer-webvision-single-sign-on"></a>Configurar Imagineer WebVision single sign-on
+### <a name="configure-imagineer-webvision-single-sign-on"></a>Configurar Imagineer WebVision Single Sign-On
 
 Para configurar um único sinal no lado **Do Imagineer WebVision,** é necessário enviar o **url de metadados da Federação de Aplicações** à [equipa de suporte Imagineer WebVision](mailto:support@itgny.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -146,7 +146,7 @@ Nesta secção, permite que Britta Simon utilize o Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Imagineer WebVision**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Imagineer WebVision**.
 

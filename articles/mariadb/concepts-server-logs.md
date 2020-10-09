@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81272088"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registos de consulta lenta na Base de Dados Azure para MariaDB
@@ -59,18 +59,18 @@ A tabela seguinte descreve o que está em cada registo. Dependendo do método de
 |---|---|
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`[UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `TimeGenerated` [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`[UTC] | Quando a consulta começou |
+| `start_time_t` [UTC] | Quando a consulta começou |
 | `query_time_s` | Tempo total que a consulta demorou a executar |
 | `lock_time_s` | Tempo total a consulta foi bloqueada |
 | `user_host_s` | Nome de utilizador |

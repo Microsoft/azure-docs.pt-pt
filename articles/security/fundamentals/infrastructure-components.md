@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727200"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informação azul
@@ -118,7 +118,7 @@ A equipa de networking da Azure configura contas de serviço de rede para permit
 ## <a name="secure-service-administration"></a>Administração de serviços seguros
 O pessoal das operações da Azure é obrigado a utilizar postos de trabalho administrativos seguros (SAWs). Os clientes podem implementar controlos semelhantes utilizando estações de trabalho privilegiadas de acesso. Com os SAWs, o pessoal administrativo utiliza uma conta administrativa individualmente atribuída que é separada da conta padrão do utilizador. A SAW baseia-se nessa prática de separação de contas, fornecendo uma estação de trabalho de confiança para essas contas sensíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

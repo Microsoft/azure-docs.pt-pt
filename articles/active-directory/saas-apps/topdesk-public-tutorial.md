@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: a18cb583b246c3cfbf09f43b9921497de37a3613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Diretório Ativo Azure com a TOPdesk - Público
@@ -93,7 +93,7 @@ Para configurar a Azure AD um único sinal de inscrição com TOPdesk - Público
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -121,9 +121,9 @@ Para configurar a Azure AD um único sinal de inscrição com TOPdesk - Público
     f. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, é necessário inseri-los manualmente. Para o Identificador, siga o padrão acima mencionado e obtenha o valor URL de resposta a partir da secção **Configure TOPdesk - Sign-On único público,** que é explicada mais tarde no tutorial. O valor **URL de inscrição** não é real, pelo que é necessário atualizar o valor com o URL de inscrição real. Contacte [a TOPdesk - Equipa de apoio ao Cliente Público](https://help.topdesk.com/saas/enterprise/user/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, é necessário inseri-los manualmente. Para o Identificador, siga o padrão acima mencionado e obtenha o valor URL de resposta a partir da secção **Configure TOPdesk - Sign-On único público,** que é explicada mais tarde no tutorial. O valor **URL de inscrição** não é real, pelo que é necessário atualizar o valor com o URL Sign-On real. Contacte [a TOPdesk - Equipa de apoio ao Cliente Público](https://help.topdesk.com/saas/enterprise/user/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -137,7 +137,7 @@ Para configurar a Azure AD um único sinal de inscrição com TOPdesk - Público
 
     c. Logout URL
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Configurar TOPdesk - Sign-On único público
+### <a name="configure-topdesk---public-single-sign-on"></a>Configure TOPdesk - Sign-On De Único Público
 
 1. Inscreva-se no seu **SITE TOPdesk - Empresa Pública** como administrador.
 
@@ -227,7 +227,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **TOPdesk - Público**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **TOPdesk - Public**.
 

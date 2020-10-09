@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524572"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Tutorial: Azure Ative Directory integração única (SSO) com Splashtop
@@ -139,7 +139,7 @@ Nesta secção, terá de se candidatar a um novo método SSO a partir do [portal
 
     ![](media/splashtop-tutorial/cert-1.png) ![ imagem ](media/splashtop-tutorial/cert-2.png) ![ imagem](media/splashtop-tutorial/azure-sso-2.png)
 
-1. Já está! Clique em **Save** e Splashtop A equipa de validação SSO entrará em contacto consigo para obter informações de verificação e, em seguida, ativará o método SSO.
+1. Já está. Clique em **Save** e Splashtop A equipa de validação SSO entrará em contacto consigo para obter informações de verificação e, em seguida, ativará o método SSO.
 
 ### <a name="create-splashtop-test-user"></a>Criar utilizador de teste Splashtop
 
@@ -153,7 +153,7 @@ Nesta secção, terá de se candidatar a um novo método SSO a partir do [portal
 
 1. Também pode alterar uma conta Splashtop existente para uma conta SSO, ver [instruções](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
-1. Já está! Pode utilizar a conta SSO para iniciar sessão no portal web do Splashtop ou na aplicação Splashtop Business.
+1. Já está. Pode utilizar a conta SSO para iniciar sessão no portal web do Splashtop ou na aplicação Splashtop Business.
 
 ## <a name="test-sso"></a>Teste SSO 
 

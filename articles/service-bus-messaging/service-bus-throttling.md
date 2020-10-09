@@ -4,10 +4,10 @@ description: Visão geral do estrangulamento do Service Bus - Standard e Premium
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340958"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operações de estrangulamento no Azure Service Bus
@@ -117,7 +117,7 @@ Uma vez que o pedido é com sucesso 'ACK' (reconhecido) pela Service Bus, implic
 
 No entanto, quando um pedido é acelerado, o serviço está a insinuar que não pode aceitar e processar o pedido agora devido a limitações de recursos. Isto **não** implica qualquer tipo de perda de dados porque a Service Bus simplesmente não analisou o pedido. Neste caso, contando com a política de relagem padrão do Service Bus SDK garante que o pedido é eventualmente processado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações e exemplos de utilização de mensagens Service Bus, consulte os seguintes tópicos avançados:
 

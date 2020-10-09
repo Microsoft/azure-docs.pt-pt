@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883087"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desenvolver para dispositivos móveis usando Azure IoT SDKs
@@ -50,7 +50,7 @@ Estas documentações percorrem a forma de desenvolver uma aplicação de dispos
 * [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-android.md)  
 * [Quickstart: Controle um dispositivo](quickstart-control-device-android.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Referência API IoT Hub REST](https://docs.microsoft.com/rest/api/iothub/)
 * [Código fonte Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)

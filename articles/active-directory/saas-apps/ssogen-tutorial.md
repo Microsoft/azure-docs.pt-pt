@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 72b91be9875abf07e5f6f828ed32483a5d61eadd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Tutorial: Azure Ative Directy integração única de sign-on (SSO) com SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<customer_name>.ssogen.com/ssogen/login?client_name=<customer_name>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Contacte [a SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE Client support team](mailto:support@ssogen.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Contacte [a SSOGEN - Azure AD SSO Gateway para a Oracle E-Business Suite - EBS, PeopleSoft e JDE Client support team](mailto:support@ssogen.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A sua aplicação SSOGEN - Azure AD SSO Gateway para Oracle E-Business Suite - EBS, PeopleSoft e JDE espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft e JDE application espera que **o identificador** de nomes seja mapeado com **o utilizador.onpremisessamaccountname**, por isso é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 

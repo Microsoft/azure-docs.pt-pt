@@ -1,5 +1,5 @@
 ---
-title: Pesquise na web vídeos de tendência usando a API de Pesquisa de Vídeo Bing
+title: Procure na web vídeos de tendência usando a API de Pesquisa de Vídeo Bing
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar a API de Pesquisa de Vídeo Bing para pesquisar na web vídeos de tendência.
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68500618"
 ---
-# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos de tendência com a API de pesquisa de vídeo bing 
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos de tendência com a API de Pesquisa de Vídeo Bing 
 
-A API bing video search permite-lhe encontrar os vídeos de tendência de hoje de toda a web, e em diferentes categorias. 
+A API de Pesquisa de Vídeo Bing permite-lhe encontrar os vídeos de tendência de hoje em toda a web e em diferentes categorias. 
 
-## <a name="get-request"></a>Pedido get
+## <a name="get-request"></a>Pedido GET
 
 Para obter os vídeos de tendência de hoje da API de Pesquisa de Vídeo Bing, envie o seguinte pedido GET:  
   
@@ -37,9 +37,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="market-support"></a>Apoio ao mercado
 
-Os seguintes mercados apoiam vídeos de tendência.  
+Os mercados seguintes suportam vídeos de tendência.  
  
--   en-UA (Inglês, Austrália)  
+-   en-AU (Inglês, Austrália)  
 -   en-CA (Inglês, Canadá)  
 -   en-GB (Inglês, Grã-Bretanha)  
 -   en-ID (Inglês, Indonésia)  
@@ -47,15 +47,15 @@ Os seguintes mercados apoiam vídeos de tendência.
 -   en-IN (Inglês, Índia)  
 -   en-NZ (Inglês, Nova Zelândia)  
 -   en-PH (Inglês, Filipinas)  
--   en-SG (Inglês, Singapura)  
--   en-EUA (Inglês, Estados Unidos)  
+-   en-SG (inglês, Singapura)  
+-   en-US (Inglês, Estados Unidos)  
 -   en-WW (inglês, código agregado mundial)  
 -   en-ZA (Inglês, África do Sul)  
--   zh-CN (China, China)
+-   zh-CN (Chinês, China)
 
-## <a name="example-json-response"></a>Exemplo resposta JSON  
+## <a name="example-json-response"></a>Exemplo JSON resposta  
 
-O exemplo seguinte mostra uma resposta DaPI que contém vídeos de tendência, que são listados por categoria e subcategoria. A resposta também contém vídeos banner, que são os vídeos de tendência mais populares, e podem vir de uma ou mais categorias.  
+O exemplo a seguir mostra uma resposta API que contém vídeos de tendência, que são listados por categoria e subcategoria. A resposta também contém vídeos banner, que são os vídeos de tendência mais populares, e podem vir de uma ou mais categorias.  
 
 ```json
 {  

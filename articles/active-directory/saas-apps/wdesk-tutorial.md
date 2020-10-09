@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 9e64d76e29ba98181aac12e1e3167351a9c1aa95
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524022"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Azure Ative Directory integração única (SSO) com wdesk
@@ -81,7 +81,7 @@ Para configurar o Azure AD com wdesk, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -100,9 +100,9 @@ Para configurar o Azure AD com wdesk, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Obtém-se estes valores do portal WDesk quando configura o SSO.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. Obtém-se estes valores do portal WDesk quando configura o SSO.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -146,7 +146,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Wdesk**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Wdesk**.
 
@@ -172,23 +172,23 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 2. No canto inferior esquerdo, clique em **Administração** e escolha **O Administrador de Conta:**
  
-     ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. No Wdesk Admin, navegue para **a Segurança,** em seguida, **SAML**  >  **SAML SAML Definições**:
 
-    ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
 1. Nas **Definições de ID do utilizador SAML,** verifique **se o ID do utilizador SAML é o nome de utilizador Wdesk**.
 
-    ![Configurar um único sign-on](./media/wdesk-tutorial/wdesk-username.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/wdesk-username.png)
 
 4. Em **Definições Gerais**, verifique o **sinal único de Ativação SAML ligado**:
 
-    ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
 5. Em **Detalhes do Prestador de Serviços,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
       a. Copie o **URL de login** e **cole-o** na caixa de texto url de início de sessão no portal Azure.
    
@@ -200,11 +200,11 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 6. Clique **em Configurar Configurações IdP** para abrir o diálogo **de Definições de Edição.** Clique **em Escolher Ficheiro** para localizar o ficheiro **Metadata.xml** guardado no portal Azure e, em seguida, carregá-lo.
     
-    ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
 7. Clique **em Guardar as alterações**.
 
-    ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+    ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 ### <a name="create-wdesk-test-user"></a>Criar utilizador de teste Wdesk
 
@@ -216,7 +216,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Wdesk, devem ser a
 
 2. Navegue para **administração**  >  **de conta de administração.**
 
-     ![Configurar um único sign-on](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Configurar Sign-On Individuais](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. Clique em **Membros** em **Pessoas**.
 

@@ -4,10 +4,10 @@ description: Neste tutorial, você usa o efeito Modificar da Política Azure par
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545510"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerir a governação com a Política Azure
@@ -194,7 +194,7 @@ Assim que as políticas de etiqueta acima forem criadas, junte-as numa única in
 
 Tal como implementar as [políticasifNotExists,](../concepts/effects.md#deployifnotexists) a política **de modificação** utiliza tarefas de reparação para alterar os recursos existentes não conformes. Siga as instruções sobre [como remediar recursos](../how-to/remediate-resources.md) para identificar os seus recursos de **modificação** não conformes e corrigir as etiquetas para a sua taxonomia definida.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já acabou de trabalhar com recursos deste tutorial, use os seguintes passos para eliminar qualquer uma das atribuições ou definições acima criadas:
 

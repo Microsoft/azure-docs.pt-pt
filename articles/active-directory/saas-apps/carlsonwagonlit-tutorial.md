@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: fccdacce90bec75cd30e5df199310f6b5d569e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: Integração do Azure Ative Directory com Carlson Wagonlit Travel
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com a Carlson Wagonlit Travel, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure carlson Wagonlit Travel Single Sign-On](#configure-carlson-wagonlit-travel-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure Carlson Wagonlit Travel Single Sign-On](#configure-carlson-wagonlit-travel-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Carlson Wagonlit Travel test user](#create-carlson-wagonlit-travel-test-user)** - para ter uma contraparte de Britta Simon em Carlson Wagonlit Travel que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com Carlson Wagonlit Travel, execute o
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -103,7 +103,7 @@ Para configurar o Azure AD single sign-on com Carlson Wagonlit Travel, execute o
 
     Na caixa de texto **identifier,** digite o valor:  `cwt-stage`
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração Single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD single sign-on com Carlson Wagonlit Travel, execute o
 
     c. Logout URL
 
-### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Configurar Carlson Wagonlit Travel Single Sign-On
+### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Configure Carlson Wagonlit Travel Single Sign-On
 
 Para configurar um único sign-on no lado **de Viagem Carlson Wagonlit,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de suporte de [viagem Carlson Wagonlit.](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -152,7 +152,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Carlson Wagonlit Travel**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Carlson Wagonlit Travel**.
 

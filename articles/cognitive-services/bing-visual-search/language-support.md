@@ -1,7 +1,7 @@
 ---
 title: Suporte linguístico - Bing Visual Search API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de línguas naturais, países e regiões que são apoiados pela API de Pesquisa Visual bing. A API de Pesquisa Visual Bing suporta mais de três dezenas de países/regiões, muitos com mais de uma língua.
+description: Uma lista de línguas naturais, países e regiões que são apoiadas pela API de Pesquisa Visual Bing. A API de Pesquisa Visual Bing suporta mais de três dezenas de países/regiões, muitos com mais de uma língua.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883553"
 ---
-# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte de língua e região para a API de Pesquisa Visual Bing
+# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Visual de Bing
 
-A Bing Visual Search API suporta mais de três dezenas de países/regiões, muitos com mais de uma língua. Cada pedido deve incluir o país/região do utilizador e a linguagem de eleição. Conhecer o mercado do utilizador ajuda bing a devolver os resultados apropriados. Se não especificar um país/região e uma língua, bing faz o melhor esforço para determinar o país/região e a língua do utilizador. Como os resultados podem conter links para Bing, saber que o país/região e a língua podem fornecer uma experiência de utilizador de Bing localizada preferida se o utilizador clicar nos links Bing.
+Bing Visual Search API suporta mais de três dezenas de países/regiões, muitos com mais de uma língua. Cada pedido deve incluir o país/região do utilizador e a linguagem de eleição. Conhecer o mercado do utilizador ajuda a Bing a devolver os resultados apropriados. Se não especificar um país/região e uma língua, bing faz o melhor esforço para determinar o país/região e a língua do utilizador. Como os resultados podem conter ligações com Bing, conhecer o país/região e a língua pode fornecer uma experiência de utilizador Bing localizada preferencial se o utilizador clicar nos links Bing.
 
-Para especificar o país/região `mkt` e a língua, coloque o parâmetro de consulta (mercado) num código da tabela **Markets** abaixo. O mercado especifica tanto um país/região como uma língua. Se o utilizador preferir ver texto de exibição num idioma diferente, defina `setLang` o parâmetro de consulta para o código de idioma apropriado.
+Para especificar o país/região e a língua, desacordo o `mkt` parâmetro de consulta (mercado) para um código a partir da tabela **Mercados** abaixo. O mercado especifica tanto um país/região como uma língua. Se o utilizador preferir ver o texto do visor num idioma diferente, desate `setLang` o parâmetro de consulta para o código de idioma apropriado.
 
-Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de consulta. Se especificar um país/região, também deve especificar um `Accept-Language` ou mais códigos linguísticos utilizando o cabeçalho HTTP. As línguas apoiadas variam por país/região; são dadas para cada país na tabela Mercados.
+Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de consulta. Se especificar um país/região, também deve especificar um ou mais códigos linguísticos utilizando o `Accept-Language` cabeçalho HTTP. As línguas apoiadas variam por país/região; são dadas para cada país na tabela Mercados.
 
 
 
@@ -31,7 +31,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 > Aplicam-se as seguintes restrições ao mercado:
 >
 > - As anotações de reconhecimento de imagem estão disponíveis apenas em inglês.
-> - Receitas, compras e páginas que incluam insights estão disponíveis apenas no mercado en-EUA.
+> - Receitas, compras e insights incluindo páginas estão disponíveis apenas no mercado en-US.
 
 
 ## <a name="countriesregions"></a>Países/Regiões
@@ -49,7 +49,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|RAE de Hong Kong|HK|
+|R.A.E. de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
@@ -73,7 +73,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
-|Estados Unidos|EUA|
+|Estados Unidos da América|EUA|
 
 
 ## <a name="markets"></a>Mercados
@@ -81,7 +81,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Pais/região|Idioma|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Inglês|en-UA|
+|Austrália|Inglês|en-AU|
 |Áustria|Alemão|de-AT|
 |Bélgica|Neerlandês|nl-BE|
 |Bélgica|Francês|fr-BE|
@@ -93,7 +93,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|RAE de Hong Kong|Chinês Tradicional|zh-HK|
+|R.A.E. de Hong Kong|Chinês Tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -117,5 +117,5 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-PT|
-|Estados Unidos|Espanhol|es-EUA|
+|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Espanhol|es-EUA|

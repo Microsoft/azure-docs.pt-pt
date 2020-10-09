@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Diretório Ativo Azure com o UserEcho
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o UserEcho, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único do UserEcho](#configure-userecho-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Sign-On Único do UserEcho](#configure-userecho-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create UserEcho test user](#create-userecho-test-user)** - para ter uma contraparte de Britta Simon no UserEcho que está ligada à representação AZure AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o UserEcho, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com o UserEcho, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente UserEcho](https://feedback.userecho.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -122,25 +122,25 @@ Para configurar o Azure AD com o UserEcho, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-userecho-single-sign-on"></a>Configurar o sign-on único do Userecho
+### <a name="configure-userecho-single-sign-on"></a>Configurar userEcho Single Sign-On
 
 1. Em outra janela do navegador, inscreva-se no site da empresa UserEcho como administrador.
 
 2. Na barra de ferramentas no topo, clique no nome de utilizador para expandir o menu e, em seguida, clique em **Configuração**.
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Clique **em Integrações**.
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Clique **no Site**e, em seguida, clique em **'S.' Single sign-on (SAML2)**.
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Na página **single sign-on (SAML),** execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Como **ativado pelo SAML,** selecione **Sim**.
     
@@ -182,7 +182,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **UserEcho**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **UserEcho**.
 
@@ -212,23 +212,23 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no UserEch
 
 2. Na barra de ferramentas no topo, clique no nome de utilizador para expandir o menu e, em seguida, clique em **Configuração**.
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Clique **em Utilizadores,** para expandir a secção **de Utilizadores.**
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Clique em **Utilizadores**.
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Clique **em Convidar um novo utilizador.**
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. No **Convite um novo** diálogo de utilizador, execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. Na caixa de texto **Name,** tipo nome do utilizador como Britta Simon.
     

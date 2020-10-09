@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 8cf84165ef2b308038b6675920179262c0a2fdc9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Tutorial: Integração do Diretório Ativo Azure com Certificação
@@ -94,7 +94,7 @@ Para configurar a Azure AD single sign-on com Certify, execute os seguintes pass
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Para configurar a Azure AD single sign-on com Certify, execute os seguintes pass
 
     Na caixa de texto **identifier,** digite o URL:  `https://www.certify.com`
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -118,7 +118,7 @@ Para configurar a Azure AD single sign-on com Certify, execute os seguintes pass
 
     c. Logout URL
 
-### <a name="configure-certify-single-sign-on"></a>Configurar certificar apenas sign-on
+### <a name="configure-certify-single-sign-on"></a>Configurar certificar Sign-On único
 
 Para configurar um único sign-on no lado **certify,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para [certificar a equipe](mailto:support@certify.com)de suporte . Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -153,7 +153,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Certify**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Certify**.
 

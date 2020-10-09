@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 5a601b7ec7e2615053203e23ea61fc6d2efc85bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Diretório Ativo Azure com T&E Express
@@ -73,7 +73,7 @@ Para um único início de sação a funcionar, é necessário estabelecer uma re
 Para configurar e testar o Azure AD com T&E Express, tem de completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure T&E Express Single Sign-On](#configure-te-express-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure T&E Express Single Sign-On](#configure-te-express-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create T&utilizador de teste E Express](#create-te-express-test-user)** - para ter uma contraparte de Britta Simon em T&E Express que está ligada à representação AD AD do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com T&E Express, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![T&E Express Domain e URLs informações únicas de início de súmito](common/idp-intiated.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com T&E Express, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Aqui sugerimos que use o valor único da corda no Identificador. Contacte [a equipa de suporte&E Express Para](https://www.tyeexpress.com/contacto.aspx) obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,17 +122,17 @@ Para configurar o Azure AD com T&E Express, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-te-express-single-sign-on"></a>Configure T&E Express Single Sign-On
+### <a name="configure-te-express-single-sign-on"></a>Configurar T&E Express Single Sign-On
 
 1. Para configurar um único sinal de entrada em T&lado **E Express,** faça login na aplicação T&E express sem um único sinal DE SAML na utilização de credenciais de administração.
 
 1. No separador **Admin,** clique no **domínio SAML** para abrir a página de definições SAML.
 
-    ![Configurar um único sign-on](./media/tyeexpress-tutorial/tye-SAML.png)
+    ![Configurar Sign-On Individuais](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Selecione a opção **Ativar (Ativar)** de **Não** a **SI(Sim)**. Na caixa de texto **do Fornecedor de Identidade Metadata,** cole os metadados XML que descarregou a partir do portal Azure.
 
-    ![Configurar um único sign-on](./media/tyeexpress-tutorial/tyeAdmin.png)
+    ![Configurar Sign-On Individuais](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Clique no botão **Guardar (Guardar)** para guardar as definições.
 
@@ -167,7 +167,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, p
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **T&E Express**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **T&E Express**.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727222"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidade de infraestrutura Azure
@@ -37,13 +37,13 @@ A Microsoft garante uma elevada disponibilidade através de monitorização avan
 ## <a name="disaster-recovery"></a>Recuperação após desastre
 A Azure mantém os seus dados duráveis em dois locais. Pode escolher a localização do site de reserva. Em ambos os locais, o Azure mantém constantemente três réplicas saudáveis dos seus dados.
 
-## <a name="database-availability"></a>Disponibilidade de bases de dados
+## <a name="database-availability"></a>Disponibilidade da base de dados
 O Azure garante que uma base de dados é acessível à Internet através de um portal de internet com disponibilidade de base de dados sustentada. A monitorização avalia a saúde e o estado das bases de dados ativas em intervalos de cinco minutos.
 
 ## <a name="storage-availability"></a>Disponibilidade de armazenamento
 O Azure fornece armazenamento através de um serviço de armazenamento altamente escalável e durável, que fornece pontos finais de conectividade. Isto significa que uma aplicação pode aceder diretamente ao serviço de armazenamento. O serviço de armazenamento processa pedidos de armazenamento de entrada eficientemente, com integridade transacional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

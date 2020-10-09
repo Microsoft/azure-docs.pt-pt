@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
 ms.openlocfilehash: e51d275b32b634b7914b4e4f53959c1b89d96aed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88531695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutorial: Integração do Diretório Ativo Azure com a Voyance
@@ -75,7 +75,7 @@ Para um único sinal de sessão a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com um único sinal de acesso com Voyance, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único de Voyance](#configure-voyance-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único de Voyance](#configure-voyance-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Voyance test user](#create-voyance-test-user)** - para ter uma contraparte de Britta Simon em Voyance que está ligada à representação AD AD do utilizador.
@@ -95,7 +95,7 @@ Para configurar o Azure AD um único sinal de inscrição com Voyance, execute o
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD um único sinal de inscrição com Voyance, execute o
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Voyance](mailto:support@nyansa.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -136,23 +136,23 @@ Para configurar o Azure AD um único sinal de inscrição com Voyance, execute o
 
 2. Vá para o canto superior direito da barra de navegação e clique no **Perfil**.
     
-    ![Configurar um único sign-on na app side Acme University](./media/voyance-tutorial/tutorial_voyance_001.png) 
+    ![Configurar Sign-On única na App Side Acme University](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
 3. Clique **em Definições**de Administração .
 
-    ![Configure Single Sign-On On App Side Admin Settings](./media/voyance-tutorial/tutorial_voyance_002.png)
+    ![Configurar Sign-On única nas definições de administração do lado da app](./media/voyance-tutorial/tutorial_voyance_002.png)
 
 4. Clique **no separador Acesso ao Utilizador.**
 
-    ![Configure um único sinal de acesso ao utilizador do lado da aplicação](./media/voyance-tutorial/tutorial_voyance_003.png)
+    ![Configure Sign-On única no acesso ao utilizador do lado da aplicação](./media/voyance-tutorial/tutorial_voyance_003.png)
 
 5. Clique no botão **SSO é desativado** para configurar a AD Azure como um IdP utilizando SAML 2.0.
 
-    ![Configurar o único sinal-on on app side SSO é botão desativado](./media/voyance-tutorial/tutorial_voyance_004.png)
+    ![Configure Sign-On único no sSO do lado da aplicação é botão desativado](./media/voyance-tutorial/tutorial_voyance_004.png)
 
 6. Vá à secção **v2 da SAML** e execute abaixo dos passos:
 
-    ![Configure único sinal on on app side SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
+    ![Configurar Sign-On única no lado da aplicação SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
     
     a. Selecione **Ativado**.
     
@@ -192,7 +192,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Voyance**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Voyance**.
 

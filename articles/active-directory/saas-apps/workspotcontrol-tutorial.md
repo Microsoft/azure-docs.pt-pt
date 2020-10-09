@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88526623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Diretório Ativo Azure com o Workspot Control
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
 
     ![Selecione uma única janela de método de s seletor de inscrição](common/select-saml-option.png)
 
-3. No **set up Single Sign-On com** a página SAML, selecione o ícone **Edit** (lápis) para aceder à **Configuração Básica SAML**.
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Edit** (lápis) para aceder à **Configuração Básica SAML**.
 
     ![Ícone de edição destacado em "Configuração Básica SAML"](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
     > [!NOTE]
     > Estes valores não são reais. Substitua estes valores pelo identificador real, URL de resposta e URL de inscrição. Contacte a equipa de suporte do [Cliente do Controle de Workspot](mailto:support@workspot.com) para obter estes valores. Ou também pode consultar os padrões na secção **de Configuração SAML Básica** do portal Azure.
 
-6. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar **Certificado (Base64)** das opções disponíveis de acordo com os seus requisitos. Guarde para o seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar **Certificado (Base64)** das opções disponíveis de acordo com os seus requisitos. Guarde para o seu computador.
 
     ![O link de descarregamento do Certificado (Base64)](common/certificatebase64.png)
 

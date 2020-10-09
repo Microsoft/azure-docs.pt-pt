@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Ative Directory com zscaler Beta
@@ -56,7 +56,7 @@ Para adicionar Zscaler Beta do Azure Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
@@ -94,7 +94,7 @@ Para configurar o Azure AD com Zscaler Beta, siga estes passos.
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão's Single Com página SAML,** selecione **Editar** para abrir a caixa de diálogo **de configuração DE SAML Básica.**
+3. Na **configuração single Sign-On com página SAML,** selecione **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com Zscaler Beta, siga estes passos.
 
 6. A aplicação Zscaler Beta espera que mais alguns atributos sejam repercutidos na resposta DAL. Na secção **de reclamações** do Utilizador na caixa de diálogo Atributos do **Utilizador,** siga estes passos para adicionar o atributoken SAML, como mostrado na tabela seguinte.
     
-    | Name | Atributo de origem | 
+    | Nome | Atributo de origem | 
     | ---------------| --------------- |
     | membroOf  | user.assignedroles |
 
@@ -138,7 +138,7 @@ Para configurar o Azure AD com Zscaler Beta, siga estes passos.
     > [!NOTE]
     > Para aprender a configurar papéis em Azure AD, consulte [Configure a reivindicação do papel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** selecione **Descarregamento** para descarregar o **Certificado (Base64)**. Guarde no seu computador.
+7. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Certificado (Base64)**. Guarde no seu computador.
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -259,7 +259,7 @@ Permita que Britta Simon utilize o Azure single sign-on, concedendo acesso à Zs
 
 1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Zscaler Beta**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, insira e selecione **Zscaler Beta**.
 

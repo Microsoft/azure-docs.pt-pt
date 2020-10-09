@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Diretório Ativo Azure com statusPage
@@ -93,11 +93,11 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![StatusPage Domain e URLs informações únicas de súpr-on](common/idp-intiated.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
     >
     > b. A partir dos metadados, copie o URL de resposta e, em seguida, cole-o na caixa de texto **URL de resposta.**
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -132,23 +132,23 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-statuspage-single-sign-on"></a>Configurar statusPage único sinal-on
+### <a name="configure-statuspage-single-sign-on"></a>Configurar statusPage Single Sign-On
 
 1. Noutra janela do navegador, inscreva-se no site da empresa statusPage como administrador.
 
 1. Na barra de ferramentas principal, clique em **Gerir Conta.**
 
-    ![Configurar um único sign-on](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Clique no **separador 'S-on's single.**
 
-    ![Configurar um único sign-on](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. Na página SSO Configuração, execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Configurar um único sign-on](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. Na caixa de texto **SSO Target URL,** cole o valor do URL de **login,** que copiou do portal Azure.
 
@@ -187,7 +187,7 @@ Nesta secção, permite que Britta Simon utilize o Azure como único sinal, conc
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **StatusPage**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **StatusPage**.
 
@@ -219,7 +219,7 @@ O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure 
 
 1. No menu em cima, clique em **Gerir Conta.**
 
-    ![Configurar um único sign-on](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Clique no separador Membros da **Equipa.**
   

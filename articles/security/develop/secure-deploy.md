@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68934873"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Implementar aplicações seguras no Azure
@@ -85,7 +85,7 @@ O Security Center Standard ajuda-o:
   - Detetar ameaças usando analítica e inteligência.
   - Responda rapidamente quando estiver sob ataque.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que podem ajudá-lo a projetar e desenvolver aplicações seguras.
 
 - [Design de aplicações seguras](secure-design.md)

@@ -1,7 +1,7 @@
 ---
-title: Perguntas frequentes - Visão Computorizada
+title: Perguntas frequentes - Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas a perguntas frequentes sobre a API de Visão Computacional em Serviços Cognitivos Azure.
+description: Obtenha respostas para perguntas frequentes sobre a API de Visão De Computador em Serviços Cognitivos Azure.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,63 +12,63 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68564607"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>Visão computorizada API frequentemente perguntas
+# <a name="computer-vision-api-frequently-asked-questions"></a>API de visão de computador frequentemente fez perguntas
 
 > [!TIP]
-> Se não encontrar respostas às suas perguntas neste FAQ, tente perguntar à comunidade API da Visão de Computador no [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte [ajuda e suporte no UserVoice](https://cognitive.uservoice.com/)
+> Se não conseguir encontrar respostas para as suas perguntas neste FAQ, tente perguntar à comunidade API da Visão de Computador no [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contacte [ajuda e suporte no UserVoice](https://cognitive.uservoice.com/)
 
 ---
 
-**Pergunta**: *Posso treinar a API da Visão Computacional para utilizar etiquetas personalizadas?  Por exemplo, gostaria de alimentar-me de imagens de raças de gatos para "treinar" a IA e, em seguida, receber o valor da raça a pedido de IA.*
+**Pergunta:** *Posso treinar a API da Visão De Computador para utilizar etiquetas personalizadas?  Por exemplo, gostaria de me alimentar em imagens de raças de gatos para "treinar" a IA e, em seguida, receber o valor da raça num pedido de IA.*
 
-**Resposta**: Esta função não está atualmente disponível. No entanto, os nossos engenheiros estão a trabalhar para levar esta funcionalidade à Visão Computacional.
+**Resposta**: Esta função não está disponível. No entanto, os nossos engenheiros estão a trabalhar para trazer esta funcionalidade para a Visão Computacional.
 
 ---
 
 **Pergunta**: *A Visão Computacional pode ser utilizada localmente sem ligação à Internet?*
 
-**Resposta**: Atualmente não oferecemos uma solução no local ou local.
+**Resposta**: Atualmente, não oferecemos uma solução local ou local.
 
 ---
 
-**Pergunta**: *A Visão Computacional pode ser usada para ler matrículas?*
+**Pergunta**: *A Visão Computacional pode ser utilizada para ler matrículas?*
 
-**Resposta**: A Vision API oferece uma boa deteção de texto com OCR, mas não está atualmente otimizada para matrículas. Estamos constantemente a tentar melhorar os nossos serviços e adicionámos OCR para reconhecimento de placas de automóveis à nossa lista de pedidos de funcionalidades.
-
----
-
-**Pergunta**: *Que tipos de superfícies de escrita são suportadas para o reconhecimento* da caligrafia?
-
-**Resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros brancos, papel branco e notas amarelas pegajosas.
+**Resposta**: A API vision oferece uma boa deteção de texto com OCR, mas não está atualmente otimizada para matrículas. Estamos constantemente a tentar melhorar os nossos serviços e adicionámos OCR para reconhecimento de matrículas automáticas à nossa lista de pedidos de funcionalidades.
 
 ---
 
-**Pergunta**: Quanto tempo demora a operação de *reconhecimento de caligrafia?*
+**Pergunta**: *Que tipos de superfícies de escrita são suportadas para reconhecimento de caligrafia?*
 
-**Resposta**: O tempo que demora depende do comprimento do texto. Para textos mais longos, pode levar até vários segundos. Portanto, após a operação de texto manuscrito reconhecer, poderá ter de esperar antes de recuperar os resultados utilizando a operação Resultado da Operação De texto manuscrita Get Handwritten.
+**Resposta**: A tecnologia funciona com diferentes tipos de superfícies, incluindo quadros brancos, papel branco e notas adesivas amarelas.
 
 ---
 
-**Pergunta**: Como é que a tecnologia de reconhecimento de *caligrafia lida com o texto que foi inserido utilizando um cuidado no meio de uma linha?*
+**Pergunta:** *Quanto tempo demora a operação de reconhecimento da caligrafia?*
 
-**Resposta**: Este texto é devolvido como uma linha separada pela operação de reconhecimento de caligrafia.
+**Resposta**: O tempo que demora depende do comprimento do texto. Para textos mais longos, pode demorar até alguns segundos. Por isso, depois de concluída a operação "Reconhecer texto manuscrito", poderá ter de esperar antes de recuperar os resultados utilizando a operação "Obter resultados de operação de texto manuscrito".
+
+---
+
+**Pergunta**: *Como é que a tecnologia de reconhecimento de caligrafia lida com texto que foi inserido com um cuidado no meio de uma linha?*
+
+**Resposta**: Este texto é devolvido como uma linha separada pela operação de reconhecimento da caligrafia.
 
 ---
 
 **Pergunta**: *Como é que a tecnologia de reconhecimento de caligrafia lida com palavras ou linhas riscadas?*
 
-**Resposta**: Se as palavras forem riscadas com múltiplas linhas para torná-las irreconhecíveis, a operação de reconhecimento de caligrafia não as apanha. No entanto, se as palavras forem riscadas usando uma única linha, essa travessia é tratada como ruído, e as palavras ainda são captadas pela operação de reconhecimento de caligrafia.
+**Resposta**: Se as palavras forem riscadas com várias linhas para as tornar irreconhecíveis, a operação de reconhecimento da caligrafia não as apanha. No entanto, se as palavras forem riscadas usando uma única linha, essa travessia é tratada como ruído, e as palavras ainda são captadas pela operação de reconhecimento da caligrafia.
 
 ---
 
-**Pergunta**: Que orientações de *texto são apoiadas para a tecnologia* de reconhecimento de caligrafia?
+**Pergunta**: *Que orientações de texto são apoiadas para a tecnologia de reconhecimento da caligrafia?*
 
-**Resposta**: O texto orientado para ângulos de até 30 graus a 40 graus pode ser captado pela operação de reconhecimento de caligrafia.
+**Resposta**: O texto orientado para ângulos de até 30 graus a 40 graus pode ser captado pela operação de reconhecimento da caligrafia.
 
 ---

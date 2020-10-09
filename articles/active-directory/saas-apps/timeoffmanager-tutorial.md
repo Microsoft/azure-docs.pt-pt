@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88527320"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Azure Ative Directory integração única (SSO) com TimeOffManager
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação TimeOffManager espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | --- | --- |
     | Primeiro nome |Nome de utilizador.given |
     | Último nome |User.sobrenome |
@@ -144,13 +144,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa TimeOffManager como administrador.
 
-2. Ir para ** \> opções de conta \> Configurações únicas de sposição de sôns**.
+2. Ir para ** \> opções de conta \> configurações Sign-On únicas**.
    
-    ![Definições únicas de inscrição](./media/timeoffmanager-tutorial/ic795917.png "Definições únicas de inscrição")
+    ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795917.png "Definições de Sign-On única")
 
-3. Na secção **Definições de Inscrição Única,** execute os seguintes passos:
+3. Na secção **Definições de Sign-On Única,** execute os seguintes passos:
    
-    ![Definições únicas de inscrição](./media/timeoffmanager-tutorial/ic795918.png "Definições únicas de inscrição")
+    ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795918.png "Definições de Sign-On única")
    
     a. Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole todo o Certificado na caixa de texto **do Certificado X.509.**
    
@@ -168,7 +168,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Na página **'Sign in Settings',** copie o valor do URL do Serviço ao Consumidor de **Afirmação** e cole-o na caixa de texto **URL de resposta** na secção de **Configuração BÁSICA SAML** no portal Azure. 
 
-      ![Definições únicas de inscrição](./media/timeoffmanager-tutorial/ic795915.png "Definições únicas de inscrição")
+      ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795915.png "Definições de Sign-On única")
 
 ### <a name="create-timeoffmanager-test-user"></a>Criar utilizador de teste TimeOffManager
 

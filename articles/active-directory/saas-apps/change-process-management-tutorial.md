@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 501f19b2022d221ad6facd66c483790b13491ba0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529683"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Tutorial: Azure Ative Directy integração única (SSO) com a Change Process Management
@@ -73,11 +73,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Change Process Management,** na secção **Gerir,** selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de um único registo com** a página SAML, selecione o botão de lápis para **configuração SAML básica** para editar as definições:
+1. Na **configuração de Sign-On única com** a página SAML, selecione o botão de lápis para **configuração SAML Básica** para editar as definições:
 
    ![Botão de lápis para configuração básica de SAML](common/edit-urls.png)
 
-1. Na **configuração de um único sign-on com página SAML,** tome estes passos:
+1. Na **configuração single Sign-On com página SAML,** tome estes passos:
 
     a. Na caixa **identifier,** introduza um URL no seguinte padrão: `https://<hostname>:8443/`
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Os valores de URL **de identificação** e **resposta** anteriores não são os valores reais que deve utilizar. Contacte a [equipa de suporte para gestão de processos](mailto:support@realtech-us.com) de mudança para obter os valores reais. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o link **de descarregamento** para **Certificado (Base64)** para descarregar o certificado e guardá-lo no seu computador:
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **de descarregamento** para **Certificado (Base64)** para descarregar o certificado e guardá-lo no seu computador:
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 

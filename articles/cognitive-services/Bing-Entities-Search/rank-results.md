@@ -1,7 +1,7 @@
 ---
-title: Usando o ranking para mostrar respostas - Bing Entity Search
+title: Utilização do ranking para exibir respostas - Pesquisa de Entidade Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o ranking para mostrar as respostas que a API de Pesquisa de Entidades Bing devolve.
+description: Saiba como usar o ranking para mostrar as respostas que a API de pesquisa de entidade bing retorna.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423913"
 ---
-# <a name="using-ranking-to-display-entity-search-results"></a>Usando o ranking para exibir resultados de pesquisa de entidades  
+# <a name="using-ranking-to-display-entity-search-results"></a>Utilização do ranking para exibir resultados de pesquisa de entidades  
 
-Cada resposta de pesquisa de cada entidade inclui uma resposta [rankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) que especifica como deve apresentar os resultados de pesquisa devolvidos pela API de Pesquisa de Entidades Bing. Os grupos de resposta ao ranking resultam em conteúdo de vara, mainline e barra lateral. O resultado do polo é o resultado mais importante ou proeminente e deve ser exibido primeiro. Se não apresentar os resultados restantes num formato tradicional de linha principal e barra lateral, deve fornecer ao conteúdo principal uma maior visibilidade do que o conteúdo da barra lateral. 
+Cada resposta de pesquisa de entidade inclui uma resposta [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) que especifica como deve exibir os resultados de pesquisa devolvidos pela API de Pesquisa de Entidade Bing. Os grupos de resposta do ranking resultam em conteúdo sonoro, mainline e sidebar. O resultado do poste é o resultado mais importante ou proeminente e deve ser exibido primeiro. Se não apresentar os resultados restantes num formato tradicional de mainline e barra lateral, deve fornecer ao conteúdo principal uma maior visibilidade do que o conteúdo da barra lateral. 
   
-Dentro de cada grupo, a matriz [de itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica a ordem em que o conteúdo deve aparecer. Cada item fornece duas formas de identificar o resultado dentro de uma resposta.  
+Dentro de cada grupo, a matriz [de Itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica a ordem em que o conteúdo deve aparecer. Cada item fornece duas formas de identificar o resultado dentro de uma resposta.  
  
 
 |Campo | Descrição  |
 |---------|---------|
-|`answerType` e `resultIndex` | `answerType`identifica a resposta (entidade ou `resultIndex` lugar) e identifica um resultado dentro dessa resposta (por exemplo, uma entidade). O índice começa em 0.|
-|`value`    | `value`Contém um ID que corresponda à identificação de uma resposta ou um resultado dentro da resposta. Ou a resposta ou os resultados contêm a identificação, mas não ambas. |
+|`answerType` e `resultIndex` | `answerType` identifica a resposta (entidade ou local) e `resultIndex` identifica um resultado dentro dessa resposta (por exemplo, uma entidade). O índice começa em 0.|
+|`value`    | `value` Contém um ID que corresponde ao ID de uma resposta ou de um resultado dentro da resposta. Ou a resposta ou os resultados contêm o ID, mas não ambos. |
   
-Usar `answerType` o `resultIndex` e é um processo em duas etapas. Em primeiro `answerType` lugar, utilize para identificar a resposta que contém os resultados a apresentar. Em `resultIndex` seguida, use para indexar os resultados dessa resposta para obter o resultado para exibir. (O `answerType` valor é o nome do campo no objeto [SearchResponse.)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) Se é suposto mostrares todos os resultados da resposta em conjunto, `resultIndex` o item de resposta do ranking não inclui o campo.
+Usar o `answerType` e é um processo em `resultIndex` duas etapas. Primeiro, utilize `answerType` para identificar a resposta que contém os resultados a exibir. Em seguida, use `resultIndex` para indexar os resultados dessa resposta para obter o resultado a visualizar. (O `answerType` valor é o nome do campo no objeto [SearchResponse.)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) Se é suposto mostrar todos os resultados da resposta em conjunto, o item de resposta do ranking não inclui o `resultIndex` campo.
 
-A utilização do ID requer que combine o ID do ranking com a identificação de uma resposta ou um dos seus resultados. Se um objeto `id` de resposta incluir um campo, mostre todos os resultados da resposta em conjunto. Por exemplo, `Entities` se o `id` objeto incluir o campo, exiba todos os artigos das entidades em conjunto. Se `Entities` o objeto não `id` incluir o campo, `id` então cada entidade contém um campo e a resposta de classificação mistura as entidades com os resultados de Lugares.  
+A utilização do ID requer que combine o ID do ranking com o ID de uma resposta ou um dos seus resultados. Se um objeto de resposta incluir um `id` campo, apresente todos os resultados da resposta em conjunto. Por exemplo, se o `Entities` objeto incluir o `id` campo, exiba todos os artigos das entidades em conjunto. Se o `Entities` objeto não incluir o `id` campo, cada entidade contém um campo `id` e a resposta do ranking mistura as entidades com os resultados do Places.  
   
 ## <a name="ranking-response-example"></a>Exemplo de resposta de ranking
 
@@ -67,7 +67,7 @@ O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/a
 }
 ```
 
-Com base nesta resposta de ranking, a barra lateral mostraria os resultados das duas entidades relacionadas com Jimi Hendrix.
+Com base nesta resposta do ranking, a barra lateral mostraria os resultados das duas entidades relacionadas com Jimi Hendrix.
 
 ## <a name="next-steps"></a>Passos seguintes
 

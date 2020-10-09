@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88535867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Diretório Ativo Azure com o LockPath Keylight
@@ -94,7 +94,7 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [a equipa de suporte do cliente LockPath Keylight](https://www.lockpath.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
 
     c. Logout URL
 
-### <a name="configure-lockpath-keylight-single-sign-on"></a>Configurar chave de bloqueio Porta-chaves único sinal-on
+### <a name="configure-lockpath-keylight-single-sign-on"></a>Configure a chave do lockpath única Sign-On
 
 1. Para ativar o SSO na chave de segurança LockPath, execute os seguintes passos:
 
@@ -133,19 +133,19 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
 
     b. No menu em cima, clique em **Pessoa**e selecione **Keylight Setup**.
 
-    ![Configurar um único sign-on](./media/keylight-tutorial/401.png)
+    ![Configurar Sign-On Individuais](./media/keylight-tutorial/401.png)
 
     c. Na visão da árvore à esquerda, clique em **SAML**.
 
-    ![Configurar um único sign-on](./media/keylight-tutorial/402.png)
+    ![Configurar Sign-On Individuais](./media/keylight-tutorial/402.png)
 
     d. No diálogo **de Definições SAML,** clique em **Editar**.
 
-    ![Configurar um único sign-on](./media/keylight-tutorial/404.png)
+    ![Configurar Sign-On Individuais](./media/keylight-tutorial/404.png)
 
 1. Na página de diálogo **de configurações de Edição SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/keylight-tutorial/405.png)
+    ![Configurar Sign-On Individuais](./media/keylight-tutorial/405.png)
 
     a. Desementação **SAML** para **Ative**.
 
@@ -205,7 +205,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LockPath Keylight**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LockPath Keylight**.
 

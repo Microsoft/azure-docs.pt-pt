@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66420607"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple Virtual Array Update 1.2 notas de lançamento
@@ -46,7 +46,7 @@ Baixe o KB4502035 e siga estas instruções para [aplicar a atualização atrav�
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Eliminação| Nas versões anteriores do software, houve um problema quando o uso do dispositivo não mudou mesmo quando os ficheiros foram eliminados. Esta questão é corrigida nesta versão. O caminho do código de tiering tornou-se mais resistente no processamento de ficheiros eliminados.|
 | 2 |Processamento de exceções| Nas versões anteriores do software, havia um problema na sequência do reboot do sistema que poderia potencialmente levar a falhas nas cópias de segurança, restaurar, ler a partir da nuvem e recuperação automática de espaço. Esta versão contém alterações na forma como as exceções foram tratadas na trajetória de arranque.|

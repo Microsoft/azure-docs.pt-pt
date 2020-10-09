@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 0cbcfb65d7c7ac71b17e38dd72545a3d8fd2f162
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Ative Directory com o Administrador de Acesso à Internet Zscaler
@@ -76,7 +76,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o único sinal de acesso a Azure AD com o administrador de acesso à Internet Zscaler, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o administrador de acesso à Internet Zscaler único sinal-on](#configure-zscaler-internet-access-administrator-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o administrador de acesso à Internet Zscaler single sign-on](#configure-zscaler-internet-access-administrator-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Zscaler Internet Access Administrator test user](#create-zscaler-internet-access-administrator-test-user)** - para ter uma contraparte de Britta Simon em Zscaler Internet Access Administrator que está ligada à representação AD Ad do utilizador.
@@ -96,11 +96,11 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. No **set up Single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **básico de configuração SAML.**
+4. Na **configuração single Sign-On com página SAML,** clique no botão **Editar** para abrir o diálogo **básico de configuração SAML.**
 
     ![Zscaler Internet Access Administrator Domain e URLs informações únicas de acesso](common/idp-intiated.png)
 
@@ -126,13 +126,13 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
     | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
-5. A aplicação Zscaler Internet Access Administrator espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. No **conjunto de Sessão de Inscrição única com a página SAML,** clique no botão **Editar** para abrir **atributos do utilizador & o** diálogo Claims.
+5. A aplicação Zscaler Internet Access Administrator espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. Na **configuração de Sign-On única com a página SAML,** clique no botão **Editar** para abrir **os atributos do utilizador & o** diálogo Claims.
 
     ![O link Atributo](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name  | Atributo de origem  |
+    | Nome  | Atributo de origem  |
     | ---------| ------------ |
     | Função     | user.assignedroles |
 
@@ -151,7 +151,7 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar o papel em Azure AD
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -165,7 +165,7 @@ Para configurar o Azure AD com o administrador de acesso à Internet Zscaler, ex
 
     c. Logout URL
 
-### <a name="configure-zscaler-internet-access-administrator-single-sign-on"></a>Configure zscaler administrador de acesso à Internet único sinal de acesso
+### <a name="configure-zscaler-internet-access-administrator-single-sign-on"></a>Configure administrador de acesso à Internet Zscaler único Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no seu Zscaler Internet Access Admin UI.
 
@@ -218,7 +218,7 @@ Nesta secção, permite que Britta Simon utilize o Azure como único sinal, perm
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **O Administrador de Acesso à Internet Zscaler**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **O Administrador de Acesso à Internet Zscaler.**
 

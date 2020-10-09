@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68736280"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados Azure
@@ -84,6 +84,6 @@ Um proprietário é um utilizador que tem privilégios adicionais para gerir um 
 
 O registo é o ato de extrair metadados de ativos de dados de uma fonte de dados e copiá-lo para o serviço Azure Data Catalog. Os ativos de dados registados podem então ser anotados e descobertos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Quickstart: Criar um Catálogo de Dados Azure](data-catalog-get-started.md) 

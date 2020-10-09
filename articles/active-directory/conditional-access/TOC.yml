@@ -4,7 +4,7 @@
   items:
     - name: O que é o Acesso Condicional?
       href: overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Exigir que os termos de utilização sejam aceites
       href: require-tou.md

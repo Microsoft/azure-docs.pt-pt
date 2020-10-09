@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: a6362ef217d5523a583e15d346161cf27bb513a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88526906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Diretório Ativo Azure com OBRAS DE LINHA
@@ -77,7 +77,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com line works, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure linha funciona apenas sinal-on](#configure-line-works-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure linha funciona apenas sinal -](#configure-line-works-single-sign-on)** para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create LINE WORKS test user](#create-line-works-test-user)** - ter uma contraparte de Britta Simon em LINE WORKS que está ligada à representação AD AD do utilizador.
@@ -97,7 +97,7 @@ Para configurar o Azure AD com a LINE WORKS, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com a LINE WORKS, execute os seguintes passos:
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL: `worksmobile.com`
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com a LINE WORKS, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-line-works-single-sign-on"></a>Configurar linha trabalha apenas sinal-on
+### <a name="configure-line-works-single-sign-on"></a>Configure linha obras únicas Sign-On
 
 Para configurar um único sinal de inscrição no lado **de TRABALHOs** DE LINHA, leia os [documentos SSO da LINHA E](https://developers.worksmobile.com/jp/document/1001080101) configufique uma definição DE TRABALHOS DE LINHA.
 
@@ -160,7 +160,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **LINHA WORKS**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **LINE WORKS**.
 
