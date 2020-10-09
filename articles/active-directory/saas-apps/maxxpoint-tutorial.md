@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 50cc53e7e8a5f39b53d6dcd39de61894cbbb3842
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4d325eb0dbd5d30e94df07ebad21ff30316bcbb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518971"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Ative Directory com a MaxxPoint
 
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com maxxPoint, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure maxxPoint single sign-on](#configure-maxxpoint-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure maxxPoint single sign-on](#configure-maxxpoint-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create MaxxPoint test user](#create-maxxpoint-test-user)** - para ter uma contraparte de Britta Simon em MaxxPoint que está ligada à representação AD AD do utilizador.
@@ -93,24 +93,24 @@ Para configurar o Azure AD com maxxPoint, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **Configuração Básica saml,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-    ![MaxxPoint Domain e URLs informações únicas de súmis](common/preintegrated.png)
+    ![A screenshot mostra a configuração básica do SAML.](common/preintegrated.png)
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![MaxxPoint Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:  `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
     >[!NOTE] 
     >Este não é o valor real. Atualizar o valor com o sinal real no URL. Ligue para a equipa maxxPoint no 888-728-0950 para obter este valor.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD com maxxPoint, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-maxxpoint-single-sign-on"></a>Configurar maxxPoint único sinal
+### <a name="configure-maxxpoint-single-sign-on"></a>Configurar maxxPoint single Sign-On
 
 Para obter sSo configurado para a sua aplicação, ligue para a equipa de suporte maxxPoint em **888-728-0950** e eles vão ajudá-lo ainda mais na forma de fornecer-lhes o ficheiro **XML de Metadados da Federação** descarregado.
 
@@ -159,7 +159,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **MaxxPoint**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **MaxxPoint**.
 

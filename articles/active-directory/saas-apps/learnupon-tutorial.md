@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 47ecf00b608121271e98ca5abbbd5e69ca811fd2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535174"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Diretório Ativo Azure com a LearnUpon
 
@@ -77,7 +77,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com um único sinal de acesso com a LearnUpon, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único do LearnUpon](#configure-learnupon-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure LearnUpon Single Sign-On](#configure-learnupon-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create LearnUpon test user](#create-learnupon-test-user)** - para ter uma contraparte de Britta Simon em LearnUpon que está ligada à representação AD AD do utilizador.
@@ -97,7 +97,7 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
     > [!NOTE]
     > O valor não é real. Atualizar o valor com o URL de resposta real. Contacte [a equipa de suporte do Cliente LearnUpon](https://www.learnupon.com/features/support/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. No **set up Single Sign-On com** a página SAML, localize a **IMPRESSÃO POLEGAR** - Isto será adicionado às definições DE SAML LearnUpon.
+5. Na **configuração single Sign-On com** a página SAML, localize a **impressão digital** - Isto será adicionado às definições DE SAML LearnUpon.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -124,21 +124,21 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
 
     c. Logout URL
 
-### <a name="configure-learnupon-single-sign-on"></a>Configurar a inscrição única do learnupon
+### <a name="configure-learnupon-single-sign-on"></a>Configurar learnUpon Single Sign-On
 
 1. Abra outra instância do navegador e inscreva-se no LearnUpon com uma conta de administrador.
 
 1. Clique no separador **definições.**
 
-    ![Configurar um único sign-on](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![A imagem mostra o separador de definições.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Clique **em 'Sign On' único - SAML**e, em seguida, clique em **Definições Gerais** para configurar as definições DE SAML.
    
-    ![Configurar um único sign-on](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![A screenshot mostra single sign on - SAML selecionado com Definições Gerais selecionadas.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. Na secção **Definições Gerais,** execute os seguintes passos:
    
-    ![Configurar um único sign-on](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![A screenshot mostra a secção Definições Gerais onde pode introduzir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Selecione **Ativado**.
 
@@ -158,7 +158,7 @@ Para configurar o Azure AD um único sinal de inscrição com a LearnUpon, execu
 
 1. Clique nas **Definições do Utilizador**e, em seguida, execute os seguintes passos:
 
-     ![Configurar um único sign-on](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![A screenshot mostra a secção Definições do Utilizador onde pode introduzir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. Na caixa de texto **do formato do identificador de nome próprio,** escreva o valor que nos diz onde na sua Afirmação SAML reside o primeiro nome dos utilizadores - por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
   
@@ -194,7 +194,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LearnUpon**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione LearnUpon**.
 

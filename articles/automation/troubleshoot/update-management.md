@@ -2,15 +2,15 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713508"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858409"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -57,27 +57,25 @@ As atualizações antigas estão a aparecer para uma conta de Automação como d
 
 ### <a name="cause"></a>Causa
 
-As atualizações superseded não são corretamente indicadas como recusadas para que possam ser consideradas não aplicáveis.
+As atualizações superseded não são recusadas nos Serviços de Atualização do Windows Server (WSUS) para que possam ser consideradas não aplicáveis.
 
 ### <a name="resolution"></a>Resolução
 
-Quando uma atualização supereduada se tornar 100% não aplicável, deverá alterar o estado de aprovação dessa atualização para `Declined` . Para alterar o estado de aprovação de todas as suas atualizações:
+Quando uma atualização supereduada se tornar 100% não aplicável, deverá alterar o estado de aprovação dessa atualização para `Declined` a WSUS. Para alterar o estado de aprovação de todas as suas atualizações:
 
 1. Na conta Automation, selecione **Update Management** para visualizar o estado da máquina. Consulte [avaliações de atualização de ver.](../update-management/update-mgmt-view-update-assessments.md)
 
 2. Verifique a atualização superedificada para se certificar de que não é 100% aplicável.
 
-3. Marque a atualização como recusada, a menos que tenha uma pergunta sobre a atualização.
+3. No servidor WSUS as máquinas reportam a [recusar a atualização](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Selecione **Computadores** e, na coluna **Compliance,** force um rescan para o cumprimento. Ver [Gerir atualizações para VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Repita os passos acima para outras atualizações superadas.
 
-6. Executar o assistente de limpeza para eliminar ficheiros das atualizações recusadas. 
+6. Para serviços de atualização do Servidor do Windows (WSUS), limpe todas as atualizações supersed para refrescar a infraestrutura utilizando o Assistente de limpeza do [Servidor](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS .
 
-7. Para serviços de atualização do Servidor do Windows (WSUS), limpe manualmente todas as atualizações supersedidas para atualizar a infraestrutura.
-
-8. Repita este procedimento regularmente para corrigir o problema do visor e minimizar a quantidade de espaço em disco utilizado para a gestão da atualização.
+7. Repita este procedimento regularmente para corrigir o problema do visor e minimizar a quantidade de espaço em disco utilizado para a gestão da atualização.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Cenário: Máquinas não aparecem no portal sob Gestão de Atualização
 
@@ -594,7 +592,7 @@ A implementação de atualizações no Linux por classificação ("atualizaçõe
 
 KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). É atualizado diariamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 

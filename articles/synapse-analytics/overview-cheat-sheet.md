@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91620278"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858443"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota Azure Synapse Analytics
 
@@ -22,14 +22,14 @@ ms.locfileid: "91620278"
 
 A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos básicos do serviço e comandos importantes. Este artigo é útil tanto para os novos alunos como para aqueles que querem destaques dos tópicos essenciais do Azure Synapse.
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 Um espaço de **trabalho da Sinapse** é um limite de colaboração garantido para fazer análises empresariais baseadas na nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos.
 
 Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. Os recursos disponíveis para análises SQL e Spark estão organizados em **piscinas**SQL e Spark. 
 
 ## <a name="synapse-sql"></a>SQL do Synapse
-**O SQL de Sinapse** é a capacidade de fazer análises baseadas em T-SQL no espaço de trabalho da Synapse. O Synapse SQL tem dois modelos de consumo: dedicados e sem servidor.  Para o modelo dedicado, utilize **piscinas SQL dedicadas.** Um espaço de trabalho pode ter qualquer nubmer destas piscinas. Para utilizar o modelo sem servidor, utilize a piscina SQL sem servidor chamada "SQL on demand". Cada espaço de trabalho tem uma destas piscinas.
+**O SQL de Sinapse** é a capacidade de fazer análises baseadas em T-SQL no espaço de trabalho da Synapse. O Synapse SQL tem dois modelos de consumo: dedicados e sem servidor.  Para o modelo dedicado, utilize **piscinas SQL dedicadas.** Um espaço de trabalho pode ter qualquer número destas piscinas. Para utilizar o modelo sem servidor, utilize a piscina SQL sem servidor chamada "SQL on demand". Cada espaço de trabalho tem uma destas piscinas.
 
 ## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
 Para utilizar a análise spark, crie e use **piscinas Spark** no seu espaço de trabalho Synapse.

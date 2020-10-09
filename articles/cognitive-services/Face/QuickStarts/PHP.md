@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ae54d1d1c649da510c9653acbd7f118069d366c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dc28f5a9c3faa9d1c963a441f79eb1eea3fcba47
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833917"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858324"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: detetar rostos numa imagem com a API REST e PHP
 
@@ -48,59 +48,7 @@ Crie um novo ficheiro HTML, *detectFaces.html*, e adicione o seguinte código.
 
 Adicione o seguinte código dentro `body` do elemento do documento. Este código configura uma interface de utilizador básica com um campo DE URL, um botão **de rosto de análise,** um painel de resposta e um painel de visualização de imagem.
 
-```php
-<?php
-// Replace <Subscription Key> with a valid subscription key.
-$ocpApimSubscriptionKey = '<Subscription Key>';
-
-// Replace <My Endpoint String> with the string in your endpoint URL.
-$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
-
-$imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
-
-// This sample uses the PHP5 HTTP_Request2 package
-// (https://pear.php.net/package/HTTP_Request2).
-require_once 'HTTP/Request2.php';
-
-$request = new Http_Request2($uriBase . '/detect');
-$url = $request->getUrl();
-
-$headers = array(
-    // Request headers
-    'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
-);
-$request->setHeader($headers);
-
-$parameters = array(
-    // Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' .
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise');
-$url->setQueryVariables($parameters);
-
-$request->setMethod(HTTP_Request2::METHOD_POST);
-
-// Request body parameters
-$body = json_encode(array('url' => $imageUrl));
-
-// Request body
-$request->setBody($body);
-
-try
-{
-    $response = $request->send();
-    echo "<pre>" .
-        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
-}
-catch (HttpException $ex)
-{
-    echo "<pre>" . $ex . "</pre>";
-}
-?>
-```
+:::code language="php" source="~/cognitive-services-quickstart-code/php/face/rest/detect.php":::
 
 Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de subscrição e precisa de alterar a cadeia para que `uriBase` contenha a cadeia de ponto final correta. O `returnFaceAttributes` campo especifica quais os atributos faciais para recuperar; pode pretender alterar esta cadeia dependendo da utilização pretendida.
 
@@ -109,6 +57,34 @@ Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de subscri
 ## <a name="run-the-script"></a>Executar o script
 
 Abra o ficheiro num navegador web ativado por PHP. Devias obter uma série de dados do Rosto JSON, como os seguintes.
+
+```json
+[
+    {
+        "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+        "faceRectangle": {
+            "top": 621,
+            "left": 616,
+            "width": 195,
+            "height": 195
+        }
+    }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrair atributos faciais
+ 
+Para extrair atributos faciais, utilize o modelo de deteção 1 e adicione o `returnFaceAttributes` parâmetro de consulta.
+
+```php
+$parameters = array(
+    // Request parameters
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+   'returnFaceId' => 'true');
+```
+
+A resposta agora inclui atributos faciais. Por exemplo:
 
 ```json
 [

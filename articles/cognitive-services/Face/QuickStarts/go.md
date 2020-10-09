@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 538024c88799b42e19ec04784b53cfc6c1a8430e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b9f2d3397e0a2067cb173741a0037422021f3d87
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833781"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858256"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: detetar rostos numa imagem com a API REST e Go
 
@@ -33,83 +33,7 @@ Neste arranque rápido, você usará a API AZure Face REST com Go para detetar r
 
 Crie um novo ficheiro, _faceDetection.go,_ e adicione o seguinte código. Isto chama a API facial para um dado URL de imagem.
 
-```go
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-    "time"
-)
-
-func main() {
-    const subscriptionKey = "<Subscription Key>"
-
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
-    const uriBase =
-      "https://<My Endpoint String>.com/face/v1.0/detect"
-    const imageUrl =
-      "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
-
-    const params = "?returnFaceAttributes=age,gender,headPose,smile,facialHair," +
-        "glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
-    const uri = uriBase + params
-    const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
-
-    reader := strings.NewReader(imageUrlEnc)
-
-    //Configure TLS, etc.
-    tr := &http.Transport{
-        TLSClientConfig: &tls.Config{
-            InsecureSkipVerify: true,
-        },
-    }
-    
-    // Create the Http client
-    client := &http.Client{
-        Transport: tr,
-        Timeout: time.Second * 2,
-    }
-
-    // Create the Post request, passing the image URL in the request body
-    req, err := http.NewRequest("POST", uri, reader)
-    if err != nil {
-        panic(err)
-    }
-
-    // Add headers
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    // Send the request and retrieve the response
-    resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-
-    defer resp.Body.Close()
-
-    // Read the response body.
-    // Note, data is a byte array
-    data, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        panic(err)
-    }
-
-    // Parse the Json data
-    var f interface{}
-    json.Unmarshal(data, &f)
-
-    // Format and display the Json result
-    jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
-    fmt.Println(string(jsonFormatted))
-}
-```
+:::code language="go" source="~/cognitive-services-quickstart-code/go/Face/rest/detect.go":::
 
 Terá de atualizar o valor com a `subscriptionKey` sua chave de subscrição e alterar a cadeia de modo a `uriBase` conter a cadeia de ponto final correta.
 
@@ -132,6 +56,30 @@ detect-face
 ```
 
 Deve ver uma série de dados faciais detetados no JSON impressos na consola. Segue-se um exemplo de uma resposta bem sucedida da JSON.
+
+```json
+[
+  {
+    "faceId": "ae8952c1-7b5e-4a5a-a330-a6aa351262c9",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrair atributos faciais
+ 
+Para extrair atributos faciais, utilize o modelo de deteção 1 e adicione o `returnFaceAttributes` parâmetro de consulta.
+
+```go
+const params = "?detectionModel=detection_01&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
+```
+
+A resposta agora inclui atributos faciais. Por exemplo:
 
 ```json
 [

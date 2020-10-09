@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: d870372f418cb8873f6664d6a501e0abe0ebe374
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4f747ce424e26a50aadcc84e375da230dff36fb3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88548485"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858307"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Quickstart: Detete rostos numa imagem utilizando a API face REST e Python
 
@@ -53,35 +53,39 @@ Alternadamente, pode executar este arranque rápido a partir da linha de comando
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python detect-face.py`.
 
-```python
-import requests
-import json
-
-# set to your own subscription key value
-subscription_key = None
-assert subscription_key
-
-# replace <My Endpoint String> with the string from your endpoint URL
-face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
-
-image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-response = requests.post(face_api_url, params=params,
-                         headers=headers, json={"url": image_url})
-print(json.dumps(response.json()))
-```
+:::code language="python" source="~/cognitive-services-quickstart-code/python/Face/rest/detect.py" :::
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
 O JSON devolve uma resposta de êxito.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrair atributos faciais
+ 
+Para extrair atributos faciais, utilize o modelo de deteção 1 e adicione o `returnFaceAttributes` parâmetro de consulta.
+
+```python
+params = {
+    'detectionModel': 'detection_01',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId': 'true'
+}
+```
+
+A resposta agora inclui atributos faciais. Por exemplo:
 
 ```json
 [

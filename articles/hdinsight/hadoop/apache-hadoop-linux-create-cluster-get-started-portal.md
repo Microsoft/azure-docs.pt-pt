@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02990ce287aa423481c1bfe8ec5e2a8a4cfdb555
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80130573"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858494"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Hadoop em Azure HDInsight usando o portal Azure
 
@@ -45,7 +45,7 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
     |Subscrição    |  A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster. |
     |Grupo de recursos     | A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
     |Nome do cluster   | Introduza um nome globalmente exclusivo. O nome pode consistir em até 59 caracteres, incluindo letras, números e hífenes. Os primeiros e últimos caracteres do nome não podem ser hífenes. |
-    |Region    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
+    |Região    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
     |Tipo de cluster| **Selecione Selecionar o tipo de cluster**. Em seguida, selecione **Hadoop** como o tipo de cluster.|
     |Versão|A partir da lista de drop-down, selecione uma **versão**. Utilize a versão padrão se não souber o que escolher.|
     |Nome de utilizador e palavra-passe de início de sessão do cluster    | O nome de login predefinido é **administrador**. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula, e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' \) . Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
@@ -67,7 +67,7 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
 
     ![HDInsight Linux começa a fornecer valores de armazenamento de cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster HDInsight")
 
-    Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É referida como a conta de armazenamento predefinida. O cluster HDInsight e a sua conta de armazenamento predefinida devem ser indicados na mesma região de Azure. Excluir agrupamentos não apaga a conta de armazenamento.
+    Cada cluster tem uma [conta de Armazenamento Azure,](../hdinsight-hadoop-use-blob-storage.md)um [Azure Data Lake Gen1,](../hdinsight-hadoop-use-data-lake-storage-gen1.md)ou uma [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  dependência. É referida como a conta de armazenamento predefinida. O cluster HDInsight e a sua conta de armazenamento predefinida devem ser indicados na mesma região de Azure. Excluir agrupamentos não apaga a conta de armazenamento.
 
     Selecione o **separador 'Rever +' para criar.**
 
@@ -124,7 +124,7 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
 
 Depois de ter concluído um trabalho na Hive, pode [exportar os resultados para a Base de Dados Azure SQL ou base de dados do SQL Server,](apache-hadoop-use-sqoop-mac-linux.md)pode também [visualizar os resultados utilizando o Excel](apache-hadoop-connect-excel-power-query.md). Para obter mais informações sobre a utilização da Colmeia em HDInsight, consulte [Use Apache Hive e HiveQL com Apache Hadoop em HDInsight para analisar uma amostra do ficheiro Log4j apache.](hdinsight-use-hive.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 

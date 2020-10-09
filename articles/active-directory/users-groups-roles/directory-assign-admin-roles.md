@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304225"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858132"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -274,7 +274,7 @@ Esta função foi anteriormente denominada "Administrador de Password" no [porta
 
 ### <a name="hybrid-identity-administrator"></a>[Administrador de Identidade Híbrida](#hybrid-identity-administrator-permissions)
 
-Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados, a sincronização de hash password (PHS), a autenticação pass-through (PTA) ou a Federação (AD FS ou provedora de federação de terceiros), e a implantação de infraestruturas relacionadas no local para os permitir. A infraestrutura on-prem inclui agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir um Único Sign-On (S-SSO) sem emenda para permitir a autenticação sem emenda em dispositivos não Windows 10 ou computadores não Windows Server 2016. Além disso, esta função garante a possibilidade de ver registos de inscrição e acesso à saúde e análise para fins de monitorização e resolução de problemas. 
+Os utilizadores desta função podem criar, gerir e implementar a configuração de configuração de provisionamento de AD a AZure AD usando Cloud Provisioning, bem como gerir as definições da federação. Os utilizadores também podem resolver problemas e monitorizar registos utilizando esta função.  
 
 ### <a name="insights-administrator"></a>[Administrador de Insights](#insights-administrator-permissions)
 Os utilizadores desta função podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Esta função tem a capacidade de ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definições de administração do Insights.
@@ -489,7 +489,7 @@ Os utilizadores com esta função podem gerir [dispositivos certificados por Equ
 
 Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho das Equipas Microsoft através das Equipas microsoft & Skype para centro de administração de negócios e os respetivos módulos PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionadas com a telefonia, mensagens, reuniões e as próprias equipas. Esta função também oferece a capacidade de criar e gerir todos os grupos Microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço.
 
-### <a name="user-administrator"></a>[Administrador do Utilizador](#user-administrator-permissions)
+### <a name="user-administrator"></a>[Administrador de Utilizadores](#user-administrator-permissions)
 
 Os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos dos utilizadores com algumas restrições (ver tabela) e podem atualizar as políticas de validade da palavra-passe. Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função inclui também a capacidade de criar e gerir as vistas dos utilizadores, gerir bilhetes de apoio e monitorizar a saúde do serviço. Os administradores do utilizador não têm permissão para gerir algumas propriedades do utilizador para os utilizadores na maioria das funções de administrador. O utilizador com esta função não tem permissões para gerir o MFA. As funções que são exceções a esta restrição estão listadas no quadro seguinte.
 
@@ -497,7 +497,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 | --- | --- |
 |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir bilhetes de apoio ao Escritório<p>Atualizar as políticas de expiração da palavra-passe|
 | <p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades do utilizador, exceto o nome principal do utilizador</p>
-| Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Administrador de password<li>Leitor de Relatórios<li>Administrador do Utilizador|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
+| Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Administrador de password<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar palavras-passe para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -1216,9 +1216,6 @@ Ativar, configurar, configurar, gerir, monitorizar e resolver problemas serviço
 | microsoft.directy/cloudProvisioning/allProperties/allTasks | Leia e configuure todas as propriedades do serviço Azure AD Cloud Provisioning. |
 | microsoft.diretório/federatedAuthentication/allProperties/allTasks | Gerir todos os aspetos dos Serviços Federados de Diretório Ativo (ADFS) ou do provedor da 3ª federação partidária em Azure AD. |
 | microsoft.diretório/organização/dirSync/update | Atualizar propriedade da organização.dirSync em Azure Ative Directory. |
-| microsoft.diretório/passwordHashSync/allProperties/allTasks | Gerir todos os aspetos do Password Hash Sync (PHS) em Azure AD. |
-| microsoft.diretório/passThroughAuthentication/allProperties/allTasks | Gerir todos os aspetos da Autenticação Pass-through (PTA) em Azure AD. |
-| microsoft.diretório/seamlessSSO/allProperties/allTasks | Gerencie todos os aspetos do sign-on único sem costura (SSO) em Azure AD. |
 | microsoft.diretório/serviçoPrincipals/audience/update | Serviço de actualizaçãoPrincipals.propriedade do público em Azure Ative Directory. |
 | microsoft.diretório/serviçoPrincipals/autenticação/atualização | Serviço de actualizaçãoPrincipals.authentication property in Azure Ative Directory. |
 | microsoft.diretório/serviçoPrincipals/básico/atualização | Atualizar propriedades básicas em serviçoPrincipals em Azure Ative Directy. |
