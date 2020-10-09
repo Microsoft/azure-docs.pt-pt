@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f75731fab9a238ffcac2e620235c9d8c5da97549
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053495"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840205"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configurar respostas automáticas de ameaças em Azure Sentinel
 
@@ -72,7 +72,7 @@ Siga estes passos para criar um novo livro de segurança em Azure Sentinel:
 
 5. No [**Logic App Designer,**](../logic-apps/logic-apps-overview.md)selecione o modelo que pretende utilizar. Se selecionar um modelo que exija credenciais, terá de as fornecer. Em alternativa, pode criar um novo livro em branco do zero. Selecione **Blank Logic App**. 
 
-   ![Estruturador da Aplicação Lógica](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Screenshot que mostra o painel da App Blank Logic.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. Você é levado para o Logic App Designer onde você pode construir novo ou editar o modelo. Para mais informações sobre a criação de um livro de jogadas com [aplicações lógicas.](../logic-apps/logic-apps-create-logic-apps-from-templates.md)
 

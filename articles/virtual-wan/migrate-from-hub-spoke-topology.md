@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777195"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839644"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para a WAN Virtual do Azure
 
@@ -110,10 +110,6 @@ Implemente um hub WAN virtual em cada região. Configurar o hub VIRTUAL WAN com 
 
 Ligue o hub VIRTUAL WAN aos circuitos ExpressRoute existentes e instale VPNs site-to-site através da Internet a quaisquer ramos remotos.
 
-> [!NOTE]
-> Os circuitos de rotas expressas devem ser atualizados para o tipo Premium SKU para se ligarem ao hub WAN virtual.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="hub e falou":::
 **Figura 3: Hub gerido pelo cliente e falado para a migração VIRTUAL WAN**
 
@@ -190,7 +186,7 @@ O caminho 2 mostra o fluxo de tráfego do ExpressRoute ligado ao QG europeu liga
 
 O tráfego é encaminhado da seguinte forma:
 
-* O QG europeu está conectado através do circuito ExpressRoute premium no centro virtual WAN da Europa Ocidental.
+* O QG europeu está conectado através do circuito ExpressRoute no centro DE WAN virtual da Europa Ocidental.
 
 * A conectividade global do hub-to-hub virtual permite o trânsito de tráfego para vNet conectado em região remota.
 

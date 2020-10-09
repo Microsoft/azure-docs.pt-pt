@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974909"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839797"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
@@ -75,7 +75,7 @@ As seguintes medidas configuram a política de atribuição da inscrição de um
 
 4. Clique em **Guardar** para ativar a reprovisionamento do dispositivo com base nas suas alterações.
 
-    ![Política de atribuição de inscrições selecionada](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Screenshot que realça as alterações que fez e o botão Guardar.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 
@@ -90,7 +90,7 @@ A política de reprovisionamento de uma inscrição determina como a instância 
 Por exemplo, código de envio de pedidos de provisionamento de um dispositivo durante uma sequência de arranque, consulte [o provisionamento automático de um dispositivo simulado](quick-create-simulated-device.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 - Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 

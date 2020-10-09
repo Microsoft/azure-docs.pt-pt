@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a64ad1ddb955ccebdcddca996959f1bb5f932b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257419"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840965"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leia os dados das tabelas Azure Cosmos DB Cassandra API usando Spark
 
@@ -86,17 +86,10 @@ readBooksDF.show
 Você pode empurrar predicados para baixo para a base de dados para permitir consultas de faíscas melhor otimizadas. Um predicado é uma condição para uma consulta que devolve verdadeiro ou falso, tipicamente localizado na cláusula WHERE. Um pré-empurrão filtra os dados na consulta da base de dados, reduzindo o número de entradas obtidas na base de dados e melhorando o desempenho da consulta. Por predefinição, a API do Conjunto de Dados de Faíscas irá automaticamente empurrar para baixo cláusulas WHERE válidas para a base de dados. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain
@@ -140,12 +133,12 @@ spark
 select * from books_vw where book_pub_year > 1891
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Seguem-se artigos adicionais sobre o trabalho com a Azure Cosmos DB Cassandra API da Spark:
  
  * [Operações de upsert](cassandra-spark-upsert-ops.md)
- * [Eliminar operações](cassandra-spark-delete-ops.md)
+ * [Operações de eliminação](cassandra-spark-delete-ops.md)
  * [Operações de agregação](cassandra-spark-aggregation-ops.md)
  * [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)
 

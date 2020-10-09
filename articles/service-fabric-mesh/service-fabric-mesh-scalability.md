@@ -1,16 +1,16 @@
 ---
 title: Escalabilidade das aplicações de malha de tecido de serviço Azure
 description: Uma das vantagens de implementar aplicações para a Rede de Tecidos de Serviço é a capacidade de escalar facilmente os seus serviços, manualmente ou com políticas de autoscaling.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67b4b27a5d1faab3e6c156704d67a30b220ac54c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712246"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840188"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Aplicações de malha de tecido de serviço de escala
 
@@ -33,6 +33,6 @@ Uma política de escala automática é definida por serviço no ficheiro de recu
 
 Para aprender a definir uma política de autoescala para o seu serviço, leia [os serviços de autoescala](service-fabric-mesh-howto-auto-scale-services.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre o modelo de aplicação, consulte [os recursos do Service Fabric](service-fabric-mesh-service-fabric-resources.md)

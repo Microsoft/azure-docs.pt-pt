@@ -1,19 +1,19 @@
 ---
 title: Operações DDL em Azure Cosmos DB Cassandra API da Spark
 description: Este artigo detalha as operações de keyspace e tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 09/24/2018
-ms.openlocfilehash: 30cac5894998ca2bb9c37217820e1000ed97ba5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: 589114fa004c8b4479e1a14c5a99161dd972c5bf
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260570"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841106"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações DDL em Azure Cosmos DB Cassandra API da Spark
 
@@ -92,8 +92,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>Criar uma tabela
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>Validar em cqlsh
@@ -136,13 +135,13 @@ USE books_ks;
 DESCRIBE tables;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar o espaço-chave e a tabela, proceda aos seguintes artigos para operações CRUD e muito mais:
  
 * [Criar/inserir operações](cassandra-spark-create-ops.md)  
-* [Ler operações](cassandra-spark-read-ops.md)  
+* [Operações de leitura](cassandra-spark-read-ops.md)  
 * [Operações de upsert](cassandra-spark-upsert-ops.md)  
-* [Eliminar operações](cassandra-spark-delete-ops.md)  
+* [Operações de eliminação](cassandra-spark-delete-ops.md)  
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)  
 * [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)  

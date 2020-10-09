@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: be3cf7d946e7502147942fa8954ade70dd47bedf
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795784"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839933"
 ---
 # <a name="configure-database-settings"></a>Configurar definições de base de dados 
 
@@ -38,7 +38,12 @@ Se o rendimento da base de dados for superior a 10.000 RU/s ou se os dados armaz
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a atualizar as suas RUs para Azure API para FHIR. Em seguida, implementar uma Azure API totalmente gerida para FHIR:
+Neste artigo, aprendeu a atualizar as suas RUs para Azure API para FHIR. Para saber sobre a configuração das chaves geridas pelo cliente como uma definição de base de dados:
+
+>[!div class="nextstepaction"]
+>[Configurar chaves geridas pelo cliente](bring-your-own-key.md)
+
+Ou pode implementar uma API Azure totalmente gerida para fHIR:
  
 >[!div class="nextstepaction"]
 >[Implementar o Azure API for FHIR](fhir-paas-portal-quickstart.md)

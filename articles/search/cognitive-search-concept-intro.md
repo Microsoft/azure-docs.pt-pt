@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363142"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828098"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -51,7 +51,7 @@ Um [skillset](cognitive-search-defining-skillset.md) que é montado usando habil
 
 + Documentos não estruturados ou semi-estruturados que contenham conteúdo que tenha significado ou contexto inerente que esteja escondido no documento maior. 
 
-  As bolhas, em particular, contêm frequentemente um grande corpo de conteúdo que é embalado num "campo" único. Ao anexar habilidades de processamento de imagem e linguagem natural a um indexante, pode criar novas informações que estão existentes no conteúdo bruto, mas que não surgiram de outra forma como campos distintos. Algumas habilidades cognitivas incorporadas prontas a usar que podem ajudar: extração de frases-chave, análise de sentimentos e reconhecimento de entidades (pessoas, organizações e locais).
+  As bolhas, em particular, contêm frequentemente um grande corpo de conteúdo que é embalado num único "campo". Ao anexar habilidades de processamento de imagem e linguagem natural a um indexante, pode criar novas informações que estão existentes no conteúdo bruto, mas que não surgiram de outra forma como campos distintos. Algumas habilidades cognitivas incorporadas prontas a usar que podem ajudar: extração de frases-chave, análise de sentimentos e reconhecimento de entidades (pessoas, organizações e locais).
 
   Além disso, as competências incorporadas também podem ser usadas para reestruturar o conteúdo através de operações de divisão de texto, fusão e forma.
 

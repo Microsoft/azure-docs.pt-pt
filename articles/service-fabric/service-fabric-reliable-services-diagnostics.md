@@ -1,16 +1,14 @@
 ---
 title: Diagnósticos de serviços fiáveis de tecido de serviços azures
 description: Funcionalidade de diagnóstico para serviços fiáveis stateful em tecido de serviço Azure
-author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
-ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253121"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840766"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
 A classe StatefulServiceBase, da Azure Service Stateful, emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de funcionamento está a funcionar e ajudar na resolução de problemas.
@@ -21,7 +19,7 @@ O nome EventSource para a classe Stateful Reliable Services StatefulServiceBase 
 Exemplos de ferramentas e tecnologias que ajudam na recolha e/ou visualização de eventos EventSource são [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)e Microsoft [TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventos
-| Nome do evento | ID do Evento | Level | Descrição do evento |
+| Nome do evento | ID do Evento | Nível | Descrição do evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emitida quando a tarefa runAsync de serviço é iniciada |
 | StatefulRunAsyncCancellation |2 |Informativo |Emitida quando a tarefa runAsync de serviço é cancelada |
@@ -89,7 +87,7 @@ O nome do seguinte contraexemplo é típico de um contador na `Service Fabric TS
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cadeia do ID de partição de tecido de serviço, `131652217797162571` é o ID de réplica, `142652217797162571` é o ID do provedor do estado, e `1337` é o diferenciador de contraexemplo de desempenho. `urn:MyReliableDictionary/dataStore`é o nome do fornecedor estatal que armazena dados para a recolha denominada `urn:MyReliableDictionary` .
+No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cadeia do ID de partição de tecido de serviço, `131652217797162571` é o ID de réplica, `142652217797162571` é o ID do provedor do estado, e `1337` é o diferenciador de contraexemplo de desempenho. `urn:MyReliableDictionary/dataStore` é o nome do fornecedor estatal que armazena dados para a recolha denominada `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Contadores de desempenho do Replicador transacional
 

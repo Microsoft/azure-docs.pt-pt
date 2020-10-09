@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618646"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840494"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Há alguns casos em que a cópia a granel é preferida sobre parâmetros valorizados pela tabela. Consulte a tabela de comparação dos parâmetros valorizados do quadro contra as operações de INSERÇÃO A GRANEL no artigo [Parâmetros valorizados por quadro](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
+Há alguns casos em que a cópia a granel é preferida sobre parâmetros valorizados pela tabela. Consulte a tabela de comparação dos parâmetros Table-Valued versus OPERAções DE INSERÇÃO A GRANEL no artigo [Parâmetros valorizados por quadro](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
 
 Os seguintes resultados dos testes ad hoc mostram o desempenho do lote com **SqlBulkCopy** em milissegundos.
 
@@ -291,9 +291,9 @@ Esta abordagem pode ser ligeiramente mais rápida para lotes com menos de 100 li
 
 A classe **DataAdapter** permite modificar um objeto **DataSet** e, em seguida, submeter as alterações como operações INSERT, UPDATE e DELETE. Se estiver a utilizar o **DataAdapter** desta forma, é importante notar que são feitas chamadas separadas para cada operação distinta. Para melhorar o desempenho, utilize a propriedade **UpdateBatchSize** para o número de operações que devem ser lotadas de cada vez. Para obter mais informações, consulte [a realização de operações de lote utilizando dataAdapters](/dotnet/framework/data/adonet/performing-batch-operations-using-dataadapters).
 
-### <a name="entity-framework"></a>Quadro de entidade
+### <a name="entity-framework"></a>Entity Framework
 
-[O Quadro 6 da Entidade](https://github.com/dotnet/ef6) suporta agora o loteamento.
+[O Núcleo-Quadro da Entidade](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) suporta o loteamento.
 
 ### <a name="xml"></a>XML
 

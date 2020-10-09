@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825316"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839695"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a geo-replicação para Azure Cache para Redis
 
@@ -73,7 +73,7 @@ Após a configuração da geo-replicação, aplicam-se as seguintes restrições
 
     Também pode ver o estado de ligação na lâmina **de visão geral** para as caches primária e secundária.
 
-    ![Estado da cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Screenshot que realça como ver o estado de ligação para as caches primárias e secundárias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Uma vez concluído o processo de replicação, **o estado de Ligação** muda para **Sucesso**.
 

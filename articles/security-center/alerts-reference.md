@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 257c6f30709448da2f6067cec226bc810d0ffe53
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 943aedb34cef8e7db73877c926da81887ca01df2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826158"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839504"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -112,7 +112,6 @@ Na parte inferior desta página, há uma tabela descrevendo a cadeia de morte do
 |**Nome suspeito do processo detetado [visto várias vezes]**|A análise dos dados do anfitrião em %{Host Comprometido} detetou um processo cujo nome é suspeito, por exemplo correspondendo a uma ferramenta de intruso conhecida ou nomeado de uma forma sugestiva de ferramentas atacantes que tentam esconder-se à vista de todos. Este processo pode ser uma atividade legítima, ou uma indicação de que uma das suas máquinas foi comprometida. Este comportamento foi visto [x] vezes hoje nas seguintes máquinas: [Nomes de máquinas]|-|Médio|
 |**Nome suspeito do processo detetado**|A análise dos dados do anfitrião em %{Host Comprometido} detetou um processo cujo nome é suspeito, por exemplo correspondendo a uma ferramenta de intruso conhecida ou nomeado de uma forma sugestiva de ferramentas atacantes que tentam esconder-se à vista de todos. Este processo pode ser uma atividade legítima, ou uma indicação de que uma das suas máquinas foi comprometida.|-|Médio|
 |**Explosão de rescisão de processo suspeito**|A análise dos dados do anfitrião indica uma explosão de processo suspeito em %{Nome da Máquina}. Especificamente, os processos %{NumberOfCommands} foram eliminados entre %{Begin} e %{Ending}.|-|Baixo|
-|**Execução de ficheiros de sistema suspeito**|A análise dos dados do anfitrião detetou um ficheiro executável em %{Host comprometido} que está a funcionar a partir de uma localização invulgar. Este executável pode ser uma atividade legítima, ou uma indicação de um hospedeiro comprometido.|-|Alto|
 |**Processo de sistema suspeito executado**|O processo do sistema %{nome do processo} foi observado em execução num contexto anormal. Malware usa frequentemente este nome de processo para mascarar a sua atividade maliciosa.|-|Alto|
 |**Processo com nome suspeito detetado**|A análise dos dados do anfitrião em %{Host comprometido} detetou um processo cujo nome é muito semelhante, mas diferente de um processo muito comummente executado (%{Similar To Process Name}). Embora este processo possa ser um agressor benigno, por vezes são conhecidos por se esconderem à vista de todos, nomeando as suas ferramentas maliciosas para se assemelharem a nomes legítimos do processo.|-|Médio|
 |**Execução de processo incomum detetada**|A análise dos dados do anfitrião em %{Host comprometido} detetou a execução de um processo por %{User Name} que não era habitual. Contas como %{User Name} tendem a executar um conjunto limitado de operações, esta execução foi determinada como fora de carácter e pode ser suspeita.|-|Alto|

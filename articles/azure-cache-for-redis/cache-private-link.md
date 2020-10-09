@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 4ab754cacc85bc9e7c7b850270df37290ad399b6
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650166"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838658"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
@@ -22,9 +22,8 @@ Azure Private Endpoint é uma interface de rede que o liga de forma privada e se
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Esta funcionalidade encontra-se atualmente em pré-visualização pública para regiões limitadas. Se não tiver a opção de criar um ponto final privado, [contacte-nos](mailto:azurecache@microsoft.com). Para usar pontos finais privados, o seu Azure Cache para a instância Redis precisa de ter sido criado após 28 de julho de 2020.
+> Para usar pontos finais privados, o seu Azure Cache para a instância Redis precisa de ter sido criado após 28 de julho de 2020.
 >
-> Regiões com acesso público de pré-visualização atualmente: West Central EUA, North Central EUA, West US, West US 2, East US, East US 2, Central EUA, South Central US, Noruega West, Europe North, Europe West, Asia East, Ásia Sudeste, Japão Leste, Japão Oeste, Suíça Norte, Suíça Oeste, Índia Central, Índia Ocidental, Uae Central, Coreia Do Sul, Reino Unido , África do Sul Norte, França Sul, França Central, Canadá Leste, Canadá Central, Alemanha Norte, Alemanha Central Ocidental, Austrália Central, Índia Ocidental, Índia Sul, Austrália Leste, Brasil Sul, Brasil Sul, Brasil Sul e Brasil Sul.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Crie um ponto final privado com um novo Azure Cache para a instância Redis 

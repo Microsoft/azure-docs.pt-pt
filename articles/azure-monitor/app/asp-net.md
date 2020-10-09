@@ -4,12 +4,12 @@ description: Configure as ferramentas de análise de desempenho, disponibilidade
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616759"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838947"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configure insights de aplicações para o seu site ASP.NET
 
@@ -349,6 +349,12 @@ Para adicionar a monitorização do lado do cliente, abra o `_Layout.cshtml` fic
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Existe um problema conhecido na versão atual do Visual Studio 2019 que, ao armazenar a chave de instrumentação num User Secret é quebrado para aplicações baseadas em .NET Framework e a chave tem de ser codificada no ficheiro applicationinsights.config para contornar este bug. Este artigo foi concebido para evitar totalmente este problema, não utilizando segredos de utilizador.  
+
+## <a name="open-source-sdk"></a>SDK de código aberto
+
+* [Leia e contribua para o código.](https://github.com/microsoft/ApplicationInsights-dotnet)
+
+Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./release-notes.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

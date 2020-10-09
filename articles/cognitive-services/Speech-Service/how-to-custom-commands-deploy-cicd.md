@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: f4dde6831902c0d15d5f985208e382963125d200
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307725"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839253"
 ---
-# <a name="continuous-deployment-with-azure-devops"></a>Implementação contínua com DevOps Azure
+# <a name="continuous-deployment-with-azure-devops"></a>Implementação Contínua com o Azure DevOps
 
 Neste artigo, aprende a configurar a implementação contínua para as suas aplicações de Comandos Personalizados. Os scripts para suportar o fluxo de trabalho ci/CD são fornecidos a si.
 
@@ -72,7 +72,7 @@ Os scripts são hospedados no [Cognitive Services Voice Assistant - Comandos Per
 1. Note que estes scripts assumem que você está usando a região `westus2` , se não for esse o caso atualizar os argumentos das tarefas em conformidade
 
     > [!div class="mx-imgBorder"]
-    > ![Enviar carga útil da atividade](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![Screenshot que destaca o valor da região nos argumentos.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. No botão "Guardar e executar", abra o dropdown e clique em "Guardar"
 
@@ -83,7 +83,7 @@ Os scripts são hospedados no [Cognitive Services Voice Assistant - Comandos Per
 1. No canto superior direito ao lado do botão "Executar", selecione **Variáveis**. Clique **em Nova variável**.
 1. Adicione estas variáveis:
     
-    | Variável | Description |
+    | Variável | Descrição |
     | ------- | --------------- | ----------- |
     | FonteAppId | ID da aplicação DEV |
     | TargetAppId | ID da aplicação PROD |
@@ -110,9 +110,9 @@ Os scripts são hospedados no [Cognitive Services Voice Assistant - Comandos Per
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
-    | Argumentos | Description |
+    | Argumentos | Descrição |
     | ------- | --------------- | ----------- |
-    | . | região da aplicação, ou seja, westus2. |
+    | region | região da aplicação, ou seja, westus2. |
     | subscrição | chave de subscrição do seu recurso de fala. |
     | appid | o ID de aplicação dos Comandos Personalizados que pretende exportar. |
 
@@ -159,7 +159,7 @@ Os scripts são hospedados no [Cognitive Services Voice Assistant - Comandos Per
 1. No canto superior direito ao lado do botão "Executar", selecione **Variáveis**. Clique **em Nova variável**.
 1. Adicione estas variáveis:
 
-    | Variável | Description |
+    | Variável | Descrição |
     | ------- | --------------- | ----------- |
     | TargetAppId | ID da aplicação PROD |
     | AssinaturaKey | Chave de subscrição utilizada para ambas as aplicações |

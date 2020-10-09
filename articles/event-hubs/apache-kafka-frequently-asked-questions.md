@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs para Apache Kafka
 description: Este artigo responde a perguntas frequentes sobre o apoio da Azure Event Hubs aos clientes Apache Kafka não cobertos em outros lugares.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1ca54bf314d795b88b727ddb648f3e1e74133fd3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: dc6a12b2098a1fdf33adda92b4347f91ab4e5489
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061466"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828107"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Perguntas frequentes - Centros de Eventos para Apache Kafka 
 Este artigo fornece respostas a algumas das perguntas frequentes sobre migração para Centros de Eventos para Apache Kafka.
@@ -35,7 +35,7 @@ Qual é a diferença entre um grupo de consumidores event hub e um grupo de cons
 - São totalmente distintos dos grupos de consumidores Event Hubs. Não **don't** precisa de usar o "$Default", nem precisa de se preocupar com os clientes da Kafka que interferem com as cargas de trabalho da AMQP.
 - Não são vistos no portal Azure. A informação do grupo de consumidores é acessível através de APIs kafka.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de desenvolvedores apache Kafka para centros de eventos](apache-kafka-developer-guide.md)

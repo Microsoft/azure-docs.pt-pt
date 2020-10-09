@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460174"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840256"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
 Este tópico descreve as configurações disponíveis para o seu Azure Cache para instâncias Redis. Este tópico também cobre a configuração padrão do servidor Redis para Azure Cache para instâncias Redis.
@@ -169,11 +169,11 @@ Para mais informações, consulte [as notificações do Espaço-Chave Redis.](ht
 ## <a name="azure-cache-for-redis-advisor"></a>Cache Azure para Redis Advisor
 A **cache Azure para a** lâmina Redis Advisor apresenta recomendações para o seu cache. Durante as operações normais, não são apresentadas recomendações.
 
-![Recomendações](./media/cache-configure/redis-cache-no-recommendations.png)
+![Screenshot que mostra onde as recomendações são apresentadas.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se ocorrerem condições durante as operações do seu cache, tais como utilização de alta memória, largura de banda de rede ou carga do servidor, é apresentado um alerta na **Cache Azure para** a lâmina Redis.
 
-![Recomendações](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Screenshot que mostra onde os alertas são apresentados na cache Azure para a secção Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Mais informações podem ser encontradas na lâmina **de recomendações.**
 
@@ -314,7 +314,7 @@ A lâmina **Reboot** permite-lhe reiniciar os nós da sua cache. Esta capacidade
 
 Se tiver uma cache premium com clustering ativado, pode selecionar quais os fragmentos da cache para reiniciar.
 
-![Reiniciar](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Screenshot que mostra onde selecionar quais os fragmentos da cache para reiniciar.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Para reiniciar um ou mais nós da sua cache, selecione os nós desejados e clique em **Reboot**. Se tiver uma cache premium com clustering ativado, selecione o fragmento para reiniciar e, em seguida, clique em **Reboot**. Após alguns minutos, o (s) nó(s) selecionado reinicia e volta a estar on-line alguns minutos depois.
 
@@ -474,11 +474,11 @@ Pode emitir comandos de forma segura para o seu Azure Cache para instâncias Red
 
 Para aceder à Consola Redis, clique em **Consola** a partir da **Cache Azure para lâmina Redis.**
 
-![Consola Redis](./media/cache-configure/redis-console-menu.png)
+![Screenshot que realça o botão Consola.](./media/cache-configure/redis-console-menu.png)
 
 Para emitir comandos contra a sua instância de cache, digite o comando desejado na consola.
 
-![Consola Redis](./media/cache-configure/redis-console.png)
+![O screenshot thas mostra a Consola Redis com o comando de entrada e os resultados.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Utilização da Consola Redis com uma cache agrupada premium
@@ -504,5 +504,5 @@ Pode mover o seu cache para uma nova subscrição clicando em **Move**.
 
 Para obter informações sobre a deslocação de recursos de um grupo de recursos para outro, e de uma subscrição para outra, consulte [mover recursos para novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para mais informações sobre trabalhar com os comandos redis, veja [como posso comandar redis?](cache-development-faq.md#how-can-i-run-redis-commands)

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586720"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841038"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quais as novidades no Azure Load Balancer?
 
@@ -29,6 +29,7 @@ Também pode encontrar as últimas atualizações do Azure Load Balancer e subsc
 
 | Tipo |Nome |Descrição  |Data adicionada  |
 | ------ |---------|---------|---------|
+| Funcionalidade | Apoio a movimentos através de grupos de recursos | Balanceador de Carga Padrão e suporte IP público padrão para [movimentos de grupo de recursos](https://azure.microsoft.com/updates/standard-resource-group-move/). | outubro de 2020 |
 | Funcionalidade | Suporte para gestão de pool de backend baseada em IP (Preview) | O Azure Load Balancer suporta a adição e remoção de recursos de um pool de backend através de endereços IPv4 ou IPv6. Isto permite uma gestão fácil de contentores, máquinas virtuais e conjuntos de balanças de máquinas virtuais associados ao Balancer de Carga. Também permitirá que os endereços IP sejam reservados como parte de um pool de backend antes da criação dos recursos associados. Saiba mais [aqui](backend-pool-management.md)|Julho de 2020 |
 | Funcionalidade| Insights do balanceador de carga Azure usando monitor Azure | Construído como parte do Azure Monitor for Networks, os clientes passam a ter mapas topológicos para todas as suas configurações de Balancer de Carga e dashboards de saúde para os seus Balanceadores de Carga Padrão pré-configurados com métricas no portal Azure. [Começar e aprender mais](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Junho de 2020 |
 | Validação | Adição de validação para portas HA | Foi adicionada uma validação para garantir que as regras portuárias ha e as regras portuárias não HA só são configuráveis quando o IP flutuante está ativado. Anteriormente, esta configuração passaria, mas não funcionaria como pretendido. Não foi feita qualquer alteração à funcionalidade. Pode aprender mais [aqui](load-balancer-ha-ports-overview.md#limitations)| Junho de 2020 |

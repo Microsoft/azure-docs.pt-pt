@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 617608f382d3331e59ae92c9eb272347c736b768
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298604"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828817"
 ---
 As funções permitem-lhe utilizar as teclas para dificultar o acesso aos pontos finais da função HTTP durante o desenvolvimento. A menos que o nível de acesso HTTP numa função httpizada esteja definido `anonymous` para, os pedidos devem incluir uma chave de acesso API no pedido. 
 
-Embora as teclas forneçam um mecanismo de segurança predefinido, pode considerar opções adicionais para garantir um ponto final HTTP na produção. Por exemplo, geralmente não é uma boa prática distribuir segredo partilhado em aplicações públicas. Se a sua função está a ser chamada de um cliente público, talvez deva considerar a implementação de outro mecanismo de secridade. Para saber mais, consulte [Secure a HTTP endpoint na produção.](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production)
+Embora as teclas forneçam um mecanismo de segurança predefinido, pode considerar opções adicionais para garantir um ponto final HTTP na produção. Por exemplo, geralmente não é uma boa prática distribuir segredo partilhado em aplicações públicas. Se a sua função estiver a ser chamada de um cliente público, talvez deva considerar a implementação de outro mecanismo de segurança. Para saber mais, consulte [Secure a HTTP endpoint na produção.](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production)
 
 Ao renovar os valores-chave da sua função, deve redistribuir manualmente os valores-chave atualizados para todos os clientes que liguem para a sua função.  
 

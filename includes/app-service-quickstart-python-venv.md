@@ -8,34 +8,34 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: kraigb
 ms.custom: include file
-ms.openlocfilehash: 99ad12696a6e5b06b8227d307e1d074364bf5ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7a37e52437b866b1159abc415af0e94da34d3c8
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91264559"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829177"
 ---
 # <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 

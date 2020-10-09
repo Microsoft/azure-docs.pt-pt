@@ -1,16 +1,14 @@
 ---
 title: Visão geral dos clusters de tecido de serviço autónomo
 description: Os clusters de tecido de serviço funcionam no Windows Server e linux, o que significa que poderá implementar e hospedar aplicações de Tecido de Serviço em qualquer lugar que possa executar o Windows Server ou o Linux.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080669"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841072"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral dos clusters autónomos de tecido de serviço
 
@@ -70,7 +68,7 @@ Para mais informações, leia [a atualização de agrupamentos autónomos.](serv
 * Windows Server 2016 
 * Windows Server 2019
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling-standalone.md)e [modernização de](service-fabric-cluster-upgrade-standalone.md) aglomerados autónomos.
 

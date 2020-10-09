@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318318"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839542"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -77,7 +77,7 @@ São utilizadas as versões e conceitos mais recentes da tecnologia. Recomenda-s
 
 Alguns desafios são apresentados na conceção do subsistema. Tem várias peças móveis, existem constrangimentos na aplicação do cliente, e a chave AD AD Azure que ocorre a cada seis semanas.
 
-A App de Página Única (SPA) utilizada neste tutorial tem em conta os desafios dos requisitos de autenticação e as restrições que se seguem. Utiliza:
+A App Single-Page (SPA) utilizada neste tutorial tem em conta os desafios dos requisitos de autenticação e as restrições que se seguem. Utiliza:
 
 * Os pontos finais AZURE AD v2 como plataforma de desenvolvimento AD AZure (v1 pontos finais) estão a mudar para a Microsoft Identity Platform (v2 pontos finais).
 * Fluxo de Código de Autorização porque o fluxo de subvenção implícito OAuth 2 foi depreciado.
@@ -129,11 +129,11 @@ O ecrã para o sign-in, aquisição simbólica, renovação simbólica e ecrã s
 
 O ecrã para analisar fichas JWT (access_token ou id_token):
 
-![tela para analisar tokens JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Screenshot que mostra a análise de fichas J W T.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 O ecrã para testar conteúdo protegido com diferentes combinações de DRM/AES vs Protocolos de Streaming vs Formato de Contentor:
 
-![tela para analisar tokens JWT](media/aad-ams-content-protection/testing-protected-content.png)
+![Screenshot que mostra o teste de conteúdo protegido com diferentes combinações de D R M ou A E S versus Protocolos de Streaming versus Formato de Contentor](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -161,7 +161,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **Manifesto** no menu. A vista manifesto aparecerá.
 1. Alterar o valor do `accessTokenAcceptedVersion` para *2* (sem cotações).
 1. Alterar o valor do `groupMembershipClaims` *"SecurityGroup"* (com cotações).
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 1. Selecione **Expor uma API** do menu. Aparecerá a vista De âmbito adicionar. (O Azure fornece um ID URI de aplicação, mas se quiser alterá-lo, pode editar no campo ID URI da aplicação.)
 1. Clique **em Guardar e continuar.** A vista vai mudar. Para cada uma das definições na coluna Definição na tabela abaixo, introduza o valor na coluna Valor e, em seguida, clique em **Adicionar âmbito**.
 
@@ -209,7 +209,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
     > [!NOTE]
     > Neste momento, ainda não tem o URL para a sua aplicação de jogador.  Se estiver a executar a aplicação a partir do seu webserver local, pode usar apenas o par de valor local. Assim que implementar a aplicação do jogador, pode adicionar a entrada aqui com o URL implantado.  Se se esquecer de o fazer, verá uma mensagem de erro no sinal AZure AD.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 1. Finalmente para verificar se a sua configuração está correta, selecione **Autenticação**.  Aparecerá a vista de autenticação. A sua aplicação ao cliente será listada como uma App de Página Única (SPA), o URI de redirecionamento será listado, e o tipo de subvenção será O Fluxo de Código de Autorização com PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Criar a política-chave de conteúdos de conta dos Media Services e as políticas de streaming
@@ -313,7 +313,7 @@ Se planeia utilizar outro IDE/web platform e/ou um webserver como o IIS em execu
 
 Agora que completou o tutorial e tem um subsistema de funcionamento, pode tentar modificá-lo para os seguintes cenários do cliente:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Controlo de Acesso Baseado em Função (RBAC) para entrega de licenças através da adesão ao grupo Azure AD
+### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) para entrega de licenças através da adesão ao grupo Azure AD
 
 Até ao momento, o sistema permite que qualquer utilizador que possa iniciar sôms para obter uma licença válida e reproduzir o conteúdo protegido.
 

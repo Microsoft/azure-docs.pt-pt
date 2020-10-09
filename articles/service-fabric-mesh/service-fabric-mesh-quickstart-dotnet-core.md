@@ -1,17 +1,17 @@
 ---
 title: Quickstart - Implementar uma aplicação web para a malha de tecido de serviço Azure
 description: Este quickstart mostra-lhe como criar um site ASP.NET Core e publicá-lo na Azure Service Fabric Mesh usando o Visual Studio.
-author: dkkapur
+author: georgewallace
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91653303"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840324"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guia de Início Rápido: criar e implementar uma aplicação Web no Azure Service Fabric Mesh
 
@@ -92,7 +92,7 @@ Abra um browser e navegue para o URL para ver o site em execução no Azure:
 
 ![Executar uma aplicação Web do Service Fabric Mesh](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, elimine todos os recursos que criou para este guia de início rápido. Uma vez que criou um novo grupo de recursos para alojar o ACR e os recursos do serviço Service Fabric Mesh, pode eliminar este grupo de recursos em segurança, o que constitui uma forma fácil de eliminar todos os recursos associados ao mesmo.
 

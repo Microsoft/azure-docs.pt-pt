@@ -1,16 +1,16 @@
 ---
 title: Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 description: Adicione suporte de orquestração de recipientes de malha de tecido de serviço a projetos de ASP.NET e consola que utilizam a estrutura completa .NET.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462044"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840069"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 
@@ -65,6 +65,6 @@ Assim que o suporte à orquestração de contentores for adicionado à sua aplic
 
 Pode agora publicar a aplicação para a Azure Service Fabric Mesh.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como publicar uma app para Service Fabric Mesh: [Tutorial- Implementar uma aplicação de malha de tecido de serviço](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

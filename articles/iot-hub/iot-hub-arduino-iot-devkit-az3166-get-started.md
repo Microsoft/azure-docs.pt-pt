@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c057944e2c6c511eee20007cc01e2222b38cce1b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319223"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839559"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligue ioT DevKit AZ3166 a Azure IoT Hub
 
@@ -27,7 +27,7 @@ Pode utilizar o [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 ## <a name="what-you-learn"></a>O que irá aprender
 
 * Como criar um hub IoT e registar um dispositivo para o MXChip IoT DevKit.
-* Como ligar o IoT DevKit ao Wi-Fi e configurar a cadeia de ligação IoT Hub.
+* Como ligar o IoT DevKit à Wi-Fi e configurar a cadeia de ligação IoT Hub.
 * Como enviar os dados de telemetria do sensor DevKit para o seu hub IoT.
 * Como preparar o ambiente de desenvolvimento e desenvolver aplicações para o IoT DevKit.
 
@@ -66,7 +66,7 @@ Para ligar o DevKit ao seu computador, siga estes passos:
 
 O quickstart utiliza firmware DevKit pré-compilado para enviar a telemetria para o IoT Hub. Antes de executá-lo, cria um hub IoT e regista um dispositivo com o hub.
 
-### <a name="create-an-iot-hub"></a>Criar um hub IoT
+### <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -143,7 +143,7 @@ O DevKit liga-se a um ponto final específico do dispositivo no seu hub IoT e en
     ![Resultado da configuração](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
 
     > [!NOTE]
-    > Depois de configurado o Wi-Fi, as suas credenciais persistirão no dispositivo para essa ligação, mesmo que o dispositivo esteja desligado da tomada.
+    > Depois de configurar Wi-Fi, as suas credenciais persistirão no dispositivo para essa ligação, mesmo que o dispositivo esteja desligado da tomada.
 
 1. O IoT DevKit é reiniciado em alguns segundos. No ecrã DevKit, vê o endereço IP do DevKit seguindo os dados de telemetria, incluindo o valor da temperatura e da humidade com a contagem de mensagens enviada para o Azure IoT Hub.
 
@@ -166,7 +166,7 @@ Siga estes passos para preparar o ambiente de desenvolvimento para o DevKit:
 1. Instale [o Arduino IDE](https://www.arduino.cc/en/Main/Software). Fornece a ferramenta necessária para compilar e carregar o código Arduino.
     * **Windows**: Utilize a versão do Instalador do Windows. Não instale na App Store.
     * **macOS**: Arraste e deixe cair a **arduino.app** extraída na `/Applications` pasta.
-    * **Ubuntu**: Desaperte-o em pastas como`$HOME/Downloads/arduino-1.8.8`
+    * **Ubuntu**: Desaperte-o em pastas como `$HOME/Downloads/arduino-1.8.8`
 
 2. Instale [o Visual Studio Code](https://code.visualstudio.com/), um editor de código fonte de plataforma cruzada com poderoso intellisense, suporte de conclusão de código e depuramento, bem como extensões ricas, pode ser instalado a partir do mercado.
 
@@ -176,9 +176,9 @@ Siga estes passos para preparar o ambiente de desenvolvimento para o DevKit:
 
 4. Procure [ferramentas Azure IoT](https://aka.ms/azure-iot-tools) no mercado de extensões e instale-as.
 
-    ![Instalar ferramentas Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Screenshot que mostra Azure IoT Tools no mercado de extensão.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Ou copiar e colar este URL numa janela do navegador:`vscode:extension/vsciot-vscode.azure-iot-tools`
+    Ou copiar e colar este URL numa janela do navegador: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > O pacote de extensão Azure IoT Tools contém a bancada [de trabalho do dispositivo Azure IoT](https://aka.ms/iot-workbench) que é usada para desenvolver e depurar vários dispositivos de devkit IoT. A [extensão Hub IoT do Azure](https://aka.ms/iot-toolkit), também incluída no pacote de extensões Azure IoT Tools, é utilizada para gerir e interagir com os Hubs IoT do Azure.
@@ -218,7 +218,7 @@ Siga estes passos para preparar o ambiente de desenvolvimento para o DevKit:
 
     ![Instalar o DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
 
-### <a name="install-st-link-drivers"></a>Instalar controladores ST-Link
+### <a name="install-st-link-drivers"></a>Instalar controladores de ST-Link
 
 [ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que o IoT DevKit utiliza para comunicar com a sua máquina de desenvolvimento. Tem de instalá-la no Windows para instalar a imagem do código do dispositivo compilado no DevKit. Sia os passos específicos do SO para permitir o acesso do computador ao seu dispositivo.
 
@@ -362,7 +362,7 @@ Pode utilizar [ferramentas Azure IoT](https://marketplace.visualstudio.com/items
 
 1. No **painel OUTPUT,** pode ver as mensagens D2C recebidas no IoT Hub.
 
-    ![Mensagem D2C](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Screenshot que mostra as mensagens D2C recebidas para o IoT Hub.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Rever o código
 

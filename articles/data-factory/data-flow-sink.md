@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: b92b6930193b77d0fb50ad707001a6fca0401970
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 06d70012756694dca1fad8fa90db0293bb106bf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404770"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828142"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -56,7 +56,9 @@ O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-over
 
 ## <a name="sink-settings"></a>Configurações do lavatório
 
-Depois de ter adicionado uma pia, configuure-se através da **lingueta De Sumidouro.** Aqui pode escolher ou criar o conjunto de dados para o qual a pia escreve. Abaixo está um vídeo que explica uma série de diferentes opções de Sink para tipos de ficheiros delimitados por texto:
+Depois de ter adicionado uma pia, configuure-se através da **lingueta De Sumidouro.** Aqui pode escolher ou criar o conjunto de dados para o qual a pia escreve. Os valores de desenvolvimento dos parâmetros do conjunto de dados podem ser configurados nas [definições de Debug](concepts-data-flow-debug-mode.md) (requer que o modo Debug seja ligado).
+
+Abaixo está um vídeo que explica uma série de diferentes opções de Sink para tipos de ficheiros delimitados por texto:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 

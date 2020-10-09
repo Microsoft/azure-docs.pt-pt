@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327604"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838692"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com os gémeos do dispositivo (Java)
 
@@ -39,7 +39,7 @@ Neste tutorial, cria-se duas aplicações para consolas Java:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -380,7 +380,7 @@ Está agora pronto para executar as aplicações da consola.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![App de serviço Java IoT Hub para atualizar valores de marcação e executar consultas de dispositivos](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Screenshot que mostra a saída do comando para executar a aplicação de serviço de consulta de etiquetas adicionais.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Pode ver as etiquetas **da planta** e **da região** adicionadas ao dispositivo twin. A primeira consulta devolve o seu dispositivo, mas a segunda não.
 
@@ -390,7 +390,7 @@ Está agora pronto para executar as aplicações da consola.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![O cliente do dispositivo adiciona a propriedade reportada **conectividadeType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![O cliente do dispositivo adiciona a propriedade reportada do Tipo de Conectividade](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Numa solicitação de comando na pasta **de consulta de add-tags,** executar o seguinte comando para executar a aplicação de serviço **de consulta de add-tags** uma segunda vez:
 

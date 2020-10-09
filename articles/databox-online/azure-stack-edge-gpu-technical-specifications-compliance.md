@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899033"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839950"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack Edge Pro com GPU 
 
@@ -47,7 +47,7 @@ O dispositivo Azure Stack Edge Pro tem duas unidades de alimentação de 100-240
 | Potência máxima de saída    | 750 W                     |
 | Frequência               | 50/60 Hz                   |
 | Seleção de gama de tensão | Variação automática: 100-240 V AC |
-| Pluggável quente           | Yes                        |
+| Pluggável quente           | Sim                        |
 
 
 ## <a name="network-interface-specifications"></a>Especificações de interface de rede
@@ -67,7 +67,7 @@ Aqui estão os detalhes do cartão Mellanox:
 
 | Parâmetro           | Descrição                 |
 |-------------------------|----------------------------|
-| Modelação    | Cartão de interface de rede ConnectX®-4 Lx EN                      |
+| Modelo    | Cartão de interface de rede ConnectX®-4 Lx EN                      |
 | Descrição do modelo               | 25GbE de duas portas SFP28; PCIe3.0 x8; ROHS R6                    |
 | Número da peça do dispositivo (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
@@ -79,20 +79,20 @@ Para uma lista completa de cabos, interruptores e transmissores suportados para 
 
 ## <a name="storage-specifications"></a>Especificações de armazenamento
 
-Os dispositivos Azure Stack Edge Pro têm cinco SSDs NVMe DC P4610 de 2,5", cada um com uma capacidade de 1.6 TB. O boot drive é um SATA SSD de 240 GB. A capacidade total utilizável para o dispositivo é de aproximadamente 8.28 TB. A tabela que se segue indica a capacidade de armazenamento do dispositivo.
+Os dispositivos Azure Stack Edge Pro têm cinco SSDs NVMe DC P4610 de 2,5", cada um com uma capacidade de 1.6 TB. O boot drive é um SATA SSD de 240 GB. A capacidade total utilizável para o dispositivo é de aproximadamente 4.19 TB. A tabela que se segue indica a capacidade de armazenamento do dispositivo.
 
 |     Especificação                          |     Valor             |
 |--------------------------------------------|-----------------------|
-|    Boot SATA unidades de estado sólido (SSD)      |    1                  |
 |    Número de SSDs NVMe                     |    5                  |
-|    Capacidade SSD de arranque                       |    240 GB             |
 |    Capacidade SSD única NVMe                |    1.6 TB             |
-|    Capacidade total                          |    8.28 TB            |
-|    Capacidade total utilizável*                  |    ~ 7,95 TB          |
+|    Boot SATA unidades de estado sólido (SSD)      |    1                  |
+|    Capacidade SSD de arranque                       |    240 GB             |
+|    Capacidade total                          |    8.0 TB             |
+|    Capacidade total utilizável*                  |    ~ 4.19 TB          |
 |    Controlador SAS                          |    HBA330 12 Gbps     |
 
 
-**Algum espaço está reservado para uso interno.*
+**Após a resiliência da paridade e reservando espaço para uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

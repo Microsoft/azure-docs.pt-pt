@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498468"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840341"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Estas amostras aplicam-se a todas as APIs Azure Cosmos DB
 |---|---|
 | [Criar uma conta, base de dados e contentor Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB, base de dados e contentor Azure Cosmos para API Core (SQL). |
 | [Criar uma conta, base de dados e contentor Azure Cosmos com autoescala](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB, base de dados e contentor Azure Cosmos com escala automática para Core (SQL) API. |
-| [Alteração de produção](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s numa base de dados e num contentor.|
+| [Operações de produção](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migra entre a escala automática e a produção padrão numa base de dados e num recipiente.|
 | [Bloquear recursos da supressão](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos.|
 |||
 
@@ -50,7 +50,7 @@ Estas amostras aplicam-se a todas as APIs Azure Cosmos DB
 |---|---|
 | [Criar uma conta, base de dados e recolha Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB, base de dados e recolha da API da AZure Cosmos. |
 | [Criar uma conta Azure Cosmos, base de dados com autoescala e duas coleções com produção partilhada](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, base de dados com autoescala e duas coleções com produção partilhada para a MongoDB API. |
-| [Alteração de produção](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s numa base de dados e recolha.|
+| [Operações de produção](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migra entre a escala automática e a produção padrão numa base de dados e recolha.|
 | [Bloquear recursos da supressão](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos.|
 |||
 
@@ -60,7 +60,7 @@ Estas amostras aplicam-se a todas as APIs Azure Cosmos DB
 |---|---|
 | [Criar uma conta Azure Cosmos, espaço-chave e tabela](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, espaço-chave e tabela para a API de Cassandra. |
 | [Criar uma conta Azure Cosmos, espaço-chave e tabela com autoescala](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, espaço-chave e tabela com autoescala para a API de Cassandra. |
-| [Alteração de produção](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em um espaço e tabela de chaves.|
+| [Operações de produção](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migra entre a escala automática e a produção padrão num espaço-chave e numa tabela.|
 | [Bloquear recursos da supressão](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos.|
 |||
 
@@ -70,7 +70,7 @@ Estas amostras aplicam-se a todas as APIs Azure Cosmos DB
 |---|---|
 | [Criar uma conta, base de dados e gráfico Azure Cosmos](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, base de dados e gráfico para a API gremlin. |
 | [Criar uma conta, base de dados e gráfico Azure Cosmos com autoescala](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos, base de dados e gráfico com escala automática para a API de Gremlin. |
-| [Alteração de produção](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s numa base de dados e gráfico.|
+| [Operações de produção](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migra entre a escala automática e a produção padrão numa base de dados e gráfico.|
 | [Bloquear recursos da supressão](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos.|
 |||
 
@@ -80,6 +80,6 @@ Estas amostras aplicam-se a todas as APIs Azure Cosmos DB
 |---|---|
 | [Criar uma conta e tabela Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos e tabela para API de tabela. |
 | [Criar uma conta e tabela Azure Cosmos com autoescala](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta DB Azure Cosmos e tabela com autoescala para API de tabela. |
-| [Alteração de produção](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize RU/s em uma mesa.|
+| [Operações de produção](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migra entre a escala automática e a produção padrão numa tabela.|
 | [Bloquear recursos da supressão](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos.|
 |||

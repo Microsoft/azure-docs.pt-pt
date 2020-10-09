@@ -1,17 +1,17 @@
 ---
 title: Configurar um Gateway para pedidos de rota
 description: Saiba como configurar o gateway que trata do tráfego de entrada para as suas aplicações em execução na Rede de Tecido de Serviço.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461966"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839729"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso Gateway para encaminhar pedidos
 
@@ -26,11 +26,11 @@ Uma vez que o recurso Gateway serve de ponte entre a rede da sua aplicação e a
 ### <a name="gateway-resource-metadata"></a>Metadados de recursos gateway
 
 Um portal é declarado com os seguintes metadados:
-* `apiVersion`- tem de ser definido para "2018-09-01-pré-visualização" (ou mais tarde, no futuro)
-* `name`- um nome de corda para este portal
-* `type`- "Microsoft.ServiceFabricMesh/gateways"
-* `location`- deve ser configurado para a localização da sua app/rede; geralmente será uma referência ao parâmetro de localização na sua implantação
-* `dependsOn`- a rede para a qual esta porta de entrada servirá de ponto de entrada para
+* `apiVersion` - tem de ser definido para "2018-09-01-pré-visualização" (ou mais tarde, no futuro)
+* `name` - um nome de corda para este portal
+* `type` - "Microsoft.ServiceFabricMesh/gateways"
+* `location` - deve ser configurado para a localização da sua app/rede; geralmente será uma referência ao parâmetro de localização na sua implantação
+* `dependsOn` - a rede para a qual esta porta de entrada servirá de ponto de entrada para
 
 Aqui está o que parece num modelo de implementação do Azure Resource Manager (JSON): 
 
@@ -79,9 +79,9 @@ As regras de encaminhamento são especificadas por porta. Cada porta de entrada 
 #### <a name="tcp-routing-rules"></a>Regras de encaminhamento TCP 
 
 Uma regra de encaminhamento TCP consiste nas seguintes propriedades: 
-* `name`- referência à regra que pode ser qualquer cadeia à sua escolha 
-* `port`- porta para ouvir os pedidos de entrada 
-* `destination`- especificação de ponto final que `applicationName` `serviceName` inclua, `endpointName` e, para onde os pedidos devem ser encaminhados para
+* `name` - referência à regra que pode ser qualquer cadeia à sua escolha 
+* `port` - porta para ouvir os pedidos de entrada 
+* `destination` - especificação de ponto final que `applicationName` `serviceName` inclua, `endpointName` e, para onde os pedidos devem ser encaminhados para
 
 Aqui está uma regra de encaminhamento TCP exemplo:
 
@@ -106,16 +106,16 @@ Aqui está uma regra de encaminhamento TCP exemplo:
 #### <a name="http-routing-rules"></a>Regras de encaminhamento HTTP 
 
 Uma regra de encaminhamento HTTP consiste nas seguintes propriedades: 
-* `name`- referência à regra que pode ser qualquer cadeia à sua escolha 
-* `port`- porta para ouvir os pedidos de entrada 
-* `hosts`- um conjunto de políticas aplicáveis aos pedidos que chegam aos vários "anfitriões" do porto acima referido. Os anfitriões são o conjunto de aplicações e serviços que podem estar a ser geridos na rede e que podem servir pedidos de entrada, ou seja, uma aplicação web. As políticas de anfitrião são interpretadas por ordem, por isso deve criar os seguintes níveis de especificidade descendentes
-    * `name`- o nome DNS do anfitrião para o qual são especificadas as seguintes regras de encaminhamento. Usar "*" aqui criaria regras de encaminhamento para todos os anfitriões.
-    * `routes`- uma série de políticas para este hospedeiro específico
-        * `match`- especificação da estrutura de pedido de entrada para que esta regra se aplique, com base numa`path`
-            * `path`- contém um `value` (URI de entrada), `rewrite` (como pretende que o pedido seja reencaminhado), e um `type` (atualmente só pode ser "Prefix")
-            * `header`- é um conjunto opcional de valores de cabeçalhos que correspondem no cabeçalho do pedido que, se o pedido corresponder à especificação do caminho (acima).
+* `name` - referência à regra que pode ser qualquer cadeia à sua escolha 
+* `port` - porta para ouvir os pedidos de entrada 
+* `hosts` - um conjunto de políticas aplicáveis aos pedidos que chegam aos vários "anfitriões" do porto acima referido. Os anfitriões são o conjunto de aplicações e serviços que podem estar a ser geridos na rede e que podem servir pedidos de entrada, ou seja, uma aplicação web. As políticas de anfitrião são interpretadas por ordem, por isso deve criar os seguintes níveis de especificidade descendentes
+    * `name` - o nome DNS do anfitrião para o qual são especificadas as seguintes regras de encaminhamento. Usar "*" aqui criaria regras de encaminhamento para todos os anfitriões.
+    * `routes` - uma série de políticas para este hospedeiro específico
+        * `match` - especificação da estrutura de pedido de entrada para que esta regra se aplique, com base numa `path`
+            * `path` - contém um `value` (URI de entrada), `rewrite` (como pretende que o pedido seja reencaminhado), e um `type` (atualmente só pode ser "Prefix")
+            * `header` - é um conjunto opcional de valores de cabeçalhos que correspondem no cabeçalho do pedido que, se o pedido corresponder à especificação do caminho (acima).
               * cada entrada contém `name` (nome de cadeia do cabeçalho a combinar), `value` (valor de cadeia do cabeçalho no pedido) e um `type` (atualmente só pode ser "Exact")
-        * `destination`- se o pedido corresponder, será encaminhado para este destino, que é especificado através de `applicationName` um `serviceName` , e`endpointName`
+        * `destination` - se o pedido corresponder, será encaminhado para este destino, que é especificado através de `applicationName` um `serviceName` , e `endpointName`
 
 Aqui está um exemplo de regra de encaminhamento HTTP que se aplicaria a pedidos que chegam ao porto 80, a todos os anfitriões servidos por apps nesta rede. Se o URL de pedido tiver uma estrutura que corresponda à especificação do caminho, `<IPAddress>:80/pickme/<requestContent>` ou seja, então será direcionado para o `myListener` ponto final.  
 
@@ -222,5 +222,5 @@ Esta porta de entrada está configurada para uma aplicação Linux, "meshAppLinu
 * " \<IPAddress> :80/helloWorld/ \<request\> " resultaria num pedido dirigido ao "helloWorldListener" no helloWorldService. 
 * \<IPAddress>":80/contador/ \<request\> " resultaria num pedido dirigido ao "counterListener" no balcão. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Implementar a [amostra de Ingress](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) para ver gateways em ação

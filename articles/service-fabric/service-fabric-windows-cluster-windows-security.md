@@ -1,16 +1,14 @@
 ---
 title: Garantir um cluster em execução no Windows utilizando a segurança do Windows
 description: Aprenda a configurar a segurança nó-a-nó e a segurança entre cliente e nó num cluster autónomo em execução no Windows utilizando a segurança do Windows.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: dekapur
-ms.openlocfilehash: 360bba2ffc344175214c44e2c9c1d3c0859ac3e5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255970"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839486"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autónomo no Windows utilizando a segurança do Windows
 Para evitar o acesso não autorizado a um cluster de tecido de serviço, deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança nó-a-nó e o cliente-a-nó, utilizando a segurança do Windows no ficheiro *ONClusterConfig.JS.*  O processo corresponde ao passo de segurança de configuração de [Criar um cluster autónomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para obter mais informações sobre como o Service Fabric utiliza a segurança do Windows, consulte [os cenários de segurança do Cluster.](service-fabric-cluster-security.md)
@@ -21,7 +19,7 @@ Para evitar o acesso não autorizado a um cluster de tecido de serviço, deve pr
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configure a segurança do Windows utilizando o gMSA  
-A amostraClusterConfig.gMSA.Windows.MultiMachine.JSficheiro de configuração *ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows utilizando [a conta de serviço gerido do grupo (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
+A amostraClusterConfig.gMSA.Windows.MultiMachine.JSficheiro de configuração * ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows utilizando [a conta de serviço gerido do grupo (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
@@ -77,7 +75,7 @@ A secção de **segurança** que se segue configura a segurança do Windows util
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configure a segurança do Windows utilizando um grupo de máquinas  
-Este modelo está a ser depreciado. A recomendação é utilizar o gMSA como descrito acima. A amostraClusterConfig.Windows.MultiMachine.JSficheiro de configuração *ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows.  A segurança do Windows está configurada na secção **Propriedades:** 
+Este modelo está a ser depreciado. A recomendação é utilizar o gMSA como descrito acima. A amostraClusterConfig.Windows.MultiMachine.JSficheiro de configuração * ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows.  A segurança do Windows está configurada na secção **Propriedades:** 
 
 ```
 "security": {
@@ -134,7 +132,7 @@ A secção de **segurança** que se segue configura a segurança do Windows, esp
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de configurar a segurança do Windows no ficheiro *ONClusterConfig.JS,* retomar o processo de criação de clusters em [Criar um cluster autónomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md).
+Depois de configurar a segurança do Windows no ficheiro * ONClusterConfig.JS,* retomar o processo de criação de clusters em [Criar um cluster autónomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Para obter mais informações sobre como a segurança do nó-a-nó, a segurança do cliente-a-nó e o controlo de acesso baseado em funções, consulte [cenários](service-fabric-cluster-security.md)de segurança do Cluster .
 
