@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.author: jeedes
 ms.openlocfilehash: a9b7404ec4521b633bfc95f7251b2cb22f3cd2df
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bullseyetdp"></a>Tutorial: Azure Ative Directory integração única (SSO) com a BullseyeTDP
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BullseyeTDP espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---- | --------------- |
     | AccessToken | < AccessTokenValue > |
     | ApplicationKey | < Aplicação >|

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Tutorial: Integração do Diretório Ativo Azure com o Mind Tools Toolkit
@@ -81,16 +81,16 @@ Nesta secção, configurar o Azure AD com o Mind Tools Toolkit seguindo estes pa
 
     ![Selecione uma única caixa de diálogo de método de inscrição, com SAML realçado](common/select-saml-option.png)
 
-1. Na **configuração de um único sign-on com** a página SAML, selecione o ícone de lápis para **configuração SAML básica** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, selecione o ícone de lápis para **configuração SAML básica** para editar as definições.
 
-    ![Destaque para o set-on único com página SAML, com o ícone de lápis para configuração SAML Básica](common/edit-urls.png)
+    ![O set up Single Sign-On com página SAML, com o ícone de lápis para configuração básica SAML em destaque](common/edit-urls.png)
 
 1. Na secção **de Configuração Básica SAML,** na caixa **URL sign-on,** introduza um URL com o padrão `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>` .
 
     > [!NOTE]
     > O valor **do URL de inscrição** não é real. Atualize o valor com o URL de inscrição real. Contacte a equipa de suporte do [Cliente do Mind Tools Toolkit](mailto:support@goodpractice.com) para obter o valor.
 
-1. Na **configuração de 'Único Sessão' com** a página SAML, aceda à secção **de Certificado de Assinatura SAML.** À direita do **Metadados da Federação XML,** selecione **Descarregue** para descarregar o texto XML e guarde-o no seu computador. O conteúdo do XML depende das opções selecionadas.
+1. Na **configuração Single Sign-On com** a página SAML, aceda à secção **de Certificado de Assinatura SAML.** À direita do **Metadados da Federação XML,** selecione **Descarregue** para descarregar o texto XML e guarde-o no seu computador. O conteúdo do XML depende das opções selecionadas.
 
     ![A secção de Certificado de Assinatura SAML, com Download em destaque ao lado do Metadadata XML da Federação](common/metadataxml.png)
 

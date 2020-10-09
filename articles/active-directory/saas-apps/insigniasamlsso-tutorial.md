@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 9d3463e04f06e02f8d27e633a10c22069ad9b57f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Diretório Ativo Azure com Insignia SAML SSO
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com insignia SAML SSO, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure insígnias Insignia SAML SSO Single Sign-On](#configure-insignia-saml-sso-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure insígnias SAML SSO Single Sign-On](#configure-insignia-saml-sso-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. Crie o utilizador de **[teste Insignia SAML SSO](#create-insignia-saml-sso-test-user)** - para ter uma contraparte de Britta Simon na Insignia SAML SSO que está ligada à representação AD Ad do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com insignia SAML SSO, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD com insignia SAML SSO, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD com insignia SAML SSO, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-insignia-saml-sso-single-sign-on"></a>Configurar Insignia SAML SSO Single Sign-On
+### <a name="configure-insignia-saml-sso-single-sign-on"></a>Configure Insignia SAML SSO Single Sign-On
 
 Para configurar um único sign-on no lado **SSO da Insignia SAML,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -163,7 +163,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, p
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Insignia SAML SSO**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Insignia SAML SSO**.
 

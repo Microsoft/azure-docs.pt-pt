@@ -4,10 +4,10 @@ description: Saiba como montar um volume deDir vazio para partilhar dados entre 
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77117751"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monte um volume deDir vazio em instâncias de contentores Azure
@@ -44,7 +44,7 @@ Por exemplo, o seguinte modelo de Gestor de Recursos cria um grupo de contentore
 
 Para ver exemplos de implantação de grupos de contentores, consulte [implementar um grupo multi-contentores utilizando um modelo de Gestor de Recursos](container-instances-multi-container-group.md) e implementar um grupo [multi-contentores utilizando um ficheiro YAML](container-instances-multi-container-yaml.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como montar outros tipos de volume em Instâncias de Contentores Azure:
 

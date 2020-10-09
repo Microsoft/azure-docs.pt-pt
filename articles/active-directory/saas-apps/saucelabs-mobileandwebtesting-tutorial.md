@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8dd5ca148474a1fe1464217f60c79e3815a5b26d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Azure Ative Directory com Laboratórios de Molho - Mobile e Web Testing
@@ -74,7 +74,7 @@ Para um único sign-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o único sinal de Azure AD com Laboratórios de Molho - Testes Móveis e Web, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure laboratórios de molho - Mobile e Web Testing Single Sign-On](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure laboratórios de molho - Mobile and Web Testing Single Sign-On](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Sauce Labs - Utilizador](#create-sauce-labs---mobile-and-web-testing-test-user)** de testes de teste móvel e web - para ter uma contrapartida de Britta Simon em Laboratórios de Molho - Testes Móveis e Web que está ligado à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testin
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -102,7 +102,7 @@ Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testin
 
     ![Laboratórios de Molho - Domínio de testes móveis e web e informações únicas de acesso](common/preintegrated.png)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -116,25 +116,25 @@ Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testin
 
     c. Logout URL
 
-### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Configure laboratórios de molho - Mobile e Web Testing Single Sign-On
+### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Configure laboratórios de molho - Mobile and Web Testing Single Sign-On
 
 1. Numa janela diferente do navegador, inscreva-se no site da empresa De Molho Labs - Mobile and Web Testing como administrador.
 
 2. Clique no **ícone do Utilizador** e selecione o **separador Gestão de Equipas.**
 
-    ![Configurar um único sign-on](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
+    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
 
 3. Insira o **nome de Domínio** na caixa de texto.
 
-    ![Configurar um único sign-on](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
+    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
 
 4. Clique **no separador Configurar.**
 
-    ![Configurar um único sign-on](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
+    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
 5. Na secção **Configurar o sinal único na** secção, execute os seguintes passos.
 
-    ![Configurar um único sign-on](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
+    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
 
     a. Clique **em Procurar** e carregue o ficheiro de metadados descarregado a partir do AD Azure.
 
@@ -173,7 +173,7 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Laboratórios de Molho - Testes Móveis e Web**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Sauce Labs - Mobile and Web Testing**.
 

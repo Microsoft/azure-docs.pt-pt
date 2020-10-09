@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550084"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Azure Ative Directory integração única (SSO) com CylancePROTECT
@@ -81,8 +81,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     
     | Região | Valor URL |
     |----------|---------|
-    | Nordeste da Ásia-Pacífico (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Ásia-Pacífico Sudeste (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+    | Nordeste Asia-Pacific (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Asia-Pacific Sudeste (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
     | Europa Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | América do Norte|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | América do Sul (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -91,8 +91,8 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     
     | Região | Valor URL |
     |----------|---------|
-    | Nordeste da Ásia-Pacífico (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
-    | Ásia-Pacífico Sudeste (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Nordeste Asia-Pacific (APNE1)|`https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Asia-Pacific Sudeste (AU)|`https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | Europa Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | América do Norte|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | América do Sul (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|

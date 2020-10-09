@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70860317"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Usando a janela Azure Cloud Shell
@@ -44,7 +44,7 @@ Clique no ícone de definições no lado superior esquerdo da janela e, em segui
 Clique no ícone de definições no lado superior esquerdo da janela e, em seguida, paire sobre a opção "Fonte" e selecione o tipo de letra pretendido.  A sua seleção será persistiu durante as sessões.
 ![Tipo de Letra](media/using-the-shell-window/text-font.png)
 
-## <a name="upload-and-download-files"></a>Carregar e transferir os ficheiros
+## <a name="upload-and-download-files"></a>Carregar e transferir ficheiros
 Clique no ícone de ficheiros de upload/download na parte superior esquerda da janela e, em seguida, selecione upload ou download.  
 ![Carregar/transferir ficheiros](media/using-the-shell-window/uploaddownload.png)
 * Para fazer o upload de ficheiros, utilize o pop-up para navegar no ficheiro no computador local, selecione o ficheiro pretendido e clique no botão "Abrir".  O ficheiro será enviado para o `/home/user` diretório.
@@ -66,7 +66,7 @@ Clique no ícone de pré-visualização da web no lado superior esquerdo da jane
 ![Pré-visualização web](media/using-the-shell-window/preview.png)  
 <br>
 ![Porto de configuração](media/using-the-shell-window/preview-configure.png)  
-Clique no ícone de pré-visualização da web no lado superior esquerdo da janela, selecione "Preview port..." para pré-visualizar uma porta aberta num novo separador. Clique no ícone de pré-visualização da web no topo esquerdo da janela, selecione "Feche a porta..." para fechar a porta aberta.  
+Clique no ícone de pré-visualização da web no lado superior esquerdo da janela, selecione "Preview port..." para pré-visualizar uma porta aberta em um novo separador. Clique no ícone de pré-visualização da web no topo esquerdo da janela, selecione "Feche a porta..." para fechar a porta aberta.  
 ![Pré-visualização/porta de fecho](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Minimizar & maximizar a janela cloud shell
@@ -86,7 +86,7 @@ Percorra com o rato ou o touchpad para mover texto terminal.
 ## <a name="exit-command"></a>Comando de saída
 Correr `exit` termina a sessão ativa. Este comportamento ocorre por padrão após 20 minutos sem interação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Bash em Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell Quickstart](quickstart-powershell.md)

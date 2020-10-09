@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3fde577a6b0efb7584e1c9efd57c95583ebe4ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70881418"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Monitorização dedicada ao HSM da Azure
@@ -36,7 +36,7 @@ Dependendo da natureza da questão, serão tomadas as medidas adequadas para red
 Uma proposta de valor do serviço Dedicado HSM é o controlo que o cliente obtém do dispositivo, especialmente tendo em conta que se trata de um dispositivo entregue em nuvem. Uma consequência deste controlo é a responsabilidade de monitorizar e gerir a saúde do dispositivo. O dispositivo Gemalto SafeNet vem com orientação para a implementação do SNMP e do Syslog. Recomenda-se aos clientes do serviço Dedicado HSM que utilizem este serviço mesmo quando a conta do monitor da Microsoft se mantenha ativa e deverão considerá-la obrigatória se desativarem a conta monitor da Microsoft.
 Qualquer uma das técnicas disponíveis permitiria a um cliente identificar problemas e ligar para o suporte da Microsoft para iniciar um trabalho de remediação apropriado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Recomenda-se que todos os conceitos-chave do serviço, como a alta disponibilidade e segurança, por exemplo, sejam bem compreendidos antes de qualquer fornecimento de dispositivos e design de aplicações ou implementação. Outros tópicos de nível de conceito:
 

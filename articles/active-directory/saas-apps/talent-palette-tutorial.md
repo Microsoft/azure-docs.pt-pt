@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 1b7cfa03aeb705ea7e7caf3254bc39d9fff722ce
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutorial: Integração do Diretório Ativo Azure com Paleta de Talentos
@@ -74,7 +74,7 @@ Para um único sign-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o Azure AD com uma única placa de segurança com a Paleta de Talentos, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure a paleta de talentos single sign-on](#configure-talent-palette-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
+2. **[Configure a paleta de talentos Single Sign-On](#configure-talent-palette-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Talent Palette test user](#create-talent-palette-test-user)** - para ter uma contrapartida de Britta Simon em Talent Palette que está ligada à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD single sign-on com Talent Palette, execute os seguint
 
     ![Único modo de seleção de s-on](common/select_saml_option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit_urls.png)
 
@@ -111,9 +111,9 @@ Para configurar o Azure AD single sign-on com Talent Palette, execute os seguint
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://talent-p.net/saml/sso/<tenantID>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Contacte [a equipa de suporte do Cliente Talent Palette](mailto:talent-support@pa-consul.co.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e Sign-On URL. Contacte [a equipa de suporte do Cliente Talent Palette](mailto:talent-support@pa-consul.co.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD single sign-on com Talent Palette, execute os seguint
 
     c. Logout URL
 
-### <a name="configure-talent-palette-single-sign-on"></a>Configurar a paleta de talentos single sign-on
+### <a name="configure-talent-palette-single-sign-on"></a>Configurar a paleta de talentos single Sign-On
 
 Para configurar um único sign-on no lado da Paleta de **Talento,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipe de [suporte de Paleta de Talento](mailto:talent-support@pa-consul.co.jp). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -162,7 +162,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Talent Palette**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise_applications.png)
+    ![Painel Aplicações empresariais](common/enterprise_applications.png)
 
 2. Na lista de aplicações, escreva e selecione **a Paleta de Talentos.**
 

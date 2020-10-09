@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
 ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77586194"
 ---
 # <a name="azure-functions-error-handling"></a>Tratamento de erros de funções Azure
@@ -28,7 +28,7 @@ Ao integrar-se com os serviços Azure, os erros podem ter origem nas APIs dos se
 
 + [BD do Cosmos para o Azure](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Armazenamento de bolhas](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
++ [Armazenamento de blobs](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Hubs de Eventos](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 
@@ -36,8 +36,8 @@ Ao integrar-se com os serviços Azure, os erros podem ter origem nas APIs dos se
 
 + [Hubs de Notificação](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Armazenamento de fila](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
++ [Armazenamento de filas](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 
 + [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
-+ [Armazenamento de mesa](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Armazenamento de tabelas](functions-bindings-storage-table.md#exceptions-and-return-codes)

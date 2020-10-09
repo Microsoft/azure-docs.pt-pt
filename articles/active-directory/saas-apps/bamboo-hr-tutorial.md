@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 9e733aa9f609928f8129123c4286cfa98e51e1d4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Diretório Ativo Azure com o BambooHR
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com bambooHR, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único do BambooHR](#configure-bamboohr-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Sign-On Único do BambooHR](#configure-bamboohr-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create BambooHR test user](#create-bamboohr-test-user)** - para ter uma contraparte de Britta Simon em BambooHR que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com bambooHR, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com bambooHR, execute os seguintes passos:
     > [!NOTE]
     > O **valor do sinal de URL** não é real. Atualizar o valor com URL de inscrição real. Contacte [a equipa de suporte do Cliente BambooHR](https://www.bamboohr.com/contact.php) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -122,13 +122,13 @@ Para configurar o Azure AD com bambooHR, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bamboohr-single-sign-on"></a>Configurar bambooHR single sign-on
+### <a name="configure-bamboohr-single-sign-on"></a>Configurar bamboohr single Sign-On
 
 1. Numa nova janela, inscreva-se no site da empresa BambooHR como administrador.
 
 2. Na página inicial, faça o seguinte:
    
-    ![A página de sinal único de BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Início de Sessão Único")   
+    ![A página de Sign-On single de BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Início de Sessão Único")   
 
     a. Selecione **Apps**.
    
@@ -138,7 +138,7 @@ Para configurar o Azure AD com bambooHR, execute os seguintes passos:
 
 3. No painel **de sinalização único SAML,** faça o seguinte:
    
-    ![O painel de sinalização único SAML](./media/bamboo-hr-tutorial/IC796692.png "SEML Single Sign-On")
+    ![O painel de Sign-On único saml](./media/bamboo-hr-tutorial/IC796692.png "Sign-On único da SAML")
    
     a. Na caixa **de url de login SSO,** cole o URL de **login** que copiou do portal Azure no passo 6.
       
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BambooHR**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **BambooHR**.
 

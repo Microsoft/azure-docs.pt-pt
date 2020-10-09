@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e9c67cc7b24253f73e271709afd2d1e6922d85c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Diretório Ativo Azure com join.me
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com join.me, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure join.me único sign-on](#configure-joinme-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configurar join.me Único Sign-On](#configure-joinme-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Crie join.me utilizador de teste](#create-joinme-test-user)** - para ter uma contraparte de Britta Simon em join.me que está ligada à representação AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com join.me, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -101,11 +101,11 @@ Para configurar o Azure AD com join.me, execute os seguintes passos:
 
     ![join.me Informações de assinatura única do domínio e URLs](common/preintegrated.png)
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-joinme-single-sign-on"></a>Configurar join.me único sign-on
+### <a name="configure-joinme-single-sign-on"></a>Configurar join.me Sign-On Único
 
 Para configurar um único sinal de **join.me** lado, é necessário enviar o **Url de Metadados da Federação de Aplicações** para [join.me equipa de suporte](https://help.join.me/s/?language). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -140,7 +140,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **join.me**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **join.me**.
 

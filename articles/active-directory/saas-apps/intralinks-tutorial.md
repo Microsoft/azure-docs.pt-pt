@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 8ac46e2ded68c268b8b19bab810e5c1425f189bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Diretório Ativo Azure com Intralinks
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com intralinks, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure intralinks Único Sign-On](#configure-intralinks-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure intralinks Sign-On único](#configure-intralinks-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Intralinks test user](#create-intralinks-test-user)** - para ter uma contraparte de Britta Simon em Intralinks que está ligada à representação AD AZure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com intraligações, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -104,9 +104,9 @@ Para configurar o Azure AD com intraligações, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do cliente Intralinks](https://www.intralinks.com/contact) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte do cliente Intralinks](https://www.intralinks.com/contact) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD com intraligações, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-intralinks-single-sign-on"></a>Configurar intralinks único sinal-on
+### <a name="configure-intralinks-single-sign-on"></a>Configurar intraligações Sign-On
 
 Para configurar um único sign-on no lado **intralinks,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte Intralinks](https://www.intralinks.com/contact). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -155,7 +155,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, p
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Intralinks**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Intralinks**.
 

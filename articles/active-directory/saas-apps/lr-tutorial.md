@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: be1cdac0ee8cd27f54cb069939e980173702061a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Tutorial: Integração do Azure Ative Directory com o LoginRadius
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o LoginRadius, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com o LoginRadius, execute os seguintes passos:
     > [!NOTE]
     > Abra a página url de inscrição. Clique no **separador 'Sign-on' único** e introduza o **nome do plugin** dado pela equipa de suporte do [LoginRadius](mailto:support@loginradius.com) e clique **em Iniciar sessão e** será redirecionado para a página AD Azure para iniciar sessão.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com o LoginRadius, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-loginradius-single-sign-on"></a>Configurar loginRadius single sign-on
+### <a name="configure-loginradius-single-sign-on"></a>Configurar o Sign-On Único De LoginRadius
 
 Para configurar um único sign-on no lado **LoginRadius,** você precisa enviar os **Metadadata XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte loginRadius](mailto:support@loginradius.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -156,7 +156,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **LoginRadius**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LoginRadius**.
 

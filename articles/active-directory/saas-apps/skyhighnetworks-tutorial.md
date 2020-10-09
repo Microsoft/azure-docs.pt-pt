@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: d529123b52e0e90702839f6822a586cf53dffa52
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546719"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a configuração SSO AD AD AD da MVISION com diretório ativo Azure
@@ -63,7 +63,7 @@ Para configurar e testar O Azure AD SSO com a configuração SSO AD AD AdSO da M
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-1. **[Configuração SSO de configuração SSO MVISION Cloud Azure AD SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configuração SSO de configuração MVISION Cloud Azure AD SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. Crie o utilizador de **[teste de configuração SSO MVISION Cloud Azure AD](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** - para ter uma contraparte de Britta Simon na Configuração SSO AD AD Azure da MVISION Que esteja ligada à representação AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a equipa de [suporte do cliente de configuração MVISION Cloud Azure AD SSO](mailto:support@skyhighnetworks.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -133,7 +133,7 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permiti
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**, em seguida, selecione **MVISION Cloud AD SSO Configuração**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **MVISION Cloud Azure AD SSO Configuração**.
 

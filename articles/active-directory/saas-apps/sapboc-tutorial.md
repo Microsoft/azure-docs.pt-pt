@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9edbb499788b61135d761c5dfa69ce42c9275932
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548757"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem de análise SAP com diretório ativo Azure
@@ -60,7 +60,7 @@ Configure e teste Azure AD SSO com SAP Analytics Cloud usando um utilizador de t
 Para configurar e testar O Azure AD SSO com a NUVEM SAP Analytics, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure SAP Analytics Cloud SSO](#configure-sap-analytics-cloud-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o SAP Analytics Cloud SSO](#configure-sap-analytics-cloud-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 5. **[Crie o utilizador](#create-sap-analytics-cloud-test-user)** de teste SAP Analytics Cloud - para ter uma contraparte de B.Simon na NUVEM Analítica SAP que está ligada à representação AD AD do utilizador.
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SAP Analytics Cloud,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE] 
     > Os valores nestes URLs são apenas para demonstração. Atualize os valores com o URL de inscrição real e URL do identificador. Para obter o URL de inscrição, contacte a equipa de suporte do [SAP Analytics Cloud Client](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Pode obter o URL do identificador descarregando os metadados SAP Analytics Cloud a partir da consola de administração. Isto é explicado mais tarde no tutorial.
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -111,9 +111,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     
     ![No separador Segurança, selecione o ícone Editar](./media/sapboc-tutorial/config2.png)  
 
-4. Para **o método de autenticação**, selecione **SAML Single Sign-On (SSO)**.
+4. Para **método de autenticação**, selecione **SAML Single Sign-On (SSO)**.
 
-    ![Selecione SAML Single Sign-On para o método de autenticação](./media/sapboc-tutorial/config3.png)  
+    ![Selecione Sign-On Única SAML para o método de autenticação](./media/sapboc-tutorial/config3.png)  
 
 5. Para descarregar os metadados do fornecedor de serviços (Passo 1), selecione **Baixar**. No ficheiro de metadados, encontre e copie o valor **de ENTITYID.** No portal Azure, no diálogo **de configuração SAML básico,** cole o valor na caixa **do Identificador.**
 

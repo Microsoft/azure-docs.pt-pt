@@ -1,7 +1,7 @@
 ---
-title: Personalize e sugestione consultas de pesquisa de imagem - Bing Image Search API
+title: Personalize e sugira consultas de pesquisa de imagem - Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Saiba sobre personalizar as consultas de pesquisa que envia para a API de Pesquisa de Imagem Bing.
+description: Saiba como personalizar as consultas de pesquisa que envia para a API de Pesquisa de Imagem de Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67542748"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Personalize e sugira consultas de pesquisa de imagem
@@ -24,13 +24,13 @@ Use este artigo para aprender a personalizar consultas e sugerir termos de pesqu
 
 ## <a name="suggest-search-terms"></a>Sugerir termos de pesquisa
 
-Se a sua aplicação tiver uma caixa de pesquisa onde os termos de pesquisa são introduzidos, pode utilizar a [API Bing Autosuggest](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API pode apresentar termos de pesquisa sugeridos em tempo real. A API retorna sugeriu cordas de consulta baseadas em termos de pesquisa parcial e serviços cognitivos.
+Se a sua aplicação tiver uma caixa de pesquisa onde os termos de pesquisa são introduzidos, pode utilizar a [API Bing Autosuggest](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API pode exibir termos de pesquisa sugeridos em tempo real. A API devolve as cadeias de consulta sugeridas com base em termos parciais de pesquisa e Serviços Cognitivos.
 
 ## <a name="pivot-the-query"></a>Pivô da consulta
 
-Se bing pode segmentar a consulta de `pivotSuggestions`pesquisa original, o objeto [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) retornados contém . As sugestões de pivô podem ser apresentadas como termos de pesquisa opcionais para o utilizador. Por exemplo, se a consulta original fosse *o Microsoft Surface,* o Bing poderia segmentar a consulta para *a Microsoft* e o *Surface* e fornecer pivôs sugeridos para cada um. Estas sugestões podem ser apresentadas como termos de consulta opcionais ao utilizador.
+Se Bing puder segmentar a consulta de pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) devolvidos contém `pivotSuggestions` . As sugestões de pivô podem ser apresentadas como termos de pesquisa opcionais para o utilizador. Por exemplo, se a consulta original fosse o *Microsoft Surface,* o Bing poderia segmentar a consulta no *Microsoft* e *no Surface* e fornecer pivôs sugeridos para cada um. Estas sugestões podem ser apresentadas como termos de consulta opcional para o utilizador.
 
-O exemplo que se segue mostra as sugestões de pivô para o *Microsoft Surface:*  
+O exemplo a seguir mostra as sugestões de pivô para *o Microsoft Surface:*  
 
 ```json
 {
@@ -89,9 +89,9 @@ O exemplo que se segue mostra as sugestões de pivô para o *Microsoft Surface:*
 }
 ```
 
-O campo `pivotSuggestions` contém a lista de segmentos (pivôs) em que a consulta original foi dividida. Para cada pivô, a resposta contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) que contêm as consultas sugeridas. O `text` campo contém a consulta sugerida. O `displayText` campo contém o termo que substitui o pivô na consulta original. Um exemplo é data de lançamento da superfície.
+O campo `pivotSuggestions` contém a lista de segmentos (pivôs) em que a consulta original foi dividida. Para cada pivô, a resposta contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) que contêm as consultas sugeridas. O `text` campo contém a consulta sugerida. O `displayText` campo contém o termo que substitui o pivô na consulta original. Um exemplo é a Data de Lançamento do Surface.
 
-Se a corda de consulta de pivô é `text` `thumbnail` o que o utilizador procura, use os campos e os campos para exibir as cordas de consulta de pivô. Faça a miniatura e o `webSearchUrl` texto clicáveis utilizando o URL ou o `searchLink` URL. Utilize `webSearchUrl` para enviar o utilizador para os resultados de pesquisa do Bing. Se fornecer a sua própria `searchLink`página de resultados, utilize .
+Se a cadeia de consulta de pivô é o que o utilizador procura, use os `text` campos e campos para exibir as cordas de consulta do `thumbnail` pivô. Faça a miniatura e o texto clicáveis utilizando o `webSearchUrl` URL ou o `searchLink` URL. Utilize `webSearchUrl` para enviar o utilizador para os resultados da pesquisa Bing. Se fornecer a sua própria página de resultados, use `searchLink` .
 
 <!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
@@ -101,7 +101,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expandir a consulta
 
-Se o Bing puder expandir a consulta para restringir a pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta fosse o *Microsoft Surface,* as consultas expandidas poderiam ser:
+Se o Bing puder expandir a consulta para restringir a pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém o campo `queryExpansions`. Por exemplo, se a consulta fosse o *Microsoft Surface,* as consultas expandidas podem ser:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.
@@ -147,7 +147,7 @@ O exemplo seguinte mostra as consultas expandidas para *Microsoft Surface*.
 }
 ```
 
-O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). O `text` campo contém a consulta expandida. O `displayText` campo contém o termo de expansão. Se a cadeia de consulta expandida é o `text` que `thumbnail` o utilizador procura, use os campos e os campos para exibir as cordas de consulta expandidas. Faça a miniatura e o `webSearchUrl` texto clicáveis utilizando o URL ou o `searchLink` URL. Utilize `webSearchUrl` para enviar o utilizador para os resultados de pesquisa do Bing. se fornecer a sua própria `searchLink`página de resultados, use .
+O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). O `text` campo contém a consulta expandida. O `displayText` campo contém o termo de expansão. Se a cadeia de consulta expandida for o que o utilizador procura, use os `text` campos e campos para exibir as `thumbnail` cadeias de consulta expandidas. Faça a miniatura e o texto clicáveis utilizando o `webSearchUrl` URL ou o `searchLink` URL. Utilize `webSearchUrl` para enviar o utilizador para os resultados da pesquisa Bing. se fornecer a sua própria página de resultados, use `searchLink` .
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.
@@ -162,4 +162,4 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não experimentou a API de Pesquisa de Imagem bing antes, tente um [arranque rápido](../quickstarts/csharp.md). Se procura algo mais complexo, experimente o tutorial para criar uma [aplicação web de uma página única.](../tutorial-bing-image-search-single-page-app.md)
+Se ainda não experimentou a API de Pesquisa de Imagem de Bing, experimente um [arranque rápido](../quickstarts/csharp.md). Se procura algo mais complexo, experimente o tutorial para criar uma [aplicação web de uma página.](../tutorial-bing-image-search-single-page-app.md)

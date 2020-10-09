@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e23c8a8497459ce7cb3cab3d1469359f80ad846
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550780"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Tutorial: Azure Ative Directy integração única (SSO) com GitHub Enterprise Cloud - Conta Empresarial
@@ -64,8 +64,8 @@ Para configurar e testar o Azure AD SSO com GitHub Enterprise Cloud - Conta Empr
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure GitHub Enterprise Cloud-Enterprise Account SSO](#configure-github-enterprise-cloud-enterprise-account-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. Crie o utilizador de **[teste de conta De Nuvem Empresa-Empresa GitHub](#create-github-enterprise-cloud-enterprise-account-test-user)** - para ter uma contrapartida de B.Simon em GitHub Enterprise Cloud - Conta Empresarial que está ligada à representação AD Azure do utilizador.
+1. **[Configure a GitHub Enterprise Cloud-Enterprise Account SSO](#configure-github-enterprise-cloud-enterprise-account-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Criar o utilizador de teste de Cloud-Enterprise conta GitHub Enterprise](#create-github-enterprise-cloud-enterprise-account-test-user)** - para ter uma contrapartida de B.Simon em GitHub Enterprise Cloud - Conta Empresarial que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -129,11 +129,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Configurar gitHub enterprise cloud-enterprise account SSO
+## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Configurar GitHub Enterprise Cloud-Enterprise Account SSO
 
 Para configurar um único sign-on no **gitHub Enterprise Cloud -** Enterprise Account side, você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para [GitHub Enterprise Cloud - equipa de suporte de conta empresarial](mailto:support@github.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
-### <a name="create-github-enterprise-cloud-enterprise-account-test-user"></a>Criar utilizador de teste de conta de nuvem de empresa da GitHub
+### <a name="create-github-enterprise-cloud-enterprise-account-test-user"></a>Criar o utilizador de teste de conta Cloud-Enterprise empresa GitHub
 
 Nesta secção, um utilizador chamado B.Simon é criado na GitHub Enterprise Cloud - Conta Empresarial. GitHub Enterprise Cloud - Enterprise Account suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no GitHub Enterprise Cloud - Conta Empresarial, um novo é criado após a autenticação.
 

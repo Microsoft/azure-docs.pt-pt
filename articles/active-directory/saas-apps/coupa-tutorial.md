@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: a116dff0eba7e5469ab0c352c30bca506ee18238
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Diretório Ativo Azure com Coupa
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com coupa, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure coupa single sign-on](#configure-coupa-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure coupa single sign-on](#configure-coupa-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Coupa test user](#create-coupa-test-user)** - para ter uma contraparte de Britta Simon em Coupa que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
-    > O valor url de inscrição não é real. Atualize este valor com o URL de inscrição real. Contacte [a equipa de apoio ao Cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter este valor.
+    > O valor url de inscrição não é real. Atualize este valor com o URL Sign-On real. Contacte [a equipa de apoio ao Cliente Coupa](https://success.coupa.com/Support/Contact_Us?) para obter este valor.
 
     b. Na caixa **identifier,** digite um URL:
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
     | Produção | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD com coupa, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-coupa-single-sign-on"></a>Configurar coupa single sign-on
+### <a name="configure-coupa-single-sign-on"></a>Configurar coupa single Sign-On
 
 1. Inscreva-se no site da sua empresa Coupa como administrador.
 
@@ -185,7 +185,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Coupa**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Coupa**.
 
@@ -227,7 +227,7 @@ Para permitir que os utilizadores da Azure AD acedam a Coupa, devem ser a provis
 
     ![Detalhes do utilizador](./media/coupa-tutorial/ic791910.png "Detalhes do utilizador")
 
-    a. Digite o **Login**, **Nome próprio**, **Apelido,** **ID único de inscrição,** **E-mail** atributos de uma conta de Diretório Ativo Azure válido que pretende apresentar nas caixas de texto relacionadas.
+    a. Digite o **Login**, **Nome Próprio**, **Apelido**, **ID Sign-On único,** **E-mail** atributos de uma conta de Diretório Ativo Azure válida que pretende apresentar nas caixas de texto relacionadas.
 
     b. Clique em **Criar**.
 

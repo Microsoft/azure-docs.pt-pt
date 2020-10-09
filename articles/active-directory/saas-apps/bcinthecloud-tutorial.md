@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 384fd7aab73781ffa868e826421eab6b7062a88f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com BC na Nuvem
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar um único sinal de Azure AD com BC na Nuvem, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure BC no Cloud Single Sign-On](#configure-bc-in-the-cloud-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure BC no Cloud Single Sign-On](#configure-bc-in-the-cloud-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create BC in the Cloud test user](#create-bc-in-the-cloud-test-user)** - para ter uma contraparte de Britta Simon em BC na Cloud que está ligada à representação AD Ad Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com BC na Nuvem, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -106,9 +106,9 @@ Para configurar o Azure AD com BC na Nuvem, execute os seguintes passos:
     b. Na caixa de texto **identifier (Entity ID),** digite o URL: `https://app.bcinthecloud.com`
 
     > [!NOTE]
-    > Este valor não é real. Atualize este valor com o URL de inscrição real. Contacte [BC na equipa de suporte do Cloud Client](https://www.bcinthecloud.com/supportcenter/) para obter este valor.
+    > Este valor não é real. Atualize este valor com o URL Sign-On real. Contacte [BC na equipa de suporte do Cloud Client](https://www.bcinthecloud.com/supportcenter/) para obter este valor.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com BC na Nuvem, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bc-in-the-cloud-single-sign-on"></a>Configurar a.C. na nuvem sign-on única
+### <a name="configure-bc-in-the-cloud-single-sign-on"></a>Configure a.C. no Sign-On De Nuvem
 
 Para configurar um único sign-on BC no lado **cloud,** você precisa enviar os **metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para [BC na equipa de suporte cloud](https://www.bcinthecloud.com/supportcenter/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -157,7 +157,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BC na Cloud**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **BC na Cloud**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: c6bd0c130e860a5700256a54c081cc046219b41a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Diretório Ativo Azure com Keeper Password Manager & Digital Vault
@@ -69,7 +69,7 @@ Para configurar e testar o Azure AD SSO com o Keeper Password Manager & Digital 
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 
-1. **[Configure o Gestor de Passwords do Guardião & SSO de Cofre Digital](#configure-keeper-password-manager--digital-vault-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+1. **[Configure o Gestor de Passwords do Guardião & O Cofre Digital SSO](#configure-keeper-password-manager--digital-vault-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Keeper Password Manager & utilizador](#create-keeper-password-manager--digital-vault-test-user)** de teste digital Vault - para ter uma contrapartida de Britta Simon no Keeper Password Manager & Digital Vault que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -100,7 +100,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real em URL, Identifier e URL de resposta. Contacte [o Keeper Password Manager & equipa de suporte](https://keepersecurity.com/contact.html) ao Cliente Do Cofre Digital para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

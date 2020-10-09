@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 50785fb721a5d2af04504931a78f80a9796c7f2e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração do Diretório Ativo Azure com LiquidFiles
@@ -93,7 +93,7 @@ Para configurar o Azure AD com liquidFiles, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -128,15 +128,15 @@ Para configurar o Azure AD com liquidFiles, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-liquidfiles-single-sign-on"></a>Configurar liquidifica Único Sign-On
+### <a name="configure-liquidfiles-single-sign-on"></a>Configure líquidofils Sign-On única
 
 1. Iniciar sação no site da empresa LiquidFiles como administrador.
 
 1. Clique **em 'S-On' único** na **Configuração de >** do administrador a partir do menu.
 
-1. Na página **de configuração de sinais únicos,** execute os seguintes passos
+1. Na página **de configuração Sign-On única,** execute os seguintes passos
 
-    ![Configurar um único sign-on](./media/liquidfiles-tutorial/tutorial_single_01.png)
+    ![Configurar Sign-On Individuais](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
     a. Como **único sinal sobre o método**, selecione **SAML 2**.
 
@@ -182,7 +182,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **LiquidFiles**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LiquidFiles**.
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965294"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
@@ -95,7 +95,7 @@ A tabela que se segue lista as dimensões do recinto em milímetros e polegadas.
 
 | Recinto | Milímetros | Centímetros |
 | --- | --- | --- |
-| Altura |87.9 |3.46 |
+| Height |87.9 |3.46 |
 | Largura em toda a flange de montagem |483 |19.02 |
 | Largura em todo o corpo do recinto |443 |17.44 |
 | Profundidade da flange de montagem frontal à extremidade do corpo do recinto |577 |22.72 |
@@ -196,7 +196,7 @@ A ficha e o conjunto completo do cabo de alimentação devem satisfazer as norma
 
 Para as interfaces de rede de 10 GbE, DATA 2 e DATA 3, consulte a [lista de cabos e módulos de rede suportados.](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está agora pronto para implantar um dispositivo StorSimple no seu datacenter. Para obter mais informações, consulte [implementar o seu dispositivo no local.](storsimple-8000-deployment-walkthrough-u2.md)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e27bb9a342270c821eba92b19248933e760809a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Tutorial: Azure Ative Directory integração única (SSO) com HeyBuddy
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real (ID da entidade). O `Entity ID` url no Sinal é gerado automaticamente para cada organização. Contacte [a equipa de suporte do Cliente HeyBuddy](mailto:support@heybuddy.com) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL e o Identificador de Sign-On reais (ID da Entidade). O `Entity ID` url no Sinal é gerado automaticamente para cada organização. Contacte [a equipa de suporte do Cliente HeyBuddy](mailto:support@heybuddy.com) para obter estes valores.
 
 1. A aplicação HeyBuddy espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -95,7 +95,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação EZOfficeInventory espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | -------- | --------- |
     | Funções  | user.assignedroles |
     | | |

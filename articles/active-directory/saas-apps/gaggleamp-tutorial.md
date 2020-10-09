@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7293430968d82fbf9a5efd370f3e0a3ca85842a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Diretório Ativo Azure com GaggleAMP
@@ -95,7 +95,7 @@ Para configurar o Azure AD com um único sign-on com GaggleAMP, execute os segui
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD com um único sign-on com GaggleAMP, execute os segui
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de apoio ao cliente GaggleAMP](mailto:sales@gaggleamp.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -128,19 +128,19 @@ Para configurar o Azure AD com um único sign-on com GaggleAMP, execute os segui
 
     c. Logout URL
 
-### <a name="configure-gaggleamp-single-sign-on"></a>Configurar gaggleAMp único sinal-on
+### <a name="configure-gaggleamp-single-sign-on"></a>Configurar gaggleAMp single Sign-On
 
 1. Em outro caso de navegador, navegue para a página SAML SSO criada para si pela equipa de suporte Gaggle (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. Na sua página **SSO SAML,** execute os seguintes passos:  
    
-    ![GaggleAMP Único Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
+    ![Sign-On Único GaggleAMP](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
     a. Selecione **Outro formulário** o menu de entrega do fornecedor de **identidade.**
     
     b. Na caixa de texto do **Fornecedor de Identidade,** cole o valor do **Identificador Ad Azure** que copiou do portal Azure.
     
-    c. Na caixa de texto **URL de URL do Fornecedor de Identidade,** cole o valor do URL de **login** que copiou do portal Azure.
+    c. Na caixa de texto **de URL do Fornecedor de Identidade Single Sign-On,** cole o valor do URL de **Login** que copiou do portal Azure.
     
     d. Abra o seu ficheiro **Certificado (Base64)** descarregado no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **do Certificado X.509.**
     
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal d
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **GaggleAMP**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **GaggleAMP**.
 

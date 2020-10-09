@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 3f55fed72d61597f61cb246c6c74d525b51702e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integração do Diretório Ativo Azure com o ZIVVER
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com um único sinal de acesso com ZIVVER, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sinal único zivver](#configure-zivver-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o SINAL Único ZIVVER](#configure-zivver-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ZIVVER test user](#create-zivver-test-user)** - para ter uma contraparte de Britta Simon em ZIVVER que está ligada à representação AZure AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -132,7 +132,7 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
     f. Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML da Federação** e clique em **Copiar** o url de **metadados** da Federação de Aplicações a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML da Federação** e clique em **Copiar** o url de **metadados** da Federação de Aplicações a partir das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
     ![O link de descarregamento url de certificado](./media/zivver-tutorial/metadataxmlurl.png)
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD com um único sinal de inscrição com o ZIVVER, exec
 
     c. Logout URL
 
-### <a name="configure-zivver-single-sign-on"></a>Configurar zivver único sinal-on
+### <a name="configure-zivver-single-sign-on"></a>Configurar zivver single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no site [da](https://app.zivver.com/login) empresa ZIVVER como administrador.
 
@@ -192,7 +192,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **ZIVVER**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **ZIVVER**.
 

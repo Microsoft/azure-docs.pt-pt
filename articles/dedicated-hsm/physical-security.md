@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70881020"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Segurança física dedicada a Azure HSM
@@ -51,7 +51,7 @@ Se um engenheiro da Microsoft tiver de aceder à cremalheira utilizada por dispo
 
 Os HSMs são a provisionados a uma rede virtual criada pelo cliente. Este é o espaço de endereço privado iup de um cliente.  Esta configuração proporciona um valioso isolamento lógico ao nível da rede e garante o acesso apenas pelo cliente. Isto implica que todos os controlos de segurança de nível lógico são da responsabilidade do cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Recomenda-se que todos os conceitos-chave do serviço, tais como alta disponibilidade e segurança e capacidade de suporte, por exemplo, sejam bem compreendidos antes do fornecimento do dispositivo, design de aplicações ou implementação.
 

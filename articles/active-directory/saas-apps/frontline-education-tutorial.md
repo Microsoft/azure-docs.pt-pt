@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.openlocfilehash: 2cb53e6235f701aa74d72dfa276948a1ad89e289
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550889"
 ---
 # <a name="tutorial-integrate-frontline-education-with-azure-active-directory"></a>Tutorial: Integrar a Educação da Linha da Frente com o Diretório Ativo Azure
@@ -62,7 +62,7 @@ Para configurar e testar o Azure AD SSO com a Frontline Education, complete os s
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-2. **[Configure o SSO de Educação da Linha da Frente](#configure-frontline-education-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Frontline Education SSO](#configure-frontline-education-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create Frontline Education test user](#create-frontline-education-test-user)** - ter uma contrapartida de B.Simon na Frontline Education que está ligada à representação AZure AD do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da Frontline Education,** encontre a secção **Gerir** e selecione **'Único sinal de súb'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -83,7 +83,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor do sinal de URL não é real. Atualizar o valor com o sinal real no URL. Contacte [a equipa de apoio ao cliente da Frontline Education](mailto:support@frontlineed.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+4. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

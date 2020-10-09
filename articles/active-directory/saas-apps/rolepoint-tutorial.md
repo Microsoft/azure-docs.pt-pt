@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Tutorial: Integração do Azure Ative Directory com RolePoint
@@ -54,7 +54,7 @@ Para configurar a integração do RolePoint no Azure AD, é necessário adiciona
 
 2. Ir para **aplicações da Empresa**  >  **Todas as aplicações**:
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
@@ -92,7 +92,7 @@ Para configurar o Azure AD um único sinal de insuflação com RolePoint, tome e
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Para configurar o Azure AD um único sinal de insuflação com RolePoint, tome e
     > [!NOTE]
     > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Sugerimos que use um valor de corda único no identificador. Contacte a [equipa de apoio do RolePoint](mailto:info@rolepoint.com) para obter estes valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na **configuração de um único Sessão de Sessão com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **descarregamento** ao lado **do Metadadata XML da Federação,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o link **descarregamento** ao lado **do Metadadata XML da Federação,** de acordo com os seus requisitos, e guarde o ficheiro no seu computador.
 
     ![Link de descarregamento de certificado](common/metadataxml.png)
 
@@ -160,7 +160,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **RolePoint**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **RolePoint**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: jeedes
 ms.openlocfilehash: 67c9a46fd27851749fb8e97363de89cd6e86bd0a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549658"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logzio---azure-ad-integration"></a>Tutorial: Azure Ative Directory integração única (SSO) com Logz.io - Azure AD Integration
@@ -91,11 +91,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, Logz.io - A aplicação de integração AD Azure espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------- |
     | sessão-expiração | user.session-expiração |
     | e-mail | user.mail |
-    | Grupo | utilizador.grupos |
+    | Group | utilizador.grupos |
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

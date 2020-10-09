@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368298"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e utilizar regras personalizadas de Firewall de Aplicação Web v2 no Gateway de Aplicações
@@ -28,7 +28,7 @@ Este artigo mostra-lhe algumas regras personalizadas de exemplo que pode criar e
 
 ## <a name="example-1"></a>Exemplo 1
 
-Sabes que há um bot chamado *Evilbot* que queres impedir de rastejar o teu website. Neste caso, vai bloquear o *malbot* do agente de utilizador nos cabeçalhos de pedido.
+Sabes que há um bot chamado *Evilbot* que queres impedir de rastejar o teu website. Neste caso, vais bloquear o User-Agent *malvado* nos cabeçalhos do pedido.
 
 Lógica: p
 
@@ -225,11 +225,11 @@ Aqui está o JSON correspondente:
   }
 ```
 
-Regra de CRS correspondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Regra de CRS correspondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Exemplo 4
 
-Para este exemplo, pretende bloquear o *evilbot*do Agente utilizador e o tráfego na gama 192.168.5.0/24. Para isso, pode criar duas condições de jogo separadas, e colocá-las ambas na mesma regra. Isto garante que se tanto o *evilbot* no cabeçalho do Agente utilizador **como** os endereços IP do intervalo 192.168.5.0/24 forem compatíveis, então o pedido é bloqueado.
+Por exemplo, pretende-se bloquear User-Agent *evilbot*e o tráfego na faixa 192.168.5.0/24. Para isso, pode criar duas condições de jogo separadas, e colocá-las ambas na mesma regra. Isto garante que se tanto o *evilbot* no cabeçalho User-Agent **como** os endereços IP do intervalo 192.168.5.0/24 forem compatíveis, então o pedido é bloqueado.
 
 Lógica: p **e** q
 
@@ -543,7 +543,7 @@ JSON correspondente:
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar as suas regras personalizadas, pode aprender a ver os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 

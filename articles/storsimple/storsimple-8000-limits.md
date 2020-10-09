@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68963376"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quais são os limites do sistema de série StorSimple 8000?
@@ -60,6 +60,6 @@ A StorSimple fornece armazenamento escalável e flexível para o seu datacenter.
 
 &#42;&#42; Os números de desempenho antes da Atualização 3 podem ser inferiores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja os requisitos do [sistema StorSimple](storsimple-8000-system-requirements.md).
 

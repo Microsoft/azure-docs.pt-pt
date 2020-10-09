@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77586139"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Ligações Azure IoT Hub para Funções Azure
@@ -26,7 +26,7 @@ Este conjunto de artigos explica como trabalhar com as ligações Azure Function
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Responda aos eventos enviados para um stream de eventos hub (Trigger)](./functions-bindings-event-iot-trigger.md)
 - [Escreva eventos para um fluxo de eventos (ligação de saída)](./functions-bindings-event-iot-output.md)

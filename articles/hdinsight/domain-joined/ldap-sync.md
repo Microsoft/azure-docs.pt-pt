@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77463222"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Sincronização LDAP em Ranger e Apache Ambari em Azure HDInsight
@@ -76,7 +76,7 @@ A sincronização do utilizador ranger pode acontecer fora de qualquer um dos he
 1. Mude o `log4j.rootLogger` `DEBUG` nível para nível (Depois de mudar deve `log4j.rootLogger = DEBUG,logFile,FilterLog` parecer).
 1. Guarde a configuração e reinicie o ranger.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Problemas de autenticação no Azure HDInsight](./domain-joined-authentication-issues.md)
 * [Sincronizar utilizadores do Azure AD para um cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019643"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nó CloudSimple
@@ -35,7 +35,7 @@ Nos detalhes do bilhete de apoio, forneça o número necessário de nós e nó S
 * Nó SKU
 * Número de nós adicionais para os quais está a solicitar o aumento da quota
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Comprar nós](create-nodes.md)
 * [Visão geral dos nóns cloudSimple](cloudsimple-node.md)

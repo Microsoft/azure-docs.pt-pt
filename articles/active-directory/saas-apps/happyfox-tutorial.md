@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: Integração do Azure Ative Directory com a HappyFox
@@ -77,7 +77,7 @@ Para um único sign-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o Azure AD com a HappyFox, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único HappyFox](#configure-happyfox-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Single HappyFox HappyFox](#configure-happyfox-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create HappyFox test user](#create-happyfox-test-user)** - ter uma contraparte de Britta Simon em HappyFox que está ligada à representação AD AD do utilizador.
@@ -97,7 +97,7 @@ Para configurar o Azure AD single sign-on com happyFox, execute os seguintes pas
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD single sign-on com happyFox, execute os seguintes pas
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte a [equipa de suporte do Cliente HappyFox](https://support.happyfox.com/home) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -126,29 +126,29 @@ Para configurar o Azure AD single sign-on com happyFox, execute os seguintes pas
 
     c. Logout URL
 
-### <a name="configure-happyfox-single-sign-on"></a>Configurar happyFox single sign-on
+### <a name="configure-happyfox-single-sign-on"></a>Configurar o single HappyFox Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino HappyFox como administrador.
 
 2. Navegue para **Gerir,** clique no separador **Integrações.**
 
-    ![Configurar um único sign-on](./media/happyfox-tutorial/header.png) 
+    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/header.png) 
 
 3. No separador Integrações, clique em **Configurar** em **Integração SAML** para abrir o sinal único nas definições.
 
-    ![Configurar um único sign-on](./media/happyfox-tutorial/configure.png)
+    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/configure.png)
 
 4. Dentro da secção de configuração SAML, cole o valor URL do **Login,** que copiou do portal Azure para a caixa de texto **SSO Target URL.**
 
-    ![Configurar um único sign-on](./media/happyfox-tutorial/targeturl.png)
+    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/targeturl.png)
 
 5. Abra o certificado descarregado do portal Azure no bloco de notas e cole o seu conteúdo na secção **IdP Signature.**
 
-    ![Configurar um único sign-on](./media/happyfox-tutorial/cert.png)
+    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/cert.png)
 
 6. Clique no botão **Guardar Definições.**
 
-    ![Configurar um único sign-on](./media/happyfox-tutorial/savesettings.png)
+    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/savesettings.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -181,7 +181,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **HappyFox**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **HappyFox**.
 

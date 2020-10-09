@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma NUVEM SAP
@@ -99,7 +99,7 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -134,13 +134,13 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
     - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, identificador e URL de resposta. Contacte [a equipa de suporte do cliente da Plataforma CLOUD SAP](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obter URL e identificador de inscrição. URL de resposta pode obter da secção de gestão de confiança que é explicada mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o URL Sign-On real, identifier e URL de resposta. Contacte [a equipa de suporte do cliente da Plataforma NUVEM SAP](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obter Sign-On URL e Identifier. URL de resposta pode obter da secção de gestão de confiança que é explicada mais tarde no tutorial.
     > 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-sap-cloud-platform-single-sign-on"></a>Configurar plataforma nuvem SAP único sign-on
+### <a name="configure-sap-cloud-platform-single-sign-on"></a>Configurar plataforma nuvem SAP Sign-On
 
 1. Numa janela diferente do navegador, inscreva-se no Cockpit da Plataforma cloud SAP `https://account.<landscape host>.ondemand.com/cockpit` (por exemplo: https://account.hanatrial.ondemand.com/cockpit) .
 
@@ -199,7 +199,7 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Atributos") 
 
-    a. Clique **em Adicionar Atributo Baseado em Afirmação**e, em seguida, adicione os seguintes atributos baseados em afirmação:
+    a. Clique **em Adicionar Assertion-Based Atribua**e, em seguida, adicione os seguintes atributos baseados em afirmação:
        
     | Atributo de afirmação | Atributo Principal |
     | --- | --- |
@@ -256,7 +256,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações Empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **a Plataforma cloud SAP**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **a Plataforma nuvem SAP**.
 

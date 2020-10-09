@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Ative Directory com Rackspace SSO
@@ -73,7 +73,7 @@ Ao utilizar um único sign-on com Rackspace, os utilizadores do Rackspace serão
 Para configurar e testar o único sinal de Azure AD com Rackspace SSO, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure rackspace SSO Single Sign-On](#configure-rackspace-sso-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure rackspace SSO Single Sign-On](#configure-rackspace-sso-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 1. **[Configurar o Mapping Do Atributo no Painel de Controlo do Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)** - para atribuir funções rackspace aos utilizadores AD do Azure.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com Rackspace SSO, execute os seguinte
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,13 +113,13 @@ Para configurar o Azure AD single sign-on com Rackspace SSO, execute os seguinte
 
     ![Rackspace SSO Domain e URLs informações únicas de sinscrição](common/sp-signonurl.png)   
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
 Este ficheiro será enviado para Rackspace para preencher as definições de configuração necessárias da Federação de Identidade.
 
-### <a name="configure-rackspace-sso-single-sign-on"></a>Configurar rackspace SSO single sign-on
+### <a name="configure-rackspace-sso-single-sign-on"></a>Configurar rackspace SSO Single Sign-On
 
 Para configurar um único sinal no lado **SSO rackspace:**
 
@@ -161,7 +161,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Rackspace SSO**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Rackspace SSO**.
 

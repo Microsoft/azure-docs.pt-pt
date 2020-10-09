@@ -12,10 +12,10 @@ metadata:
   ms.author: sngun
   ms.date: 09/10/2019
   ms.openlocfilehash: 8f2dea260472da4178173d110c33d2681520cfce
-  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/30/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "91566725"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure

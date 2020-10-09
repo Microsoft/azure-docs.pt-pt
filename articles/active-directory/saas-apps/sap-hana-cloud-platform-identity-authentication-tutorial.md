@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 2d0b53581bbc2211df156b90326fc73d0c2ae091
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548738"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Directy integração única (SSO) com autenticação de identidade da plataforma de nuvem SAP
@@ -122,11 +122,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação de autenticação de identidade da plataforma SAP Cloud espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | nomePróprio | user.givenname |
 
-8. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -180,7 +180,7 @@ Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, con
 
 4. No portal Azure, na página de integração da **aplicação de autenticação de identidade** da plataforma de nuvem SAP, selecione **Linked Sign-on**.
 
-    ![Configurar o sign-on ligado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+    ![Configurar Sign-On Ligados](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
 5. Guarde a configuração.
 

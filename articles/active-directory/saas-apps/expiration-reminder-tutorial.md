@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 0f576205246ed90b8e8da91b7dd3074aa2d58d9d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integração do Diretório Ativo Azure com Lembrete de Expiração
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o único sinal de Ad AD com lembrete de expiração, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o lembrete de expiração único sinal-on](#configure-expiration-reminder-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o lembrete de expiração único sinal-on](#configure-expiration-reminder-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Expiration Reminder test user](#create-expiration-reminder-test-user)** - para ter uma contraparte de Britta Simon em Lembrete de Expiração que está ligada à representação AZure AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Lembrete de Expiração, execute os seguintes p
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -103,7 +103,7 @@ Para configurar o Azure AD com o Lembrete de Expiração, execute os seguintes p
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.expirationreminder.net/account/sso`
 
-5. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD com o Lembrete de Expiração, execute os seguintes p
 
     c. Logout URL
 
-### <a name="configure-expiration-reminder-single-sign-on"></a>Configure o lembrete de expiração único sinal-on
+### <a name="configure-expiration-reminder-single-sign-on"></a>Configure lembrete de expiração único Sign-On
 
 Para configurar um único sinal no lado **do Lembrete de Expiração,** é necessário enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipa de [suporte do Lembrete de Expiração.](mailto:support@expirationreminder.net) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -152,7 +152,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Aviso de Expiração**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **o Lembrete de Expiração.**
 

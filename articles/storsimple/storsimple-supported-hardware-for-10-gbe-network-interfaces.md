@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965020"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware suportado para as interfaces de rede de 10 GbE no seu dispositivo StorSimple
@@ -37,7 +37,7 @@ A Microsoft testou os seguintes pequenos transceptores de fator de forma (SFP) e
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cabos
-| S. Não. | Criação | Modelo |
+| S. N.º | Criação | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -45,7 +45,7 @@ A Microsoft testou os seguintes pequenos transceptores de fator de forma (SFP) e
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Comutadores
-| S. Não. | Criação | Modelo |
+| S. N.º | Criação | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -73,7 +73,7 @@ A Mellanox testou os seguintes pequenos transceptores pluggable (SFP) de fator d
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cabos e módulos suportados pela Mellanox
 A tabela que se segue lista os cabos e módulos suportados pela Mellanox. Estes não foram testados pela Microsoft, mas são suscetíveis de funcionar com o seu dispositivo StorSimple.
 
-| S. Não. | Velocidade | Modelo | Descrição | Criação |
+| S. N.º | Velocidade | Modelo | Descrição | Criação |
 | --- | --- | --- | --- | --- |
 | 1. |10 Gbe |CAB-SFP-SFP-1M |cabo de cobre passivo SFP+ 10 Gb/s 1m |Rio Arista |
 | 2. |10 Gbe |CAB-SFP-SFP-2M |cabo de cobre passivo SFP+ 10 Gb/s 2m |Rio Arista |
@@ -114,16 +114,16 @@ A tabela que se segue lista os cabos e módulos suportados pela Mellanox. Estes 
 ### <a name="switches-supported-by-mellanox"></a>Interruptores suportados pela Mellanox
 A tabela que se segue lista os interruptores suportados pela Mellanox. Estes não foram testados pela Microsoft, mas são suscetíveis de funcionar com o seu dispositivo StorSimple.
 
-| S. Não. | Velocidade | Modelo | Descrição | Criação |
+| S. N.º | Velocidade | Modelo | Descrição | Criação |
 | --- | --- | --- | --- | --- |
 | 1. |10Gbe |516733-B21 |HP ProCurve 6120XG 10GbE Ethernet Blade Switch |HP |
-| 2. |10Gbe |538113-B21 |Módulo de passagem HP 10GbE (PTM) |HP |
+| 2. |10Gbe |538113-B21 |Módulo de Pass-Through HP 10GbE (PTM) |HP |
 | 3. |10Gbe |EN4093 |IBM PureFlex System Fabric EN4093 10 Gigabit Módulo de Comutação Escalável |IBM |
 | 4. |1GbE |3020 |Lâmina de interruptor Cisco Catalyst 3020 1GbE |Cisco |
 | 5. |1GbE |3020X |Lâmina de interruptor Cisco Catalyst 3020X 1GbE |Cisco |
 | 6. |1GbE |438030-B21 |Módulo de interruptor HP 1GbE - Botão de lâmina De Camada 2/3 Ethernet |HP |
 | 7. |1GbE |6120G |Hp ProCurve 6120G/XG 1GbE lâmina |HP |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre os componentes e o estado do hardware StorSimple](storsimple-monitor-hardware-status.md).
 

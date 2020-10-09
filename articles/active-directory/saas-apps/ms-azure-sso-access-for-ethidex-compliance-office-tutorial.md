@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: jeedes
 ms.openlocfilehash: cee76d78e934931e6f2d0ff6787d755717ea8b0b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549029"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com MS Azure SSO Access for Ethidex Compliance Office™

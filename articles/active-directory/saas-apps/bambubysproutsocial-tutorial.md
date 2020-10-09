@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: jeedes
 ms.openlocfilehash: f56d15fc3d30a9b031ac7bfaafffc70a57faa8a9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integração do Diretório Ativo Azure com a Bambu by Sprout Social
@@ -74,7 +74,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar a Azure AD com o Bambu by Sprout Social, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure bambu by Sprout Social Single Sign-On](#configure-bambu-by-sprout-social-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure bambu by Sprout Social Single Sign-On](#configure-bambu-by-sprout-social-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Bambu by Sprout Social test user](#create-bambu-by-sprout-social-test-user)** - ter uma contraparte de Britta Simon em Bambu by Sprout Social que está ligada à representação Azure AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar a Azure AD single sign-on com Bambu by Sprout Social, execute os
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -102,7 +102,7 @@ Para configurar a Azure AD single sign-on com Bambu by Sprout Social, execute os
 
     ![Bambu by Sprout Domínio Social e URLs informações únicas de súmis](common/preintegrated.png)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -151,7 +151,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Bambu by Sprout Social**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Bambu by Sprout Social.**
 
