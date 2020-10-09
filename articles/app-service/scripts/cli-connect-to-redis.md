@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: b0e9929d851133700e5b0475d5e5aef8b0b4ca18
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88959754"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações a um Cache Azure para Redis usando CLI

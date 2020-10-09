@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
 ms.openlocfilehash: f5f132d257e30cd8f4fa1153087bf0df2f0f5b2c
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841861"
 ---
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure.

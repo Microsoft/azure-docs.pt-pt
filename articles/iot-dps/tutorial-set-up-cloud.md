@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316074"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos em nuvem para o fornecimento de dispositivos com o Serviço de Provisionamento de Dispositivos IoT Hub
@@ -52,7 +52,7 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
    ![Introduza as informações básicas do Serviço Aprovisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Clique em **Create** (Criar). Após alguns instantes, a instância do Serviço de Aprovisionamento de Dispositivos é criada e é apresentada a página **Descrição Geral**.
+5. Clique em **Criar**. Após alguns instantes, a instância do Serviço de Aprovisionamento de Dispositivos é criada e é apresentada a página **Descrição Geral**.
 
 6. Na página **Descrição Geral** da nova instância de serviço, copie o valor do **Âmbito do ID** para utilização posterior. O valor é utilizado para identificar os IDs de registo e oferece uma garantia de que o ID do registo é exclusivo.
 

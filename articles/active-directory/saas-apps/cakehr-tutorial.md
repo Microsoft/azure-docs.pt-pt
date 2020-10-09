@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Azure Ative Directory integração única (SSO) com CakeHR
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<yourcakedomain>.cake.hr/services/saml/consume`
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de sôm. Contacte [a equipa de suporte do Cliente CakeHR](mailto:info@cake.hr) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta Sign-On reais. Contacte [a equipa de suporte do Cliente CakeHR](mailto:info@cake.hr) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na secção **Certificado de Assinatura SAML,** clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75365194"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL para Azure Monitor consulta de conta de contação folha de batota 
@@ -41,6 +41,6 @@ União: com condições                  |`SELECT * FROM dependencies WHERE valu
 Associar                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver as lições sobre [a escrita de consultas de registo no Azure Monitor](get-started-queries.md).

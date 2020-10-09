@@ -12,10 +12,10 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 5d455751dcabd67213566d605e83fda297e187d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316686"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair os detalhes da imagem através da API de Pesquisa de Imagens do Bing e C#
@@ -112,6 +112,6 @@ Se existirem pessoas ou locais identificáveis na imagem, este pedido devolverá
 > [!div class="nextstepaction"]
 > [Apresentar opções de pesquisa e imagens numa aplicação Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

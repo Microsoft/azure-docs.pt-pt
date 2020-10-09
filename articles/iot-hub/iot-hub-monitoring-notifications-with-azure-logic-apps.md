@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81680709"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio
@@ -56,7 +56,7 @@ Neste tópico, você configura o encaminhamento no seu hub IoT para enviar mensa
 * Adicione um ponto final personalizado e uma regra de encaminhamento ao seu hub IoT para encaminhar mensagens que contenham um alerta de temperatura para a fila do Service Bus.
 * Crie, configuure e teste uma aplicação lógica para consumir mensagens da sua fila de Service Bus e enviar e-mails de notificação para um destinatário pretendido.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 * Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes abrangem os seguintes requisitos:
 
@@ -185,7 +185,7 @@ Na secção anterior, configura o seu hub IoT para encaminhar mensagens que cont
 
       ![Crie uma ligação de ônibus de serviço para a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Selecione a política do autocarro de serviço (RootManageSharedAccessKey). Em seguida, **selecione Criar**.
+   1. Selecione a política do autocarro de serviço (RootManageSharedAccessKey). Em seguida,  **selecione Criar**.
 
       ![Crie uma ligação de ônibus de serviço para a sua aplicação lógica no portal Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
@@ -249,7 +249,7 @@ A sua aplicação lógica está agora pronta para processar alertas de temperatu
    > [!NOTE]
    > O seu fornecedor de serviços de e-mail poderá ter de verificar a identidade do remetente para se certificar de que é você quem envia o e-mail.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou com sucesso uma aplicação lógica que liga o seu hub IoT e a sua caixa de correio para monitorização de temperatura e notificações.
 

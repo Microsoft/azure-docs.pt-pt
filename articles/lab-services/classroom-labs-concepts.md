@@ -4,10 +4,10 @@ description: Aprenda os conceitos básicos dos Serviços de Laboratório, e como
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443711"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
@@ -26,7 +26,7 @@ Os horários são os horários que um educador pode criar para a aula para que o
 
 Existem três tipos de horários: Standard, Start only e Stop only.
 
-- **Padrão**.  Este horário iniciará todos os VMs dos alunos na hora de início especificada e desligará todos os VMs dos alunos no tempo de paragem especificado.
+- **Standard**.  Este horário iniciará todos os VMs dos alunos na hora de início especificada e desligará todos os VMs dos alunos no tempo de paragem especificado.
 - **Comece apenas.**   Este horário iniciará todos os VMs dos alunos no momento especificado.  Os VMs dos estudantes não serão parados até que um aluno pare o seu VM através do portal Azure Lab Services ou ocorra um horário de paragem.
 - **Pare apenas.**  Este horário irá parar todos os VMs dos alunos no momento especificado.  
 
@@ -63,7 +63,7 @@ O aluno realiza as seguintes tarefas:
 - Utiliza a ligação de registo que o utilizador do laboratório recebe do criador do laboratório para se registar no laboratório.
 - Liga-se a uma máquina virtual no laboratório e utiliza-a para tarefas, projetos ou para fazer trabalho da aula.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução à configuração de uma conta de laboratório necessária para criar um laboratório de sala de aula com o Azure Lab Services:
 

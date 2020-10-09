@@ -8,10 +8,10 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: be9dc3e583d179536a1df35677ec4d3a1ce0b541
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827343"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cosmos-db"></a>Controlos de conformidade regulamentar da Política Azure para a Azure Cosmos DB

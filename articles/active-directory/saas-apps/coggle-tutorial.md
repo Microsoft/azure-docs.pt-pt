@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Tutorial: Azure Ative Directy integração única (SSO) com Coggle
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Coggle espera que alguns mais atributos sejam repercutidos na resposta SAML, que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------- |
     | nomePróprio | user.givenname |
     | apelido | utilizador.sobrenome |

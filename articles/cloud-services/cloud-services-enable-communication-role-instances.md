@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: tagore
 ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75386345"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Permitir a comunicação para instâncias de função em azul
@@ -365,7 +365,7 @@ Só permite o tráfego de rede de **WebRole1** a **WorkerRole1,** **WebRole1** a
 
 Uma referência de esquema XML para os elementos acima utilizados pode ser encontrada [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)cloud service .
 
 

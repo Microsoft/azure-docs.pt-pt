@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683751"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
@@ -88,8 +88,8 @@ Na `Simulation` secção, define-se o estado interno do dispositivo simulado. Os
 
 A definição do estado do dispositivo tem dois elementos:
 
-* `InitialState`define valores iniciais para todas as propriedades do objeto do estado do dispositivo.
-* `Script`identifica um ficheiro JavaScript que funciona numa programação para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para aleatoriamente os valores de telemetria enviados pelo dispositivo.
+* `InitialState` define valores iniciais para todas as propriedades do objeto do estado do dispositivo.
+* `Script` identifica um ficheiro JavaScript que funciona numa programação para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para aleatoriamente os valores de telemetria enviados pelo dispositivo.
 
 Para saber mais sobre o ficheiro JavaScript que atualiza o objeto do estado do dispositivo, consulte [Compreender o comportamento do modelo do dispositivo](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
@@ -158,9 +158,9 @@ O exemplo a seguir envia uma mensagem de telemetria JSON a cada 10 segundos `flo
 ]
 ```
 
-`MessageTemplate`define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os espaços reservados `MessageTemplate` utilizam a sintaxe `${NAME}` onde está uma chave do objeto do estado do `NAME` [dispositivo](#simulation). As cordas devem ser citadas, os números não.
+`MessageTemplate` define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os espaços reservados `MessageTemplate` utilizam a sintaxe `${NAME}` onde está uma chave do objeto do estado do `NAME` [dispositivo](#simulation). As cordas devem ser citadas, os números não.
 
-`MessageSchema`define o esquema da mensagem enviada pelo dispositivo simulado. O esquema de mensagens também é publicado no IoT Hub para permitir que as aplicações de backend reutilem a informação para interpretar a telemetria de entrada.
+`MessageSchema` define o esquema da mensagem enviada pelo dispositivo simulado. O esquema de mensagens também é publicado no IoT Hub para permitir que as aplicações de backend reutilem a informação para interpretar a telemetria de entrada.
 
 Atualmente, só pode utilizar esquemas de mensagens JSON. Os campos listados no esquema podem ser dos seguintes tipos:
 
@@ -169,7 +169,7 @@ Atualmente, só pode utilizar esquemas de mensagens JSON. Os campos listados no 
 * Texto
 * Booleano
 * Número inteiro
-* Double
+* Double (Duplo)
 * DateTime
 
 Para enviar mensagens de telemetria em intervalos diferentes, adicione vários tipos de telemetria à `Telemetry` matriz. O exemplo a seguir envia dados de temperatura e humidade a cada 10 segundos e o estado da luz a cada minuto:
@@ -236,7 +236,7 @@ O exemplo a seguir especifica três métodos suportados e os ficheiros JavaScrip
 
 Pode ver os ficheiros JavaScript para os dispositivos simulados predefinidos na [pasta scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, estes ficheiros JavaScript têm o **método sufixo** para os distinguir dos ficheiros que implementam o comportamento do Estado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu como criar o seu próprio modelo de dispositivo simulado personalizado. Este artigo mostrou-lhe como:
 

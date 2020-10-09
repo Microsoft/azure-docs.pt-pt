@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85570175"
 ---
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
@@ -23,7 +23,7 @@ ms.locfileid: "85570175"
 
 Numa janela de terminal local, navegue para o diretório de raiz do seu projeto de aplicações. 
 
-Este diretório deve conter o ficheiro de entrada na sua aplicação web, como _index.html,_ _index.php_e _app.js_. Também pode conter ficheiros de gestão de pacotes como _project.jsem_ _,composer.js_em , _package.js_on , _bower.json_, e _requirements.txt_.
+Este diretório deve conter o ficheiro de entrada na sua aplicação web, como _index.html,_ _index.php_e _app.js_. Também pode conter ficheiros de gestão de pacotes como _project.jsem_ _ ,composer.js_em , _package.js_on , _bower.json_, e _requirements.txt_.
 
 A menos que pretenda que o Serviço de Aplicações execute a automatização de implementação para si, execute todas as tarefas de construção (por exemplo, `npm` `bower` , e `gulp` `composer` `pip` certifique-se de que tem todos os ficheiros necessários para executar a aplicação. Este passo é necessário se quiser [executar a sua encomenda diretamente](../articles/app-service/deploy-run-package.md).
 

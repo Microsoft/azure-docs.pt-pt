@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.openlocfilehash: d76fda02f94f85126214de27d88079977824098d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320137"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>Exportar/Copiar o VHD de um disco gerido para uma conta de armazenamento em diferentes regiões com o PowerShell (Windows)

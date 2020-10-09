@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81535728"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço SSL IP
@@ -17,7 +17,7 @@ Se recebeu uma notificação de que o endereço IP SSL da sua aplicação Azure 
 
 ## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Libertar endereços IP SSL e atribuir novos
 
-1.  Abra o [portal Azure](https://portal.azure.com).
+1.  Abra o [portal do Azure](https://portal.azure.com).
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicações**.
 

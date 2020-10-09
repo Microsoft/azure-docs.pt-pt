@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Diretório Ativo Azure com o ClickTime
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o ClickTime, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-on único do ClickTime](#configure-clicktime-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-on único do ClickTime](#configure-clicktime-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ClickTime test user](#create-clicktime-test-user)** - para ter uma contraparte de Britta Simon no ClickTime que está ligada à representação AD AZure do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Informações de súmis de clickTime e URLs](common/idp-intiated.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
     https://app.clicktime.com/App/Login/Consume.aspx
     ```
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -124,17 +124,17 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-clicktime-single-sign-on"></a>Configurar clickTime single sign-on
+### <a name="configure-clicktime-single-sign-on"></a>Configurar clicktime single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa ClickTime como administrador.
 
 1. Na barra de ferramentas na parte superior, clique em **Preferências**e, em seguida, clique em **Definições de Segurança**.
 
-1. Na secção de configuração **de preferências de registo único,** execute os seguintes passos:
+1. Na secção de configuração **De Preferências de Sign-On Única,** execute os seguintes passos:
    
     ![Definições de segurança](./media/clicktime-tutorial/tic777280.png "Definições de Segurança")
    
-    a.  Selecione **Permitir o** acesso ao sign-in utilizando o Sign-On único (SSO) com **Azure AD**.
+    a.  Selecione **Permitir o** acesso ao Sign-On único (SSO) com **Azure AD**.
    
     b. Na caixa de texto do **Fornecedor de Identidade Endpoint,** cole **URL de login** que copiou do portal Azure.
    

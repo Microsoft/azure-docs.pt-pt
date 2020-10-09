@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Ative Directory com bónus
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com bónus, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure bónus bónus único sinal -para](#configure-bonusly-single-sign-on)** configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure bónus bónus único sinal -](#configure-bonusly-single-sign-on)** para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Bonusly test user](#create-bonusly-test-user)** - para ter uma contraparte de Britta Simon em Bonusly que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com bónus, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD com bónus, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bonusly-single-sign-on"></a>Configurar bónus bónus único sinal-on
+### <a name="configure-bonusly-single-sign-on"></a>Configurar bónus Sign-On individuais
 
 1. Numa janela de navegador diferente, inscreva-se no seu inquilino **Bonusly.**
 

@@ -16,17 +16,17 @@ ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011740"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual Linux em Azure
 
 A monitorização do Azure utiliza agentes para recolher dados de boot e desempenho a partir de VMs Azure, armazenar estes dados no armazenamento Azure, e torná-lo acessível através do portal, o módulo Azure PowerShell e Azure CLI. A monitorização avançada é entregue com o Azure Monitor para VMs, recolhendo métricas de desempenho, descobrendo componentes de aplicação instalados no VM, e inclui gráficos de desempenho e mapa de dependência.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM

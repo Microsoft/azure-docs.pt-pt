@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81419022"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transforme os dados executando um caderno Databricks
@@ -57,15 +57,15 @@ Aqui está a definição JSON de uma atividade de caderno de dados:
 
 A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
-|Propriedade|Descrição|Necessário|
+|Propriedade|Descrição|Obrigatório|
 |---|---|---|
-|name|O nome da atividade no oleoduto.|Yes|
-|descrição|Texto descrevendo o que a atividade faz.|No|
-|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Yes|
-|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Yes|
-|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Yes|
-|basesParametros|Uma variedade de pares de valores-chave. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|No|
-|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|No|
+|name|O nome da atividade no oleoduto.|Sim|
+|descrição|Texto descrevendo o que a atividade faz.|Não|
+|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Sim|
+|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim|
+|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Sim|
+|basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|Não|
+|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|Não|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas apoiadas para atividades databricks

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Azure Ative Directory com BorrowBox
@@ -74,7 +74,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o único sinal de Ad AD com o BorrowBox, tem de completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-on único da Caixa de Empréstimo](#configure-borrowbox-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-on único da Caixa De Empréstimo](#configure-borrowbox-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create BorrowBox test user](#create-borrowbox-test-user)** - para ter uma contraparte de Britta Simon em BorrowBox que está ligada à representação AD AZure do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com o BorrowBox, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD com o BorrowBox, execute os seguintes passos:
 
     ![image](common/edit-attribute.png)
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD com o BorrowBox, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-borrowbox-single-sign-on"></a>Configurar o sign-on único da Caixa de Empréstimo
+### <a name="configure-borrowbox-single-sign-on"></a>Configurar a caixa única de caixa Sign-On
 
 Para configurar um único sinal no lado **do BorrowBox,** é necessário enviar os **metadados XML da Federação** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte do BorrowBox](mailto:borrowbox@bolinda.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

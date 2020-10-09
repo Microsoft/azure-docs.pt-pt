@@ -4,10 +4,10 @@ description: A documentação de referência para as Funções Azure host.jsarqu
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81757512"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsem referência para Funções Azure 1.x
@@ -138,7 +138,7 @@ Definições de configuração para o [gatilho DB Azure Cosmos e encadernações
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|GatewayMode|Gateway|O modo de ligação utilizado pela função ao ligar-se ao serviço DB Azure Cosmos. As opções são `Direct` e`Gateway`|
+|GatewayMode|Gateway|O modo de ligação utilizado pela função ao ligar-se ao serviço DB Azure Cosmos. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de ligação utilizado pela função quando ligado ao serviço DB Azure Cosmos.  Leia [aqui para uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|n/a|Alugar prefixo para usar em todas as funções numa aplicação.|
 
@@ -366,7 +366,7 @@ Um conjunto de [diretórios](functions-reference-csharp.md#watched-directories) 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o host.jsno ficheiro](functions-reference.md#fileupdate)

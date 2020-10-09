@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
 ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79126600"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do Serviço Azure Kubernetes (pré-visualização)
@@ -79,7 +79,7 @@ A Gestão de Identidade e Segurança deteta erros de autenticação e autorizaç
 - 401 erros
 - Erros 403
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Colete registos para ajudá-lo a resolver ainda mais os seus problemas de cluster utilizando [o Periscope AKS](https://aka.ms/aksperiscope).
 

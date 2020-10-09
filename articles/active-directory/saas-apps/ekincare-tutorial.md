@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 987a8676fa9f738b788b183a1f3d964c0d0b88ad
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: Integração do Azure Ative Directory com eKincare
@@ -75,7 +75,7 @@ Para um único início de saúde a funcionar, é necessário estabelecer uma rel
 Para configurar e testar o Azure AD com um único sinal de acesso com eKincare, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure eKincare Single Sign-On](#configure-ekincare-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o eKincare Single Sign-On](#configure-ekincare-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create eKincare test user](#create-ekincare-test-user)** - para ter uma contraparte de Britta Simon em eKincare que está ligada à representação AZure AD do utilizador.
@@ -95,11 +95,11 @@ Para configurar o Azure AD com um único sign-on com eKincare, execute os seguin
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![informações de eKincare Domain e URLs únicas](common/idp-intiated.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD com um único sign-on com eKincare, execute os seguin
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do cliente eKincare](mailto:tech@ekincare.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. A aplicação eKincare espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+5. A aplicação eKincare espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ Para configurar o Azure AD com um único sign-on com eKincare, execute os seguin
 
     exemplo, Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD com um único sign-on com eKincare, execute os seguin
 
     c. Logout URL
 
-### <a name="configure-ekincare-single-sign-on"></a>Configurar eKincare single sign-on
+### <a name="configure-ekincare-single-sign-on"></a>Configurar eKincare Single Sign-On
 
 Para configurar um único sign-on no lado **do eKincare,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de [suporte eKincare](mailto:tech@ekincare.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 43189d40c57ce6c300904207edc35011b0581ecc
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740474"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     a. Na caixa de texto **URL de resposta,** digite um URL: `https://bluejeans.com/sso/saml2/`
 
     > [!NOTE]
-    > O valor URL de inscrição não é real. Atualize o valor com o URL de inscrição real. Contacte [a Equipa de Apoio ao Cliente Azure AD para](https://support.bluejeans.com/contact) obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor de URL Sign-On não é real. Atualize o valor com o URL de Sign-On real. Contacte [a Equipa de Apoio ao Cliente Azure AD para](https://support.bluejeans.com/contact) obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação BlueJeans espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -101,7 +101,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BlueJeans espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------| --------- |
     | Telefone | user.telephonenumber |
     | título | user.jobtitle |

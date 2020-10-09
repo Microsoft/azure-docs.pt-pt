@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606328"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Classificar a transformação no fluxo de dados de mapeamento
@@ -62,6 +62,6 @@ BasketballStats sort(desc(PTS, true),
     asc(Age, true)) ~> Sort1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após a triagem, pode querer usar a [Transformação Agregada](data-flow-aggregate.md)

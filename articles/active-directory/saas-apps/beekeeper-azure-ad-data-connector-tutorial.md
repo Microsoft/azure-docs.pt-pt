@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 82fced2d504af1823b3e6e1561ee875067a962c5
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741419"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beekeeper-azure-ad-sso"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com apicultor Azure AD SSO
@@ -107,7 +107,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Azure AD SSO do Azure espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------ | --------- |
     | nome de primeiro nome | user.givenname |
     | último nome | utilizador.sobrenome |

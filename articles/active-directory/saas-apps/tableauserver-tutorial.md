@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: cb052f4ce962b1757f47f64e3f26fa5db2a731fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Azure Ative Directory integração única (SSO) com Tableau Server
@@ -131,11 +131,11 @@ Nesta secção, você permitirá que B.Simon use o Azure single sign-on, concede
 
 2. No **separador CONFIGURAÇÃO,** selecione **Identidade do Utilizador & Aceder**e, em seguida, selecione o separador Método de **Autenticação.**
 
-    ![Configurar um único sign-on](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Configurar Sign-On Individuais](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
 3. Na página **CONFIGURAÇÃO,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Configurar Sign-On Individuais](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
     a. Para **método de autenticação,** selecione SAML.
 

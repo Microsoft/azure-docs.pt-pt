@@ -4,10 +4,10 @@ description: Este guia ajuda administradores que criam e gerem contas de laborat
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444153"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
@@ -264,6 +264,6 @@ Neste exemplo, o custo é:
 
 Não deve eliminar a replicação em regiões específicas como forma de reduzir os custos (esta opção existe na galeria de imagens partilhada). As alterações de replicação podem ter efeitos adversos na capacidade do Azure Lab Service de publicar VMs a partir de imagens guardadas dentro de uma galeria de imagens partilhada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o tutorial para obter instruções passo a passo para criar uma conta de laboratório e um laboratório: [Configurar Guia](tutorial-setup-lab-account.md)

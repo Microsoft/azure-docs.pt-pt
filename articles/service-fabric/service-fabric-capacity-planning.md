@@ -4,10 +4,10 @@ description: Descreve como identificar o número de nós computacional necessár
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75377213"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planeamento de capacidade para aplicações de Tecido de Serviço
@@ -48,7 +48,7 @@ Agora, com base em toda esta informação, a folha de cálculo mostra que você 
 
 ![Folha de cálculo para cálculo de custos][Image1]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os [serviços de tecido de serviço de partição][10] para saber mais sobre a partilha do seu serviço.
 
 <!--Image references-->

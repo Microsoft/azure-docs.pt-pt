@@ -7,14 +7,14 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 10/07/2020
   ms.author: magoedte
-  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 346e64968c4616cb1ebcb02db4f4d6d7bca29526
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90908116"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91825792"
 landingContent:
 - title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
   linkLists:
@@ -36,3 +36,9 @@ landingContent:
     links:
     - text: Implementar agente de servidor compatível com Arc
       url: ./learn/quick-enable-hybrid-vm.md
+- title: Arquitetura de referência
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Gerir configurações para servidores híbridos
+      url: /architecture/hybrid/azure-arc-hybrid-config

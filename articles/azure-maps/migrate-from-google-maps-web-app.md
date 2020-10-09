@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
 ms.openlocfilehash: 3414f50d6d0fc4983b7a05226a2f768e7ead81dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319678"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrar uma aplicação web do Google Maps
@@ -1011,7 +1011,7 @@ Adicione e gerencie os dados numa fonte de dados. Ligue fontes de dados e camada
 
 Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados agrupados e não agrupados para camadas para renderização. A fonte de dados é capaz de agrupar centenas de milhares de pontos de dados. Um ponto de dados agrupado tem as seguintes propriedades:
 
-| Nome da propriedade             | Tipo    | Description   |
+| Nome da propriedade             | Tipo    | Descrição   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
 | `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
@@ -1020,7 +1020,7 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 
-| Método | Tipo de retorno | Description |
+| Método | Tipo de retorno | Descrição |
 |--------|-------------|-------------|
 | `getClusterChildren(clusterId: number)` | Prometa &lt; &lt; geometria de característica &lt; de matriz, qualquer &gt; \| forma&gt;&gt; | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e subclusters. Os subclusters serão funcionalidades com propriedades correspondentes a ClusteredProperties. |
 | `getClusterExpansionZoom(clusterId: number)` | &lt;Número de promessa&gt; | Calcula um nível de zoom no qual o cluster começará a expandir-se ou a separar-se. |
@@ -1504,7 +1504,7 @@ Use a `atlas.layer.ImageLayer` classe para sobrepor imagens georreferenciadas. E
 
 ### <a name="add-kml-data-to-the-map"></a>Adicione dados KML ao mapa
 
-Tanto o Azure como o Google Maps podem importar e renderizar dados de KML, KMZ e GeoRSS no mapa. O Azure Maps também suporta GPX, GML, ficheiros de CSV espaciais, GeoJSON, Texto Bem Conhecido (WKT), Serviços de Mapeamento Web (WMS), Serviços de Mapeamento Web (WMTS) e Serviços de Funcionalidade Web (WFS). O Azure Maps lê os ficheiros localmente na memória e na maioria dos casos pode lidar com ficheiros KML muito maiores. 
+Tanto o Azure como o Google Maps podem importar e renderizar dados de KML, KMZ e GeoRSS no mapa. O Azure Maps também suporta GPX, GML, ficheiros de CSV espaciais, GeoJSON, Texto Bem Conhecido (WKT), serviços de Web-Mapping (WMS), serviços de Web-Mapping de azulejos (WMTS) e Serviços de Funcionalidade Web (WFS). O Azure Maps lê os ficheiros localmente na memória e na maioria dos casos pode lidar com ficheiros KML muito maiores. 
 
 #### <a name="before-google-maps"></a>Antes: Google Maps
 

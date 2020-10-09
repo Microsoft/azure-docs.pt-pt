@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998242"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para telefones windows específicos usando hubs de notificação Azure
@@ -35,7 +35,7 @@ Para possibilitar este cenário, inclua uma ou mais *etiquetas* quando criar um 
 > [!NOTE]
 > O SDK dos Notification Hubs do Windows Phone não suporta a utilização do Serviço de Notificações Push do Windows (WNS) com aplicações do Windows Phone 8.1 Silverlight. Para utilizar o WNS (em vez do MPNS) com aplicações para Windows Phone 8.1 Silverlight, siga o [tutorial Hubs de Notificação – Windows Phone Silverlight], que utiliza APIs REST.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel

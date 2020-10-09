@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: adf936d6d1b99bf81a8c055237ca597020452bd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716634"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Tutorial: Avaliar os exemplos de VM da Plataforma Google Cloud (GCP) para migração para Azure
@@ -17,7 +17,7 @@ Como parte da sua viagem de migração para Azure, você avalia as suas cargas d
 
 Este artigo mostra-lhe como avaliar os exemplos de VM da Plataforma cloud do Google (GCP) para migração para Azure, utilizando a ferramenta Azure Migrate: Server Assessment.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 - Executar uma avaliação com base em metadados de máquina e informações de configuração.
 - Executar uma avaliação com base em dados de desempenho.
@@ -175,7 +175,7 @@ As classificações de confiança são as seguintes.
 
 [Saiba mais](concepts-assessment-calculation.md#confidence-ratings-performance-based) sobre as classificações de confiança.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Encontre dependências de máquinas utilizando [o mapeamento de dependência.](concepts-dependency-visualization.md)
 - Configurar o mapeamento de dependência [baseado em agente.](how-to-create-group-machine-dependencies.md)

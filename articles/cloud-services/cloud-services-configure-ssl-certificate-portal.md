@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024851"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configurar TLS para uma aplicação em Azure
@@ -166,12 +166,12 @@ Agora que a sua implantação está a funcionar em Azure, pode ligar-se a ele ut
    ![Pré-visualização do site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se quiser utilizar o TLS para uma colocação de encenação em vez de uma implantação de produção, primeiro terá de determinar o URL utilizado para a colocação de paragem. Uma vez implementado o seu serviço em nuvem, o URL para o ambiente de preparação é determinado pelo ID GUID **de implementação** neste formato:`https://deployment-id.cloudapp.net/`  
+   > Se quiser utilizar o TLS para uma colocação de encenação em vez de uma implantação de produção, primeiro terá de determinar o URL utilizado para a colocação de paragem. Uma vez implementado o seu serviço em nuvem, o URL para o ambiente de preparação é determinado pelo ID GUID **de implementação** neste formato: `https://deployment-id.cloudapp.net/`  
    >
    > Criar um certificado com o nome comum (CN) igual ao URL baseado em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Utilize o portal para adicionar o certificado ao seu serviço de nuvem encenada. Em seguida, adicione as informações do certificado aos seus ficheiros CSDEF e CSCFG, reembale a sua aplicação e atualize a sua implementação encenada para utilizar o novo pacote.
    >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

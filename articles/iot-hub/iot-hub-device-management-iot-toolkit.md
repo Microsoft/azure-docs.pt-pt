@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81688102"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utilize ferramentas Azure IoT para código de estúdio visual para gestão de dispositivos Azure IoT Hub
@@ -43,7 +43,7 @@ Aprende a usar ferramentas Azure IoT para Código de Estúdio Visual com várias
 
 Executar ferramentas IoT Azure para Código de Estúdio Visual com várias opções de gestão.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 * Uma subscrição ativa do Azure.
 * Um hub Azure IoT sob a sua assinatura.
@@ -97,7 +97,7 @@ Para enviar uma mensagem do seu hub IoT para o seu dispositivo, siga estes passo
 
 3. Os resultados serão mostrados na vista **OUTPUT**  >  **Azure IoT Hub.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a usar a extensão Azure IoT Tools para Código de Estúdio Visual com várias opções de gestão.
 

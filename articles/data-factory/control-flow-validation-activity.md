@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417934"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação na Azure Data Factory
@@ -62,12 +62,12 @@ Pode utilizar uma Validação num oleoduto para garantir que o gasoduto só cont
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade de 'Validação' | String | Yes |
-tipo | Deve ser definido para **validação.** | String | Yes |
-conjunto de dados | A atividade bloqueará a execução até que tenha validado esta referência de conjunto de dados e que satisfaça os critérios especificados, ou o tempo limite tenha sido atingido. O conjunto de dados fornecido deve suportar a propriedade "MinimumSize" ou "ChildItems". | Referência do conjunto de dados | Yes |
-tempo limite | Especifica o tempo limite para a execução da atividade. Se não for especificado qualquer valor, o valor predefinido é de 7 dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | No |
-sono | Um atraso em segundos entre tentativas de validação. Se não for especificado qualquer valor, o valor predefinido é de 10 segundos. | Número inteiro | No |
-childItems | Verifique se a pasta tem objetos de criança. Pode ser definido como verdadeiro : Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor do tempo limite seja atingido.-falso: Valide que a pasta existe e que está vazia. Bloqueia até que a pasta esteja vazia ou até que o valor do tempo limite seja atingido. Se não for especificado qualquer valor, a atividade bloqueará até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | No |
+name | Nome da atividade de 'Validação' | String | Sim |
+tipo | Deve ser definido para **validação.** | String | Sim |
+conjunto de dados | A atividade bloqueará a execução até que tenha validado esta referência de conjunto de dados e que satisfaça os critérios especificados, ou o tempo limite tenha sido atingido. O conjunto de dados fornecido deve suportar a propriedade "MinimumSize" ou "ChildItems". | Referência do conjunto de dados | Sim |
+tempo limite | Especifica o tempo limite para a execução da atividade. Se não for especificado qualquer valor, o valor predefinido é de 7 dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | Não |
+sono | Um atraso em segundos entre tentativas de validação. Se não for especificado qualquer valor, o valor predefinido é de 10 segundos. | Número inteiro | Não |
+childItems | Verifique se a pasta tem objetos de criança. Pode ser definido como verdadeiro : Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item esteja presente na pasta ou o valor do tempo limite seja atingido.-falso: Valide que a pasta existe e que está vazia. Bloqueia até que a pasta esteja vazia ou até que o valor do tempo limite seja atingido. Se não for especificado qualquer valor, a atividade bloqueará até que a pasta exista ou até que o tempo limite seja atingido. | Booleano | Não |
 tamanho mínimo | Tamanho mínimo de um ficheiro em bytes. Se nenhum valor for especificado, o valor predefinido é 0 bytes | Número inteiro | Não |
 
 

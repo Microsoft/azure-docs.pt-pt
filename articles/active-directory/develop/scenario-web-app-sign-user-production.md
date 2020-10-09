@@ -12,10 +12,10 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82181635"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicação web que assina nos utilizadores: Mover-se para a produção

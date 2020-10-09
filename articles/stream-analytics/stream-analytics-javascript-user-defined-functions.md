@@ -9,10 +9,10 @@ ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
 ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317723"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | Cadeia
+nvarchar(MAX) | String
 Registo | Objeto
 Matriz | Matriz
 NULL | Nulo
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Date | DateTime
-Cadeia | nvarchar(MAX)
+String | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
 Null, Undefined | NULL

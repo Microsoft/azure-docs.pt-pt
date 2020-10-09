@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81767026"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT dispositivo SDK para C – mais sobre serializer
@@ -74,7 +74,7 @@ Os seguintes tipos de dados são suportados em modelos criados com a biblioteca 
 | int8 \_ t |Inteiro de 8 bits |
 | int16 \_ t |Inteiro de 16 bits |
 | int32 \_ t |Inteiro de 32 bits |
-| int64 \_ t |Inteiro de 64 bits |
+| int64 \_ t |Número inteiro de 64 bits |
 | bool |boolean |
 | ascii \_ char \_ ptr |Cadeia ASCII |
 | OFFSET DE \_ HORA DE DATA EDM \_ \_ |compensação de tempo de data |
@@ -662,7 +662,7 @@ serializer_deinit();
 
 Caso contrário, todas as outras funcionalidades listadas acima funcionam da mesma forma que na **biblioteca** **ioTHubClient.** Para mais informações sobre qualquer um destes tópicos, consulte o [artigo anterior](iot-hub-device-sdk-c-iothubclient.md) nesta série.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreve em pormenor os aspetos únicos da biblioteca **serializadora** contidos no **dispositivo Azure IoT SDK para C**. Com as informações fornecidas deve ter uma boa compreensão de como usar modelos para enviar eventos e receber mensagens do IoT Hub.
 

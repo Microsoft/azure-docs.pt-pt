@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78969038"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Crie um certificado de encriptação e criptografe segredos em clusters Linux
@@ -44,7 +44,7 @@ A saída de cadeia codificada base-64 resultante para encrypted.txt contém tant
 user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der -inkey TestCert.prv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [especificar segredos encriptados numa aplicação.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->

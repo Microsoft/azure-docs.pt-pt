@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417951"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até à atividade na Azure Data Factory
@@ -55,11 +55,11 @@ A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de cicl
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Until` atividade. | String | Yes
-tipo | Deve ser definido para **Até**. . | String | Yes
-expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Yes
-tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss`(ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | No
-Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Yes
+name | O nome da `Until` atividade. | String | Sim
+tipo | Deve ser definido para **Até**. . | String | Sim
+expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Sim
+tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | Não
+Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1
 

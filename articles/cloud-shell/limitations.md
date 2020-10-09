@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74951484"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Concha da Nuvem Azure
@@ -63,11 +63,11 @@ Tenha cuidado ao editar o ficheiro de $PROFILE da PowerShell ou da PowerShell, p
 
 ## <a name="powershell-limitations"></a>Limitações PowerShell
 
-### <a name="azuread-module-name"></a>`AzureAD`nome do módulo
+### <a name="azuread-module-name"></a>`AzureAD` nome do módulo
 
 O `AzureAD` nome do módulo encontra-se atualmente, o módulo fornece a mesma `AzureAD.Standard.Preview` funcionalidade.
 
-### <a name="sqlserver-module-functionality"></a>`SqlServer`funcionalidade do módulo
+### <a name="sqlserver-module-functionality"></a>`SqlServer` funcionalidade do módulo
 
 O `SqlServer` módulo incluído na Cloud Shell tem apenas suporte pré-lançado para PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
 
@@ -83,7 +83,7 @@ Se o utilizador executa um comando que criaria uma caixa de diálogo do Windows,
 
 Se o utilizador efetuar uma ação que apresente uma barra de progresso, como uma aba completando durante a `Azure:` unidade, então é possível que o cursor não esteja corretamente definido e apareça uma lacuna onde a barra de progresso estava anteriormente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Resolução de problemas Cloud Shell](troubleshooting.md) <br>
 [Início Rápido para o Bash](quickstart.md) <br>

@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81461655"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
@@ -60,7 +60,7 @@ Existem três [cenários](../../service-fabric/service-fabric-cluster-security.m
 -   Segurança nó-a-nó: Este cenário assegura a comunicação entre os VMs e os computadores do cluster. Esta forma de segurança garante que apenas os computadores autorizados a aderir ao cluster podem acolher aplicações e serviços no cluster.
 Neste cenário, os clusters que funcionam no Azure, ou clusters autónomos que funcionam no Windows, podem utilizar a segurança dos [certificados](../../service-fabric/service-fabric-windows-cluster-x509-security.md) ou [a segurança do Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) para máquinas do Windows Server.
 -   Segurança cliente-a-nó: Este cenário assegura a comunicação entre um cliente de Service Fabric e os nós individuais no cluster.
--   Controlo de Acesso Baseado em Função (RBAC): Este cenário utiliza identidades separadas (certificados, AZure AD, e assim por diante) para cada administrador e papel do cliente utilizador que acede ao cluster. Especifica as identidades de função quando cria o cluster.
+-   Role-Based Controlo de Acesso (RBAC): Este cenário utiliza identidades separadas (certificados, AZure AD, e assim por diante) para cada administrador e papel do cliente utilizador que acede ao cluster. Especifica as identidades de função quando cria o cluster.
 
 >[!NOTE]
 >**Recomendação de segurança para os clusters Azure:** Utilize a segurança Azure AD para autenticar clientes e certificados para segurança nó-a-nó.

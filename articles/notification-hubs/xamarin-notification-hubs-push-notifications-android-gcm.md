@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: ce47d2ae65a4ea9e6878381ce58d62cb6c998599
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998208"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.Android usando Centros de Notificação
@@ -92,7 +92,7 @@ O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de 
 1. Adicione pacotes NuGet necessários ao projeto seguindo estes passos:
     1. Clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet...**.
     1. Mude para o separador **Instalado,** selecione **Xamarin.Android.Support.Design**e selecione **Update** in the right pane para atualizar o pacote para a versão mais recente.
-    1. Mude para o separador **Navegar.** Procure **por Xamarin.GooglePlayServices.Base**. Selecione **Xamarin.GooglePlayServices.Base** na lista de resultados. Em seguida, selecione **Instalar**.
+    1. Mude para o separador **Procurar.** Pesquisa por **Xamarin.GooglePlayServices.Base**. Selecione **Xamarin.GooglePlayServices.Base** na lista de resultados. Em seguida, selecione **Instalar**.
 
         ![NuGet dos Serviços do Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
     6. Na janela **Gestor de Pacotes NuGet**, procure **Xamarin.Firebase.Messaging**. Selecione **Xamarin.Firebase.Messaging** na lista de resultados. Em seguida, selecione **Instalar**.

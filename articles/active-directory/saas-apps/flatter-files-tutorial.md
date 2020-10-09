@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Ative Directory com Ficheiros Lisos
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com ficheiros flatter, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure os ficheiros lisos único sinal -para](#configure-flatter-files-single-sign-on)** configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure os ficheiros lisos único sinal -,](#configure-flatter-files-single-sign-on)** para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Flatter Files test user](#create-flatter-files-test-user)** - para ter uma contraparte de Britta Simon em Ficheiros Lisos que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
 
     ![Informações de súmula de ficheiros e URLs](common/preintegrated.png)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-flatter-files-single-sign-on"></a>Configurar ficheiros lisos único sedundo
+### <a name="configure-flatter-files-single-sign-on"></a>Configurar ficheiros lisos single Sign-On
 
 1. Iniciar s presenciação na sua aplicação Flatter Files como administrador.
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
 
 4. No diálogo **de configuração SAML,** execute os seguintes passos: 
    
-    ![Configurar um único sign-on](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
+    ![Configurar Sign-On Individuais](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
     a. Na caixa de texto **do Domínio,** digite o seu domínio registado.
    

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79464466"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funções agregadas em Azure Cosmos DB
@@ -61,11 +61,11 @@ Os resultados são:
 
 ## <a name="types-of-aggregate-functions"></a>Tipos de funções agregadas
 
-A API SQL suporta as seguintes funções agregadas. `SUM`e `AVG` operar com valores numéricos, e `COUNT` trabalhar em `MIN` `MAX` números, cordas, booleanos e nulos.
+A API SQL suporta as seguintes funções agregadas. `SUM` e `AVG` operar com valores numéricos, e `COUNT` trabalhar em `MIN` `MAX` números, cordas, booleanos e nulos.
 
 | Função | Descrição |
 |-------|-------------|
-| COUNT | Devolve o número de itens na expressão. |
+| CONTAGEM | Devolve o número de itens na expressão. |
 | SUM   | Devolve a soma de todos os valores da expressão. |
 | MIN   | Devolve o valor mínimo na expressão. |
 | MAX   | Devolve o valor máximo da expressão. |
@@ -80,7 +80,7 @@ Também pode agregar os resultados de uma iteração de matrizes.
 
 Estas funções agregadas do sistema beneficiarão de um [índice de intervalo.](index-policy.md#includeexclude-strategy) Se espera fazer um `COUNT` , , , , ou em um `SUM` `MIN` `MAX` `AVG` imóvel, você deve [incluir o caminho relevante na política de indexação](index-policy.md#includeexclude-strategy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções de sistema](sql-query-system-functions.md)

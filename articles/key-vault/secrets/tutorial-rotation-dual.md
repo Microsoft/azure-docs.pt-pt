@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843282"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação

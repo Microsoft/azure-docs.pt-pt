@@ -16,10 +16,10 @@ ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: e39c703452b5bb6855062c1c3efbde29d2becd1e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320154"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-linux"></a>Criar uma máquina virtual a partir de um instantâneo com PowerShell (Linux)

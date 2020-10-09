@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81450943"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Resolução de problemas combinado de registo de informações de segurança
@@ -30,16 +30,16 @@ Os eventos registados para registo combinado estão na categoria Métodos de Aut
 
 O quadro que se segue lista todos os eventos de auditoria gerados pelo registo combinado:
 
-| Atividade | Estado | Razão | Description |
+| Atividade | Estado | Razão | Descrição |
 | --- | --- | --- | --- |
-| Utilizador registou todas as informações de segurança necessárias | Êxito | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
+| Utilizador registou todas as informações de segurança necessárias | Success | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
 | Utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|
-| Informação de segurança registada pelo utilizador | Êxito | Método *registado*pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
-| Informação de segurança revista pelo utilizador | Êxito | O utilizador reviu com sucesso as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
+| Informação de segurança registada pelo utilizador | Success | Método *registado*pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
+| Informação de segurança revista pelo utilizador | Success | O utilizador reviu com sucesso as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
 | Informação de segurança revista pelo utilizador | Falha | O utilizador não reviu as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança, mas algo falha no backend.|
-| Informação de segurança eliminada pelo utilizador | Êxito | Método eliminado pelo *utilizador.* | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
+| Informação de segurança eliminada pelo utilizador | Success | Método eliminado pelo *utilizador.* | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
 | Informação de segurança eliminada pelo utilizador | Falha | O utilizador não conseguiu eliminar o *método.* | Este evento ocorre quando um utilizador tenta apagar um método, mas a tentativa falha por alguma razão. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
-| O utilizador alterou as informações de segurança predefinidos | Êxito | O utilizador alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador altera o método predefinido. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
+| O utilizador alterou as informações de segurança predefinidos | Success | O utilizador alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador altera o método predefinido. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
 | O utilizador alterou as informações de segurança predefinidos | Falha | O utilizador não alterou a informação de segurança predefinida para *o método*. | Este evento ocorre quando um utilizador tenta alterar o método padrão, mas a tentativa falha por alguma razão. *O método* pode ser notificação de aplicação autenticador, um código da minha app autenticadora ou token, Call +X XXXXXXXXX, Texto de um código para +X XXXXXXX, e assim por diante.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Modo de interrupção de resolução de problemas

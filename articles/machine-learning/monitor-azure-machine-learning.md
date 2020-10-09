@@ -10,10 +10,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78399101"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Monitorização da aprendizagem da máquina de Azure
@@ -147,7 +147,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar os seus rec
     | distinct NodeId
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma referência dos registos e métricas, consulte [a referência de dados de monitorização da Azure Machine Learning](monitor-resource-reference.md).
 - Para obter informações sobre o trabalho com quotas relacionadas com a Azure Machine Learning, consulte [Gerir e solicitar quotas para recursos Azure.](how-to-manage-quotas.md)

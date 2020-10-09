@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Diretório Ativo Azure com a Bersin
@@ -72,7 +72,7 @@ Nesta secção, você configura e testa Azure AD um único sinal de início com 
 Para configurar e testar o Azure AD com bersin, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure bersin single sign-on](#configure-bersin-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure bersin single sign-on](#configure-bersin-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Bersin test user](#create-bersin-test-user)** - ter uma contraparte de Britta Simon em Bersin que está ligada à representação AD AD do utilizador.
@@ -92,7 +92,7 @@ Para configurar o Azure AD com Bersin, faça os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com Bersin, faça os seguintes passos:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.bersin.com/Login.aspx`
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com Bersin, faça os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bersin-single-sign-on"></a>Configurar bersin único sign-on
+### <a name="configure-bersin-single-sign-on"></a>Configurar bersin single Sign-On
 
 Para configurar um único sign-on no lado **de Bersin,** envie o **Metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte da Bersin.](mailto:ramansabde@gmail.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

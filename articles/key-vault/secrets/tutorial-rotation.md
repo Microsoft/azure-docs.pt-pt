@@ -12,10 +12,10 @@ ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 661622b296a7a81a8d4c203e86a7c8d61c386e5e
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843231"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação

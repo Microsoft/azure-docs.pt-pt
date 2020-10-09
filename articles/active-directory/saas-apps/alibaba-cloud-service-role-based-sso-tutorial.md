@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 4ffaad77a34be66d06f8f0033731d0496e444e52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com o Alibaba Cloud Service (SSO baseado em funções)
@@ -65,7 +65,7 @@ Para configurar e testar o Azure AD SSO com o Alibaba Cloud Service (SSO baseado
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-2. **[Configure o sign-on único baseado em funções no Serviço de Nuvem Alibaba](#configure-role-based-single-sign-on-in-alibaba-cloud-service)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configurar Role-Based Sign-On único no Serviço de Nuvem Alibaba](#configure-role-based-single-sign-on-in-alibaba-cloud-service)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. **[Configure o Serviço de Nuvem Alibaba (SSO baseado em funções) SSO](#configure-alibaba-cloud-service-role-based-sso-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
     1. **[Create Alibaba Cloud Service (Role-based SSO) user](#create-alibaba-cloud-service-role-based-sso-test-user)** - para ter uma contraparte de Britta Simon no Alibaba Cloud Service (SSO baseado em funções) que está ligada à representação AD Ad do utilizador.
 3. **[Teste SSO único](#test-sso)** - para verificar se a configuração funciona.
@@ -132,7 +132,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No **separador Utilizadores e grupos,** selecione u2 da lista de utilizadores e clique em **Select**. Em seguida, clique em **Atribuir**.
 
-    ![O Screenshot mostra o painel de atribuição de suplementos para a Alibaba sem utilizadores e grupos selecionados.](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
+    ![O screenshot mostra o painel de Add-Assignment para a Alibaba sem utilizadores e grupos selecionados.](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
 
 1. Ver a função atribuída e testar o Serviço de Nuvem Alibaba (SSO baseado em funções).
 
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     >[!NOTE]
     >Depois de atribuir o utilizador (u2), a função criada é automaticamente anexada ao utilizador. Se criou várias funções, tem de anexar a função adequada ao utilizador, se necessário. Se pretender implementar SSO baseado em funções a partir de Azure AD para várias contas da Alibaba Cloud, repita os passos anteriores.
 
-## <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configurar um único sign-on baseado em funções no serviço de nuvem alibaba
+## <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configurar Role-Based Sign-On única no Serviço de Nuvem Alibaba
 
 1. Inscreva-se na consola Alibaba Cloud [RAM](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fram.console.aliyun.com%2F%3Fspm%3Da2c63.p38356.879954.8.7d904e167h6Yg9) utilizando a Conta1.
 

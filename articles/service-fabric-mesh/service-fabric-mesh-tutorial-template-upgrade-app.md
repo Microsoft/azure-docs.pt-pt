@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841990"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar uma aplicação do Service Fabric em execução no Service Fabric Mesh

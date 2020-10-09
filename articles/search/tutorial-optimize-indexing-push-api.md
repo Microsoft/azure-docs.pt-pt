@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757797"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Otimizar a indexação com a API push
@@ -381,7 +381,7 @@ O código de amostra deste tutorial verifica os índices existentes e elimina-os
 
 Também pode utilizar o portal para eliminar índices.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

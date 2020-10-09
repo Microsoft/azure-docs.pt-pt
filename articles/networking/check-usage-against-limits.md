@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79455567"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação aos limites

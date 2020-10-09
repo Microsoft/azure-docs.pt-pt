@@ -9,10 +9,10 @@ ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069328"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
@@ -61,7 +61,7 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
 O grupo de recursos contém todos os recursos para o tutorial.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No menu do portal Azure, selecione **grupos de recursos** ou procure e selecione *grupos* de Recursos a partir de qualquer página. Em seguida, **selecione Adicionar**.
+2. No menu do portal Azure, selecione **grupos de recursos** ou procure e selecione *grupos* de Recursos a partir de qualquer página. Em seguida, selecione **Adicionar**.
 3. Para **o nome do grupo de recursos**, insira *Test-FW-RG*.
 4. Em **Subscrição**, selecione a sua subscrição.
 5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os outros recursos que cria devem estar no mesmo local.
@@ -74,7 +74,7 @@ Esta VNet irá conter três sub-redes.
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 1. Selecione rede virtual **de rede**  >  **Virtual network**.
 2. Em **Subscrição**, selecione a sua subscrição.
 3. Para **o grupo de recursos**, selecione **Test-FW-RG**.
@@ -100,7 +100,7 @@ Esta VNet irá conter três sub-redes.
 
 Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Workload-SN.**
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 2. Selecione **Compute** e, em seguida, selecione **máquina Virtual**.
 3. **Centro de dados do Windows Server 2016** na lista em destaque.
 4. Introduza estes valores para a máquina virtual:
@@ -127,7 +127,7 @@ Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Wor
 
 Implemente a firewall na VNet.
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 2. Digite **firewall** na caixa de pesquisa e prima **Enter**.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
@@ -217,7 +217,7 @@ Esta é a regra de rede que permite acesso de saída aos dois endereços IP na p
 
 ## <a name="configure-a-dnat-rule"></a>Configurar uma regra DNAT
 
-Esta regra permite-lhe ligar um ambiente de trabalho remoto à máquina virtual Srv-Work através da firewall.
+Esta regra permite-lhe ligar um ambiente de trabalho remoto à Srv-Work máquina virtual através da firewall.
 
 1. Selecione o **separador de recolha de regras NAT.**
 2. Selecione **Adicionar a coleção de regras NAT**.

@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998344"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Enviar notificações push para apps do Windows Phone usando Centros de Notificação
@@ -36,7 +36,7 @@ Neste tutorial, vai criar uma aplicação Windows Phone 8 em branco que recebe 
 > [!NOTE]
 > O SDK dos Notification Hubs do Windows Phone não suporta a utilização do Serviço de Notificações Push do Windows (WNS) com aplicações do Windows Phone 8.1 Silverlight. Para utilizar o WNS (em vez do MPNS) com aplicações do Windows Phone 8.1 Silverlight, siga o [Tutorial dos Hubs de Notificação – Windows Phone Silverlight], que utiliza a APIs REST.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um hub de notificação

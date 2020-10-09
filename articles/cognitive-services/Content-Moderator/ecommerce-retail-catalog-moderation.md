@@ -12,10 +12,10 @@ ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 017dabf16384e53d924ed69f36b64050fcacb5bf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934791"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Imagens moderadas de produtos de e-commerce com Moderador de Conteúdo Azure

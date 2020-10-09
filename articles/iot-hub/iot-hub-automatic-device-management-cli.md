@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024970"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestão automática de dispositivos ioT e módulos utilizando o Azure CLI
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestão automática de módulos e dispositivos IoT com a CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -134,7 +134,7 @@ Utilize o seguinte comando para criar uma configuração:
 
 * --**conteúdo** - Inline JSON ou caminho de arquivo para o conteúdo alvo a definir como propriedades duplas desejadas. 
 
-* --**nome do hub** - Nome do hub IoT no qual a configuração será criada. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
+* --**nome do hub** - Nome do hub IoT no qual a configuração será criada. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
 * --**estado-alvo** - Introduza uma condição de destino para determinar quais os dispositivos ou módulos que serão alvo com esta configuração.Para a configuração automática do dispositivo, a condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades desejadas e devem corresponder ao formato de expressão.Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`.Para a configuração automática do módulo, a condição baseia-se em etiquetas gémeas do módulo ou em propriedades duplas do módulo. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
@@ -153,7 +153,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id** - O nome da configuração que existe no hub IoT.
 
-* --**nome do hub** - Nome do hub IoT no qual a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
+* --**nome do hub** - Nome do hub IoT no qual a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
 Inspecione a configuração na janela de comando.A propriedade **métrica** lista uma contagem para cada métrica que é avaliada por cada hub:
 
@@ -203,7 +203,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**set** - Atualizar uma propriedade na configuração. Pode atualizar as seguintes propriedades:
 
-    * targetCondição - por exemplo`targetCondition=tags.location.state='Oregon'`
+    * targetCondição - por exemplo `targetCondition=tags.location.state='Oregon'`
 
     * rótulos 
 
@@ -224,7 +224,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 * --**nome do hub** - Nome do hub IoT no qual a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 

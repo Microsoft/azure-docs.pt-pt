@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683171"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
 
-Ao utilizar qualquer versão SDK do Speech antes de 1.9.0, o [OpenSSL](https://www.openssl.org) está configurado dinamicamente para a versão do sistema de anfitriões. Em versões posteriores do Speech SDK, o OpenSSL (versão [1.1.1b)](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)está está estático ligado à biblioteca central do Speech SDK.
+Quando utilizar qualquer versão SDK do Discurso antes do 1.9.0, o [OpenSSL](https://www.openssl.org) está configurado dinamicamente para a versão do sistema de anfitrião. Em versões posteriores do Speech SDK, o OpenSSL (versão [1.1.1b)](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)está estático ligado à biblioteca central do SDK do discurso.
 
 Para garantir a conectividade, verifique se os certificados OpenSSL foram instalados no seu sistema. Executar um comando:
 ```bash
@@ -31,27 +31,27 @@ A saída dos sistemas baseados em Ubuntu/Debian deve ser:
 OPENSSLDIR: "/usr/lib/ssl"
 ```
 
-Verifique se existe `certs` subdiretório no âmbito do OPENSSLDIR. No exemplo acima, seria. `/usr/lib/ssl/certs`
+Verifique se existe `certs` subdireção em OPENSSLDIR. No exemplo acima, `/usr/lib/ssl/certs` seria.
 
 * Se houver `/usr/lib/ssl/certs` e contiver muitos ficheiros de certificados individuais (com `.crt` ou `.pem` extensão), não há necessidade de mais ações.
 
-* Se o OPENSSLDIR `/usr/lib/ssl` for outra coisa que não e/ou exista um único ficheiro de pacote de certificado em vez de vários ficheiros individuais, é necessário definir uma variável ambiental SSL adequada para indicar onde os certificados podem ser encontrados.
+* Se o OPENSSLDIR for outra coisa que `/usr/lib/ssl` não seja e/ou exista um único ficheiro de pacote de certificados em vez de vários ficheiros individuais, é necessário definir uma variável de ambiente SSL adequada para indicar onde os certificados podem ser encontrados.
 
 ## <a name="examples"></a>Exemplos
 
-- OPENSSLDIR `/opt/ssl`é . Há `certs` subdiretório com `.crt` `.pem` muitos ou ficheiros.
-Detete `SSL_CERT_DIR` a `/opt/ssl/certs` variável ambiental para apontar antes de executar um programa que usa o SDK do Discurso. Por exemplo:
+- OPENSSLDIR é `/opt/ssl` . Há `certs` subdireção com muitos `.crt` ou `.pem` ficheiros.
+Desaponte a variável `SSL_CERT_DIR` ambiente para apontar antes de executar um programa que utiliza o `/opt/ssl/certs` SDK do discurso. Por exemplo:
 ```bash
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR `/etc/pki/tls` é (como em sistemas baseados em RHEL/CentOS). Há `certs` subdiretório com um ficheiro de `ca-bundle.crt`pacote de certificado, por exemplo.
-Detete `SSL_CERT_FILE` a variável ambiental para apontar nesse ficheiro antes de executar um programa que usa o SDK do Discurso. Por exemplo:
+- OPENSSLDIR é `/etc/pki/tls` (como em sistemas baseados em RHEL/CentOS). Existe `certs` subdiretório com um ficheiro de pacote de certificados, por exemplo `ca-bundle.crt` .
+Desaponte a variável ambiente `SSL_CERT_FILE` para apontar para esse ficheiro antes de executar um programa que utiliza o SDK de discurso. Por exemplo:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 > [!NOTE]
-> Vale também a pena notar que algumas distribuições de Linux não têm uma variável ambiental TMP ou TMPDIR definida. Isto fará com que o SDK do Discurso descarregue sempre a Lista de Revogação de Certificados (CRL), em vez de cortar o CRL para o disco para reutilização até expirarem. Para melhorar o desempenho inicial da ligação, pode [criar uma variável ambiental chamada TMPDIR e defini-la no caminho do seu diretório temporário escolhido.](https://help.ubuntu.com/community/EnvironmentVariables)
+> Vale também a pena notar que algumas distribuições de Linux não têm uma variável de ambiente TMP ou TMPDIR definida. Isto fará com que o SDK de voz descarregue sempre a Lista de Revogação de Certificados (CRL), em vez de caching o CRL para o disco para reutilização até expirarem. Para melhorar o desempenho inicial da ligação pode [criar uma variável ambiental chamada TMPDIR e defini-la para o caminho do seu diretório temporário escolhido.](https://help.ubuntu.com/community/EnvironmentVariables)
 
 ## <a name="next-steps"></a>Passos seguintes
 

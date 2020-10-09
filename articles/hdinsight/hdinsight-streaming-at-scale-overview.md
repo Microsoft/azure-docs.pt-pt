@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435386"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
@@ -35,7 +35,7 @@ Apache Storm é um sistema de computação de código aberto distribuído, toler
 
 Para mais informações, veja [o que é a Tempestade Apache em Azure HDInsight?](storm/apache-storm-overview.md)
 
-## <a name="spark-streaming"></a>Streaming de Faíscas
+## <a name="spark-streaming"></a>Transmissão em fluxo do Spark
 
 O Spark Streaming é uma extensão ao Spark, que permite reutilizar o mesmo código que utiliza para o processamento de lotes. Pode combinar perguntas de lote e interativas na mesma aplicação. Ao contrário da Tempestade, o Spark Streaming fornece semântica de processamento. Quando usado em combinação com a [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados kafka são recebidos pelo Spark Streaming exatamente uma vez, é possível alcançar de ponta a ponta exatamente uma vez que as garantias. Um dos pontos fortes do Spark Streaming é a sua capacidade tolerante a falhas, recuperando os nós defeituosos rapidamente quando vários nós estão sendo usados dentro do cluster.
 
@@ -49,7 +49,7 @@ Há vantagens em dissociar tecnologias. Por exemplo, Kafka é uma tecnologia de 
 
 ### <a name="scale-the-stream-buffering-layer"></a>Dimensione a camada de tampão de fluxo
 
-As tecnologias de tampão de fluxo Event Hubs e Kafka usam divisórias, e os consumidores lêem dessas divisórias. A escala da entrada requer um aumento do número de divisórias, e a adição de divisórias proporciona um paralelismo crescente. No Event Hubs, a contagem de divisórias não pode ser alterada após a implementação, por isso é importante começar com a escala de destino em mente. Com Kafka, é possível [adicionar divisórias,](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)mesmo quando Kafka está a processar dados. Kafka fornece uma ferramenta para reatribuir divisórias, `kafka-reassign-partitions.sh` . O HDInsight fornece uma [ferramenta de reequilíbrio de réplica de partição,](https://github.com/hdinsight/hdinsight-kafka-tools) `rebalance_rackaware.py` . Esta ferramenta de reequilíbrio chama a ferramenta de forma a `kafka-reassign-partitions.sh` que cada réplica esteja num domínio separado de falha e de atualização, tornando o rack Kafka consciente e aumentando a tolerância à falha.
+As tecnologias de tampão de fluxo Event Hubs e Kafka usam divisórias, e os consumidores lêem dessas divisórias. A escala da entrada requer um aumento do número de divisórias, e a adição de divisórias proporciona um paralelismo crescente. No Event Hubs, a contagem de divisórias não pode ser alterada após a implementação, por isso é importante começar com a escala de destino em mente. Com Kafka, é possível [adicionar divisórias,](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)mesmo quando Kafka está a processar dados. Kafka fornece uma ferramenta para reatribuir divisórias,  `kafka-reassign-partitions.sh` . O HDInsight fornece uma [ferramenta de reequilíbrio de réplica de partição,](https://github.com/hdinsight/hdinsight-kafka-tools)  `rebalance_rackaware.py` . Esta ferramenta de reequilíbrio chama a ferramenta de forma a `kafka-reassign-partitions.sh` que cada réplica esteja num domínio separado de falha e de atualização, tornando o rack Kafka consciente e aumentando a tolerância à falha.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensione a camada de processamento de fluxo
 
@@ -61,7 +61,7 @@ A Apache Spark utiliza três parâmetros-chave para configurar o seu ambiente, d
 
 Estes três parâmetros podem ser configurados ao nível do cluster, para todas as aplicações que funcionam no cluster, e também podem ser especificados para cada aplicação individual. Para obter mais informações, consulte [a Gestão de Recursos para clusters Apache Spark](spark/apache-spark-resource-manager.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](storm/apache-storm-example-topology.md)

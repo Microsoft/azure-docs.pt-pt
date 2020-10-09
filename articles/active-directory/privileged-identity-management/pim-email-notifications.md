@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232313"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações de e-mail em PIM
@@ -31,7 +31,7 @@ A Gestão de Identidade Privilegiada (PIM) informa-o quando ocorrem eventos impo
 
 Os e-mails enviados da Gestão de Identidade Privilegiada para as funções de Azure AD e Azure têm o seguinte endereço de e-mail remetente:
 
-- Endereço **de e-mail: azure-nor profundamente \@ microsoft.com**
+- Endereço  **de e-mail: azure-nor profundamente \@ microsoft.com**
 - Nome do ecrã: Microsoft Azure
 
 Estes e-mails incluem um prefixo **PIM** na linha de assunto. Eis um exemplo:
@@ -50,9 +50,9 @@ Quem recebe estes e-mails para funções Ad Azure depende do seu papel, do event
 
 | Utilizador | A ativação de funções está pendente de aprovação | O pedido de ativação de funções está concluído | PIM está ativado |
 | --- | --- | --- | --- |
-| Administrador privilegiado</br>(Ativado/Elegível) | Yes</br>(apenas se não forem especificados aprovadores explícitos) | Sim* | Yes |
-| Administrador de Segurança</br>(Ativado/Elegível) | No | Sim* | Yes |
-| Administrador Global</br>(Ativado/Elegível) | No | Sim* | Yes |
+| Administrador privilegiado</br>(Ativado/Elegível) | Sim</br>(apenas se não forem especificados aprovadores explícitos) | Sim* | Sim |
+| Administrador de Segurança</br>(Ativado/Elegível) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/Elegível) | Não | Sim* | Sim |
 
 \*Se a [definição **de Notificações** ](pim-how-to-change-default-settings.md#notifications) estiver definida para **Ativar**.
 
@@ -68,7 +68,7 @@ Um e-mail de gestão de identidade privilegiada semanal para funções Azure AD 
 
 O e-mail inclui quatro azulejos:
 
-| Mosaico | Description |
+| Mosaico | Descrição |
 | --- | --- |
 | **Utilizadores ativados** | Número de vezes que os utilizadores ativaram o seu papel elegível dentro da organização. |
 | **Utilizadores tornados permanentes** | O número de vezes que os utilizadores com uma atribuição elegível são permanentes. |

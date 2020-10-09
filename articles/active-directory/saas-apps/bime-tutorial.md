@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Diretório Ativo Azure com o Bime
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Bime, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com o Bime, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bime-single-sign-on"></a>Configurar bime single sign-on
+### <a name="configure-bime-single-sign-on"></a>Configurar bime single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Bime como administrador.
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD com o Bime, execute os seguintes passos:
 
 3. Na página de configuração da conta, execute os seguintes passos:
   
-    ![Configurar um único sign-on](./media/bime-tutorial/ic775559.png "Configurar um único sign-on")
+    ![Configurar um único sign-on](./media/bime-tutorial/ic775559.png "Configurar Sign-On Individuais")
 
     a. **Selecione Ativar a autenticação SAML**.
 

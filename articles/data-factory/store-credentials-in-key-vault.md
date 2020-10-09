@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81451691"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de loja em Azure Key Vault
@@ -42,10 +42,10 @@ Para fazer referência a uma credencial armazenada no Cofre da Chave Azure, é n
 
 As seguintes propriedades são suportadas para o serviço ligado ao Cofre da Chave Azure:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzureKeyVault**. | Yes |
-| baseUrl | Especifique o URL do cofre da chave Azure. | Yes |
+| tipo | A propriedade tipo deve ser definida para: **AzureKeyVault**. | Sim |
+| baseUrl | Especifique o URL do cofre da chave Azure. | Sim |
 
 **Utilização da UI de autor:**
 
@@ -75,12 +75,12 @@ Selecione o cofre de chave Azure, onde as suas credenciais estão armazenadas. P
 
 As seguintes propriedades são suportadas quando configura um campo em serviço ligado, referindo um segredo de cofre chave:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do campo deve ser definida para: **AzureKeyVaultSecret**. | Yes |
-| nome secreto | O nome do segredo em Azure Key Vault. | Yes |
-| versão secreta | A versão do segredo em Azure Key Vault.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo.<br/>Se especificado, então mantém-se na versão dada.| No |
-| Loja | Refere-se a um serviço ligado ao Cofre da Chave Azure que utiliza para armazenar a credencial. | Yes |
+| tipo | A propriedade tipo do campo deve ser definida para: **AzureKeyVaultSecret**. | Sim |
+| nome secreto | O nome do segredo em Azure Key Vault. | Sim |
+| versão secreta | A versão do segredo em Azure Key Vault.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo.<br/>Se especificado, então mantém-se na versão dada.| Não |
+| Loja | Refere-se a um serviço ligado ao Cofre da Chave Azure que utiliza para armazenar a credencial. | Sim |
 
 **Utilização da UI de autor:**
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
 ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006895"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar funções Azure a partir de trabalhos Azure Stream Analytics 
@@ -20,7 +20,7 @@ Pode executar Funções do Azure a partir do Azure Stream Analytics ao configura
 
 O Stream Analytics invoca Funções através de acionadores HTTP. O adaptador de saída das Funções permite aos utilizadores ligarem Funções ao Stream Analytics, para que os eventos possam ser acionados com base em consultas do Stream Analytics. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar e executar um trabalho stream Analytics
