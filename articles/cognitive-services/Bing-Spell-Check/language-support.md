@@ -1,7 +1,7 @@
 ---
 title: Suporte linguístico - Bing Spell Check API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de línguas naturais apoiadas pela Bing Spell Check API.
+description: Uma lista de línguas naturais apoiada pela API de Verificação ortográfica de Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390172"
 ---
-# <a name="language-and-region-support-for-bing-spell-check-api"></a>Apoio à língua e à região para bing spell check API
+# <a name="language-and-region-support-for-bing-spell-check-api"></a>Suporte linguístico e regional para Bing Spell Check API
 
-Estas línguas são suportadas pela API bing `spell` spell check (apenas em modo).
+Estes idiomas são suportados pela API de Verificação ortográfica de Bing (apenas no `spell` modo).
 
-Por favor, note que para `en-US`trabalhar `mkt` com qualquer `Accept-Language` outro `setLang` idioma que não seja , o deve ser definido e ou deve ser definido como foi descrito na [referência API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) spell check
+Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, o `mkt` deve ser definido e deve ser definido como foi descrito na referência Spell Check `Accept-Language` `setLang` [API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
-| Chinês (Hong Kong SAR)    | `zh-HK`          |
+| Chinês (HONG KONG SAR)    | `zh-HK`          |
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
 | Neerlandês (Bélgica)       | `nl-BE`          |

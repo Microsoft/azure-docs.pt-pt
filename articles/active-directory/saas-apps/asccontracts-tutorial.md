@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 1750d8c3a9a1d213b4373e4c4308453f407968de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88517710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integração do Diretório Ativo Azure com Contratos ASC
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com contratos ASC, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure os contratos ASC único sinal-on](#configure-asc-contracts-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
+2. **[Configure os contratos ASC sign-on único](#configure-asc-contracts-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ASC Contracts test user](#create-asc-contracts-test-user)** - para ter uma contraparte de Britta Simon em Contratos ASC que está ligada à representação AZURE AD do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com contratos ASC, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Asc Contracts Domain e URLs informações únicas de súmis](common/idp-intiated.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com contratos ASC, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa da ASC Networks Inc. (ASC) em **613.599.6178** para obter estes valores.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD com contratos ASC, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-asc-contracts-single-sign-on"></a>Configurar contratos ASC único sign-on
+### <a name="configure-asc-contracts-single-sign-on"></a>Configurar contratos ASC Sign-On única
 
 Para configurar um único sign-on no lado **dos contratos ASC,** ligue para o suporte da ASC Networks Inc. (ASC) em **613.599.6178** e forneça-lhes os **metadados da Federação descarregadoS XML**. Eles configuram esta aplicação para ter a ligação SSO SAML definida corretamente em ambos os lados.
 
@@ -157,7 +157,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sign-on
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **OsC Contracts**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Os Contratos ASC**.
 

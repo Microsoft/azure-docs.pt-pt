@@ -12,10 +12,10 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019
   ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
-  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/02/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89378887"
 landingContent:
 - title: Acerca do Azure Key Vault

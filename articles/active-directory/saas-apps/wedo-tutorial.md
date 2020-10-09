@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2020
 ms.author: jeedes
 ms.openlocfilehash: 364bb71ff9ec1cc948f9631f50ac4444c16ea4d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88523393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutorial: Azure Ative Directory integração única (SSO) com o WEDO
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação WEDO espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------ | --------- |
     | e-mail | user.email |
     | nomePróprio | user.firstName |

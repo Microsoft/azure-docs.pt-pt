@@ -28,6 +28,8 @@
   items:
     - name: Ligar a uma conta de armazenamento
       href: tutorial-private-endpoint-storage-portal.md
+    - name: "Ligar a uma conta do Cosmos\_DB"
+      href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado
@@ -42,8 +44,6 @@
           href: security-baseline.md
 - name: Procedimento
   items:
-    - name: Ligar de forma privada a uma conta do Cosmos DB
-      href: create-private-endpoint-cosmosdb-portal.md
     - name: Ligar de forma privada a uma aplicação Web
       href: create-private-endpoint-webapp-portal.md
     - name: Desativar políticas de rede para um ponto final privado

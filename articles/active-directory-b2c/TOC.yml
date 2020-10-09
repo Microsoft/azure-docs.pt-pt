@@ -180,6 +180,12 @@
           href: basic-age-gating.md
         - name: Definir atributos personalizados
           href: user-flow-custom-attributes.md
+        - name: Conectores de API
+          items:
+            - name: Descrição geral
+              href: api-connectors-overview.md
+            - name: Adicionar um conector de API
+              href: add-api-connector.md
         - name: Passar pelo token de IdP externo
           href: idp-pass-through-user-flow.md
     - name: Identity Protection e Acesso Condicional

@@ -11,10 +11,10 @@ metadata:
   ms.author: rohink
   ms.date: 09/20/2019
   ms.openlocfilehash: 40a502efb457ba9ac5497ca6fd6f241b40cca94e
-  ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89077658"
 landingContent:
 - title: Saiba mais sobre o Azure DNS

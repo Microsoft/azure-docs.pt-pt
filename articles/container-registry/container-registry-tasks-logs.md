@@ -4,11 +4,11 @@ description: Como visualizar e gerir registos de execução gerados por Tarefas 
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79246971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871937"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Ver e gerir registos de execução de tarefas
 
@@ -95,7 +95,7 @@ az acr task logs --registry mycontainerregistry1220 \
 Também pode guardar ficheiros de registo local para o Azure Storage. Por exemplo, utilize o [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), o [portal Azure,](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para enviar ficheiros para uma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre as [Tarefas de Registo de Contentores do Azure](container-registry-tasks-overview.md)
 

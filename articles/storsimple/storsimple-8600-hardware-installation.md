@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79254758"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871818"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembale, suporte de cremalheira e cabo o seu dispositivo StorSimple 8600
 
@@ -262,6 +262,6 @@ Execute os seguintes passos para a cabo a sua porta de série.
 
 Completou a cablagem do seu dispositivo para obter energia, acesso à rede e ligação em série. O próximo passo é configurar o software no seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para [implantar e configurar o seu dispositivo StorSimple no local.](storsimple-8000-deployment-walkthrough-u2.md)
 

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Firewall Manager?
       href: overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Hub virtual seguro - modelo ARM

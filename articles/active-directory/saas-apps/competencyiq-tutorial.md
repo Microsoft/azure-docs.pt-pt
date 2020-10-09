@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.openlocfilehash: 31212b4f62aefbf94f59f790210c10928e5cd58d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88519883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Diretório Ativo Azure com a CompetênciaIQ
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com o CompetencyIQ, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único da CompetênciaIQ](#configure-competencyiq-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único da CompetênciaIQ](#configure-competencyiq-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create CompetencyIQ test user](#create-competencyiq-test-user)** - ter uma contraparte de Britta Simon em CompetencyIQ que está ligada à representação AD Ad Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com a CompetencyIQ, execute os seguint
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD single sign-on com a CompetencyIQ, execute os seguint
     > [!NOTE]
     > O valor do sinal de URL não é real. Atualizar o valor com o sinal real no URL. Contacte [a equipa de apoio ao cliente CompetencyIQ](https://www.competencyiq.com/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD single sign-on com a CompetencyIQ, execute os seguint
 
     c. Logout URL
 
-### <a name="configure-competencyiq-single-sign-on"></a>Configurar competênciaIQ único sign-on
+### <a name="configure-competencyiq-single-sign-on"></a>Configurar competênciaIQ single Sign-On
 
 Para configurar um único sign-on no lado **da CompetênciaIQ,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte Da CompetênciaIQ](https://www.competencyiq.com/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
@@ -157,7 +157,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **CompetênciaIQ**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **CompeteIQ.**
 

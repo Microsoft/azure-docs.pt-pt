@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
 ms.openlocfilehash: c58c9febcbd8c1007938b16545337f07f1a0da63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88519160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-leapsome"></a>Tutorial: Azure Ative Directory integração única (SSO) com Leapsome
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Leapsome espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem | Espaço de Nomes |
+    | Nome | Atributo de origem | Espaço de Nomes |
     | ---------------| --------------- | --------- |  
     | nome de primeiro nome | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | último nome | utilizador.sobrenome | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

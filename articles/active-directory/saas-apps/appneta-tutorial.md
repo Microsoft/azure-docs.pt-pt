@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 5100974c071d6a63fd2c00e496a5422fef2dffb9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88517660"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-monitor"></a>Tutorial: Azure Ative Directory integração única (SSO) com AppNeta Performance Monitor
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     b. Na caixa de texto **identifier (Entity ID),** digite um valor: `PingConnect`
 
     > [!NOTE]
-    > O valor url de inscrição não é real. Atualize este valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente AppNeta Performance Monitor](mailto:support@appneta.com) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor url de inscrição não é real. Atualize este valor com o URL Sign-On real. Contacte [a equipa de suporte do Cliente AppNeta Performance Monitor](mailto:support@appneta.com) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação AppNeta Performance Monitor espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -98,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação AppNeta Performance Monitor espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | --------| ----------------|
     | nomePróprio| user.givenname|
     | apelido| utilizador.sobrenome|

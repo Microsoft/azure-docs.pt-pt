@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 273151cf08bd149da427e9631764f4dae2759b12
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88523348"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutorial: Integre o Whatfix com o Azure Ative Directory
@@ -70,7 +70,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Whatfix,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://whatfix.com`
 
-1. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações**.
+1. Na **configuração single Sign-On com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações**.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

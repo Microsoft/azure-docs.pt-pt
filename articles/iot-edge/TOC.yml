@@ -11,7 +11,7 @@
       href: quickstart-linux.md
     - name: Implementar código num dispositivo do Windows
       href: quickstart.md
-- name: Tutorials (Tutoriais)
+- name: Tutoriais
   items:
     - name: 1. Configurar o ambiente de desenvolvimento
       items:

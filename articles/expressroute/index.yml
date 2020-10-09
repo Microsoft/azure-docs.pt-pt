@@ -11,10 +11,10 @@ metadata:
   ms.author: duau
   ms.date: 08/27/2019
   ms.openlocfilehash: b26699e31b5c633e4d04651f6057826426f6c2f0
-  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/02/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89393110"
 landingContent:
 - title: Acerca do ExpressRoute

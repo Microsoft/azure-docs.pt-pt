@@ -11,10 +11,10 @@ metadata:
   ms.author: jzim
   ms.date: 03/06/2020
   ms.openlocfilehash: c92ce909abd9a36f2515eefeb60ff0066221a4e1
-  ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/04/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89468969"
 landingContent:
 - title: Acerca do Azure Red Hat OpenShift

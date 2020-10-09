@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509914"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizar em Azure Notebook
@@ -34,10 +34,10 @@ Para ajudar o Personaler a aprender, com o tempo, o _sistema_ também conhece de
 
 |Café - características de ação|Tipos de temperatura|Locais de origem|Tipos de assado|Orgânico|
 |--|--|--|--|--|
-|Cappacino|Acesso Frequente|Quénia|Escuro|Orgânico|
+|Cappacino|Frequente|Quénia|Escuro|Orgânico|
 |Cerveja fria|Cold|Brasil|Claro|Orgânico|
 |Mocha gelada|Cold|Etiópia|Claro|Não orgânico|
-|Latte|Acesso Frequente|Brasil|Escuro|Não orgânico|
+|Latte|Frequente|Brasil|Escuro|Não orgânico|
 
 O **objetivo** do loop Personalizer é encontrar a melhor correspondência entre os utilizadores e o café o máximo de tempo possível.
 
@@ -652,7 +652,7 @@ O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinh
 
 ![O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinhando-se com as preferências dos utilizadores.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não pretende continuar a série tutorial, limpe os seguintes recursos:
 

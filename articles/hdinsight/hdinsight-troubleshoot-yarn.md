@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272204"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871971"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight
 
@@ -26,7 +26,7 @@ Use os seguintes passos em Ambari para criar uma nova fila de YARN e, em seguida
 
 Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% de capacidade para 25%, o que dá à nova fila (faísca) capacidade de 50%.
 
-| Filas | Capacidade | Capacidade máxima |
+| Fila | Capacidade | Capacidade máxima |
 | --- | --- | --- |
 | predefinição | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -134,7 +134,7 @@ Estas alterações são visíveis imediatamente na UI do Programador YARN.
 - [Ligue-se ao HDInsight (Apache Hadoop) utilizando o SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Conceitos e aplicações apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 1b41f6c960c19a6569e95814fd2bf5b1234a338c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88511172"
 ---
 # <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>Obtenha todas as aplicações Proxy da Aplicação usando a publicação wildcard

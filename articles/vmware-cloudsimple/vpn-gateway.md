@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279497"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872005"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurar gateways VPN na rede CloudSimple
 
@@ -103,7 +103,7 @@ Uma porta VPN ponto-a-local permite definir uma política de adição automátic
 
     * As opções **de adicionar automaticamente** definem a política global para o gateway. As definições aplicam-se ao gateway atual. As definições podem ser ultrapassadas na área **Select.**
     * **Selecione Adicionar VLANs/Subnets de Nuvens Privadas .** 
-    * Para adicionar todos os VLANs/subnets definidos pelo utilizador, clique em **Adicionar VLANs/Subnets definidos pelo utilizador**.
+    * Para adicionar todos os VLANs/subnets definidos pelo utilizador, clique em  **Adicionar VLANs/Subnets definidos pelo utilizador**.
     * As definições **Select** sobrepõem-se às definições globais em **adicionar automaticamente**.
 
 7. Clique **em Seguinte** para rever as definições. Clique nos ícones editar para escoar quaisquer alterações.

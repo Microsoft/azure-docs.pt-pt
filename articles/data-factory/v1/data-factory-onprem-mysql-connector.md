@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281291"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872107"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -65,7 +65,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado mySQL.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
@@ -81,7 +81,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipos depropertações para conjunto de dados do tipo **RelationalTable** (que inclui conjunto de dados MySQL) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na página da Base de Dados MySQL a que o serviço ligado se refere. |Não (se a **consulta** de **RelationalSource** for especificada) |
 
@@ -309,8 +309,8 @@ Ao mover dados para o MySQL, os seguintes mapeamentos são usados dos tipos MySQ
 | date |Datetime |
 | datetime |Datetime |
 | decimal |Decimal |
-| dupla precisão |Double |
-| double |Double |
+| dupla precisão |Double (Duplo) |
+| double |Double (Duplo) |
 | enum |String |
 | float |Único |
 | int não assinado |Int64 |
@@ -326,7 +326,7 @@ Ao mover dados para o MySQL, os seguintes mapeamentos são usados dos tipos MySQ
 | mediumint |Int32 |
 | tex médio |String |
 | numeric |Decimal |
-| real |Double |
+| real |Double (Duplo) |
 | set |String |
 | pequeno não assinado |Int32 |
 | smallint |Int16 |

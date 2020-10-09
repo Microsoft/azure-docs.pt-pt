@@ -76,6 +76,8 @@
           href: configure-local-rbac.md
         - name: Configurar as definições da base de dados
           href: configure-database.md
+        - name: Configurar chaves geridas pelo cliente
+          href: bring-your-own-key.md
         - name: Configurar o CORS
           href: configure-cross-origin-resource-sharing.md
         - name: Configurar Exportação

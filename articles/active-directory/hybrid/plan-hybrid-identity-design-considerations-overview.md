@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60381492"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerações de Design da Identidade Híbrida do Azure Active Directory
@@ -42,7 +42,7 @@ Especificamente, as considerações de design de identidade híbridas são para 
 ## <a name="how-can-this-guide-help-you"></a>Como é que este guia o pode ajudar?
 Pode utilizar este guia para entender como desenhar uma solução de identidade híbrida capaz de integrar um sistema de gestão de identidade baseado na nuvem com a sua atual solução de identidade no local. 
 
-O gráfico que se segue mostra um exemplo de uma solução de identidade híbrida que permite aos Administradores de TI conseguir integrar a sua atual solução de Diretório Ativo do Windows Server localizada no local com o Microsoft Azure Ative Directory para permitir que os utilizadores utilizem o Sign-On Único (SSO) através de aplicações localizadas na nuvem e no local.
+O gráfico que se segue mostra um exemplo de uma solução de identidade híbrida que permite aos Administradores de TI conseguir integrar a sua atual solução de Diretório Ativo do Windows Server localizada no local com o Microsoft Azure Ative Directory para permitir que os utilizadores utilizem Sign-On (SSO) em aplicações localizadas na nuvem e no local.
 
 ![Exemplo](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
