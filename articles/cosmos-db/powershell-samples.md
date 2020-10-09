@@ -4,14 +4,14 @@ description: Obtenha as amostras Azure PowerShell para executar tarefas comuns e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506659"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842976"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o Azure Cosmos DB
 
@@ -37,8 +37,7 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Criar um recipiente com uma grande chave de partição](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie um recipiente com uma grande chave de partição. |
 |[Criar um recipiente sem política de índice](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um recipiente Azure Cosmos com a política de índice desligada.|
 |[Listar ou obter bases de dados ou contentores](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou contentores. |
-|[Obtenção de débito](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha o produção para uma base de dados ou contentor. |
-|[Atualização de produção](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar o resultado de uma base de dados ou de um contentor. |
+|[Operações de produção](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou contentor, incluindo obter, atualizar e migrar entre a escala automática e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||
 
@@ -49,8 +48,7 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Criar uma conta, espaço-chave e tabela](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos, espaço-chave e tabela. |
 |[Criar uma conta, espaço-chave e tabela com autoescala](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos, espaço-chave e tabela com autoescala. |
 |[Listar ou obter espaços ou tabelas chave](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha espaços ou tabelas de chaves. |
-|[Obtenção de débito](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a produção para um espaço ou mesa chave. |
-|[Atualização de produção](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar a produção para um espaço-chave ou tabela. |
+|[Operações de produção](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção para um espaço-chave ou tabela, incluindo obter, atualizar e migrar entre a escala automática e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||
 
@@ -61,8 +59,7 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Criar uma conta, base de dados e recolha](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e recolha da Azure Cosmos. |
 |[Criar uma conta, base de dados e recolha com autoescala](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e recolha Azure Cosmos com autoescala. |
 |[Listar ou obter bases de dados ou coleções](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou recolha. |
-|[Obtenção de débito](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha o produção para uma base de dados ou uma recolha. |
-|[Atualização de produção](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar o resultado de uma base de dados ou recolha. |
+|[Operações de produção](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou recolha, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||
 
@@ -73,8 +70,7 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Criar uma conta, base de dados e gráfico](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e gráfico Azure Cosmos. |
 |[Criar uma conta, base de dados e gráfico com autoescala](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e gráfico Azure Cosmos com autoescala. |
 |[Listar ou obter bases de dados ou gráficos](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou gráfico. |
-|[Obtenção de débito](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha o produção para uma base de dados ou gráfico. |
-|[Atualização de produção](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar o resultado de uma base de dados ou gráfico. |
+|[Operações de produção](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou gráfico, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||
 
@@ -85,7 +81,6 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Criar uma conta e tabela](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta e tabela Azure Cosmos. |
 |[Criar uma conta e tabela com autoescala](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos e tabela autoscale. |
 |[Listar ou obter tabelas](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista ou arranja mesas. |
-|[Obtenção de débito](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obter o rendimento para uma mesa. |
-|[Atualização de produção](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualizar a produção para uma mesa. |
+|[Operações de produção](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção para uma tabela, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||

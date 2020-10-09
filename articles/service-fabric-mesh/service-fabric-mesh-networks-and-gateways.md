@@ -1,17 +1,17 @@
 ---
 title: Introdução à rede de tecidos de serviço Azure
 description: Saiba mais sobre redes, gateways e encaminhamento inteligente de tráfego na Malha de Tecido de Serviço.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75459131"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842704"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução à rede em aplicações de malha de tecido de serviço
 Este artigo descreve diferentes tipos de equilibradores de carga, como os gateways ligam a rede com as suas aplicações a outras redes e como o tráfego é encaminhado entre os serviços nas suas aplicações.
@@ -34,7 +34,7 @@ Quando o recurso de rede é criado com `ingressConfig` , um IP público é atrib
 
 Quando uma aplicação de Malha é criada, deve referenciar um recurso de rede existente. Novas portas públicas podem ser adicionadas ou as portas existentes podem ser removidas da configuração de entrada. Uma eliminação para um recurso de rede falhará se um recurso de aplicação estiver a encaminhá-lo. Quando a aplicação é eliminada, o recurso de rede é removido.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 Para saber mais sobre a Malha de Tecido de Serviço, leia a visão geral:
 - [Visão geral da malha de tecido de serviço](service-fabric-mesh-overview.md)
 

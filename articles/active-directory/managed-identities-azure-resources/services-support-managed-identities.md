@@ -4,19 +4,19 @@ description: Lista de serviços que suportam identidades geridas para recursos A
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/09/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006785"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843180"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -30,7 +30,7 @@ Identidades geridas para recursos Azure fornecem aos serviços Azure uma identid
 Os seguintes serviços da Azure apoiam identidades geridas para os recursos da Azure:
 
 
-### <a name="azure-api-management"></a>API Management do Azure
+### <a name="azure-api-management"></a>Gestão de API do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -170,7 +170,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Azure IoT Hub
+### <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -225,7 +225,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 - [Portal do Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Modelos de gestor de recursos Azure](/azure/templates/microsoft.authorization/policyassignments)
+- [Modelos do Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -252,6 +252,12 @@ Consulte a seguinte lista para configurar a identidade gerida para aplicações 
 
 Para obter mais informações, consulte [Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
+### <a name="azure-stack-edge"></a>Azure Stack Edge
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Sistema atribuído | Disponível na região onde o serviço Azure Stack Edge está disponível | Não disponível | Não disponível | Não disponível |
+| Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 
@@ -265,7 +271,7 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -282,7 +288,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
+- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [SDKs do Azure](qs-configure-sdk-windows-vm.md)
 

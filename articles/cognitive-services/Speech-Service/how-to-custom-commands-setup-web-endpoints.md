@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362115"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843129"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -79,7 +79,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
     No **Editor simples**, introduza `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Ação Chamar pontos finais Web Em Caso de Êxito](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Screenshot que mostra o On Success - Ação para executar o ecrã.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Definição | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 - Resposta Em Caso de Êxito\
 Guardar, preparar e testar
    > [!div class="mx-imgBorder"]
-   > ![Ação Chamar pontos finais Web Em Caso de Êxito](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Screenshot que mostra a resposta On Success.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Resposta Em Caso de Falha\
 Remover um dos parâmetros da consulta, guardar, treinar novamente e testar
    > [!div class="mx-imgBorder"]

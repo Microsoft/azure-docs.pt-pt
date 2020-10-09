@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669062"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842874"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Pré-visualização: Patching automático de hóspedes VM para Windows VMs em Azure
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Pré-visualização: Aplicação de patches automática de convidado da VM para VMs do Windows no Azure
 
 Permitir o patch automático de hóspedes VM para os seus VMs Windows ajuda a facilitar a gestão da atualização, remendando de forma segura e automática máquinas virtuais para manter a conformidade com a segurança.
 
@@ -162,7 +162,7 @@ Uma vez registada a funcionalidade para a sua subscrição, complete o processo 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
 ```
-## <a name="enable-automatic-vm-guest-patching"></a>Ativar o patching automático de hóspedes VM
+## <a name="enable-automatic-vm-guest-patching"></a>Ative a aplicação de patches automática de convidado da VM
 Para ativar o patching automático de hóspedes VM, certifique-se de que o *osProfile.windowsConfiguration.enableAutomaticUpdates* está definido como *verdadeiro* na definição do modelo VM. Esta propriedade só pode ser definida ao criar o VM.
 
 ### <a name="rest-api"></a>API REST
@@ -251,8 +251,10 @@ Os resultados da instalação do patch para o seu VM podem ser revistos na `last
 ## <a name="on-demand-patch-assessment"></a>Avaliação do patch a pedido
 Se o patching automático de hóspedes VM já estiver ativado para o seu VM, é efetuada uma avaliação periódica de correção no VM durante as horas de ponta do VM. Este processo é automático e os resultados da última avaliação podem ser revistos através da visão de exemplo da VM, tal como descrito anteriormente neste documento. Também pode desencadear uma avaliação de patch a pedido para o seu VM a qualquer momento. A avaliação do patch pode demorar alguns minutos a ser concluída e o estado da última avaliação é atualizado na opinião de exemplo do VM.
 
+Ativar a funcionalidade de pré-visualização requer um opt-in único para a funcionalidade *InGuestPatchVMPreview* por subscrição. A pré-visualização da funcionalidade para avaliação do patch on-demand pode ser ativada após o processo de [pré-visualização](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descrito anteriormente para remendos automáticos de hóspedes VM.
+
 > [!NOTE]
->A avaliação do patch a pedido não aciona automaticamente o patch instalado. Os patches avaliados e aplicáveis para o VM só serão instalados durante as horas de pico do VM, seguindo o processo de remendos de disponibilidade descrito anteriormente neste documento.
+>A avaliação do patch a pedido não aciona automaticamente a instalação do patch. Os patches avaliados e aplicáveis para o VM só serão instalados durante as horas de pico do VM, seguindo o processo de remendos de disponibilidade descrito anteriormente neste documento.
 
 ### <a name="rest-api"></a>API REST
 ```
@@ -273,6 +275,6 @@ Utilize [patches de avaliação az vm](/cli/azure/vm#az-vm-assess-patches) para 
 az vm assess-patches --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a criação e gestão de máquinas virtuais do Windows](tutorial-manage-vm.md)

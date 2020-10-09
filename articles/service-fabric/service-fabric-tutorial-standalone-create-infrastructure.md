@@ -1,17 +1,15 @@
 ---
 title: Criar infraestruturas para um cluster em AWS
 description: Neste tutorial, vai aprender a configurar a infraestrutura do AWS para executar um cluster do Service Fabric.
-author: dkkapur
 ms.topic: tutorial
 ms.date: 05/11/2018
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75613980"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842908"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura do AWS para alojar um cluster do Service Fabric
 

@@ -1,16 +1,14 @@
 ---
 title: Criar um cluster de tecido de serviço Azure autónomo
 description: Crie um cluster de tecido de serviço Azure em qualquer máquina (física ou virtual) que esteja a executar o Windows Server, seja no local ou em qualquer nuvem.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.author: dekapur
-ms.openlocfilehash: 6fa27008ea22e1a2bd9a83ce3888370cf2213935
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458081"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843197"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters de Tecido de Serviço em quaisquer máquinas virtuais ou computadores que executem o Windows Server. Isto significa que pode implementar e executar aplicações de Tecido de Serviço em qualquer ambiente que contenha um conjunto de computadores do Windows Server interligados, seja nas instalações ou em qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Tecido de Serviço chamado pacote autónomo do Windows Server. Os clusters de tecido de serviço tradicional em Azure estão disponíveis como um serviço gerido, enquanto clusters de tecido de serviço autónomo são self-service. Para obter mais informações sobre as diferenças, consulte os clusters de tecido de [serviço comparsando Azure e autónomos.](./service-fabric-deploy-anywhere.md)
@@ -57,7 +55,7 @@ O cluster criado neste artigo é inseguro.  Qualquer pessoa pode ligar de forma 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Cenário A: Criar um cluster de desenvolvimento local não seguro
 O tecido de serviço pode ser implantado num cluster de desenvolvimento de uma máquina utilizando o *ClusterConfig.Unsecure.DevCluster.jsem* ficheiro incluído em [Amostras](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Desembale o pacote autónomo para a sua máquina, copie o ficheiro config da amostra para a máquina local e, em seguida, passe *o*CreateServiceFabricCluster.ps1script através de uma sessão PowerShell do administrador, a partir da pasta do pacote autónomo.
+Desembale o pacote autónomo para a sua máquina, copie o ficheiro config da amostra para a máquina local e, em seguida, passe * o *CreateServiceFabricCluster.ps1script através de uma sessão PowerShell do administrador, a partir da pasta do pacote autónomo.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -97,7 +95,7 @@ O administrador do cluster que irá implementar e configurar o cluster tem de te
     Passed                     : True
     ```
 
-2. Crie o cluster: Executar *o*CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço em cada máquina na configuração. 
+2. Crie o cluster: Executar * o *CreateServiceFabricCluster.ps1script para implantar o cluster de Tecido de Serviço em cada máquina na configuração. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```

@@ -1,16 +1,14 @@
 ---
 title: Escalagem autónoma de cluster de tecido de serviço Azure
 description: Saiba mais sobre o escalonamento de aglomerados autónomos de tecido de serviço dentro ou fora e para cima ou para baixo.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dekapur
-ms.openlocfilehash: 3195f1f409ab5cb87cd0520192a3dd362e188a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8184b2455e938fa0500308b462176e78b8dadcab
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610239"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843036"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Clusters autónomos de tecido de escala
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os aglomerados podem conter potencialmente milhares de nós. Depois de criar um cluster de Tecido de Serviço, pode escalar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -42,7 +40,7 @@ Altera os recursos (CPU, memória ou armazenamento) dos nós no cluster.
 - Vantagens: A arquitetura de software e aplicações permanece a mesma.
 - Desvantagens: Escala finita, uma vez que há um limite para quanto você pode aumentar recursos em nós individuais. Tempo de inatividade, porque terá de desligar as máquinas físicas ou virtuais para adicionar ou remover recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
 * [Escalar um aglomerado Azure dentro ou fora](service-fabric-tutorial-scale-cluster.md).
 * [Dimensione um cluster Azure programáticamente](service-fabric-cluster-programmatic-scaling.md) usando o fluente Azure compute SDK.

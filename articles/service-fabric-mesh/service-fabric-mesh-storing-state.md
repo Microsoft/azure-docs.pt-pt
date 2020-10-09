@@ -1,16 +1,16 @@
 ---
 title: Opções de armazenamento do estado na malha de tecido de serviço Azure
 description: Saiba mais sobre o estado de armazenamento fiável nas aplicações de malha de tecido de serviço em execução na Malha de Tecido de Serviço Azure.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984127"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843214"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestão do Estado com Tecido de Serviço
 

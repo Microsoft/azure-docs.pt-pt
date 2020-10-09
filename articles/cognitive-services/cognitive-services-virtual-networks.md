@@ -3,18 +3,18 @@ title: Redes Virtuais
 titleSuffix: Azure Cognitive Services
 description: Configure a segurança da rede em camadas para os seus recursos de Serviços Cognitivos.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 10/07/2020
+ms.author: aahi
+ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505032"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843146"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -40,40 +40,29 @@ As regras de rede são aplicadas em todos os protocolos de rede aos Serviços Co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões apoiadas e ofertas de serviços
 
-As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cognitivos estão disponíveis.](https://azure.microsoft.com/global-infrastructure/services/) Se o Serviço Cognitivo não estiver listado, não suporta atualmente redes virtuais.
+As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cognitivos estão disponíveis.](https://azure.microsoft.com/global-infrastructure/services/) Os Serviços Cognitivos suportam tags de serviço para a configuração das regras de rede. Os serviços listados abaixo estão incluídos na etiqueta de serviço **CognitiveServicesManagement.**
 
 > [!div class="checklist"]
-> * [Detetor de Anomalias](./anomaly-detector/index.yml)
-> * [Imagem Digitalizada](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Reconhecedor de Formato](./form-recognizer/index.yml)
-> * [Language Understanding](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [Criador de FAQ](./qnamaker/index.yml)
-> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Leitura Avançada](./immersive-reader/index.yml)
+> * Detetor de Anomalias
+> * Imagem Digitalizada
+> * Content Moderator
+> * Visão Personalizada
+> * Rostos
+> * Reconhecedor de Formato
+> * Compreensão de Idiomas (LUIS)
+> * Personalizador
+> * Análise de Texto
+> * QnA Maker
+> * Tradução de Texto
+> * Leitura Avançada
 
-## <a name="service-tags"></a>Etiquetas de Serviço
+> [!NOTE]
+> Se estiver a utilizar o LUIS, a etiqueta **CognitiveServicesManagement** apenas permite a utilização do serviço utilizando a API SDK ou REST. Para aceder e utilizar o portal LUIS a partir de uma rede virtual, terá de utilizar as seguintes tags:  
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor.Frontend**
 
-Os Serviços Cognitivos suportam tags de serviço para a configuração das regras de rede. Os serviços listados abaixo estão incluídos na etiqueta de serviço **CognitiveServicesManagement.**
-
-> [!div class="checklist"]
-> * [Detetor de Anomalias](./anomaly-detector/index.yml)
-> * [Imagem Digitalizada](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Reconhecedor de Formato](./form-recognizer/index.yml)
-> * [Compreensão de Idiomas (LUIS)](./luis/index.yml)
-> * [Personalizador](./personalizer/index.yml)
-> * [Análise de Texto](./text-analytics/index.yml)
-> * [Criador de FAQ](./qnamaker/index.yml)
-> * [Tradutor](./translator/index.yml)
-> * [Serviço de Fala](./speech-service/index.yml)
-> * [Leitura Avançada](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
 

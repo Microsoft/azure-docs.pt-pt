@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1
-ms.openlocfilehash: 2ac23e16dd294f6a17fbc891eb87889760724f36
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461262"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842687"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -322,7 +322,7 @@ Em geral - se você validou que o token está sendo emitido, e o token está sen
 
 Se você ou os utilizadores da sua aplicação estiverem a ver erros inesperados durante o processo de consentimento, consulte este artigo para etapas de resolução de problemas: [Erro inesperado ao efetuar o consentimento de uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Fichas de ID Plataforma de identidade da Microsoft](id-tokens.md)
 * [Fichas de acesso Plataforma de identidade da Microsoft](access-tokens.md)

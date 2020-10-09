@@ -1,17 +1,17 @@
 ---
 title: Utilize um volume baseado em Azure Files numa aplicação de malha de tecido de serviço
 description: Aprenda a armazenar o estado numa aplicação de malha de tecido de serviço Azure, montando um volume baseado em Azure Files dentro de um serviço utilizando o Azure CLI.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260110"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842792"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monte um volume baseado em Ficheiros Azure numa aplicação de malha de tecido de serviço 
 
@@ -21,7 +21,7 @@ Para montar um volume num serviço, crie um recurso de volume na sua aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
-> **Problema conhecido com implementação na máquina de desenvolvimento Do Windows RS5:** Existe um bug aberto com o comandante Powershell New-SmbGlobalMapping em máquinas RS5 Windows que impede a montagem de Volumes Azurefile. Abaixo está o erro de amostra que se encontra quando o volume baseado no AzureFile está a ser montado na máquina de desenvolvimento local.
+> **Problema conhecido com implementação na máquina de desenvolvimento Do Windows RS5:** Existe um bug aberto com New-SmbGlobalMapping de cmdlet Powershell em máquinas RS5 Windows que impede a montagem de Volumes Azurefile. Abaixo está o erro de amostra que se encontra quando o volume baseado no AzureFile está a ser montado na máquina de desenvolvimento local.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Pode também encontrar estes valores no [portal Azure:](https://portal.azure.com)
-* `<storageAccountName>`- Nas **Contas de Armazenamento,** o nome da conta de armazenamento utilizada para criar a parte do ficheiro.
-* `<storageAccountKey>`- Selecione a sua conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione as **teclas de acesso** e use o valor sob **a tecla1**.
-* `<fileShareName>`- Selecione a sua conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione **Ficheiros**. O nome a usar é o nome da partilha de ficheiros que criou.
+* `<storageAccountName>` - Nas **Contas de Armazenamento,** o nome da conta de armazenamento utilizada para criar a parte do ficheiro.
+* `<storageAccountKey>` - Selecione a sua conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione as **teclas de acesso** e use o valor sob **a tecla1**.
+* `<fileShareName>` - Selecione a sua conta de armazenamento em  **Contas de Armazenamento** e, em seguida, selecione **Ficheiros**. O nome a usar é o nome da partilha de ficheiros que criou.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declare um recurso de volume e atualize o recurso de serviço (JSON)
 
@@ -85,7 +85,7 @@ Adicione parâmetros para o `<fileShareName>` `<storageAccountName>` , e `<stora
 
 Crie um recurso volume como um par do recurso Application. Especifique um nome e o fornecedor ("SFAzureFile" para utilizar o volume baseado em Ficheiros Azure). Em `azureFileParameters` , especificar os parâmetros para o `<fileShareName>` , e os `<storageAccountName>` `<storageAccountKey>` valores que encontrou em um passo anterior.
 
-Para montar o volume ao seu serviço, adicione um `volumeRefs` ao `codePackages` elemento do serviço.  `name`é o ID de recurso para o volume (ou um parâmetro do modelo de implantação para o recurso de volume) e o nome do volume declarado no ficheiro de recursos volume.yaml.  `destinationPath`é o diretório local para o qual o volume será montado.
+Para montar o volume ao seu serviço, adicione um `volumeRefs` ao `codePackages` elemento do serviço.  `name` é o ID de recurso para o volume (ou um parâmetro do modelo de implantação para o recurso de volume) e o nome do volume declarado no ficheiro de recursos volume.yaml.  `destinationPath` é o diretório local para o qual o volume será montado.
 
 ```json
 {
@@ -210,7 +210,7 @@ volume:
         accountKey: <storageAccountKey>
 ```
 
-Atualize o ficheiro *service.yaml* no diretório *de Recursos* de Serviço para aumentar o volume no seu serviço.  Adicione o `volumeRefs` elemento ao `codePackages` elemento.  `name`é o ID de recurso para o volume (ou um parâmetro do modelo de implantação para o recurso de volume) e o nome do volume declarado no ficheiro de recursos volume.yaml.  `destinationPath`é o diretório local para o qual o volume será montado.
+Atualize o ficheiro *service.yaml* no diretório *de Recursos* de Serviço para aumentar o volume no seu serviço.  Adicione o `volumeRefs` elemento ao `codePackages` elemento.  `name` é o ID de recurso para o volume (ou um parâmetro do modelo de implantação para o recurso de volume) e o nome do volume declarado no ficheiro de recursos volume.yaml.  `destinationPath` é o diretório local para o qual o volume será montado.
 
 ```yaml
 ## Service definition ##

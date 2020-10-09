@@ -1,16 +1,14 @@
 ---
 title: Configure o seu cluster autónomo de tecido de serviço Azure
 description: Saiba como configurar o seu cluster de tecido de serviço autónomo ou autónomo.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: dekapur
-ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246576"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843163"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster de Windows autónomo
 Este artigo descreve as definições de configuração de um cluster autónomo de tecido de serviço Azure que pode ser definido no *ClusterConfig.jsno* ficheiro. Utilizará este ficheiro para especificar informações sobre os nós do cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha e de upgrade.  Depois de alterar ou adicionar configurações de configuração, pode [criar um cluster autónomo](service-fabric-cluster-creation-for-windows-server.md) ou atualizar a [configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -199,7 +197,7 @@ Todas as funcionalidades adicionais disponíveis podem ser vistas na [Referênci
 Para permitir o suporte de contentores tanto para recipientes windows server como para recipientes Hiper-V para aglomerados autónomos, a função de complemento dnsService deve ser ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de ter umaClusterConfig.jscompleta *no* ficheiro configurada de acordo com a configuração do seu cluster autónomo, pode implantar o seu cluster. Siga os passos em [Criar um cluster de tecido de serviço autónomo.](service-fabric-cluster-creation-for-windows-server.md) 
+Depois de ter umaClusterConfig.jscompleta * no* ficheiro configurada de acordo com a configuração do seu cluster autónomo, pode implantar o seu cluster. Siga os passos em [Criar um cluster de tecido de serviço autónomo.](service-fabric-cluster-creation-for-windows-server.md) 
 
 Se tiver um cluster autónomo implantado, também pode [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

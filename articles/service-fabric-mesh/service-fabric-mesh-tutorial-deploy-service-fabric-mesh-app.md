@@ -1,17 +1,17 @@
 ---
 title: Tutorial- Implementar uma aplicação de malha de tecido de serviço
 description: Saiba como utilizar o Visual Studio para publicar uma aplicação do Azure Service Fabric Mesh constituída por um site ASP.NET Core que comunica com um serviço Web de back-end.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6305bdd8c892bb0323cd4f7dc61b7ad22652ed73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261331"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842738"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementar uma aplicação do Service Fabric Mesh
 

@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 023d5e13efc19fdf097ac06d61c3300805d3b28e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369625"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842653"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -134,7 +134,7 @@ Se o `az` comando não for reconhecido, certifique-se de que tem o CLI Azure ins
 Em seguida, crie a base de dados Postgres em Azure com o [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Substitua *\<postgres-server-name>* por um nome único em todo o Azure (o ponto final do servidor `https://<postgres-server-name>.postgres.database.azure.com` é). Um bom padrão é usar uma combinação do nome da sua empresa e outro valor único.
@@ -144,9 +144,9 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 Este comando executa as seguintes ações, que podem demorar alguns minutos:
 
 - Criar um [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) chamado , se já não `DjangoPostgres-tutorial-rg` existe.
-- Crie um servidor Postgres.
-- Crie uma conta de administrador predefinido com um nome de utilizador único e senha. (Para especificar as suas próprias credenciais, use os `--admin-user` argumentos e os argumentos com o `--admin-password` `az postgres up` comando.)
-- Criar uma `pollsdb` base de dados.
+- Crie um servidor Postgres nomeado pelo `--server-name` argumento.
+- Criar uma conta de administrador utilizando os `--admin-user` argumentos e `--admin-password` argumentos. Pode omitir estes argumentos para permitir que o comando gere credenciais únicas para si.
+- Crie uma `pollsdb` base de dados com o nome do `--database-name` argumento.
 - Ative o acesso a partir do seu endereço IP local.
 - Ativar o acesso a partir dos serviços Azure.
 - Criar um utilizador de base de dados com acesso à `pollsdb` base de dados.
@@ -210,10 +210,22 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - *\<postgres-server-name>* Substitua-o pelo nome que usou anteriormente pelo `az postgres up` comando.
-- Substitua *\<username>* e *\<password>* pelas credenciais que o comando também gerou para si. O `DBUSER` argumento deve estar na `<username>@<postgres-server-name>` forma.
+- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que utilizou com o comando anterior `az postgres up` (ou que foi gerado para `az postgres up` si). O `DBUSER` argumento deve estar na `<username>@<postgres-server-name>` forma.
 - O grupo de recursos e o nome da aplicação são extraídos dos valores em cache no ficheiro *.azure/config.*
 - O comando cria configurações com o nome `DJANGO_ENV` , e como esperado pelo código da `DBHOST` `DBNAME` `DBUSER` `DBPASS` aplicação.
 - No seu código Python, acede a estas definições como variáveis ambientais com declarações como `os.environ.get('DJANGO_ENV')` . Para obter mais informações, consulte [as variáveis do ambiente Access.](configure-language-python.md#access-environment-variables)
+
+#### <a name="verify-the-dbuser-setting"></a>Verifique a definição DBUSER
+
+É fundamental que a `DBUSER` configuração seja do `<username>@<postgres-server-name>` formulário.
+
+Para verificar a definição, corra `az webapp config app settings list` e veja o valor dos `DBUSER` resultados:
+
+```azurecli
+az webapp config app settings list
+```
+
+Se precisar de corrigir o valor, executar o `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"` comando, `<username>@<postgres-server-name>` substituindo-o pelos nomes apropriados.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -230,6 +242,8 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
     `<app-name>`Substitua-o pelo nome utilizado anteriormente no `az webapp up` comando.
 
     No macOS e Linux, pode alternar a ligação a uma sessão SSH com o [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) comando.
+
+    Se não conseguir ligar-se à sessão SSH, então a própria aplicação falhou em arrancar. [Verifique os registos de diagnóstico](#stream-diagnostic-logs) para obter mais detalhes. Por exemplo, se não tiver criado as definições de aplicações necessárias na secção anterior, os registos indicarão `KeyError: 'DBNAME'` .
 
 1. Na sessão SSH, executar os seguintes comandos (pode colar comandos usando **Ctrl** + **Shift** + **V**):
 
@@ -249,7 +263,9 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
-    
+
+1. Se vir o erro "O nome de utilizador deve estar em <username@hostname> formato." ao executar as migrações da base de dados, consulte [verificar a definição DBUSER](#verify-the-dbuser-setting).
+
 1. O `createsuperuser` comando pede-lhe credenciais de super-20. Para efeitos deste tutorial, utilize o nome de utilizador predefinido `root` , prima **Enter** para o endereço de e-mail para o deixar em branco e introduza `Pollsdb1` a palavra-passe.
 
 1. Se vir um erro de que a base de dados esteja bloqueada, certifique-se de que executou o `az webapp settings` comando na secção anterior. Sem estas definições, o comando migratório não pode comunicar com a base de dados, resultando no erro.
@@ -259,6 +275,12 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
 ### <a name="create-a-poll-question-in-the-app"></a>Crie uma pergunta de sondagem na app
 
 1. Num browser, abra o `http://<app-name>.azurewebsites.net` URL. A aplicação deve exibir a mensagem "Não há sondagens disponíveis" porque ainda não há sondagens específicas na base de dados.
+
+    Se vir "Erro de Aplicação", é provável que não tenha criado as definições necessárias no passo anterior, [configurar variáveis ambientais para ligar a base de dados](#configure-environment-variables-to-connect-the-database). Verifique o comando `az webapp config appsettings list` para verificar as definições. Também pode [verificar os registos de diagnóstico](#stream-diagnostic-logs) para ver erros específicos durante o arranque da aplicação. Por exemplo, se não criar as definições, os registos mostrarão o erro, `KeyError: 'DBNAME'` .
+
+    Se vir o erro, "Nome de utilizador inválido especificado. Verifique o nome de utilizador e volte a tentar a ligação. O nome de utilizador deve estar no <username@hostname> formato.", ver [Verificar a definição DBUSER](#verify-the-dbuser-setting).
+
+    Depois de atualizar as definições para corrigir quaisquer erros, dê à app um minuto para reiniciar e, em seguida, refresque o navegador.
 
 1. Navegue para `http://<app-name>.azurewebsites.net/admin`. Inscreva-se utilizando credenciais de super-utilização da secção anterior `root` (e `Pollsdb1` . In **Polls**, selecione **Adicionar** ao Lado **das Perguntas** e crie uma pergunta de sondagem com algumas escolhas.
 

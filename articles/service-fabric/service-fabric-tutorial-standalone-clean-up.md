@@ -1,31 +1,29 @@
 ---
-title: Limpeza de um aglomerado autónomo
-description: Neste tutorial aprende-se a limpar os recursos AWS ou Azure no seu cluster de Tecido de Serviço autónomo.
-author: dkkapur
+title: Limpe um aglomerado autónomo
+description: Neste tutorial, aprenda a eliminar recursos AWS ou Azure para o seu cluster de Tecido de Serviço autónomo.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75639025"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842891"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: limpe o seu cluster autónomo
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série tutorial, você cria um cluster autónomo hospedado em AWS ou Azure e instala uma aplicação nele.
+Os clusters autónomos de tecido de serviço oferecem-lhe a opção de escolher o seu próprio ambiente para hospedar o Service Fabric. Nesta série tutorial, você vai criar um cluster autónomo hospedado em AWS ou Azure e implementar uma aplicação para ele.
 
-Este tutorial é a quarta parte de uma série. Esta parte do tutorial mostra-lhe como limpar os recursos AWS ou Azure que criou para hospedar o seu cluster de Tecido de Serviço.
+Este tutorial é a quarta parte de uma série. Esta parte do tutorial mostra-lhe como eliminar os recursos AWS ou Azure que criou para hospedar o seu cluster de Tecido de Serviço.
 
-Na quarta parte da série, ficará a saber como:
+Neste artigo, aprenderá a:
 
 > [!div class="checklist"]
-> * Apagar um cluster do Service Fabric
-> * Limpe os seus recursos AWS ou Azure
+> * Remover um cluster de tecido de serviço
+> * Elimine os seus recursos AWS ou Azure
 
-## <a name="clean-up-service-fabric-cluster"></a>Apagar um cluster do Service Fabric
+## <a name="remove-a-service-fabric-cluster"></a>Remover um cluster de tecido de serviço
 
 1. RDP no VM que usou para instalar o Tecido de Serviço.
 2. Abra o PowerShell.
@@ -36,7 +34,7 @@ Na quarta parte da série, ficará a saber como:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Insira `Y` quando solicitado, se tiver sucesso a sua saída será semelhante à seguinte, com os seus próprios endereços IP substituídos em:
+5. Entre `Y` quando solicitado. Se tiver sido bem sucedido, a sua saída será semelhante ao seguinte (com os seus próprios endereços IP):
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -49,23 +47,23 @@ Na quarta parte da série, ficará a saber como:
   The cluster is successfully removed.
   ```
 
-## <a name="clean-up-aws-resources"></a>Apague os recursos do AWS
+## <a name="delete-aws-resources"></a>Eliminar recursos AWS
 
 1. Inscreva-se na sua Conta AWS.
 2. Vá para a consola EC2.
 3. Selecione os três nós que criou na primeira parte do tutorial.
-4. Clique em **Ações**  >  **Instance State**  >  **Terminate**.
+4. Selecione **Ações**  >  **Instance State**  >  **Terminate**.
 
-## <a name="clean-up-azure-resources"></a>Limpe os recursos do Azure
+## <a name="delete-azure-resources"></a>Eliminar recursos do Azure
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. Aceda à secção **máquinas virtuais.**
 3. Selecione caixas de verificação para os três nós que criou na primeira parte do tutorial.
-4. Clique em **Apagar**.
+4. Selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Na quarta parte da série, aprendeu a apagar os recursos criados nos passos anteriores.
+Neste tutorial, aprendeu a apagar os recursos que criou em etapas anteriores.
 
 > [!div class="checklist"]
 > * Limpar os seus recursos

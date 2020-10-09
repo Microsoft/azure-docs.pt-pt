@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251886"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842772"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 A seguinte captura de ecrã mostra os dados de saída da aplicação de dispositivo simulado e realça como esta processa uma atualização feita à propriedade pretendida **maxTemperature**. Pode ver como o processador de nível superior e os processadores de componentes de clima são executados:
 
-![Dispositivo simulado](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Screenshot que mostra como tanto o manipulador de nível superior como os manipuladores de componentes climáticos funcionam.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 A seguinte captura de ecrã mostra os dados de saída da aplicação de back-end e realça como esta envia uma atualização feita à propriedade pretendida **maxTemperature**:
 
-![Aplicação de back-end](./media/tutorial-device-twins/BackEnd1.png)
+![Screenshot que mostra a saída da aplicação back-end e realça como envia uma atualização.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>Receber informações de estado
 

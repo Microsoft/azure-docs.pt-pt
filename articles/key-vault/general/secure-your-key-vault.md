@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825467"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842840"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre a autenticação no Cofre de Chaves, consult
 
 ## <a name="key-vault-authentication-options"></a>Opções de autenticação do Cofre-Chave
 
-Quando cria um cofre chave numa subscrição do Azure, está automaticamente associado ao inquilino AD AD da subscrição. Todos os chamadores em ambos os aviões devem registar-se neste inquilino e autenticar para aceder ao cofre da chave. Em ambos os casos, as aplicações podem aceder ao Key Vault de duas formas:
+Quando cria um cofre chave numa subscrição do Azure, está automaticamente associado ao inquilino AD AD da subscrição. Todos os chamadores em ambos os aviões devem registar-se neste inquilino e autenticar para aceder ao cofre da chave. Em ambos os casos, as aplicações podem aceder ao Key Vault de três formas:
 
 - **Apenas para aplicação**: A aplicação representa um principal serviço ou identidade gerida. Esta identidade é o cenário mais comum para aplicações que periodicamente precisam de aceder a certificados, chaves ou segredos do cofre chave. Para que este cenário funcione, `objectId` a aplicação deve ser especificada na política de acesso e `applicationId` _a_ não deve ser especificada ou deve ser `null` .
 - **Apenas para o utilizador**: O utilizador acede ao cofre de chaves a partir de qualquer aplicação registada no arrendatário. Exemplos deste tipo de acesso incluem a Azure PowerShell e o portal Azure. Para que este cenário funcione, `objectId` o do utilizador deve ser especificado na política de acesso e o não deve ser especificado ou deve `applicationId` ser _not_ `null` .
@@ -71,7 +71,7 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 
 No plano de gestão, você usa o [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) para autorizar as operações que um chamador pode executar. No modelo Azure RBAC, cada subscrição do Azure tem um exemplo de Azure AD. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure.
 
-Cria-se um cofre chave num grupo de recursos e gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Você concede o acesso a um nível de âmbito específico, atribuindo as funções apropriadas de Azure. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
+Cria-se um cofre chave num grupo de recursos e gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Você concede o acesso a um nível de âmbito específico, atribuindo as funções apropriadas de Azure. Para conceder acesso a um utilizador para gerir cofres-chave, atribui um papel predefinido [do Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
 
 - **Subscrição**: Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
 - **Grupo de recursos**: Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
@@ -184,11 +184,11 @@ A tabela seguinte resume as permissões de acesso para as nossas funções e apl
 
 | Função | Permissões do plano de gestão | Permissões de plano de dados - políticas de acesso a cofres | Permissões de plano de dados -Azure RBAC (pré-visualização)  |
 | --- | --- | --- | --- |
-| Equipa de segurança | Contribuidor do Cofre Chave | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | Administrador do cofre chave (pré-visualização) |
+| Equipa de segurança | [Contribuidor do Cofre Chave](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Administrador do cofre chave (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhum | Nenhum |
-| Auditores | Nenhum | Certificados: lista <br> Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. | Key Vault Reader (pré-visualização) |
-| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, listar, embrulharKey, desembrulhar aKey <br> | Encriptação do serviço crypto do cofre chave |
-| Aplicação | Nenhum | Segredos: obter, lista <br> Certificados: obter, lista | Key Vault Reader (pré-visualização), Key Vault Secret User (pré-visualização) |
+| Auditores | Nenhum | Certificados: lista <br> Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. | [Key Vault Reader (pré-visualização)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, listar, embrulharKey, desembrulhar aKey <br> | [Encriptação do serviço crypto do cofre chave](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Aplicação | Nenhum | Segredos: obter, lista <br> Certificados: obter, lista | [Key Vault Reader (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault Secret User (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 As três funções da equipa precisam de acesso a outros recursos, juntamente com permissões do Key Vault. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de implementar o acesso. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre de Chaves estão armazenados.
 
@@ -199,7 +199,11 @@ O nosso exemplo descreve um cenário simples. Cenários da vida real podem ser m
 
 ## <a name="resources"></a>Recursos
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[Sobre o Cofre](overview.md) 
+ da Chave Azure Diretório Ativo [Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
+ Gestão de [Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md) 
+ [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
+ [Ligação Privada](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Passos seguintes
 

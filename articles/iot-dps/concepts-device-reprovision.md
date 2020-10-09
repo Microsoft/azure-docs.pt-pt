@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975351"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842857"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceitos de reprovisionamento de dispositivos IoT Hub
 
@@ -32,7 +32,7 @@ O suporte de reprovisionamento no serviço de fornecimento de dispositivos abord
 
 Os dados do estado do dispositivo são compostos pelas capacidades gémeas e do dispositivo do [dispositivo.](../iot-hub/iot-hub-devguide-device-twins.md) Estes dados são armazenados na instância do Serviço de Provisionamento de Dispositivos e no hub IoT a que um dispositivo é atribuído.
 
-![Provisionamento com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagrama que mostra como o provisionamento funciona com o Serviço de Provisionamento de Dispositivos.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 Quando um dispositivo é inicialmente a provisionado com uma instância do Serviço de Provisionamento de Dispositivos, são feitas as seguintes etapas:
 
@@ -52,13 +52,13 @@ Dependendo do cenário, um dispositivo geralmente envia um pedido para uma inst�
 
 * **Re-provisão e migração de dados**: Esta política é o padrão para novas entradas de inscrição. Esta política toma medidas quando os dispositivos associados à inscrição apresentam um novo pedido (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser transferido para outro hub IoT. Se o dispositivo estiver a mudar os hubs IoT, o registo do dispositivo com o hub IoT inicial será removido. A informação atualizada do estado do dispositivo a partir desse hub inicial de IoT será migrada para o novo hub IoT (2). Durante a migração, o estado do dispositivo será reportado como **Atribuição**.
 
-    ![Provisionamento com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagrama que mostra que uma política toma medidas quando os dispositivos associados à inscrição apresentam um novo pedido.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Re-provisão e reset ao config inicial**: Esta política toma medidas quando os dispositivos associados à inscrição apresentam um novo pedido de provisionamento (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser transferido para outro hub IoT. Se o dispositivo estiver a mudar os hubs IoT, o registo do dispositivo com o hub IoT inicial será removido. Os dados iniciais de configuração que a instância de serviço de fornecimento recebida quando o dispositivo foi fornecido são fornecidos ao novo hub IoT (2). Durante a migração, o estado do dispositivo será reportado como **Atribuição**.
 
     Esta política é frequentemente utilizada para um reset de fábrica sem alterar centros de IoT.
 
-    ![Provisionamento com o Serviço de Provisionamento de Dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagrama que mostra como uma política toma medidas quando os dispositivos associados à inscrição apresentam um novo pedido de provisionamento.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Nunca reresinsse:** O dispositivo nunca é transferido para um centro diferente. Esta política está prevista para gerir a retrocompatibilidade.
 
@@ -87,6 +87,6 @@ A tabela a seguir mostra as versões API antes da disponibilidade de suporte nat
 > [!NOTE]
 > Estes valores e links são suscetíveis de mudar. Esta é apenas uma tentativa de determinar onde as versões podem ser determinadas por um cliente e quais serão as versões esperadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como reprovisionar dispositivos](how-to-reprovision.md)

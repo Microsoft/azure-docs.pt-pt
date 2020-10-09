@@ -1,17 +1,17 @@
 ---
 title: Escala automática uma aplicação em execução na malha de tecido de serviço Azure
 description: Saiba como configurar políticas de auto-escala para os serviços de uma aplicação de malha de tecido de serviço.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461967"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843061"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Criar políticas de autoescala para uma aplicação de malha de tecido de serviço
 Uma das principais vantagens de implementar aplicações para a Rede de Tecidos de Serviço é a capacidade de escalar facilmente os seus serviços dentro ou fora. Isto deve ser usado para lidar com quantidades variadas de carga nos seus serviços ou melhorar a disponibilidade. Pode escalar manualmente os seus serviços dentro ou fora ou definir políticas de autoscalagem.
@@ -114,5 +114,5 @@ application:
           ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [escalar manualmente um serviço](service-fabric-mesh-tutorial-template-scale-services.md)
