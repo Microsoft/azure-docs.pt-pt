@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 30bd3187973de204f27a3be3862351550d6a56f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260479"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Acesso Azure Cosmos DB Cassandra Dados API da Azure Databricks
@@ -47,7 +47,7 @@ Este artigo detalha como trabalhar com a Azure Cosmos DB Cassandra API da Spark 
 
 * **Conector Cassandra Spark:** - Para integrar a Azure Cosmos DB Cassandra API com a Spark, o conector Cassandra deve ser ligado ao cluster Azure Databricks. Para fixar o cluster:
 
-  * Reveja a versão de runtime databricks, a versão Spark. Em seguida, encontre as [coordenadas maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatíveis com o conector Cassandra Spark, e prenda-as ao cluster. Consulte o artigo ["Carregar um pacote Maven ou pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) para anexar a biblioteca do conector ao cluster. Por exemplo, a coordenada maven para "Databricks Runtime versão 4.3", "Spark 2.3.1" e "Scala 2.11" é`spark-cassandra-connector_2.11-2.3.1`
+  * Reveja a versão de runtime databricks, a versão Spark. Em seguida, encontre as [coordenadas maven](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatíveis com o conector Cassandra Spark, e prenda-as ao cluster. Consulte o artigo ["Carregar um pacote Maven ou pacote Spark"](https://docs.databricks.com/user-guide/libraries.html) para anexar a biblioteca do conector ao cluster. Por exemplo, a coordenada maven para "Databricks Runtime versão 4.3", "Spark 2.3.1" e "Scala 2.11" é `spark-cassandra-connector_2.11-2.3.1`
 
 * **Biblioteca específica da Azure Cosmos DB Cassandra:** - Uma fábrica de conexão personalizada é necessária para configurar a política de retripagem do conector Cassandra Spark para a Azure Cosmos DB Cassandra API. Adicione as `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [coordenadas maven](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) para anexar a biblioteca ao cluster.
 
@@ -64,6 +64,6 @@ Seguem-se links para o ajudar a começar a construir programas Spark Scala para 
 * [Como executar um programa Spark Scala como um trabalho automatizado na Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
 * [Lista completa de amostras de código para trabalhar com a Cassandra API](cassandra-spark-generic.md#next-steps)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começar a [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java.

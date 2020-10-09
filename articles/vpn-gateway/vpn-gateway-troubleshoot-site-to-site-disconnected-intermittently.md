@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75862565"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: A VPN Site a Site do Azure desliga-se de forma intermitente
@@ -42,7 +42,7 @@ Verifique o tipo de gateway de rede virtual Azure:
 1. Certifique-se de que a rede virtual, sub-redes e.variações na definição **de gateway de rede local** no Microsoft Azure são as mesmas que a configuração no dispositivo VPN no local.
 2. Verifique se as definições da Associação de Segurança coincidem.
 
-### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Passo 3 Verifique as rotas definidas pelo utilizador ou os grupos de segurança da rede na sub-rede Gateway
+### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Passo 3 Verifique se User-Defined rotas ou grupos de segurança da rede na sub-rede Gateway
 
 Uma rota definida pelo utilizador na sub-rede gateway pode estar a restringir algum tráfego e a permitir outro tráfego. Isto faz parecer que a ligação VPN não é fiável para algum tráfego e é boa para outros. 
 
@@ -64,7 +64,7 @@ O gateway de rede virtual baseado em políticas tem um limite de 200 pares da As
 
 A função **de sigilo perfeito para a frente** pode causar os problemas de desconexão. Se o dispositivo VPN tiver **o Sigilo perfeito para a frente** ativado, desative a funcionalidade. Em seguida, [atualize a política virtual de gateway IPsec](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure uma ligação site-a-local a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configure a política IPsec/IKE para ligações VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

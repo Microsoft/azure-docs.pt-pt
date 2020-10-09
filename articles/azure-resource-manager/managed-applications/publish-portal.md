@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651725"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publique uma aplicação de catálogo de serviços através do portal Azure
@@ -54,7 +54,7 @@ O ficheiro .zip que contém a definição de aplicação gerida deve estar dispo
 
    ![Criar aplicação gerida](./media/publish-portal/create-app.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para exemplos de aplicações geridos, consulte [projetos de amostra para aplicações geridas pela Azure](sample-projects.md).

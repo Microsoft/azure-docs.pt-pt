@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650412"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure Custom Providers recurso onboarding overview
@@ -152,7 +152,7 @@ O ponto final deve responder com uma aplicação/json `Content-Type` e um organi
 
 Se tiver dúvidas sobre o desenvolvimento de Fornecedores de Recursos Personalizados Azure, tente fazê-los no [Stack Overflow.](https://stackoverflow.com/questions/tagged/azure-custom-providers) Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a etiqueta ```azure-custom-providers``` para obter uma resposta rápida!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre fornecedores personalizados. Consulte estes artigos para saber mais:
 

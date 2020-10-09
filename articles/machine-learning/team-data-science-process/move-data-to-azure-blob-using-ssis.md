@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322867"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou de Azure Blob Storage usando conectores SSIS
@@ -81,7 +81,7 @@ Os parâmetros que a tarefa utiliza são descritos aqui:
 ## <a name="download-data-from-azure-blob-storage"></a>Baixar dados do armazenamento de blob Azure
 Para transferir dados do armazenamento de blob Azure para o armazenamento no local com sSIS, utilize uma instância da Tarefa de Download da [Blob Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
-## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários mais avançados da SSIS-Azure
+## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários de SSIS-Azure mais avançados
 O pacote de funcionalidades SSIS permite que fluxos mais complexos sejam manuseados em conjunto por tarefas de embalagem. Por exemplo, os dados do blob podem alimentar-se diretamente num cluster HDInsight, cuja saída poderia ser descarregada de volta para uma bolha e, em seguida, para armazenamento no local. O SSIS pode executar trabalhos de Hive e Pig num cluster HDInsight utilizando conectores SSIS adicionais:
 
 * Para executar um script hive em um cluster Azure HDInsight com SSIS, use [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).

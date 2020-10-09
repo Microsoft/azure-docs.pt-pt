@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 543085eaea993f6e464a501ffc93befd7589a009
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Diretório Ativo Azure com o PageDNA
@@ -95,7 +95,7 @@ Para configurar o Azure AD um único sinal de inscrição com o PageDNA, tome os
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD um único sinal de inscrição com o PageDNA, tome os
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. Para obter estes valores, contacte a equipa de suporte do [PageDNA](mailto:success@pagedna.com). Também pode consultar os padrões indicados no painel **de configuração SAML básico** no portal Azure.
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregamento** para descarregar **Certificado (Raw)** das opções dadas e guarde-o no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar **Certificado (Raw)** das opções dadas e guarde-o no seu computador.
 
     ![A opção de download do Certificado (Raw)](common/certificateraw.png)
 

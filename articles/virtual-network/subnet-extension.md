@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
 ms.openlocfilehash: f718471c3f79e9a33b0e03b088f8c8d2ae0231d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73587514"
 ---
 # <a name="subnet-extension"></a>Extensão de sub-rede
@@ -52,5 +52,5 @@ No exemplo acima, o Azure NVA e as NVA no local comunicam e aprendem sobre ender
 
 Na próxima secção, encontrará detalhes sobre as soluções de extensão da sub-rede que testámos no Azure.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 [Estenda a sua sub-rede ao Azure utilizando soluções de fornecedor.](https://github.com/microsoft/Azure-LISP)

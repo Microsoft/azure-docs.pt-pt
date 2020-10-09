@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260496"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connect to Azure Cosmos DB Cassandra API from Spark (Ligar à API para Cassandra do Azure Cosmos DB a partir do Spark)
@@ -40,14 +40,14 @@ Este artigo é um entre uma série de artigos sobre a integração da Azure Cosm
 
 A tabela que se segue lista os parâmetros de configuração de produção específicos da API Azure Cosmos DB Cassandra fornecidos pelo conector. Para obter uma lista detalhada de todos os parâmetros de configuração, consulte a página de referência de [configuração](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) do repositório Do Conector De Faíscas GitHub.
 
-| **Nome da Propriedade** | **Valor predefinido** | **Descrição** |
+| **Nome da propriedade** | **Valor predefinido** | **Descrição** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Número de linhas por único lote. Desa um parâmetro para 1. Este parâmetro é usado para obter uma produção mais elevada para cargas de trabalho pesadas. |
-| spark.cassandra.connection.connections_per_executor_max  | Nenhuma | Número máximo de ligações por nó por executor. 10*n é equivalente a 10 ligações por nó num aglomerado de Cassandra n-node. Assim, se necessitar de 5 ligações por nó por executor para um cluster Cassandra de 5 nós, então deve definir esta configuração para 25. Modifique este valor com base no grau de paralelismo ou no número de executores para os quais os seus trabalhos de faísca estão configurados.   |
+| spark.cassandra.connection.connections_per_executor_max  | Nenhum | Número máximo de ligações por nó por executor. 10*n é equivalente a 10 ligações por nó num aglomerado de Cassandra n-node. Assim, se necessitar de 5 ligações por nó por executor para um cluster Cassandra de 5 nós, então deve definir esta configuração para 25. Modifique este valor com base no grau de paralelismo ou no número de executores para os quais os seus trabalhos de faísca estão configurados.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Define o número de escritos paralelos que podem ocorrer por executor. Como configura "batch.size.rows" para 1, certifique-se de aumentar este valor em conformidade. Modifique este valor com base no grau de paralelismo ou na produção que pretende alcançar para a sua carga de trabalho. |
 | spark.cassandra.concurrent.reads |  512 | Define o número de leituras paralelas que podem ocorrer por executor. Modifique este valor com base no grau de paralelismo ou na produção que pretende alcançar para a sua carga de trabalho  |
-| spark.cassandra.output.throughput_mb_per_sec  | Nenhuma | Define a produção total de escrita por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.   |
-| spark.cassandra.input.reads_per_sec| Nenhuma   | Define a produção total de leitura por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nenhum | Define a produção total de escrita por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Nenhum   | Define a produção total de leitura por executor. Este parâmetro pode ser usado como um limite superior para a sua produção de faísca, e baseá-lo na produção prevista do seu recipiente Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Define o número de lotes por única tarefa de faísca que pode ser armazenado na memória antes de enviar para Cassandra API |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Define o período de tempo até ao qual estão disponíveis ligações não disponíveis. | 
 
@@ -70,7 +70,7 @@ O artigo abaixo abrange o fornecimento de clusters Azure Databricks, configuraç
 [Trabalhar com a Azure Cosmos DB Cassandra API a partir de databricks da Azure](cassandra-spark-databricks.md)<BR>
   
 ### <a name="2--azure-hdinsight-spark"></a>2. Azure HDInsight-Spark
-O artigo abaixo abrange o serviço HDinsight-Spark, fornecimento, configuração de cluster para ligação à Azure Cosmos DB Cassandra API, e vários cadernos de amostras que cobrem operações DDL, operações DML e muito mais.<BR>
+O artigo abaixo abrange HDinsight-Spark serviço, fornecimento, configuração de cluster para ligação à Azure Cosmos DB Cassandra API, e vários cadernos de amostras que cobrem operações DDL, operações DML e muito mais.<BR>
 [Trabalhar com Azure Cosmos DB Cassandra API da Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
  
 ### <a name="3--spark-environment-in-general"></a>3. Ambiente de faíscas em geral
@@ -113,14 +113,14 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos demonstram a integração da Spark com a Azure Cosmos DB Cassandra API. 
  
 * [Operações DDL](cassandra-spark-ddl-ops.md)
 * [Criar/inserir operações](cassandra-spark-create-ops.md)
-* [Ler operações](cassandra-spark-read-ops.md)
+* [Operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de upsert](cassandra-spark-upsert-ops.md)
-* [Eliminar operações](cassandra-spark-delete-ops.md)
+* [Operações de eliminação](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de mesa](cassandra-spark-table-copy-ops.md)

@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651205"
 ---
 # <a name="reference-view-definition-artifact"></a>Referência: Ver artefacto de definição
@@ -85,7 +85,7 @@ O seguinte JSON mostra um exemplo de *viewDefinition.jsem* arquivo para aplicaç
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar aplicação gerida com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
 - [Referência: Artefacto de elementos de interface de utilizador](reference-createuidefinition-artifact.md)

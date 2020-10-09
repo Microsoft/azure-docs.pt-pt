@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68945455"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS apoia a política de apoio e reforma
@@ -64,7 +64,7 @@ Estes períodos podem ser dificultados, a critério da Microsoft, para facilitar
 * **Reforma familiar** <br>A Microsoft utilizará posts de blog e notificação do portal. Os clientes que ainda utilizam uma família de Os Hóspedes reformados serão notificados através de comunicação direta (e-mail, mensagens de portal, chamada telefónica) aos administradores de serviço atribuídos. Todas as alterações serão publicadas nos lançamentos do [Azure Guest OS e na Matriz de Compatibilidade SDK](cloud-services-guestos-update-matrix.md).
 * **Aposentadoria versão** <br>Todas as alterações e datas em que ocorrem serão publicadas nos [Lançamentos do Os do Azure Guest e na Matriz de Compatibilidade SDK](cloud-services-guestos-update-matrix.md), incluindo lançamento, desativação e expiração. Os administradores de serviços receberão e-mails se tiverem implementações em execução numa versão ou família de guestos desativados. O tempo destes e-mails pode variar. Geralmente, estão pelo menos um mês antes do desactivamento, embora este momento não seja um SLA oficial.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 **Como posso mitigar os impactos da migração?**
 
 Recomendamos que utilize a mais recente família guest OS para desenhar os seus Serviços Cloud.
@@ -77,5 +77,5 @@ Recomendamos que utilize a mais recente família guest OS para desenhar os seus 
 
 Se a arquitetura da sua aplicação web depender das funcionalidades subjacentes ao sistema operativo, utilize capacidades suportadas pela plataforma, tais como [tarefas de arranque](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade. Em alternativa, também pode utilizar [máquinas virtuais Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infraestrutura como Serviço), onde é responsável pela manutenção do sistema operativo subjacente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja as [últimas versões do Guest OS](cloud-services-guestos-update-matrix.md).

@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, porting, corpo, tracking, índice, segmentação, mapa
 ms.openlocfilehash: 8c128e59cef515aafb4f59794f0f644b90fd625d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277553"
 ---
 # <a name="azure-kinect-body-tracking-index-map"></a>Mapa do índice de rastreio do corpo de Azure Kinect
@@ -29,6 +29,6 @@ O mapa do índice do corpo inclui o mapa de segmentação de cada corpo na captu
 
 O mapa do índice do corpo é armazenado como um `k4a_image_t` e tem a mesma resolução que a profundidade ou a imagem de IR. Cada pixel tem um valor de 8 bits. Pode ser questionado a partir de um `k4abt_frame_t` `k4abt_frame_get_body_index_map` chamando. O desenvolvedor é responsável por libertar a memória do mapa do índice do corpo, chamando `k4a_image_release()` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar a sua primeira aplicação de deteção de movimentos](build-first-body-app.md)

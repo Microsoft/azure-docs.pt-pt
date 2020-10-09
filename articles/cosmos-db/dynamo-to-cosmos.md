@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261873"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Emigre a sua aplicação da Amazon DynamoDB para a Azure Cosmos DB
@@ -28,8 +28,8 @@ Seguem-se as principais diferenças conceptuais entre Azure Cosmos DB e DynamoDB
 |  Item |  Documento |
 |Atributo|Campo|
 |Índice Secundário|Índice Secundário|
-|Chave Primária – Chave de partição|Chave de partição|
-|Chave Primária – Chave de Classificação| Não Necessária |
+|Chave Primária – Chave de partição|Chave de Partição|
+|Chave Primária – Chave de Classificação| Não é necessário |
 |Fluxo|ChangeFeed|
 |Escrever Unidade de Cálculo|Unidade de Pedido (Flexível, pode ser usada para leituras ou escritas)|
 |Ler Unidade de Cálculo    |Unidade de Pedido (Flexível, pode ser usada para leituras ou escritas)|

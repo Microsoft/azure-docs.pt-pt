@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Diretório Ativo Azure com Percolate
@@ -93,7 +93,7 @@ Para configurar o Azure AD com Percolate, tome estes passos:
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com Percolate, tome estes passos:
 5. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais** e, na caixa **URL signo,** insira: **https://percolate.com/app/login**
 
    ![Informações de súmis de domínio percolate e URLs únicas](common/metadata-upload-additional-signon.png)
-6. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** selecione o ícone **Copy** para copiar o Url **de metadados da Federação de Aplicações**. Salve esta URL.
+6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o ícone **Copy** para copiar o Url **de Metadados da Federação de Aplicações**. Salve esta URL.
 
     ![Copiar o URL de metadados da Federação de Aplicações](common/copy-metadataurl.png)
 
@@ -176,7 +176,7 @@ Nesta secção, você permitirá que Britta Simon use Azure AD um único sinal d
 
 1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações**e, em seguida, selecione **Percolate**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Percolate**.
 

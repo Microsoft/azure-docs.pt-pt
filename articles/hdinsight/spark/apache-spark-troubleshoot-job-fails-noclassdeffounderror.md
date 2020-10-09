@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: 4659274110add96613ca88560edfb459b20a99cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894351"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>Trabalho de streaming Apache Spark que lê dados de Apache Kafka falha com NoClassDefFoundError em HDInsight
@@ -48,7 +48,7 @@ spark-submit \
 
 Utilize o comando Spark-submit com a `–packages` opção e certifique-se de que a versão do ficheiro de jarro spark-streaming-kafka é a mesma que a versão do cluster Kafka que está a executar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

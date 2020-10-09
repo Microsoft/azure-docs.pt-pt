@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
 ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894152"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight
@@ -165,7 +165,7 @@ Para a atribuição do certificado existente, crie um certificado, tenha o fiche
 
 Execute o comando PowerShell depois de substituir os parâmetros pelos valores reais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

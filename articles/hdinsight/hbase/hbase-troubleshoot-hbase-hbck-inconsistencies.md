@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887330"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Cenário: `hbase hbck` o comando devolve inconsistências no Azure HDInsight
 
 Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Questão: A região não está em`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Questão: A região não está em `hbase:meta`
 
 Região xxx em HDFS, mas não listado ou implantado em `hbase:meta` qualquer servidor da região.
 
@@ -81,7 +81,7 @@ Neste cenário, é necessário fundir a RegiãoA e a RegionC e obter a RegiãoD 
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Questão: Não é possível carregar`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Questão: Não é possível carregar `.regioninfo`
 
 Não se pode carregar `.regioninfo` para a `/hbase/data/default/tablex/regiony` região.
 
@@ -101,7 +101,7 @@ Limpe manualmente estes ficheiros e pastas restantes:
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261261"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de um recipiente Azure Cosmos
@@ -99,7 +99,7 @@ Deve tentar evitar consultas de partição cruzada se a sua carga de trabalho sa
 - Planeia ter mais de 30.000 RU astetados
 - Você planeia armazenar mais de 100 GB de dados
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja os seguintes artigos para aprender sobre a partilha no Azure Cosmos DB:
 

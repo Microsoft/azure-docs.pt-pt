@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262893"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importar cadernos de um GitHub repo para Azure Cosmos DB
@@ -37,7 +37,7 @@ Você pode ligar-se aos seus próprios repositórios GitHub ou outros repositór
 
 1. Uma vez selecionada a repo requerida, a entrada de repo sai da secção **de repos unpinned** para a secção **de repos pinned.** Se necessário, também pode escolher um ramo específico desse repo para importar os cadernos.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Escolha um repositório e um ramo":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autorize a Azure Cosmos DB a aceder aos seus repositórios GitHub":::
 
 1. Selecione **OK** para concluir a operação de importação. Todos os cadernos disponíveis no ramo selecionado do seu repo são importados para a sua conta Azure Cosmos.
 
@@ -53,9 +53,9 @@ Depois de editar um caderno existente, **selecione Save**. Abre-se uma caixa de 
 
 No fluxo gitHub regular depois de cometer as alterações, normalmente irá empurrar alterações para um controlo remoto. No entanto, neste caso, a opção de compromisso serve o propósito de "encenar, comprometer e empurrar" as suas atualizações para o GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Editar cadernos e comprometer alterações no GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autorize a Azure Cosmos DB a aceder aos seus repositórios GitHub":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter.](cosmosdb-jupyter-notebooks.md)
 

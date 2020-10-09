@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68728035"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações da ferramenta de modelação de ameaças da Microsoft
@@ -52,6 +52,6 @@ Isto ajuda-o a identificar:
 
 Como resultado, utiliza estas categorias para focar e priorizar o seu trabalho de segurança, para que se souber que os problemas de segurança mais predominantes ocorrem nas categorias de validação, autenticação e autorização de entrada, pode começar por aí. Para mais informações visite ** [este link de patente](https://www.google.com/patents/US7818788)**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite **[ameaças de modelação de ameaças](threat-modeling-tool-threats.md)** para saber mais sobre as categorias de ameaças que a ferramenta utiliza para gerar possíveis ameaças de design.

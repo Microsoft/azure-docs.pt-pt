@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650399"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Adicionar ações personalizadas à Azure REST API
@@ -114,7 +114,7 @@ Content-Type: application/json; charset=utf-8
 Existem duas maneiras principais de chamar uma ação personalizada de um fornecedor de recursos personalizado:
 
 - CLI do Azure
-- Modelos de gestor de recursos Azure
+- Modelos do Azure Resource Manager
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -132,7 +132,7 @@ az resource invoke-action --action {actionName} \
 
 Parâmetro | Obrigatório | Descrição
 ---|---|---
-action | *Sim, o que é* | O nome da ação definida no **ResourceProvider**.
+ação | *Sim, o que é* | O nome da ação definida no **ResourceProvider**.
 ids | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
 pedido-corpo | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
@@ -190,7 +190,7 @@ recursoIdentifier | *Sim, o que é* | O ID de recursos do **ResourceProvider.**
 apiVersion | *Sim, o que é* | A versão API do tempo de execução do recurso. Esta deve ser sempre "2018-09-01-preview".
 funçõesValues | *Não* | O órgão de pedido que será enviado para o **ponto final.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
 - [Quickstart: Criar Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)

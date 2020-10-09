@@ -8,17 +8,17 @@ ms.service: web-application-firewall
 ms.date: 10/31/2019
 ms.author: victorh
 ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73516867"
 ---
-# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Configure a proteção de bot para firewall de aplicação web no Gateway de aplicações Azure (pré-visualização)
+# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Configurar a proteção contra bots para a Firewall de Aplicações Web no Gateway de Aplicação do Azure (Pré-visualização)
 
 Este artigo mostra-lhe como configurar uma regra de proteção de bots no Azure Web Application Firewall (WAF) para o Gateway de aplicações utilizando o portal Azure. 
 
-Pode ativar uma regra de proteção de bot gerida definida para o seu WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos. Os endereços IP são obtidos a partir do feed da Microsoft Threat Intelligence. O Smart Security Graph alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.
+Pode ativar um conjunto de regras de proteção contra bots gerido para a WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos. Os endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft. O Grafo de Segurança Inteligente alimenta as informações sobre ameaças da Microsoft e é utilizado por vários serviços, incluindo o Centro de Segurança do Azure.
 
 > [!NOTE]
 > O conjunto de regras de proteção de bots está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Consulte os [Termos Complementares de Utilização para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)   para obter mais detalhes.
@@ -36,6 +36,6 @@ Crie uma política básica de WAF para o Gateway de aplicações seguindo as ins
 > [!div class="mx-imgBorder"]
 > ![Proteção contra bots](../media/bot-protection/bot-protection.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre regras personalizadas, consulte [as regras personalizadas para Web Application Firewall v2 no Azure Application Gateway](custom-waf-rules-overview.md).

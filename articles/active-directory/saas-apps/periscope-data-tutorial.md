@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Diretório Ativo Azure com dados do Periscópio
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o único sinal de Ad AD com dados do Periscope, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure os dados do periscópio único sinal-on](#configure-periscope-data-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure os dados do periscópio único sinal-on](#configure-periscope-data-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Periscope Data test user](#create-periscope-data-test-user)** - para ter uma contraparte de Britta Simon em Dados do Periscópio que está ligada à representação AD Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,11 +113,11 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
     > [!NOTE]
     > O valor do sinal de URL não é real. Atualizar os valores com o sinal real no URL. Contacte a [equipa de suporte do Cliente de Dados do Periscope](mailto:support@periscopedata.com) para obter este valor e o valor do Identificador que obtém da secção **Configure Periscope Data Single Sign-On,** que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-periscope-data-single-sign-on"></a>Configurar dados do periscópio único sinal-on
+### <a name="configure-periscope-data-single-sign-on"></a>Configurar dados periscópios Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se em Dados do Periscope como Administrador.
 
@@ -176,7 +176,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Dados do Periscópio**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Dados do Periscópio**.
 

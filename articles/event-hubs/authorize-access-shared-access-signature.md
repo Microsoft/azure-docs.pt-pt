@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autorização de acesso a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85323124"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorizar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado
@@ -61,7 +61,7 @@ As seguintes recomendações para a utilização de assinaturas de acesso partil
 ## <a name="conclusion"></a>Conclusão
 As assinaturas de acesso ao share são úteis para fornecer permissões limitadas aos recursos do Event Hubs aos seus clientes. São parte vital do modelo de segurança para qualquer aplicação utilizando os Azure Event Hubs. Se seguir as melhores práticas listadas neste artigo, pode utilizar o SAS para proporcionar uma maior flexibilidade de acesso aos seus recursos, sem comprometer a segurança da sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos relacionados: 
 
 - [Autenticar pedidos aos Azure Event Hubs a partir de uma aplicação utilizando o Azure Ative Directory](authenticate-application.md)

@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176036"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Compreensão Azure AD Connect 1.4.xx.x e desaparecimento do dispositivo
@@ -30,14 +30,14 @@ Apenas os dispositivos Windows 10 com um valor de atributo específico do utiliz
 
 Esta versão do Azure AD Connect apenas sincronizará os dispositivos do Windows 10 que estão corretamente configurados para serem HíbridoS Azure AD Unidos. Os objetos do dispositivo Windows 10 sem a junção Azure AD serão removidos do Azure AD.
 
-## <a name="down-level-windows-devices"></a>Dispositivos Windows de nível inferior
+## <a name="down-level-windows-devices"></a>dispositivos Down-Level Windows
 O Azure AD Connect nunca deve estar a sincronizar [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Todos os dispositivos em Azure AD previamente sincronizados incorretamente serão agora eliminados do Azure AD. Se o Azure AD Connect estiver a tentar eliminar [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices), então o dispositivo não é o criado pelo [Microsoft Workplace Join para computadores não Windows 10 MSI](https://www.microsoft.com/download/details.aspx?id=53554) e não é capaz de ser consumido por qualquer outra funcionalidade AZure AD.
 
 Alguns clientes poderão ter de revisitar [Como: Planear a implementação do seu Azure Ative Directory híbrido](../devices/hybrid-azuread-join-plan.md) para obter os seus dispositivos Windows registados corretamente e garantir que esses dispositivos podem participar plenamente no Acesso Condicional baseado no dispositivo. 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>Como posso verificar quais os dispositivos que são eliminados com esta atualização?
 
-Para verificar quais os dispositivos eliminados, pode utilizar este script PowerShell:https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+Para verificar quais os dispositivos eliminados, pode utilizar este script PowerShell: https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
 
 Este script gera um relatório sobre certificados armazenados em objetos ative directory Computer, especificamente, certificados emitidos pela funcionalidade de junção AD AZure Híbrida.
 Verifica os certificados presentes na propriedade userCertificate de um objeto computador em AD e, para cada certificado não caducado presente, valida se o certificado foi emitido para a funcionalidade de ad AD Híbrido Azure (ou seja, nome do sujeito corresponde a CN={ObjectGUID}).

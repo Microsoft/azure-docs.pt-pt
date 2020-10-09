@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72248591"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho ao Microsoft Genomics com uma SAS em vez de uma chave de conta de armazenamento 

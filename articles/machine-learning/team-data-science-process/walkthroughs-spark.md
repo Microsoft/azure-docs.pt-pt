@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864150"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science walkthroughs usando PySpark e Scala em Azure
@@ -43,7 +43,7 @@ Consulte [a exploração e modelação avançadas de dados com a Spark](spark-ad
 O [Use Scala com Spark on Azure](scala-walkthrough.md) walkthrough prevê se uma gorjeta é paga e a gama de valores que se espera que sejam pagos. Mostra como usar o Scala para tarefas de aprendizagem automática supervisionadas com a biblioteca de machine learning Spark (MLlib) e pacotes SparkML num cluster Azure HDInsight Spark. Acompanha-o através das tarefas que constituem o Processo de Ciência de [Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas pelo gradiente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do processo de ciência de dados da equipa, consulte [a visão geral do processo de ciência de dados da equipa.](overview.md)
 

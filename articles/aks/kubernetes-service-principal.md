@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85298553"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
@@ -17,7 +17,7 @@ Para interagir com as APIs do Azure, um cluster AKS requer um [diretor de servi�
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
 
@@ -135,7 +135,7 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
 - Por padrão, as principais credenciais do serviço são válidas por um ano. Pode [atualizar ou rodar as credenciais principais do serviço a][update-credentials] qualquer momento.
 - Cada principal de serviço está associado a uma aplicação do Azure AD. O principal de serviço de um cluster Kubernetes pode ser associado a qualquer nome de aplicação AZure AD válido (por exemplo: *https://www.contoso.org/example* ). O URL para a aplicação não tem de ser um ponto final real.
 - Quando especificar o **ID de Cliente** do principal de serviço, utilize o valor de `appId`.
-- No número de agentes VMs no cluster Kubernetes, as credenciais principais de serviço são armazenadas no ficheiro`/etc/kubernetes/azure.json`
+- No número de agentes VMs no cluster Kubernetes, as credenciais principais de serviço são armazenadas no ficheiro `/etc/kubernetes/azure.json`
 - Quando utilizar o comando [az aks create][az-aks-create] para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/aksServicePrincipal.json` no computador utilizado para executar o comando.
 - Se não passar especificamente um principal de serviço em comandos AKS CLI adicionais, é utilizado o principal de serviço padrão `~/.azure/aksServicePrincipal.json` localizado.  
 - Também pode remover opcionalmente o aksServicePrincipal.jsem ficheiro, e a AKS criará um novo diretor de serviço.
@@ -164,7 +164,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 O prazo de validade padrão para as principais credenciais de serviço é de um ano. Se o seu *aksServicePrincipal.jsem* ficheiro for superior a um ano, elimine o ficheiro e tente implementar novamente um cluster AKS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os principais do serviço Azure Ative Directory, consulte [os objetos principais de aplicação e serviço.][service-principal]
 

@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894109"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Cenário: "watchdog: BUG: soft lockup - CPU" error from a Azure HDInsight cluster
@@ -39,7 +39,7 @@ Aplique o patch de núcleo. O script abaixo atualiza o núcleo linux e reinicia 
     | Propriedade | Valor |
     | --- | --- |
     | Tipo de script | -Personalizado |
-    | Name |Correção para problema de bloqueio macio kernel |
+    | Nome |Correção para problema de bloqueio macio kernel |
     | URI de guião de bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Tipo de nó(s) |Trabalhador, Zookeeper |
     | Parâmetros |N/D |
@@ -54,7 +54,7 @@ Aplique o patch de núcleo. O script abaixo atualiza o núcleo linux e reinicia 
 
 1. Espere que a execução tenha sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

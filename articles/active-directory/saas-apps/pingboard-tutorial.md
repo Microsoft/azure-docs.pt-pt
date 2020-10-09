@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Diretório Ativo Azure com Pingboard
@@ -75,7 +75,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com um único sinal de acesso com pingboard, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o pingboard single sign-on](#configure-pingboard-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o pingboard single sign-on](#configure-pingboard-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Pingboard test user](#create-pingboard-test-user)** - para ter uma contraparte de Britta Simon em Pingboard que está ligada à representação AD AD do utilizador.
@@ -95,7 +95,7 @@ Para configurar o Azure AD com o Pingboard, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com o Pingboard, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de resposta real e URL de inscrição. Contacte a [equipa de suporte do Cliente pingboard](https://support.pingboard.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -130,17 +130,17 @@ Para configurar o Azure AD com o Pingboard, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-pingboard-single-sign-on"></a>Configurar pingboard único sign-on
+### <a name="configure-pingboard-single-sign-on"></a>Configurar pingboard single Sign-On
 
 1. Para configurar o SSO no lado do Pingboard, abra uma nova janela do navegador e inscreva-se na sua Conta Pingboard. Deve ser um administrador de pingboard para configurar um único sinal.
 
 2. A partir do menu superior, selecione **Apps > Integrações**
 
-    ![Configurar um único sign-on](./media/pingboard-tutorial/Pingboard_integration.png)
+    ![Configurar Sign-On Individuais](./media/pingboard-tutorial/Pingboard_integration.png)
 
 3. Na página **Integrações,** encontre o azulejo **"Azure Ative Directory"** e clique nele.
 
-    ![Integração única de sinal de pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
+    ![Integração de Sign-On individuais de pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
 4. Na modal que se segue clique em **"Configurar"**
 
@@ -182,7 +182,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Pingboard**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Pingboard**.
 

@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260751"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Como monitorizar a produção ou solicitar o uso da unidade de uma operação na Azure Cosmos DB
@@ -42,11 +42,11 @@ Se notar que certas consultas estão a tomar mais unidades de pedido, pode tomar
 
 1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione contas **DB Azure Cosmos**, escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Escolha a conta DB Azure Cosmos para ver métricas":::
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Painel de métricas no Monitor Azure":::
 
 1. Em seguida, selecione a métrica **Unidades de Pedido Total** da lista de métricas disponíveis. Para saber em detalhe sobre todas as métricas disponíveis nesta lista, consulte as [Métricas por](monitor-cosmos-db-reference.md) artigo de categoria. Neste exemplo, vamos selecionar **Unidades de Pedido Total** e **Avg** como o valor de agregação. Além destes detalhes, também pode selecionar a **gama de tempo** e a **granularidade** do tempo das métricas. No máximo, pode ver métricas nos últimos 30 dias.  Depois de aplicar o filtro, é apresentado um gráfico com base no filtro. Pode ver o número médio de unidades de pedido consumidas por minuto durante o período selecionado.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Escolha uma métrica do portal Azure":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Painel de métricas no Monitor Azure":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filtros para utilização da unidade de pedido
 
@@ -54,13 +54,13 @@ Também pode filtrar métricas e obter os gráficos apresentados por um Nome de 
 
 Para obter a utilização da unidade de pedido de cada operação, quer por total (soma) quer pela média, selecione **Aplicar a divisão** e escolher o tipo **de operação** e o valor do filtro, tal como mostrado na imagem seguinte:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Cosmos DB Solicita unidades para operações no monitor Azure":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Painel de métricas no Monitor Azure":::
 
 Se pretender ver a utilização da unidade de pedido por recolha, selecione **Aplicar a divisão** e escolher o nome de recolha como filtro. Você verá uma conversa como a seguinte com uma escolha de coleções dentro do painel de instrumentos. Em seguida, pode selecionar um nome de coleção específico para ver mais detalhes:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB Solicite unidades para todas as operações da coleção no monitor Azure":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Painel de métricas no Monitor Azure":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Monitorize os dados do DB do Azure Cosmos utilizando [as definições de diagnóstico](cosmosdb-monitor-resource-logs.md) em Azure.
 * [Auditoria Azure Cosmos DB operações de avião de controlo](audit-control-plane-logs.md)

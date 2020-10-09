@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
 ms.openlocfilehash: c170581496241ab3be0fe54bb484549ab4b1f976
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutorial: Azure Ative Directy integração única (SSO) com a ADP
@@ -64,7 +64,7 @@ Para configurar e testar o Azure AD SSO com a ADP, complete os seguintes blocos 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-2. **[Configure o ADP SSO](#configure-adp-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o ADP SSO](#configure-adp-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Create ADP test user](#create-adp-test-user)** - para ter uma contraparte de B.Simon em ADP que está ligada à representação AD AD Azure do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **ADP,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     Na caixa de texto **identifier (Entity ID),** digite um URL:  `https://fed.adp.com`
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

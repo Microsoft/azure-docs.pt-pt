@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263266"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure
@@ -61,7 +61,7 @@ Nas implementações de IoT, pode invocar uma função quando a luz do motor de 
 
 A imagem a seguir mostra o código escrito no portal Azure para este gatilho.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Criar um gatilho de funções Azure para Cosmos DB no portal Azure":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso de utilização financeira - Gatilho temporizador e encadernação de entrada
 
@@ -75,9 +75,9 @@ Nas implementações financeiras, pode invocar uma função quando um saldo de c
 
 As imagens que se seguem mostram o código no portal Azure para este cenário.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js um ficheiro para um gatilho do Temporizador para um cenário financeiro":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="File Run.csx para um gatilho do Temporizador para um cenário financeiro":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de jogos - Azure Functions trigger e ligação de saída para Cosmos DB 
 
@@ -142,7 +142,7 @@ Benefícios das Funções Azure:
 
 Se não tem a certeza se o Flow, As Aplicações Lógicas, as Funções Azure ou webJobs são os melhores para a sua implementação, consulte [Escolha entre Flow, Logic Apps, Functions e WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora vamos ligar as funções Azure Cosmos DB e Azure de verdade: 
 

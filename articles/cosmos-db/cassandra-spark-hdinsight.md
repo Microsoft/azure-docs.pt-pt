@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260580"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Acesso Azure Cosmos DB Cassandra API de Spark on YARN com HDInsight
 
-Este artigo abrange como aceder a Azure Cosmos DB Cassandra API de Spark on YARN com HDInsight-Spark a partir de spark-shell. HDInsight é o Hortonworks Hadoop PaaS da Microsoft no Azure que aproveita o armazenamento de objetos para HDFS, e vem em vários sabores, incluindo [Spark.](../hdinsight/spark/apache-spark-overview.md)  Embora o conteúdo neste documento refira-se a HDInsight-Spark, é aplicável a todas as distribuições de Hadoop.  
+Este artigo abrange como aceder a Azure Cosmos DB Cassandra API da Spark on YARN com HDInsight-Spark de spark-shell. HDInsight é o Hortonworks Hadoop PaaS da Microsoft no Azure que aproveita o armazenamento de objetos para HDFS, e vem em vários sabores, incluindo [Spark.](../hdinsight/spark/apache-spark-overview.md)  Embora o conteúdo neste documento refira-se a HDInsight-Spark, é aplicável a todas as distribuições de Hadoop.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ Este artigo abrange como aceder a Azure Cosmos DB Cassandra API de Spark on YARN
 
 * [Reveja os fundamentos da ligação à Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
 
-* [Provisionamento de um cluster HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
+* [Provisão de um cluster HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
 * [Reveja as amostras de código para trabalhar com a Cassandra API](cassandra-spark-generic.md#next-steps)
 
@@ -130,7 +130,7 @@ Passe pelos cadernos e cada célula de caderno sequencialmente.  Clique no botã
 
 Para processos automatizados em produção, os programas Spark são submetidos ao cluster através [de spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como construir um programa Spark Scala num IDE e submetê-lo ao cluster HDInsight Spark através da Livy para execução](../hdinsight/spark/apache-spark-create-standalone-application.md)
 

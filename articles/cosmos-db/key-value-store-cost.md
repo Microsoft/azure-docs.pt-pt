@@ -8,10 +8,10 @@ ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262825"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como uma loja de valor chave - visão geral de custos
@@ -45,7 +45,7 @@ Se você provisionar 1.000 RU/s, isto equivale a 3,6 milhões de RU/hora e custa
 
 A maioria dos serviços básicos de blob ou lojas de objetos cobram $0,40 por transação de leitura e $5 por milhão de transações de escrita. Se for utilizado da melhor forma, o Cosmos DB pode ser até 98% mais barato do que estas outras soluções (para 1 transações de KB).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize [calculadora RU](https://cosmos.azure.com/capacitycalculator/) para estimar a produção das suas cargas de trabalho.
 

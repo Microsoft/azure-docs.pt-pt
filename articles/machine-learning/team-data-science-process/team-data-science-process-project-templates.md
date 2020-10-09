@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864235"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planeamento de projetos de processo de ciência de dados de equipa
@@ -56,7 +56,7 @@ Use estes modelos por sua conta e risco. [Aplicam-se as isenções de responsabi
 
 Use este [repositório de modelo de projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para apoiar a execução e colaboração eficientes do projeto. Este repositório dá-lhe uma estrutura de diretório padronizada e modelos de documentos que pode usar para o seu próprio projeto TDSP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve um projeto de ciência de dados de forma sistemática, controlada pela versão e colaborativa, utilizando o Processo de Ciência de Dados de Equipa.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176801"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal de desenvolvedores
@@ -30,7 +30,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Modelos de portal de desenvolvedores  
+##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modelos de portal de desenvolvedores  
   
 -   [APIs](api-management-api-templates.md)  
     -   [Lista de API](api-management-api-templates.md#APIList)  

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Diretório Ativo Azure com a Perception United States (Non-UltiPro)
@@ -93,11 +93,11 @@ Para configurar o Azure AD um único sinal de insuflação com Perception United
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Perceção Estados Unidos (Não-UltiPro) Domínio e URLs informações únicas de súmis](common/idp-intiated.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD um único sinal de insuflação com Perception United
     
     e. Cole o valor acima na caixa de texto **URL answer.**
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD um único sinal de insuflação com Perception United
 
     c. Logout URL   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Configure perceção Estados Unidos (Non-UltiPro) Único Sign-On
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Configure Perceção Estados Unidos (Não-UltiPro) Single Sign-On
 
 1. Em outra janela do navegador, inscreva-se no site da empresa Perception United States (Non-UltiPro) como administrador.
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD um único sinal de insuflação com Perception United
     
     b. Na caixa de texto **'Nome** da Conta', digite o nome da **Conta**.
 
-    c. Na caixa **de texto resposta por defeito para enviar por e-mail,** digite o **e-mail**válido.
+    c. Na **caixa de texto Reply-To Por email,** digite o **e-mail**válido.
 
     d. Selecione **O Fornecedor de Identidade SSO** como **SAML 2.0**.
 
@@ -193,7 +193,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** selecione **Perception United States (Non-UltiPro)**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Perception United States (Non-UltiPro)**.
 

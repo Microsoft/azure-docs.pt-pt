@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322126"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando atividade de procedimento armazenado na Azure Data Factory
@@ -196,6 +196,6 @@ Neste passo, cria-se um oleoduto com uma atividade de procedimento armazenado. A
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a atividade do procedimento armazenado, consulte o artigo [de atividade do Procedimento Armazenado.](data-factory-stored-proc-activity.md)
 

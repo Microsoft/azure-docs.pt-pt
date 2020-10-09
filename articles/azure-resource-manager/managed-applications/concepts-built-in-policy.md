@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650945"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Implementar associações para uma aplicação gerida usando a Política Azure
@@ -32,7 +32,7 @@ Para obter mais informações sobre associações, consulte [o recurso Azure Cus
 ### <a name="prerequisites"></a>Pré-requisitos
 Se a aplicação gerida necessitar de permissões para a subscrição para realizar uma ação, a implementação da política de recursos de associação não funcionaria sem conceder as permissões.
 
-### <a name="policy-assignment"></a>Atribuição de política
+### <a name="policy-assignment"></a>Atribuição de políticas
 Para utilizar a política incorporada, crie uma atribuição de política e atribua as associações Deploy para uma política de aplicação gerida. Uma vez atribuída a política com êxito, a política identificará recursos não conformes e mobilizará a associação para esses recursos.
 
 ![Atribuir a política incorporada](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)
@@ -41,7 +41,7 @@ Para utilizar a política incorporada, crie uma atribuição de política e atri
 
 Se tiver dúvidas sobre o desenvolvimento de Fornecedores de Recursos Personalizados Azure, tente fazê-los no [Stack Overflow.](https://stackoverflow.com/questions/tagged/azure-custom-providers) Uma pergunta semelhante pode já ter sido respondida, por isso verifique primeiro antes de publicar. Adicione a etiqueta ```azure-custom-providers``` para obter uma resposta rápida!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar a política incorporada para implementar associações. Consulte estes artigos para saber mais:
 

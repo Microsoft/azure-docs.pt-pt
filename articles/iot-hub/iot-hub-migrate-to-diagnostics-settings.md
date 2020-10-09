@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
 ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75750688"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrar o seu Hub IoT da monitorização de operações para as definições de diagnóstico
@@ -58,6 +58,6 @@ Para as estruturas específicas do esquema, consulte [o esquema para configuraç
 
 Para monitorizar os eventos de ligação e desconexão do dispositivo na produção, recomendamos a subscrição do [ **evento desligado** ](iot-hub-event-grid.md#event-types) do dispositivo na Grelha de Eventos para obter alertas e monitorizar o estado de ligação do dispositivo. Utilize este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos ligados ao dispositivo conectados e desligados do dispositivo a partir do IoT Hub na sua solução IoT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
 ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutorial: Azure Ative Directory integração única (SSO) com software OfficeSpace
@@ -95,7 +95,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação OfficeSpace Software espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | e-mail | user.mail |
     | name | user.displayname |
@@ -150,15 +150,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Vá a **Definições** e clique em **Conectores**.
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Clique na **autenticação SAML**.
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Na secção **de Autenticação SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_004.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_004.png)
 
     a. Na url textbox **do fornecedor logout,** cole o valor do **URL logout** que copiou do portal Azure.
 

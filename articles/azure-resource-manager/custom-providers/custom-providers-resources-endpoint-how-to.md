@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650529"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionar recursos personalizados à Azure REST API
@@ -81,7 +81,7 @@ Para saber mais sobre " `Proxy, Cache` recursos", consulte [a referência de cac
 Existem duas formas principais de criar um recurso personalizado a partir de um fornecedor de recursos personalizados:
 
 - CLI do Azure
-- Modelos de gestor de recursos Azure
+- Modelos do Azure Resource Manager
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -180,7 +180,7 @@ nome de recursoTypeName | *Sim, o que é* | O **nome** do **recursoType** defini
 nome de recursoProviderName | *Sim, o que é* | O nome da instância do fornecedor de recursos personalizado.
 customResourceName | *Sim, o que é* | O nome de recurso personalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
 - [Quickstart: Criar Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)

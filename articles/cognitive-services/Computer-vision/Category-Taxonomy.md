@@ -12,13 +12,13 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68565750"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Taxonomia de 86 categorias da Visão Computacional
+# <a name="computer-vision-86-category-taxonomy"></a>Taxonomia de visão computacional de 86 categorias
 
 abstract_
 

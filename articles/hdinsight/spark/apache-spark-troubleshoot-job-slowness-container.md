@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/21/2019
 ms.openlocfilehash: e389c05a6de85287bc86eff510e137f470837e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894332"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>A tarefa do Apache Spark é executada lentamente quando o contentor de armazenamento do Azure contém muitos ficheiros no Azure HDInsight
@@ -38,7 +38,7 @@ Quando cria um conjunto de dados dividido, é importante utilizar um esquema de 
 
 Para cada micro lote Nth onde N % 100 == 0 (100 é apenas um exemplo), mova os dados existentes para outro diretório, que pode ser carregado pela Spark.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

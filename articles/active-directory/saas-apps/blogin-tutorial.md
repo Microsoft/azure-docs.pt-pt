@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 2a50d7b037cec2c10f83fdbbd875f80513c00a6d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88517073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Tutorial: Azure Ative Directory integração única (SSO) com blogIn
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BlogIn espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ------ | --------- |
     | título |user.jobtitle |
     
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 Para configurar o login único no **BlogIn** na sua conta BlogIn e siga estes passos:
 
 1. Ir para **Definições**  >  **Configurações Configurações Configuração Configuração**  >  **Configuração Configuração SSO & fornecimento do utilizador**.
-2. No ecrã seguinte, altere o estado de Inscrição Única para **On** e escolha um nome personalizado para o botão de login SSO que será exibido no ecrã de login.
+2. No ecrã seguinte, altere o estado de Sign-On único para **On** e escolha um nome personalizado para o botão de login SSO que será exibido no ecrã de login.
 
 3. Se guardou o Url de **Metadados da Federação** de Aplicações no último passo da secção anterior, escolha o método de configuração **MEtadados URL** e cole **o Url de metadados da Federação de Aplicações** no campo URL dos metadados. Caso contrário, altere o método de Configuração para **manual,** povoe manualmente **o URL SSO (URL do Fornecedor de Início de Sessão)** e o Emissor de Fornecedor de Identidade **(ID da entidade)** e faça o upload do **Certificado (base64)**   que obteve do Azure AD.
 

@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral do dedicado Azure Event Hubs, 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322437"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral dos Centros de Eventos Dedicados
@@ -43,13 +43,13 @@ A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mín
 | Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
 | Espaços de nomes |  1 | 50 por CU |
 | Hubs de Eventos |  10 por espaço de nome | 1000 por espaço de nome |
-| Eventos ingressos | Pagar por milhão de eventos | Incluídos |
+| Eventos ingressos | Pagar por milhão de eventos | Incluída |
 | Tamanho da mensagem | 1 Milhão de Bytes | 1 Milhão de Bytes |
 | Partições | 32 por Centro de Eventos | 1024 por Centro de Eventos |
 | Grupos de consumidores | 20 por Centro de Eventos | Sem limite por CU, 1000 por centro de eventos |
 | Conexões intermediadas | 1.000 incluídos, 5.000 no máximo | 100 K incluído e máx |
 | Retenção de mensagens | 7 dias, 84 GB incluídos por TU | 90 dias, 10 TB incluídos por CU |
-| Captura | Pagamento por hora | Incluídos |
+| Recolha | Pagamento por hora | Incluída |
 
 ## <a name="how-to-onboard"></a>Como embarcar
 
@@ -86,7 +86,7 @@ Você pode geo-emparelhar um espaço de nome sob um cluster de nível dedicado c
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Posso migrar os meus espaços de nome padrão para pertencer a um cluster de nível dedicado?
 Não apoiamos atualmente um processo de migração automatizado para migrar os dados dos centros de eventos de um espaço de nome Standard para um Dedicado. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Contacte o seu representante de vendas da Microsoft ou o Microsoft Support para obter detalhes adicionais sobre os Centros de Eventos Dedicados. Também pode criar um cluster ou saber mais sobre os níveis de preços do Event Hubs visitando os seguintes links:
 

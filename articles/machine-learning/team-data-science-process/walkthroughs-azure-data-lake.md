@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864184"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Azure Data Lake data science walkthroughs usando U-SQL
@@ -30,7 +30,7 @@ As análises adicionais da ciência dos dados que executam o Processo de Ciênci
 O [Use Azure Data Lake para](data-lake-walkthrough.md) a revista data science mostra como usar o Lago de Dados Azure para fazer tarefas de exploração de dados e classificação binária.  Os dados são uma amostra do conjunto de dados de táxi de NYC.  A tarefa é prever se uma gorjeta é ou não paga por um cliente. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do processo de ciência de dados da equipa, consulte [a visão geral do processo de ciência de dados da equipa.](overview.md)
 

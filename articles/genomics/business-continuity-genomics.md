@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72249183"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Visão geral da continuidade do negócio com a Microsoft Genomics

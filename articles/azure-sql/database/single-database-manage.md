@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254995"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores e bases de dados individuais na Base de Dados Azure SQL
@@ -126,7 +126,7 @@ Para criar e gerir os servidores, bases de dados e firewalls com Transact-SQL, u
 |[CRIAR BASE DE DADOs](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica uma base de dados ou piscina elástica. |
 |[BASE DE DADOS DROP](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
-|[sys.database_service_objetives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo de serviço (nível de preços) e o nome elástico da piscina, caso existam, para a Base de Dados Azure SQL ou uma piscina SQL Azure Synapse. Se for iniciado sessão na base de dados principal de um servidor na Base de Dados SQL, retorna a informação em todas as bases de dados. Para a Azure Synapse Analytics, deve estar ligado à base de dados principal.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo de serviço (nível de preços) e o nome elástico da piscina, caso existam, para a Base de Dados Azure SQL ou uma piscina SQL Azure Synapse. Se for iniciado sessão na base de dados principal de um servidor na Base de Dados SQL, retorna a informação em todas as bases de dados. Para a Azure Synapse Analytics, deve estar ligado à base de dados principal.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devoluções cpu, IO e consumo de memória para uma base de dados na Base de Dados Azure SQL. Existe uma linha por cada 15 segundos, mesmo que não haja atividade na base de dados.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devolve dados de utilização e armazenamento de CPU para uma base de dados na Base de Dados Azure SQL. Os dados são recolhidos e agregados dentro de intervalos de cinco minutos.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contém estatísticas para eventos de conectividade SQL Database, fornecendo uma visão geral dos sucessos e falhas da ligação da base de dados. |
@@ -161,7 +161,7 @@ Para criar e gerir os servidores, bases de dados e firewalls, utilize estes pedi
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para Azure, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

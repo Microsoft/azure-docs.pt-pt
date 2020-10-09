@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262468"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados da Oracle para a Azure Cosmos DB Cassandra Conta API usando Blitzz
@@ -56,7 +56,7 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Download de ferramenta réplica Blitzz":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Ficheiros replicantes blitzz":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Download de ferramenta réplica Blitzz":::
 
 1. A partir do terminal CLI, configurar a configuração da base de dados de origem. Abra o ficheiro de configuração usando **`vi conf/conn/oracle.yml`** o comando e adicione uma lista separada de vírgulas de endereços IP dos nós oráculos, número de porta, nome de utilizador, senha e quaisquer outros detalhes necessários. O código que se segue mostra um ficheiro de configuração de exemplo:
 
@@ -75,9 +75,9 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
    use-ssl: false
    ```
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Editor de conexão Open Oracle":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Download de ferramenta réplica Blitzz":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Configuração de conexão Oráculo":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Download de ferramenta réplica Blitzz":::
 
    Depois de preencher os detalhes da configuração, guarde e feche o ficheiro.
 
@@ -96,7 +96,7 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
 1. Antes de migrar os dados, aumente a produção do recipiente para a quantidade necessária para que a sua aplicação migrar rapidamente. Por exemplo, pode aumentar a produção para 100000 RUs. Escalar a produção antes de iniciar a migração irá ajudá-lo a migrar os seus dados em menos tempo. 
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Recipiente escala Azure Cosmos em todo":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Download de ferramenta réplica Blitzz":::
 
    Deve diminuir a produção após a migração estar completa. Com base na quantidade de dados armazenados e RUs necessários para cada operação, pode estimar a produção necessária após a migração de dados. Para saber mais sobre como estimar as RUs necessárias, consulte a [provisão sobre contentores e bases de dados](set-throughput.md) e [estimar RU/s utilizando os artigos de planeamento de capacidades do Azure Cosmos DB.](estimate-ru-with-capacity-planner.md)
 
@@ -134,7 +134,7 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
    A UI replicante mostra o progresso da replicação. Uma vez feita a migração de esquemas e a operação instantânea, o progresso mostra 100%. Após a conclusão da migração, pode validar os dados na base de dados target Azure Cosmos.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Produção de migração de dados oráculo":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Download de ferramenta réplica Blitzz":::
 
 1. Como utilizou o modo completo de migração, pode realizar operações como inserir, atualizar ou eliminar dados na base de dados da Oráculo de origem. Mais tarde, pode validar que são replicados em tempo real na base de dados target Azure Cosmos. Após a migração, certifique-se de diminuir a produção configurada para o seu contentor Azure Cosmos.
 
@@ -146,7 +146,7 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
 Para saber mais sobre a migração de dados para destino, migração em tempo real, consulte a [demonstração replicante blitzz.](https://www.youtube.com/watch?v=y5ZeRK5A-MI)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md) 
 * [Principais práticas de partição](partitioning-overview.md#choose-partitionkey)

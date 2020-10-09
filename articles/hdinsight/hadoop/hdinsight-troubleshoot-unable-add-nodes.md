@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.openlocfilehash: 97d7f34fff324a9959292460e534c15110c3e532
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75894086"
 ---
 # <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Cenário: Incapaz de adicionar nódes ao cluster Azure HDInsight
@@ -36,7 +36,7 @@ Utilizando a função [de tamanho cluster,](../hdinsight-scaling-best-practices.
 
 * Se pretender aumentar a quota principal para uma localização específica, envie um pedido de suporte para um aumento de quota principal do HDInsight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

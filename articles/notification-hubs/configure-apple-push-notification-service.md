@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 63c7e0c9569428b55420911f253deee52ce440cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85255403"
 ---
 # <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar as definições do Serviço de Notificação apple push para um centro de notificação no portal Azure
@@ -47,6 +47,6 @@ O procedimento a seguir dá-lhe passos para configurar as definições do Apple 
 
      ![Screenshot de uma configuração de token APNS no portal Azure](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um tutorial com instruções passo a passo para o envio de notificações para dispositivos iOS, consulte o seguinte artigo: [Enviar notificações push para aplicações iOS usando Hubs de Notificação Azure](ios-sdk-get-started.md).

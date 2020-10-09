@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864099"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>A ciência dos dados do SQL Server percorre usando R, Python e T-SQL
@@ -45,7 +45,7 @@ A [revista científica data para O Servidor R e SQL](https://docs.microsoft.com/
 O [Use T-SQL com SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough proporciona aos programadores SQL experiência na construção de uma solução de aprendizagem automática no SQL Server. Demonstra como incorporar python numa aplicação adicionando código Python aos procedimentos armazenados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 

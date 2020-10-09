@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 6d402816b39f0db3ff1e1c2e61e56a58effa6747
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554212"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com O.C. Tanner - AppreciateHub
@@ -79,7 +79,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

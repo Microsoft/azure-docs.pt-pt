@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887160"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Resolver problemas de desempenho do Apache HBase no Azure HDInsight
@@ -55,9 +55,9 @@ Se está a usar referências como o Yahoo! Cloud Serving Benchmark, JMeter ou Ph
 
 Se as suas consultas de repente começarem a fazer muito pior do que antes, verifique se existem potenciais erros no seu código de aplicação. Está subitamente a gerar grandes quantidades de dados inválidos? Se for, pode aumentar as latências de leitura.
 
-## <a name="migration-issues"></a>Questões migratórias
+## <a name="migration-issues"></a>Problemas de migração
 
-Se estiver a migrar para a Azure HDInsight, certifique-se de que a sua migração é feita de forma sistemática e precisa, de preferência através da automação. Evite a migração manual. Confirme que:
+Se estiver a migrar para a Azure HDInsight, certifique-se de que a sua migração é feita de forma sistemática e precisa, de preferência através da automação. Evite a migração manual. Certifique-se de que:
 
 - Os atributos da tabela são migrados com precisão. Os atributos podem incluir como compressão, filtros de floração, e assim por diante.
 
@@ -110,13 +110,13 @@ Seguem-se alguns dos outros parâmetros específicos que afinamos, e que parecia
 
 Seguem-se parâmetros adicionais a considerar a sintonização:
 
-- `Hbase.rs.cacheblocksonwrite`– por padrão no HDI, esta definição é definida como **verdadeira**.
+- `Hbase.rs.cacheblocksonwrite` – por padrão no HDI, esta definição é definida como **verdadeira**.
 
 - Configurações que permitem adiar uma pequena compactação para mais tarde.
 
 - Configurações experimentais, tais como ajustar percentagens de filas reservadas para pedidos de leitura e escrita.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o seu problema não for resolvido, visite um dos seguintes canais para obter mais apoio:
 

@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 8f15ad8c1edfa64268ec699c8195a7831d98482b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260547"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminar dados em Azure Cosmos DB Cassandra API tabelas da Spark
@@ -356,7 +356,7 @@ CassandraRow{book_id: b00501, book_author: Arthur Conan Doyle, book_name: The me
 deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datastax.spark.connector.CassandraRow] = CassandraTableScanRDD[145] at RDD at CassandraRDD.scala:19
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para realizar operações de agregação e cópia de dados, consulte -
  

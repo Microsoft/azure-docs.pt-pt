@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
 ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263549"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
@@ -145,10 +145,10 @@ Uma vez concluída a migração, pode validar que a contagem de documentos em Az
 ## <a name="contact-the-azure-cosmos-db-team"></a>Contacte a equipa DB da Azure Cosmos
 Embora possa seguir este guia para migrar com sucesso grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, recomenda-se que contacte a equipa de produtos DB da Azure Cosmos para validar a modelação de dados e uma revisão geral da arquitetura. Com base no seu conjunto de dados e carga de trabalho, a equipa do produto também pode sugerir outras otimizações de desempenho e custos que possam ser aplicáveis a si. Para contactar a equipa DB da Azure Cosmos para obter assistência com migrações em larga escala, pode abrir um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de "Grandes migrações (TB+)" como mostrado abaixo.
 
-:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Tópico de apoio à migração":::
+:::image type="content" source="./media/migrate-cosmosdb-data/supporttopic.png" alt-text="Configuração da ferramenta de migração":::
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executor a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * A biblioteca de executor a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo [do conector Azure Cosmos DB Spark.](spark-connector.md)  

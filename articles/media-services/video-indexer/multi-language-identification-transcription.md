@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72968748"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificar e transcrever automaticamente conteúdos multi-linguísticos (pré-visualização)
@@ -23,7 +23,7 @@ O Indexer de Vídeo suporta identificação automática de linguagem e transcri�
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Escolher identificação multilíngue na indexação com portal
 
-Pode escolher **a deteção de vários idiomas** ao carregar e indexar o seu vídeo. Em alternativa, pode escolher **a deteção de várias línguas** ao re-indexar o seu vídeo. Os seguintes passos descrevem como reindexo:
+Pode escolher **a deteção de vários idiomas** ao carregar e indexar o seu vídeo. Em alternativa, pode escolher **a deteção de várias línguas**  ao re-indexar o seu vídeo. Os seguintes passos descrevem como reindexo:
 
 1. Aceda ao site do [Video Indexer](https://vi.microsoft.com/) e inicie sessão.
 1. Vá à página da **Biblioteca** e paire sobre o nome do vídeo que pretende reindexo. 

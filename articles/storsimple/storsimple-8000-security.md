@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75891502"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple segurança e proteção de dados
@@ -219,7 +219,7 @@ O Gestor de Dispositivos StorSimple para séries físicas e virtuais recolhe inf
 
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 Seguem-se algumas perguntas e respostas sobre segurança e Microsoft Azure StorSimple.
 
@@ -285,7 +285,7 @@ Seguem-se algumas perguntas e respostas sobre segurança e Microsoft Azure StorS
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Coloque o seu dispositivo StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

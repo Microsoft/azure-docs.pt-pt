@@ -1,5 +1,5 @@
 ---
-title: Utilize avaliações de conteúdo através da ferramenta Review - Moderador de Conteúdo
+title: Utilize avaliações de conteúdo através da ferramenta Review - Content Moderador
 titleSuffix: Azure Cognitive Services
 description: Saiba como a ferramenta Review permite que moderadores humanos revejam imagens num portal web.
 services: cognitive-services
@@ -11,49 +11,49 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73044120"
 ---
-# <a name="create-human-reviews"></a>Criar avaliações humanas
+# <a name="create-human-reviews"></a>Criar críticas humanas
 
-Neste guia, você aprenderá a configurar [comentários](../review-api.md#reviews) no site da ferramenta Review. Comentários armazenam e exibem conteúdo para moderadores humanos para avaliar. Os moderadores podem alterar as etiquetas aplicadas e aplicar as suas próprias etiquetas personalizadas conforme apropriado. Quando um utilizador completa uma revisão, os resultados são enviados para um ponto final de chamada especificado, e o conteúdo é removido do site.
+Neste guia, você vai aprender a configurar [comentários](../review-api.md#reviews) no site da ferramenta Review. As avaliações armazenam e exibem conteúdo para moderadores humanos avaliarem. Os moderadores podem alterar as etiquetas aplicadas e aplicar as suas próprias etiquetas personalizadas conforme apropriado. Quando um utilizador completa uma revisão, os resultados são enviados para um ponto final de retorno especificado e o conteúdo é removido do site.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inscreva-se ou crie uma conta no site da ferramenta Content Moderator [Review.](https://contentmoderator.cognitive.microsoft.com/)
+- Iniciar sessão ou criar uma conta no site da [ferramenta De Revisão](https://contentmoderator.cognitive.microsoft.com/) de Moderadores de Conteúdo.
 
 ## <a name="image-reviews"></a>Revisões de imagens
 
-1. Vá à [ferramenta Rever](https://contentmoderator.cognitive.microsoft.com/), selecione o separador **'Tentar'** e faça upload de algumas imagens para rever.
-1. Uma vez que as imagens enviadas tenham terminado o processamento, vá ao separador **Rever** e selecione **Imagem**.
+1. Vá à [ferramenta 'Rever',](https://contentmoderator.cognitive.microsoft.com/)selecione o separador **'Tentar'** e faça upload de algumas imagens para rever.
+1. Assim que as imagens carregadas terminarem o processamento, vá ao **separador 'Rever'** e selecione **Imagem**.
 
-    ![Navegador Chrome mostrando a ferramenta de revisão com a opção Imagem de Revisão destacada](images/review-images-1.png)
+    ![Navegador Chrome mostrando a ferramenta de revisão com a opção De Imagem de Revisão em destaque](images/review-images-1.png)
 
-    As imagens exibem com etiquetas que tenham sido atribuídas pelo processo de moderação automática. As imagens que submeteu através da ferramenta Review não são visíveis a outros revisores.
+    As imagens exibem quaisquer etiquetas que tenham sido atribuídas pelo processo de moderação automática. As imagens que submeteu através da ferramenta 'Revisão' não são visíveis para outros revisores.
 
-1. Opcionalmente, mova as **Opiniões para visualizar** o slider (1) para ajustar o número de imagens que são exibidas no ecrã. Clique nos botões **marcados** ou **sem etiqueta** (2) para classificar as imagens em conformidade. Clique num painel de etiquetas (3) para alternar ou desligar.
+1. Opcionalmente, mova as **Avaliações para visualizar** o slider (1) para ajustar o número de imagens que são apresentadas no ecrã. Clique nos botões **marcados** ou **não marcados** (2) para classificar as imagens em conformidade. Clique num painel de identificação (3) para o alternar dentro ou fora.
 
     ![Navegador Chrome mostrando a ferramenta Review com imagens marcadas para revisão](images/review-images-2.png)
 
-1. Para ver mais informações sobre uma imagem, clique na elipse na miniatura e selecione **Ver detalhes**. Pode atribuir uma imagem a uma subequipa com a opção **Move to** option (consulte a secção de [equipas](./configure.md#manage-team-and-subteams) para saber mais sobre subequipas).
+1. Para ver mais informações sobre uma imagem, clique na elipse na miniatura e selecione **Ver detalhes**. Pode atribuir uma imagem a uma subeconada com a opção **Move** (consulte a secção [de equipas](./configure.md#manage-team-and-subteams) para saber mais sobre subeconsãos).
 
-    ![Uma imagem com a opção de detalhes do Ver destacada](images/review-images-3.png)
+    ![Uma imagem com a opção ver detalhes realçada](images/review-images-3.png)
 
-1. Navegue nas informações de moderação da imagem na página de detalhes.
+1. Consulte as informações de moderação de imagem na página de detalhes.
 
-    ![Uma imagem com detalhes de moderação listados em um painel separado](images/review-images-4.png)
+    ![Uma imagem com detalhes de moderação listados num painel separado](images/review-images-4.png)
 
-1. Depois de ter revisto e atualizado as atribuições de etiquetas conforme necessário, clique em **Next** para submeter as suas opiniões. Depois de submeter, tem cerca de cinco segundos para clicar no botão **Prev** para voltar ao ecrã anterior e rever as imagens novamente. Depois disso, as imagens já não estão na fila Enviar e o botão **Prev** já não está disponível.
+1. Uma vez revisto e atualizado as atribuições de tags conforme necessário, clique em **Next** para submeter as suas avaliações. Depois de submeter, tem cerca de cinco segundos para clicar no botão **Prev** para voltar ao ecrã anterior e rever novamente as imagens. Depois disso, as imagens deixaram de estar na fila 'Enviar' e o botão **Prev** já não está disponível.
 
 ## <a name="text-reviews"></a>Revisões de texto
 
-As revisões de texto funcionam de forma semelhante às críticas de imagem. Em vez de carregar conteúdo, basta escrever ou colar em texto (até 1.024 caracteres). Em seguida, O Moderador de Conteúdo analisa o texto e aplica tags (além de outras informações de moderação, tais como profanação e dados pessoais). Em comentários de texto, pode alternar as etiquetas aplicadas e/ou aplicar etiquetas personalizadas antes de submeter o reexame.
+As análises de texto funcionam da mesma forma com as revisões de imagem. Em vez de carregar conteúdo, basta escrever ou colar em texto (até 1.024 caracteres). Em seguida, o Moderador de Conteúdo analisa o texto e aplica tags (além de outras informações de moderação, tais como palavrões e dados pessoais). Nas análises de texto, pode alternar as etiquetas aplicadas e/ou aplicar tags personalizadas antes de submeter a revisão.
 
 ![Screenshot da ferramenta de revisão mostrando texto sinalizado em uma janela do navegador Chrome](../images/reviewresults_text.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, aprendeu a configurar e a utilizar comentários da ferramenta Content Moderator [Review](https://contentmoderator.cognitive.microsoft.com). Em seguida, consulte o [guia REST API](../try-review-api-review.md) ou o [quickstart .NET SDK](../dotnet-sdk-quickstart.md) para aprender a criar comentários programáticamente.
+Neste guia, aprendeu a configurar e utilizar comentários da ferramenta De [Revisão](https://contentmoderator.cognitive.microsoft.com)do Moderador de Conteúdo. Em seguida, consulte o [guia REST API](../try-review-api-review.md) ou o [quickstart .NET SDK](../dotnet-sdk-quickstart.md) para aprender a criar avaliações programáticamente.

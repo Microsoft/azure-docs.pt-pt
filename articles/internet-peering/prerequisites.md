@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3c820a7be561aeef9b7e50fd0ac0cf4dee721af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775410"
 ---
 # <a name="prerequisites-to-set-up-peering-with-microsoft"></a>Pré-requisitos para configurar o peering com a Microsoft
@@ -30,7 +30,7 @@ Certifique-se de que os pré-requisitos abaixo são cumpridos antes de solicitar
 ## <a name="other-prerequisites"></a>Outros pré-requisitos
 * **Perfil peeringDB:** Espera-se que os pares tenham um perfil completo e atualizado no [PeeringDB](https://www.peeringdb.com). Utilizamos estas informações no nosso sistema de registo para validar os detalhes do par, tais como informações NOC, informações técnicas de contacto e a sua presença nas instalações de observação, etc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um espreitamento direto utilizando o portal](howto-direct-portal.md).
 * [Converter um peering Direto legado para o recurso do Azure com o portal](howto-legacy-direct-portal.md)

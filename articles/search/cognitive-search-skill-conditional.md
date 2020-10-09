@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72792037"
 ---
 # <a name="conditional-cognitive-skill"></a>Habilidade cognitiva condicional
@@ -85,7 +85,7 @@ Como a habilidade condicional suporta a avaliação, pode usá-la em cenários d
 ## <a name="skill-inputs"></a>Entradas de habilidades
 As entradas são sensíveis a casos.
 
-| Entrada   | Description |
+| Input   | Descrição |
 |-------------|-------------|
 | condição   | Esta entrada é um [campo avaliado](#evaluated-fields) que representa a condição para avaliar. Esta condição deve avaliar a um valor booleano *(verdadeiro* ou *falso).*   <br/>  Exemplos: <br/> "= verdadeiro" <br/> "= $(/documento/linguagem) ='fr'" <br/> "= $(/documento/páginas/ \* /linguagem) ==$(/documento/expectLanguage)" <br/> |
 | quandoTrue    | Esta entrada é um [campo avaliado](#evaluated-fields) que representa o valor a devolver se a condição for avaliada como *verdadeira*. As cordas constantes devem ser devolvidas em aspas únicas (' e '). <br/>Valores da amostra: <br/> "= 'contrato'"<br/>"= $(/documento/contra-contratoType)" <br/> "= $(/documento/entidades/ \* )" <br/> |

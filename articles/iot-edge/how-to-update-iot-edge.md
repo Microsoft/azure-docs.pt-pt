@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85299012"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
@@ -106,7 +106,7 @@ Nos dispositivos Windows, utilize o script PowerShell para atualizar o daemon de
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-A execução do comando Update-IoTEdge remove e atualiza o daemon de segurança do seu dispositivo, juntamente com as duas imagens do recipiente de tempo de execução. O ficheiro config.yaml é mantido no dispositivo, bem como dados do motor de contentores Moby (se estiver a utilizar recipientes Windows). Manter as informações de configuração significa que não tem de fornecer novamente informações sobre a cadeia de ligação ou serviço de fornecimento de dispositivos para o seu dispositivo durante o processo de atualização.
+Executar o comando Update-IoTEdge remove e atualiza o daemon de segurança do seu dispositivo, juntamente com as duas imagens do recipiente de tempo de execução. O ficheiro config.yaml é mantido no dispositivo, bem como dados do motor de contentores Moby (se estiver a utilizar recipientes Windows). Manter as informações de configuração significa que não tem de fornecer novamente informações sobre a cadeia de ligação ou serviço de fornecimento de dispositivos para o seu dispositivo durante o processo de atualização.
 
 Se pretender atualizar para uma versão específica do daemon de segurança, encontre a versão que pretende direcionar a partir das [versões IoT Edge](https://github.com/Azure/azure-iotedge/releases). Nessa versão, descarregue o ficheiro **Microsoft-Azure-IoTEdge.cab.** Em seguida, use o `-OfflineInstallationPath` parâmetro para apontar para a localização do ficheiro local. Por exemplo:
 
@@ -218,7 +218,7 @@ Se estiver a instalar o IoT Edge numa nova máquina, utilize as seguintes ligaç
 * [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
 * [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja as versões mais recentes do [Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 

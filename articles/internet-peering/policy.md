@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775228"
 ---
 # <a name="peering-policy"></a>Política de peering
@@ -71,7 +71,7 @@ Os requisitos gerais da Microsoft da sua rede são explicados nas secções abai
     * Na NA, Europa, APAC e LATAM, interligam-se em pelo menos três locais geograficamente diversos, se possível e manter uma capacidade diversificada para permitir que o tráfego falhe dentro de cada metro.
     * Em África, Médio Oriente e Índia, interligam-se em diversos locais possíveis. Deve manter uma capacidade suficientemente diversificada para garantir que o tráfego permaneça na região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre os passos para configurar o persigo direto com a Microsoft, siga [o walkthrrough de observação direto](walkthrough-direct-all.md).
 * Para aprender sobre os passos para configurar o Exchange peering com a Microsoft, siga [o Exchange peering walkthrough](walkthrough-exchange-all.md).

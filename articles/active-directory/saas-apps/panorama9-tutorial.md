@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Diretório Ativo Azure com o Panorama9
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Panorama9, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com o Panorama9, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-panorama9-single-sign-on"></a>Configurar panorama9 single sign-on
+### <a name="configure-panorama9-single-sign-on"></a>Configurar Panorama9 Single Sign-On
 
 1. Numa janela diferente do navegador, inscreva-se no site da empresa Panorama9 como administrador.
 
@@ -178,7 +178,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Panorama9**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Panorama9**.
 

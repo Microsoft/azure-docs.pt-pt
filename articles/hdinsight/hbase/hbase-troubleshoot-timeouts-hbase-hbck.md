@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887194"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Cenário: Timeouts com comando 'hbase hbck' em Azure HDInsight
@@ -42,7 +42,7 @@ Uma potencial causa para problemas de tempo limite quando se usa o `hbck` comand
 
 1. Monitorize a HBase Master UI "região em transição" nessa secção para garantir que nenhuma região fique presa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

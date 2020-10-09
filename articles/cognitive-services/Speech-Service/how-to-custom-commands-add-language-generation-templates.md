@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85307830"
 ---
-# <a name="add-language-generation-templates-for-speech-responses"></a>Adicione modelos de geração de linguagem para respostas de fala
+# <a name="add-language-generation-templates-for-speech-responses"></a>Adicionar modelos de geração de linguagem para respostas de voz
 
 Neste artigo, você aprende a usar modelos de geração de linguagem com comandos personalizados. Os modelos de geração de idiomas permitem-lhe personalizar as respostas enviadas ao cliente e introduzir variação nas respostas. A personalização da geração linguística pode ser alcançada por:
 
@@ -64,7 +64,7 @@ Modificar o comando **TurnOnOff** para adicionar um novo parâmetro com a seguin
 
 | Definição            | Valor sugerido       | 
 | ------------------ | --------------------- | 
-| Name               | `SubjectContext`         | 
+| Nome               | `SubjectContext`         | 
 | É Global          | descontrolado             | 
 | Necessário           | descontrolado               | 
 | Tipo               | String                |
@@ -97,7 +97,7 @@ Editar a secção **Ações** da regra de conclusão existente **ConfirmationRes
 * Entrada: desligue as luzes do quarto
 * Saída: Ok, desligar as luzes do quarto
 
-## <a name="use-custom-voice"></a>Use voz personalizada
+## <a name="use-custom-voice"></a>Utilizar a Voz Personalizada
 
 Outra forma de personalizar as respostas de Comandos Personalizados é selecionar uma voz de saída personalizada. Utilize os seguintes passos para mudar a voz predefinida para uma voz personalizada.
 

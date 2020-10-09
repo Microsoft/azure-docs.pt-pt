@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864286"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para a equipa liderar uma equipa de processos de ciência de dados de equipa
@@ -142,7 +142,7 @@ Para povoar os repositórios da sua equipa com o conteúdo dos repositórios com
    
 1. No diálogo **repositório de repositório De Importação a Git,** selecione **Git** como o **tipo Origem**, e introduza o URL para o repositório de modelo comum do seu grupo em **URL clone**. O URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Por exemplo: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
-1. Selecione **Importar**. O conteúdo do repositório de modelos de grupo é importado para o repositório do modelo da sua equipa. 
+1. Selecione **Import** (Importar). O conteúdo do repositório de modelos de grupo é importado para o repositório do modelo da sua equipa. 
    
    ![Repositório de modelo comum grupo de importação](./media/team-lead-tasks/import-repo-2.png)
    
@@ -324,7 +324,7 @@ Para obter informações sobre a partilha de outros recursos com a sua equipa, c
    
 1. Confirme se a nova unidade e armazenamento está montado com sucesso na sua máquina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações com descrições detalhadas das outras funções e tarefas definidas pelo Processo de Ciência de Dados de Equipa:
 

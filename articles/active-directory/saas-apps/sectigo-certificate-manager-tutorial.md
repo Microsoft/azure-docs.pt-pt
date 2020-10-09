@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Diretório Ativo Azure com o Gestor de Certificados sectigo
@@ -95,7 +95,7 @@ Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no porta
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -125,7 +125,7 @@ Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no porta
 
       ![Sectigo Certificate Manager domínio e URLs informações únicas de inscrição](common/both-signonurl.png)
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregamento** ao lado **do Certificado (Base64)**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** selecione **Download** ao lado do **Certificado (Base64)**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
 
     ![A opção de descarregamento do Certificado (Base64)](common/certificatebase64.png)
 

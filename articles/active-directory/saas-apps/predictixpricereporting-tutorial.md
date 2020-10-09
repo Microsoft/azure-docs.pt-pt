@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: e9bcdfeb983138046792313c018c386eb69136fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integração do Diretório Ativo Azure com Relatório de Preços da Predictix
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de insuflação com a Predictix Price
 
     ![Selecione um único método de inscrição](common/select-saml-option.png)
 
-3. Na **configuração de um único sign-on com** a página SAML, selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração DE SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD um único sinal de insuflação com a Predictix Price
     > [!NOTE]
     > Estes valores são espaços reservados. Tens de usar o URL e o identificador de inscrição real. Contacte a equipa de apoio ao [Relatório de Preços da Predictix](https://www.infor.com/company/customer-center/) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **de configuração SAML básica** no portal Azure.
 
-5. Na **configuração de um único sign-on com página SAML,** na secção **Certificado de Assinatura SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
 
     ![Link de descarregamento de certificado](common/certificatebase64.png)
 
