@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Diretório Ativo Azure com Tela
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com uma única placatura com tela, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure a tela único sign-on](#configure-canvas-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure a tela sign-on única](#configure-canvas-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Canvas test user](#create-canvas-test-user)** - para ter uma contraparte de Britta Simon em Tela que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com tela, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com tela, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-canvas-single-sign-on"></a>Configurar tela único sinal-on
+### <a name="configure-canvas-single-sign-on"></a>Configurar tela única Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Denação como administrador.
 

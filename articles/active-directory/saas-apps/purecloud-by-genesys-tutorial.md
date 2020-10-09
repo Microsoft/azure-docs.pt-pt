@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553296"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com PureCloud by Genesys
@@ -73,8 +73,8 @@ Para configurar e testar O SSO Azure AD com PureCloud by Genesys, complete os se
 Para ativar o Azure AD SSO no portal Azure, siga estes passos:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **PureCloud by Genesys,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
-1. Na página **de método De Sôr para fazer um único sinal,** selecione **SAML**.
-1. No **set up Single Sign-On com** a página SAML, selecione o ícone da caneta para **configuração SAML básica** para editar as definições.
+1. Na página **de método Select a Single Sign-On,** selecione **SAML**.
+1. Na **configuração single Sign-On com** a página SAML, selecione o ícone de caneta para **configuração SAML básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -118,12 +118,12 @@ Para ativar o Azure AD SSO no portal Azure, siga estes passos:
 
 1. Além disso, a aplicação PureCloud by Genesys espera que mais alguns atributos sejam repercutidos na resposta SAML, como mostra a tabela seguinte. Estes atributos também são pré-povoados, mas pode revê-los conforme necessário.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | E-mail | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -167,11 +167,11 @@ Nesta secção, você vai configurar B.Simon para usar a Azure single sign-on, c
 
 1. Selecione **O Administrador** no topo e, em seguida, vá para **Single Sign-on em** **Integrações**.
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Mude para o separador **ADFS/Azure AD (Premium)** e siga estes passos:
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. **Selecione Procurar** para carregar o certificado codificado base-64 que descarregou do portal Azure para o **Certificado ADFS.**
 
@@ -181,7 +181,7 @@ Nesta secção, você vai configurar B.Simon para usar a Azure single sign-on, c
 
     d. Para o valor **do identificador de partidos de suporte,** vá ao portal Azure e, em seguida, na página de integração da aplicação **PureCloud by Genesys,** selecione o separador **Propriedades** e copie o valor do ID da **aplicação.** Cole-o na caixa de **identificação do Partido De Relying.**
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. Selecione **Guardar**.
 
@@ -195,15 +195,15 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no PureCloud by Genes
 
 1. Selecione **Admin** no topo e vá para **People** under **People & Permisses**.
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. Na página **Pessoas,** **selecione Adicionar Pessoa.**
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. Na caixa de diálogo **Add People to the Organization,** siga estes passos:
 
-    ![Configurar um único sign-on](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. Na caixa **Nome Completo,** insira o nome de um utilizador. Por exemplo: **B.simon**.
 

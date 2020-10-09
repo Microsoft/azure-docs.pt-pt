@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203151"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -83,7 +83,7 @@ O **Ficheiro Técnico** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o seu perfil técnico especificar o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
+| Domínio | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o seu perfil técnico especificar o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
 | DisplayName | 1:1 | O nome do perfil técnico que pode ser apresentado aos utilizadores. |
 | Descrição | 0:1 | A descrição do perfil técnico que pode ser apresentado aos utilizadores. |
 | Protocolo | 0:1 | O protocolo usado para a comunicação com a outra parte. |
@@ -111,7 +111,7 @@ O elemento **Protocolo** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` , , , , ou `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` `None` . |
+| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1` , , , , ou `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` `None` . |
 | Processador | Não | Quando o nome do protocolo estiver definido para `Proprietary` , especifique o nome totalmente qualificado do conjunto que é utilizado pela Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados

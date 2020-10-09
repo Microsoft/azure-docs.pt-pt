@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77014951"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple Modelo de permissão em nuvem privada de VMware vCenter
@@ -28,7 +28,7 @@ Quando cria uma Nuvem Privada, um utilizador **CloudOwner** é criado no domíni
 
 ## <a name="user-groups"></a>Grupos de Utilizadores
 
-Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma Nuvem Privada. Os utilizadores deste grupo podem administrar várias partes do ambiente vSphere na Nuvem Privada. Este grupo recebe automaticamente privilégios **cloud-Owner-Role,** e o utilizador **CloudOwner** é adicionado como membro deste grupo.  A CloudSimple cria grupos adicionais com privilégios limitados para facilitar a gestão.  Pode adicionar qualquer utilizador a estes grupos pré-criados e os privilégios abaixo definidos são automaticamente atribuídos aos utilizadores dos grupos.
+Um grupo chamado **Cloud-Owner-Group** é criado durante a implantação de uma Nuvem Privada. Os utilizadores deste grupo podem administrar várias partes do ambiente vSphere na Nuvem Privada. Este grupo recebe automaticamente privilégios  **cloud-Owner-Role,** e o utilizador  **CloudOwner** é adicionado como membro deste grupo.  A CloudSimple cria grupos adicionais com privilégios limitados para facilitar a gestão.  Pode adicionar qualquer utilizador a estes grupos pré-criados e os privilégios abaixo definidos são automaticamente atribuídos aos utilizadores dos grupos.
 
 ### <a name="pre-created-groups"></a>Grupos pré-criados
 

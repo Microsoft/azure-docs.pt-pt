@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: chroyal
 ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77209448"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>O que é o Blockchain Data Manager para o Azure Blockchain Service?
@@ -21,7 +21,7 @@ O Gestor de Dados blockchain desempenha três funções principais: capturar, tr
 
 ![Funções de Gestor de Dados blockchain](./media/data-manager/functions.png)
 
-## <a name="capture"></a>Captura
+## <a name="capture"></a>Recolha
 
 Cada instância do Gestor de Dados blockchain liga-se a um nó de transação do membro do Serviço Azure Blockchain. Apenas os utilizadores com acesso ao nó de transação podem criar uma ligação que garanta o controlo adequado do acesso aos dados dos clientes. Uma instância do Gestor de Dados blockchain captura de forma fiável todos os dados de transação bruta e de bloco bruto do nó de transação e pode escalar para suportar cargas de trabalho da empresa.
 
@@ -41,6 +41,6 @@ Pode configurar o Blockchain Data Manager para atender às necessidades da sua s
 * Um exemplo de Gestor de Dados blockchain por nó de transação do Serviço Azure Blockchain. Por exemplo, os nós de transações privadas podem ter a sua própria instância de Gestor de Dados blockchain para manter a confidencialidade.
 * Uma instância do Gestor de Dados blockchain pode suportar várias ligações de saída. Uma instância do Gestor de Dados blockchain pode ser usada para gerir todos os pontos de integração da publicação de dados para um membro do Serviço Azure Blockchain.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tente [criar uma instância do Gestor de Dados blockchain](data-manager-portal.md) para um membro do Serviço Azure Blockchain.

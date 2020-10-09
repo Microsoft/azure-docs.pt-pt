@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: cweining
 ms.openlocfilehash: 357e0289f3237ed32b0801280316225ba5530282
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76963874"
 ---
 # <a name="update-visual-studio-template-deployment-script-to-use-az-powershell-module"></a>Atualizar script de implementação do modelo do estúdio visual para usar o módulo Az PowerShell
@@ -31,6 +31,6 @@ Se já tiver atualizado para 16.4 e o componente Azure PowerShell tiver sido ver
 
 Substitua todas as ocorrências da cadeia 'AzureRm' por 'Az' no seu script de implantação. Pode consultar as revisões neste [ponto para](https://gist.github.com/cweining/d2da2479418ea403499c4306dcf4f619) ver as alterações. Para obter mais informações sobre a atualização dos scripts para o módulo Az, consulte [a Migrate Azure PowerShell de AzureRM a Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a utilizar o projeto Visual Studio, consulte [criar e implementar projetos de grupo de recursos Azure através do Visual Studio.](create-visual-studio-deployment-project.md)

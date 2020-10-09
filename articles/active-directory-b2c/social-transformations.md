@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203389"
 ---
 # <a name="social-accounts-claims-transformations"></a>Contas sociais reclamam transformações
@@ -82,7 +82,7 @@ Acrescenta uma `AlternativeSecurityId` `alternativeSecurityIdCollection` reivind
 O exemplo a seguir liga uma nova identidade social a uma conta existente. Para associar uma nova identidade social:
 1. Nos perfis **técnicos AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId,** faça a produção da reivindicação **alternativa deSecurityIds** do utilizador.
 1. Peça ao utilizador para iniciar sedução com um dos fornecedores de identidade que não estão associados a este utilizador.
-1. Utilizando a transformação de reclamações **CreateAlternativeSecurityId,** crie um novo tipo de reclamação **alternativaSecurityId** com um nome de`AlternativeSecurityId2`
+1. Utilizando a transformação de reclamações **CreateAlternativeSecurityId,** crie um novo tipo de reclamação **alternativaSecurityId** com um nome de `AlternativeSecurityId2`
 1. Ligue para a **AddItemToAlternativeSecurityIdCollection** alega transformação para adicionar a reivindicação **AlternativaSecurityId2** à reivindicação **de AlternativeSecurityIds** existente.
 1. Persistir a **reivindicação alternativa Dessegurança** na conta do utilizador
 

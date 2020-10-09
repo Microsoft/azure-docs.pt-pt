@@ -12,13 +12,13 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201163"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para piscina SQL synapse
+# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para conjuntos Synapse SQL
 
 As piscinas SMP SQL tradicionais utilizam um processo de extração, transformação e carga (ETL) para os dados de carregamento. A piscina Sinaapse SQL, dentro da Azure Synapse Analytics, possui uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento.
 
@@ -111,7 +111,7 @@ Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet
 |                            INT32                             |            INT(8, falso)            |     tinyint      |
 |                            INT32                             |            INT(16, falso)             |       int        |
 |                            INT32                             |           INT(32, falso)            |      bigint      |
-|                            INT32                             |                 DATA                  |       date       |
+|                            INT32                             |                 DATE                  |       date       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TEMPO (MILLIS)             |       hora       |
 |                            INT64                             |            INT(64, verdade)            |      bigint      |
@@ -170,6 +170,6 @@ Ao conceber um processo ETL, tente executar o processo numa pequena amostra de t
 
 Muitos dos nossos parceiros têm soluções de carregamento. Para saber mais, consulte uma lista dos [nossos parceiros de solução.](sql-data-warehouse-partner-business-intelligence.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para carregar a documentação de orientação, veja [Guidance for loading data (Documentação de orientação para carregar dados)](guidance-for-loading-data.md).

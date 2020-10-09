@@ -1,5 +1,5 @@
 ---
-title: Nuvens Soberanas - Serviço de discurso
+title: Nuvens Soberanas - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar nuvens soberanas
 services: cognitive-services
@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
 ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78228093"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Serviços de fala com nuvens soberanas
 
-## <a name="azure-government-united-states"></a>Governo azure (Estados Unidos)
+## <a name="azure-government-united-states"></a>Governo de Azure (Estados Unidos)
 
-Apenas os governos federais, estaduais, locais e tribais dos EUA e os seus parceiros têm acesso a esta instância dedicada com operações controladas por cidadãos norte-americanos.
-- Regiões: EUA Gov Virginia
-- SR em SpeechSDK:*config. FromHost ("wss://virginia.stt.speech.azure.us",\<"your-key");\>*
-- TTS em SpeechSDK: *config. FromHost("https://virginia.tts.speech.azure.us",[]()\<"a\>sua chave");*
-- Tokens de autenticação: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken[]()
-- Portal Azure:https://portal.azure.us  
-- Portal de Discurso personalizado:https://virginia.cris.azure.us/Home/CustomSpeech
-- SKUs disponível: S0
+Apenas os governos federais, estaduais, locais e tribais dos EUA e os seus parceiros têm acesso a este caso dedicado com operações controladas por cidadãos americanos selecionados.
+- Regiões: Eua Gov Virginia
+- SR em SpeechSDK:*config. FromHost ("wss://virginia.stt.speech.azure.us", \<your-key\> ");*
+- TTS em SpeechSDK: *config. FromHost("https://virginia.tts.speech.azure.us", []() \<your-key\> ");*
+- Fichas de autenticação: https []() ://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Portal Azure: https://portal.azure.us  
+- Portal da fala personalizada: https://virginia.cris.azure.us/Home/CustomSpeech
+- SKUs disponíveis: S0
 - Características suportadas:
-  - Voz em Texto
-  - Discurso Personalizado (adaptação acústica/linguagem)
-  - Texto em Voz
-  - Tradutor de Discurso
-- Características não suportadas
+  - Conversão de Voz em Texto
+  - Discurso personalizado (adaptação acústica/linguística)
+  - Conversão de Texto em Voz
+  - Tradutor de Fala
+- Funcionalidades não suportadas
   - Voz Personalizada
-  - Vozes neurais para texto-a-fala
-- Locais apoiados: Os locais para as seguintes línguas são apoiados.
+  - Vozes neurais para texto-a-discurso
+- Locais apoiados: Locais para as seguintes línguas são apoiados.
   - Árabe (ar-*)
   - Chinês (zh-*)
   - Inglês (en-*)
@@ -50,23 +50,23 @@ Apenas os governos federais, estaduais, locais e tribais dos EUA e os seus parce
 
 ## <a name="microsoft-azure-china"></a>Microsoft Azure China
 
-Localizado na China, um centro de dados Azure com acesso direto à China Mobile, China Telecom, China Unicom e outra rede de espinha dorsal de porta-redes, para que os utilizadores chineses forneçam experiência de acesso à rede local de alta velocidade e estável.
+Localizado na China, um centro de dados Azure com acesso direto à China Mobile, China Telecom, China Unicom e outra rede de espinha dorsal de grandes transportadoras, para que os utilizadores chineses forneçam experiência de acesso à rede local de alta velocidade e estável.
 - Regiões: China East 2 (Xangai)
-- SR em SpeechSDK: *config. FromHost ("wss://chinaeast2.stt.speech.azure.cn",\<"your-key");\>*
-- TTS em SpeechSDK: *config. FromHost("https://chinaeast2.tts.speech.azure.cn",[]()\<"a\>sua chave");*
-- Tokens de autenticação: https://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken[]()
-- Portal Azure:https://portal.azure.cn
-- Portal de Discurso personalizado:https://speech.azure.cn/CustomSpeech
-- SKUs disponível: S0
+- SR em SpeechSDK: *config. FromHost("wss://chinaeast2.stt.speech.azure.cn", \<your-key\> ");*
+- TTS em SpeechSDK:  *config. FromHost("https://chinaeast2.tts.speech.azure.cn", []() \<your-key\> ");*
+- Fichas de autenticação: https []() ://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
+- Portal Azure: https://portal.azure.cn
+- Portal da fala personalizada: https://speech.azure.cn/CustomSpeech
+- SKUs disponíveis: S0
 - Características suportadas:
-  - Voz em Texto
-  - Discurso Personalizado (adaptação acústica/linguagem)
-  - Texto em Voz
-  - Tradutor de Discurso
-- Características não suportadas
+  - Conversão de Voz em Texto
+  - Discurso personalizado (adaptação acústica/linguística)
+  - Conversão de Texto em Voz
+  - Tradutor de Fala
+- Funcionalidades não suportadas
   - Voz Personalizada
-  - Vozes neurais para texto-a-fala
-- Locais apoiados: Os locais para as seguintes línguas são apoiados.
+  - Vozes neurais para texto-a-discurso
+- Locais apoiados: Locais para as seguintes línguas são apoiados.
   - Árabe (ar-*)
   - Chinês (zh-*)
   - Inglês (en-*)

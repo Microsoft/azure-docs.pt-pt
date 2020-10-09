@@ -17,10 +17,10 @@ ms.date: 12/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 51cafb0a344c5b6226b3b033d8c60327eaf2c05f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267963"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede para o exemplo de script de aplicações de várias camadas
@@ -36,7 +36,7 @@ Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/p
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
-Um ID de sub-rede é atribuído depois de ter criado uma rede virtual; especificamente, utilizando o cmdlet New-AzVirtualNetwork com a opção Subnet. Se configurar a sub-rede utilizando o cmdlet New-AzVirtualNetSubnetConfig antes da chamada para a New-AzVirtualNetwork, só verá o ID da sub-rede depois de ligar para a New-AzVirtualNetwork.
+Um ID de sub-rede é atribuído depois de ter criado uma rede virtual; especificamente, utilizando o New-AzVirtualNetwork cmdlet com a opção Sub-rede. Se configurar a sub-rede utilizando a New-AzVirtualNetworkSubnetConfig cmdlet antes da chamada para a New-AzVirtualNetwork, só verá o ID da sub-rede depois de ligar para a New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

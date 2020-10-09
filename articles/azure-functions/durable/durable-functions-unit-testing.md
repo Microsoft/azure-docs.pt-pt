@@ -4,10 +4,10 @@ description: Saiba como unir o teste de Funções Duradouras.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74231231"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de funções duradouras
@@ -21,7 +21,7 @@ O teste de unidade é uma parte importante das práticas modernas de desenvolvim
 
 Os exemplos deste artigo requerem conhecimento dos seguintes conceitos e quadros:
 
-* Teste de unidade
+* Teste de unidades
 
 * Funções Duráveis
 
@@ -87,7 +87,7 @@ Em `CreateCheckStatusResponse` seguida, é ridicularizado para sempre devolver u
         });
 ```
 
-`ILogger`é também gozado:
+`ILogger` é também gozado:
 
 ```csharp
     // Mock ILogger
@@ -176,7 +176,7 @@ E os testes de unidade verificarão o formato da saída. Os testes de unidade po
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)

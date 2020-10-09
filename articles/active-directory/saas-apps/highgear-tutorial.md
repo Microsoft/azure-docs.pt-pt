@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Diretório Ativo Azure com o HighGear
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o seu sistema HighGear, tem de completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único highGear](#configure-highgear-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação HighGear.
+2. **[Configure o HighGear Single Sign-On](#configure-highgear-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação HighGear.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create HighGear test user](#create-highgear-test-user)** - para ter uma contraparte de Britta Simon em HighGear que está ligada à representação AD AZure do utilizador. 
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set up Single Sign-On com** a página SAML, clique no ícone **Editar** para abrir o diálogo **de configuração SAML básico.**
+3. Na **configuração single Sign-On com página SAML,** clique no ícone **Editar** para abrir o diálogo **de configuração SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -101,16 +101,16 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
     ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
-    a. Na caixa de texto **identifier,** cole o valor do ID da **Entidade fornecedora** de serviços que está na página 'Definições de Entrada única' no seu sistema HighGear.
+    a. Na caixa de texto **identifier,** cole o valor do ID da **Entidade fornecedora** de serviços que se encontra na página Definições de Sign-On Única no seu sistema HighGear.
 
     ![O campo de ID da Entidade fornecedora de serviços](media/highgear-tutorial/service-provider-entity-id-field.png)
     
     > [!NOTE]
-    > Terá de iniciar sessão no seu sistema HighGear para aceder à página 'Definições's Sign-on única. Assim que iniciar sessão, mova o rato sobre o separador Administração em HighGear e clique no item do menu 'Definições de Inscrição'.
+    > Terá de iniciar sessão no seu sistema HighGear para aceder à página 'Definições Sign-On Única'. Assim que iniciar sessão, mova o rato sobre o separador Administração em HighGear e clique no item do menu 'Definições Sign-On Única'.
     
-    ![O item do menu de definições de sinais únicos](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+    ![O item do menu de definições de Sign-On única](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    b. Na caixa de texto **URL de resposta,** cole o valor do URL do **Serviço de Apoio ao Consumidor de Afirmação (ACS)** a partir da página 'Definições de Entrada única' no seu sistema HighGear.
+    b. Na caixa de texto **URL de resposta,** cole o valor do URL do **Serviço de Apoio ao Consumidor de Afirmação (ACS)** a partir da página Configurações de Sign-On Única no seu sistema HighGear.
 
     ![O campo URL do Serviço de Consumo de Afirmação (ACS)](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
@@ -118,14 +118,14 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
      ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
-     Na caixa de texto **URL de entrada de registo,** cole o valor do iD da Entidade fornecedora de **serviços** que está na página 'Definições de Entrada única' no seu sistema HighGear. (Este ID de entidade é também o URL base do sistema HighGear que deve ser usado para o início de súm.)
+     Na caixa de texto **URL de entrada de registo,** cole o valor do iD da Entidade fornecedora de **serviços** que está na página Definições de Sign-On Única no seu sistema HighGear. (Este ID de entidade é também o URL base do sistema HighGear que deve ser usado para o início de súm.)
 
     ![O campo de ID da Entidade fornecedora de serviços](media/highgear-tutorial/service-provider-entity-id-field.png)
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição a partir da página **de Definições de Registo Único** no seu sistema HighGear. Se precisar de ajuda, contacte a Equipa de [Suporte highGear.](mailto:support@highgear.com)
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de assinatura a partir da página **Definições de Sign-On Única** no seu sistema HighGear. Se precisar de ajuda, contacte a Equipa de [Suporte highGear.](mailto:support@highgear.com)
 
-4. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** e guarde-o no seu computador. Você vai precisar dele em um passo posterior da configuração single Sign-On.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** e guarde-o no seu computador. Você vai precisar dele em um passo posterior da configuração single Sign-On.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -139,15 +139,15 @@ Para configurar o Azure AD com o seu sistema HighGear, execute os seguintes pass
 
     c. URL logout. Você precisará deste valor em Step #4 em **Configure HighGear Single Sign-On** abaixo.
 
-### <a name="configure-highgear-single-sign-on"></a>Configurar highgear single sign-on
+### <a name="configure-highgear-single-sign-on"></a>Configurar Sign-On single HighGear
 
-Para configurar o HighGear para um único sign-on, por favor faça login no seu sistema HighGear. Assim que iniciar sessão, mova o rato sobre o separador Administração em HighGear e clique no item do menu 'Definições de Inscrição'.
+Para configurar o HighGear para um único sign-on, por favor faça login no seu sistema HighGear. Assim que iniciar sessão, mova o rato sobre o separador Administração em HighGear e clique no item do menu 'Definições Sign-On Única'.
 
-![O item do menu de definições de sinais únicos](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+![O item do menu de definições de Sign-On única](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-1. No Nome do **Fornecedor de Identidade,** escreva uma breve descrição que aparecerá no botão De Início de Sessão único da HighGear na página de Login. Por exemplo: Azure AD
+1. No Nome do **Fornecedor de Identidade,** escreva uma breve descrição que aparecerá no botão Single Sign-On da HighGear na página de Login. Por exemplo: Azure AD
 
-2. No campo **URL de Sign-On Único (SSO)** em HighGear, cole o valor do campo URL de **login** que está na secção **Configurar HighGear** em Azure.
+2. No campo **URL single Sign-On (SSO)** em HighGear, cole o valor do campo URL de **login** que está na secção **Configurar HighGear** em Azure.
 
 3. No campo **ID da Entidade fornecedora de identidade** em HighGear, cole o valor do campo **Azure AD Identifier** que está na secção **Configuração HighGear** em Azure.
 
@@ -157,7 +157,7 @@ Para configurar o HighGear para um único sign-on, por favor faça login no seu 
 
 6. Envie um e-mail [à Equipa de Suporte highGear](mailto:support@highgear.com) para solicitar o seu Certificado HighGear. Siga as instruções que receber deles para preencher os campos **de certificado HighGear** e **Palavra-passe de Certificado HighGear.**
 
-7. Clique no botão **Guardar** para guardar a sua configuração de 'Sign-On' único de HighGear.
+7. Clique no botão **Guardar** para guardar a configuração de Sign-On De Sign-On.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -212,7 +212,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-highgear-test-user"></a>Criar utilizador de teste HighGear
 
-Para criar um utilizador de teste HighGear para testar a sua configuração de Registo Único, faça login no seu sistema HighGear.
+Para criar um utilizador de teste HighGear para testar a sua configuração single Sign-On, faça login no seu sistema HighGear.
 
 1. Clique no botão **Criar Novo Contacto.**
 
@@ -235,7 +235,7 @@ Para criar um utilizador de teste HighGear para testar a sua configuração de R
 
     O **campo de inscrição única** ativa será automaticamente definido para Sim também.
 
-6. No campo **single Sign-On User Id,** digite o id do utilizador. Por exemplo: BrittaSimon@contoso.com
+6. No campo **single Sign-On user Id,** digite o id do utilizador. Por exemplo: BrittaSimon@contoso.com
 
     A secção informações de conta deve agora ser semelhante a isto:  
     ![A secção de Informação de Conta Acabada](media/highgear-tutorial/finished-account-info-section.png)

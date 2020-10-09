@@ -14,25 +14,25 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76990509"
 ---
 # <a name="manage-multiple-tenants"></a>Gerir vários inquilinos
 
-Este artigo discute diferentes opções para gerir vários inquilinos com Índice de Vídeo. Escolha um método mais adequado para o seu cenário:
+Este artigo discute diferentes opções para gerir vários inquilinos com Índice de Vídeo. Escolha o método mais adequado para o seu cenário:
 
-* Conta indexante de vídeo por inquilino
-* Indexante de Vídeo Único conta para todos os inquilinos
-* Assinatura Azure por inquilino
+* Conta do Video Indexer por inquilino
+* Conta do Video Indexer única para todos os inquilinos
+* Subscrição do Azure por inquilino
 
-## <a name="video-indexer-account-per-tenant"></a>Conta indexante de vídeo por inquilino
+## <a name="video-indexer-account-per-tenant"></a>Conta do Video Indexer por inquilino
 
 Ao utilizar esta arquitetura, é criada uma conta de Indexer de Vídeo para cada inquilino. Os inquilinos têm isolamento total na camada persistente e computacional.  
 
-![Conta indexante de vídeo por inquilino](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
+![Conta do Video Indexer por inquilino](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 
 ### <a name="considerations"></a>Considerações
 
@@ -66,17 +66,17 @@ Ao [carregar vídeos,](https://api-portal.videoindexer.ai/docs/services/operatio
 > [!TIP]
 > Pode usar o atributo [prioritário](upload-index-videos.md) para priorizar os empregos dos inquilinos.
 
-## <a name="azure-subscription-per-tenant"></a>Assinatura Azure por inquilino 
+## <a name="azure-subscription-per-tenant"></a>Subscrição do Azure por inquilino 
 
 Ao utilizar esta arquitetura, cada inquilino terá a sua própria assinatura Azure. Para cada utilizador, irá criar uma nova conta de Indexer de Vídeo na subscrição do inquilino.
 
-![Assinatura Azure por inquilino](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
+![Subscrição do Azure por inquilino](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
 ### <a name="considerations"></a>Considerações
 
 * Esta é a única opção que permite a separação da faturação.
 * Esta integração tem mais despesas de gestão do que a conta de Indexer de Vídeo por inquilino. Se a faturação não for um requisito, recomenda-se a utilização de uma das outras opções descritas neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral](video-indexer-overview.md)

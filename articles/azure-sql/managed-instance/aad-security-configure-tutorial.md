@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283875"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
@@ -48,7 +48,7 @@ Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Um caso gerido
   - Siga este artigo: [Quickstart: Criar uma instância gerida](instance-create-quickstart.md)
-- Capaz de aceder à sua instância gerida e [a provisionou um administrador AD AZure para a instância gerida](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Para saber mais, consulte:
+- Capaz de aceder à sua instância gerida e [a provisionou um administrador AD AZure para a instância gerida](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Para saber mais, veja:
   - [Ligue a sua aplicação a uma instância gerida](connect-application-instance.md)
   - [SQL Managed Instance arquitetura de conectividade](connectivity-architecture-overview.md)
   - [Configure e gere a autenticação do Azure Ative Directory com o SQL](../database/authentication-aad-configure.md)
@@ -446,7 +446,7 @@ Consulte o artigo [de segurança SQL Managed Instance](sql-managed-instance-paas
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Row-level security](/sql/relational-databases/security/row-level-security)
+- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Capacidades de instância gerida sql

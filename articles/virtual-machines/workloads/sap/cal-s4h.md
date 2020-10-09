@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77616208"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementar SAP S/4HANA ou BW/4HANA em Azure
@@ -35,7 +35,7 @@ Este artigo descreve como implantar S/4HANA no Azure utilizando a Sap Cloud Appl
 
 A sequência seguinte de imagens mostra-lhe como implantar S/4HANA em Azure utilizando o SAP CAL. O processo funciona da mesma forma para outras soluções, como a BW/4HANA.
 
-A página Solutions mostra **algumas** das soluções baseadas em SAP CAL HANA disponíveis no Azure. **SAP S/4HANA 1610 FPS01, Aparelho Totalmente Ativado** está na linha do meio:
+A página Solutions mostra **algumas** das soluções baseadas em SAP CAL HANA disponíveis no Azure. **SAP S/4HANA 1610 FPS01, Fully-Activated Aparelho** está na linha do meio:
 
 ![Soluções SAP CAL](./media/cal-s4h/s4h-pic-1c.png)
 

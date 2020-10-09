@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Tutorial: Azure Ative Directory integração única (SSO) com Coralogix
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor de URL de inscrição não é real. Atualize o valor com o URL de inscrição real. Contacte a equipa de [apoio ao Cliente Coralogix](mailto:info@coralogix.com) para obter o valor. Também pode consultar os padrões na secção **configuração básica do SAML** no portal Azure.
 
- 1. A aplicação Coralogix espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração da aplicação. Na **configuração de 'Sessão's Single's com** a página SAML, selecione o botão **Editar** para abrir a caixa de diálogo **de atributos** do utilizador.
+ 1. A aplicação Coralogix espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração da aplicação. Na **configuração single Sign-On com** a página SAML, selecione o botão **Editar** para abrir a caixa de diálogo atributos do **utilizador.**
 
     ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o botão "Editar" realçado.](common/edit-attribute.png)
 

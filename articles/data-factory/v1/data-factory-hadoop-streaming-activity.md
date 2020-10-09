@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74703371"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming hadoop na fábrica de dados Azure
@@ -147,7 +147,7 @@ Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à 
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjuntos de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O gasoduto neste exemplo não tem entradas. Especifica um conjunto de dados de saída para a Atividade de Streaming HDInsight. Este conjunto de dados é apenas um conjunto de dados falso que é necessário para conduzir o calendário do pipeline. 
 

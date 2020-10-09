@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1e3c05e4cc3ccf34573b55d3729aded16e26d66e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76960844"
 ---
 # <a name="403006-devicemaximumactivefileuploadlimitexceeded"></a>403006 DeviceMaximumActiveFileUploadLimitExceeded
@@ -33,6 +33,6 @@ Pode facilmente ultrapassar o limite se o seu dispositivo não notificar o IoT H
 
 Certifique-se de que o dispositivo pode notificar prontamente [a conclusão do upload do ficheiro IoT Hub](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload). Em seguida, tente [reduzir o TTL de token SAS para configuração de upload de ficheiros](iot-hub-configure-file-upload.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre uploads de ficheiros, consulte [upload de ficheiros uploads de ficheiros IoT Hub](./iot-hub-devguide-file-upload.md) e [Configure IoT Hub utilizando o portal Azure](./iot-hub-configure-file-upload.md).

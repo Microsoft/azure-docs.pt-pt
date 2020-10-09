@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77671091"
 ---
 # <a name="application-insights-cohorts"></a>Coortes de Insights de Aplicação
@@ -120,7 +120,7 @@ As duas coortes anteriores foram definidas usando caixas de entrega. Mas também
 
 4. Salve e diga o nome da coorte.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 _Definai um grupo de utilizadores de um determinado país/região. Quando comparo esta coorte na ferramenta Utilizadores com a definição de um filtro naquele país/região, vejo resultados diferentes. Porquê?_
 
@@ -133,5 +133,5 @@ Coortes e filtros são diferentes. Suponha que tem uma coorte de utilizadores do
 
 * [Linguagem de consulta de análise](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Utilizadores, sessões, eventos](usage-segmentation.md)
-* [Fluxos de utilizadores](usage-flows.md)
+* [Fluxos do utilizador](usage-flows.md)
 * [Visão geral do uso](usage-overview.md)

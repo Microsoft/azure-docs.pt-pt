@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
 ms.openlocfilehash: 90b3135174d06b6e896d50e0db13fa7747e882c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295452"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
@@ -73,7 +73,7 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
    | Definição       | Valor da amostra | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
-   | **ResourceGroup** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+   | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
    | **Nome** | *conta de mystorage* | Um nome único para a sua conta de armazenamento. |
    | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |

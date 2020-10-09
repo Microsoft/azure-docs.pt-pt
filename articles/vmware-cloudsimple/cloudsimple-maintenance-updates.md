@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025032"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple manutenção e atualizações
@@ -39,7 +39,7 @@ CloudSimple também monitoriza continuamente o seguinte para falhas:
 * Portas físicas do NIC
 * Servidores
 * Ventoinhas
-* Power
+* Energia
 * Comutadores
 * Mudar portas
 
@@ -104,6 +104,6 @@ O CloudSimple testa um patch de segurança crítico assim que estiver disponíve
 
 O CloudSimple fornece atualizações trimestrais de manutenção aos componentes de software VMware. Quando uma nova versão principal do software VMware está disponível, a CloudSimple trabalha com os clientes para coordenar uma janela de manutenção adequada para upgrade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Back up workload VMs usando Veeam](backup-workloads-veeam.md)

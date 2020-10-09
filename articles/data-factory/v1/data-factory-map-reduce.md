@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74703143"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas mapReduce da Fábrica de Dados
@@ -152,7 +152,7 @@ Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à 
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjuntos de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O gasoduto neste exemplo não tem entradas. Especifica um conjunto de dados de saída para a Atividade de Análise de Mapas hdinsight. Este conjunto de dados é apenas um conjunto de dados falso que é necessário para conduzir o calendário do pipeline.  
 

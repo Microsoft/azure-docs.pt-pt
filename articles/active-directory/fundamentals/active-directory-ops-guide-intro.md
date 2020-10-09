@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74535317"
 ---
 # <a name="azure-active-directory-operations-reference-guide"></a>Guia de referência de operações do Azure Ative Directory
@@ -44,6 +44,6 @@ Cada secção deste guia de referência recomenda atribuir às partes interessad
 | Equipa de Arquitetura InfoSec | Esta equipa planeia e projeta as práticas de Segurança da Informação de uma organização. |
 | Equipa de Operações InfoSec | Esta equipa executa e monitoriza as práticas implementadas de Segurança da Informação da equipa de Arquitetura InfoSec. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começar com os [controlos e ações de gestão de identidade e acesso.](active-directory-ops-guide-iam.md)

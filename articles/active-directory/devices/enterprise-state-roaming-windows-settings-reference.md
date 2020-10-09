@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252972"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
@@ -26,7 +26,7 @@ Segue-se uma lista das definições que serão percorridas ou apoiadas no Window
 
 Consulte a tabela seguinte para obter um resumo dos dispositivos e tipos de conta que são suportados pela estrutura de sincronização, cópia de segurança e restauro no Windows 10.
 
-| Tipo de conta e operação | Ambiente de trabalho | Móvel |
+| Tipo de conta e operação | Ambiente de trabalho | Telemóvel |
 | --- | --- | --- |
 | Diretório Ativo Azure: sincronização |Sim |Não |
 | Diretório Ativo Azure: backup/restauro |Não |Não |
@@ -43,7 +43,7 @@ Os grupos de definições a seguir estão disponíveis para os utilizadores fina
 
 * Tema: fundo do ambiente de trabalho, azulejo do utilizador, posição da barra de tarefas, etc. 
 * Definições do Internet Explorer: histórico de navegação, URLs dactilografado, favoritos, etc. 
-* Passwords: Gestor credencial do Windows, incluindo perfis Wi-Fi 
+* Passwords: Gestor credencial do Windows, incluindo perfis de Wi-Fi 
 * Preferências linguísticas: dicionário de ortografia, definições de linguagem do sistema 
 * Facilidade de acesso: narrador, teclado no ecrã, ampliação 
 * Outras Definições do Windows: consulte os detalhes das definições do Windows
@@ -69,13 +69,13 @@ Na tabela seguinte, outras entradas na coluna do Grupo de Definições referem-s
 As entradas internas na coluna do Grupo de Definições referem-se a definições e aplicações que só podem ser desativadas a partir da sincronização dentro da própria aplicação ou desativando sincronização para todo o dispositivo utilizando definições de gestão de dispositivos móveis (MDM) ou Política de Grupo.
 As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 
-| Definições | Ambiente de trabalho | Móvel | Grupo |
+| Definições | Ambiente de trabalho | Telemóvel | Group |
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |sincronizar |X |Tema |
 | Contas : **outras**definições de conta |X |X | |
-| **Banda larga móvel avançada**: Nome da rede de partilha de ligação à Internet (permite a autodiscovery de hotspots Wi-Fi móveis via Bluetooth) |X |X |Palavras-passe |
+| **Banda larga móvel avançada**: Nome da rede de partilha de ligação à Internet (permite a autodiscovery de hotspots de Wi-Fi móveis via Bluetooth) |X |X |Palavras-passe |
 | **Dados da aplicação**: aplicações individuais podem sincronizar dados |sincronização de backup |sincronização de backup |interno |
-| **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outros |
+| **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outro |
 | **Bluetooth**: todas as definições Bluetooth |X |X | |
 | **Pedido de comando**: Iniciar definições "Predefinições" |sincronizar |X |interno |
 | **Credenciais**: Cacifo credencial |sincronizar |sincronizar |palavra-passe |
@@ -95,7 +95,7 @@ As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 | **Personalização do ambiente**de trabalho : papel de parede slideshow |sincronizar |X |Tema |
 | **Personalização do ambiente de trabalho**: definições de barra de tarefas (posição, auto-ocultação, etc.) |sincronizar |X |Tema |
 | **Personalização do ambiente de trabalho**: iniciar o layout do ecrã |X |cópia de segurança | |
-| **Dispositivos**: impressoras partilhadas a que ligou |X |X |outro |
+| **Dispositivos**: impressoras partilhadas a que ligou |X |X |other |
 | **Navegador Microsoft Edge**: lista de leitura |sincronizar |sincronizar |interno |
 | **Navegador Microsoft Edge**: favoritos |sincronizar |sincronizar |interno |
 | **Microsoft Edge browser**: top sites <sup> [[1]](#footnote-1)</sup> |sincronizar |sincronizar |interno |
@@ -125,35 +125,35 @@ As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 | **Teclado**: ligue o sim pegajoso (desligado por padrão) |sincronizar |X |facilidade de acesso |
 | **Teclado**: ligue as teclas do filtro (desligado por padrão) |sincronizar |X |facilidade de acesso |
 | **Teclado**: ligue as teclas (desligado por padrão) |sincronizar |X |facilidade de acesso |
-| **Internet Explorer**: linguagem de domínio: Chinês (CHS) QWERTY - permitir a autoaprendizagem |sincronizar |X |Linguagem |
-| **Idioma**: CHS QWERTY - permitir o ranking dinâmico dos candidatos |sincronizar |X |Linguagem |
-| **Idioma**: CHS QWERTY - char-set chinês simplificado |sincronizar |X |Linguagem |
-| **Língua**: CHS QWERTY - char-set chinês tradicional |sincronizar |X |Linguagem |
-| **Língua**: CHS QWERTY - pinyin felpudo |sincronizar |cópia de segurança |Linguagem |
-| **Idioma**: CHS QWERTY - pares felpudos |sincronizar |cópia de segurança |Linguagem |
-| **Idioma**: CHS QWERTY - pinyin completo |sincronizar |X |Linguagem |
-| **Língua**: CHS QWERTY - pinyin duplo |sincronizar |X |Linguagem |
-| **Idioma**: CHS QWERTY - leitura de correção automática |sincronizar |X |Linguagem |
-| **Idioma**: CHS QWERTY - Chave do interruptor C/E, mudança |sincronizar |X |Linguagem |
-| **Idioma**: CHS QWERTY - Tecla de comutação C/E, Ctrl |sincronizar |X |Linguagem |
-| **Idioma**: CHS WUBI - modo de entrada de caracteres únicos |sincronizar |X |Linguagem |
-| **Língua**: CHS WUBI - mostrar a codificação restante do candidato |sincronizar |X |Linguagem |
-| **Língua**: CHS WUBI - bip quando 4 codificação é inválida |sincronizar |X |Linguagem |
-| **Língua**: CHT Bopomofo - incluir CJK Ext-A |sincronizar |X |Linguagem |
-| **Língua**: IME japonês - dactilografia preditiva e palavras personalizadas |sincronizar |sincronizar |Linguagem |
-| **IME**coreano (KOR) |X |X |Linguagem |
-| **Língua**: reconhecimento de caligrafia |X |X |Linguagem |
-| **Idioma**: perfil linguístico |sincronizar |cópia de segurança |Linguagem |
-| **Linguagem**: spellcheck - correção automática e destaque erros ortográficos |sincronizar |cópia de segurança |Linguagem |
-| **Idioma**: lista de teclados |sincronizar |cópia de segurança |Linguagem |
+| **Internet Explorer**: linguagem de domínio: Chinês (CHS) QWERTY - permitir a autoaprendizagem |sincronizar |X |Idioma |
+| **Idioma**: CHS QWERTY - permitir o ranking dinâmico dos candidatos |sincronizar |X |Idioma |
+| **Idioma**: CHS QWERTY - char-set chinês simplificado |sincronizar |X |Idioma |
+| **Língua**: CHS QWERTY - char-set chinês tradicional |sincronizar |X |Idioma |
+| **Língua**: CHS QWERTY - pinyin felpudo |sincronizar |cópia de segurança |Idioma |
+| **Idioma**: CHS QWERTY - pares felpudos |sincronizar |cópia de segurança |Idioma |
+| **Idioma**: CHS QWERTY - pinyin completo |sincronizar |X |Idioma |
+| **Língua**: CHS QWERTY - pinyin duplo |sincronizar |X |Idioma |
+| **Idioma**: CHS QWERTY - leitura de correção automática |sincronizar |X |Idioma |
+| **Idioma**: CHS QWERTY - Chave do interruptor C/E, mudança |sincronizar |X |Idioma |
+| **Idioma**: CHS QWERTY - Tecla de comutação C/E, Ctrl |sincronizar |X |Idioma |
+| **Idioma**: CHS WUBI - modo de entrada de caracteres únicos |sincronizar |X |Idioma |
+| **Língua**: CHS WUBI - mostrar a codificação restante do candidato |sincronizar |X |Idioma |
+| **Língua**: CHS WUBI - bip quando 4 codificação é inválida |sincronizar |X |Idioma |
+| **Língua**: CHT Bopomofo - incluir CJK Ext-A |sincronizar |X |Idioma |
+| **Língua**: IME japonês - dactilografia preditiva e palavras personalizadas |sincronizar |sincronizar |Idioma |
+| **IME**coreano (KOR) |X |X |Idioma |
+| **Língua**: reconhecimento de caligrafia |X |X |Idioma |
+| **Idioma**: perfil linguístico |sincronizar |cópia de segurança |Idioma |
+| **Linguagem**: spellcheck - correção automática e destaque erros ortográficos |sincronizar |cópia de segurança |Idioma |
+| **Idioma**: lista de teclados |sincronizar |cópia de segurança |Idioma |
 | **Ecrã de bloqueio**: todas as definições do ecrã de bloqueio |X |X | |
 | **Magnifier:** dentro ou fora (alternância mestre) |X |X |Facilidade de acesso |
 | **Magnifier**: ligue a cor da inversão (desligado por padrão) |sincronizar |X |Facilidade de acesso |
 | **Magnifier**: tracking - siga o foco do teclado |sincronizar |X |Facilidade de acesso |
 | **Magnifier**: tracking - siga o cursor do rato |sincronizar |X |Facilidade de acesso |
 | **Magnifier**: comece quando os utilizadores iniciarem (desligado por padrão) |sincronizar |X |Facilidade de acesso |
-| **Rato**: mude o tamanho do cursor do rato |sincronizar |X |outro |
-| **Rato**: mude a cor do cursor do rato |sincronizar |X |outro |
+| **Rato**: mude o tamanho do cursor do rato |sincronizar |X |other |
+| **Rato**: mude a cor do cursor do rato |sincronizar |X |other |
 | **Rato**: todas as outras configurações |X |X | |
 | **Narrador:** lançamento rápido |sincronizar |X |Facilidade de acesso |
 | **Narrador:** os utilizadores podem mudar o tom de fala do Narrador |sincronizar |X |Facilidade de acesso |
@@ -168,22 +168,22 @@ As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 | **Facilidade de acesso**: remover imagens de fundo (desligadas por padrão) |sincronizar |X |Facilidade de acesso |
 | **Potência e Sono**: todas as configurações |X |X | |
 | **Personalização do ecrã inicial**: cor de acento (apenas telefone) |X |sincronizar |Tema |
-| **Dactilografia**: dicionário de ortografia |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: palavra mal corrigida autocorrectada |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: destacar palavras mal ortografadas |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: mostrar sugestões de texto como escrevo |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia:** adicione um espaço depois de eu escolher uma sugestão de texto |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: adicione um período depois de eu bater duas vezes na barra espacial |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: capitalize a primeira letra de cada frase |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: use todas as letras maiúsculas quando eu bater duas vezes na chave de mudança |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: toque sons chave como escrevo |sincronizar |cópia de segurança |Linguagem |
-| **Dactilografia**: dados de personalização para teclado touch |sincronizar |cópia de segurança |Linguagem |
-| **Wi-Fi**: Perfis Wi-Fi (apenas WPA) |sincronizar |sincronizar |Palavras-passe |
+| **Dactilografia**: dicionário de ortografia |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: palavra mal corrigida autocorrectada |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: destacar palavras mal ortografadas |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: mostrar sugestões de texto como escrevo |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia:** adicione um espaço depois de eu escolher uma sugestão de texto |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: adicione um período depois de eu bater duas vezes na barra espacial |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: capitalize a primeira letra de cada frase |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: use todas as letras maiúsculas quando eu bater duas vezes na chave de mudança |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: toque sons chave como escrevo |sincronizar |cópia de segurança |Idioma |
+| **Dactilografia**: dados de personalização para teclado touch |sincronizar |cópia de segurança |Idioma |
+| **Wi-Fi**: perfis Wi-Fi (apenas WPA) |sincronizar |sincronizar |Palavras-passe |
 
 ###### <a name="footnote-1"></a>Nota de rodapé 1
 
 Versão so suportada mínima da Atualização de Criadores do Windows (Build 15063). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral, consulte [a visão geral do roaming do estado da empresa.](enterprise-state-roaming-overview.md)

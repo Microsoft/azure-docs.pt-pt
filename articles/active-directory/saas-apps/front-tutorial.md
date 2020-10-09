@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: Integração do Diretório Ativo Azure com a Front
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com um único sinal de acesso com a Frente, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único da frente](#configure-front-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o signo único da frente](#configure-front-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Front test user](#create-front-test-user)** - para ter uma contraparte de Britta Simon na Frente que está ligada à representação AD AD do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD single sign-on com Front, execute os seguintes passos
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Informações de sinalização de domínio frontal e URLs](common/idp-intiated.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD single sign-on com Front, execute os seguintes passos
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente Frontal](mailto:support@frontapp.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD single sign-on com Front, execute os seguintes passos
 
     c. Logout URL
 
-### <a name="configure-front-single-sign-on"></a>Configurar o sign-on único dianteiro
+### <a name="configure-front-single-sign-on"></a>Configurar Sign-On de frente
 
 1. Inscreva-se no seu inquilino da Frente como administrador.
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD single sign-on com Front, execute os seguintes passos
 
 7. Na secção **de definições do prestador de serviços,** execute os seguintes passos:
 
-    ![Configure único sinal no lado da aplicação](./media/front-tutorial/tutorial_front_005.png)
+    ![Configurar Sign-On única no lado da app](./media/front-tutorial/tutorial_front_005.png)
 
     a. Copie o valor do **ID** da Entidade e cole-o na caixa de texto **identifier** em **Domínio Frontal e URLs** no portal Azure.
 

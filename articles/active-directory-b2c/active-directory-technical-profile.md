@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201519"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do Azure Ative Directory numa política personalizada do Azure Ative Directory B2C
@@ -76,7 +76,7 @@ Por exemplo, o perfil técnico **AAD-UserWriteUsingLogonEmail** cria uma conta l
 
 - **objectId**, que é identificador da nova conta
 - **newUser**, que indica se o utilizador é novo
-- **autenticaçãoSource,** que define a autenticação para`localAccountAuthentication`
+- **autenticaçãoSource,** que define a autenticação para `localAccountAuthentication`
 - **userPrincipalName**, que é o nome principal do utilizador da nova conta
 - **signInNames.emailAddress**, que é o nome de entrada de conta, semelhante ao pedido de entrada **de e-mail**
 
@@ -122,7 +122,7 @@ O nome da reclamação é o nome do atributo AZure AD, a menos que o atributo **
 
 ## <a name="azure-ad-technical-provider-operations"></a>Operações de prestador técnico da Azure AD
 
-### <a name="read"></a>Leitura
+### <a name="read"></a>Ler
 
 A operação **Ler** lê dados sobre uma única conta de utilizador. O seguinte perfil técnico lê dados sobre uma conta de utilizador utilizando o objectId do utilizador:
 
@@ -265,7 +265,7 @@ As seguintes definições podem ser utilizadas para configurar a mensagem de err
 | UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (ver descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seguinte artigo, por exemplo, utilizando o perfil técnico Azure AD:
 

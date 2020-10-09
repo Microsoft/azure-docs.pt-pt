@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082612"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planejador de implantação do local de recuperação do Azure para a recuperação de desastres hiper-V para Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementações do Azure Site Recovery para recuperação após desastre do Hyper-V no Azure
 
 Pode executar a ferramenta de linha de comando do planejador de implementação do site Recovery (ASRDeploymentPlanner.exe) em qualquer um destes quatro modos: 
 -   Obter a lista de máquinas virtuais (VMs)
@@ -308,5 +308,5 @@ Para a replicação, defina a largura de banda recomendada para satisfazer o RPO
 3. Verifique as características do seu armazenamento local para determinar se pode melhorar o hardware (por exemplo, passar de HDD para SSD).
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Analisar o relatório gerado](hyper-v-deployment-planner-analyze-report.md)

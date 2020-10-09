@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74790275"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicativos de lógica com dados falsos, configurando resultados estáticos
@@ -140,6 +140,6 @@ Desligar os resultados estáticos não deita fora os valores da sua última conf
 
 Para obter mais informações sobre esta definição nas definições de fluxo de trabalho subjacentes, consulte [resultados estáticos - Referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [configuração de tempo de execução.staticResult - Configurações de configuração de tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a Azure Logic Apps](../logic-apps/logic-apps-overview.md)

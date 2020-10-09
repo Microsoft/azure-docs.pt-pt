@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.openlocfilehash: ba1bcc15caee6f65f5a5d10a63c28f74faee753f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553396"
 ---
 # <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Tutorial: Integrar o ProNovos Ops Manager com o Azure Ative Directory
@@ -60,7 +60,7 @@ Configure e teste Azure AD SSO com ProNovos Ops Manager usando um utilizador de 
 Para configurar e testar o Azure AD SSO com o ProNovos Ops Manager, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o ProNovos Ops Manager SSO](#configure-pronovos-ops-manager-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o ProNovos Ops Manager SSO](#configure-pronovos-ops-manager-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 5. Crie o utilizador de **[teste ProNovos Ops Manager](#create-pronovos-ops-manager-test-user)** - para ter uma contraparte de B.Simon em ProNovos Ops Manager que está ligada à representação AD AD do utilizador.
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **ProNovos Ops Manager,** encontre a secção **Gerir** e selecione **'Sessão única'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -83,7 +83,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://gly.smartsubz.com/saml2/acs`
 
 
-4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre **o Certificado (Raw)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **Certificado (Raw)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 

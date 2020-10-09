@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Diretório Ativo Azure com o Adjunto
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com um único sinal de acesso com o delegado, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único do adjunto](#configure-deputy-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único Adjunto](#configure-deputy-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Vice test user](#create-deputy-test-user)** - ter uma contraparte de Britta Simon em Adjunto que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -153,7 +153,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de apoio ao Cliente Adjunto](https://www.deputy.com/call-centers-customer-support-scheduling-software) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -167,7 +167,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
     c. Logout URL
 
-### <a name="configure-deputy-single-sign-on"></a>Configurar o sign-on único adjunto
+### <a name="configure-deputy-single-sign-on"></a>Configurar Sign-On único
 
 1. Navegue para o seguinte URL: `https://(your-subdomain).deputy.com/exec/config/system_config` . Vá às **Definições de Segurança** e clique em **Editar**.
    
@@ -175,7 +175,7 @@ Para configurar a Azure AD um único sinal de inscrição com o adjunto, execute
 
 2. Nesta página **definições de segurança,** execute abaixo dos passos.
 
-    ![Configurar um único sign-on](./media/deputy-tutorial/tutorial_deputy_005.png)
+    ![Configurar Sign-On Individuais](./media/deputy-tutorial/tutorial_deputy_005.png)
     
     a. Ativar **o Login Social**.
    

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: a01a503a9fe2eede01f6a173e233cb39de7d03f3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775121"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutorial: Azure Ative Directory integração única (SSO) com Egnyte
@@ -91,9 +91,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.egnyte.com/samlconsumer/AzureAD`
     
     > [!NOTE]
-    > Estes valores não são reais. Atualize o valor com o URL e URL de resposta de sôm. Contacte a [equipa de suporte do Cliente Egnyte](https://www.egnyte.com/corp/contact_egnyte.html) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualizar o valor com o URL e URL de resposta de Sign-On reais. Contacte a [equipa de suporte do Cliente Egnyte](https://www.egnyte.com/corp/contact_egnyte.html) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -153,7 +153,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Segurança](./media/egnyte-tutorial/ic787821.png "Segurança")
 
-5. Na secção **de autenticação sign-on única,** execute os seguintes passos:
+5. Na secção **autenticação single Sign-On,** execute os seguintes passos:
 
     ![Único sinal na autenticação](./media/egnyte-tutorial/ic787822.png "Único sinal na autenticação")   
     

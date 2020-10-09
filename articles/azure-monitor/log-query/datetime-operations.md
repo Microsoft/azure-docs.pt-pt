@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77655383"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de hora de data em consultas de registo do Monitor de Azure
@@ -154,7 +154,7 @@ Event
 | Obtenha parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [o](/azure/kusto/query/getmonthfunction) dia do [dia](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) do dia da [semana](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) do dia da semana do [dia do ano](/azure/kusto/query/weekofyearfunction) |
 | Obtenha um valor de data relativa  | [fim da semana](/azure/kusto/query/endofdayfunction) [final](/azure/kusto/query/endofweekfunction) do fim [do](/azure/kusto/query/endofmonthfunction) [ano](/azure/kusto/query/endofyearfunction) início [da semana](/azure/kusto/query/startofdayfunction) [início da semana](/azure/kusto/query/startofweekfunction) do início do [10º ano](/azure/kusto/query/startofyearfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a [linguagem de consulta kusto](/azure/kusto/query/) com dados de registo do Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)

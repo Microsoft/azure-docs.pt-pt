@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: troubleshooting
 ms.reviewer: brendal
 ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212858"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench Pré-visualização resolução de problemas
@@ -42,7 +42,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 O script aceita os seguintes parâmetros:
 
-| Parâmetro  | Descrição | Necessário |
+| Parâmetro  | Descrição | Obrigatório |
 |---------|---------|----|
 | SubscriçãoID | SubscriçãoID para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do Grupo de Recursos Azure onde a blockchain Workbench foi implantada. | Sim |
@@ -68,7 +68,7 @@ O ficheiro sumário dá-lhe uma imagem do estado geral da aplicação e saúde d
 
 A pasta **Métricas** contém métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o ficheiro de saída `\Details\Workbench\apiMetrics.txt` contém um resumo de diferentes códigos de resposta e tempos de resposta ao longo do período de recolha. A pasta **Details** contém registos detalhados para resolver problemas específicos com a Workbench ou a rede blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das mais recentes exceções que ocorreram no sistema, o que é útil para resolver erros com contratos inteligentes ou interações com a blockchain. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Guia de resolução de problemas da Azure Blockchain Workbench Insights](https://aka.ms/workbenchtroubleshooting)

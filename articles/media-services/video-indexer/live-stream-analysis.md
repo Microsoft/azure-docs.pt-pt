@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74186003"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Análise ao vivo com Índice de Vídeo
@@ -41,6 +41,6 @@ O leitor de amostras reproduz o live stream e obtém as ideias da Azure Cosmos D
 
 O código completo e um guia passo a passo para implementar os resultados podem ser encontrados no [projeto GitHub para análise de meios ao vivo com Índice de Vídeo](https://aka.ms/livestreamanalysis). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

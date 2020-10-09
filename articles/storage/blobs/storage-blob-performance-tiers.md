@@ -9,13 +9,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74270230"
 ---
-# <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho para armazenamento de bolhas de bloco
+# <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho do armazenamento dos blobs de blocos
 
 À medida que as empresas implementam aplicações nativas de nuvem sensíveis ao desempenho, é importante ter opções para armazenamento de dados rentáveis em diferentes níveis de desempenho.
 
@@ -45,7 +45,7 @@ O armazenamento de desempenho premium é ideal para cargas de trabalho que reque
 
 - **Cargas de trabalho interativas.** Estas cargas de trabalho requerem atualizações instantâneas e feedback do utilizador, como aplicações de e-commerce e mapeamento. Por exemplo, numa aplicação de e-commerce, os itens menos vistos provavelmente não são em cache. No entanto, devem ser exibidos instantaneamente ao cliente a pedido.
 
-- **Analítica**. Num cenário IoT, muitas operações de escrita menores podem ser empurradas para a nuvem a cada segundo. Grandes quantidades de dados podem ser recolhidos, agregados para fins de análise, e depois eliminados quase imediatamente. As elevadas capacidades de ingestão de blocos de armazenamento premium tornam-no eficiente para este tipo de carga de trabalho.
+- **Análise**. Num cenário IoT, muitas operações de escrita menores podem ser empurradas para a nuvem a cada segundo. Grandes quantidades de dados podem ser recolhidos, agregados para fins de análise, e depois eliminados quase imediatamente. As elevadas capacidades de ingestão de blocos de armazenamento premium tornam-no eficiente para este tipo de carga de trabalho.
 
 - **Inteligência artificial/aprendizagem automática (IA/ML)**. A IA/ML trata do consumo e processamento de diferentes tipos de dados, como visuais, fala e texto. Este tipo de carga de trabalho de alta qualidade lida com grandes quantidades de dados que requerem uma resposta rápida e tempos de ingestão eficientes para análise de dados.
 
@@ -78,7 +78,7 @@ Para saber mais, consulte [Gerir o ciclo de vida de armazenamento Azure Blob](st
 
 Não é possível mover dados que são armazenados numa conta de armazenamento de blocos premium entre camadas quentes, frias e de arquivo. No entanto, pode copiar bolhas de uma conta de armazenamento de blob de bloco para o nível de acesso quente numa conta *diferente.* Para copiar dados para uma conta diferente, utilize o [Bloco de Put From URL](/rest/api/storageservices/put-block-from-url) API ou [AzCopy v10](../common/storage-use-azcopy-v10.md). O **Bloco de Colocação da API url** copia sincronizadamente os dados no servidor. A chamada só termina depois de todos os dados terem sido transferidos da localização original do servidor para a localização do destino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento GPv2 e Blob.
 

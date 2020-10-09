@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: Integração do Azure Ative Directory com FileCloud
@@ -75,7 +75,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com um único sinal de acesso com o FileCloud, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On único do FileCloud](#configure-filecloud-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único do FileCloud](#configure-filecloud-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create FileCloud test user](#create-filecloud-test-user)** - para ter uma contraparte de Britta Simon no FileCloud que está ligada à representação AD AZure do utilizador.
@@ -95,7 +95,7 @@ Para configurar o Azure AD um único sinal de insuflação com o FileCloud, exec
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD um único sinal de insuflação com o FileCloud, exec
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente FileCloud](mailto:support@codelathe.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD um único sinal de insuflação com o FileCloud, exec
 
     c. Logout URL
 
-### <a name="configure-filecloud-single-sign-on"></a>Configurar fileCloud single sign-on
+### <a name="configure-filecloud-single-sign-on"></a>Configurar fileCloud single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino FileCloud como administrador.
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD um único sinal de insuflação com o FileCloud, exec
 
 6. Abra o ficheiro de metadados descarregado no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **IdP Meta Data** no painel **de Definições SAML.**
 
-    ![Configure único sinal no lado da aplicação](./media/filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Configurar Sign-On única no lado da app](./media/filecloud-tutorial/tutorial_filecloud_004.png)
 
 7. Clique no botão **Guardar.**
 

@@ -7,10 +7,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77658631"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor visualiza conversões de azulejos de design
@@ -159,6 +159,6 @@ Segue-se um exemplo de como a linha do tempo & azulejo da lista pode ser reinter
 
 ![Livros de listas de linha do tempo](media/view-designer-conversion-tiles/time-workbooks.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do designer de vista para a transição de livros de trabalho](view-designer-conversion-overview.md)

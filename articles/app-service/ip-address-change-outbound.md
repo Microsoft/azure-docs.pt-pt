@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74671671"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Como se preparar para uma mudança de endereço IP de saída
@@ -27,7 +27,7 @@ Se recebeu a notificação de que os endereços IP de saída da sua aplicação 
 
 Os novos endereços IP de saída são apresentados no portal antes de produzirem efeitos. Quando O Azure começar a usar os novos, os antigos deixarão de ser usados. Apenas um conjunto de cada vez é utilizado, pelo que as inscrições nas listas de inclusão devem ter endereços IP antigos e novos para evitar uma paragem quando o interruptor acontece. 
 
-1.  Abra o [portal Azure](https://portal.azure.com).
+1.  Abra o [portal do Azure](https://portal.azure.com).
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicações**.
 
@@ -39,6 +39,6 @@ Os novos endereços IP de saída são apresentados no portal antes de produzirem
 
 5. Copie os endereços IP e adicione-os ao seu manuseamento especial do tráfego de saída, como um filtro ou uma lista permitida. Não elimine os endereços IP existentes na lista.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pela Azure. Para obter mais informações sobre endereços IP no Azure App Service, consulte [endereços IP de entrada e saída no Serviço de Aplicações Azure.](overview-inbound-outbound-ips.md)

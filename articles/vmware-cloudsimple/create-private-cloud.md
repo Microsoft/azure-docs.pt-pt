@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024794"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Criar uma nuvem simple nuvem privada
@@ -31,13 +31,13 @@ A criação de uma Nuvem Privada ajuda-o a responder a uma variedade de necessid
 
 Quando crias uma Nuvem Privada, obtém-se um único cluster vSphere e todos os VMs de gestão que são criados nesse cluster.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os nós devem ser a provisionados antes de poder criar a sua Nuvem Privada. Para obter mais informações sobre os nós de a provisionamento, consulte [nós de provisão para Azure VMware Solution by CloudSimple](create-nodes.md).
 
 Aloque uma gama CIDR para sub-redes vSphere/vSAN para a Nuvem Privada. Uma Nuvem Privada é criada como um ambiente isolado de pilha de VMware (com anfitriões ESXi, vCenter, vSAN e NSX) gerido por um servidor vCenter. Os componentes de gestão são implantados na rede selecionada para sub-redes vSphere/vSAN CIDR. A gama CIDR de rede é dividida em diferentes sub-redes durante a implantação. O espaço de endereço da sub-rede vSphere/vSAN deve ser único. Não deve sobrepor-se a qualquer rede que comunique com o ambiente CloudSimple. As redes que comunicam com o CloudSimple incluem redes no local e redes virtuais Azure. Para obter mais informações sobre sub-redes vSphere/vSAN, consulte VLANs e sub-redes.
 
-* Mínimo vSphere/vSAN sub-redes CIDR prefixo de gama CIDR: /24
+* Mínimo vSphere/vSAN sub-redes CIDR gama prefixo: /24
 * Máximo vSphere/vSAN sub-redes CIDR prefixo de gama CIDR: /21
 
 

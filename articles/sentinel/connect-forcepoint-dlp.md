@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77588251"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Ligue o seu Forcepoint DLP ao Azure Sentinel
@@ -48,7 +48,7 @@ Para utilizar o esquema relevante no Log Analytics para Forcepoint DLP, procure 
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Forcepoint DLP ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

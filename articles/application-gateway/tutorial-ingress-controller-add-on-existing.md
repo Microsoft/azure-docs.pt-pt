@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Ativar o Add-On do Controlador de Entrada para o cluster AKS existente com gateway de aplicação Azure existente'
-description: Utilize este tutorial para ativar o Add-On do Controlador de Entrada para o seu cluster AKS existente com um Gateway de aplicação existente
+title: 'Tutorial: Ativar Add-On do Controlador de Ingress para o cluster AKS existente com gateway de aplicação Azure existente'
+description: Utilize este tutorial para ativar o controlador ingress Add-On para o seu cluster AKS existente com um Gateway de aplicação existente
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
 ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285661"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)

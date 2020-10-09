@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78301012"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
@@ -21,7 +21,7 @@ Para criar encadernações de segurança personalizadas ou ativar certificados d
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o [portal Azure](https://portal.azure.com).
+Abra o [portal do Azure](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navegue até à sua aplicação Web
 

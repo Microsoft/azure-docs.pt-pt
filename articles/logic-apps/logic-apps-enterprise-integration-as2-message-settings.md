@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74793040"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Referência para definições de mensagens AS2 em Azure Logic Apps com Pacote de Integração Empresarial
@@ -58,6 +58,6 @@ Esta referência descreve as propriedades que pode definir para especificar como
 | **Formato de algoritmo SHA2** | Não | Especifica o formato de algoritmo MIC para utilizar para a assinatura nos cabeçalhos para as mensagens AS2 ou MDN de saída |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Trocar mensagens AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)

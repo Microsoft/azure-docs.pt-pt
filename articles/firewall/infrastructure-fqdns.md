@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168971"
 ---
 # <a name="infrastructure-fqdns"></a>FQDNs de Infraestrutura
@@ -28,6 +28,6 @@ Os seguintes serviços estão incluídos na coleção de regras incorporada:
 
 Você pode anular esta coleção de regras de infraestrutura incorporada, criando uma coleção de regras de aplicação que é processada por último. Será sempre processada antes da coleção de regras de infraestrutura. Qualquer item que não esteja na coleção de regras de infraestrutura é negado por predefinição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).
