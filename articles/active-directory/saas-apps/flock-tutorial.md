@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554970"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Diretório Ativo Azure com o Flock
 
@@ -128,7 +128,7 @@ Para configurar a Azure AD um único sinal de inscrição com o Flock, execute o
 
 2. Selecione **o separador autenticação** a partir do painel de navegação esquerdo e, em seguida, selecione **Autenticação SAML**.
 
-    ![Configuração do rebanho](./media/flock-tutorial/configure1.png)
+    ![Screenshot que mostra o separador "Autenticação" com "S A M L Authentication" selecionado.](./media/flock-tutorial/configure1.png)
 
 3. Na secção **de Autenticação SAML,** execute os seguintes passos:
 
@@ -173,7 +173,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Flock**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Flock**.
 
@@ -203,11 +203,11 @@ Para permitir que os utilizadores de Azure AD iniciem sessão no Flock, devem se
 
 2. Clique **em Gerir a** equipa a partir do painel de navegação esquerdo.
 
-    ![Adicionar Empregado](./media/flock-tutorial/user1.png)
+    ![Screenshot que mostra "Manage Team" selecionado.](./media/flock-tutorial/user1.png)
 
 3. Clique **no separador Adicionar Membro** e, em seguida, selecione **Membros da Equipa**.
 
-    ![Adicionar Empregado](./media/flock-tutorial/user2.png)
+    ![Screenshot que mostra o separador "Adicionar Membro" e "Membros da equipa" selecionados.](./media/flock-tutorial/user2.png)
 
 4. Introduza o endereço de e-mail do utilizador como **brittasimon \@ contoso.com** e, em seguida, selecione **Adicionar Utilizadores**.
 

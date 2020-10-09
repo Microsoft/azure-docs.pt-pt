@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322092"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825426"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
 
-Este artigo descreve a arquitetura, componentes e processos utilizados quando implementa a recuperação de desastres para máquinas virtuais Azure (VMs) utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md) Com a criação de recuperação de desastres, os VMs do Azure replicam-se continuamente de uma região alvo diferente. Se ocorrer uma paragem, pode falhar em VMs para a região secundária e acessá-las a partir daí. Quando tudo estiver a funcionar normalmente de novo, podes falhar e continuar a trabalhar na localização primária.
+Este artigo descreve a arquitetura, componentes e processos utilizados quando implementa a recuperação de desastres para máquinas virtuais Azure (VMs) utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md) Com a criação de recuperação de desastres, os VMs do Azure replicam-se continuamente numa região-alvo diferente. Se ocorrer uma paragem, pode falhar em VMs para a região secundária e acessá-las a partir daí. Quando tudo estiver a funcionar normalmente de novo, podes falhar e continuar a trabalhar na localização primária.
 
 
 
@@ -134,7 +134,7 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
-| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
+| Cofre de Chaves                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
 | Automatização do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite permitir a atualização automática do agente de mobilidade para um item replicado via portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP

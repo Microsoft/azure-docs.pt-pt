@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 06dd55ce400667939fca4b0f48159f8b7dde66c6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537461"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825145"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
 
@@ -124,7 +124,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Des-select **Enable GIT**.     
-7. Clique em **Create** (Criar).
+7. Clique em **Criar**.
 8. Uma vez concluída a implementação, clique em **Ir ao recurso**
 
    ![A screenshot mostra uma mensagem de que a sua implementação está completa e uma opção para ir para o recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
@@ -152,7 +152,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 
    1. Introduza **AzureStorageLinkedService** em **Nome**.
    2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
-   3. Clique em **Save** (Guardar).
+   3. Clique em **Guardar**.
 
    ![Definições da Conta de Armazenamento do Azure](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -318,7 +318,7 @@ Neste passo, cria-se um gatilho de janela para executar o trabalho num horário 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
@@ -328,7 +328,7 @@ Neste passo, cria-se um gatilho de janela para executar o trabalho num horário 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Clique no **separador 'Afundar'** da atividade **Copy** e clique em **Abrir** para editar as propriedades do conjunto de dados. Clique no separador **Parâmetros** e adicione um novo parâmetro chamado **triggerStart**    
@@ -409,7 +409,7 @@ Vai ver um segundo ficheiro na pasta `customers/incremental/YYYY/MM/DD` do conte
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png)
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

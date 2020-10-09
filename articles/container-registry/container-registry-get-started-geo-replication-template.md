@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/26/2020
-ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/06/2020
+ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649624"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826986"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Quickstart: Criar um registo de contentores geo-replicado utilizando um modelo ARM
 
@@ -48,19 +48,22 @@ Mais amostras de modelo de registo de contentores Azure podem ser encontradas na
 
     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
- 2. Selecione ou introduza os seguintes valores.
+ 1. Selecione ou introduza os seguintes valores.
 
     * **Subscrição**: selecione uma subscrição do Azure.
     * **Grupo de recursos**: selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, selecione **OK**.
-    * **Localização**: selecione uma localização para o grupo de recursos. Exemplo: **Central US**.
+    * **Região**: selecione uma localização para o grupo de recursos. Exemplo: **Central US**.
     * **Nome Acr**: aceite o nome gerado para o registo ou introduza um nome. Deve ser globalmente único.
+    * **Utilizador Acr Admin Ativado:** aceite o valor predefinido.
     * **Localização**: aceite a localização gerada para a réplica da casa do registo, ou entre num local como **o Central US**. 
+    * **Acr Sku**: aceite o valor predefinido.
     * **Localização da réplica do Acr**: introduza um local para a réplica do registo, utilizando o nome curto da região. Deve ser diferente do local do registo domiciliário. Exemplo: **westeurope**.
-    * **Concordo com os termos e condições acima indicados:** Selecione.
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Propriedades do modelo":::
 
- 3. Se aceitar os termos e condições, selecione **Comprar**. Após a criação do registo com sucesso, recebe uma notificação:
+1. Selecione **Rever + Criar**e, em seguida, rever os termos e condições. Se estiver de acordo, **selecione Criar**.
+
+1. Após a criação do registo com sucesso, recebe uma notificação:
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriedades do modelo":::
 
@@ -80,9 +83,11 @@ Utilize o portal Azure ou uma ferramenta como o Azure CLI para rever as propried
 
     :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriedades do modelo":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, elimine o grupo de recursos, o registo e a réplica do registo. Para tal, vá ao portal Azure, selecione o grupo de recursos que contém o registo e, em seguida, **selecione Delete resource group**.
+
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Propriedades do modelo":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

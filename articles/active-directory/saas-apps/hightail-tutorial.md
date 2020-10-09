@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297319"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826183"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Azure Ative Directory integração única (SSO) com Hightail
 
@@ -155,15 +155,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no ícone do **utilizador** a partir do canto superior direito da página. 
 
-    ![Configurar um único sign-on](./media/hightail-tutorial/configure1.png)
+    ![A imagem mostra o ícone do utilizador.](./media/hightail-tutorial/configure1.png)
 
 1. Clique **no separador Consola de Admin.**
 
-    ![Configurar um único sign-on](./media/hightail-tutorial/configure2.png)
+    ![A screenshot mostra o botão 'Ver Admin Console' para o Utilizador.](./media/hightail-tutorial/configure2.png)
 
 1. No menu em cima, clique no separador **SAML** e execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/hightail-tutorial/configure3.png)
+    ![A screenshot mostra o separador SAML onde pode introduzir o Certificado Login U R L e SAML.](./media/hightail-tutorial/configure3.png)
 
     a. Na caixa de texto **url de login,** cole o valor do URL de **login** copiado do portal Azure.
 

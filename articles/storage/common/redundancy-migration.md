@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f8d1eaa76a30e39647830b54c30cb8f7e8bb8e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613973"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827308"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -123,8 +123,11 @@ Deve efetuar uma migração manual se:
 
 Pode solicitar migração ao vivo através do [portal Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). A partir do portal, selecione a conta de armazenamento que pretende converter para ZRS.
 
-1. Selecione **novo pedido de apoio**
-2. Complete o **Básico** com base nas informações da sua conta. Na secção **Serviço,** selecione **Gestão de Conta de Armazenamento** e o recurso que pretende converter para ZRS.
+1. Selecione **novo pedido de suporte**.
+2. Complete o **Básico** com base nas informações da sua conta: 
+    - **Tipo de emissão**: Selecione **Técnico**.
+    - **Serviço**: Selecione **Os Meus Serviços** e **Gestão de Conta de Armazenamento.**
+    - **Recurso**: Selecione o recurso que pretende converter para ZRS.
 3. Selecione **Seguinte**.
 4. Especificar os seguintes valores da secção **Problema:**
     - **Gravidade**: Deixe o valor predefinido como está.

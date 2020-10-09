@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029550"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827776"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reinicie o seu trabalho ou senha escolar usando informações de segurança
 
@@ -69,7 +69,7 @@ Se não consegue aceder à sua conta Azure Ative Directory (Azure AD), pode ser 
 
     3. Digite e confirme a sua nova palavra-passe e, em seguida, **selecione Terminar**.
 
-- **Reinicie a sua palavra-passe usando um número de telefone.** Envia uma mensagem de texto para o número de telefone que estabeleceu anteriormente na informação de segurança. Se o seu administrador tiver ligado a experiência de informação de segurança, pode encontrar mais informações sobre a configuração de um número de telefone na [informação de segurança Configurar para utilizar um artigo de chamada telefónica (pré-visualização).](security-info-setup-phone-number.md) Se ainda não estiver a utilizar informações de segurança, pode encontrar mais informações sobre a configuração de um número de telefone na [minha conta configurar para](multi-factor-authentication-end-user-first-time.md) artigo de verificação em duas etapas.
+- **Reinicie a sua palavra-passe usando um número de telefone.** Coloca uma chamada de voz automatizada para o número de telefone que previamente configurado em informações de segurança. Se o seu administrador tiver ligado a experiência de informação de segurança, pode encontrar mais informações sobre a configuração de um número de telefone na [informação de segurança Configurar para utilizar um artigo de chamada telefónica (pré-visualização).](security-info-setup-phone-number.md) Se ainda não estiver a utilizar informações de segurança, pode encontrar mais informações sobre a configuração de um número de telefone na [minha conta configurar para](multi-factor-authentication-end-user-first-time.md) artigo de verificação em duas etapas.
 
     1. Selecione **Ligue para o meu telemóvel,** escreva o seu número de telefone e, em seguida, selecione **Call**.
 
@@ -162,7 +162,7 @@ Eis alguns casos de erro comuns e as suas soluções:
 |Depois de introduzir o meu ID do Utilizador, recebo um erro que diz: "A sua conta não está ativada para reset de palavra-passe."|O seu administrador ainda não criou a sua conta para que possa redefinir a sua própria senha.|O seu administrador não ligou a palavra-passe para a sua organização a partir do link "Não pode aceder à sua conta", ou não o licenciou para utilizar a funcionalidade.<br><br> Para redefinir a sua palavra-passe, tem de selecionar o "link de contacto com um administrador" para enviar um e-mail ao administrador da sua empresa e informá-los de que pretende redefinir a sua palavra-passe.|
 |Depois de introduzir o meu ID do utilizador, recebo um erro que diz: "Não conseguimos verificar a sua conta."|O processo de login não foi capaz de verificar a informação da sua conta.|Há duas razões para estar a ver esta mensagem.<br><br>1. O seu administrador ligou a palavra-passe para a sua organização, mas não se registou para utilizar o serviço. Para se registar para reiniciar a palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Configurar informações de segurança para utilizar uma aplicação autenticadora (pré-visualização)](security-info-setup-auth-app.md), [Configurar informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Configurar informações](security-info-setup-text-msg.md)de segurança para utilizar mensagens [de texto (pré-visualização)](security-info-setup-email.md) [Set up security info to use security questions (preview)](security-info-setup-questions.md)<br><br>2. O seu administrador não ligou a palavra-passe para a sua organização. Nesta situação, deve selecionar o "link de contacto com um administrador" para enviar um e-mail ao seu administrador, pedindo para redefinir a sua palavra-passe.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre informações de segurança no artigo de visão geral da [informação de segurança (pré-visualização).](./security-info-setup-signin.md)
 

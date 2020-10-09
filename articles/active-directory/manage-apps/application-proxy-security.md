@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362151"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825902"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure
 
@@ -83,7 +83,7 @@ Para melhorar a segurança das aplicações publicadas pela Azure AD Application
 
 #### <a name="azure-ddos-protection-service"></a>Serviço de proteção Azure DDoS
 
-As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). **A proteção Azure DDoS** é um serviço oferecido com a plataforma Azure para proteger os seus recursos Azure de ataques de negação de serviço. O nível **básico** de serviço é automaticamente ativado, proporcionando uma monitorização contínua do tráfego e uma mitigação em tempo real de ataques comuns ao nível da rede. Para mais informações, consulte [a norma de proteção Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). Esta proteção é gerida pela Microsoft e é ativada automaticamente em todos os nossos datacenters. O serviço de proteção Azure DDoS fornece monitorização de tráfego sempre ligado e mitigação em tempo real de ataques comuns ao nível da rede. 
 
 ## <a name="under-the-hood"></a>Os bastidores
 

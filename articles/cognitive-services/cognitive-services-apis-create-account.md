@@ -10,18 +10,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 623982826f82e44b8d031d19002d33e0a8e798bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827399"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando o portal Azure
 
 Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. Depois de criar um recurso de Serviço Cognitivo no portal Azure, você receberá um ponto final e uma chave para autenticar as suas aplicações.
 
-Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
+Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -42,7 +42,7 @@ Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDK
 
     - Imagem Digitalizada
     - Content Moderator
-    - Face
+    - Rostos
     - Compreensão de Idiomas (LUIS)
     - Análise de Texto
     - Tradutor
@@ -56,7 +56,7 @@ Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDK
 
     Utilize os links abaixo para criar um recurso para os Serviços Cognitivos disponíveis:
 
-    | Visão                      | Voz                  | Idioma                          | Decisão             | Pesquisar                 |
+    | Visão                      | Voz                  | Idioma                          | Decisão             | Pesquisa                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Visão computacional](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Serviços de Fala](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Leitor imersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Detetor de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Serviço de visão personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Reconhecimento de Orador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Compreensão de Idiomas (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
@@ -80,7 +80,7 @@ Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDK
 
     ![Tela de criação de recursos multi-serviço](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
-    Clique em **Create** (Criar).
+    Clique em **Criar**.
 
     #### <a name="single-service-resource"></a>[Recurso de serviço único](#tab/singleservice)
 
@@ -94,7 +94,7 @@ Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDK
 
     ![Tela de criação de recursos de serviço único](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-    Clique em **Create** (Criar).
+    Clique em **Criar**.
 
     ***
 

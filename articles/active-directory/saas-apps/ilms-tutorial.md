@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545215"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826350"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integrar o iLMS com o Azure Ative Directory
 
@@ -90,10 +90,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação iLMS espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | --------|------------- |
     | divisão | user.department |
-    | . | user.state |
+    | region | user.state |
     | departamento | user.jobtitle |
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
@@ -130,29 +130,29 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 2. Clique em **SSO:SAML** no **separador Definições** para abrir as definições DE SAML e executar os seguintes passos:
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/1.png)
+    ![A screenshot mostra o separador de definições I L M S onde pode selecionar S S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expandir a secção **de Prestador de Serviços** e copiar o valor **de Identificador** e **Ponto Final (URL).**
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/2.png) 
+    ![A screenshot mostra configurações SAML onde pode obter os valores.](./media/ilms-tutorial/2.png) 
 
 4. Na secção **Fornecedor de Identidade,** clique em **Metadados de Importação.**
 
 5. Selecione o ficheiro **de metadados** da Federação descarregado a partir do portal Azure a partir da secção **certificado de assinatura SAML.**
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![A screenshot mostra configurações SAML onde pode selecionar o ficheiro de metadados.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Se pretender permitir que o fornecimento de JIT crie contas iLMS para utilizadores não reconhecidos, siga abaixo os passos:
 
     a. Verifique **criar conta de utilizador não reconhecida**.
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Screenshot mostra Criar a opção de Conta de Utilizador não reconhecida.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mapear os atributos em AD Azure com os atributos em iLMS. Na coluna de atributos, especifique o nome dos atributos ou o valor predefinido.
 
     c. Vá ao separador **Regras empresariais** e execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/5.png)
+    ![O Screenshot mostra as definições de Regras empresariais onde pode introduzir as informações neste passo.](./media/ilms-tutorial/5.png)
 
     d. Consulte **Criar Regiões, Divisões e Departamentos não reconhecidos** para criar Regiões, Divisões e Departamentos que ainda não existem no momento da Assinatura Única.
 
@@ -164,7 +164,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 7. Clique **em Guardar** o botão para guardar as definições.
 
-    ![Configurar um único sign-on](./media/ilms-tutorial/save.png)
+    ![A imagem mostra o botão Guardar.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -206,11 +206,11 @@ Se precisar de criar um utilizador manualmente, siga os passos abaixo:
 
 2. Clique em **Registar o utilizador** no **separador Utilizadores** para abrir a página **do Utilizador do Registo.**
 
-   ![Adicionar Empregado](./media/ilms-tutorial/3.png)
+   ![A screenshot mostra o separador I L M S onde pode selecionar o Utilizador registo.](./media/ilms-tutorial/3.png)
 
 3. Na página **'Utilizador registo',** execute os seguintes passos.
 
-    ![Adicionar Empregado](./media/ilms-tutorial/create_testuser_add.png)
+    ![A screenshot mostra a página do Utilizador do Registo onde introduz as informações especificadas.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. Na caixa de texto **"First Name",** escreva o primeiro nome como Britta.
 

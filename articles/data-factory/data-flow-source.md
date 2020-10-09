@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: d850bcf2ffbd3867ab28d7dee54df3f8b427fd6e
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404757"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827845"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de fonte no fluxo de dados de mapeamento 
 
@@ -57,7 +57,9 @@ O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-over
 
 ## <a name="source-settings"></a>Definições de origem
 
-Depois de ter adicionado uma fonte, configufique através do separador **Definições de Origem.** Aqui pode escolher ou criar o conjunto de dados onde os seus pontos de origem. Também pode selecionar opções de esquema e amostragem para os seus dados.
+Depois de ter adicionado uma fonte, configufique através do separador **Definições de Origem.** Aqui pode escolher ou criar o conjunto de dados onde os seus pontos de origem. Também pode selecionar opções de esquema e amostragem para os seus dados. 
+
+Os valores de desenvolvimento dos parâmetros do conjunto de dados podem ser configurados nas [definições de Debug](concepts-data-flow-debug-mode.md) (requer que o modo Debug seja ligado).
 
 ![Separador de definições de origem](media/data-flow/source1.png "Separador de definições de origem")
 

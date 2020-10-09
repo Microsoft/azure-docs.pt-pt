@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112783"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826845"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Uma partição lógica consiste num conjunto de itens que têm a mesma chave de 
 
 Uma divisória lógica também define o âmbito das transações de base de dados. Pode atualizar itens dentro de uma divisória lógica utilizando uma [transação com isolamento instantâneo](database-transactions-optimistic-concurrency.md). Quando novos itens são adicionados a um recipiente, novas divisórias lógicas são criadas de forma transparente pelo sistema.
 
-Não há limite para o número de divisórias lógicas no seu recipiente. Cada divisória lógica pode armazenar até 20GB de dados. Boas escolhas chave de partição têm uma ampla gama de valores possíveis. Por exemplo, num recipiente onde todos os itens contêm uma `foodGroup` propriedade, os dados dentro da `Beef Products` partição lógica podem crescer até 20GB. [Selecionar uma chave de partição](partitioning-overview.md#choose-partitionkey) com uma ampla gama de valores possíveis garante que o recipiente é capaz de escalar.
+Não há limite para o número de divisórias lógicas no seu recipiente. Cada divisória lógica pode armazenar até 20GB de dados. Boas escolhas chave de partição têm uma ampla gama de valores possíveis. Por exemplo, num recipiente onde todos os itens contêm uma `foodGroup` propriedade, os dados dentro da `Beef Products` partição lógica podem crescer até 20 GB. [Selecionar uma chave de partição](partitioning-overview.md#choose-partitionkey) com uma ampla gama de valores possíveis garante que o recipiente é capaz de escalar.
 
 ## <a name="physical-partitions"></a>Divisórias físicas
 
@@ -36,7 +36,7 @@ O número de divisórias físicas no seu recipiente Cosmos depende do seguinte:
 
 Não há limite para o número total de divisórias físicas no seu recipiente. À medida que o seu rendimento ou tamanho de dados aumenta, a Azure Cosmos DB criará automaticamente novas divisórias físicas dividindo as existentes. As divisórias físicas não afetam a disponibilidade da sua aplicação. Após a divisão física, todos os dados dentro de uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de divisórias lógicas para divisórias físicas.
 
-A produção prevista para um recipiente é dividida uniformemente entre divisórias físicas. Um design de chave de partição que não distribua os pedidos de produção uniformemente pode criar divisórias "quentes". As divisórias quentes podem resultar na limitação das taxas e na utilização ineficiente da produção prevista e nos custos mais elevados.
+A produção prevista para um recipiente é dividida uniformemente entre divisórias físicas. Um design chave de partição que não distribui pedidos uniformemente pode resultar em muitos pedidos direcionados para um pequeno subconjunto de divisórias que se tornam "quentes". As divisórias quentes conduzem a uma utilização ineficiente da produção provisitada, o que pode resultar na limitação das taxas e nos custos mais elevados.
 
 Pode ver as divisórias físicas do seu recipiente na secção de **armazenamento** da **lâmina métrica** do portal Azure:
 
@@ -54,9 +54,9 @@ A maioria dos pequenos contentores do Cosmos só requerem uma única partição 
 
 A imagem a seguir mostra como as divisórias lógicas são mapeadas para divisórias físicas que são distribuídas globalmente:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Uma imagem que demonstra a partição de Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Número de visualização de divisórias físicas" border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como escolher uma chave de partição.](partitioning-overview.md#choose-partitionkey)
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

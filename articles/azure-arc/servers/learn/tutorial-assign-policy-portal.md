@@ -2,18 +2,17 @@
 title: Tutorial - Nova atribuição de políticas com portal Azure
 description: Neste tutorial, você usa o portal Azure para criar uma atribuição de Política Azure para identificar recursos não conformes.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321871"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826595"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Criar uma atribuição política para identificar recursos não conformes
 
-O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
-Este tutorial passa pelo processo de criação de uma atribuição de políticas para identificar as máquinas de servidores ativadas pelo Azure Arc e para identificar máquinas que não tenham o agente Log Analytics instalado nas suas máquinas ativadas pelo Arco Azure.
+O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. A Azure Policy suporta a auditoria do estado do seu servidor ativado pelo Arco com as políticas de Configuração de Hóspedes. As políticas de configuração do hóspede não aplicam configurações, apenas auditam as definições dentro da máquina. Este tutorial passa pelo processo de criação e atribuição de uma política, identificando quais dos seus servidores ativados pelo Arco não têm o agente Log Analytics instalado.
 
 No final deste processo, irá identificar com sucesso máquinas que não tenham o agente Log Analytics para Windows ou Linux instalados. Estão em _não conformidade_ com a atribuição de política.
 
@@ -23,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste tutorial, cria-se uma atribuição de políticas e atribui os _VMs de auditoria que não utilizam_ a definição de política de discos geridos.
+Neste tutorial, cria uma atribuição de política e atribui a _ \[ Pré-visualização]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
@@ -31,11 +30,11 @@ Neste tutorial, cria-se uma atribuição de políticas e atribui os _VMs de audi
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Selecione página de atribuições a partir da página de visão geral da política" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Atribuir uma definição de política a partir da página atribuições" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
@@ -53,7 +52,7 @@ Neste tutorial, cria-se uma atribuição de políticas e atribui os _VMs de audi
 
 1. Procure na lista de definições de política para encontrar a _ \[ pré-visualização:: O agente Log Analytics deve ser instalado na definição de máquinas Windows Azure Arc_ se tiver ativado o agente de servidores ativado pelo Arco numa máquina baseada no Windows. Para uma máquina baseada em Linux, encontre a _ \[ pré-visualização correspondente]: O agente Log Analytics deve ser instalado na definição de política das máquinas Linux Azure Arc._ Clique nessa política e clique em **Selecionar**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Encontrar a definição de política correta" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe _ \[ a pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc_ ou _ \[ Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc,_ dependendo da qual selecionou. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
    **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
@@ -68,7 +67,7 @@ Está agora pronto para identificar recursos não conformes para entender o esta
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize a ** \[ pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc** ou ** \[ Pré-visualização]: O agente Log Analytics deve ser instalado na sua** atribuição de política de máquinas Linux Azure Arc que criou.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Detalhes de conformidade na página de Conformidade de Política" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 Se houver recursos existentes que não estejam em conformidade com esta nova atribuição, eles aparecem sob **recursos não conformes.**
 
@@ -92,7 +91,7 @@ Para remover a atribuição criada, siga estes passos:
 
 1. Clique com o direito na atribuição de política e **selecione Eliminar a atribuição**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Excluir uma atribuição da página Compliance" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

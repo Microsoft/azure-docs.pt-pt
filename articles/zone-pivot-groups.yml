@@ -404,8 +404,6 @@ groups:
     title: Python
   - id: programmer-tool-spx
     title: CLI
-  - id: programming-language-more
-    title: Mais linguagens...
 - id: programming-languages-set-two-with-js-go
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -787,9 +785,9 @@ groups:
   - id: platform-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: a2e8065a9498a7139482fac19483e5706449f27b
-  ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+  ms.openlocfilehash: a931ef1b1a4a4c5f107c66187d44a74f2eb5bcde
+  ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/06/2020
-  ms.locfileid: "91772979"
+  ms.lasthandoff: 10/07/2020
+  ms.locfileid: "91825110"

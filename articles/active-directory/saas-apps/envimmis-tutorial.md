@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551749"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Diretório Ativo Azure com a Envi MMIS
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com a Envi MMIS, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações únicas de súmis e URLs do Domínio Envi MMIS e URLs](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com o botão "Identifier", "Answer U R L" e "Save" realçado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Para configurar o Azure AD com a Envi MMIS, execute os seguintes passos:
 
 2. Clique no **separador My Domain.**
 
-    ![Configure o botão único de poupança de sinal](./media/envimmis-tutorial/configure1.png)
+    ![Screenshot que mostra o menu "Utilizador" com "My Domain" selecionado.](./media/envimmis-tutorial/configure1.png)
 
 3. Clique em **Editar**.
 
-    ![Configure o botão único de poupança de sinal](./media/envimmis-tutorial/configure2.png)
+    ![Screenshot que mostra o botão "Editar" selecionado.](./media/envimmis-tutorial/configure2.png)
 
 4. Selecione Utilize a caixa de **verificação de autenticação remota** e, em seguida, selecione **HTTP Redirect** a partir do **dropdown do tipo de autenticação.**
 
-    ![Configure o botão único de poupança de sinal](./media/envimmis-tutorial/configure3.png)
+    ![Screenshot que mostra o separador "Detalhes" com "Use a autenticação remota" verificado e "H T T P Redirecionamento" selecionado.](./media/envimmis-tutorial/configure3.png)
 
 5. Selecione o separador **Recursos** e, em seguida, clique **em Carregar Metadados**.
 
-    ![Configure o botão único de poupança de sinal](./media/envimmis-tutorial/configure4.png)
+    ![Screenshot que mostra o separador "Recursos" com a ação "Upload Metadata" selecionada.](./media/envimmis-tutorial/configure4.png)
 
 6. No **popup de metadados upload,** execute os seguintes passos:
 
-    ![Configure o botão único de poupança de sinal](./media/envimmis-tutorial/configure5.png)
+    ![Screenshot que mostra o popup "Upload Metadata" com a opção "Ficheiro" selecionada e o ícone "escolher ficheiro" e o botão "OK" realçado.](./media/envimmis-tutorial/configure5.png)
 
     a. Selecione a opção **Ficheiro** a partir **do upload de** dropdown.
 
@@ -193,7 +193,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure um único sinal d
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Envi MMIS**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Envi MMIS**.
 
@@ -223,11 +223,11 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Envi MMIS, devem s
 
 2. Clique no **separador Lista de Utilização.**
 
-    ![Adicionar Empregado](./media/envimmis-tutorial/user1.png)
+    ![Screenshot que mostra o menu "Utilizador" com "Lista de Utilizadores" selecionado.](./media/envimmis-tutorial/user1.png)
 
 3. Clique no botão **Adicionar Utilizador.**
 
-    ![Adicionar Empregado](./media/envimmis-tutorial/user2.png)
+    ![Screenshot que mostra a secção "Utilizadores" com o botão "Adicionar utilizador" selecionado.](./media/envimmis-tutorial/user2.png)
 
 4. Na secção **'Adicionar Utilizador',** execute os seguintes passos:
 

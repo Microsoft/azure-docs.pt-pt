@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 8152244d2e05d6e05843a2b84151d6b6a8df7f26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c209d59e3e0552db5d7e7dd64af2ce5d233881a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555615"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: Integração do Azure Ative Directory com easyTerritory
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com um único sign-on com easyTerritory, execute os s
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações de pré-acesso e URLs simples](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com o botão "Identifier", "Answer U R L" e "Save" realçado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://apps.easyterritory.com/<tenant id>/dev/`
 
@@ -163,7 +163,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, p
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **EasyTerritory**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **EasyTerritory**.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443575"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827904"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -40,7 +40,7 @@ Toggling **Show datas como** oculta a coluna RISK LAST **UPDATE.** Para ler a co
 
 **A resolução** de uma deteção de risco define o estado para **os Utilizadores aprovados em MFA impulsionados pela política baseada no risco**.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="why-is-a-user-is-at-risk"></a>Por que um utilizador está em risco?
 
@@ -94,8 +94,12 @@ Todas as deteções de risco estão documentadas no artigo [O que é o risco](co
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Porque é que estou a ver um utilizador com uma pontuação de risco baixa (ou acima), mesmo que não sejam apresentados insusitados de risco ou deteções de risco na Proteção de Identidade?
 
-Dado que o risco do utilizador é cumulativo de natureza e não expira, um utilizador pode ter um risco de utilização baixo ou superior, mesmo que não existam recentes insuposições de risco ou deteções de risco mostradas na Proteção de Identidade. Esta situação poderia acontecer se a única atividade maliciosa num utilizador ocorresse para além do prazo para o qual armazenamos os detalhes de insusitadas de risco e deteções de riscos. Não expiramos o risco do utilizador porque os maus atores são conhecidos por permanecerem no ambiente dos clientes mais de 140 dias atrás de uma identidade comprometida antes de aumentarem o seu ataque. Os clientes podem rever a linha temporal de risco do utilizador para entender por que um utilizador está em risco ao ir:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+Dado que o risco do utilizador é cumulativo de natureza e não expira, um utilizador pode ter um risco de utilização baixo ou superior, mesmo que não existam recentes insuposições de risco ou deteções de risco mostradas na Proteção de Identidade. Esta situação poderia acontecer se a única atividade maliciosa num utilizador ocorresse para além do prazo para o qual armazenamos os detalhes de insusitadas de risco e deteções de riscos. Não expiramos o risco do utilizador porque os maus atores são conhecidos por permanecerem no ambiente dos clientes mais de 140 dias atrás de uma identidade comprometida antes de aumentarem o seu ataque. Os clientes podem rever a linha temporal de risco do utilizador para entender por que um utilizador está em risco ao ir: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que razão um sinal tem uma pontuação de "risco de entrada (agregado)" de High quando as deteções associadas a ele são de baixo ou médio risco?
 
 A pontuação de risco agregada elevada pode basear-se em outras características do sinal, ou no facto de mais de uma deteção ter disparado para esse sinal. E inversamente, um sinal pode ter um risco de inscrição (agregado) de Medium, mesmo que as deteções associadas à inscrição sejam de alto risco. 
+
+### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Por que razão a deteção que está ligada a um sinal de risco tem um nível de risco diferente do nível de risco de inscrição (em tempo real)? 
+
+Recentemente fizemos melhorias na forma como o risco de inscrição em tempo real é calculado. A discrepância observada entre o nível de deteção de risco e o nível de risco de inscrição resulta dessas alterações. Note que o risco de entrada em tempo real é o valor que é usado durante a aplicação da política. 

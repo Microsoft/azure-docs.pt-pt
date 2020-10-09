@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081428"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825747"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de livros do Azure Monitor
 
@@ -114,4 +114,3 @@ Para evitar fazer chamadas automaticamente para anfitriões não confiáveis qua
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.
 * [Dicas de otimização de consultas log Analytics](../log-query/query-optimization.md)
-* 

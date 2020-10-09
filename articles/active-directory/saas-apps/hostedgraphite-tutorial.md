@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521881"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutorial: Integração do Diretório Ativo Azure com Grafite Hospedada
 
@@ -100,7 +100,7 @@ Para configurar o Azure AD com grafite acolô, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações de assinatura única de Graphite e URLs hospedadas](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com grafite acolô, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações de assinatura única de Graphite e URLs hospedadas](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Para configurar o Azure AD com grafite acolô, execute os seguintes passos:
 
 2. Aceda à **página de configuração SAML** na barra lateral **(Acesso -> configuração SAML**).
 
-    ![Configure único sinal no lado da aplicação](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![A screenshot mostra o menu Access com configuração SAML selecionada.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Confirme que estes URls correspondem à sua configuração feita na secção **de Configuração SAML Básica** do portal Azure.
 
-    ![Configure único sinal no lado da aplicação](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![A screenshot mostra a configuração básica do SAML.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. Nas caixas de texto de  **ID de Entidade ou Emitente** e **SSO Login URL,** cole o valor do Identificador de **Ad Azure** e URL de **login** que copiou do portal Azure.
 
-    ![Configure único sinal no lado da aplicação](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![A screenshot mostra entradas para Fornecedor de Identidade.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Selecione **Read-only** como **função de utilizador predefinida**.
 
-    ![Configure único sinal no lado da aplicação](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![A screenshot mostra a função de utilizador predefinida, que é apenas para ler.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Abra o certificado codificado base-64 no bloco de notas descarregado do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o para a caixa de texto **do Certificado X.509.**
 
-    ![Configure único sinal no lado da aplicação](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![A screenshot mostra o certificado X dot 509.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Clique no botão **Guardar.**
 
@@ -186,7 +186,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecioneGraphite **Anfitrião**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, **selecioneGraphite Anfitrião**.
 

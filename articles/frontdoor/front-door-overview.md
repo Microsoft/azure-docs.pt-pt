@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773455"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825651"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
 Azure Front Door é um ponto de entrada global e escalável que utiliza a rede de arestas globais da Microsoft para criar aplicações web rápidas, seguras e amplamente escaláveis. Com a Front Door, pode transformar as suas aplicações globais de consumidores e empresas em aplicações modernas robustas e personalizadas de alto desempenho com conteúdos que atingem um público global através do Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Arquitetura da porta da frente":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 A Porta Frontal funciona na camada 7 (camada HTTP/HTTPS) utilizando qualquer protocolo decast com TCP dividido e a rede global da Microsoft para melhorar a conectividade global. Com base no seu método de encaminhamento, pode garantir que a Porta Frontal encaminhará os pedidos do seu cliente para o backend de aplicações mais rápido e disponível. Os back-ends de aplicação são serviços com acesso à Internet alojados dentro ou fora do Azure. A Porta Frontal fornece uma gama de [métodos de encaminhamento de tráfego](front-door-routing-methods.md) e opções de [monitorização de saúde de backend](front-door-health-probes.md) para atender às diferentes necessidades de aplicação e cenários automáticos de failover. À semelhança [do Traffic Manager,](../traffic-manager/traffic-manager-overview.md)a Porta frontal é resiliente a falhas, incluindo falhas em toda uma região do Azure.
 

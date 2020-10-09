@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555394"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826751"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
 
@@ -121,7 +121,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
 1. No **âmbito da configuração do Remix do Gerente de Vendas E**, selecione **Configure E Sales Manager Remix**.
 
-    ![Configuração remix do gerente de vendas do E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Screenshot que mostra a secção "E Sales Manager Remix Configuration" com "Configure E Sales Manager Remix" selecionada.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     A janela de inscrição de configuração **abre.-** A janela de inscrição se abre.
 
@@ -253,7 +253,7 @@ Nesta secção, permite ao utilizador Britta Simon utilizar o Azure single sign-
 
 1. Na janela **de Utilizadores e grupos,** na lista **de Utilizadores,** selecione **Britta Simon**.
 
-1. Selecione o botão **Selecione.**
+1. Selecione o botão **Selecionar**.
 
 1. Na janela **'Adicionar Atribuição',** selecione **Atribuir**.
     

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 324e8b86c42f991fa7b0d566bf71b50ca69a53a6
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728765"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826924"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novidades para Azure Key Vault
 
@@ -31,7 +31,7 @@ Até ao final de 2020, o **soft-delete estará ligado por defeito para todos os 
 
 ### <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
 
-A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais não cumprem um dos requisitos de Base do Fórum CA/Browser.
+A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta alteração está a ser feita porque os certificados ac atuais [não cumprem um dos requisitos de base do Ca/Browser Forum.](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 
 ### <a name="when-will-this-change-happen"></a>Quando é que esta mudança vai acontecer?
 
@@ -88,9 +88,9 @@ Aqui estão algumas formas de detetar se a sua aplicação é impactada:
 
 - Se tiver um ambiente onde as regras de firewall são definidas para permitir chamadas de saída apenas para locais específicos de verificação da Lista de Revogação de Certificados (CRL) e/ou protocolo de verificação do certificado online (OCSP). Você precisará permitir os seguintes URLs CRL e OCSP:
 
-    - http://crl3&#46;digicert&#46;com
-    - http://crl4&#46;digicert&#46;com
-    - http://ocsp&#46;digicert&#46;com
+    - http://crl3&#46;d igicert&#46;com
+    - http://crl4&#46;d igicert&#46;com
+    - http://ocsp&#46;d igicert&#46;com
     - http://www&#46rede de&#46;de ;d-trust
     - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com

@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977573"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825786"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
-Os livros fornecem uma tela flexível para análise de dados e a criação de relatórios visuais ricos dentro do portal Azure. Permitem-lhe aceder a várias fontes de dados de todo o Azure e combiná-las em experiências interativas unificadas. 
+Os livros fornecem uma tela flexível para a análise de dados e a criação de relatórios visuais avançados no portal do Azure. Permitem-lhe aceder a várias fontes de dados de todo o Azure e combiná-las em experiências interativas unificadas. 
 
 Aqui está um vídeo sobre a criação de livros.
 
@@ -25,11 +25,11 @@ Aqui está um vídeo sobre a criação de livros.
 
 ## <a name="data-sources"></a>Origens de dados
 
-Os livros de trabalho podem consultar dados de várias fontes dentro do Azure. Os autores de livros de trabalho podem transformar estes dados para fornecer informações sobre a disponibilidade, desempenho, utilização e saúde geral dos componentes subjacentes. Por exemplo, analisar registos de desempenho de máquinas virtuais para identificar casos elevados de CPU ou de baixa memória e exibir os resultados como uma grelha num relatório interativo.
+Os livros podem consultar dados de várias origens no Azure. Os autores de livros podem transformar estes dados para fornecer informações sobre a disponibilidade, desempenho, utilização e estado de funcionamento geral dos componentes subjacentes. Por exemplo, analisar registos de desempenho de máquinas virtuais para identificar casos elevados de CPU ou de baixa memória e exibir os resultados como uma grelha num relatório interativo.
   
-Mas o verdadeiro poder dos livros de trabalho é a capacidade de combinar dados de fontes diferentes num único relatório. Isto permite a criação de pontos de vista compósitos de recursos ou junta-se a recursos que permitam dados e insights mais ricos que de outra forma seriam impossíveis.
+Mas a verdadeira vantagem dos livros é a capacidade para combinar dados de origens diferentes num único relatório. Isto permite a criação de pontos de vista compósitos de recursos ou junta-se a recursos que permitam dados e insights mais ricos que de outra forma seriam impossíveis.
 
-Os livros de trabalho são atualmente compatíveis com as seguintes fontes de dados:
+Os livros são atualmente compatíveis com as seguintes origens de dados:
 
 * [Registos](workbooks-data-sources.md#logs)
 * [Métricas](workbooks-data-sources.md#metrics)

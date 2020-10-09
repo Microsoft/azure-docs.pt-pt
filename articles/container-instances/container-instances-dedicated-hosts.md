@@ -3,14 +3,14 @@ title: Implementar em anfitrião dedicado
 description: Use um hospedeiro dedicado para alcançar um verdadeiro isolamento ao nível do hospedeiro para as suas cargas de trabalho de instâncias de contentores Azure
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259643"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825612"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementar em anfitriões dedicados
 
@@ -31,8 +31,8 @@ O sku dedicado é apropriado para cargas de trabalho de contentores que requerem
 Começando pela versão API 2019-12-01, existe uma `sku` propriedade sob a secção de propriedades do grupo de contentores de um modelo de implantação, que é necessário para uma implantação de ACI. Atualmente, você pode usar esta propriedade como parte de um modelo de implementação de Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos ACI com um modelo no [Tutorial: Implemente um grupo multi-contentores utilizando um modelo de Gestor de Recursos](./container-instances-multi-container-group.md). 
 
 O `sku` imóvel pode ter um dos seguintes valores:
-* `Standard`- a escolha padrão de implantação do ACI, que ainda garante a segurança ao nível do hipervisor 
-* `Dedicated`- utilizado para o isolamento do nível de carga de trabalho com hospedeiros físicos dedicados para o grupo de contentores
+* `Standard` - a escolha padrão de implantação do ACI, que ainda garante a segurança ao nível do hipervisor 
+* `Dedicated` - utilizado para o isolamento do nível de carga de trabalho com hospedeiros físicos dedicados para o grupo de contentores
 
 ## <a name="modify-your-json-deployment-template"></a>Modifique o seu modelo de implementação JSON
 

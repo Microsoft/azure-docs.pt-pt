@@ -3,12 +3,12 @@ title: Implantação de tecido de serviço Azure com PowerShell
 description: Saiba como remover e implementar aplicações no Azure Service Fabric e como realizar estas ações em Powershell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 8bc4557c5d0d59330c7e91a4b3fdce83cfbf334c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611457"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827421"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações usando PowerShell
 
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 Se o pacote de aplicações for grande e/ou tiver muitos ficheiros, pode [comprimi-lo](service-fabric-package-apps.md#compress-a-package). A compressão reduz o tamanho e o número de ficheiros.
-O efeito colateral é que registar e des-registar o tipo de aplicação é mais rápido. O tempo de upload pode ser mais lento atualmente, especialmente se incluir o tempo para comprimir o pacote. 
+Isto resulta num registo mais rápido e não registo do tipo de aplicação. O tempo de upload pode ser mais lento atualmente, especialmente se incluir o tempo para comprimir o pacote. 
 
 Para comprimir um pacote, utilize o mesmo comando [Copy-ServiceFabricApplicationPackage.](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) A compressão pode ser feita separada do upload, utilizando a `SkipCopy` bandeira ou juntamente com a operação de upload. Aplicar compressão num pacote comprimido não é op.
 Para descomprimir um pacote comprimido, utilize o mesmo comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com o `UncompressPackage` interruptor.

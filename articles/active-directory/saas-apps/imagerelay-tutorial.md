@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545255"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integração do Diretório Ativo Azure com Relé de Imagem
 
@@ -128,27 +128,27 @@ Para configurar o Azure AD com um único sinal de inscrição com relé de image
 
 2. Na barra de ferramentas na parte superior, clique na carga de trabalho **& permissões dos Utilizadores.**
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![A screenshot mostra utilizadores & permissões selecionadas a partir da barra de ferramentas.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Clique **em Criar Nova Permissão**.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![A screenshot mostra uma caixa de texto para introduzir o título de Permissão e uma opção para escolher o Tipo de Permissão.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. Na carga de trabalho **de sinais únicos sobre definições,** selecione **o grupo só pode iniciar sposição através de sinal único na** caixa de verificação e, em seguida, clique em **Guardar**.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![A screenshot mostra o sinal único nas definições onde pode selecionar a opção.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Ir para **as Definições de Conta**.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![A screenshot mostra a opção barra de ferramentas 'Definições de conta'.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Aceda à carga de trabalho **de sinal único nas definições.**
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![A screenshot mostra a opção do menu single Sign On Settings.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. No diálogo **de Definições SAML,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![A screenshot mostra a caixa de diálogo de definições SAML onde pode introduzir as informações.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. Na caixa de texto **URL de login,** cole o valor do URL de **login** que copiou do portal Azure.
 
@@ -160,19 +160,19 @@ Para configurar o Azure AD com um único sinal de inscrição com relé de image
 
     e. No **certificado x.509,** clique no **Certificado de Atualização**.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![A screenshot mostra a opção de atualizar o certificado.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Abra o certificado descarregado no bloco de notas, copie o conteúdo e, em seguida, cole-o na caixa de texto **do Certificado x.509.**
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![A screenshot mostra o certificado x ponto 509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     exemplo, Na secção **de Provisionamento do Utilizador Just-In-Time,** selecione a **provisão do utilizador "Tempo Justo".**
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![A screenshot mostra a secção de Provisionamento do Utilizador Just-In-Time com o controlo de ativação selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Selecione o grupo de permissões (por exemplo, **SSO Basic)** que só pode iniciar sing in através de uma única sing-on.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![A screenshot mostra a secção de Provisionamento do Utilizador Just-In-Time com S S O Basic selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Clique em **Guardar**.
 
@@ -207,7 +207,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Image Relay**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Image Relay**.
 
@@ -237,11 +237,11 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Image R
 
 2. Vá aos **Utilizadores & permissões**     e selecione **Criar Utilizador SSO**.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Screenshot mostra Create S S O User selecionado a partir do menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Introduza o **Email**, **Nome Próprio**, **Apelido**e **Empresa** do utilizador que pretende providenciar e selecione o grupo de permissões (por exemplo, SSO Basic) que é o grupo que só pode iniciar sinação através de uma única sintrodução.
 
-    ![Configurar um único sign-on](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Screenshot mostra Criar uma página de utilizador S S O onde pode introduzir as informações necessárias.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Clique em **Criar**.
 

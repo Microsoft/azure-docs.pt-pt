@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 5447bea686db48157c721978f5510cd80e0924c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8883b5959cc4c67d34efc3c9da7788f03fc6c9af
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88065799"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825206"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use filas de autocarros da Azure Service com a Java para enviar e receber mensagens
 
@@ -65,7 +65,7 @@ public void run() throws Exception {
     // Create a QueueClient instance and then asynchronously send messages.
     // Close the sender once the send operation is complete.
     QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+    this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 
     sendClient.close();
 }

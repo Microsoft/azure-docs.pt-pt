@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544084"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826141"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Hive
 
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação da Hive espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------------ | --------- |
     | nomePróprio | user.givenname |
     | apelido | utilizador.sobrenome |
@@ -147,11 +147,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no Perfil de **Utilizador** e clique no seu espaço **de trabalho.**
 
-    ![Configuração da Colmeia](./media/hive-tutorial/configure1.png)
+    ![A screenshot mostra o site da Hive com o seu espaço de trabalho selecionado a partir do menu.](./media/hive-tutorial/configure1.png)
 
 1. Clique **em Auth** e execute os seguintes passos:
 
-    ![Configuração da Colmeia](./media/hive-tutorial/configure2.png)
+    ![A screenshot mostra a página Auth onde as tarefas descritas.](./media/hive-tutorial/configure2.png)
 
     a. Copie **o ID** do seu espaço de trabalho e adicione-o ao URL e **URL de resposta** do **SignOn** na **Secção de Configuração Básica SAML** no portal Azure.
 

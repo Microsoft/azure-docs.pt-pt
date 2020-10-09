@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649745"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826625"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -21,7 +21,7 @@ O Gateway de Aplicações está disponível sob um Standard_v2 SKU. Web Applicat
 
 O novo V2 SKU inclui as seguintes melhorias:
 
-- **Autoscaling**: As implementações de Gateway de aplicação ou WAF sob o SKU auto-caling podem escalar para cima ou para baixo com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Este SKU oferece uma verdadeira elasticidade. No Standard_v2 e WAF_v2 SKU, o Application Gateway pode funcionar tanto em capacidade fixa (autoscaling desativada) como em modo de autoscalagem ativado. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de autoescalagem é benéfico em aplicações que vêem variação no tráfego de aplicações.
+- **Autoscalagem**: As implementações de Gateway de aplicação ou WAF sob o SKU auto-caling podem escalar para fora ou em com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Este SKU oferece uma verdadeira elasticidade. No Standard_v2 e WAF_v2 SKU, o Application Gateway pode funcionar tanto em capacidade fixa (autoscaling desativada) como em modo de autoscalagem ativado. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. O modo de autoescalagem é benéfico em aplicações que vêem variação no tráfego de aplicações.
 - **Redundância de zona**: Uma implementação de Gateway de Aplicação ou WAF pode abranger várias Zonas de Disponibilidade, eliminando a necessidade de providenciar instâncias separadas do Gateway de aplicação em cada zona com um Gestor de Tráfego. Pode escolher uma única zona ou várias zonas onde são implementadas as instâncias do Gateway de Aplicação, o que o torna mais resistente à falha de zona. O pool backend para aplicações pode ser distribuído de forma semelhante em zonas de disponibilidade.
 
   O despedimento de zona só está disponível quando as Zonas Azure estiverem disponíveis. Noutras regiões, todas as outras características são apoiadas. Para mais informações, consulte [Regiões e Zonas de Disponibilidade em Azure](../availability-zones/az-overview.md)
@@ -113,7 +113,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 
 Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-lo a migrar do seu V1 Application Gateway/WAF para o V2 Autoscaling SKU. Este script ajuda-o a copiar a configuração do seu gateway V1. A migração do tráfego continua a ser da sua responsabilidade. Para mais informações, consulte [o Portal de Aplicações Migrate Azure de v1 a v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Crie um porta de aplicação redundante de zona de auto-estação com um endereço IP virtual reservado usando a Azure PowerShell](tutorial-autoscale-ps.md)

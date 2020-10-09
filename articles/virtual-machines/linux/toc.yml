@@ -293,7 +293,7 @@
             - name: Flexibilidade do tamanho da instância de VM
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Spot VMs
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: VMs do Azure sem disco temporário
           href: ../azure-vms-no-temp-disk.md
@@ -400,7 +400,7 @@
             - name: CLI
               href: spot-cli.md
             - name: Portal
-              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+              href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Modelo ARM
               displayName: Azure Resource Manager
               href: spot-template.md

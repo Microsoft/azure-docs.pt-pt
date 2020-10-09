@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 43f7cddfa6fb887fd421d1f90a41145c6182654d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517149"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Ative Directory com Silverback
 
@@ -160,7 +160,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
@@ -173,7 +173,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Silverback**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Silverback**.
 
@@ -213,7 +213,7 @@ Para permitir que os utilizadores da Azure AD iniciem sessão em Silverback, dev
 
     c. Na caixa de texto **Last Name,** insira o último nome do utilizador como **Simon**.
 
-    d. Na caixa de texto **do endereço de e-mail,** insira o e-mail do utilizador como **Brittasimon@contoso.com** .
+    d. Na caixa de texto **do endereço de e-mail,** insira o e-mail de um utilizador como **o Brittasimon \@ contoso.com**.
 
     e. Na caixa de texto da **palavra-passe,** insira a sua palavra-passe.
 

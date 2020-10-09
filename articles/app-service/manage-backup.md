@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539083"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827465"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de Backup e Restauro no [Azure App Service](overview.md) permite-lhe criar facilmente cópias de segurança de aplicações manualmente ou em horário. Pode configurar as cópias de segurança para serem mantidas até um tempo indefinido. Pode restaurar a aplicação para uma imagem instantânea de um estado anterior, sobressacando a aplicação existente ou restaurando para outra aplicação.
@@ -92,7 +92,7 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 
     Vê uma mensagem de progresso durante o processo de backup.
 
-Uma vez configurada a conta de armazenamento e o recipiente, pode iniciar uma cópia de segurança manual a qualquer momento.
+Uma vez configurada a conta de armazenamento e o recipiente, pode iniciar uma cópia de segurança manual a qualquer momento. As cópias de segurança manuais são mantidas indefinidamente.
 
 <a name="automatedbackups"></a>
 

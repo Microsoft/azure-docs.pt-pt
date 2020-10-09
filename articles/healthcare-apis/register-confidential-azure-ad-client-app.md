@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629155"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826215"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registar um pedido de cliente confidencial no Azure Ative Directory
 
@@ -50,7 +50,7 @@ Agora que registou a sua aplicação, terá de selecionar quais as permissões d
 
 1. **Selecione Adicionar uma permissão**.
 
-    Se estiver a utilizar a API Azure para FHIR, adicionará uma permissão às APIs de Cuidados de Saúde Azure, procurando APIs de **Azure Healthcare** ao abrigo **de APIs que a minha organização utiliza.** 
+    Se estiver a utilizar a API Azure para FHIR, adicionará uma permissão às APIs de Cuidados de Saúde Azure, procurando APIs de **Azure Healthcare** ao abrigo **de APIs que a minha organização utiliza.** Só poderá encontrá-lo se já tiver [implantado a API Azure para fHIR.](fhir-paas-powershell-quickstart.md)
 
     Se estiver a fazer referência a uma aplicação de recursos diferente, selecione o [registo de aplicação de recursos da FHIR API](register-resource-azure-ad-client-app.md) que criou anteriormente ao abrigo **das Minhas APIs.**
 
@@ -64,7 +64,7 @@ Agora que registou a sua aplicação, terá de selecionar quais as permissões d
 
 ## <a name="application-secret"></a>Segredo da aplicação
 
-1. Selecione **certificados & segredos**.
+1. Selecione **Certificados & segredos**.
 1. Selecione **Novo segredo do cliente**. 
 
     ![Cliente confidencial. Segredo de Aplicação](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
@@ -75,9 +75,7 @@ Agora que registou a sua aplicação, terá de selecionar quais as permissões d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a registar um pedido de cliente confidencial no Azure Ative Directory. Está agora pronto para implantar a [API Azure para fHIR](fhir-paas-powershell-quickstart.md).
-
-Uma vez implantado a API Azure para FHIR, pode rever as definições disponíveis adicionais.
+Neste artigo, aprendeu a registar um pedido de cliente confidencial no Azure Ative Directory. Em seguida, pode aceder ao seu servidor FHIR usando o Carteiro
  
 >[!div class="nextstepaction"]
->[Implementar o Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Acesso Azure API para FHIR com Carteiro](access-fhir-postman-tutorial.md)

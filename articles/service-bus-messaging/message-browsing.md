@@ -3,12 +3,12 @@ title: Azure Service Bus - navegação de mensagens
 description: Navegue e espreite as mensagens Service Bus permite que um cliente da Azure Service Bus enumerou todas as mensagens que residem numa fila ou subscrição.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341232"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827450"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 
@@ -30,9 +30,9 @@ Quando chamado repetidamente, o método Peek enumera todas as mensagens que exis
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) recupera várias mensagens e devolve-as como uma enumeração. Se não houver mensagens disponíveis, o objeto de enumeração está vazio, não nulo.
 
-Também pode semear uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) no qual começar e, em seguida, chamar a sobrecarga do método sem parâmetros para enumerar ainda mais. **O PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
+Também pode utilizar uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) para começar e, em seguida, chamar a sobrecarga do método sem parâmetros para enumerar ainda mais. **O PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

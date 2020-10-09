@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 2cfc0324a06b4d950fc289b9c8ef033e77ffa53f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627912"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825907"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -72,7 +72,7 @@ Certifique-se de que [ temNode.js](https://nodejs.org/en/download/) instalada e,
    npm install morgan --save
    ```
 
-1. Agora, crie um ficheiro .js nomeado `index.js` e, em seguida, adicione o seguinte código:
+1. Agora, crie um ficheiro .js nomeado `server.js` e, em seguida, adicione o seguinte código:
 
    ```JavaScript
    const express = require('express');
@@ -279,7 +279,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js
 >
-> Para Node.js, pode definir a porta do servidor web no ficheiro *index.js.* Este tutorial usa a porta 3000, mas pode usar qualquer outra porta disponível.
+> Para Node.js, pode definir a porta do servidor web no ficheiro *server.js.* Este tutorial usa a porta 3000, mas pode usar qualquer outra porta disponível.
 >
 > Para configurar um URL de redirecionamento nas informações de registo de pedidos, volte para o painel de registo de **inscrição** de pedido e faça qualquer um dos seguintes:
 >
@@ -513,3 +513,4 @@ Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plat
 
 > [!div class="nextstepaction"]
 > [Cenário: Aplicação de página única](scenario-spa-overview.md)
+

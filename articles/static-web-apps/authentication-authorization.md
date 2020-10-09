@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297074"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826542"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Pré-visualização das Aplicações Web Estáticas do Azure
 
@@ -57,9 +57,9 @@ Os convites são específicos para os fornecedores individuais de autorização,
 | ---------------------- | ----------------- |
 | Azure Active Directory | endereço de e-mail     |
 | Facebook               | endereço de e-mail     |
-| GitHub                 | o nome de utilizador          |
+| GitHub                 | nome de utilizador          |
 | Google<sup>1</sup>     | endereço de e-mail     |
-| Twitter                | o nome de utilizador          |
+| Twitter                | nome de utilizador          |
 
 1. Navegue para um recurso estático de Aplicações Web no [portal Azure](https://portal.azure.com).
 1. Em _Definições_, clique em **Gestão de Funções**.
@@ -197,7 +197,7 @@ Para bloquear um fornecedor, pode criar [regras](routes.md) de rota para devolve
 
 Consulte o [artigo Quotas](quotas.md) para restrições e limitações gerais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aceder aos dados de autenticação e autorização do utilizador](user-information.md)

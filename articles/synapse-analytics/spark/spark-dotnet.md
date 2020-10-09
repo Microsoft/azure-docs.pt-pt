@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: b445787c44efca4eb6bdee3e61eb39735e5c6b14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259905"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826518"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilize .NET para Apache Spark com Azure Synapse Analytics
 
@@ -34,14 +34,29 @@ Visite o tutorial para aprender a usar a Azure Synapse Analytics para criar defi
 
    ```dotnetcli
    cd mySparkApp
+   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
+   ```
+   
+   **Em Linux:**
+
+   ```dotnetcli
+   cd mySparkApp
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
-   **Em Linux:**
+2. Zip o conteúdo da pasta de publicação, `publish.zip` por exemplo, que foi criado como resultado do Passo 1. Todos os conjuntos devem estar na primeira camada do ficheiro ZIP e não deve haver camada de pasta intermédia. Isto significa que, quando desapertar, `publish.zip` todos os conjuntos são extraídos para o seu diretório de trabalho atual.
 
-   ```bash
-   zip -r publish.zip
-   ```
+    **Nas janelas:**
+
+Utilize um programa de extração, como [o 7-Zip](https://www.7-zip.org/) ou o [WinZip,](https://www.winzip.com/)para extrair o ficheiro no diretório do caixote do lixo com todos os binários publicados.
+
+     **On Linux:**
+
+     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+
+       ```bash
+       zip -r publish.zip
+       ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>.NET para Apache Spark em Azure Synapse Analytics cadernos 
 

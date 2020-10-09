@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 95be6aa576d9d059ce419443f8c7e32af5ff397a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653099"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826199"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Parar/Iniciar uma Base de Dados Azure para o MySQL
 
@@ -24,7 +24,7 @@ Este artigo fornece procedimento passo a passo para executar Stop and Start do s
 
 Para completar este guia, precisa:
 
--   Deve ter uma base de dados Azure para o MySQL single Server.
+-   Deve ter uma base de dados Azure para o MySQL Single Server.
 
 > [!NOTE]
 > Consulte a limitação da utilização do [stop/start](concepts-servers.md#limitations-of-stopstart-operation)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485724"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827526"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -69,7 +69,7 @@ Os runtimes de integração do Azure proporcionam a computação nativa para mov
 
 O despacho de atividade é uma operação leve para encaminhar a atividade para o serviço de computação alvo, por isso não é necessário aumentar o tamanho do cálculo para este cenário.
 
-Para obter informações sobre a criação e configuração de um Azure IR, consulte como criar e configurar o Azure IR em como orientar. 
+Para obter informações sobre a criação e configuração de um Azure IR, consulte [Como criar e configurar o Tempo de Execução da Integração Azure](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > O tempo de execução da Integração Azure tem propriedades relacionadas com o tempo de execução do Data Flow, que define a infraestrutura computacional subjacente que seria usada para executar os fluxos de dados. 
@@ -196,7 +196,7 @@ Cada atividade de transformação externa que utiliza um motor de computação e
 
 As atividades do Data Flow são executadas no tempo de integração do Azure que lhe está associado. O computamento Spark utilizado pelos Data Flows é determinado pelas propriedades de fluxo de dados no seu Tempo de Execução de Integração Azure e são totalmente geridos pela ADF.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

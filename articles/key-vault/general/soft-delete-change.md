@@ -6,16 +6,15 @@ author: ShaneBala-keyvault
 manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984611"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825253"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
 

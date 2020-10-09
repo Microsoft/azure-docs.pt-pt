@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317638"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828011"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec over ExpressRoute for Virtual WAN
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como usar a Azure Virtual WAN para estabelecer uma ligaç
 
 O seguinte diagrama mostra um exemplo de conectividade VPN sobre o espreguimamento privado ExpressRoute:
 
-![VPN sobre ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="VPN sobre ExpressRoute":::
 
 O diagrama mostra uma rede dentro da rede de instalações ligada à porta de entrada VPN do hub Azure sobre o expressRoute private peering. O estabelecimento de conectividade é simples:
 
@@ -54,7 +54,7 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 > Se publicitar os *mesmos* prefixos sobre as ligações ExpressRoute e VPN, a Azure utilizará o caminho ExpressRoute diretamente sem proteção VPN.
 >
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
@@ -76,7 +76,7 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para um WAN virt
 >
 
 1. Vá ao portal Azure no seu browser. 
-1. Selecione o WAN que criou. Na página WAN, em **Conectividade,** selecione **sites VPN**.
+1. Selecione o hub que criou. Na página virtual do hub WAN, em **Conectividade,** selecione **sites VPN**.
 1. Na página dos **sites VPN,** selecione **+Criar site.**
 1. Na página **Criar site**, preencha os seguintes campos:
    * **Assinatura**: Verifique a subscrição.
@@ -104,12 +104,17 @@ O recurso do site é o mesmo que os sites VPN não ExpressRoute para um WAN virt
 Depois de criar o site VPN e ligar ao centro, utilize os seguintes passos para configurar a ligação para utilizar o espreguite privado ExpressRoute:
 
 1. Volte para a página virtual de recursos WAN e selecione o recurso hub. Ou navegue do site VPN para o centro conectado.
-1. Em **Conectividade,** selecione **VPN (Site-to-Site)**.
-1. Selecione a elipse **(...**) no site VPN em vez do ExpressRoute e selecione **a ligação Editar VPN a este centro**.
-1. Para **utilizar o endereço IP privado Azure**, selecione **Sim**. A definição configura a porta de entrada VPN do hub para utilizar endereços IP privados dentro do intervalo de endereços do hub no gateway para esta ligação, em vez dos endereços IP públicos. Isto garantirá que o tráfego a partir da rede de instalações percorra os caminhos privados de observação ExpressRoute em vez de utilizar a internet pública para esta ligação VPN. A imagem que se segue mostra a definição.
 
-   ![Definição para utilização de um endereço IP privado para a ligação VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN sobre ExpressRoute":::
+1. Em **Conectividade,** selecione **VPN (Site-to-Site)**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN sobre ExpressRoute":::
+1. Selecione a elipse **(...**) no site VPN em vez do ExpressRoute e selecione **a ligação Editar VPN a este centro**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN sobre ExpressRoute":::
+1. Para **utilizar o endereço IP privado Azure**, selecione **Sim**. A definição configura a porta de entrada VPN do hub para utilizar endereços IP privados dentro do intervalo de endereços do hub no gateway para esta ligação, em vez dos endereços IP públicos. Isto garantirá que o tráfego a partir da rede de instalações percorra os caminhos privados de observação ExpressRoute em vez de utilizar a internet pública para esta ligação VPN. A imagem que se segue mostra a definição:
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN sobre ExpressRoute" border="false":::
 1. Selecione **Guardar**.
 
 Depois de guardar as suas alterações, o gateway VPN do hub utilizará os endereços IP privados no gateway VPN para estabelecer as ligações IPsec/IKE com o dispositivo VPN no local sobre o ExpressRoute.
@@ -225,11 +230,11 @@ Se precisar de instruções para configurar o dispositivo, pode utilizar as inst
 1. Na página **'Visão Geral',** cada ponto no mapa representa um hub.
 1. Na secção **Hubs e conexões,** pode ver o centro, o local, a região e o estado de ligação VPN. Você também pode ver bytes dentro e fora.
 
-## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. Monitorizar uma ligação
+## <a name="6-monitor-a-connection"></a><a name="connectmon"></a>6. Monitorizar uma ligação
 
 Crie uma ligação para monitorizar a comunicação entre uma máquina virtual Azure (VM) e um site remoto. Para obter informações sobre como configurar um monitor de ligação, veja [Monitorizar a comunicação de rede](~/articles/network-watcher/connection-monitor.md). O campo de origem é o IP VM em Azure, e o IP de destino é o IP do site.
 
-## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Limpar recursos
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Limpar recursos
 
 Quando já não precisar destes recursos, pode utilizar [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém. Executar o seguinte comando PowerShell e substituir `myResourceGroup` pelo nome do seu grupo de recursos:
 

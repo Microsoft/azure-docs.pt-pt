@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818027"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827843"
 ---
 # <a name="use-spot-vms-in-azure"></a>Use VMs spot em Azure
 
@@ -67,11 +67,25 @@ Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-d
 
 Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+Também pode consultar informações sobre preços usando os preços de [retalho AZure API](/rest/api/cost-management/retail-prices/azure-retail-prices) para consultar informações sobre preços no Spot. O `meterName` e vai conter `skuName` `Spot` ambos.
 
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para o spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível.
 
+## <a name="pricing-and-eviction-history"></a>Histórico de preços e despejos
 
-##  <a name="frequently-asked-questions"></a>Perguntas frequentes
+Você pode ver preços históricos e taxas de despejo por tamanho em uma região no portal. Selecione **Ver o histórico de preços e compare os preços nas regiões próximas** para ver uma tabela ou gráfico de preços para um tamanho específico.  Os preços e as taxas de despejo nas seguintes imagens são apenas exemplos. 
+
+**Gráfico**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot das opções da região com a diferença de preços e taxas de despejo como um gráfico.":::
+
+**Tabela:**
+
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot das opções da região com a diferença de preços e taxas de despejo como um gráfico.":::
+
+
+
+##  <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Q:** Uma vez criado, um Spot VM é o mesmo que o VM normal?
 
@@ -98,7 +112,7 @@ Com preços variáveis, você tem a opção de definir um preço máximo, em dó
 **A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passos seguintes
-Utilize o [CLI,](./linux/spot-cli.md) [portal,](./windows/spot-portal.md) [modelo ARM](./linux/spot-template.md)ou [PowerShell](./windows/spot-powershell.md) para implantar VMs spot.
+Utilize o [CLI,](./linux/spot-cli.md) [portal,](spot-portal.md) [modelo ARM](./linux/spot-template.md)ou [PowerShell](./windows/spot-powershell.md) para implantar VMs spot.
 
 Também pode implementar um [conjunto de escala com instâncias Spot VM](../virtual-machine-scale-sets/use-spot.md).
 

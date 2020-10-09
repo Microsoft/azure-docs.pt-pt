@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462518"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825486"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 <sup>1</sup> Os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) nos índices. O nível básico é o único SKU com um limite inferior de 100 campos por índice.
 
-<sup>2</sup> Ter um número muito grande de elementos em coleções complexas por documento causa atualmente uma elevada utilização do armazenamento. Este é um problema conhecido. Entretanto, um limite de 3000 é um limite superior seguro para todos os níveis de serviço. Este limite só é aplicado para operações de indexação que utilizem a versão API mais antiga geralmente disponível (GA) que suporta campos de tipo `2019-05-06` complexos () em diante. Para não quebrar clientes que possam estar a usar versões API de pré-visualização anteriores (que suportam campos de tipo complexo), não vamos impor este limite para operações de indexação que utilizam estas versões API de pré-visualização. Note que as versões API de pré-visualização não são para ser usadas para cenários de produção e recomendamos vivamente que os clientes se mudem para a versão api mais recente da GA.
+<sup>2</sup> Existe um limite superior para os elementos, pois ter um grande número deles provoca uma elevada utilização do armazenamento. Um elemento de uma coleção complexa é definido como um membro dessa coleção. Por exemplo, assuma um [documento de hotel com uma coleção complexa de quartos,](search-howto-complex-data-types.md#indexing-complex-types)cada quarto na coleção de quartos é considerado um elemento. Durante a indexação, o motor de indexação pode processar com segurança um máximo de 3000 elementos em todo o documento como um todo. [Este limite](search-api-migration.md#upgrade-to-2019-05-06) foi introduzido `api-version=2019-05-06` e aplica-se apenas a coleções complexas, e não a coleções de cordas ou a campos complexos.
 
 <a name="document-limits"></a>
 
@@ -108,8 +108,8 @@ Os tempos máximos de funcionamento existem para proporcionar equilíbrio e esta
 
 | Recurso | Gratuito | Básico | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Suporte do indexador de pontos finais privados | No | Yes | Yes | Yes | Yes | No | Yes | Yes |
-| Suporte de ponto final privado para indexadores com um skillset<sup>1</sup> | No | No | No | Yes | Yes | No | Yes | Yes |
+| Suporte do indexador de pontos finais privados | Não | Sim | Sim | Sim | Sim | Não | Sim | Sim |
+| Suporte de ponto final privado para indexadores com um skillset<sup>1</sup> | Não | Não | Não | Sim | Sim | Não | Sim | Sim |
 | Pontos finais máximos privados | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Máximo distintos tipos de recursos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 

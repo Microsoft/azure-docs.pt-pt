@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773411"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825936"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -81,7 +81,7 @@ Siga estas instruções para ligar ao seu hub IoT utilizando a extensão Azure I
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Análise de vídeo ao vivo baseada na deteção de movimentos":::
-1. <!--In Visual Studio Code-->Selecione **Ver**  >  **Explorador**. Ou, selecione Ctrl+Shift+E.
+1. Selecione **Ver**  >  **Explorador**. Ou, selecione Ctrl+Shift+E.
 1. No canto inferior esquerdo do **separador Explorer,** selecione **Azure IoT Hub**.
 1. Selecione o ícone **Mais Opções** para ver o menu de contexto. Em seguida, selecione **set IoT Hub Connection String**.
 1. Quando aparecer uma caixa de entrada, introduza a sua cadeia de ligação IoT Hub. Na Cloud Shell, pode obter a cadeia de ligação a partir de *~/clouddrive/lva-sample/appsettings.js.*

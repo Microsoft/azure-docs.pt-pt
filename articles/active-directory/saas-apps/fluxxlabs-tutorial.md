@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554867"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826377"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Tutorial: Azure Ative Directory integração única (SSO) com Fluxx Labs
 
@@ -139,15 +139,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Selecione **Administração** abaixo da secção **Definições.**
 
-    ![Configuração fluxx Labs](./media/fluxxlabs-tutorial/config1.png)
+    ![Screenshot que mostra a secção "Definições" com "Administrador" selecionado.](./media/fluxxlabs-tutorial/config1.png)
 
 3. No Painel De Administração, selecione **integrações de plug-ins**e, em  >  **Integrations** seguida, selecione **SSO-(Desativado)**
 
-    ![Configuração fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
+    ![Screenshot que mostra o separador "Integrações" com "S A M L S S S O- (Desativado) selecionado.](./media/fluxxlabs-tutorial/config2.png)
 
 4. Na secção de atributos, execute os seguintes passos:
 
-    ![Configuração fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
+    ![Screenshot que mostra a secção "Atributos" com "S A M L S S O" verificado, valores introduzidos nos campos e o botão "Guardar" selecionado.](./media/fluxxlabs-tutorial/config3.png)
 
     a. Selecione a caixa de verificação **SAML SSO.**
 
@@ -180,11 +180,11 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Fluxx Labs, devem 
 
 2. Clique no **ícone**apresentado abaixo.
 
-    ![Configuração fluxx Labs](./media/fluxxlabs-tutorial/config6.png)
+    ![Screenshot que mostra opções de administrador com o ícone "Plus" selecionado em "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/config6.png)
 
 3. No painel de instrumentos, clique no ícone apresentado abaixo para abrir o cartão **New PEOPLE.**
 
-    ![Configuração fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
+    ![Screenshot que mostra o menu "Contact Management" com o ícone "Plus" ao lado de "People" selecionado.](./media/fluxxlabs-tutorial/config4.png)
 
 4. Na secção **PESSOA NOVA,** execute os seguintes passos:
 

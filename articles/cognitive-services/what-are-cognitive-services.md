@@ -12,16 +12,16 @@ ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 96a722ba3570cda7a3a5d1ee82955ddc3f0014e8
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90894434"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827593"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
-Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
+Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
 
 O catálogo de serviços de IA, que fornecem compreensão cognitiva são categorizados em cinco pilares principais:
 
@@ -38,17 +38,17 @@ A lista atual de nova documentação está disponível no [What's new in Cogniti
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Imagem Digitalizada")|O serviço De Visão Computacional fornece-lhe acesso a algoritmos cognitivos avançados para processar imagens e devolver informações.|
-|[Serviço de Imagem Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Imagem Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
+|[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
 |[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais.|
 |[Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Reconhecedor de Formato") (Pré-visualização)|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original.|
 |[Reconhecimento de tinta](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Reconhecedor de Tinta Digital") (aposentadoria)|O Ink Recogniser permite-lhe reconhecer e analisar dados digitais de traçado de tinta, formas e conteúdo manuscrito, e desempenhá-lo numa estrutura documental com todas as entidades reconhecidas.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
+|[Indexador de Vídeos](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Indexador de Vídeos")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
 
 ## <a name="speech-apis"></a>APIs de fala
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
+|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
 |[API de Reconhecimento de Altifalantes](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de Reconhecimento de Orador") (Pré-visualização)|A API de Reconhecimento de Altifalantes fornece algoritmos para identificação e verificação de altifalantes.|
 |[Discurso de Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Voz do Bing") (Aposentação)|A API do Discurso Bing proporciona-lhe uma forma fácil de criar funcionalidades ativadas pela fala nas suas aplicações.|
 |[Discurso do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de Voz") (Reforma)|Tradutor Speech é um serviço de tradução automática.|

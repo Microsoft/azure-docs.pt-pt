@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554979"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Ative Directory com Ficheiros Lisos
 
@@ -121,11 +121,11 @@ Para configurar o Azure AD com ficheiros flatter, execute os seguintes passos:
 
 2. Clique **no DASHBOARD**. 
    
-    ![Configurar um único sign-on](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Screenshot que mostra "DASHBOARD" selecionado na aplicação "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Clique **em Definições**e, em seguida, execute os seguintes passos no separador **Empresa:** 
    
-    ![Configurar um único sign-on](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Screenshot que mostra o separador "Empresa" com "Use S A M L 2.0 for Authentication" verificado e o botão "Configure S A M L" selecionado.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Selecione **Utilizar SAML 2.0 para autenticação**.
     
@@ -177,7 +177,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Ficheiros Lisos**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Ficheiros Lisos.**
 
@@ -207,7 +207,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Flatter
 
 2. No painel de navegação à esquerda, clique em **Definições**e, em seguida, clique no **separador Utilizadores.**
    
-    ![Criar um utilizador de ficheiros lisos](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Screenshot que mostra a página "Definições" com o separador "Utilizadores" selecionado.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Clique em **Adicionar Utilizador**. 
 

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396251"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828036"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,6 +106,7 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 #### <a name="remarks"></a>Observações
 
 - Os registos de auditoria são escritos para **Append Blobs** num armazenamento Azure Blob na sua subscrição Azure
+- Os registos de auditoria estão em formato .xel e podem ser abertos utilizando [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 - Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
 - Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)

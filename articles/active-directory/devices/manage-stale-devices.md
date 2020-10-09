@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705542"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825967"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
 
@@ -163,9 +163,9 @@ Quando configuradas, as chaves BitLocker para os dispositivos Windows 10 são ar
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Por que deveria preocupar-me com dispositivos Windows Autopilot?
 
 Quando eliminar um dispositivo AD Azure que estava associado a um objeto Do Piloto Automático do Windows, podem ocorrer três cenários se o dispositivo for reutilizado no futuro:
-- Com as implementações orientadas pelo utilizador do Windows Autopilot sem a utilização de luva branca, será criado um novo dispositivo AZure AD, mas não será marcado com o ZTDID.
+- Com as implementações orientadas pelo utilizador do Windows Autopilot sem utilizar o pré-fornecimento, será criado um novo dispositivo AD Azure, mas não será marcado com o ZTDID.
 - Com as implementações do modo de implantação autónoma do Windows Autopilot, falharão porque não é possível encontrar um dispositivo AD Azure associado.  (Este é um mecanismo de segurança para garantir que nenhum dispositivo "impostor" tente juntar-se à Azure AD sem credenciais.) A falha indicará uma incompatibilidade do ZTDID.
-- Com as colocações de luvas brancas do Windows Autopilot, falharão porque não é possível encontrar um dispositivo Azure AD associado. (Nos bastidores, as colocações de luvas brancas usam o mesmo processo de modo de implantação autónoma, pelo que impõem os mesmos mecanismos de segurança.)
+- Com as implementações de pré-provisão do Windows Autopilot, falharão porque não é possível encontrar um dispositivo AZure AD associado. (Nos bastidores, as implementações de pré-provisão utilizam o mesmo processo de modo de implantação autónoma, pelo que impõem os mesmos mecanismos de segurança.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Como posso saber todos os tios de dispositivos associados?
 

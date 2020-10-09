@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447975"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827204"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 
@@ -32,7 +32,7 @@ Há uma série de diagramas diferentes neste artigo. Cada secção mostra uma to
 
 A ligação de gateway VPN ponto-a-local neste exemplo é para um VNet que não está conectado ou espreitado com qualquer outra rede virtual (VNet1). Neste exemplo, os clientes podem aceder ao VNet1.
 
-![encaminhamento VNet isolado](./media/vpn-gateway-about-point-to-site-routing/1.jpg "encaminhamento VNet isolado")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -56,7 +56,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. VNet1 é 
 
 Os clientes que usam o Windows podem aceder diretamente a VNets, mas o cliente VPN deve ser descarregado novamente se forem feitas alterações ao estojo VNet ou à topologia da rede. Os clientes não-Windows podem aceder diretamente a VNets. O acesso não é transitório e limita-se apenas a VNets diretamente espreitados.
 
-![VNets múltiplos espreitados](./media/vpn-gateway-about-point-to-site-routing/2.jpg "VNets múltiplos espreitados")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereço:
 
@@ -86,7 +86,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que usam o Windows, ou outro SISTEMA suportado, só podem aceder ao VNet1. Para aceder a VNets adicionais, o BGP deve ser utilizado.
 
-![vários VNets e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "vários VNets e S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -114,7 +114,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que usam o Windows, ou outro SISTEMA suportado, podem aceder a todos os VNets que estão ligados através de uma ligação VPN site-to-site, mas as rotas para VNets conectados têm de ser adicionadas manualmente aos clientes windows.
 
-![VNets múltiplos e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "VNets múltiplos e S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -142,7 +142,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 n
 
 Os clientes windows e não-Windows só podem aceder ao VNet1.
 
-![encaminhamento com um VNet e uma sucursal](./media/vpn-gateway-about-point-to-site-routing/5.jpg "encaminhamento com um VNet e uma sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -168,7 +168,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 n
 
 Os clientes do Windows podem aceder ao VNet e à sucursal (Site1), mas as rotas para o Site1 devem ser adicionadas manualmente ao cliente. Os clientes não-Windows podem aceder ao VNet, bem como à sucursal no local.
 
-![um VNet e uma sucursal (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "um VNet e uma sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -195,7 +195,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Todos os clientes podem aceder apenas ao VNet1.
 
-![Diagrama que mostra um S2S multi-VNet e uma sucursal.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S e sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -225,7 +225,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Os clientes que utilizam o Windows podem aceder a VNets e sites que estejam ligados através de uma ligação VPN site-to-site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionadas manualmente ao cliente. Os clientes não Windows podem aceder a VNets e sites que estejam conectados utilizando uma ligação VPN site-to-site sem qualquer intervenção manual. O acesso é transitório, e os clientes podem aceder a recursos em todos os VNets e sites conectados (no local).
 
-![multi-VNet S2S e sucursal](./media/vpn-gateway-about-point-to-site-routing/8.jpg "multi-VNet S2S e sucursal")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Encaminhamento VNet isolado" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Espaço de endereços
 
@@ -249,6 +249,6 @@ Os clientes que utilizam o Windows podem aceder a VNets e sites que estejam liga
 
 * Os clientes não Windows podem aceder a VNet1, Vnet2, VNet3 e Site1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [Criar uma VPN P2S utilizando o portal Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para começar a criar o seu P2S VPN.
