@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
 ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907874"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: K-Significa Clustering
@@ -107,7 +107,7 @@ Quando processa os dados de treino, o algoritmo K-significa começa com um conju
   
     -   Se definir **Criar modo de treinador** a único **parâmetro,** adicione um conjunto de dados marcado e treine o modelo utilizando o módulo [Modelo de Agrupamento de Comboios.](train-clustering-model.md)  
   
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Depois de terminar de configurar e treinar o modelo, tem um modelo que pode usar para gerar pontuações. No entanto, existem múltiplas formas de treinar o modelo, e várias formas de ver e usar os resultados: 
 

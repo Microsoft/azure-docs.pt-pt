@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324948"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server e DPM - FAQ
@@ -23,11 +23,11 @@ Sim.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registar o servidor em vários cofres?
 
-Não. Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
+N.º Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Posso usar o DPM para fazer o back up apps em Azure Stack?
 
-Não. Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
+N.º Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se instalei o agente Azure Backup para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para fazer cópias de segurança no local para o Azure?
 

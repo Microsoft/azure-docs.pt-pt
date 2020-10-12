@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85800045"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderado com listas de prazos personalizados na consola API
@@ -91,7 +91,7 @@ Depois de fazer alterações numa lista de termos, tem de atualizar o seu índic
 
    Adicione metadados de lista como pares de valor-chave, e não termos reais.
  
-6. Selecione **Enviar**. A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de mandatos.
+6. Selecione **Send** (Enviar). A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de mandatos.
 
    ![Listas de Prazos - Criar caixa de conteúdo de resposta à consola mostra o ID da lista](images/try-terms-list-create-2.png)
  
@@ -113,7 +113,7 @@ Depois de fazer alterações numa lista de termos, tem de atualizar o seu índic
 
     O **Termo - Obter todos os termos** a consola API abre.
 
-11. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Enviar**.
+11. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Send** (Enviar).
 
 12. Na caixa de **conteúdo 'Resposta',** verifique os termos introduzidos.
 

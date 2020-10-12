@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937330"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Gerir uma Base de Dados Azure para o MySQL - Servidor flexível (Pré-visualização) utilizando o portal Azure
@@ -50,7 +50,7 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
 2. Introduza uma nova senha e confirme a senha. A caixa de texto irá instruí-lo sobre os requisitos de complexidade da palavra-passe.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="redefinir a sua palavra-passe para servidor flexível":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="servidor flexível de armazenamento de escala":::
 
 3. **Selecione Guardar** para guardar a nova palavra-passe.
 
@@ -63,7 +63,7 @@ Pode eliminar o seu servidor se já não precisar dele.
 2. Digite o nome do servidor na caixa de entrada para confirmar que pretende eliminar o servidor.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="eliminar o servidor flexível":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="servidor flexível de armazenamento de escala":::
 
    > [!NOTE]
    > Apagar um servidor é irreversível.

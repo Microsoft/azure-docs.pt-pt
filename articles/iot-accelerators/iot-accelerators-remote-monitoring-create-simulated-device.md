@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324047"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -31,7 +31,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 *Propriedades*
 
-| Name                     | Valores                      |
+| Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Color                    | Branco, Vermelho, Azul            |
 | Luminosidade               | 0 a 100                    |
@@ -41,7 +41,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo de dados:
 
-| Name   | Valores      |
+| Nome   | Valores      |
 | ------ | ----------- |
 | Estado | "on", "off" |
 | Temperatura | Graus F |
@@ -54,7 +54,7 @@ A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo 
 
 A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
-| Name        |
+| Nome        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -63,7 +63,7 @@ A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
 A tabela a seguir mostra o estado inicial do dispositivo:
 
-| Name                     | Valores |
+| Nome                     | Valores |
 | ------------------------ | -------|
 | Cor inicial            | Branco  |
 | Brilho inicial       | 75     |

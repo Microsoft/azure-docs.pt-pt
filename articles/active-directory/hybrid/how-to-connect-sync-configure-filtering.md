@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319984"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
@@ -279,7 +279,7 @@ Neste exemplo, altera-se a filtragem de modo a que apenas os utilizadores que te
 5. No pop-up, **responda Sim** para criar uma cópia da regra.
 6. Na página **Descrição,** **altere a Precedência** para um valor não reutilizado, como 50.
 7. Clique em **Filtrar** o filtro na navegação à esquerda e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **correio.** No **Operador**, selecione **ENDSWITH**. In **Value**, type ** \@ contoso.com**e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **userPrincipalName**. No **Operador**, selecione **ENDSWITH**. In **Value**, tipo ** \@ contoso.com**.
-8. Clique em **Save** (Guardar).
+8. Clique em **Guardar**.
 9. Para completar a configuração, é necessário executar uma **sincronização completa**. Continuar a ler A secção [Aplicar e verificar alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar alterações

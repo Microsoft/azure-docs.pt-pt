@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940520"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para MySQL - Servidor Flexível 
@@ -44,7 +44,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
     - Se estiver a utilizar um limiar **estático,** continue a definir um **valor limiar** (ex. 85 por cento). O gráfico métrico pode ajudar a determinar o que pode ser um limiar razoável.
     - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold**. O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Refinar a condição ajustando o intervalo **de granularidade de agregação (Período)** sobre o qual os pontos de dados são agrupados utilizando a função do tipo de agregação (ex. "30 minutos"), e **Frequência** (ex "A cada 15 minutos").
-10. Clique em **Concluído**.
+10. Clique em **Done** (Concluído).
 11. Adicione um grupo de ação. Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Dentro da secção **Grupos de Ação,** escolha **Selecionar grupo de ação** para selecionar um grupo de ação já existente para anexar à regra de alerta.
 12. Também pode criar um novo grupo de ação para receber notificações no alerta. Consulte para [criar e gerir o grupo de ação](../../azure-monitor/platform/action-groups.md) para obter mais informações.
 13. Para criar um novo grupo de ação, escolha **+ Criar grupo de ação.** Preencha o formulário "Criar grupo de ação" com uma **Subscrição,** **grupo de recursos,** **nome de grupo de ação** e nome de **exibição.**

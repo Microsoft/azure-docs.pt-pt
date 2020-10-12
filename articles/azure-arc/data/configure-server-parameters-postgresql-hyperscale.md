@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939207"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Defina as definições do motor de base de dados para Azure Arc ativado hiperescala pósgreSQL
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Estabelecer as definições do motor de base de dados para o PostgreSQL Hyperscale preparado para o Azure Arc
 
-Este documento descreve os passos para definir as definições do motor de base de dados do seu grupo de servidores de hiperescala PostgreSQL para valores personalizados (não padrão). Para obter mais informações sobre quais os parâmetros do motor de base de dados que podem ser definidos e qual é o seu valor padrão, consulte a documentação postgreSQL [aqui](https://www.postgresql.org/docs/current/runtime-config.html).
+Este documento descreve os passos para configurar as definições do motor de base de dados do grupo de servidores do PostgreSQL Hyperscale para valores personalizados (não predefinidos). Para obter mais informações sobre quais os parâmetros do motor de base de dados que podem ser definidos e qual é o seu valor padrão, consulte a documentação postgreSQL [aqui](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -37,7 +37,7 @@ Este documento descreve os passos para definir as definições do motor de base 
 > - `ssl`
 > - `wal_level`
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O formato geral do comando para configurar as definições do motor da base de dados é:
 

@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327736"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
@@ -159,7 +159,7 @@ A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory pa
     > [!NOTE]
     > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar este script.
     
-    - Modifique a chamada connect-AzureAD do script PowerShell para utilizar o seu ID do inquilino Azure.
+    - Modifique a chamada de Connect-AzureAD do script PowerShell para usar o seu ID do inquilino Azure.
     - Modifique a variável $myAzureADApplicationObjectId do script PowerShell para utilizar o ID do objeto da sua aplicação AD Azure.
     - Executar o script modificado.
     

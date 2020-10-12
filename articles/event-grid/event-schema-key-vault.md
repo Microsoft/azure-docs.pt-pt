@@ -4,10 +4,10 @@ description: Descreve as propriedades e esquemas fornecidos para eventos Azure K
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324081"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Cofre de Chaves Azure como fonte de grade de eventos
@@ -20,7 +20,7 @@ Este artigo fornece as propriedades e esquema para eventos em [Azure Key Vault](
 
 Uma conta Azure Key Vault gera os seguintes tipos de eventos:
 
-| Nome completo do evento | Nome de exibição do evento | Description |
+| Nome completo do evento | Nome de exibição do evento | Descrição |
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Certificado nova versão criada | Desencadeado quando um novo certificado ou nova versão de certificado é criado. |
 | Microsoft.KeyVault.CertificateNearExpiry | Certificado perto de expiração | Desencadeado quando a versão atual do certificado está prestes a expirar. (O evento é desencadeado 30 dias antes da data de validade.) |
@@ -64,7 +64,7 @@ O seguinte exemplo mostra esquema para **Microsoft.KeyVault.SecretNewVersionCrea
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | ---------- | ----------- |---|
 | ID | string | A ID do objeto que desencadeou este evento |
 | nome do cofre | string | O nome chave do cofre do objeto que desencadeou este evento |

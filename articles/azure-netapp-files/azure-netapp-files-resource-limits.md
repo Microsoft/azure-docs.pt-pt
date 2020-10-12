@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 9/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325492"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
@@ -31,23 +31,23 @@ A tabela que se segue descreve os limites de recursos para ficheiros Azure NetAp
 
 |  Recurso  |  Limite predefinido  |  Ajustável através de pedido de apoio  |
 |----------------|---------------------|--------------------------------------|
-|  Número de contas do NetApp por região de Azure   |  10    |  Yes   |
-|  Número de piscinas de capacidade por conta NetApp   |    25     |   Yes   |
-|  Número de volumes por subscrição   |    500     |   Yes   |
-|  Número de volumes por piscina de capacidade     |    500   |    Yes     |
-|  Número de instantâneos por volume       |    255     |    No        |
-|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    No    |
-|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    No   |
-|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    No  |
-|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   No   |
-|  Tamanho mínimo de um único volume    |    100 GiB    |    No    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
-|  Tamanho máximo de um único ficheiro     |    16 TiB    |    No    |    
-|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    No    |    
-|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Yes    |    
-|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    No    |    
-|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    No    |    
-|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Yes    |     
+|  Número de contas do NetApp por região de Azure   |  10    |  Sim   |
+|  Número de piscinas de capacidade por conta NetApp   |    25     |   Sim   |
+|  Número de volumes por subscrição   |    500     |   Sim   |
+|  Número de volumes por piscina de capacidade     |    500   |    Sim     |
+|  Número de instantâneos por volume       |    255     |    Não        |
+|  Número de sub-redes delegadas em Ficheiros Azure NetApp (Microsoft.NetApp/volumes) por Rede Virtual Azure    |   1   |    Não    |
+|  Número de IPs usados num VNet (incluindo VNets imediatamente espreitados) com ficheiros Azure NetApp   |    1000   |    Não   |
+|  Tamanho mínimo de uma piscina de capacidade única   |  4 TiB     |    Não  |
+|  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
+|  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
+|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
+|  Tamanho máximo de um único ficheiro     |    16 TiB    |    Não    |    
+|  Tamanho máximo dos metadados do diretório num único diretório      |    320 MB    |    Não    |    
+|  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Sim    |    
+|  Produção mínima atribuída para um volume QoS manual     |    1 MiB/s   |    Não    |    
+|  Produção máxima atribuída para um volume QoS manual     |    4.500 MiB/s    |    Não    |    
+|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Sim    |     
 
 Para mais informações, consulte [as PERGUNTAS Frequentes de Gestão de Capacidade.](azure-netapp-files-faqs.md#capacity-management-faqs)
 

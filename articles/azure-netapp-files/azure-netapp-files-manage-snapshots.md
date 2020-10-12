@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
 ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325694"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
@@ -97,7 +97,7 @@ Uma política instantânea permite especificar a frequência de criação instan
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Save** (Guardar).  
+4.  Clique em **Guardar**.  
 
 Se precisar de criar políticas de instantâneo adicionais, repita o Passo 3.
 As políticas que criou aparecem na página de política do Snapshot.
@@ -161,7 +161,7 @@ Atualmente, pode restaurar uma imagem apenas para um novo volume.
 
     ![Restaurar para novo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Clique **em Review+criar**.  Clique em **Create** (Criar).   
+4. Clique **em Review+criar**.  Clique em **Criar**.   
     O novo volume utiliza o mesmo protocolo que o instantâneo utiliza.   
     O novo volume ao qual o instantâneo é restaurado aparece na lâmina Volumes.
 
@@ -221,6 +221,6 @@ Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Políticas de instantâneo de resolução de problemas](troubleshoot-snapshot-policies.md)
+* [Resolver problemas das políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 * [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

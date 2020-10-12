@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324472"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
@@ -23,7 +23,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação suportados
 
-| Tipos de autenticação | Description |
+| Tipos de autenticação | Descrição |
 | ---------------------|-------------|
 |**Básica** | Terá de ser capaz de fornecer parâmetros básicos para aceder a fontes de dados. Por exemplo, uma cadeia de ligação ou uma chave. Os administradores de feed de dados são capazes de ver estas credenciais. |
 | **AzureManagedIdentity** | [Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para recursos Azure é uma característica do Azure Ative Directory. Fornece aos serviços Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar a identidade para autenticar qualquer serviço que suporte a autenticação AZure AD.|
@@ -43,7 +43,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
 |[**Armazenamento do Azure Data Lake Ger2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
 |[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br>AzuresQLConnectionString
-|[**Table Storage do Azure**](#table) | Básico | 
+|[**Armazenamento de mesa Azure**](#table) | Básico | 
 |[**Elasticsearch**](#es) | Básico |
 |[**Solicitar**](#http) | Básico | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage do Azure</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de mesa Azure</span>
 
 * **Cadeia de ligação**: Consulte a [Visualização e copie uma cadeia de ligação](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
 

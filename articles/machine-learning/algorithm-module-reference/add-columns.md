@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 17882581c4548996c9a8b2a8670b5f720e64da1e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899004"
 ---
 # <a name="add-columns-module"></a>Adicionar módulo de colunas
@@ -35,7 +35,7 @@ Utilize este módulo para concatenar dois conjuntos de dados. Combina todas as c
 
 3. Envie o oleoduto.
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 Depois de ter funcionado o gasoduto:
 
 - Para ver as primeiras linhas do novo conjunto de dados, clique com o botão direito no módulo **Add Columns** e selecione Visualize. Ou selecione o módulo e mude para o **separador Saídas** no painel direito, clique no ícone histograma nas **saídas** da Porta para visualizar o resultado.

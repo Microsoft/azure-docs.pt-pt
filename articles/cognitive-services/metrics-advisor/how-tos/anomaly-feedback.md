@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938046"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Ajustar a deteção de anomalias através de comentários
@@ -37,19 +37,19 @@ Com o modo de anotação de feedback ativado, clique num ponto para abrir um pai
 
 Considere deixar um comentário na caixa de texto **do Comentário** ao mesmo tempo e clique em **Guardar** para guardar o seu feedback.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Menu de feedback.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Modo de anotação de feedback.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Dar feedback para vários pontos contínuos
 
 Pode dar feedback para vários pontos contínuos ao mesmo tempo clicando e arrastando o rato nos pontos que deseja anotar. Verá o mesmo menu de feedback acima. O mesmo feedback será aplicado em todos os pontos escolhidos depois de clicar em **Guardar**.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Escolha vários pontos":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Modo de anotação de feedback.":::
 
 ## <a name="how-to-view-my-feedback"></a>Como ver o meu feedback
 
 Para ver se a deteção de anomalias de um ponto mudou, paire sobre o ponto. A ponta da ferramenta mostrará **afetada pelo feedback: verdadeiro** se a deteção foi alterada. Se apresentar **Falso,** então o cálculo do feedback foi feito no ponto, mas o resultado da deteção de anomalias não foi alterado.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Ponto afetado pelo feedback":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Modo de anotação de feedback.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>Quando devo anotar uma anomalia como "normal"
 

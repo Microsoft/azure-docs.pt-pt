@@ -7,10 +7,10 @@ ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945618"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps
@@ -147,8 +147,8 @@ Aqui estão várias recorrências de exemplo que pode configurar para os gatilho
 | Recorrência | Corra a cada hora durante o horário de trabalho. | 1 | Semana | {nenhum} | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que deseja. | Selecione todos os minutos da hora que quiser. | Por exemplo, se o seu horário de trabalho for das 8:00 às 17:00, então selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia *mais* "0" como minutos da hora. |
 | Recorrência | Corra uma vez todos os dias nos fins de semana | 1 | Semana | {nenhum} | "Sábado", "Domingo" | Selecione as horas do dia que deseja. | Selecione quaisquer minutos da hora conforme apropriado. | Este horário é executado todos os sábados e domingos no horário especificado. |
 | Recorrência | Corra a cada 15 minutos quinzenalmente apenas às segundas-feiras | 2 | Semana | {nenhum} | "Segunda-feira" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Este horário funciona todas as segundas-feiras a cada 15 minutos. |
-| Recorrência | Corra todos os meses | 1 | Mês | *startDate* T*startTime*Z | {indisponível} | {indisponível} | {indisponível} | Este horário não começa mais *cedo* do que a data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se não especificar uma data e hora de início, este programa utiliza a data e hora da criação. |
-| Recorrência | Corra a cada hora por um dia por mês | 1 | Mês | {ver nota} | {indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {ver nota} | Se não especificar uma data e hora de início, este programa utiliza a data e hora da criação. Para controlar as atas para o horário de recorrência, especifique as atas da hora, uma hora de início ou use o tempo de criação. Por exemplo, se a hora de início ou criação for 8:25 AM, este horário é às 8:25, 9:25 AM, 10:25 AM, e assim por diante. |
+| Recorrência | Corra todos os meses | 1 | Mensal | *startDate* T*startTime*Z | {indisponível} | {indisponível} | {indisponível} | Este horário não começa mais *cedo* do que a data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se não especificar uma data e hora de início, este programa utiliza a data e hora da criação. |
+| Recorrência | Corra a cada hora por um dia por mês | 1 | Mensal | {ver nota} | {indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {ver nota} | Se não especificar uma data e hora de início, este programa utiliza a data e hora da criação. Para controlar as atas para o horário de recorrência, especifique as atas da hora, uma hora de início ou use o tempo de criação. Por exemplo, se a hora de início ou criação for 8:25 AM, este horário é às 8:25, 9:25 AM, 10:25 AM, e assim por diante. |
 |||||||||
 
 <a name="run-once"></a>
@@ -161,7 +161,7 @@ Se quiser executar a sua aplicação lógica apenas de uma vez no futuro, pode u
 
 Ou, se puder iniciar a sua aplicação lógica com o **Quando um pedido HTTP é recebido - Solicite** o gatilho e passe a hora de início como parâmetro para o gatilho. Para a primeira ação, utilize o **Delay até - Agendar** a ação e fornecer o tempo para quando a próxima ação começar a funcionar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de Recorrência](../connectors/connectors-native-recurrence.md)
 * [Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho da janela deslizante](../connectors/connectors-native-sliding-window.md)

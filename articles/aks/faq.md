@@ -4,10 +4,10 @@ description: Encontre respostas para algumas das perguntas comuns sobre o Servi�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905334"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ Para obter uma lista completa das regiões disponíveis, consulte [as regiões A
 
 ## <a name="can-i-spread-an-aks-cluster-across-regions"></a>Posso espalhar um aglomerado AKS por regiões?
 
-Não. Os aglomerados AKS são recursos regionais e não podem abranger regiões. Consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres][bcdr-bestpractices] para obter orientações sobre como criar uma arquitetura que inclua várias regiões.
+N.º Os aglomerados AKS são recursos regionais e não podem abranger regiões. Consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres][bcdr-bestpractices] para obter orientações sobre como criar uma arquitetura que inclua várias regiões.
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
@@ -89,7 +89,7 @@ A AKS suporta os seguintes [controladores de admissão:][admission-controllers]
 
 - *Espaço nomeLifecycle*
 - *LimiteRanger*
-- *Contagem de serviços*
+- *ServiceAccount*
 - *Classe defaultstorage*
 - *Padrão DeleraçãoSegundos*
 - *MutatingAdmissionWebhook*

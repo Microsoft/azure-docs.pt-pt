@@ -10,15 +10,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939625"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Ver registos e métricas usando Kibana e Grafana
 
-Os painéis web kibana e Grafana são fornecidos para trazer insights e clareza aos espaços de nome Kubernetes que estão sendo usados por Azure Arc habilitados serviços de dados.
+Os dashboards Web do Kibana e do Grafana são disponibilizados para proporcionar informações e clareza quanto aos espaços de nomes do Kubernetes utilizados pelos serviços de dados preparados para Azure Arc.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,7 +28,7 @@ Para aceder aos dashboards, terá de recuperar o endereço IP do seu cluster. O 
 
 ### <a name="azure-virtual-machine"></a>Máquina virtual do Azure
 
-Para recuperar o endereço IP público utilize o seguinte comando:
+Utilize o seguinte comando para obter o endereço IP público:
 
 ```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
@@ -64,7 +64,7 @@ Abaixo está um exemplo de como fazê-lo para um VM Azure. Terá de o fazer se t
 
 Os passos abaixo destacam como criar uma regra NSG para os pontos finais de Kibana e Grafana:
 
-### <a name="find-the-name-of-the-nsg"></a>Encontre o nome do NSG
+### <a name="find-the-name-of-the-nsg"></a>Localize o nome do NSG
 
 ```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table

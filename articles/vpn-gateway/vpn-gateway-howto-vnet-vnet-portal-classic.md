@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84985468"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configure uma ligação VNet-to-VNet (clássico)
@@ -73,7 +73,7 @@ A tabela que se segue mostra um exemplo de como definir os seus VNets. Utilize o
 
 **Exemplo**
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -135,7 +135,7 @@ Por exemplo, o TestVNet1 conecta-se a um site de rede local que cria chamado 'VN
 
 O site local para cada VNet é o outro VNet. Os seguintes valores de exemplo são utilizados para a nossa configuração:
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -280,5 +280,5 @@ Nos exemplos, note que a chave partilhada é exatamente a mesma. A chave partilh
 * Todos os túneis VPN para o VNet, incluindo P2S VPNs, partilham a largura de banda disponível para o gateway VPN, e o mesmo gateway VPN uptime SLA em Azure.
 * O tráfego VNet-to-VNet atravessa a espinha dorsal de Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Verifique as suas ligações. Consulte [verificar uma ligação VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).

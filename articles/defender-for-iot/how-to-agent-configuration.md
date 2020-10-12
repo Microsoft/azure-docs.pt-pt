@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939400"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
@@ -105,7 +105,7 @@ Para utilizar um valor de propriedade padrão, remova a propriedade do objeto de
     }
     ```
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ### <a name="using-a-default-value"></a>Usando um valor padrão
 
@@ -117,7 +117,7 @@ A tabela seguinte contém as propriedades controláveis do Defender para agentes
 
 Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
+| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |altaPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |baixaPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de serem enviadas mensagens de baixa prioridade.|
@@ -130,7 +130,7 @@ Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](http
 
 |Nome do evento| PropertyName | Valor Predefinido| Evento Snapshot| Estado dos detalhes  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento de diagnóstico|eventoPriorityDiagnostic| Desligado| Falso| Eventos de diagnóstico relacionados com agente. Utilize este evento para a extração verbose.|
+|Evento de diagnóstico|eventoPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com agente. Utilize este evento para a extração verbose.|
 |Erro de configuração |eventPriorityConfigurationError |Baixo |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.|
 |Estatísticas de eventos abandonadas |eventPriorityDroppedEventsStatistics |Baixo |Verdadeiro|Estatísticas de eventos relacionadas com o agente. |
 |Hardware conectado|eventPriorityConnectedHardware |Baixo |Verdadeiro |Imagem de todo o hardware ligado ao dispositivo.|

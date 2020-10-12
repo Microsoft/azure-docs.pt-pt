@@ -10,17 +10,17 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904161"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do SQL Edge para o armazenamento do Azure Blob utilizando a Azure Data Factory
 
 Neste tutorial, você usará Azure Data Factory para sincronizar gradualmente os dados para o armazenamento de Azure Blob a partir de uma tabela em um caso de Azure SQL Edge.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se ainda não criou uma base de dados ou tabela na sua implementação Azure SQL Edge, utilize um destes métodos para criar um:
 
@@ -198,7 +198,7 @@ Crie uma fábrica de dados seguindo as instruções [deste tutorial.](../data-fa
     |Nome|Tipo|Valor|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Cadeia|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Para validar as definições do pipeline, **selecione Validate** na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Pipeline Validation Report,** selecione **>>** .
 

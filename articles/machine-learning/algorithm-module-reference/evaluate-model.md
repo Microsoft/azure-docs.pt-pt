@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
 ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908056"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo de modelo
@@ -47,7 +47,7 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 
 3. Submeta o pipeline para gerar os resultados da avaliação.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Depois de executar **o Modelo de Avaliação,** selecione o módulo para abrir o painel de navegação **do Modelo avaliar** à direita.  Em seguida, escolha o **separador Saídas + Registos** e nesse separador a secção **Saídas de Dados** tem vários ícones. O ícone **do Visualize** tem um ícone de gráfico de barras, e é uma primeira maneira de ver os resultados.
 

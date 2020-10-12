@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887732"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto final Azure CDN
@@ -101,10 +101,10 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    
     Se tentar utilizar o nome de domínio CDN antes da configuração do ponto final se ter propagado aos servidores do ponto de presença (POP), poderá receber um estado de resposta HTTP 404. Se já passaram várias horas desde que criou o seu ponto final e ainda está a receber um estado de resposta 404, consulte [os pontos finais do Azure CDN que devolvem um código de estado 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para eliminar um ponto final quando já não for necessário, selecione-o e, em seguida, **selecione Delete**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender sobre domínios personalizados, continue ao tutorial para adicionar um domínio personalizado ao seu ponto final CDN.
 
 > [!div class="nextstepaction"]
