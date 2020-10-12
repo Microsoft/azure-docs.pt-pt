@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415826"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para a Gen2 com a Azure Data Factory
@@ -52,7 +52,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia da Data Fac
     * **Nome**: Introduza um nome globalmente único para a sua fábrica de dados Azure. Se receber o erro "O nome da fábrica \" de dados LoadADLSDemo \" não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Crie a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
     * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de recuos. Também pode selecionar a nova opção **Criar** e inserir o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-    * **Versão**: Selecione **V2**.
+    * **Versão**: selecione **V2**.
     * **Localização**: Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados utilizados pela fábrica de dados podem estar noutras localizações e regiões. 
 
 3. Selecione **Criar**.
@@ -107,7 +107,7 @@ Este artigo mostra-lhe como utilizar a ferramenta de dados de cópia da Data Fac
 
    a. Selecione a sua conta de armazenamento de dados Gen2 capaz da lista de drop-down de nome de **conta de armazenamento.**
    
-   b. Selecione **Concluir** para criar a ligação. Em seguida, selecione **Seguinte**.
+   b. Selecione **Concluir** para criar a ligação. e selecione **Seguinte**.
    
    ![Especificar conta Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

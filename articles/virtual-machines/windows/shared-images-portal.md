@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.openlocfilehash: e484cccb2dc15266fb7889c335a0acc981053e5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82792144"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas Azure usando o portal
@@ -48,13 +48,13 @@ Agora pode criar um ou mais VMs novos. Este exemplo cria um VM chamado *myVM,* n
 1. Para **opções de disponibilidade,** deixe o padrão de Não necessidade de *redundância de infraestrutura*.
 1. O valor para **Imagem** é automaticamente preenchido com a `latest` versão de imagem se você começar a partir da página para a definição de imagem.
 1. Para **tamanho**, escolha um tamanho VM da lista de tamanhos disponíveis e, em seguida, escolha **Selecione**.
-1. Na **conta administrador**, se a imagem foi generalizada, é necessário fornecer um nome de utilizador, como *azureuser* e uma palavra-passe. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Se a sua imagem foi especializada, os campos de nome de utilizador e palavra-passe ficarão acinzentados porque o nome de utilizador e a palavra-passe para a origem VM são utilizados.
+1. Na **conta administrador**, se a imagem foi generalizada, é necessário fornecer um nome de utilizador, como *azureuser* e uma palavra-passe. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Se a sua imagem foi especializada, os campos de nome de utilizador e palavra-passe ficarão acinzentados porque o nome de utilizador e a palavra-passe para a origem VM são utilizados.
 1. Se pretender permitir o acesso remoto ao VM, **em portas de entrada pública,** escolha Localizar portas **selecionadas** e, em seguida, selecionar **RDP (3389)** a partir do drop-down. Se não pretender permitir o acesso remoto ao VM, deixe **nenhum** selecionado para **portas de entrada pública**.
 1. Quando terminar, selecione o botão **'Rever +'** na parte inferior da página.
 1. Depois da validação de passes VM, **selecione Criar** na parte inferior da página para iniciar a implementação.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Eliminar** e confirme o nome do grupo de recursos a eliminar.
 

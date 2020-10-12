@@ -11,10 +11,10 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83125167"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Use políticas de escala personalizadas com conjuntos de escala de máquina virtual Azure
@@ -240,6 +240,6 @@ Para conjuntos de escala de máquina virtual não zonais, a política seleciona 
 
 2. Seleção errada de VMs para escala-in Consulte os exemplos acima. Se o seu conjunto de escala de máquina virtual for uma implementação zonal, a política de escala é aplicada primeiro nas Zonas desequilibradas e, em seguida, através da escala definida uma vez que é equilibrada zona. Se a ordem de dimensionamento não for consistente com os exemplos acima, levante uma consulta com a equipa de conjunto de escalas de máquina virtual para a resolução de problemas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

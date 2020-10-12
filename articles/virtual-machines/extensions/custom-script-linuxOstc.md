@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085712"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utilize a versão 1 da extensão de script personalizada Azure com máquinas virtuais Linux
@@ -118,14 +118,14 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.OSTCExtensions | string |
 | tipo | ScriptEs PersonalizadosForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py pitão\<my-param1\> | string |
+| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1\> | string |
 | ativarInternalDNSCheck | true | boolean |
 | armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
 | armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -295,7 +295,7 @@ Alguns pontos a notar:
 
 1. Ativar é quando o comando começa a funcionar.
 1. O download diz respeito ao download do pacote de extensão CustomScript do Azure, e não aos ficheiros de script especificados nos ficheirosUris.
-1. Também pode ver para que ficheiro de registo está a escrever`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Também pode ver para que ficheiro de registo está a escrever `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 O próximo passo é verificar o ficheiro de registo, este é o formato:
 

@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984392"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua para o Serviço de Aplicações Azure
@@ -78,7 +78,7 @@ Você pode usar o servidor de construção de aplicações Kudu incorporado para
      > [!NOTE]
      > Se a sua organização do Azure DevOps não estiver listada, confirme se está associada à sua subscrição do Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)..
      
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
    
    ![Preencha as informações do repositório e, em seguida, selecione Continue.](media/app-service-continuous-deployment/configure-kudu.png)
    
@@ -114,7 +114,7 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
    
 1. Na página **'Fornecedor de construção',** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot mostrando a página do Centro de Implantação com Azure Pipelines (Preview) selecionado.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
    
 1. Na página **Configure,** na secção **Código,** selecione a **Organização,** **Repositório**e **Ramo** que pretende implementar continuamente e selecione **Continuar**.
      
@@ -123,11 +123,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
        
     Na secção **Build,** especifique a Organização Azure DevOps, Projeto, enquadramento linguístico que os Gasodutos Azure devem utilizar para executar tarefas de construção e, em seguida, **selecione Continue**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da secção Build com texto de exemplo nos campos.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
 
 1. Depois de configurar o fornecedor de construção, reveja as definições na página **Resumo** e, em seguida, selecione **Terminar**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot da página do Centro de Implementação mostrando compromissos e implementações com o botão Refresh realçado.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
    
 1. Novos compromissos no repositório selecionado e ramo agora implementam-se continuamente no seu Serviço de Aplicações. Pode rastrear os compromissos e implementações na página **Do Centro de Implantação.**
    
@@ -141,11 +141,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
 
 1. Selecione **Azure Repos** como fornecedor de controlo de origem na página **do Centro de Implantação** e selecione **Continue**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot da página do Centro de Implantação mostrando as seleções de Implementação Contínua (CI/CD).":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
 
 1. Na página **'Fornecedor de construção',** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot do Centro de Implantação mostrando Gasodutos Azure (Pré-visualização).":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
 
 1. Na página **Configure,** na secção **Código,** selecione a **Organização,** **Repositório**e **Ramo** que pretende implementar continuamente e selecione **Continuar**.
 
@@ -154,11 +154,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
 
    Na secção **Build,** especifique a Organização Azure DevOps, Projeto, enquadramento linguístico que os Gasodutos Azure devem utilizar para executar tarefas de construção e, em seguida, **selecione Continue**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da secção Build mostrando os campos da Azure DevOps Organization e Project cheios de exemplos.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
 
 1. Depois de configurar o fornecedor de construção, reveja as definições na página **Resumo** e, em seguida, selecione **Terminar**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot mostrando as definições selecionadas na página Resumo.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
 
 1. Novos compromissos no repositório selecionado e ramo agora implementam-se continuamente no seu Serviço de Aplicações. Pode rastrear os compromissos e implementações na página **Do Centro de Implantação.**
 

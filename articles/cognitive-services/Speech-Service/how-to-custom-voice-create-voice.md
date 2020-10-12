@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319066"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
@@ -117,7 +117,7 @@ Depois de a sua fonte de voz ter sido construída com sucesso, pode testá-la an
     > [!NOTE]
     > A linguagem do seu texto deve ser a mesma que a língua do seu tipo de letra de voz. Só podem ser testados modelos treinados com sucesso. Apenas texto simples é apoiado neste passo.
 
-5.  Clique em **Create** (Criar).
+5.  Clique em **Criar**.
 
 Uma vez submetido o seu pedido de teste, voltará à página de teste. A tabela inclui agora uma entrada que corresponde ao seu novo pedido e à coluna de estado. Pode levar alguns minutos para sintetizar o discurso. Quando a coluna de estado diz **"Bem sucedido",** pode reproduzir o áudio ou transferir a entrada de texto (um ficheiro .txt) e a saída de áudio (um ficheiro .wav) e fazer uma audição adicional para obter qualidade.
 

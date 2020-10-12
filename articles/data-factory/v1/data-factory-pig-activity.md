@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282583"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do porco na fábrica de dados Azure
@@ -84,15 +84,15 @@ A atividade do Porco HDInsight num [oleoduto](data-factory-create-pipelines.md) 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Yes |
-| descrição |Texto que descreve para que a atividade é usada |No |
-| tipo |HDinsightPig |Yes |
-| entradas |Uma ou mais entradas consumidas pela atividade do Porco |No |
-| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Yes |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
-| script |Especificar o script do porco inline |No |
-| scriptPath |Guarde o script Pig num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
-| define |Especifique os parâmetros como pares chave/valor para referências dentro do script do Porco |No |
+| name |Nome da atividade |Sim |
+| descrição |Texto que descreve para que a atividade é usada |Não |
+| tipo |HDinsightPig |Sim |
+| entradas |Uma ou mais entradas consumidas pela atividade do Porco |Não |
+| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Sim |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
+| script |Especificar o script do porco inline |Não |
+| scriptPath |Guarde o script Pig num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |Não |
+| define |Especifique os parâmetros como pares chave/valor para referências dentro do script do Porco |Não |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de registos de jogos onde pretendes identificar o tempo gasto pelos jogadores que jogam jogos lançados pela tua empresa.

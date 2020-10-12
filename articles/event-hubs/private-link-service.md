@@ -4,10 +4,10 @@ description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Li
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334247"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
@@ -64,7 +64,7 @@ Se já tem um espaço de nomes do Event Hubs, pode criar uma ligação de ligaç
 1. Selecione o **separador de ligações de ponto final privado** no topo da página. 
 1. Selecione o botão **+ Ponto final privado** na parte superior da página.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página de rede - Separador de ligações de ponto final privado - Adicionar link de ponto final privado":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Separador de redes - opção de redes selecionada":::
 7. Na página **Basics,** siga estes passos: 
     1. Selecione a **subscrição Azure** na qual pretende criar o ponto final privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto final privado.
@@ -201,7 +201,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |

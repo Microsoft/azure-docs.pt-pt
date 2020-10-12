@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143841"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
@@ -33,9 +33,9 @@ Se quiser que uma única política se aplique a todos os sites, pode associar a 
 
 ## <a name="per-site-waf-policy"></a>Política de WAF por local
 
-Com as políticas WAF por site, pode proteger vários sites com diferentes necessidades de segurança por trás de um único WAF utilizando políticas por site. Por exemplo, se existirem cinco sites por trás do seu WAF, pode ter cinco políticas WAF separadas (uma para cada ouvinte) para personalizar as exclusões, regras personalizadas, conjuntos de regras geridos e todas as outras definições de WAF para cada site.
+Com as políticas WAF por site, pode proteger vários sites com diferentes necessidades de segurança por trás de uma única WAF ao utilizar as políticas por site. Por exemplo, se existirem cinco sites por trás da WAF, poderá ter cinco políticas WAF separadas (uma para cada serviço de escuta) para personalizar as exclusões, as regras personalizadas, os conjuntos de regras geridos e todas as outras definições de WAF para cada site.
 
-Digamos que o seu portal de aplicação tem uma política global aplicada a ela. Depois aplica-se uma política diferente a um ouvinte no portal da aplicação. A política do ouvinte agora faz efeito apenas para aquele ouvinte. A política global do gateway aplica ainda se aplica a todos os outros ouvintes e regras baseadas em caminhos que não têm uma política específica que lhes seja atribuída.
+Digamos que o gateway de aplicação tem uma política global aplicada. Em seguida, aplica uma política diferente a um serviço de escuta no gateway de aplicação. A política do serviço de escuta é agora aplicada apenas a esse serviço de escuta. A política global do gateway de aplicação ainda se aplica a todos os outros serviços de escuta e às regras baseadas em caminhos que não têm nenhuma política específica atribuída.
 
 ## <a name="per-uri-policy"></a>Política per-URI
 

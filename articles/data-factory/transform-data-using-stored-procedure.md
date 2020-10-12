@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484736"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transforme os dados utilizando a atividade do Procedimento Armazenado do SqL Server na Azure Data Factory
@@ -34,7 +34,7 @@ Pode utilizar a Atividade De Procedimento Armazenada para invocar um procediment
 
 - Base de Dados SQL do Azure
 - Azure Synapse Analytics (anteriormente SQL Data Warehouse)
-- Base de Dados do Servidor SQL.  Se estiver a utilizar o SQL Server, instale o tempo de funcionação da integração auto-hospedada na mesma máquina que hospeda a base de dados ou numa máquina separada que tenha acesso à base de dados. O tempo de integração auto-hospedado é um componente que liga fontes de dados no local/em Azure VM com serviços na nuvem de forma segura e gerida. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+- Base de Dados do Servidor SQL.  Se estiver a utilizar o SQL Server, instale o tempo de funcionação da integração auto-hospedada na mesma máquina que hospeda a base de dados ou numa máquina separada que tenha acesso à base de dados. Self-Hosted tempo de integração é um componente que liga fontes de dados no local/em Azure VM com serviços na nuvem de forma segura e gerida. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 > [!IMPORTANT]
 > Ao copiar dados para a Base de Dados Azure SQL ou para o SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando a propriedade **sqlWriterStorDProcedureName.** Para mais informações sobre a propriedade, consulte os seguintes artigos de conector: [Azure SQL Database,](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md). Invocar um procedimento armazenado ao copiar dados num Azure Synapse Analytics utilizando uma atividade de cópia não é suportado. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em Azure Synapse Analytics. 
@@ -70,12 +70,12 @@ A tabela a seguir descreve estas propriedades JSON:
 
 | Propriedade                  | Descrição                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Yes      |
-| descrição               | Texto que descreve para que a atividade é usada | No       |
-| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Yes      |
-| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
-| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Yes      |
-| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | No       |
+| name                      | Nome da atividade                     | Sim      |
+| descrição               | Texto que descreve para que a atividade é usada | Não       |
+| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
+| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
+| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | Não       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados de parâmetro
 O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que está a usar. Pode encontrar os mapeamentos do tipo de dados para a sua fonte de dados na área dos conectores. Alguns exemplos são
@@ -92,7 +92,7 @@ O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory qu
 
 Quando um procedimento armazenado falha e retorna os detalhes de erro, não é possível capturar a informação de erro diretamente na saída da atividade. No entanto, a Data Factory bombeia todos os seus eventos de atividade para o Azure Monitor. Entre os eventos que a Data Factory bombeia para o Azure Monitor, empurra os detalhes de erro para lá. Pode, por exemplo, configurar alertas de e-mail desses eventos. Para obter mais informações, consulte [as fábricas de dados Alert e Monitor utilizando o Azure Monitor](monitor-using-azure-monitor.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

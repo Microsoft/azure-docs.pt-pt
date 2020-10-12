@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5ea58cc3d9f3615a74249b36f3f9ffb79caddda1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212241"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de Aplicativos Móveis para Funções Azure 
@@ -30,7 +30,7 @@ As ligações para aplicações móveis são fornecidas no pacote [Microsoft.Azu
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="input"></a>Entrada
+## <a name="input"></a>Input
 
 A entrada de Aplicativos Móveis carrega um registo a partir de um ponto final de tabela móvel e passa-o para a sua função. Nas funções C# e F#, quaisquer alterações efetuadas ao registo são automaticamente enviadas para a mesa quando a função sai com sucesso.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Saiba como o Visual Studio Code e o Azure Dev Spaces o ajudam a depurar e a iterar rapidamente as suas aplicações Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88209885"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como o Código do Estúdio Visual funciona com a Azure Dev Spaces

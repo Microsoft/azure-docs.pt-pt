@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117381"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
@@ -23,7 +23,7 @@ Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de a
 > [!NOTE]
 > Se estiver a ativar o Link Privado, o Bring Your Own Storage é um requisito. Para obter mais informações sobre o Link Privado para Insights de Aplicações, [consulte a documentação.](../platform/private-link-security.md)
 >
-> Se estiver a ativar as chaves geridas pelo cliente, o Bring Your Own Storage é um requisito. Para obter mais informações sobre as Chaves Geridas pelo Cliente para Insights de Aplicações, [consulte a documentação.](../platform/customer-managed-keys.md)
+> Se estiver a ativar Customer-Managed Chaves, o Bring Your Own Storage é um requisito. Para obter mais informações sobre Customer-Managed Chaves para Insights de Aplicações, [consulte a documentação.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como é que a minha conta de armazenamento vai ser acedida?
 1. Os agentes que executam as suas Máquinas Virtuais ou Serviço de Aplicações irão enviar artefactos (perfis, instantâneos e símbolos) para contentores de bolhas na sua conta. Este processo envolve contactar o profiler de insights de aplicações ou o serviço Snapshot Debugger para obter um token SAS (Shared Access Signature) para uma nova bolha na sua conta de armazenamento.
@@ -37,7 +37,7 @@ Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de a
 
 ## <a name="how-to-enable-byos"></a>Como ativar o BYOS
 
-### <a name="create-storage-account"></a>Criar Conta de Armazenamento
+### <a name="create-storage-account"></a>Criar a Conta de Armazenamento
 Crie uma conta de armazenamento novinha em folha (se não a tiver) no mesmo local que o seu recurso Application Insights.
 Se o seu recurso 'Insights' de Aplicação estiver `West US 2` ligado, então a sua Conta de Armazenamento deve estar em `West US 2` .
 
@@ -231,7 +231,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="template-schema-schema_uri-isnt-supported"></a>O esquema do modelo '{schema_uri}' não é suportado.
-* Certifique-se de que a `$schema` propriedade do modelo é válida. Deve seguir o seguinte padrão:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Certifique-se de que a `$schema` propriedade do modelo é válida. Deve seguir o seguinte padrão: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Certifique-se de que `schema_version` o modelo está dentro de valores válidos: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Mensagem de erro:
     ```powershell
@@ -280,13 +280,13 @@ Para a resolução geral de problemas do Snapshot Debugger, consulte a [document
 * Se eu tiver profiler ou Snapshot ativado, e então eu habilifiquei BYOS, os meus dados serão migrados para a minha Conta de Armazenamento?
     _Não, não vai._
 
-* A BYOS trabalhará com a Encriptação em Repouso e Chave Gerida pelo Cliente?
-    _Sim, para ser mais preciso, a BYOS é um requisito para ter o profiler/debugger habilitado com as Chaves do Gestor de Clientes._
+* A BYOS trabalhará com a Encriptação em Repouso e Customer-Managed Chave?
+    _Sim, para ser mais preciso, a BYOS é um requisito para ter o profiler/debugger habilitado com Customer-Manager Keys._
 
 * A BYOS funcionará num ambiente isolado da Internet?
     _Sim, é um trabalho. De facto, a BYOS é um requisito para cenários isolados de rede._
 
-* A BYOS funcionará quando, ambas, chaves geridas pelo cliente e Ligação Privada foram ativadas? 
+* A BYOS funcionará quando, ambos, Customer-Managed Keys e Private Link foram ativados? 
     _Sim, pode ser possível._
 
 * Se eu tiver ativado BYOS, posso voltar a usar contas de armazenamento de Serviços de Diagnóstico para armazenar os meus dados recolhidos? 

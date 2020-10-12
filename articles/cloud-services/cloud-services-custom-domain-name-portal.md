@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092733"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
@@ -62,7 +62,7 @@ Para criar um registo CNAME, deve adicionar uma nova entrada na tabela DNS para 
 
        ![secção de olhar rápido mostrando o URL do site][csurl]
 
-       **OU**
+       **OR**
    * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell
@@ -95,7 +95,7 @@ Para criar um registo A, tem primeiro de encontrar o endereço IP virtual do seu
 
        ![secção de olhar rápido mostrando o VIP][vip]
 
-       **OU**
+       **OR**
    * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell

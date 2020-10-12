@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071215"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperação de desastres e geo-distribuição em Funções Duráveis Azure
@@ -20,10 +20,10 @@ Em Funções Duradouras, todo o estado é persistido no Azure Storage por padrã
 
 Orquestrações e entidades podem ser desencadeadas usando funções de cliente que são [elas próprias desencadeadas](durable-functions-types-features-overview.md#client-functions) através de HTTP ou de um dos outros tipos de gatilho de Funções Azure suportados. Também podem ser acionados utilizando [APIs HTTP incorporados.](durable-functions-http-features.md#built-in-http-apis) Para simplificar, este artigo irá focar-se em cenários que envolvam a azure Storage e os gatilhos de função baseados em HTTP, e opções para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastres. Outros tipos de gatilho, tais como os gatilhos Service Bus ou Cosmos DB, não serão explicitamente cobertos.
 
-Os seguintes cenários baseiam-se em configurações Active-Passive, uma vez que são guiados pelo uso do Azure Storage. Este padrão consiste em implementar uma aplicação de função de backup (passiva) para uma região diferente. O Gestor de Tráfego monitorizará a aplicação de função primária (ativa) para disponibilidade de HTTP. Falhará na aplicação de função de backup se a primária falhar. Para obter mais informações, consulte o [Método de Encaminhamento Prioritário de Tráfego](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do Gestor de Tráfego da [Azure.](https://azure.microsoft.com/services/traffic-manager/)
+Os seguintes cenários baseiam-se em configurações Active-Passive, uma vez que são guiados pelo uso do Azure Storage. Este padrão consiste em implementar uma aplicação de função de backup (passiva) para uma região diferente. O Gestor de Tráfego monitorizará a aplicação de função primária (ativa) para disponibilidade de HTTP. Falhará na aplicação de função de backup se a primária falhar. Para mais informações, consulte o [Método de Traffic-Routing Prioritária](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do Gestor de Tráfego da [Azure.](https://azure.microsoft.com/services/traffic-manager/)
 
 > [!NOTE]
-> - A configuração activa-passiva proposta garante que um cliente é sempre capaz de desencadear novas orquestrações através de HTTP. No entanto, como consequência de ter duas aplicações de função que partilham o mesmo centro de tarefas no armazenamento, algumas transações de armazenamento de fundo serão distribuídas entre ambas. Esta configuração incorre, portanto, em alguns custos adicionais de saída para a aplicação de função secundária.
+> - A configuração Active-Passive proposta garante que um cliente é sempre capaz de desencadear novas orquestrações através de HTTP. No entanto, como consequência de ter duas aplicações de função que partilham o mesmo centro de tarefas no armazenamento, algumas transações de armazenamento de fundo serão distribuídas entre ambas. Esta configuração incorre, portanto, em alguns custos adicionais de saída para a aplicação de função secundária.
 > - A conta de armazenamento subjacente e o centro de tarefas são criados na região primária, e são partilhados por ambas as aplicações de função.
 > - Todas as aplicações de função que são implantadas de forma redundante devem partilhar as mesmas teclas de acesso de função no caso de serem ativadas através de HTTP. O Tempo de Execução de Funções expõe uma [API de gestão](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) que permite aos consumidores adicionar, eliminar e atualizar as teclas de função. A gestão de chaves também é possível usando [APIs do Gestor de Recursos Azure](https://www.markheath.net/post/managing-azure-functions-keys-2).
 

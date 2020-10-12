@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092750"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão para Azure Cloud Services: Perguntas frequentes (PERGUNTAS Frequentes)
@@ -113,7 +113,7 @@ Pode automatizar esta tarefa utilizando um script de arranque (batch/cmd/PowerSh
 
 Este certificado é utilizado para encriptar as chaves da máquina em Azure Web Roles. Para saber mais, confira [este aviso.](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 - [Como configurar e executar tarefas de arranque para um Serviço cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas de arranque do Serviço Comum de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -192,13 +192,13 @@ A Microsoft monitoriza continuamente servidores, redes e aplicações para detet
 O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente e do servidor. Se o seu cliente (browser) estiver a ligar-se ao servidor IIS através do TLS que negoceia HTTP/2 através de extensões TLS, então não precisa de fazer qualquer alteração no lado do servidor. Isto porque, sobre o TLS, o cabeçalho h2-14 especificando a utilização de HTTP/2 é enviado por predefinição. Se, por outro lado, o seu cliente estiver a enviar um cabeçalho de Atualização para atualizar para HTTP/2, então tem de fazer a alteração abaixo no lado do servidor para garantir que a Atualização funciona e que acaba por ter uma ligação HTTP/2. 
 
 1. Corre regedit.exe.
-2. Navegue para a chave de registo: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parâmetros.
+2. Navegue pela chave de registo: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Crie um novo valor DWORD chamado **DuoEnabled**.
 4. Desa parte para 1.
 5. Reinicie o servidor.
 6. Vá ao Seu **Web Site padrão** e em **Encadernações,** crie uma nova ligação TLS com o certificado auto-assinado acaba de ser criado. 
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: Browser, Apps e Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -231,7 +231,7 @@ A Microsoft segue um processo rigoroso que não permitirá que engenheiros inter
 Este erro pode ocorrer se utilizar o ficheiro RDP a partir de uma máquina que se junta ao Diretório Ativo Azure. Para resolver este problema, siga estes passos:
 
 1. Clique com o botão direito no ficheiro RDP que descarregou e, em seguida, **selecione Editar**.
-2. Adicione "&#92;" como prefixo antes do nome de utilizador. Por exemplo, utilize **.\username** em vez de nome de **utilizador**.
+2. Adicione "&#92;" como prefixo antes do nome de utilizador. Por exemplo, utilize **.\username** em vez de nome de  **utilizador**.
 
 ## <a name="scaling"></a>Dimensionamento
 

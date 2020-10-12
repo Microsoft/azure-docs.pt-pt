@@ -7,21 +7,21 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
 ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225721"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 
 Pode criar uma Base de Dados Azure para servidor MariaDB num dos três níveis de preços diferentes: Básico, Propósito Geral e Memória Otimizada. Os níveis de preços são diferenciados pela quantidade de cálculo em vCores que podem ser a provisionados, memória por vCore e a tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são abastados ao nível do servidor MariaDB. Um servidor pode ter uma ou muitas bases de dados.
 
-| Recurso | **Básica** | **Finalidade Geral** | **Memória Otimizada** |
+| Recurso | **Básica** | **Fins Gerais** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
-| Geração computacional | Gen 5 |Gen 5 | Gen 5 |
+| Geração computacional | Geração 5 |Geração 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Período de retenção de backup da base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -30,8 +30,8 @@ Para escolher um nível de preços, utilize a tabela seguinte como ponto de part
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
 | Básico | Cargas de trabalho que requerem computação leve e desempenho de I/O. Exemplos incluem servidores utilizados para desenvolvimento ou teste ou aplicações pouco utilizadas em pequena escala. |
-| Fins Gerais | A maioria das cargas de trabalho do negócio que requerem cálculo equilibrado e memória com rendimento escalável de I/O. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
-| Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento de transações mais rápido e maior conúcência. Exemplos incluem servidores para o processamento de dados em tempo real e aplicações transacionais ou analíticas de alto desempenho.|
+| Fins Gerais | A maioria das cargas de trabalho do negócio que requerem cálculo equilibrado e memória com rendimento escalável de I/O. Os exemplos incluem servidores de alojamento de aplicações para dispositivos móveis e Web, entre outras aplicações empresariais.|
+| Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento de transações mais rápido e maior conúcência. Os exemplos incluem servidores para processamento de dados em tempo real e aplicações com elevado desempenho transacional ou analítico.|
 
 Depois de criar um servidor, o número de vCores e o nível de preços (exceto de e para o Básico) podem ser alterados para cima ou para baixo em segundos. Também pode ajustar de forma independente a quantidade de armazenamento para cima e o período de retenção de backup para cima ou para baixo sem tempo de inatividade da aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. Para mais informações, consulte a secção [de recursos da Escala.](#scale-resources)
 
@@ -91,7 +91,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 A Azure Database for MariaDB fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento de reserva que utilize acima deste valor é cobrado em GB por mês. Por exemplo, se fornecer um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custos. O armazenamento para cópias de segurança superiores aos 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/mariadb/). Para compreender os fatores que influenciam o uso do armazenamento de backup, monitorizando e controlando o custo de armazenamento de backup, pode consultar a [documentação de backup](concepts-backup.md).
 
@@ -107,6 +107,6 @@ O armazenamento de escala e a alteração do período de retenção de backup s�
 
 Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/mariadb/)serviço . Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) mostra o custo mensal no **separador de nível de Preços** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria **Base de Dados de Bases de Dados** e escolher a Base **de Dados Azure para MariaDB** para personalizar as opções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Conheça as limitações de [serviço.](concepts-limits.md)
 - Saiba como [criar um servidor MariaDB no portal Azure](quickstart-create-mariadb-server-database-using-azure-portal.md).

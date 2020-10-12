@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212250"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Criar fontes de identidade vCenter para utilizar o Ative Directory
@@ -45,9 +45,9 @@ Antes [de adicionar uma fonte de identidade,](#add-an-identity-source-on-vcenter
 > [!IMPORTANT]
 > **O Diretório Ativo (Autenticação Integrada do Windows) não é suportado.** Apenas o Diretório Ativo sobre a opção LDAP é suportado como uma fonte de identidade.
 
-## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar diretório ativo nas instalações como uma única fonte de identidade sign-on
+## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar diretório ativo nas instalações como uma única fonte de identidade Sign-On
 
-Para configurar o seu Ative Directory no local como uma única fonte de identificação sign-on, você precisa:
+Para configurar o seu Ative Directory como fonte de identidade single Sign-On, precisa:
 
 * [Ligação VPN site-to-site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) do seu centro de dados no local para a sua Nuvem Privada.
 * Ip do servidor DNS nas instalações adicionado ao vCenter e ao Controlador de Serviços de Plataforma (PSC).
@@ -67,10 +67,10 @@ Utilize as informações na tabela seguinte ao configurar o seu domínio Ative D
 | **Nome de Utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
 | **Palavra-passe** | Palavra-passe do utilizador que é especificado pelo Nome de Utilizador. |
 
-Quando tiver as informações na tabela anterior, pode adicionar o seu Diretório Ativo no local como uma única fonte de identificação sign-on no vCenter.
+Quando tiver as informações na tabela anterior, pode adicionar o seu Diretório Ativo no local como uma única fonte de identidade Sign-On no vCenter.
 
 > [!TIP]
-> Encontrará mais informações sobre fontes de identidade de assinatura única na página de [documentação VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
+> Você encontrará mais informações sobre fontes de identidade single Sign-On na página de [documentação VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurar novo Diretório Ativo numa Nuvem Privada
 
@@ -103,9 +103,9 @@ Depois de configurar o domínio Ative Directory, pode [adicionar uma fonte de id
 
 ## <a name="set-up-active-directory-on-azure"></a>Configurar o Ative Directory em Azure
 
-O Ative Directory que funciona no Azure é semelhante ao Ative Directory que funciona no local.  Para configurar o Ative Directory em execução no Azure como uma única fonte de identidade sign-on no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a Rede Virtual Azure onde os serviços de Diretório Ativo estão a funcionar.  Pode estabelecer esta conectividade utilizando [a Ligação de Rede Virtual Azure utilizando o ExpressRoute](azure-expressroute-connection.md) a partir da rede virtual Azure, onde os Serviços de Diretório Ativo estão a correr para cloudSimple Private Cloud.
+O Ative Directory que funciona no Azure é semelhante ao Ative Directory que funciona no local.  Para configurar o Ative Directory em execução no Azure como uma única fonte de identidade Sign-On no vCenter, o servidor vCenter e o PSC devem ter conectividade de rede com a Rede Virtual Azure onde os serviços de Diretório Ativo estão a funcionar.  Pode estabelecer esta conectividade utilizando [a Ligação de Rede Virtual Azure utilizando o ExpressRoute](azure-expressroute-connection.md) a partir da rede virtual Azure, onde os Serviços de Diretório Ativo estão a correr para cloudSimple Private Cloud.
 
-Após a ligação da rede ser estabelecida, siga os [passos no Add On-Premises Ative Directory como uma Única Fonte de Identidade Sign-On](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como Fonte de Identidade.  
+Após a ligação da rede ser estabelecida, siga os passos no [Add On-Premises Ative Directory como uma Única Fonte de Identidade Sign-On](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) para adicioná-la como Fonte de Identidade.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Adicione uma fonte de identidade no vCenter
 
