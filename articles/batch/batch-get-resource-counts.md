@@ -5,10 +5,10 @@ ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
 ms.openlocfilehash: 90f741b9ec5e17da4fd0cc95ef921e116b0c27dc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85960593"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorize soluções de Lote contando tarefas e nódes por estado
@@ -114,7 +114,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 
 Você pode usar um padrão semelhante para REST e outras línguas suportadas para obter contagem de nó para piscinas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como aplicar filtros a consultas que listam recursos do Lote, consulte [Criar consultas para listar os recursos do Batch de forma eficiente.](batch-efficient-list-queries.md)

@@ -10,10 +10,10 @@ caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79528426"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services Config Role Schema
@@ -22,7 +22,7 @@ O `Role` elemento do ficheiro de configuração especifica o número de instânc
 
 Para obter mais informações sobre o Esquema de Configuração do Serviço Azure, consulte o Esquema de [Configuração do Serviço de Nuvem (clássico).](schema-cscfg-file.md) Para obter mais informações sobre o Esquema de Definição de Serviço Azure, consulte [o Esquema de Definição do Serviço de Nuvem (clássico).](schema-csdef-file.md)
 
-##  <a name="role-element"></a><a name="Role"></a>Elemento de papel
+##  <a name="role-element"></a><a name="Role"></a> Elemento de papel
 O exemplo a seguir mostra o `Role` elemento e os elementos da criança.
 
 ```xml 
@@ -43,14 +43,14 @@ A tabela seguinte descreve os atributos para o `Role` elemento.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-| name   | Necessário. Especifica o nome do papel. O nome deve corresponder ao nome previsto para a função no ficheiro de definição de serviço.|
+| name   | Obrigatório. Especifica o nome do papel. O nome deve corresponder ao nome previsto para a função no ficheiro de definição de serviço.|
 | vmName | Opcional. Especifica o nome DNS para uma Máquina Virtual. O nome deve ter 10 caracteres ou menos.|
 
 A tabela seguinte descreve os elementos da criança do `Role` elemento.
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
-| de Instâncias | Necessário. Especifica o número de casos a implementar para o papel. O número de ocorrências é definido por um inteiro para o `count` atributo.|
+| de Instâncias | Obrigatório. Especifica o número de casos a implementar para o papel. O número de ocorrências é definido por um inteiro para o `count` atributo.|
 | Definição   | Opcional. Especifica um nome e valor de definição numa coleção de configurações para uma função. O nome de definição é definido por uma cadeia para o `name` atributo e o valor de definição é definido por uma cadeia para o `value` atributo.|
 | Certificado | Opcional. Especifica o nome, impressão digital e algoritmo de um certificado de serviço que deve ser associado com o papel. O nome do certificado é definido por uma cadeia para o `name` atributo. A impressão digital do certificado é definida por uma série de números hexadémicos que não contêm espaços para o `thumbprint` atributo. Os números hexadecimais devem ser representados com os dígitos e caracteres alfa maiúsculas. O algoritmo de certificado é definido por uma cadeia para o `thumbprintAlgorithm` atributo.|
 

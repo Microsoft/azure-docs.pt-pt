@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904741"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
@@ -105,10 +105,10 @@ A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Yes |
-| *.oms.opinsights.azure.com | 443 | Yes |
-| *.blob.core.windows.net | 443 | Yes |
-| *.azure-automation.net | 443 | Yes |
+| *.ods.opinsights.azure.com | 443 | Sim |
+| *.oms.opinsights.azure.com | 443 | Sim |
+| *.blob.core.windows.net | 443 | Sim |
+| *.azure-automation.net | 443 | Sim |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 
@@ -136,7 +136,7 @@ Alguns problemas podem ser identificados usando as diretrizes fornecidas neste a
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Neste documento, aprendeu a configurar as políticas de segurança no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
@@ -148,7 +148,7 @@ Neste documento, aprendeu a configurar as políticas de segurança no Centro de 
 * [Alerts Validation in Azure Security Center](security-center-alert-validation.md) (Validação de alertas no Centro de Segurança do Azure)
 * [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md) (Notificações por e-mail no Centro de Segurança do Azure)
 * [Lidar com Incidentes de Segurança no Centro de Segurança do Azure](security-center-incident.md)
-* [Capacidades de deteção do Centro de Segurança Azure](security-center-detection-capabilities.md)
+* [Capacidades de deteção do Centro de Segurança do Azure](security-center-detection-capabilities.md)
 * [Monitorizar soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
 * [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço
 * [Blogue de Segurança do Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure

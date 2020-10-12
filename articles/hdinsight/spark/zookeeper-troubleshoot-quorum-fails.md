@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
 ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84673365"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>O servidor Apache ZooKeeper não consegue formar um quórum em Azure HDInsight
@@ -57,7 +57,7 @@ Message
 
 * Encontre os servidores zookeeper a partir do ficheiro /etc/hosts ou da Ambari UI
 * Execute o seguinte comando
-  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181`(ou 2182)  
+  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181` (ou 2182)  
   * Porto 2181 é a instância apache zookeeper
   * O porto 2182 é utilizado pelo zookeeper HDInsight (para fornecer HA para serviços que não são nativos HA)
   * Se o comando não mostrar saída, significa que os servidores do zookeeper não estão a funcionar.
@@ -105,12 +105,12 @@ Node count: 133212
 * Os zookeepers são configurados para expurgar fotos antigas de auto purga
 * Por padrão, os últimos 30 instantâneos são retidos
 * O número de instantâneos que são retidos, é controlado pela chave de configuração `autopurge.snapRetainCount` . Esta propriedade pode ser encontrada nos seguintes ficheiros:
-  * `/etc/zookeeper/conf/zoo.cfg`para Hadoop zookeeper
-  * `/etc/hdinsight-zookeeper/conf/zoo.cfg`para o zookeeper HDInsight
+  * `/etc/zookeeper/conf/zoo.cfg` para Hadoop zookeeper
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg` para o zookeeper HDInsight
 * Definir `autopurge.snapRetainCount` para um valor de 3 e reiniciar os servidores zookeeper
   * Hadoop zookeeper config pode ser atualizado e o serviço pode ser reiniciado através de Ambari
   * Pare e reinicie manualmente o zookeeper HDInsight
-    * `sudo lsof -i :2182`vai dar-lhe o iD processo para matar
+    * `sudo lsof -i :2182` vai dar-lhe o iD processo para matar
     * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
 * Não purgue as imagens manualmente - eliminar instantâneos manualmente pode resultar na perda de dados
 
@@ -121,7 +121,7 @@ Node count: 133212
 * Esta exceção também indica que o cliente zookeeper está terminando as sessões prematuramente
 * Procure os outros sintomas descritos neste documento
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

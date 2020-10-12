@@ -11,10 +11,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005383"
 ---
 # <a name="localization-element"></a>Elemento de localização
@@ -41,7 +41,7 @@ O elemento **de localização** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Ativado | No | Valores possíveis: `true` ou `false` . |
+| Ativado | Não | Valores possíveis: `true` ou `false` . |
 
 O elemento **de localização** contém elementos XML
 
@@ -56,8 +56,8 @@ O elemento **SuportadoLanguages** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DefaultLanguage | Yes | A linguagem a ser usada como padrão para recursos localizados. |
-| FusõesBehavior | No | Uma enumeração de valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha de dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definidos na política-mãe deve ser ignorada, utilizando em vez dos dados definidos na política atual. |
+| DefaultLanguage | Sim | A linguagem a ser usada como padrão para recursos localizados. |
+| FusõesBehavior | Não | Uma enumeração de valores que são fundidos juntamente com qualquer ClaimType presente numa política-mãe com o mesmo identificador. Utilize este atributo quando substituir uma reclamação especificada na política base. Valores possíveis: `Append` `Prepend` , ou . `ReplaceAll` . O `Append` valor especifica que a recolha de dados presentes deve ser anexada ao fim da recolha especificada na política-mãe. O `Prepend` valor especifica que a recolha de dados presentes deve ser adicionada antes da recolha especificada na política-mãe. O `ReplaceAll` valor especifica que a recolha de dados definidos na política-mãe deve ser ignorada, utilizando em vez dos dados definidos na política atual. |
 
 ### <a name="supportedlanguages"></a>Apoio deGuages
 
@@ -73,7 +73,7 @@ O elemento **Imagens Locais** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | Um identificador que é usado para identificar recursos localizados de forma única. |
+| Id | Sim | Um identificador que é usado para identificar recursos localizados de forma única. |
 
 O elemento **LocaledResources** contém os seguintes elementos:
 
@@ -96,9 +96,9 @@ O elemento **Decolecção Localizada** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementoType | Yes | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
-| ElementId | Yes | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se **o ElementType** estiver definido para um ClaimType. |
-| TargetCollection | Yes | A coleção de alvos. |
+| ElementoType | Sim | Refere um elemento ClaimType ou um elemento de interface do utilizador no ficheiro de política. |
+| ElementId | Sim | Uma cadeia que contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema que é usada se **o ElementType** estiver definido para um ClaimType. |
+| TargetCollection | Sim | A coleção de alvos. |
 
 O elemento **Decolecção Localizada** contém os seguintes elementos:
 
@@ -110,9 +110,9 @@ O elemento **Item** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Yes | A cadeia de visualização fácil de utilizar que deve ser mostrada ao utilizador na interface do utilizador para esta opção. |
-| Valor | Yes | O valor de reivindicação de cadeia associado à seleção desta opção. |
-| SelecioneByDefault | No | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
+| Texto | Sim | A cadeia de visualização fácil de utilizar que deve ser mostrada ao utilizador na interface do utilizador para esta opção. |
+| Valor | Sim | O valor de reivindicação de cadeia associado à seleção desta opção. |
+| SelecioneByDefault | Não | Indica se esta opção deve ou não ser selecionada por padrão na UI. Valores possíveis: Verdadeiros ou Falsos. |
 
 O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.** Contém dois elementos **decolecção localizada,** um para inglês e outro para espanhol. Ambos definiram a coleção **de restrição** da reclamação `Gender` com uma lista de itens para inglês e espanhol.
 
@@ -146,9 +146,9 @@ O elemento **LocalizadoString** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementoType | Yes | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation), ou [UxElement](#uxelement).   | 
-| ElementId | Yes | Se **o ElementType** estiver definido para `ClaimType` , ou , este elemento contém uma referência a um tipo de `Predicate` `InputValidation` reclamação já definido na secção ClaimsSchema. |
-| StringId | Yes | Se **o ElementType** estiver definido `ClaimType` para, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName` `AdminHelpText` , ou . `PatternHelpText` . O `DisplayName` valor é utilizado para definir o nome de exibição de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se **o ElementType** estiver definido `UxElement` para, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se **o ElementType** estiver definido para `ErrorMessage` , este elemento especifica o identificador de uma mensagem de erro. Consulte [os IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa dos `UxElement` identificadores.|
+| ElementoType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation), ou [UxElement](#uxelement).   | 
+| ElementId | Sim | Se **o ElementType** estiver definido para `ClaimType` , ou , este elemento contém uma referência a um tipo de `Predicate` `InputValidation` reclamação já definido na secção ClaimsSchema. |
+| StringId | Sim | Se **o ElementType** estiver definido `ClaimType` para, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName` `AdminHelpText` , ou . `PatternHelpText` . O `DisplayName` valor é utilizado para definir o nome de exibição de reclamação. O `AdminHelpText` valor é utilizado para definir o nome de texto de ajuda do utilizador de reclamação. O `PatternHelpText` valor é usado para definir o texto de ajuda do padrão de reclamação. Se **o ElementType** estiver definido `UxElement` para, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se **o ElementType** estiver definido para `ErrorMessage` , este elemento especifica o identificador de uma mensagem de erro. Consulte [os IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa dos `UxElement` identificadores.|
 
 ## <a name="elementtype"></a>ElementoType
 

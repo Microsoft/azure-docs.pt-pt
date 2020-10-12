@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82188162"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
@@ -29,7 +29,7 @@ O número de tamanhos de VM e VM para os nós no seu cluster HDInsight pode afet
 
 Use a melhor versão Spark para o seu cluster.  O serviço HDInsight inclui várias versões tanto da Spark como da própria HDInsight.  Cada versão do Spark inclui um conjunto de definições de cluster predefinidos.  
 
-Quando cria um novo cluster, existem várias versões Spark para escolher. Para ver a lista completa, [Componentes e Versões HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Quando cria um novo cluster, existem várias versões Spark para escolher. Para ver a lista completa,  [Componentes e Versões HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 > [!NOTE]  
 > A versão padrão do Apache Spark no serviço HDInsight pode ser alterada sem aviso prévio. Se tiver uma dependência de versão, a Microsoft recomenda que especifique essa versão específica quando cria clusters utilizando .NET SDK, Azure PowerShell e Azure Classic CLI.
@@ -90,7 +90,7 @@ Três parâmetros-chave que são frequentemente ajustados para sintonizar as con
 > [!NOTE]  
 > Estes três parâmetros de configuração podem ser configurados ao nível do cluster (para todas as aplicações que funcionam no cluster) e também especificados para cada aplicação individual.
 
-Outra fonte de informação sobre os recursos utilizados pelos Executores spark é a UI da Aplicação Spark.  Na UI, **os Executores** exibem vistas sumárias e detalhadas da configuração e dos recursos consumidos.  Determinar se altera os valores dos executores para todo o cluster, ou conjunto particular de execuções de emprego.
+Outra fonte de informação sobre os recursos utilizados pelos Executores spark é a UI da Aplicação Spark.  Na UI,  **os Executores** exibem vistas sumárias e detalhadas da configuração e dos recursos consumidos.  Determinar se altera os valores dos executores para todo o cluster, ou conjunto particular de execuções de emprego.
 
 ![Executores de Faíscas](./media/apache-spark-settings/apache-spark-executors.png)
 
@@ -125,7 +125,7 @@ O YARN controla a soma máxima de memória utilizada pelos recipientes em cada n
 
 Os clusters de faíscas em HDInsight incluem uma série de componentes por padrão. Cada um destes componentes inclui valores de configuração predefinidos, que podem ser ultrapassados conforme necessário.
 
-|Componente |Description|
+|Componente |Descrição|
 |---|---|
 |Núcleo de Faísca|Spark Core, Spark SQL, Spark streaming APIs, GraphX e Apache Spark MLlib.|
 |Anaconda|Um gestor de pacotes de python.|

@@ -9,10 +9,10 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395813"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligue uma rede virtual a um circuito ExpressRoute utilizando o PowerShell (clássico)
@@ -85,7 +85,7 @@ O proprietário do circuito tem o poder de modificar e revogar autorizações a 
 
 **Criação de uma autorização**
 
-O proprietário do circuito autoriza os administradores de outras subscrições a utilizarem o circuito especificado. No exemplo seguinte, o administrador do circuito (Contoso IT) permite ao administrador de outra subscrição (Dev-Test) ligar até duas redes virtuais ao circuito. O administrador de TI Contoso permite-o especificando o ID da Microsoft de Teste de Dev. O cmdlet não envia e-mail para o ID da Microsoft especificado. O proprietário do circuito precisa notificar explicitamente o outro proprietário da subscrição de que a autorização está completa.
+O proprietário do circuito autoriza os administradores de outras subscrições a utilizarem o circuito especificado. No exemplo seguinte, o administrador do circuito (Contoso IT) permite ao administrador de outra subscrição (Dev-Test) ligar até duas redes virtuais ao circuito. O administrador de TI Contoso permite-o especificando o Dev-Test ID da Microsoft. O cmdlet não envia e-mail para o ID da Microsoft especificado. O proprietário do circuito precisa notificar explicitamente o outro proprietário da subscrição de que a autorização está completa.
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -202,6 +202,6 @@ Executar este comando na subscrição recentemente ligada para a rede virtual:
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)

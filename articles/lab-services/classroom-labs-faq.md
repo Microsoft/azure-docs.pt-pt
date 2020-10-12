@@ -4,10 +4,10 @@ description: Este artigo fornece respostas a perguntas frequentes (FAQ) sobre la
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443303"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios de sala de aula em Azure Lab Services — Perguntas frequentes (FAQ)
@@ -19,12 +19,12 @@ Obtenha respostas para algumas das perguntas mais comuns sobre laboratórios de 
 A quota que definiu para um laboratório é para cada aluno durante toda a duração do laboratório. E o [tempo de funcionamento programado dos VM não](how-to-create-schedules.md) conta com a quota atribuída a um utilizador. A quota é para o tempo fora do horário horário que um aluno gasta em VMs.  Para obter mais informações sobre quotas, consulte [Definição de quotas para utilizadores.](how-to-configure-student-usage.md#set-quotas-for-users)
 
 ### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se a educadora liga um VM estudantil, isso afeta a quota de estudante? 
-Não. Não é assim. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
+N.º Nenhum. Quando a educadora liga o VM do aluno, não afeta a quota atribuída ao aluno. 
 
 ## <a name="schedules"></a>Agendas
 
 ### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Todos os VMs no laboratório começam automaticamente quando um horário é definido? 
-Não. Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
+N.º Nem todos os VMs. Apenas os VMs que são atribuídos aos utilizadores num horário. Os VMs que não são atribuídos a um utilizador não são iniciados automaticamente. É por desígnio. 
 
 ## <a name="lab-accounts"></a>Contas de laboratório
 
@@ -42,14 +42,14 @@ Também pode ver o endereço IP privado de cada máquina virtual no separador de
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Que intervalo de endereço IP público devo abrir nas definições de firewall da minha organização para ligar às máquinas virtuais do Laboratório via RDP/SSH?
 Consulte [gamas IP Azure e Tags de Serviço — Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519), que fornece o intervalo de endereços IP público para centros de dados em Azure. Pode abrir os endereços IP para as regiões onde estão as suas contas de laboratório.
 
-## <a name="virtual-machine-images"></a>Imagens de máquinas virtuais
+## <a name="virtual-machine-images"></a>Imagens de máquina virtual
 
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Como criador de laboratório, por que não posso permitir opções de imagem adicionais nas imagens de máquinas virtuais que caem ao criar um novo laboratório?
 
 Quando um administrador te adiciona como criador de laboratório a uma conta de laboratório, é-te dada a permissão para criar laboratórios. Mas não tem as permissões para editar quaisquer definições dentro da conta do laboratório, incluindo a lista de imagens de máquinas virtuais ativadas. Para ativar imagens adicionais, contacte o administrador da conta de laboratório para o fazer por si, ou peça ao administrador para o adicionar como contribuinte à conta de laboratório. A função Colaborador dará-lhe as permissões para editar a lista de imagens de máquina virtual na conta de laboratório.
 
 ### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Posso anexar discos adicionais a uma máquina virtual?
-Não. não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
+N.º não é possível anexar discos adicionais a um VM num laboratório de sala de aula. 
 
 ## <a name="users"></a>Utilizadores
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: understand-apache-spark-for-usql-developers
 ms.date: 10/15/2019
 ms.openlocfilehash: 567574e65fcc1db3ef9e8aea73c6a59be0594f72
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132301"
 ---
 # <a name="understand-apache-spark-for-u-sql-developers"></a>Compreender o Apache Spark para programadores de U-SQL

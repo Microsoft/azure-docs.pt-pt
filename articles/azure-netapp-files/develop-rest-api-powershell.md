@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
 ms.openlocfilehash: 90e88020f735f34d308935f1233fb91c0eddfe32
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961069"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>Desenvolver para Azure NetApp Files com REST API usando PowerShell
@@ -435,6 +435,6 @@ Esta secção mostra scripts de amostra para PowerShell.
        }  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Consulte a referência AZure NetApp API](https://docs.microsoft.com/rest/api/netapp/)

@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85958426"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Melhores práticas para piscinas SQL em Azure Synapse Analytics
@@ -171,7 +171,7 @@ Para obter informações adicionais sobre as classes de recursos, consulte as cl
 
 Se notar um longo atraso nas consultas dos utilizadores, os seus utilizadores podem estar a executar em classes de recursos maiores. Este cenário promove o consumo de slots de convíria, o que pode fazer com que outras consultas façam fila.  Para determinar se as consultas dos utilizadores estão em fila, corra `SELECT * FROM sys.dm_pdw_waits` para ver se alguma linha é devolvida.
 
-As [classes de Recursos para gestão](../sql-data-warehouse/resource-classes-for-workload-management.md) de carga de trabalho e [artigos sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) fornecer-lhe-ão mais informações.
+As [classes de Recursos para gestão de carga de trabalho](../sql-data-warehouse/resource-classes-for-workload-management.md) e artigos [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) irão fornecer-lhe mais informações.
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Utilize DMVs para monitorizar e otimizar as suas consultas
 
@@ -189,7 +189,7 @@ As piscinas SQL têm vários DMVs que podem ser usados para monitorizar a execu�
 - [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte também o artigo [de resolução de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para questões e soluções comuns.
 

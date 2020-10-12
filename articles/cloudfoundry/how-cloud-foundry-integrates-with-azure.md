@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82145133"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
@@ -40,7 +40,7 @@ A zona de disponibilidade de Azure alcança HA colocando um conjunto de VMs em 2
 ## <a name="2-network-routing"></a>2. Encaminhamento de rede
 Por padrão, o Azure basic load balancer é usado para os pedidos de API/apps CF, reencando-os para os Gorouters. Componentes CF como Diego Brain, MySQL, ERT também podem usar o equilibrador de carga para equilibrar o tráfego para HA. O Azure também fornece um conjunto de soluções totalmente geridas de equilíbrio de carga. Se estiver à procura de rescisão TLS/SSL ("offload SSL") ou por HTTP/HTTPS solicite processamento de camadas de aplicação, considere o Gateway de aplicação. Para uma elevada disponibilidade e carga de escala equilibrada na camada 4, considere o balanceador de carga padrão.
 ### <a name="azure-application-gateway-"></a>Gateway de aplicação Azure *
-[O Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferece várias capacidades de equilíbrio de carga de camada 7, incluindo descarregamento SSL, fim a fim TLS, Firewall de aplicação web, afinidade de sessão baseada em cookies e muito mais. Pode [configurar o Gateway de aplicações em Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Para pcf, verifique as [notas de lançamento do PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) para o teste POC.
+[O Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferece várias capacidades de equilíbrio de carga de camada 7, incluindo descarregamento SSL, fim a fim TLS, Firewall de aplicação web, afinidade de sessão baseada em cookies e muito mais. Pode [configurar o Gateway de aplicações em Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Para pcf, verifique as  [notas de lançamento do PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) para o teste POC.
 
 ### <a name="azure-standard-load-balancer-"></a>Balançador de carga padrão Azure *
 Azure Load Balancer é um equilibrador de carga camada 4. É usado para distribuir o tráfego entre casos de serviços em um conjunto equilibrado de carga. A versão padrão fornece [funcionalidades avançadas](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) em cima da versão básica. Por exemplo, 1. O limite máximo da piscina de backend é aumentado de 100 para 1000 VMs.  2. Os pontos finais suportam agora vários conjuntos de disponibilidade em vez de um conjunto de disponibilidade única.  3. Recursos adicionais como portas HA, dados de monitorização mais ricos, e assim por diante. Se estiver a mudar-se para a Zona de Disponibilidade Azure, é necessário um balanceador de carga padrão. Para uma nova implementação, recomendamos que comece com o Azure Standard Load Balancer. 

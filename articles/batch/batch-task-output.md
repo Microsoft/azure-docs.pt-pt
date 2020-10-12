@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965115"
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
@@ -59,7 +59,7 @@ Pode querer implementar as Convenções de Ficheiros que nomeiam o padrão quand
 
 Também pode implementar a sua própria solução completa de movimento de ficheiros. Utilize esta abordagem quando:
 
-- Pretende persistir dados de tarefas para uma loja de dados que não seja o Azure Storage. Para fazer o upload de ficheiros para uma loja de dados como Azure SQL ou Azure DataLake, pode criar um script personalizado ou executável para fazer o upload para esse local. Em seguida, pode chamá-lo na linha de comando depois de executar o seu executável primário. Por exemplo, num nó do Windows, pode chamar estes dois comandos:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Pretende persistir dados de tarefas para uma loja de dados que não seja o Azure Storage. Para fazer o upload de ficheiros para uma loja de dados como Azure SQL ou Azure DataLake, pode criar um script personalizado ou executável para fazer o upload para esse local. Em seguida, pode chamá-lo na linha de comando depois de executar o seu executável primário. Por exemplo, num nó do Windows, pode chamar estes dois comandos: `doMyWork.exe && uploadMyFilesToSql.exe`
 - Pretende efetuar o check-pointing ou o upload antecipado dos resultados iniciais.
 - Pretende manter o controlo granular sobre o manuseamento de erros. Por exemplo, pode querer implementar a sua própria solução se quiser utilizar ações de dependência de tarefas para realizar determinadas ações de upload com base em códigos específicos de saída de tarefas. Para obter mais informações sobre as ações de dependência de [tarefas, consulte Criar dependências de tarefas para executar tarefas que dependam de outras tarefas](batch-task-dependencies.md).
 
@@ -75,7 +75,7 @@ Ao conceber a sua solução Batch, considere os seguintes fatores relacionados c
 
 - **Visualização :** Quando navega para uma tarefa de Lote no portal Azure e seleciona **Ficheiros no nó,** é-lhe apresentado todos os ficheiros associados à tarefa e não apenas os ficheiros de saída em que está interessado. Mais uma vez, os ficheiros sobre os nós computativos só estão disponíveis enquanto o nó existir e apenas dentro do tempo de retenção de ficheiros que definiu para a tarefa. Para visualizar a saída de tarefa que insistiu no Azure Storage, pode utilizar o portal Azure ou uma aplicação de cliente de Armazenamento Azure, como o [Azure Storage Explorer][storage_explorer]. Para visualizar os dados de saída no Azure Storage com o portal ou outra ferramenta, deve saber a localização do ficheiro e navegar diretamente para o mesmo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Explore utilizando as novas funcionalidades no serviço Batch API para persistir dados de tarefas em persistência em [dados de tarefas persistindo para Azure Storage com o serviço Batch API](batch-task-output-files.md).
 - Saiba mais sobre a utilização da biblioteca de convenções de ficheiros de lote para .NET em [persistência e dados de tarefa para Azure Storage com a biblioteca de convenções de ficheiros de lote para .NET](batch-task-output-file-conventions.md).

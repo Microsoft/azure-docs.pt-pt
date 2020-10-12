@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963245"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolha balcões de desempenho para aplicações Linux no Azure Monitor 
@@ -44,8 +44,8 @@ As entradas no ficheiro de autenticação são descritas na tabela seguinte.
 | Propriedade | Descrição |
 |:--|:--|
 | Porta | Representa a porta atual onde o caso MySQL está a ouvir. A porta 0 especifica que as propriedades que se seguem são utilizadas por exemplo predefinido. |
-| Endereço de ligação| Endereço de ligação MySQL atual. |
-| o nome de utilizador| O utilizador MySQL costumava usar para monitorizar a instância do servidor MySQL. |
+| Bind-Address| Endereço de ligação MySQL atual. |
+| nome de utilizador| O utilizador MySQL costumava usar para monitorizar a instância do servidor MySQL. |
 | Senha codificada Base64| Palavra-passe do utilizador de monitorização MySQL codificado na Base64. |
 | AutoUpdate| Especifica se deve rescanar para alterações no ficheiro my.cnf e substituir o ficheiro de autenticação OMI MySQL quando o Provedor OMI MySQL for atualizado. |
 
@@ -113,7 +113,7 @@ GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 Uma vez configurado o agente Log Analytics para o Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
-| Nome do objeto | Contra-nome |
+| Nome do objeto | Nome do Contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -151,7 +151,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Uma vez configurado o agente Log Analytics para o Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho para recolher.  Utilize o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
-| Nome do objeto | Contra-nome |
+| Nome do objeto | Nome do Contador |
 |:--|:--|
 | Servidor Apache HTTP | Trabalhadores Ocupados |
 | Servidor Apache HTTP | Trabalhadores Ociosos |
@@ -165,6 +165,6 @@ Uma vez configurado o agente Log Analytics para o Linux enviar dados para o Azur
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Recolha contadores](data-sources-performance-counters.md) de desempenho de agentes Linux.
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

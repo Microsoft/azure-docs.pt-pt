@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500185"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para ferramentas de desenvolvimento baseadas em recursos Azure para clusters HDInsight
@@ -31,21 +31,21 @@ O HDInsight está a depreciar ferramentas baseadas em Azure Service Manager (ASM
 
 Seguem-se os comandos básicos para trabalhar com a HDInsight através do CLi Azure CLassic:
 
-* `azure hdinsight cluster create`- cria um novo cluster HDInsight
-* `azure hdinsight cluster delete`- elimina um cluster HDInsight existente
-* `azure hdinsight cluster show`- mostrar informações sobre um cluster existente
-* `azure hdinsight cluster list`- lista clusters HDInsight para a sua subscrição Azure
+* `azure hdinsight cluster create` - cria um novo cluster HDInsight
+* `azure hdinsight cluster delete` - elimina um cluster HDInsight existente
+* `azure hdinsight cluster show` - mostrar informações sobre um cluster existente
+* `azure hdinsight cluster list` - lista clusters HDInsight para a sua subscrição Azure
 
 Utilize o `-h` interruptor para inspecionar os parâmetros e interruptores disponíveis para cada comando.
 
 ### <a name="new-commands"></a>Novos comandos
 Novos comandos disponíveis com Azure Resource Manager são:
 
-* `azure hdinsight cluster resize`- altera dinamicamente o número de nós de trabalhadores no cluster
-* `azure hdinsight cluster enable-http-access`- permite o acesso dos HTTPs ao cluster (por defeito)
-* `azure hdinsight cluster disable-http-access`- desativa o acesso dos HTTPs ao cluster
-* `azure hdinsight script-action`- fornece comandos para criar/gerir ações de script num cluster
-* `azure hdinsight config`- fornece comandos para a criação de um ficheiro de configuração que pode ser utilizado com o `hdinsight cluster create` comando para fornecer informações de configuração.
+* `azure hdinsight cluster resize` - altera dinamicamente o número de nós de trabalhadores no cluster
+* `azure hdinsight cluster enable-http-access` - permite o acesso dos HTTPs ao cluster (por defeito)
+* `azure hdinsight cluster disable-http-access` - desativa o acesso dos HTTPs ao cluster
+* `azure hdinsight script-action` - fornece comandos para criar/gerir ações de script num cluster
+* `azure hdinsight config` - fornece comandos para a criação de um ficheiro de configuração que pode ser utilizado com o `hdinsight cluster create` comando para fornecer informações de configuração.
 
 ### <a name="deprecated-commands"></a>Comandos precatados
 Se utilizar os `azure hdinsight job` comandos para submeter postos de trabalho ao seu cluster HDInsight, estes comandos não estão disponíveis através dos comandos do Gestor de Recursos. Se precisar de submeter programáticamente empregos para HDInsight a partir de scripts, deverá utilizar as APIs REST fornecidas por HDInsight. Para obter mais informações sobre a submissão de postos de trabalho utilizando ASE DO REST, consulte os seguintes documentos.
@@ -59,26 +59,26 @@ Para obter informações sobre outras formas de executar Apache Hadoop MapReduce
 ### <a name="examples"></a>Exemplos
 **Criar um cluster**
 
-* Comando antigo (ASM) -`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Novo comando -`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Comando antigo (ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Novo comando - `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Apagar um aglomerado**
 
-* Comando antigo (ASM) -`azure hdinsight cluster delete myhdicluster`
-* Novo comando -`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Comando antigo (ASM) - `azure hdinsight cluster delete myhdicluster`
+* Novo comando - `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Agrupamentos de listas**
 
-* Comando antigo (ASM) -`azure hdinsight cluster list`
-* Novo comando -`azure hdinsight cluster list`
+* Comando antigo (ASM) - `azure hdinsight cluster list`
+* Novo comando - `azure hdinsight cluster list`
 
 > [!NOTE]  
 > Para o comando da lista, especificar o grupo de recursos que utiliza `-g` apenas devolverá os clusters no grupo de recursos especificado.
 
 **Mostrar informações sobre clusters**
 
-* Comando antigo (ASM) -`azure hdinsight cluster show myhdicluster`
-* Novo comando -`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Comando antigo (ASM) - `azure hdinsight cluster show myhdicluster`
+* Novo comando - `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migração Azure PowerShell para Azure Resource Manager
 As informações gerais sobre o Azure PowerShell no modo Azure Resource Manager podem ser encontradas na [Utilização do Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).

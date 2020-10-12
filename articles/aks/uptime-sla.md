@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749129"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Serviço Azure Kubernetes (AKS) Uptime SLA
@@ -37,7 +37,7 @@ O Uptime SLA está disponível nas regiões públicas e nas regiões do Governo 
 
 Uptime SLA é uma funcionalidade paga e ativada por cluster. Os preços de SLA de uptime são determinados pelo número de clusters discretos, e não pelo tamanho dos clusters individuais. Pode ver [os detalhes dos preços do Uptime SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) para mais informações.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Instale a versão [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.8.0 ou posterior
 
