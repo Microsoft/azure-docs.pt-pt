@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117437"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Resolução de problemas: Dados de auditoria sobre a alteração verificada do domínio 
@@ -39,7 +39,7 @@ Verifico os registos de auditoria da AZure AD e vejo várias atualizações de u
 
 #### <a name="what-does-userprincipalname-consistency-mean"></a>O que significa consistência do Nome Do Utilizador? 
 
-Para os utilizadores apenas na nuvem, a consistência significa que o **Nome Do UtilizadorPrincipal** está definido para um sufixo de domínio verificado. Quando um **Nome Usáccipo** inconsistente é processado, o **ProxyCalc** converte-o no sufixo de onmicrosoft.com predefinido, por exemplo:username@Contoso.onmicrosoft.com 
+Para os utilizadores apenas na nuvem, a consistência significa que o **Nome Do UtilizadorPrincipal** está definido para um sufixo de domínio verificado. Quando um **Nome Usáccipo** inconsistente é processado, o **ProxyCalc** converte-o no sufixo de onmicrosoft.com predefinido, por exemplo: username@Contoso.onmicrosoft.com 
 
 Para utilizadores sincronizados, a consistência significa que o **Nome Do UtilizadorPrincipal** está definido para um sufixo de domínio verificado e corresponde ao valor do **Nome Do Utilizador** nas instalações (ShadowUserPrincipalName). Quando um **Nome De UtilizadorPrincipal** inconsistente for processado, o **ProxyCalc** reverterá para o mesmo valor que o **ShadowUserPrincipalName** ou, caso o sufixo de domínio tenha sido removido do inquilino, convertê-lo-á ao sufixo de domínio predefinido *.onmicrosoft.com. 
 
@@ -47,7 +47,7 @@ Para utilizadores sincronizados, a consistência significa que o **Nome Do Utili
 
 #### <a name="what-does-proxy-address-consistency-mean"></a>O que significa consistência do Endereço Proxy? 
 
-Para os utilizadores apenas na nuvem, a consistência significa que os Endereços Proxy correspondem a um sufixo de domínio verificado. Quando um endereço proxy inconsistente é processado, **ProxyCalc** irá convertê-lo para o sufixo de domínio padrão *.onmicrosoft.com, por exemplo:SMTP:username@Contoso.onmicrosoft.com 
+Para os utilizadores apenas na nuvem, a consistência significa que os Endereços Proxy correspondem a um sufixo de domínio verificado. Quando um endereço proxy inconsistente é processado, **ProxyCalc** irá convertê-lo para o sufixo de domínio padrão *.onmicrosoft.com, por exemplo: SMTP:username@Contoso.onmicrosoft.com 
 
 Para os utilizadores sincronizados, a consistência significa que os endereços proxy correspondem ao valor(es) proxy address(es) no local (es) (i.e) ShadowProxyAddresses). Espera-se que os **ProxyAddresses** estejam sincronizados com **os ShadowProxyAddresses**. Se o utilizador sincronizado tiver uma licença de Troca atribuída, os Endereços Proxy devem corresponder ao valor (es) Proxy Address(es) no local e também devem corresponder a um sufixo de domínio verificado. Neste cenário, **o ProxyCalc** irá sanitizar o inconsistente Endereço Proxy com um sufixo de domínio não verificado e será removido do objeto em Azure AD. Se esse domínio não verificado for verificado mais tarde, **o ProxyCalc** recomputa e adiciona o Endereço Proxy de **ShadowProxyAddresses** de volta ao objeto em Azure AD.  
 

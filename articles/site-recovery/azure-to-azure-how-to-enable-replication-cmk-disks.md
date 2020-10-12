@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86529000"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Máquinas de replicar com chaves geridas pelo cliente (CMK) discos ativados
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas virtuais com discos ativados com Chaves Geridas pelo Cliente (CMK)
 
-Este artigo descreve como replicar VMs Azure com Chaves Geridas pelo Cliente (CMK) ativados em discos geridos, de uma região Azure para outra.
+Este artigo descreve como replicar VMs Azure com Customer-Managed Keys (CMK) habilitados discos geridos, de uma região de Azure para outra.
 
 ## <a name="prerequisite"></a>Pré-requisito
 Tem de criar os conjuntos de encriptação do disco na região alvo para a subscrição-alvo antes de permitir a replicação para as suas máquinas virtuais que tenham discos geridos com CMK.
@@ -70,7 +70,7 @@ Siga estes passos para modificar as definições de alvo padrão de recuperaçã
 ![Ativar a replicação para máquina com discos com CMK ativados](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->Durante a replicação inicial, o estado pode demorar algum tempo a refrescar-se, sem progressos aparentes. Clique **em Refresh** para obter o estado mais recente.
+>Durante a replicação inicial, o estado pode demorar algum tempo a refrescar-se, sem progressos aparentes. Clique **em Refresh**  para obter o estado mais recente.
 
 ## <a name="faqs"></a>FAQs
 

@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428119"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
@@ -104,11 +104,11 @@ Seguem-se os IDs para uma definição de conteúdo com um ID ou qualquer defini�
 | **ver_but_send** | Enviar código de verificação |
 | **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
-| **ano** | Ano |
+| **ano** | Anual |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Fizeste muitas tentativas incorretas. Tente novamente mais tarde. |
-| **mês** | Mês |
+| **mês** | Mensal |
 | **ver_success_msg** | Endereço de e-mail verificado. Agora pode continuar. |
 | **months** | Janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro |
 | **ver_fail_server** | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente. |
@@ -137,11 +137,11 @@ Seguem-se os IDs para uma definição de conteúdo com um ID ou qualquer defini�
 | ID | Valor predefinido |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Um utilizador com o ID especificado já existe. Por favor, escolha um diferente. |
-| **UserMessageIfClaimNotVerified** | Reclamação não verificada:{0} |
-| **UserMessageIfIncorrectPattern** | Padrão incorreto para:{0} |
-| **UserMessageIfMissingRequiredElement** | Elemento necessário em falta:{0} |
-| **UserMessageIfValidationError** | Erro de validação por:{0} |
-| **UserMessageIfInvalidInput** | {0}tem entrada inválida. |
+| **UserMessageIfClaimNotVerified** | Reclamação não verificada: {0} |
+| **UserMessageIfIncorrectPattern** | Padrão incorreto para: {0} |
+| **UserMessageIfMissingRequiredElement** | Elemento necessário em falta: {0} |
+| **UserMessageIfValidationError** | Erro de validação por: {0} |
+| **UserMessageIfInvalidInput** | {0} tem entrada inválida. |
 | **ServiceThrottled** | Há muitos pedidos neste momento. Por favor, espere um pouco e tente de novo. |
 
 O exemplo a seguir mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição:
@@ -171,7 +171,7 @@ Seguem-se os IDs para uma definição de conteúdo com um ID de `api.phonefactor
 | **invalid_code** | Introduza o código de 6 dígitos que recebeu |
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
-| **button_retry** | Tentar novamente |
+| **button_retry** | Repetir |
 | **alternative_text** | Não tenho o meu telemóvel. |
 | **intro_phone_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar para autenticá-lo. |
 | **intro_phone** | Temos o seguinte número registado para si. Vamos telefonar para autenticá-lo. |
@@ -239,10 +239,10 @@ Seguem-se os IDs para mensagens de erro [de perfil técnico do serviço Restful:
 
 | ID | Valor predefinido |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante. URL de serviço repousante:{0} |
-|UserMessageIfCircuitOpen | {0}URL de serviço repousante:{1} |
-|UserMessageIfDnsResolutionFailed | Não conseguiu resolver o nome de anfitrião do ponto final de serviço repousante. URL de serviço repousante:{0} |
-|UserMessageIfRequestTimeout | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante dentro dos segundos limite {0} de tempo. URL de serviço repousante:{1} |
+|DefaultUserMessageIfRequestFailed | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante. URL de serviço repousante: {0} |
+|UserMessageIfCircuitOpen | {0} URL de serviço repousante: {1} |
+|UserMessageIfDnsResolutionFailed | Não conseguiu resolver o nome de anfitrião do ponto final de serviço repousante. URL de serviço repousante: {0} |
+|UserMessageIfRequestTimeout | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante dentro dos segundos limite {0} de tempo. URL de serviço repousante: {1} |
 
 
 ### <a name="example"></a>Exemplo
@@ -369,7 +369,7 @@ Seguem-se os valores countryList utilizados pela autenticação multi-factor.
 {"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para exemplos de localização:
 

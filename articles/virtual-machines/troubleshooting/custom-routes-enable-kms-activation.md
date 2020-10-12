@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 1c2050969e95b521554bba100b688add3a987a80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526746"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Ativação do Windows falha em cenário de túnel forçado
@@ -115,7 +115,7 @@ Para adicionar a rota personalizada, siga estes passos:
 
 4. Tente ativar o Windows e ver se o problema está resolvido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Teclas de Configuração de Cliente KMS](/windows-server/get-started/kmsclientkeys)
 - [Rever e selecionar métodos de ativação](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11))

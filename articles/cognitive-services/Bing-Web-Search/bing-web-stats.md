@@ -12,10 +12,10 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86147403"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Adicione análise às APIs de Pesquisa de Bing
@@ -90,7 +90,7 @@ Seguem-se possíveis métricas e restrições de ponto final.
 
 - **Distribuição do Código de Resposta**: Os códigos de estado HTTP de todas as chamadas durante o período de reporte.
 
-- **Call Origin Distribution**: Os tipos de navegadores utilizados pelos utilizadores. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. As chamadas feitas de fora de um navegador (como bots, Carteiro ou usando caracóis de uma aplicação de consola) estão agrupadas nas Bibliotecas. A origem é determinada utilizando o valor do cabeçalho do agente de utilizador do pedido. Se o pedido não incluir o cabeçalho do Agente de Utilizador, Bing tenta obter a origem de outros sinais.  
+- **Call Origin Distribution**: Os tipos de navegadores utilizados pelos utilizadores. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. As chamadas feitas de fora de um navegador (como bots, Carteiro ou usando caracóis de uma aplicação de consola) estão agrupadas nas Bibliotecas. A origem é determinada utilizando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter a origem de outros sinais.  
 
 - **Distribuição de Pesquisa Segura**: Distribuição de valores de pesquisa seguros. Por exemplo, fora, moderado ou rigoroso. O `safeSearch` parâmetro de consulta contém o valor, se especificado. Caso contrário, Bing predefini o valor a moderado.  
 
@@ -98,7 +98,7 @@ Seguem-se possíveis métricas e restrições de ponto final.
 
 - **Respostas Distribuição Devolvida**: As respostas que a API de Pesquisa Web devolveu na resposta.
 
-- **Distribuição do Servidor de Resposta**: O servidor de aplicações que serviu os seus pedidos de API. Os valores possíveis são Bing.com (para o tráfego servido a partir de dispositivos de secretária e portátil) e Bing.com-mobile (para o tráfego servido a partir de dispositivos móveis). O servidor é determinado utilizando o valor do cabeçalho do Agente de Utilizador do pedido. Se o pedido não incluir o cabeçalho do Agente de Utilizador, Bing tenta obter o servidor de outros sinais.
+- **Distribuição do Servidor de Resposta**: O servidor de aplicações que serviu os seus pedidos de API. Os valores possíveis são Bing.com (para o tráfego servido a partir de dispositivos de secretária e portátil) e Bing.com-mobile (para o tráfego servido a partir de dispositivos móveis). O servidor é determinado usando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter o servidor de outros sinais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

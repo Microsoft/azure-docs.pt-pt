@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
 ms.openlocfilehash: 0f099a1b807cb860aaeda95a442cfdd7fd3c2869
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297387"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ligue-se aos Serviços de Mídia v3 API - Java
@@ -122,7 +122,7 @@ Quando executar o comando, os `pom.xml` `App.java` ficheiros , e outros são cri
    ```
 1. Execute a aplicação.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [SDK Java](https://aka.ms/ams-v3-java-sdk)

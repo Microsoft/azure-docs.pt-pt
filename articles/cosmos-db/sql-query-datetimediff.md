@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446387"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
@@ -29,10 +29,10 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *DataTimePart*  
    A parte da data à qual o DateTimeAdd adiciona um número inteiro. Esta tabela lista todos os argumentos válidos dateTimePart:
 
-| DataTimePart | abreviaturas        |
+| DateTimePart | abreviaturas        |
 | ------------ | -------------------- |
-| Ano         | "ano", "yyyy", "yy" |
-| Mês        | "mês", "mm", "m"   |
+| Anual         | "ano", "yyyy", "yy" |
+| Mensal        | "mês", "mm", "m"   |
 | Dia          | "dia", "dd", "d"     |
 | Hora         | "hora", "hh"         |
 | Minuto       | "minuto", "mi", "n"  |
@@ -59,7 +59,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *Fim da Date*  
-   UtC data e tempo ISO 8601 valor de cadeia no formato`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   UtC data e tempo ISO 8601 valor de cadeia no formato `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>Tipos de retorno
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87420231"
 ---
 # <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
@@ -27,7 +27,7 @@ Esta chamada atualiza uma oferta específica dentro do espaço de nome da editor
 
 |  **Nome**         |  **Descrição**                      |  **Tipo de dados**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador de editor, por exemplo`contoso` |   Cadeia |
+| publisherId       |  Identificador de editor, por exemplo `contoso` |   Cadeia |
 | offerId           |  Identificar oferta                     |   Cadeia        |
 | api-version       |  Última versão da API            |   Date           |
 |  |  |  |
@@ -293,7 +293,7 @@ Estas categorias e respetivas chaves são aplicáveis para apps Azure, Máquinas
 | Macrodados | big-data | bigData | big-data |
 | Análise Preditiva | análise preditiva | análise preditiva | análise preditiva |
 | Análise em tempo real/streaming | análise em tempo real | análise em tempo real | análise em tempo real |
-| Outros | outro | outras análises | outro |
+| Outro | other | outras análises | other |
 | ***IA + Machine Learning*** | ***Inteligência Artificial*** | ***ai-plus-máquina-aprendizagem*** | ***ai-plus-máquina-aprendizagem*** |
 | Serviços bot | bot-serviços | bot-serviços | bot-serviços |
 | Serviços Cognitivos | serviços cognitivos | serviços cognitivos | serviços cognitivos |
@@ -304,90 +304,90 @@ Estas categorias e respetivas chaves são aplicáveis para apps Azure, Máquinas
 | Preparação de Dados | preparação de dados | preparação de dados | preparação de dados |
 | Mineração de Conhecimento | mineração de conhecimento | mineração de conhecimento | mineração de conhecimento |
 | Operações do ML | ml-operações | ml-operações | ml-operações |
-| Outros | outra-IA-plus-machine-learning | outro | outro |
+| Outro | outra-IA-plus-machine-learning | other | other |
 | ***Blockchain*** | ***blockchain*** | ***blockchain*** | ***blockchain*** |
 | Aceleradores de aplicativos | aceleradores de aplicações | aceleradores de aplicações | aceleradores de aplicações |
 | Ledger de nó único | single-nó-livro-livro | single-nó-livro-livro | single-nó-livro-livro |
 | Ledger multi-nódoa | multi-nó-livro | multi-nó-livro | multi-nó-livro |
 | Ferramentas | tools | tools | tools |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Computação*** | ***compute-saas*** | ***compute-azure-apps*** | ***cálculo*** |
 | Infraestrutura de Aplicação | appInfra | appInfrastructure | infraestrutura de aplicações |
 | Sistemas Operativos | clienteOS | clienteOS | sistemas operativos |
 | Cache | cache | cache | cache |
-| Outros | outro cálculo | outro cálculo | outro |
+| Outro | outro cálculo | outro cálculo | other |
 | ***Contentores*** | ***contentores*** | ***contentores*** | ***contentores*** |
 | Aplicativos de contentores | container-apps | container-apps | container-apps |
 | Imagens de contentores | imagens de contentores | imagens de contentores | imagens de contentores |
 | Começar com contentores | começar-com-contentores | começar-com-contentores | começar-com-contentores |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Bases de dados*** | ***bases de dados-saas*** | ***base de dados*** | ***bases de dados*** |
 | Bases de Dados NoSQL | nosql-bases de dados | nosql-bases de dados | nosql-bases de dados |
 | Bases de Dados Relacionais | bases de dados relacionais | bases de dados relacionais | bases de dados relacionais |
 | Bases de dados de livros/blockchain | bases de dados de contabilidade-blockchain | bases de dados de contabilidade-blockchain | bases de dados de contabilidade-blockchain |
 | Lagos de Dados | data-lagos | data-lagos | data-lagos |
 | Operations Manager | armazém de dados | armazém de dados | armazém de dados |
-| Outros | outras bases de dados | outras bases de dados | outro |
+| Outro | outras bases de dados | outras bases de dados | other |
 | ***Ferramentas de Programação*** | ***desenvolvedor-ferramentas-saas*** | ***desenvolvedor-ferramentas-azure-apps*** | ***ferramentas de desenvolvimento*** |
 | Ferramentas | ferramentas-ferramentas de desenvolvedor | ferramentas-ferramentas de desenvolvedor | ferramentas-ferramentas de desenvolvedor |
 | Scripts | scripts | scripts | scripts |
 | Serviço de Desenvolvedores | devService | devService | serviço de desenvolvedores |
-| Outros | outras ferramentas de desenvolvedor | outras ferramentas de desenvolvedor | outro |
+| Outro | outras ferramentas de desenvolvedor | outras ferramentas de desenvolvedor | other |
 | ***DevOps*** | ***devotos*** | ***devotos*** | ***devotos*** |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Identidade*** | ***identidade*** | ***identidade*** | ***identidade*** |
 | Gestão de acesso | gestão de acessos | gestão de acessos | gestão de acessos |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Integração*** | ***integração*** | ***integração*** | ***integração*** |
 | Mensagens | mensagens | mensagens | mensagens |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Internet das Coisas*** | ***IoT*** | ***internet-of-things-azure-apps*** | ***internet-of-things*** |
 | Serviços IoT Core | N/D | iot-core-serviços | iot-core-serviços |
 | Módulos IoT Edge | N/D | módulos iot-edge | módulos iot-edge |
 | Soluções IoT | iot-soluções | iot-soluções | iot-soluções |
 | Visualização & de análise de dados | análise de dados e visualização | análise de dados e visualização | análise de dados e visualização |
 | Conectividade IoT | iot-conectividade | iot-conectividade | iot-conectividade |
-| Outros | outras internet-de-coisas | outras internet-de-coisas | outro |
+| Outro | outras internet-de-coisas | outras internet-de-coisas | other |
 | ***Ferramentas de gestão de & de TI*** | ***ITandAdministration*** | ***it-and-management-tools-azure-apps*** | ***it-and-management-tools*** |
 | Soluções de Gestão | soluções de gestão | soluções de gestão | soluções de gestão |
 | Aplicações Empresariais | businessApplicação | businessApplicação | aplicações empresariais |
-| Outros | outras ferramentas de gestão | outras ferramentas de gestão | outro |
+| Outro | outras ferramentas de gestão | outras ferramentas de gestão | other |
 | ***Acompanhamento & Diagnósticos*** | ***monitorização e diagnósticos*** | ***monitorização e diagnósticos*** | ***monitorização e diagnósticos*** |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Media*** | ***meios de comunicação*** | ***meios de comunicação*** | ***meios de comunicação*** |
 | Serviços de Multimédia | media-services | media-services | media-services |
 | Proteção de Conteúdo | proteção de conteúdos | proteção de conteúdos | proteção de conteúdos |
 | Live & On-Demand Streaming | live-and-on-demand-streaming | live-and-on-demand-streaming | live-and-on-demand-streaming |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Migração*** | ***migração*** | ***migração*** | ***migração*** |
 | Migração de Dados | migração de dados | migração de dados | migração de dados |
-| Outros | outro | outro | outro |
-| ***Mixed Reality*** | ***realidade mista*** | ***realidade mista*** | ***realidade mista*** |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
+| ***Realidade Mista*** | ***realidade mista*** | ***realidade mista*** | ***realidade mista*** |
+| Outro | other | other | other |
 | ***Redes*** | ***networking*** | ***networking*** | ***networking*** |
 | Gestores de Eletrodomés | gestores de eletrodomésticos | gestores de eletrodomésticos | gestores de eletrodomésticos |
 | Conectividade | conetividade | conetividade | conetividade |
 | Firewalls | firewalls | firewalls | firewalls |
 | Balanceador de Carga | equilibradores de carga | equilibradores de carga | equilibradores de carga |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Segurança*** | ***segurança*** | ***segurança*** | ***segurança*** |
 | Gestão de Acesso & Identidade | gestão de identidade e acesso | gestão de identidade e acesso | gestão de identidade e acesso |
 | Proteção Contra Ameaças | proteção contra ameaças | proteção contra ameaças | proteção contra ameaças |
 | Information Protection | proteção da informação | proteção da informação | proteção da informação |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 | ***Armazenamento*** | ***armazenamento-saas*** | ***storage-azure-apps*** | ***armazenamento*** |
 | Recuperação de & de apoio | cópia de segurança | cópia de segurança | backup-e-recuperação |
 | Armazenamento Híbrido da Empresa | empresa-híbrido-armazenamento | empresa-híbrido-armazenamento | empresa-híbrido-armazenamento |
 | Partilha de ficheiros | partilha de ficheiros | partilha de ficheiros | partilha de ficheiros |
 | Gestão do ciclo de vida de dados | gestão de ciclos de dados | gestão de ciclos de dados | gestão de ciclos de dados |
-| Outros | outro armazenamento | outro armazenamento | outro |
+| Outro | outro armazenamento | outro armazenamento | other |
 | ***Web*** | ***teia*** | ***teia*** | ***teia*** |
 | Blogs & CMSs | blogs-e-cmss | blogs-e-cmss | blogs-e-cmss |
 | Aplicativos Web de início | starter-web-apps | starter-web-apps | starter-web-apps |
 | Ecommerce | ecommerce | ecommerce | ecommerce |
 | Quadros de aplicações web | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
 | Aplicações Web | aplicativos web | aplicativos web | aplicativos web |
-| Outros | outro | outro | outro |
+| Outro | other | other | other |
 ||||
 
 ### <a name="microsoft-appsource-categories"></a>Categorias Microsoft AppSource
@@ -399,44 +399,44 @@ Estas categorias e respetivas chaves são aplicáveis para SaaS, app PowerBI, Dy
 | ***Análise*** | ***análise*** | ***Análise*** | ***Análise*** |
 | Análise Avançada | análise avançada | análise avançada | análise avançada |
 | Relatório de & de Visualização | visualização-reporte | visualização-reporte | visualização-reporte |
-| Outros | outro | outras análises | outras análises |
+| Outro | other | outras análises | outras análises |
 | ***IA + Machine Learning*** | ***Inteligência Artificial*** | ***ai-plus-máquina-aprendizagem-dinâmica*** | ***ai-plus-máquina-learning-appsource*** |
 | IA para Negócios | ai-para-negócio | ai-para-negócio | ai-para-negócio |
 | Aplicativos bot | bot-apps | bot-apps | bot-apps |
-| Outros | outra-ai-plus-máquina-aprendizagem | outra-ai-plus-máquina-aprendizagem | outra-ai-plus-máquina-aprendizagem |
+| Outro | outra-ai-plus-máquina-aprendizagem | outra-ai-plus-máquina-aprendizagem | outra-ai-plus-máquina-aprendizagem |
 | ***Colaboração*** | ***Colaboração*** | ***Colaboração*** | ***colaboração*** |
 | Contato & Pessoas | pessoas de contacto | pessoas de contacto | contacto e pessoas |
 | Gestão de Reuniões | gestão de reuniões | gestão de reuniões | gestão de reuniões |
 | Gestão de & de Design de Site | gestão de design de site | gestão de design de site | site-design-e-management |
 | Gestão de projetos de & de tarefas | gestão de projetos de tarefas | gestão de projetos de tarefas | gestão de tarefas e projetos |
 | Conferência de vídeo & de voz | voice-video-conferencia | voice-video-conferencia | voz e videoconferência |
-| Outros | outra colaboração | outra colaboração | outro |
+| Outro | outra colaboração | outra colaboração | other |
 | ***Conformidade & Legal*** | ***conformidade*** | ***conformidade*** | ***conformidade e legal*** |
 | Auditoria & Fiscal | auditoria fiscal | auditoria fiscal | impostos e auditorias |
 | Legal | Legal | Legal | legal |
 | Dados, Governação & Privacidade | dados-governação-privacidade | dados-governação-privacidade | dados-governação-e-privacidade |
 | Segurança & de Saúde | segurança sanitária | segurança sanitária | saúde e segurança |
-| Outros | outra conformidade-legal | outra conformidade-legal | outro |
+| Outro | outra conformidade-legal | outra conformidade-legal | other |
 | ***Customer Service*** | ***Serviço ao Cliente*** | ***Serviço ao Cliente*** | ***atendimento ao cliente*** |
 | Centro de Contacto | centro de contacto | centro de contacto | centro de contacto |
 | Serviço cara a cara | face-a-face-serviço | face-a-face-serviço | face-a-face-serviço |
 | Serviço de empregados de & de back office | back-office-employee-service | back-office-employee-service | back-office-and-employee-service |
 | Gestão de Casos de & Conhecimento | gestão de casos de conhecimento | gestão de casos de conhecimento | gestão de conhecimentos e casos |
 | Redes sociais & Envolvimento Omnicanal | social-media-omnicanal-engagement | social-media-omnicanal-engagement | social-media-e-omnicanal-engagement |
-| Outros | outros clientes-serviço | outros clientes-serviço | outro |
+| Outro | outros clientes-serviço | outros clientes-serviço | other |
 | ***Departamento Financeiro*** | ***Departamento Financeiro*** | ***Departamento Financeiro*** | ***finanças*** |
 | Contabilidade | contabilidade | contabilidade | contabilidade |
 | Gestão de Recursos | gestão de ativos | gestão de ativos | gestão de ativos |
 | Reportagem de & de analítica, consolidação | relatórios de consolidação analítica | relatórios de consolidação analítica | analíticos-consolidação e reporte |
 | Credit & Collections | cobranças de crédito | cobranças de crédito | crédito e cobranças |
 | Conformidade & Gestão de Riscos | gestão do risco de conformidade | gestão do risco de conformidade | gestão do cumprimento e risco |
-| Outros | outras finanças | outras finanças | outro |
+| Outro | outras finanças | outras finanças | other |
 | ***Human Resources*** | ***Recursos Humanos*** | ***Recursos Humanos*** | ***recursos humanos*** |
 | Aquisição de Talento | aquisição de talento | aquisição de talento | aquisição de talento |
 | Gestão de Talentos | gestão de talentos | gestão de talentos | gestão de talentos |
 | Operações de RH | operações de rh | operações de rh | operações de rh |
 | Planeamento da força de trabalho & Analytics | mão-de-obra-planeamento-analytics | mão-de-obra-planeamento-analytics | planeamento e análise da força de trabalho |
-| Outros | outros recursos humanos | outros recursos humanos | outro |
+| Outro | outros recursos humanos | outros recursos humanos | other |
 | ***Internet das Coisas*** | ***IoT*** | ***internet-of-things-dynamics*** | ***internet-of-things-appsource*** |
 | Operações de & de Gestão de Ativos | operações de gestão de ativos | operações de gestão de ativos | gestão de ativos e operações |
 | Produtos Conectados | produtos conectados | produtos conectados | produtos conectados |
@@ -446,11 +446,11 @@ Estas categorias e respetivas chaves são aplicáveis para SaaS, app PowerBI, Dy
 | Segurança & Segurança | segurança | segurança | segurança |
 | Recursos & de Infraestrutura Inteligente | recursos de infraestrutura inteligente | recursos de infraestrutura inteligente | infraestruturas inteligentes e recursos |
 | Veículos & Mobilidade | veículos-mobilidade | veículos-mobilidade | veículos e mobilidade |
-| Outros | outras internet-de-coisas | outras internet-de-coisas | outro |
+| Outro | outras internet-de-coisas | outras internet-de-coisas | other |
 | ***Ferramentas de gestão de & de TI*** | ***ITandAdministration*** | ***ITandAdministration*** | ***it-and-management-tools*** |
 | Soluções de Gestão | soluções de gestão | soluções de gestão | soluções de gestão |
 | Aplicações Empresariais | businessApplicação | businessApplicação | aplicações empresariais |
-| Outros | outras ferramentas de gestão | outras ferramentas de gestão | outro |
+| Outro | outras ferramentas de gestão | outras ferramentas de gestão | other |
 | ***Marketing*** | ***Marketing*** | ***Marketing*** | ***marketing*** |
 | Publicidade | publicidade | publicidade | publicidade |
 | Análise | marketing analítico | marketing analítico | marketing analítico |
@@ -459,7 +459,7 @@ Estas categorias e respetivas chaves são aplicáveis para SaaS, app PowerBI, Dy
 | L2 - Gestão de Recursos & Eventos | gestão de recursos de eventos | gestão de recursos de eventos | gestão de eventos e recursos |
 | Análise & de Investigação | investigação-análise | investigação-análise | investigação e análise |
 | Mídia Social | redes sociais | redes sociais | redes sociais |
-| Outros | outro marketing | outro marketing | outro |
+| Outro | outro marketing | outro marketing | other |
 | ***Cadeia de Abastecimento & operações*** | ***OperaçõesSupplyChain*** | ***OperaçõesSupplyChain*** | ***operações e cadeia de abastecimento*** |
 | Gestão de Produção de & De Ativos | gestão da produção de ativos | gestão da produção de ativos | gestão de ativos e de produção |
 | Previsão de Procura | previsão da procura | previsão da procura | previsão da procura |
@@ -468,14 +468,14 @@ Estas categorias e respetivas chaves são aplicáveis para SaaS, app PowerBI, Dy
 | Gestão de Serviços de qualidade & | gestão de serviços de qualidade | gestão de serviços de qualidade | gestão da qualidade e do serviço |
 | Gestão de Encomendas & Vendas | gestão de encomendas de vendas | gestão de encomendas de vendas | gestão de vendas e encomendas |
 | Gestão de Armazéns & Transportes | gestão de armazéns de transporte | gestão de armazéns de transporte | gestão de transportes e armazéns |
-| Outros | outras operações-cadeia de abastecimento | outras operações-cadeia de abastecimento | outro |
+| Outro | outras operações-cadeia de abastecimento | outras operações-cadeia de abastecimento | other |
 | ***Produtividade*** | ***Produtividade*** | ***Produtividade*** | ***produtividade*** |
 | Criação de Conteúdos & Gestão | gestão de criação de conteúdos | gestão de criação de conteúdos | criação e gestão de conteúdos |
 | Tradução & Linguagem | tradução linguística | tradução linguística | linguagem e tradução |
 | Document Management | gestão documental | gestão documental | gestão documental |
 | Gestão de e-mail | gestão de e-mails | gestão de e-mails | gestão de e-mails |
 | Consulte a & Referência | referência de pesquisa | referência de pesquisa | pesquisa e referência |
-| Outros | outra produtividade | outra produtividade | outro |
+| Outro | outra produtividade | outra produtividade | other |
 | Gamificação | Gamificação | Gamificação | gamificação |
 | ***Vendas*** | ***Vendas*** | ***Vendas*** | ***Vendas*** |
 | Televendas | televendas | televendas | televendas |
@@ -485,11 +485,11 @@ Estas categorias e respetivas chaves são aplicáveis para SaaS, app PowerBI, Dy
 | E-commerce | e-commerce | e-commerce | e-commerce |
 | Enriquecimento de Dados empresariais | enriquecimento de dados empresariais | enriquecimento de dados empresariais | enriquecimento de dados empresariais |
 | Habilitação de Vendas | habilitação para vendas | habilitação para vendas | habilitação para vendas |
-| Outros | outras vendas | outras vendas | outras vendas |
+| Outro | outras vendas | outras vendas | outras vendas |
 | ***Geolocalização*** | ***geolocalização*** | ***geolocalização*** | ***geolocalização*** |
-| Maps | maps | maps | maps |
+| Mapas | maps | maps | maps |
 | Notícias & Tempo | notícias e tempo | notícias e tempo | notícias e tempo |
-| Outros | outra geolocalização | outra geolocalização | outra geolocalização |
+| Outro | outra geolocalização | outra geolocalização | outra geolocalização |
 ||||
 
 ### <a name="microsoft-appsource-industries"></a>Indústrias Microsoft AppSource
@@ -512,7 +512,7 @@ Estas indústrias e respetivas chaves são aplicáveis para SaaS, app PowerBI, D
 | ***Serviços Financeiros*** | ***Serviços Financeiros*** | ***serviços financeiros*** |
 | Mercados de Capitais & Bancários | BancaAndCapitalMarkets | mercados bancários e de capitais |
 | Seguro | Seguro | seguro |
-| ***Governo*** | ***Governo*** | ***governo*** |
+| ***Administração Pública*** | ***Administração Pública*** | ***governo*** |
 | Inteligência & Defesa | Defesa EIntelligence | defesa e inteligência |
 | Segurança Pública & Justiça | PublicSafetyAndJustice | segurança pública e justiça |
 | Governo Civil | Governo Civil | governo civil |

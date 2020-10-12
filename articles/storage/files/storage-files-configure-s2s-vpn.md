@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515343"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configure uma VPN site-to-site para utilização com ficheiros Azure
@@ -54,7 +54,7 @@ Para efeitos de implantação de um Gateway Azure VPN, deve povoar os seguintes 
 - **Tipo VPN**: Pode escolher quer *se baseie em rotas** quer **em políticas,** dependendo do seu dispositivo VPN. As VPNs baseadas em rotas suportam o IKEv2, enquanto as VPNs baseadas em políticas apenas suportam iKEv1. Para saber mais sobre os dois tipos de gateways VPN, consulte [sobre gateways VPN baseados em políticas e rotas](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
 - **SKU**: O SKU controla o número de túneis locais-locais permitidos e o desempenho desejado da VPN. Para selecionar o SKU apropriado para o seu caso de utilização, consulte a listagem [Gateway SKU.](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) O SKU do Gateway VPN pode ser alterado mais tarde, se necessário.
 - **Rede virtual**: A rede virtual que criou no passo anterior.
-- **Endereço IP público**: O endereço IP do Gateway VPN que será exposto à internet. É provável que tenha de criar um novo endereço IP, no entanto também poderá utilizar um endereço IP existente não utilizado, se for apropriado. Se selecionar para **criar novo,** um novo recurso IP Azure será criado no mesmo grupo de recursos que o Gateway VPN e o **nome de endereço IP público** será o nome do endereço IP recém-criado. Se selecionar **Utilizar o**endereço IP existente, deve selecionar o endereço IP existente não utilizado.
+- **Endereço IP público**: O endereço IP do Gateway VPN que será exposto à internet. É provável que tenha de criar um novo endereço IP, no entanto também poderá utilizar um endereço IP existente não utilizado, se for apropriado. Se selecionar para **criar novo,** um novo recurso IP Azure será criado no mesmo grupo de recursos que o Gateway VPN e o  **nome de endereço IP público** será o nome do endereço IP recém-criado. Se selecionar **Utilizar o**endereço IP existente, deve selecionar o endereço IP existente não utilizado.
 - **Ativar o modo ativo**: Selecione **Apenas Ativado** se estiver a criar uma configuração de gateway ativa ativa, caso contrário deixe **o Desativado** selecionado. Para saber mais sobre o modo ativo, consulte [as instalações cruzadas altamente disponíveis e a conectividade VNet-to-VNet](../../vpn-gateway/vpn-gateway-highlyavailable.md).
 - **Configure BGP ASN**: Selecione **Apenas Ativado** se a sua configuração necessitar especificamente desta definição. Para saber mais sobre este cenário, consulte [Sobre o BGP com o Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
@@ -96,7 +96,7 @@ O passo final na configuração de uma VPN S2S é verificar se funciona para fic
 - [macOS](storage-how-to-use-files-mac.md)
 - [Linux](storage-how-to-use-files-linux.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Visão geral da rede de ficheiros Azure](storage-files-networking-overview.md)
 - [Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-linux.md)

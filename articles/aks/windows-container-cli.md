@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421251"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
@@ -71,7 +71,7 @@ Para executar um cluster AKS que suporta piscinas de nós para recipientes do Wi
 
 * O cluster está configurado com dois nóns
 * Os parâmetros *de nome de utilizador do windows-admin* e do nome de utilizador do *windows-admin* definem as credenciais de administração de quaisquer recipientes do Windows Server criados no cluster e devem satisfazer os [requisitos de senha do Windows Server][windows-server-password].
-* A piscina de nó usa`VirtualMachineScaleSets`
+* A piscina de nó usa `VirtualMachineScaleSets`
 
 > [!NOTE]
 > Para garantir que o seu cluster funcione de forma fiável, deverá executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
@@ -249,7 +249,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de amostra ASP.NET num recipiente do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que acabou de criar.
 

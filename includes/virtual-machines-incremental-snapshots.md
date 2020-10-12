@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87375640"
 ---
 ## <a name="overview"></a>Descrição geral
@@ -109,7 +109,7 @@ Os seguintes passos, descreva como restaurar o disco premium, *mypremiumdisk* pa
 
 ![Restaurar o disco a partir de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Use os seguintes links para saber mais sobre a criação de instantâneos de uma bolha e planejar a sua infraestrutura de backup VM.
 
 * [Criando um instantâneo de uma bolha](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)

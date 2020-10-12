@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438972"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
@@ -156,5 +156,5 @@ Já está! Se precisar de abrir portas ou fazer qualquer resolução de problema
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir o Analysis Services](analysis-services-manage.md)   
-* [Obter dados do Azure Analysis Services](analysis-services-connect.md)   
+* [Obter dados a partir do Azure Analysis Services](analysis-services-connect.md)   
 * [Utilizar o gateway para origens de dados numa Rede Virtual do Azure](analysis-services-vnet-gateway.md)

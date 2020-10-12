@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84886062"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de utilização com relatórios HTTP avançados da CDN do Azure
@@ -199,7 +199,7 @@ O lado esquerdo do gráfico (eixo y) indica o nome do ficheiro de cada um dos 10
 
 Diretamente abaixo da tabela de barras, serão listadas as seguintes informações para os 250 principais ativos solicitados: percurso relativo (incluindo nome de ficheiro), número de pedidos que resultaram num código de estado 404 Não Encontrados, o número total de vezes que o ativo foi solicitado, e a percentagem de pedidos que resultaram num código de estado 404 Não Encontrado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)

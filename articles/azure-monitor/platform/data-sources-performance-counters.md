@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955493"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e Linux no Azure Monitor
@@ -79,13 +79,13 @@ Os parâmetros deste elemento são descritos na tabela seguinte.
 |:--|:--|
 | \_nome objeto | Nome do objeto para a coleção. |
 | instância \_ regex |  Uma *expressão regular* que define quais as instâncias a recolher. O valor: `.*` especifica todas as instâncias. Para recolher as métricas do processador apenas para a \_ instância Total, pode especificar `_Total` . Para recolher métricas de processo apenas para as instâncias crond ou sshd, pode especificar: `(crond\|sshd)` . |
-| contador \_ nome \_ regex | Uma *expressão regular* que define quais os contadores (para o objeto) a recolher. Para recolher todos os contadores para o objeto, especifique: `.*` . Para recolher apenas contadores de espaço para o objeto de memória, por exemplo, pode especificar:`.+Swap.+` |
-| intervalo | Frequência na qual os contadores do objeto são recolhidos. |
+| contador \_ nome \_ regex | Uma *expressão regular* que define quais os contadores (para o objeto) a recolher. Para recolher todos os contadores para o objeto, especifique: `.*` . Para recolher apenas contadores de espaço para o objeto de memória, por exemplo, pode especificar: `.+Swap.+` |
+| interval | Frequência na qual os contadores do objeto são recolhidos. |
 
 
 A tabela que se segue lista os objetos e contadores que pode especificar no ficheiro de configuração.  Existem contadores adicionais disponíveis para determinadas aplicações, conforme descrito nos [balcões de desempenho da Collect para aplicações Linux no Azure Monitor](data-sources-linux-applications.md).
 
-| Nome do objeto | Contra-nome |
+| Nome do objeto | Nome do Contador |
 |:--|:--|
 | Disco lógico | % Inodes grátis |
 | Disco lógico | % Espaço Livre |
@@ -138,7 +138,7 @@ A tabela que se segue lista os objetos e contadores que pode especificar no fich
 | Sistema | Memória Virtual Gratuita |
 | Sistema | Processos |
 | Sistema | Tamanho armazenado em ficheiros de paging |
-| Sistema | Uptime |
+| Sistema | Tempo de atividade |
 | Sistema | Utilizadores |
 
 
@@ -220,7 +220,7 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Recolha contadores de desempenho a partir de aplicações Linux,](data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 * Exportação de dados recolhidos para [Power BI](powerbi.md) para visualizações e análises adicionais.

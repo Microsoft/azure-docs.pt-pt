@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87920505"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS
@@ -162,8 +162,8 @@ O exemplo a seguir mostra uma definição de função personalizada apenas para 
 
 A propriedade Actions define as seguintes permissões específicas do DNS:
 
-* `Microsoft.Network/dnsZones/CNAME/*`concede controlo total sobre os registos CNAME
-* `Microsoft.Network/dnsZones/read`concede permissão para ler zonas DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
+* `Microsoft.Network/dnsZones/CNAME/*` concede controlo total sobre os registos CNAME
+* `Microsoft.Network/dnsZones/read` concede permissão para ler zonas DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
 
 As restantes Ações são copiadas do [papel integrado do DnS Zone Contributor](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 

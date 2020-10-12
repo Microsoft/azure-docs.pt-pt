@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: sharrai
 ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421846"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando a recuperação do site Azure
@@ -62,6 +62,6 @@ Se optar por optar pela opção 2 de utilizar a réplica Hyper-V, execute os seg
 
     Isto remove o item replicado da Recuperação do Local de Azure (a faturação está interrompida). A configuração de replicação na máquina virtual no local **não será** limpa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Planeie a depreciação e escolha uma opção alternativa que seja mais adequada para a sua infraestrutura e negócios. Caso tenha dúvidas sobre isso, contacte o Microsoft Support
 

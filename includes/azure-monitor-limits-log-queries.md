@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064849"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
@@ -21,7 +21,7 @@ ms.locfileid: "90064849"
 |:---|:---|
 | Linguagem da consulta | O Azure Monitor utiliza a mesma [linguagem de consulta kusto que](/azure/kusto/query/) o Azure Data Explorer. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](../articles/azure-monitor/log-query/data-explorer-difference.md) para elementos linguísticos KQL não suportados no Azure Monitor. |
 | Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/log-query/scope.md#query-limits) para mais detalhes. |
-| Consultas de recursos cruzados | Número máximo de recursos de Insights de Aplicação e espaços de trabalho log analytics numa única consulta limitada a 100.<br>A consulta de recursos cruzados não é suportada no View Designer.<br>A consulta de recursos cruzados nos alertas de registo é suportada na nova API agendada deQueryRules.<br>Consulte [os limites de consulta de recursos cruzados](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter mais detalhes. |
+| Consultas entre recursos | Número máximo de recursos de Insights de Aplicação e espaços de trabalho log analytics numa única consulta limitada a 100.<br>A consulta de recursos cruzados não é suportada no View Designer.<br>A consulta de recursos cruzados nos alertas de registo é suportada na nova API agendada deQueryRules.<br>Consulte [os limites de consulta de recursos cruzados](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter mais detalhes. |
 
 ### <a name="user-query-throttling"></a>Estrangulamento da consulta do utilizador
 O Azure Monitor tem vários limites de estrangulamento para proteger contra os utilizadores que enviam um número excessivo de consultas. Tal comportamento pode potencialmente sobrecarregar os recursos de backend do sistema e comprometer a capacidade de resposta do serviço. Os seguintes limites destinam-se a proteger os clientes de interrupções e a garantir um nível de serviço consistente. O estrangulamento do utilizador e os limites são concebidos para impactar apenas cenários de utilização extremas e não devem ser relevantes para o uso típico.

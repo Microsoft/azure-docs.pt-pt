@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84051200"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação Wingtip Tickets SaaS
@@ -36,13 +36,13 @@ Estão disponíveis três versões da app; cada um explora um padrão de arrenda
 
 A app autónoma por padrão de inquilino usa uma aplicação de inquilino único com uma base de dados para cada inquilino. A aplicação de cada inquilino, incluindo a sua base de dados, é implantada num grupo de recursos Azure separado. O grupo de recursos pode ser implantado na assinatura do prestador de serviços ou na assinatura do arrendatário e gerido pelo prestador em nome do arrendatário. A app autónoma por padrão de inquilino proporciona o maior isolamento do inquilino, mas é tipicamente a mais cara, uma vez que não há oportunidade de compartilhar recursos entre vários inquilinos.  Este padrão é adequado para aplicações que podem ser mais complexas e que são implantadas para um número menor de inquilinos.  Com implementações autónomas, a app pode ser personalizada para cada inquilino mais facilmente do que em outros padrões.  
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e código no GitHub [.../Microsoft/WingtipTicketsSaA-StandaloneApp][github-code-for-wingtip-sa].
+Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e código no GitHub  [.../Microsoft/WingtipTicketsSaA-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Base de dados por padrão de inquilino
 
 A base de dados por padrão de arrendamento é eficaz para os prestadores de serviços que se preocupam com o isolamento dos inquilinos e querem executar um serviço centralizado que permita uma utilização rentável de recursos partilhados. Uma base de dados é criada para cada local, ou inquilino, e todas as bases de dados são geridas centralmente. As bases de dados podem ser hospedadas em piscinas elásticas para proporcionar uma gestão de desempenho eficiente e fácil, o que alavanca os padrões de carga de trabalho imprevisíveis dos inquilinos. Uma base de dados de catálogo contém o mapeamento entre os inquilinos e as suas bases de dados. Este mapeamento é gerido utilizando as funcionalidades de gestão de mapas de fragmentos da Biblioteca de Clientes de Base de [Dados Elástica,](elastic-database-client-library.md)que proporciona uma gestão eficiente da ligação à aplicação.
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub [.../Microsoft/WingtipTicketsSaAS-DbPerTenant][github-code-for-wingtip-dpt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub  [.../Microsoft/WingtipTicketsSaAS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de base de dados de vários inquilinos desfasado
 
@@ -50,9 +50,9 @@ As bases de dados multi-inquilinos são eficazes para prestadores de serviços q
 
 Este padrão também permite um modelo *híbrido* no qual você pode otimizar o custo com vários inquilinos em uma base de dados, ou otimizar para o isolamento com um único inquilino na sua própria base de dados. A escolha pode ser feita numa base arrendatário,seja quando o arrendatário é a provisionado ou posteriormente, sem qualquer impacto no pedido.  Este modelo pode ser utilizado eficazmente quando grupos de inquilinos precisam de ser tratados de forma diferente. Por exemplo, os inquilinos de baixo custo podem ser designados para bases de dados partilhadas, enquanto os inquilinos premium podem ser atribuídos às suas próprias bases de dados. 
 
-Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [.../Microsoft/WingtipTicketsSaA-MultiTenantDb][github-code-for-wingtip-mt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub  [.../Microsoft/WingtipTicketsSaA-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 #### <a name="conceptual-descriptions"></a>Descrições conceptuais
 

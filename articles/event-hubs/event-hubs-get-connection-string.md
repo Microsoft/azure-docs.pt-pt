@@ -4,10 +4,10 @@ description: Este artigo fornece instruções para obter uma cadeia de ligação
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537195"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenha uma cadeia de conexão Event Hubs
@@ -25,7 +25,7 @@ O modelo de corda de conexão parece
 Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-Um exemplo de ligação cadeia pode parecer`Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
+Um exemplo de ligação cadeia pode parecer `Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
 
 Este artigo acompanha-o através de várias formas de obter a cadeia de ligação.
 
@@ -69,9 +69,9 @@ az eventhubs eventhub authorization-rule keys list --resource-group dummyresourc
 
 Para obter mais informações sobre os comandos Azure CLI para Os Centros de Eventos, consulte [Azure CLI para Centros de Eventos.](/cli/azure/eventhubs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um Centro de Eventos](event-hubs-create.md)

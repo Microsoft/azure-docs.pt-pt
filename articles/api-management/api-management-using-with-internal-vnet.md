@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386049"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço Gestão de API do Azure com uma rede virtual interna
@@ -80,7 +80,7 @@ Também pode ativar a conectividade da rede virtual utilizando cmdlets PowerShel
 
 * Atualize uma implementação existente de um serviço de Gestão API dentro de uma rede virtual: Utilize o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gestão de API existente dentro de uma rede virtual e configurar-se para utilizar o tipo de rede virtual interna.
 
-## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuração DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuração do DNS
 Quando a API Management está em modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir o seu próprio DNS.
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar 
 * Os endereços IP atribuídos para acesso público e privado podem ser alterados se o serviço for removido e depois adicionado de volta à rede virtual. Se isso acontecer, poderá ser necessário atualizar registos de DNS, regras de encaminhamento e listas de restrições IP dentro da rede virtual.
 
 ## <a name="related-content"></a><a name="related-content"> </a>Conteúdo relacionado
-Para saber mais, consulte os seguintes artigos:
+Para saber mais, leia os artigos seguintes:
 * [Problemas comuns de configuração da rede ao criar a Azure API Management numa rede virtual][Common network configuration problems]
 * [FaQs de rede virtual](../virtual-network/virtual-networks-faq.md)
 * [Criar um recorde no DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

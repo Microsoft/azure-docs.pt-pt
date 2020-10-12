@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87429257"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
@@ -229,6 +229,6 @@ Para resolver problemas de trabalho, [verifique os registos de trabalho.](troubl
 |  name   |   Nome desejado do parceiro no sistema FarmBeats.   |
 |  descrição |  Descrição.   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que já questionou os dados dos sensores a partir do seu exemplo Azure FarmBeats, aprenda a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para as suas quintas.

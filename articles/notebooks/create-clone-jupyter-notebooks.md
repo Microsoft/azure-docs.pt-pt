@@ -4,10 +4,10 @@ description: Os projetos de pré-visualização de Cadernos Azure gerem uma cole
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86181506"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos em Azure Notebooks Preview
@@ -28,7 +28,7 @@ O que pode fazer no painel de instrumentos depende se está inscrito na conta qu
 
 | Comando | Disponível para | Descrição |
 | --- | --- | --- |
-| **Executar** | Proprietário | Inicia o servidor do projeto e abre a pasta do projeto em Jupyter. (Mais comummente, navega-se primeiro numa pasta de projeto, depois começa-se um caderno a partir daí.) |
+| **Correr** | Proprietário | Inicia o servidor do projeto e abre a pasta do projeto em Jupyter. (Mais comummente, navega-se primeiro numa pasta de projeto, depois começa-se um caderno a partir daí.) |
 | **Transferência** | Qualquer pessoa | Descarrega uma cópia do projeto selecionado como um ficheiro ZIP. |
 | **Partilhar** | Qualquer pessoa | Exibe o popup de partilha através do qual pode obter um URL para um projeto selecionado, partilhar para as redes sociais, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um crachá de "bloco de lançamento" (ver [obter um crachá de lançamento)](#obtain-a-launch-badge)com o URL. |
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
@@ -61,7 +61,7 @@ Quando utiliza o comando **+ New Project,** os Cadernos Azure exibem um popup **
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. Por exemplo, "O Meu Projeto De Caderno". |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto (o formulário `https://notebooks.azure.com/<user_id>/projects/<project_id>` é). Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
-| Públicos | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
+| Público | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
 | Inicializar este projeto com uma README | Se for definido, cria um ficheiro *de README.md* predefinido no projeto. Um *ficheiro README.md* é onde fornece documentação para o seu projeto, se desejar. |
 
 ### <a name="reserved-project-ids"></a>IDs de projeto reservados
@@ -75,7 +75,7 @@ As seguintes palavras reservadas não podem ser usadas por si mesmas como IDs do
 - blogue
 - sala de aula
 - conteúdo
-- dashboard
+- Dashboard
 - explorar
 - Perguntas Frequentes
 - Ajuda
@@ -85,7 +85,7 @@ As seguintes palavras reservadas não podem ser usadas por si mesmas como IDs do
 - biblioteca
 - gestão
 - novo
-- caderno
+- bloco de notas
 - notebooks
 - pdf
 - preview
@@ -110,7 +110,7 @@ Você pode facilmente importar um repo público inteiro GitHub como um projeto, 
 | Clone recursivamente | Os repositórios do GitHub podem conter vários repositórios infantis. Desista esta opção se quiser clonar o repositório dos pais e todos os seus filhos. Porque é possível um repositório ter muitos filhos, deixar esta opção clara a menos que saiba que precisa dela. |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto (o formulário `https://notebooks.azure.com/<user_id>/projects/<project_id>` é). Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
-| Públicos | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
+| Público | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
 
 Importar um repositório do GitHub também importa a sua história. Pode utilizar comandos Git padrão do terminal para cometer novas alterações, retirar mudanças do GitHub, e assim por diante.
 

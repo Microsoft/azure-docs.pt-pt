@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
 ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432584"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
@@ -63,7 +63,7 @@ Pode associar os seguintes recursos a um endereço IP público estático a parti
 |Máquinas virtuais| Associar os IPs públicos de um prefixo às suas máquinas virtuais em Azure reduz a sobrecarga de gestão ao adicionar endereços IP a uma lista de autorizações na firewall. Pode adicionar um prefixo inteiro com uma única regra de firewall. À medida que escala com máquinas virtuais em Azure, pode associar os IPs do mesmo custo de poupança, tempo e sobrecarga de gestão.| Para associar os IPs de um prefixo à sua máquina virtual: </br> 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [Criar um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. [Associe o IP à interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Também pode [associar os IPs a um Conjunto de Escala de Máquina Virtual.](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)
 | Equilibradores de carga padrão | Associar os IPs públicos de um prefixo à configuração IP frontal ou regra de saída de um equilibrador de carga garante a simplificação do seu espaço de endereço IP público Azure. Simplifique o seu cenário através do aliciamento de ligações de saída a partir de uma gama de endereços IP contíguos. | Para associar os IPs de um prefixo ao seu equilibrador de carga: </br> 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [Criar um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. Ao criar o equilibrador de carga, selecione ou atualize o IP criado no passo 2 acima como o IP frontal do seu equilibrador de carga. |
 | Azure Firewall | Você pode usar um IP público a partir de um prefixo para SNAT de saída. Todo o tráfego de rede virtual de saída é traduzido para o IP público [Azure Firewall.](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Para associar um IP de um prefixo à sua firewall: </br> 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [Criar um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. Quando [colocar a firewall Azure,](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)certifique-se de selecionar o IP que anteriormente deu a partir do prefixo.|
-| Gateway de aplicação v2 | Pode utilizar um IP público a partir de um prefixo para o seu porta de entrada de aplicação de auto-caling e redundante de zona v2. | Para associar um IP de um prefixo ao seu gateway: </br> 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [Criar um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. Quando [implementar o Gateway de Aplicações,](../application-gateway/quick-create-portal.md#create-an-application-gateway)certifique-se de selecionar o IP que anteriormente deu a partir do prefixo.|
+| Gateway de Aplicação v2 | Pode utilizar um IP público a partir de um prefixo para o seu porta de entrada de aplicação de auto-caling e redundante de zona v2. | Para associar um IP de um prefixo ao seu gateway: </br> 1. [Criar um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [Criar um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. Quando [implementar o Gateway de Aplicações,](../application-gateway/quick-create-portal.md#create-an-application-gateway)certifique-se de selecionar o IP que anteriormente deu a partir do prefixo.|
 
 ## <a name="constraints"></a>Restrições
 
@@ -76,6 +76,6 @@ Pode associar os seguintes recursos a um endereço IP público estático a parti
 - Não é possível eliminar um prefixo se algum endereço nele for atribuído a recursos de endereço IP públicos associados a um recurso. Dissociem todos os recursos de endereço IP públicos que são atribuídos endereços IP a partir do prefixo primeiro.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar](manage-public-ip-address-prefix.md) um prefixo de endereço IP público

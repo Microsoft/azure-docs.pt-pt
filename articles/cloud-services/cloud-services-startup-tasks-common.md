@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85920079"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do Serviço Comum de Nuvem
@@ -57,7 +57,7 @@ A [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) ferramenta d
 No entanto, há algumas coisas a ter em atenção no uso de *AppCmd.exe* como uma tarefa de arranque:
 
 * As tarefas de arranque podem ser executadas mais de uma vez entre reinicializações. Por exemplo, quando um papel recicla.
-* Se uma *açãoAppCmd.exe* for executada mais de uma vez, pode gerar um erro. Por exemplo, tentar adicionar uma secção a *Web.config* duas vezes pode gerar um erro.
+* Se uma * açãoAppCmd.exe* for executada mais de uma vez, pode gerar um erro. Por exemplo, tentar adicionar uma secção a *Web.config* duas vezes pode gerar um erro.
 * As tarefas de arranque falham se devolverem um código de saída não zero ou **um nível de erro**. Por exemplo, quando *AppCmd.exe* gera um erro.
 
 É uma boa prática verificar o **nível de erro** depois de ligar *AppCmd.exe*, o que é fácil de fazer se embrulhe a chamada para *AppCmd.exe* com um ficheiro *.cmd.* Se detetar uma resposta de **nível de erro** conhecida, pode ignorá-la ou passá-la de volta.
@@ -65,7 +65,7 @@ No entanto, há algumas coisas a ter em atenção no uso de *AppCmd.exe* como um
 O nível de erro devolvido por *AppCmd.exe* estão listados no ficheiro winerror.h, podendo também ser vistos na [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
-Este exemplo adiciona uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config,* com manipulação de erros e registo.
+Este exemplo adiciona uma secção de compressão e uma entrada de compressão para JSON no ficheiro *Web.config, * com manipulação de erros e registo.
 
 As secções relevantes do ficheiro [ServiceDefinition.csdef] são apresentadas aqui, que incluem a definição do atributo [de execuçãoContexto](/previous-versions/azure/reference/gg557552(v=azure.100)#task) `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as definições no ficheiro *Web.config:*
 
@@ -153,7 +153,7 @@ EXIT /B %errorlevel%
 ## <a name="block-a-specific-ip-address"></a>Bloqueie um endereço IP específico
 Pode restringir o acesso de uma função web Azure a um conjunto de endereços IP especificados modificando o seu ficheiro **IISweb.config.** Também é necessário utilizar um ficheiro de comando que desbloqueie a secção **ipSecurity** do ficheiro **ApplicationHost.config.**
 
-Para fazer desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config,** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
+Para fazer desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config, ** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível da raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e desemine as propriedades para **Copy Always** para garantir que está incluído no seu pacote.
 
 Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
@@ -377,7 +377,7 @@ EXIT /B 0
 Aqui estão algumas boas práticas que deve seguir ao configurar a tarefa para o seu papel web ou trabalhador.
 
 ### <a name="always-log-startup-activities"></a>Sempre registar atividades de startup
-O Visual Studio não fornece um depurgger para passar por ficheiros de lote, por isso é bom obter o máximo de dados possível sobre o funcionamento dos ficheiros de lote. Registar a saída dos ficheiros de lote, tanto **de stdout** como **de stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto **o stdout** como o **stderr** no ficheiro StartupLog.txt no diretório apontado pela variável ambiente **%TEMP%,** adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao fim das linhas específicas que pretende registar. Por exemplo, executar setup.exe no **diretório %PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+O Visual Studio não fornece um depurgger para passar por ficheiros de lote, por isso é bom obter o máximo de dados possível sobre o funcionamento dos ficheiros de lote. Registar a saída dos ficheiros de lote, tanto **de stdout** como **de stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto **o stdout** como o **stderr** no ficheiro StartupLog.txt no diretório apontado pela variável ambiente **%TEMP%,** adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao fim das linhas específicas que pretende registar. Por exemplo, executar setup.exe no **diretório %PathToApp1Install%** : `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Para simplificar o seu xml, pode criar um ficheiro *CMD* de invólucro que liga para todas as suas tarefas de arranque juntamente com o registo e garante que cada tarefa infantil partilha as mesmas variáveis ambientais.
 
@@ -491,7 +491,7 @@ Nem todas as reciclagems de papéis incluem um reboot, mas todas as reciclagems 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Use o armazenamento local para armazenar ficheiros que devem ser acedidos na função
 Se pretender copiar ou criar um ficheiro durante a sua tarefa inicial que esteja então acessível à sua função, esse ficheiro deve ser colocado no armazenamento local. Consulte [a secção anterior.](#create-files-in-local-storage-from-a-startup-task)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja o [modelo e pacote de serviços](cloud-services-model-and-package.md) em nuvem
 
 Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.
@@ -502,7 +502,7 @@ Saiba mais sobre como as [Tarefas](cloud-services-startup-tasks.md) funcionam.
 [Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

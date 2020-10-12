@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
 ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964877"
 ---
 # <a name="rendering-applications"></a>Aplicações de renderização
@@ -29,7 +29,7 @@ Além dos renderizadores incorporados em 3ds Max, os seguintes renderizadores es
 
 ### <a name="task-command-line"></a>Linha de comando de tarefa
 
-Invoque a `3dsmaxcmdio.exe` aplicação para executar a renderização da linha de comando num nó de piscina.  Esta aplicação está no caminho quando a tarefa é executada. A `3dsmaxcmdio.exe` aplicação tem os mesmos parâmetros disponíveis que a `3dsmaxcmd.exe` aplicação, que está documentada na [documentação de ajuda 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering / Secção de renderização da linha de comando).
+Invoque a `3dsmaxcmdio.exe` aplicação para executar a renderização da linha de comando num nó de piscina.  Esta aplicação está no caminho quando a tarefa é executada. A `3dsmaxcmdio.exe` aplicação tem os mesmos parâmetros disponíveis que a `3dsmaxcmd.exe` aplicação, que está documentada na [documentação de ajuda 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderização / Command-Line renderização).
 
 Por exemplo:
 
@@ -81,6 +81,6 @@ render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_B
 
 Os modelos de piscina e de trabalho podem ser acedidos a partir da **Galeria** no Batch Explorer.  Os ficheiros de origem do modelo estão disponíveis no [repositório de dados](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya)do Batch Explorer no GitHub .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize os modelos de piscina e de trabalho a partir do [repositório de dados no GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) utilizando o Batch Explorer.  Quando necessário, crie novos modelos ou modifique um dos modelos fornecidos.

@@ -12,10 +12,10 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235710"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
@@ -42,7 +42,7 @@ Os principais benefícios de permitir o fornecimento automático de utilizadores
 
 * **Reduzir o custo.** O fornecimento automático de utilizadores reduz os custos evitando ineficiências e erros humanos associados ao fornecimento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida, scripts e registos de auditoria.
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 A Azure AD proporciona integração de autosserviço de qualquer aplicação usando modelos fornecidos no menu da galeria de aplicações. Para obter uma lista completa dos requisitos de licença, consulte [a página de licenciamento da Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -207,7 +207,7 @@ Para implementar o fornecimento automático do utilizador, é necessário defini
 
 A AZure AD suporta por mapeamento de atributos diretos, fornecendo [valores constantes ou escrevendo expressões para mapeamentos de atributos](../app-provisioning/functions-for-customizing-application-data.md). Esta flexibilidade dá-lhe um bom controlo do que será preenchido no atributo do sistema direcionado. Pode utilizar [a Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e o Graph Explorer para exportar os seus mapeamentos e esquemas de a provisionamento do utilizador para um ficheiro JSON e importá-lo de volta para Azure AD.
 
-Para obter mais informações, consulte [personalizar o fornecimento de cartões de utilizador para aplicações saas no Diretório Ativo Azure](../app-provisioning/customize-application-attributes.md).
+Para mais informações, consulte [personalizar a Attribute-Mappings de Provisionamento do Utilizador para aplicações SaaS no Diretório Ativo Azure](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerações especiais para o provisionamento dos utilizadores
 

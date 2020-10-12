@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319899"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos da Microsoft 365
@@ -142,8 +142,8 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Name | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
-    | Description | *Fornecer uma descrição personalizada* |  |
+    | Nome | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
+    | Descrição | *Fornecer uma descrição personalizada* |  |
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
@@ -171,8 +171,8 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Name | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
-    | Description | *Fornecer uma descrição* ||
+    | Nome | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
+    | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||

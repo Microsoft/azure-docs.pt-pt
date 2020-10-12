@@ -4,10 +4,10 @@ description: Conheça as características do serviço Batch e o seu fluxo de tra
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965217"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Fluxo de trabalho e recursos do serviço Batch
@@ -42,7 +42,7 @@ Os seguintes tópicos discutem os recursos do Batch que permitem os seus cenári
 - [Trabalhos e tarefas](jobs-and-tasks.md)
 - [Ficheiros e diretórios](files-and-directories.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 - Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.
