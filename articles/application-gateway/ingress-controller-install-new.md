@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807149"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada de gateway de aplicação (AGIC) usando um novo gateway de aplicações
@@ -30,10 +30,10 @@ Alternativamente, lançar Cloud Shell a partir do portal Azure utilizando o segu
 
 O seu [Azure Cloud Shell](https://shell.azure.com/) já tem todas as ferramentas necessárias. Se optar por utilizar outro ambiente, certifique-se de que estão instaladas as seguintes ferramentas de linha de comando:
 
-* `az`- Azure CLI: [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`- Ferramenta de linha de comando Kubernetes: instruções de [instalação](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`- Gestor de pacotes Kubernetes: [instruções de instalação](https://github.com/helm/helm/releases/latest)
-* `jq`- processador JSON de linha de comando: instruções de [instalação](https://stedolan.github.io/jq/download/)
+* `az` - Azure CLI: [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl` - Ferramenta de linha de comando Kubernetes: instruções de [instalação](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` - Gestor de pacotes Kubernetes: [instruções de instalação](https://github.com/helm/helm/releases/latest)
+* `jq` - processador JSON de linha de comando: instruções de [instalação](https://stedolan.github.io/jq/download/)
 
 
 ## <a name="create-an-identity"></a>Criar uma Identidade
@@ -66,7 +66,7 @@ Siga os passos abaixo para criar um [objeto principal](https://docs.microsoft.co
     }
     EOF
     ```
-    Para implementar um cluster ativado pela **RBAC,** desloque o `aksEnableRBAC` campo para`true`
+    Para implementar um cluster ativado pela **RBAC,** desloque o `aksEnableRBAC` campo para `true`
 
 ## <a name="deploy-components"></a>Componentes de implantação
 Este passo irá adicionar os seguintes componentes à sua subscrição:
@@ -256,7 +256,7 @@ Para instalar a identidade do pod AAD no seu cluster:
      - `appgw.name`: Nome do Gateway de Aplicação. Exemplo: `applicationgatewayd0f0`
      - `appgw.shared`: Esta bandeira booleana deve ser infringida a `false` . Configurar para `true` onde necessitar de um Gateway de [aplicação partilhado.](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)
      - `kubernetes.watchNamespace`: Especifique o espaço do nome, que a AGIC deve observar. Isto pode ser um único valor de corda, ou uma lista separada por vírgula de espaços de nome.
-    - `armAuth.type`: pode ser `aadPodIdentity` ou`servicePrincipal`
+    - `armAuth.type`: pode ser `aadPodIdentity` ou `servicePrincipal`
     - `armAuth.identityResourceID`: Identificação de recursos da Identidade Gerida do Azure
     - `armAuth.identityClientId`: Identificação do Cliente da Identidade. Veja abaixo mais informações sobre identidade
     - `armAuth.secretJSON`: Só é necessário quando o tipo de Serviço Principal Secreto for escolhido (quando `armAuth.type` tiver sido definido para `servicePrincipal` ) 
@@ -267,7 +267,7 @@ Para instalar a identidade do pod AAD no seu cluster:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`no comando acima está o grupo de recursos do seu Gateway de Aplicação. `<identity-name>`é o nome da identidade criada. Todas as identidades de uma determinada subscrição podem ser listadas utilizando:`az identity list`
+   > `<resource-group>` no comando acima está o grupo de recursos do seu Gateway de Aplicação. `<identity-name>` é o nome da identidade criada. Todas as identidades de uma determinada subscrição podem ser listadas utilizando: `az identity list`
 
 
 1. Instale o pacote do controlador de entrada de entrada de entrada de aplicação:

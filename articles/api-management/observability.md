@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 1ebebed465952bbb5d3e8f82ae1c7776c441c6b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097824"
 ---
 # <a name="observability-in-azure-api-management"></a>Observabilidade na Gestão API da Azure
@@ -34,9 +34,9 @@ O quadro abaixo resume todas as ferramentas suportadas pela API Management para 
 | **[Inspetor da API](api-management-howto-api-inspector.md)** | Teste e depuração | Instantâneo | Os últimos 100 vestígios | Ligado por pedido | Solicitar vestígios | Sempre
 | **Analytics incorporado** | Relatórios e monitorização | Minutos | Vida útil | 100% | Relatórios e registos | Sempre |
 | **[Métricas do Monitor Azure](api-management-howto-use-azure-monitor.md)** | Relatórios e monitorização | Minutos | 93 dias (upgrade para prolongar) | 100% | Métricas | Sempre |
-| **[Registos do Monitor Azure](api-management-howto-use-azure-monitor.md)** | Reportagem, monitorização e depuragem | Minutos | 31 dias/5GB (upgrade para prolongar) | 100% (ajustável) | Registos | Opcional |
-| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reportagem, monitorização e depuragem | Segundos | 90 dias/5GB (upgrade para prolongar) | Personalizar | Troncos, métricas | Opcional |
-| **[Iniciar sessão através do Azure Event Hub](api-management-howto-log-event-hubs.md)** | Cenários personalizados | Segundos | Gerido pelo utilizador | Personalizar | Personalizar | Opcional |
+| **[Registos do Azure Monitor](api-management-howto-use-azure-monitor.md)** | Reportagem, monitorização e depuragem | Minutos | 31 dias/5GB (upgrade para prolongar) | 100% (ajustável) | Registos | Opcional |
+| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reportagem, monitorização e depuragem | Segundos | 90 dias/5GB (upgrade para prolongar) | Personalizado | Troncos, métricas | Opcional |
+| **[Iniciar sessão através do Azure Event Hub](api-management-howto-log-event-hubs.md)** | Cenários personalizados | Segundos | Gerido pelo utilizador | Personalizado | Personalizado | Opcional |
 
 ### <a name="self-hosted-gateway"></a>Gateway auto-hospedado
 

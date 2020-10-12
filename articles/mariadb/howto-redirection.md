@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
 ms.openlocfilehash: 45d93797b72b3b35dd44cddc22124acb73eb3454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121100"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Ligue à Base de Dados Azure para MariaDB com reorientação
 
 Este tópico explica como ligar uma aplicação a sua Base de Dados Azure para servidor MariaDB com o modo de reorientação. A reorientação visa reduzir a latência da rede entre aplicações de clientes e servidores MariaDB, permitindo que as aplicações se conectem diretamente aos nós do servidor de backend.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para servidor MariaDB com a versão 10.2 ou 10.3 do motor. 
 
 Para mais detalhes, consulte como criar uma Base de Dados Azure para servidor MariaDB utilizando o [portal Azure](quickstart-create-mariadb-server-database-using-azure-portal.md) ou [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
@@ -161,5 +161,5 @@ $db_name = 'testdb';
 ?>
  ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre as cordas de [ligação,](howto-connection-string.md)consulte as Cordas de Ligação .

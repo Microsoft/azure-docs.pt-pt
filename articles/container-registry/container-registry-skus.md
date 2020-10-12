@@ -4,10 +4,10 @@ description: Conheça as funcionalidades e limites nos níveis básico, standard
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512622"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Níveis de serviço de registo de contentores Azure
@@ -52,7 +52,7 @@ Para obter informações sobre preços em cada um dos níveis de serviço de reg
 
 Para obter mais informações sobre os preços das transferências de dados, consulte [detalhes de preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 **Roteiro do Registo de Contentores de Azure**
 

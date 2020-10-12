@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
 ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068432"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
@@ -26,7 +26,7 @@ Pode ativar a monitorização de um cluster AKS que já foi implantado utilizand
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="enable-using-azure-cli"></a>Ativar a utilização do CLI Azure
+## <a name="enable-using-azure-cli"></a>Ativar através do CLI do Azure
 
 O passo seguinte permite a monitorização do seu cluster AKS utilizando o Azure CLI. Neste exemplo, não é obrigado a pré-criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster AKS se já não existir na região.  O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<GUID> - \<Region> *.
 

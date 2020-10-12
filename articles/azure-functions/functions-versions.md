@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208110"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de execução do Azure Functions
@@ -20,7 +20,7 @@ A Azure Functions suporta atualmente três versões do hospedeiro de tempo de ex
 
 Este artigo detalha algumas das diferenças entre as várias versões, como pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Idiomas
+## <a name="languages"></a>Linguagens
 
 Começando pela versão 2.x, o tempo de execução utiliza um modelo de extensibilidade linguística, e todas as funções numa aplicação de função devem partilhar o mesmo idioma. O idioma das funções numa aplicação de função é escolhido ao criar a app e é mantido na definição [de \_ TRABALHO DE \_ EXECUÇÃO DO TRABALHADOR DE FUNÇÕES.](functions-app-settings.md#functions_worker_runtime) 
 

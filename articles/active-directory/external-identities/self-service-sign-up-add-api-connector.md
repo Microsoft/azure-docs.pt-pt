@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613990"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
@@ -244,10 +244,10 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| versão                                            | Cadeia            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | Cadeia            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
@@ -266,12 +266,12 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Sim      | A versão da API.                                                    |
-| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | Cadeia | Sim      | A versão da API.                                                    |
+| ação      | Cadeia | Sim      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | Cadeia | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -292,13 +292,13 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Sim      | A versão da API.                                                    |
-| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
+| versão     | Cadeia  | Sim      | A versão da API.                                                    |
+| ação      | Cadeia  | Sim      | O valor deve `ValidationError` ser.                                           |
 | status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| userMessage | Cadeia  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 

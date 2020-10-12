@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650558"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões das máquinas virtuais no Azure
@@ -75,8 +75,8 @@ A tabela seguinte fornece uma descrição geral rápida das diferenças entre os
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados em vários locais. |Não |Yes |Yes |Yes |
-| Os dados podem ser lidos a partir da localização secundária e da localização principal. |No |No |Não |Yes |
+| Os dados são replicados em vários locais. |Não |Sim |Sim |Sim |
+| Os dados podem ser lidos a partir da localização secundária e da localização principal. |Não |Não |Não |Sim |
 | Número de cópias dos dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Pode ler mais sobre as [opções de replicação de Armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](./managed-disks-overview.md).
@@ -85,10 +85,10 @@ Pode ler mais sobre as [opções de replicação de Armazenamento do Azure aqui]
 Os preços podem variar consoante o tipo de armazenamento e disponibilidade que selecionou.
 
 **Managed Disks do Azure**
-* Os Discos Geridos Premium são apoiados por Unidades de Estado Sólido (SSDs) e os Discos Geridos Padrão são apoiados por discos de fiação regulares. Os Managed Disks Premium e os Standard são carregados com base na capacidade de aprovisionamento do disco.
+* Os Discos Geridos Premium são apoiados por Solid-State Drives (SSDs) e os Discos Geridos Padrão são apoiados por discos de fiação regulares. Os Managed Disks Premium e os Standard são carregados com base na capacidade de aprovisionamento do disco.
 
 **Discos não geridos**
-* O armazenamento premium é apoiado por Unidades de Estado Sólido (SSDs) e é carregado com base na capacidade do disco.
+* O armazenamento premium é apoiado por Solid-State Drives (SSDs) e é carregado com base na capacidade do disco.
 * O armazenamento Standard está protegido por discos rotativos normais é cobrado com base na capacidade em utilização e na disponibilidade de armazenamento pretendida.
   * Para RA-GRS, existe uma cobrança adicional da Transferência de Dados de Georreplicação para a largura de banda da replicação desses dados para outra região do Azure.
 

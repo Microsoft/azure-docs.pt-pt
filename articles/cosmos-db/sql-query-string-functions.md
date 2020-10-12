@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 192f015b37eadb57b8e4a5c83ce3adf94c8bf038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549521"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funções de corda (Azure Cosmos DB)
@@ -27,10 +27,10 @@ As seguintes funções de escalar executam uma operação sobre um valor de entr
 * [ENDSWITH](sql-query-endswith.md)
 * [INDEX_OF](sql-query-index-of.md)
 * [LEFT](sql-query-left.md)
-* [COMPRIMENTO](sql-query-length.md)
+* [LENGTH](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
-* [SUBSTITUIR](sql-query-replace.md)
+* [REPLACE](sql-query-replace.md)
 * [REPLICAR](sql-query-replicate.md)
 * [INVERTER](sql-query-reverse.md)
 * [RIGHT](sql-query-right.md)
@@ -46,7 +46,7 @@ As seguintes funções de escalar executam uma operação sobre um valor de entr
 * [TRIM](sql-query-trim.md)
 * [UPPER](sql-query-upper.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

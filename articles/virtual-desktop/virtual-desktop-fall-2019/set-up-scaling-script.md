@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078185"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Anfitriões de sessão de desktop virtual do Windows (clássico) usando Azure Automation
@@ -28,9 +28,9 @@ A ferramenta de escala fornece uma opção de automação de baixo custo para cl
 
 Pode utilizar a ferramenta de escala para:
 
-- Agende VMs para iniciar e parar com base nas horas de trabalho de Peak e Off-Peak.
+- Agende VMs para iniciar e parar com base no Peak e Off-Peak horas de trabalho.
 - Dimensione os VMs com base no número de sessões por núcleo de CPU.
-- Escala em VMs durante as horas off-peak, deixando o número mínimo de VMs de sessão em execução.
+- Escala em VMs durante Off-Peak horas, deixando o número mínimo de VMs de sessão em funcionamento.
 
 A ferramenta de escala utiliza uma combinação de uma conta Azure Automation, um runbook PowerShell, um webhook e a App Azure Logic para funcionar. Quando a ferramenta é executada, a Azure Logic App chama um webhook para iniciar o runbook Azure Automation. O livro de bordo cria então um emprego.
 

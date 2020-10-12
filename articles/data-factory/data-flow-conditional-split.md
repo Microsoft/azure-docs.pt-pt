@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/21/2020
 ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83800074"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformação de divisão condicional no fluxo de dados de mapeamento
@@ -47,7 +47,7 @@ Utilize o construtor de expressão de fluxo de dados para introduzir uma express
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma transformação de divisão condicional nomeada `SplitByYear` que toma em fluxo de entrada `CleanData` . Esta transformação tem duas condições divididas `year < 1960` `year > 1980` e. `disjoint`é falso porque os dados vão para a primeira condição de correspondência. Cada linha correspondente à primeira condição vai para o fluxo de saída `moviesBefore1960` . Todas as linhas restantes correspondentes à segunda condição vão para o fluxo de saída `moviesAFter1980` . Todas as outras linhas fluem através do fluxo predefinido `AllOtherMovies` .
+O exemplo abaixo é uma transformação de divisão condicional nomeada `SplitByYear` que toma em fluxo de entrada `CleanData` . Esta transformação tem duas condições divididas `year < 1960` `year > 1980` e. `disjoint` é falso porque os dados vão para a primeira condição de correspondência. Cada linha correspondente à primeira condição vai para o fluxo de saída `moviesBefore1960` . Todas as linhas restantes correspondentes à segunda condição vão para o fluxo de saída `moviesAFter1980` . Todas as outras linhas fluem através do fluxo predefinido `AllOtherMovies` .
 
 No Data Factory UX, esta transformação parece a imagem abaixo:
 
@@ -64,6 +64,6 @@ CleanData
     ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 As transformações comuns do fluxo de dados utilizadas com a divisão condicional são a transformação da [união,](data-flow-join.md) [a transformação da procura](data-flow-lookup.md)e a [transformação selecionada](data-flow-select.md)

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 84e3ced20b828087cd3f2b9e7534826debf1706a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279982"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
@@ -56,7 +56,7 @@ Várias declarações **SELECT** podem ser usadas para obter dados de produção
 
 **Saída de Alerta de Saída:**
 
-| Criação | Hora | de palavras |
+| Criação | Hora | Contagem |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -728,7 +728,7 @@ Por exemplo, o relógio do dispositivo *para TollID* 2 está cinco segundos atr�
 
 **Saída:**
 
-| TollID | de palavras |
+| TollID | Contagem |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |

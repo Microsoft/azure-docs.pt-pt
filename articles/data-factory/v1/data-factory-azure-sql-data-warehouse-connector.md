@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490144"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para a Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando Azure Data Factory
@@ -70,8 +70,8 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **AzureSqlDW** |Yes |
-| conexãoStragem |Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a propriedade connectionString. Apenas a autenticação básica é suportada. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **AzureSqlDW** |Sim |
+| conexãoStragem |Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a propriedade connectionString. Apenas a autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
 > Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e o servidor de base de dados para permitir que os [Serviços Azure acedam ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a Azure Synapse Analytics de fora do Azure, incluindo de fontes de dados no local com porta de entrada de fábrica de dados, configufique a gama de endereços IP apropriada para a máquina que está a enviar dados para a Azure Synapse Analytics.
@@ -83,7 +83,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela ou vista na base de dados Azure Synapse Analytics a que o serviço ligado se refere. |Yes |
+| tableName |Nome da tabela ou vista na base de dados Azure Synapse Analytics a que o serviço ligado se refere. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e política estão disponíveis para todos os tipos de atividades.
@@ -98,9 +98,9 @@ Quando a fonte é do tipo **SqlDWSource,** as seguintes propriedades estão disp
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |No |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |No |
-| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |No |
+| sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Não |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado. |Pares de nomes/valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
 
 Se o **SqlReaderQuery** for especificado para o SqlDWSource, a Atividade de Cópia executa esta consulta com a fonte Azure Synapse Analytics para obter os dados.
 
@@ -144,15 +144,15 @@ GO
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais detalhes, consulte a [secção de repetibilidade](#repeatability-during-copy). |Uma declaração de consulta. |No |
-| permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados no Azure Synapse Analytics.** Consulte [o PolyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter constrangimentos e detalhes. |Verdadeiro <br/>Falso (predefinição) |No |
-| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira**. |&nbsp; |No |
-| rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (padrão), 1, 2, ... |No |
-| rejeitarType |Especifica se a opção rejeitar oValue é especificada como um valor literal ou uma percentagem. |Valor (padrão), Percentagem |No |
+| sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais detalhes, consulte a [secção de repetibilidade](#repeatability-during-copy). |Uma declaração de consulta. |Não |
+| permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados no Azure Synapse Analytics.** Consulte [o PolyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter constrangimentos e detalhes. |Verdadeiro <br/>Falso (predefinição) |Não |
+| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira**. |&nbsp; |Não |
+| rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (padrão), 1, 2, ... |Não |
+| rejeitarType |Especifica se a opção rejeitar oValue é especificada como um valor literal ou uma percentagem. |Valor (padrão), Percentagem |Não |
 | rejeitarSampleValue |Determina o número de linhas a recuperar antes que o PolyBase recalcule a percentagem de linhas rejeitadas. |1, 2, ... |Sim, se **rejeitarType** é **percentagem** |
-| utilizarTypeDefault |Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Verdadeiro, Falso (padrão) |No |
+| utilizarTypeDefault |Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Verdadeiro, Falso (padrão) |Não |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |No |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="sqldwsink-example"></a>Exemplo sqlDWSink
 
@@ -307,15 +307,15 @@ A Data Factory cria a tabela na loja de destino com o mesmo nome de tabela na lo
 | TinyInt | TinyInt |
 | Pouco | Pouco |
 | Decimal | Decimal |
-| Operador numérico | Decimal |
+| Numérico | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
 | Binário | Binário |
 | Varbinário | Varbinário (até 8000) |
-| Data | Data |
-| Data e Hora | Data e Hora |
+| Date | Date |
+| DateTime | DateTime |
 | DataTime2 | DataTime2 |
 | Hora | Hora |
 | Início de execução de tempo de data | Início de execução de tempo de data |
@@ -348,9 +348,9 @@ O mapeamento é o mesmo que o Mapeamento do [Tipo de Dados do Servidor SQL para 
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |Data e Hora |
-| Datetime |Data e Hora |
-| datetime2 |Data e Hora |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinário(máx)) |Byte[] |
@@ -364,7 +364,7 @@ O mapeamento é o mesmo que o Mapeamento do [Tipo de Dados do Servidor SQL para 
 | nvarchar |String, Char[] |
 | real |Único |
 | rowversão |Byte[] |
-| hora pequena |Data e Hora |
+| hora pequena |DateTime |
 | smallint |Int16 |
 | pequeno dinheiro |Decimal |
 | sql_variant |Objeto * |

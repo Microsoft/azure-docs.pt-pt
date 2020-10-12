@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
 ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87405131"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Tecido de serviço Azure hospedando ciclo de vida
@@ -58,7 +58,7 @@ Quando um codepackage falha, o Service Fabric usa um back-off para reiniciá-lo 
 O valor de back-off é sempre Min(RetryTime, **ActivationMaxRetryInterval)** e este valor pode ser constante, linear ou exponencial com base na **ActivationRetryBackoffExponentiationBase** config.
 
 - Constante: Se **ActivationRetryBackoffExponentitionBase** == 0 então RetryTime = **ActivationRetryBackoffInterval**;
-- Linear: Se **ActivationRetryBackoffExponentiationBase** == 0 então RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** onde ContinousFailureCount é o número de vezes que um CodePackage falha ou falha em ativar.
+- Linear: Se  **ActivationRetryBackoffExponentiationBase** == 0 então RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** onde ContinousFailureCount é o número de vezes que um CodePackage falha ou falha em ativar.
 - Exponencial: RetryTime =**(ActivationRetryBackoffInterval** em segundos) ***(ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
 Pode controlar o comportamento como quiser como se fosse reiniciando rapidamente. Falemos do Linear. Isto significa que se um CodePackage falhar, o intervalo de partida será após 10, 20, 30 40 seg até que o CodePackage seja desativado. 
@@ -81,7 +81,7 @@ O Tecido de Serviço utiliza sempre um back-off linear quando encontra erro dura
 > [!NOTE]
 > Antes de alterar os configs, aqui estão alguns exemplos que deve ter em mente.
 
-* Se o CodePackage continuar a falhar e a recuar, o ServiceType será desativado. Mas se as ativações config for tal que tenha um reinício rápido, então o CodePackage pode surgir algumas vezes antes de poder ver o desactivamento do ServiceType. Para ex: assuma que o seu CodePackage aparece, regista o ServiceType com o Service Fabric e depois falha. Nesse caso, uma vez que o Hosting recebe um registo de tipo, o período **ServiceTypeDisableGraceInterval** é cancelado. E isto pode repetir-se até que o codepackage recue para um valor superior ao **ServiceTypeDisableGraceInterval** e, em seguida, o ServiceType será desativado no nó. Portanto, pode demorar algum tempo até que o seu ServiceType seja desativado no nó.
+* Se o CodePackage continuar a falhar e a recuar, o ServiceType será desativado. Mas se as ativações config for tal que tenha um reinício rápido, então o CodePackage pode surgir algumas vezes antes de poder ver o desactivamento do ServiceType. Para ex: assuma que o seu CodePackage aparece, regista o ServiceType com o Service Fabric e depois falha. Nesse caso, uma vez que o Hosting recebe um registo de tipo, o período **ServiceTypeDisableGraceInterval** é cancelado. E isto pode repetir-se até que o codepackage recue para um valor superior ao  **ServiceTypeDisableGraceInterval** e, em seguida, o ServiceType será desativado no nó. Portanto, pode demorar algum tempo até que o seu ServiceType seja desativado no nó.
 
 * Em caso de ativações, quando o sistema de Tecido de Serviço precisa de colocar uma réplica num nó, a RA (ReconfigurationAgent) pede ao subSystem de hospedagem para ativar a aplicação e retrição o pedido de ativação a cada 15**segundos(RAPMessageRetryInterlor).** Para que o sistema de tecido de serviço saiba que o ServiceType foi desativado, a operação de ativação no alojamento precisa de viver por um período mais longo do que o intervalo de retry e **o ServiceTypeDisableGraceInterval**. Por exemplo: deixe o cluster ter as configurações **ActivationMaxFailureCount** definidas para 5 e **ActivationRetryBackoffInterval** definidas para 1 seg. Significa que a operação de ativação desistirá depois (0 + 1 + 2 + 3 + 4) = 10 seg (a primeira repetição é imediata) e depois o Hospedeiro desiste de voltar a tentar. Neste caso, a operação de ativação ficará concluída e não voltará a funcionar após 15 segundos. Aconteceu porque o Tecido de Serviço esgotou todas as retretes em 15 segundos. Assim, cada repetição da ReconfigurationAgent cria uma nova operação de ativação no subSistema de hospedagem e o padrão continuará a repetir-se e o ServiceType nunca será desativado no nó. Uma vez que o ServiceType não será desativado no nó, o componente do Sf System FM(FailoverManager) não move a Réplica para um nó diferente.
 > 
@@ -132,23 +132,23 @@ Configs com incumprimentos que impactam a ativação/decativação.
 **ServiçoTypeRegistrationTimeout**: Padrão 300 seg. O tempo limite para o ServiceType registar-se com o Service Fabric.
 
 ### <a name="activation"></a>Ativação
-**ActivationRetryBackoffInterval**: Intervalo de 10 segundos padrão. Intervalo de backoff em cada falha de ativação.
+**ActivationRetryBackoffInterval**: Padrão 10 seg. Intervalo de recuo em todas as falhas de ativação.
 **ActivationMaxFailureCount**: Padrão 20. Contagem máxima para qual o sistema vai voltar a tentar a ativação falhada antes de desistir. 
 **ActivationRetryBackoffExponentiationBase**: Predefinição 1.5.
-**ActivationMaxRetryInterval**: Padrão 3600 seg. Recuo máximo para ativação em falhas.
+**ActivationMaxRetryInterval**: Padrão 3600 seg. Máximo de recuo para ativação em falhas.
 **CodePackageContinuousExitFailureResetInterval**: Padrão 300 seg. O tempo limite para repor a contagem contínua de falha de saída para codepackage.
 
 ### <a name="download"></a>Download
 **ImplementaçãoRetryBackoffInterval**: Padrão 10. Intervalo de retenção para a falha de implantação.
-**ImplementaçãoMaxRetryInterval**: Padrão 3600 seg. Max back-off para a implementação em falhas.
+**ImplementaçãoMaxRetryInterval**: Padrão 3600 seg. Max recua para a implantação de falhas.
 **ImplementaçãoMaxFailureCount**: Padrão 20. A implementação da aplicação será novamente julgada para o DeploymentMaxFailureCount vezes antes de falhar a implementação dessa aplicação no nó.
 
 ### <a name="deactivation"></a>Desativação
-**DesativaçãoScanInterval**: Padrão 600 seg. Tempo mínimo dado ao ServicePackage para acolher uma Réplica se nunca tiver hospedado qualquer Réplica i.e se não for usado.
+**DesactivaçãoScanInterval**: Padrão 600 seg. Tempo mínimo dado ao ServicePackage para acolher uma Réplica se nunca tiver hospedado qualquer Réplica, ou seja, se não for usado.
 **DesactivaçãoGraceInterval**: Padrão 60 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Partilhado.**
 **ExclusivoModeDeactivationGraceInterval**: Padrão 1 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Exclusivo.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Embale uma aplicação][a3] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a4]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.

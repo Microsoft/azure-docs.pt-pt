@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334587"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerir registos no Serviço Comum de Dados utilizando aplicações lógicas Azure
@@ -51,9 +51,9 @@ Para este exemplo, adicione o gatilho do Serviço Comum de Dados que dispara qua
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Ambiente** | Yes | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
-   | **Nome da entidade** | Yes | A entidade para monitorizar, por exemplo, "Leads" |
-   | **Âmbito** | Yes | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
+   | **Environment** | Sim | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
+   | **Nome da entidade** | Sim | A entidade para monitorizar, por exemplo, "Leads" |
+   | **Âmbito** | Sim | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Adicionar ação comum de serviço de dados
@@ -72,8 +72,8 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da Organização** | Yes | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
-   | **Nome da entidade** | Yes | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
+   | **Nome da Organização** | Sim | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
+   | **Nome da entidade** | Sim | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
    | **Assunto** | Sim, com base na entidade selecionada neste exemplo | Uma breve descrição sobre o objetivo para esta tarefa |
    ||||
 
@@ -87,7 +87,7 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
       ![Selecione saídas de gatilho para usar no registo de tarefas](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Saída do gatilho | Description |
+      | Saída do gatilho | Descrição |
       |----------------|-------------|
       | **Primeiro nome** | O primeiro nome do registo de chumbo a ser usado como o contacto principal no registo de tarefas |
       | **Último Nome** | O último nome do registo principal a ser usado como o contacto principal no registo de tarefas |

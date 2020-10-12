@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808958"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e registo de firewall de aplicação web Azure
@@ -24,7 +24,7 @@ O waf com log FrontDoor está integrado com [o Azure Monitor](../../azure-monito
 
 A partir do portal Azure, vá para o tipo de recurso Front Door. A partir do **separador Métricas de Monitorização** / **Metrics** à esquerda, pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras da WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>Registos e diagnósticos
 
@@ -132,6 +132,6 @@ Aqui está um exemplo de um pedido registado no registo de acesso:
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Porta da Frente.](../../frontdoor/front-door-overview.md)

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023471"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do IoT Hub
@@ -70,7 +70,7 @@ O [portal Microsoft Azure](https://portal.azure.com) é um local central onde po
 
 [O Azure Resource Manager](../azure-resource-manager/management/overview.md) permite-lhe trabalhar com os recursos na sua solução como grupo. Pode implementar, atualizar ou eliminar os recursos da sua solução numa única operação coordenada.
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+## <a name="azure-service-bus"></a>Service Bus do Azure
 
 [O Service Bus](../service-bus/index.md) fornece comunicação ativada em nuvem com mensagens empresariais e comunicação transmitida que o ajuda a conectar soluções no local com a nuvem. Alguns tutoriais do IoT Hub usam [as filas](../service-bus-messaging/service-bus-messaging-overview.md)de Service Bus.
 
@@ -212,7 +212,7 @@ Uma mensagem interativa é uma mensagem [nuvem-para-dispositivo](#cloud-to-devic
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
 O IoT Hub é um serviço Azure totalmente gerido que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução traseira. Para mais informações, veja [o que é Azure IoT Hub?](about-iot-hub.md) Utilizando a sua [subscrição Azure,](#subscription)pode criar hubs IoT para lidar com as suas cargas de trabalho de mensagens IoT.
 
@@ -290,7 +290,7 @@ No contexto de um [dispositivo gémeo,](iot-hub-devguide-device-twins.md)as prop
 
 [O Azure Resource Manager](#azure-resource-manager) utiliza grupos de recursos para agrupar recursos relacionados. Pode utilizar um grupo de recursos para realizar operações em todos os recursos do grupo simultaneamente.
 
-## <a name="retry-policy"></a>Política de repetição
+## <a name="retry-policy"></a>Política de Repetição
 
 Utilize uma política de repetição para lidar com [erros transitórios](/azure/architecture/best-practices/transient-faults) quando se liga a um serviço de nuvem.
 

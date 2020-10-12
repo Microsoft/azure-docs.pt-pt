@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090285"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e walkthroughs para apps Azure Logic
@@ -99,7 +99,7 @@ Por vezes, as suas aplicações lógicas e contas de integração precisam de ac
 
 Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Studio, Azure DevOps ou qualquer outro controlo de origem e ferramentas de construção automatizadas. Para suportar a implementação de fluxos de trabalho e conexões dependentes num modelo de recurso, as aplicações lógicas usam modelos de implementação de recursos Azure. As ferramentas visual Studio geram automaticamente estes modelos, que pode fazer check-in no controlo de origem para a versão. Para registos de notificação e diagnóstico para o estado de execução do fluxo de trabalho, a Azure Logic Apps também fornece monitorização e alertas.
 
-### <a name="deploy"></a>Implementar
+### <a name="deploy"></a>Implementação
 
 * [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados utilizando apps Azure Logic - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Visão geral: Automatizar a implementação de aplicativos de lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -128,7 +128,7 @@ Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Stu
 
 Pode aceder, converter e transformar vários tipos de conteúdo utilizando as muitas funções no [idioma](https://aka.ms/logicappsdocs)de definição de fluxo de trabalho Azure Logic Apps . Por exemplo, pode converter entre uma corda, JSON e XML com as `@json()` expressões de fluxo de `@xml()` trabalho. O motor Logic Apps preserva os tipos de conteúdo para suportar a transferência de conteúdos de forma sem perdas entre os serviços.
 
-* [Lidar com tipos de conteúdo em Azure Logic Apps](../logic-apps/logic-apps-content-type.md), tais `application/` `application/octet-stream` como, e`multipart/formdata`
+* [Lidar com tipos de conteúdo em Azure Logic Apps](../logic-apps/logic-apps-content-type.md), tais `application/` `application/octet-stream` como, e `multipart/formdata`
 * [Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Esquema de linguagem de definição de fluxo de trabalho para apps lógicas Azure](../logic-apps/logic-apps-workflow-definition-language.md)
 

@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021482"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar StorSimple Virtual Array - Provision in VMware
@@ -175,7 +175,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 34. Volte à página Virtual Machine Properties. Um novo disco rígido é adicionado à sua máquina virtual. Clique em **Concluir**.
 
     ![Screenshot da página Virtual Machine Properties. A lista de hardware contém o novo disco rígido e o botão Terminar é realçado.](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Com a sua máquina virtual selecionada no painel direito, navegue para o **separador Resumo.** Reveja as definições para a sua máquina virtual.
+35. Com a sua máquina virtual selecionada no painel direito, navegue para o **separador Resumo.** Reveja as definições da sua máquina virtual.
 
     ![Screenshot do separador resumo do cliente vSphere. A nova máquina virtual está em destaque, e os seus recursos e propriedades gerais são visíveis.](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -196,10 +196,10 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
    ![Screenshot do separador consola do cliente vSphere. A caixa de senha está vazia.](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após o primeiro início de sessão. É-lhe pedido que altere a palavra-passe.
 
-   ![Screenshot do separador consola cliente vSphere. Texto na página indica que a palavra-passe deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
+   ![Screenshot do separador consola do cliente vSphere. O texto na página indica que a palavra-passe deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. Introduza uma palavra-passe com, pelo menos, 8 carateres. A palavra-passe deve conter 3 de 4 destes requisitos: maiúsculas, minúsculas, numéricas e caracteres especiais. Reintroduza a palavra-passe para a confirmar. Será notificado de que a palavra-passe mudou.
 
-   ![Screenshot do separador consola cliente vSphere. Texto na página indica que a palavra-passe foi alterada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
+   ![Screenshot do separador consola do cliente vSphere. O texto na página indica que a palavra-passe foi alterada.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. Depois de a palavra-passe ser alterada com sucesso, o dispositivo virtual pode reiniciar. Aguarde que o reboot esteja completo. A consola Windows PowerShell do dispositivo pode ser exibida juntamente com uma barra de progresso.
 
    ![Screenshot mostrando uma janela da consola com uma barra de progresso. O texto na janela indica que a configuração inicial está em curso e pede ao utilizador que aguarde.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)

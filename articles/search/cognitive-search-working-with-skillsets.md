@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84976681"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos de Skillset em Pesquisa Cognitiva Azure
@@ -85,7 +85,7 @@ As duas primeiras competências são mostradas abaixo:
 }
 ```
 > [!NOTE]
-> Você pode construir habilidades complexas com looping e ramificação, usando a [habilidade condicional](cognitive-search-skill-conditional.md) para criar as expressões. A sintaxe baseia-se na notação do caminho do [ponteiro JSON,](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar nós na árvore de enriquecimento. A `"/"` atravessa um nível mais baixo na árvore e `"*"` atua como um operador para cada operador no contexto. Numerosos exemplos neste artigo ilustram a sintaxe. 
+> Você pode construir habilidades complexas com looping e ramificação, usando a [habilidade condicional](cognitive-search-skill-conditional.md) para criar as expressões. A sintaxe baseia-se na notação do caminho do [ponteiro JSON,](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar nós na árvore de enriquecimento. A `"/"` atravessa um nível mais baixo na árvore e  `"*"` atua como um operador para cada operador no contexto. Numerosos exemplos neste artigo ilustram a sintaxe. 
 
 ### <a name="enrichment-tree"></a>Árvore de enriquecimento
 
@@ -115,7 +115,7 @@ Cada habilidade requer um contexto. Um contexto determina:
 
 + Forma das entradas. Para coleções de vários níveis, definir o contexto para a coleção dos pais irá afetar a forma da entrada para a habilidade. Por exemplo, se tiver uma árvore de enriquecimento com uma lista de países/regiões, cada uma enriquecida com uma lista de estados contendo uma lista de códigos ZIP.
 
-|Contexto|Entrada|Forma de Entrada|Invocação de Habilidades|
+|Contexto|Input|Forma de Entrada|Invocação de Habilidades|
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |Uma lista de todos os códigos ZIP no país/região |Uma vez por país/região |
 |`/document/countries/*/states/*` |«/documento/países/*/estados/*/zipcodes/*». |Uma lista de códigos ZIP no estado | Uma vez por combinação de país/região e estado|
@@ -391,7 +391,7 @@ A abordagem de formação inline não requer uma habilidade de formador, uma vez
   
 Uma observação de ambas as abordagens é a forma como os valores `"Keyphrases"` são projetados utilizando o `"sourceContext"` . O `"Keyphrases"` nó, que contém uma coleção de cordas, é em si uma criança do texto da página. No entanto, como as projeções requerem um objeto JSON e a página é uma primitiva (corda), `"sourceContext"` é usada para envolver a frase chave num objeto com uma propriedade nomeada. Esta técnica permite que até os primitivos sejam projetados de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como próximo passo, crie o seu primeiro skillset com habilidades cognitivas.
 

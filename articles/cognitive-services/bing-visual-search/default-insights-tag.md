@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512644"
 ---
 # <a name="default-insights-tag"></a>Etiqueta de insights predefinidos
@@ -421,7 +421,7 @@ O insight documentLevelSuggestions fornece uma lista de termos de pesquisa suger
       }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira [exemplos de utilização de insights de Bing](bing-insights-usage.md) para ver como bing pode exibir as perceções visuais.
 

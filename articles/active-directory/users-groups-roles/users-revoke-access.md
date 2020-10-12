@@ -14,10 +14,10 @@ ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8d1b6d912cadb073251d72ee327f4b19950ab1b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055190"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do utilizador no Azure Ative Directory
@@ -117,7 +117,7 @@ Uma vez que os administradores tenham tomado as medidas acima, o utilizador não
 
 - Para **aplicações que utilizem fichas de sessão,** as sessões existentes terminam assim que o token expirar. Se o estado desativado do utilizador for sincronizado com a aplicação, a aplicação pode revogar automaticamente as sessões existentes do utilizador se estiver configurada para o fazer.  O tempo que demora depende da frequência de sincronização entre a aplicação e a Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Práticas de acesso seguros para administradores da AD Azure](directory-admin-roles-secure.md)
 - [Adicionar ou atualizar informações sobre o perfil do utilizador](../fundamentals/active-directory-users-profile-azure-portal.md)
