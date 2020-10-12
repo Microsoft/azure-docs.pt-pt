@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
 ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810229"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Passando de Express.js para Funções Azure
@@ -24,7 +24,7 @@ Ao migrar o código para uma arquitetura sem servidor, a refacagem Express.js po
 
 - **Rota predefinida**: Por predefinição, os pontos finais das funções Azure são expostos ao abrigo da `api` rota. As regras de encaminhamento são configuráveis através [ `routePrefix` dohost.js_em_ ficheiro](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Configuração e convenções**: Uma aplicação de funções utiliza o _function.jsem_ ficheiro para definir verbos HTTP, definir políticas de segurança e pode configurar a entrada e saída da [função](./functions-triggers-bindings.md). Por predefinição, o nome da pasta que contém os ficheiros de função define o nome do ponto final, mas pode alterar o nome através da `route` propriedade nofunction.js[no](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiro.
+- **Configuração e convenções**: Uma aplicação de funções utiliza o _function.jsem_ ficheiro para definir verbos HTTP, definir políticas de segurança e pode configurar a entrada e saída da [função](./functions-triggers-bindings.md). Por predefinição, o nome da pasta que contém os ficheiros de função define o nome do ponto final, mas pode alterar o nome através da `route` propriedade nofunction.js[ no](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiro.
 
 > [!TIP]
 > Saiba mais através do Node.js de refactor tutorial interativo [e APIs expressos para APIs sem servidor com funções Azure](/learn/modules/shift-nodejs-express-apis-serverless/).
@@ -113,7 +113,7 @@ Ao deslocar-se para Funções, são feitas as seguintes alterações:
 
 - **Configuração**: Define os verbos HTTP no [function.jsem](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiros como `POST` ou `PUT` .
 
-A _seguintefunction.jsno_ ficheiro contém informações de configuração para a função.
+A _ seguintefunction.jsno_ ficheiro contém informações de configuração para a função.
 
 ```json
 {

@@ -9,13 +9,13 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
 ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816733"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos Agendados para VMs Linux
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events for Linux VMs (Azure Metadata Service: Scheduled Events para VMs do Linux)
 
 Eventos Agendados é um Serviço de Metadados Azure que dá tempo à sua aplicação para se preparar para a manutenção da máquina virtual (VM). Fornece informações sobre os próximos eventos de manutenção (por exemplo, reiniciar) para que a sua aplicação possa preparar-se para eles e limitar a interrupção. Está disponível para todos os tipos de Máquinas Virtuais Azure, incluindo PaaS e IaaS tanto no Windows como no Linux. 
 

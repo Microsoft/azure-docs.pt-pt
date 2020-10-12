@@ -4,10 +4,10 @@ description: Descreve as propriedades e esquemas que estão presentes para todos
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105885"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos Azure Event Grid
@@ -78,7 +78,7 @@ Todos os eventos têm os mesmos dados de alto nível:
 | Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | -------- | ----------- |
 | tópico | string | Não, mas se incluído, deve corresponder ao tópico de Classificação de Eventos Azure Resource Manager ID exatamente. Se não estiver incluído, a Grade de Eventos irá carimbar o evento. | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Sim | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Sim | Identificador único para o evento. |
@@ -89,8 +89,8 @@ Todos os eventos têm os mesmos dados de alto nível:
 Para saber mais sobre as propriedades no objeto de dados, consulte a fonte do evento:
 
 * [Assinaturas Azure (operações de gestão)](event-schema-subscriptions.md)
-* [Registo de Contentor](event-schema-container-registry.md)
-* [Armazenamento de bolhas](event-schema-blob-storage.md)
+* [Container Registry](event-schema-container-registry.md)
+* [Armazenamento de blobs](event-schema-blob-storage.md)
 * [Hubs de Eventos](event-schema-event-hubs.md)
 * [Hub IoT](event-schema-iot-hub.md)
 * [Serviços de Multimédia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
@@ -105,7 +105,7 @@ Ao publicar eventos para tópicos personalizados, crie temas para os seus evento
 
 Às vezes, o seu assunto precisa de mais detalhes sobre o que aconteceu. Por exemplo, o editor **de Contas de Armazenamento** fornece o assunto quando um ficheiro é adicionado a um `/blobServices/default/containers/<container-name>/blobs/<file>` recipiente. Um assinante poderia filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para aquele contentor, mas não outros contentores na conta de armazenamento. Um assinante também pode filtrar ou encaminhar pelo sufixo `.txt` para apenas trabalhar com ficheiros de texto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

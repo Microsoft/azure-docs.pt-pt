@@ -8,10 +8,10 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815526"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Papel de administrador de cliente azure Red Hat OpenShift

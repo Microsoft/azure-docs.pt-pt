@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
 ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982989"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
@@ -99,18 +99,18 @@ As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do
 
 2. Selecione o **"Conector"** do qual estará a copiar o mapeamento de conversão JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Este processo também pode ser utilizado para copiar e guardar o conteúdo do **"Configure FHIR mapping"** JSON.
 
 3. Selecione **"Configure o mapeamento do dispositivo".**
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: Selecione Ctrl + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Faça uma operação de pasta (por exemplo: Selecione Ctrl + v) num novo ficheiro dentro de um editor (por exemplo: Visual Studio Code, Notepad) e guarde o ficheiro com uma extensão *.json.
 

@@ -1,19 +1,19 @@
 ---
-title: Visão geral de segurança para Azure Data Share
-description: Visão geral de segurança para Azure Data Share
+title: Descrição geral de segurança do Azure Data Share
+description: Descrição geral de segurança do Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.openlocfilehash: 10f31b74b461941b15f13e45f90b5fbc408c90fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108418"
 ---
-# <a name="security-overview-for-azure-data-share"></a>Visão geral de segurança para Azure Data Share
+# <a name="security-overview-for-azure-data-share"></a>Descrição geral de segurança do Azure Data Share
 
 Este artigo fornece uma visão geral de segurança do serviço Azure Data Share.
 
@@ -25,7 +25,7 @@ Os controlos de acesso podem ser definidos no nível de recursos Azure Data Shar
 
 A Azure Data Share aproveita a identidade gerida (anteriormente conhecida como MSI) para aceder a lojas de dados que estão a ser usadas para a partilha de dados. Não existe troca de credenciais entre um fornecedor de dados e um consumidor de dados. Para obter mais informações sobre a identidade gerida, consulte [identidades geridas para recursos azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) Para obter mais informações sobre funções e permissões necessárias para partilhar dados, consulte [as Funções e os requisitos](concepts-roles-permissions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md)
 

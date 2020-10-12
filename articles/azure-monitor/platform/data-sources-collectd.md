@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111988"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados da CollectD sobre agentes do Linux no Azure Monitor
@@ -54,7 +54,7 @@ A configuração CollectD utiliza o `write_http` plugin predefinido para enviar 
 > [!NOTE]
 > Esta porta pode ser configurada para uma porta definida sob medida, se necessário.
 
-O agente Log Analytics do Linux também ouve na porta 26000 para métricas CollectD e, em seguida, converte-as em métricas de esquema do Monitor Azure. Segue-se o agente Log Analytics para a configuração do Linux `collectd.conf` .
+O agente Log Analytics do Linux também ouve na porta 26000 para métricas CollectD e, em seguida, converte-as em métricas de esquema do Monitor Azure. Segue-se o agente Log Analytics para a configuração do Linux  `collectd.conf` .
 
 ```xml
 <source>
@@ -123,14 +123,14 @@ Para manter um modelo familiar entre as métricas de infraestrutura já recolhid
 | Campo métrico recolhido | Campo Azure Monitor |
 |:--|:--|
 | `host` | Computador |
-| `plugin` | Nenhuma |
+| `plugin` | Nenhum |
 | `plugin_instance` | Nome de exemplo<br>Se **plugin_instance** é *nulo,* então InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | Contra-Nome<br>Se **type_instance** é *nulo,* então Contra-Natal=**em branco** |
 | `dsnames[]` | Contra-Nome |
-| `dstypes` | Nenhuma |
+| `dstypes` | Nenhum |
 | `values[]` | ContraValue |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 
 * Utilize [campos personalizados](custom-fields.md) para analisar dados de syslog records em campos individuais.

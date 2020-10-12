@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de regist
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113722"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registo de contentores Azure como fonte de grelha de evento
@@ -155,7 +155,7 @@ Um evento tem os seguintes dados de alto nível:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
@@ -169,7 +169,7 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | ID | string | A identificação do evento. |
 | carimbo de data/hora | string | A hora em que o evento ocorreu. |
-| action | string | A ação que engloba o evento fornecido. |
+| ação | string | A ação que engloba o evento fornecido. |
 | alvo | objeto | O alvo do evento. |
 | pedido | objeto | O pedido que gerou o evento. |
 
@@ -188,7 +188,7 @@ O objeto alvo tem as seguintes propriedades:
 
 O objeto de pedido tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ID | string | A identificação do pedido que iniciou o evento. |
 | addr | string | O nome IP ou anfitrião e possivelmente o porto da ligação ao cliente que iniciou o evento. Este valor é o RemoteAddr do pedido http padrão. |
@@ -202,7 +202,7 @@ O objeto de pedido tem as seguintes propriedades:
 | [Quickstart: enviar eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

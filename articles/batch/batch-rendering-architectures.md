@@ -5,10 +5,10 @@ ms.date: 02/07/2019
 ms.topic: how-to
 ms.custom: seodec18
 ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83726524"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização Azure
@@ -52,7 +52,7 @@ O diagrama a seguir mostra um cenário híbrido totalmente ligado tanto para o c
   ![Rebentamento de nuvem - Computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a utilização [de gestores de renderização](batch-rendering-render-managers.md) com a Azure Batch.
 

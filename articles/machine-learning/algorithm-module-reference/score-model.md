@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890310"
 ---
 # <a name="score-model"></a>Modelo de Classificação
@@ -32,7 +32,7 @@ Utilize este módulo para gerar previsões utilizando um modelo de classificaç�
 
 3. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Depois de ter gerado um conjunto de pontuações usando [o Score Model](./score-model.md):
 

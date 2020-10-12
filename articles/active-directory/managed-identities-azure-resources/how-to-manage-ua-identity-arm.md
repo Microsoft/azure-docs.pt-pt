@@ -16,10 +16,10 @@ ms.date: 12/10/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd49c60a23a0ad58f0907d3c1d7c38178ac08c97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266362"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure

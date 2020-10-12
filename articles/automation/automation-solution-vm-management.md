@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317366"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
@@ -78,7 +78,7 @@ Para ativar os VMs para os VMs iniciar/parar durante o período de folga utiliza
 
 Pode ativar VMs para os VMs iniciar/parar durante o período de folga utilizando uma nova conta de Automação e espaço de trabalho log Analytics. Neste caso, necessita das permissões definidas na secção anterior, bem como das permissões definidas nesta secção. Também precisa das seguintes funções:
 
-- Coadministrador na subscrição. Esta função é necessária para criar a conta Classic Run As se você vai gerir VMs clássicos. [As contas Classic Run As](automation-create-standalone-account.md#create-a-classic-run-as-account) já não são criadas por defeito.
+- Co-Administrator na subscrição. Esta função é necessária para criar a conta Classic Run As se você vai gerir VMs clássicos. [As contas Classic Run As](automation-create-standalone-account.md#create-a-classic-run-as-account) já não são criadas por defeito.
 - Adesão ao papel de Promotor de Aplicações [AD Azure.](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Para obter mais informações sobre a configuração de Run As Accounts, consulte [permissões para configurar executar como contas](manage-runas-account.md#permissions).
 - Colaborador na subscrição ou nas seguintes permissões.
 
@@ -106,7 +106,7 @@ A tabela que se segue lista os livros que a funcionalidade implementa na sua con
 
 Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de execução leva quando executado sem o parâmetro e valida que os VMs corretos são alvo. Um livro de bordo só executa as suas ações definidas quando o `WhatIf` parâmetro é definido como Falso.
 
-|Runbook | Parâmetros | Description|
+|Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertaAção <br> WebHookURI | Liga do livro dos pais. Este runbook cria alertas por recurso para o cenário de paragem automática.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList` é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` permite validação da lógica do runbook sem executar.|
@@ -158,13 +158,13 @@ A tabela que se segue lista cada um dos horários predefinidos criados na sua co
 
 Não ative todos os horários, porque fazê-lo pode criar ações de horário sobrepostas. É melhor determinar quais as otimizações que pretende fazer e modificá-las em conformidade. Consulte os cenários de exemplo na secção geral para obter mais explicações.
 
-|Nome da agenda | Frequência | Description|
+|Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista de VMs separadas por vírgula utilizando o `VMList` parâmetro.|
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Programado-StartVM**.|
 |Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro com um valor de parâmetro de `Start` cada dia na hora especificada. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Agendado-StopVM**.|
-|StopVM sequenciado | 1:00 AM (UTC), todas as sextas-feiras | Executa o **Sequenced_StopStop_Parent** runbook com um valor de parâmetro de `Stop` todas as sextas-feiras no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetas e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
-|StartVM sequenciado | 13:00 PM (UTC), todas as segundas-feiras | Executa o **SequencedStopStart_Parent** livro com um valor de parâmetro de `Start` todas as segundas-feiras na hora especificada. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre os valores da etiqueta e os ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StopVM**.
+|Sequenced-StopVM | 1:00 AM (UTC), todas as sextas-feiras | Executa o **Sequenced_StopStop_Parent** runbook com um valor de parâmetro de `Stop` todas as sextas-feiras no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetas e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
+|Sequenced-StartVM | 13:00 PM (UTC), todas as segundas-feiras | Executa o **SequencedStopStart_Parent** livro com um valor de parâmetro de `Start` todas as segundas-feiras na hora especificada. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre os valores da etiqueta e os ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Use a funcionalidade com VMs clássicos
 

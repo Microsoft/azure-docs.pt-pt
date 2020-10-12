@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441022"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introdução a uma app SaaS multitenante que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
@@ -53,7 +53,7 @@ Depois de implementar a aplicação, explore os seguintes tutoriais que se basei
 |[Executar análises sobre dados de inquilinos extraídos](saas-tenancy-tenant-analytics.md) | Extrair dados do inquilino numa base de dados de análise ou armazém de dados para consultas de análise offline. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Orientação geral e dicas ao implementar e usar o exemplo da app Wingtip Tickets SaaS](saas-tenancy-wingtip-app-guidance-tips.md)
 - [Implementar a aplicação Wingtip SaaS](../../sql-database/saas-dbpertenant-get-started-deploy.md)

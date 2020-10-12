@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
 ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86498921"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
@@ -48,7 +48,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
     ![Screenshot do livro de visão geral da Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 Em **visão geral,** a tabela apresenta métricas interativas de Azure Cosmos DB. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
@@ -124,7 +124,7 @@ Os livros de trabalho são guardados dentro de um grupo de recursos, quer na sec
 
 Para obter orientações sobre resolução de problemas, consulte o artigo dedicado baseado em insights baseados em [livros](troubleshoot-workbooks.md)de trabalho .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 

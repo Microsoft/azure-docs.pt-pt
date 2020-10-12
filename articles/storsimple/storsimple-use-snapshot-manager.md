@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055916"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utilize interface de utilizador StorSimple Snapshot Manager para gerir trabalhos de backup e catálogo de backup
@@ -112,8 +112,8 @@ A tabela a seguir contém uma lista alfabética de ações do StorSimple Snapsho
 | Autenticar |Clique no nó **dispositivos** e clique com o botão direito num dispositivo no painel **de resultados.** |Clique em **Autenticar** para introduzir a palavra-passe que configura para o dispositivo. |
 | Clone |Expandir **o Catálogo de Cópias de Segurança**, expandir cloud **snapshots,** clicar numa cópia de segurança datada e, em seguida, selecionar um volume no painel **de resultados.** |Clique em **Clone** para criar uma cópia de uma imagem em nuvem e armazene-a num local que designe. |
 | Configurar um dispositivo |Clique com o botão direito no nó **dispositivos.** |Clique **em Configurar um Dispositivo** para configurar um único dispositivo ou vários dispositivos para ligar ao anfitrião do Windows. |
-| Criar Política de Backup |Execute um dos seguintes procedimentos:<ul><li>Políticas de backup de clique **à**direita .</li><li>Clique ou expanda **grupos de volume**e, em seguida, clique com o botão direito num grupo de volume.</li><li>Clique ou expanda **o Catálogo de Cópias de Segurança**e, em seguida, clique com o botão direito num grupo de volume.</li></ul> |Clique **em Criar A Política de Backup** para configurar uma cópia de segurança programada para um grupo de volume. |
-| Criar Grupo de Volume |Execute um dos seguintes procedimentos:<ul><li>Clique no nó **Volumes** e, em seguida, clique com o botão direito num volume no painel **de resultados.**</li><li>Clique com o botão direito no nó **Grupos de Volume.**</li></ul> |Clique **em Criar Grupo de Volume** para atribuir volumes a um grupo de volume. |
+| Criar Política de Backup |Faça um dos seguintes:<ul><li>Políticas de backup de clique **à**direita .</li><li>Clique ou expanda **grupos de volume**e, em seguida, clique com o botão direito num grupo de volume.</li><li>Clique ou expanda **o Catálogo de Cópias de Segurança**e, em seguida, clique com o botão direito num grupo de volume.</li></ul> |Clique **em Criar A Política de Backup** para configurar uma cópia de segurança programada para um grupo de volume. |
+| Criar Grupo de Volume |Faça um dos seguintes:<ul><li>Clique no nó **Volumes** e, em seguida, clique com o botão direito num volume no painel **de resultados.**</li><li>Clique com o botão direito no nó **Grupos de Volume.**</li></ul> |Clique **em Criar Grupo de Volume** para atribuir volumes a um grupo de volume. |
 | Eliminar |Clique num nó ou resultado (Este item aparece em muitos menus **de Ação** e painéis **de ações.)** |Clique **em Eliminar** para eliminar o nó ou resultado que selecionou. Quando a caixa de diálogo de confirmação aparecer, confirme ou cancele a eliminação. |
 | Detalhes |Clique no nó **dispositivos** e, em seguida, clique com o botão direito num dispositivo no painel **de resultados.** |Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
 | Editar |Clique **em Políticas de Backup**e, em seguida, clique com o botão direito numa política no painel de **resultados.** |Clique **em Editar** para alterar o horário de backup de um grupo de volume. |
@@ -125,7 +125,7 @@ A tabela a seguir contém uma lista alfabética de ações do StorSimple Snapsho
 | Dispositivos de atualização |Clique com o botão direito no nó **dispositivos.** |Clique **em Dispositivos refresh** para sincronizar a sua lista de dispositivos conectados com o StorSimple Snapshot Manager. |
 | Volumes de rescan |Clique com o botão direito no nó **Volumes.** |Clique em **volumes rescan** para atualizar a lista de volumes que aparecem no painel **de resultados.** |
 | Restauro |Expanda **o Catálogo de Backup,** expanda um grupo de volume, expanda **as Imagens Locais** ou **Cloud Snapshots**e, em seguida, clique com o botão direito numa cópia de segurança. |Clique **em Restaurar** para substituir os dados do grupo de volume atual pelos dados da cópia de segurança selecionada. |
-| Pegue o backup |Execute um dos seguintes procedimentos:<ul><li>Expandir **grupos de volume**, e depois clicar com o botão direito de um grupo de volume.</li><li>Expanda **o Catálogo de Cópias de Segurança**e, em seguida, clique com o botão direito num grupo de volume.</li></ul> |Clique **em 'Fazer Backup'** para iniciar imediatamente um trabalho de reserva. |
+| Pegue o backup |Faça um dos seguintes:<ul><li>Expandir **grupos de volume**, e depois clicar com o botão direito de um grupo de volume.</li><li>Expanda **o Catálogo de Cópias de Segurança**e, em seguida, clique com o botão direito num grupo de volume.</li></ul> |Clique **em 'Fazer Backup'** para iniciar imediatamente um trabalho de reserva. |
 | Toggle Imports Display |Clique com o nó de cima no painel **Scope** (o nó **do Gestor snapshot StorSimple** nos exemplos). |Clique **em Toggle Imports Display** para mostrar ou ocultar os grupos de volume e cópias de segurança associadas que foram importadas do painel de serviço StorSimple Device Manager. |
 
 ### <a name="view-menu"></a>Menu Ver
@@ -447,7 +447,7 @@ As tabelas a seguir mostram as combinações de chave de atalho para cada nó no
 | L |Abre a página **Lista de Exportação.** |
 | H |Abre ajuda online |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para ligar e gerir dispositivos](storsimple-snapshot-manager-manage-devices.md).
 

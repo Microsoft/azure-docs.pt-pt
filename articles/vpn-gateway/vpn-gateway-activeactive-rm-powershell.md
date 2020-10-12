@@ -9,10 +9,10 @@ ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440784"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configure ligações S2S VPN ativas ativas com gateways Azure VPN
@@ -45,7 +45,7 @@ Os seguintes passos configurarão o seu gateway Azure VPN em modos ativos. As pr
 
 As outras propriedades são as mesmas que os gateways não ativos. 
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Terá de instalar os cmdlets PowerShell do Azure Resource Manager se não quiser utilizar o CloudShell no seu navegador. Consulte [a visão geral do Azure PowerShell](/powershell/azure/) para obter mais informações sobre a instalação dos cmdlets PowerShell.
 
@@ -447,5 +447,5 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActiveFeatu
 
 Esta atualização pode demorar até 30 a 45 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.

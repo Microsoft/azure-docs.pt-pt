@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980682"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso da ferramenta de modelação de ameaças
@@ -54,7 +54,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | --------------------------------------- | ------------ |
 | **Abrir** | Abre um novo ficheiro. |
 | **Guardar** | Guarda o ficheiro atual. |
-| **Design (Estruturar)** | Abre a vista **Design,** onde pode criar modelos. |
+| **Design** | Abre a vista **Design,** onde pode criar modelos. |
 | **Análise** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante aos novos separadores no Excel). |
 | **Apagar diagrama** | Elimina o diagrama atual. |

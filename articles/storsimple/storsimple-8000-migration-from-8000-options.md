@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055780"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados da série StorSimple 8000
@@ -95,7 +95,7 @@ A. Dependendo do seu cenário, os utilizadores da série StorSimple 8000 têm as
 
 ### <a name="q-is-migration-to-other-storage-solutions-supported"></a>P. A migração para outras soluções de armazenamento é suportada?
 
-A. Yes. A migração para outras soluções de armazenamento utilizando a cópia hospedeira dos dados é suportada.
+A. Sim. A migração para outras soluções de armazenamento utilizando a cópia hospedeira dos dados é suportada.
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>P. A migração é suportada pela Microsoft?
 
@@ -109,6 +109,6 @@ A. Ao utilizar o Azure File Sync, podem ser aplicadas as taxas de subscrição d
 
 A. O tempo para migrar dados depende da quantidade dos dados e da opção de upgrade selecionada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Migrar dados de uma série StorSimple 8000 para Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)

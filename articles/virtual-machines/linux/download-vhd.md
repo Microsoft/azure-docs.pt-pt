@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
 ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87761071"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Faça o download de um Linux VHD de Azure
@@ -42,7 +42,7 @@ Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de a
 
 1.  Sob o URL que foi gerado, **selecione Descarregue o ficheiro VHD**.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Mostra o botão para descarregar o VHD.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Mostra o botão do menu para parar o VM.":::
 
 2.  Poderá necessitar de selecionar **Guardar** no navegador para iniciar o download. O nome predefinido para o ficheiro VHD é *abcd*.
 

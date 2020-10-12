@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
 ms.openlocfilehash: 60d73f8b3eae21ab399853e8d05b67b7b431ee5f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321059"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Problemas de resolução de problemas quando se utiliza o Azure Cosmos DB Async Java SDK v2 com contas API SQL
@@ -73,7 +73,7 @@ Se a sua aplicação for implementada em Máquinas Virtuais Azure sem endereço 
 * Atribua um IP público ao seu Azure VM.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não consigo chegar ao Serviço - firewall
-``ConnectTimeoutException``indica que o SDK não pode chegar ao serviço.
+``ConnectTimeoutException`` indica que o SDK não pode chegar ao serviço.
 Pode obter uma falha semelhante ao seguinte quando utilizar o modo direto:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
@@ -175,7 +175,7 @@ Ao `observeOn(customScheduler)` utilizar, desbloqueie a linha Netty IO e mude pa
 
 ### <a name="connection-pool-exhausted-issue"></a>Problema esgotado da piscina de conexão
 
-`PoolExhaustedException`é uma falha do lado do cliente. Esta falha indica que a carga de trabalho da sua aplicação é superior à que o pool de conexão SDK pode servir. Aumente o tamanho da piscina de ligação ou distribua a carga em várias aplicações.
+`PoolExhaustedException` é uma falha do lado do cliente. Esta falha indica que a carga de trabalho da sua aplicação é superior à que o pool de conexão SDK pode servir. Aumente o tamanho da piscina de ligação ou distribua a carga em várias aplicações.
 
 ### <a name="request-rate-too-large"></a>Taxa de pedido demasiado grande
 Esta falha é uma falha do lado do servidor. Indica que consumiu o seu rendimento. Tentar mais tarde. Se você receber esta falha com frequência, considere um aumento na produção de coleção.

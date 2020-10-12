@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440614"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
@@ -160,7 +160,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
 \- [Descrição geral da atividade de cópia](copy-activity-overview.md)

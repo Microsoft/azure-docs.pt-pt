@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496184"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
@@ -110,7 +110,7 @@ Como guia geral para a sua implantação, deve ter em mente algumas coisas:
 - O produto do objeto escala aproximadamente proporcionalmente ao número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização num servidor produz melhor produção, que também é limitada pelo servidor e pela rede.
 - A produção do objeto é inversamente proporcional à produção mib por segundo. Para ficheiros mais pequenos, experimentará uma produção mais elevada em termos do número de objetos processados por segundo, mas menor MiB por segundo. Inversamente, para ficheiros maiores, obterá menos objetos processados por segundo, mas mais alto MiB por segundo. A produção miB por segundo é limitada pelos alvos de escala de Ficheiros Azure.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

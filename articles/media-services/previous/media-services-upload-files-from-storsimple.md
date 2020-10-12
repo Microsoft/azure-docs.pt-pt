@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 26a3f3ff600de4418ccf6f6b09dea4b091678065
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265733"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia do Azure a partir do Azure StorSimple 
@@ -47,7 +47,7 @@ O [Azure StorSimple](../../storsimple/index.yml) utiliza o armazenamento na clou
 
     Quando a execução da tarefa for iniciada, é criada uma fila de armazenamento. Esta fila é preenchida com mensagens sobre os blobs transformados, à medida que ficam prontos. O nome desta fila é igual ao nome da definição da tarefa. Pode utilizá-la para determinar quando é que um recurso está pronto e chamar a operação dos Serviços de Multimédia pretendida para ser executada no mesmo. Por exemplo, pode utilizar a fila para acionar uma Função do Azure que contenha o código dos Serviços de Multimédia necessários.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Utilize o .NET SDK para desencadear postos de trabalho no Gestor de Dados](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

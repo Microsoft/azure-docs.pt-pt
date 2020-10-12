@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83714224"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreio de browser para resolução de problemas
@@ -60,7 +60,7 @@ O Google Chrome e o Microsoft Edge (Chromium) são ambos baseados no [projeto Ch
 
 1. Pare o gravador de passos e guarde a gravação.
 
-1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o separador **Consola.** Clique numa das mensagens e, em seguida, **selecione Guardar como...** e guarde a saída da consola para um ficheiro de texto.
+1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o **separador Consola.** Clique com o botão direito numa das mensagens e, em seguida, **selecione Save as...** e guarde a saída da consola para um ficheiro de texto.
 
     ![Screenshot da saída da consola](media/capture-browser-trace/chromium-console-select.png)
 
@@ -202,12 +202,12 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Fi
 
 1. Pare o registo de passos no Windows ou a gravação do ecrã no Mac e guarde a gravação.
 
-1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o separador **Consola.** Clique com o botão direito de uma das mensagens e, em seguida, selecione **Export Visible Message To**e guarde a saída da consola para um ficheiro de texto.
+1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o **separador Consola.** Clique com o botão direito numa das mensagens e, em seguida, selecione **Export Visible Message To**e guarde a saída da consola para um ficheiro de texto.
 
     ![Screenshot da saída da consola](media/capture-browser-trace/firefox-console-select.png)
 
 1. Embale o ficheiro HAR, a saída da consola e a gravação do ecrã num formato comprimido como .zip, e partilhe-o com o suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do portal do Azure](azure-portal-overview.md)

@@ -8,10 +8,10 @@ ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397084"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitor Azure SQL Database usando Azure SQL Analytics (Pré-visualização)
@@ -31,28 +31,28 @@ Para obter uma visão geral prática sobre a utilização da solução Azure SQL
 
 O Azure SQL Analytics é uma solução de monitorização de nuvem que suporta o streaming de telemetria de diagnóstico para todas as suas bases de dados Azure SQL. Como o Azure SQL Analytics não utiliza agentes para ligar ao Azure Monitor, não suporta a monitorização do SQL Server hospedado no local ou em máquinas virtuais.
 
-| Origem Ligada | Suportado | Description |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
 | [Definições de diagnósticos](../platform/diagnostic-settings.md) | **Sim** | As métricas Azure e os dados de registo são enviados diretamente para os Registos do Monitor Azure pela Azure. |
-| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | O Azure Monitor não lê os dados de uma conta de armazenamento. |
-| [Agentes do Windows](../platform/agent-windows.md) | No | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
-| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | No | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
+| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O Azure Monitor não lê os dados de uma conta de armazenamento. |
+| [Agentes do Windows](../platform/agent-windows.md) | Não | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
+| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Não | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
 
 ## <a name="azure-sql-analytics-options"></a>Opções Azure SQL Analytics
 
 A tabela abaixo descreve opções suportadas para duas versões do painel Azure SQL Analytics, uma para Azure SQL Database, e outra para bases de dados de Azure SQL Managed Instance.
 
-| Opção Azure SQL Analytics | Description | Suporte à base de dados SQL | Suporte ao SQL Managed Instance |
+| Opção Azure SQL Analytics | Descrição | Suporte à base de dados SQL | Suporte ao SQL Managed Instance |
 | --- | ------- | ----- | ----- |
-| Recurso por tipo | Perspetiva que conta todos os recursos monitorizados. | Yes | Yes |
-| Informações | Fornece perfuração hierárquica em Insights Inteligentes para o desempenho. | Yes | Yes |
-| Erros | Fornece perfuração hierárquica em erros SQL que aconteceram nas bases de dados. | Yes | Yes |
-| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Yes | No |
-| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Yes | No |
-| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Yes | No |
-| Duração da consulta | Fornece perfuração hierárquica nas estatísticas de execução de consultas tais como duração da consulta, utilização de CPU, utilização de IO de dados, utilização do Log IO. | Yes | Yes |
-| Esperas de consultas | Fornece perfuração hierárquica nas estatísticas de espera de consulta por categoria de espera. | Yes | Yes |
+| Recurso por tipo | Perspetiva que conta todos os recursos monitorizados. | Sim | Sim |
+| Informações | Fornece perfuração hierárquica em Insights Inteligentes para o desempenho. | Sim | Sim |
+| Erros | Fornece perfuração hierárquica em erros SQL que aconteceram nas bases de dados. | Sim | Sim |
+| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Sim | Não |
+| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Sim | Não |
+| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Sim | Não |
+| Duração da consulta | Fornece perfuração hierárquica nas estatísticas de execução de consultas tais como duração da consulta, utilização de CPU, utilização de IO de dados, utilização do Log IO. | Sim | Sim |
+| Esperas de consultas | Fornece perfuração hierárquica nas estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
 
 ## <a name="configuration"></a>Configuração
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075256"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados de registo de eventos do Windows no Azure Monitor
@@ -50,7 +50,7 @@ Os registos de eventos do Windows têm um tipo de **Evento** e têm as proprieda
 | EventoLevelName |Gravidade do evento em forma de texto. |
 | EventLog |O nome do registo do evento de onde o evento foi recolhido. |
 | ParâmetroXml |Valores de parâmetro de evento no formato XML. |
-| ManagementGroupName |Nome do grupo de gestão dos agentes gestores de operações do System Center.  Para outros agentes, este valor é`AOI-<workspace ID>` |
+| ManagementGroupName |Nome do grupo de gestão dos agentes gestores de operações do System Center.  Para outros agentes, este valor é `AOI-<workspace ID>` |
 | Descrição prestada |Descrição do evento com valores de parâmetros |
 | Origem |Fonte do evento. |
 | SourceSystem |Tipo de agente do evento foi recolhido. <br> OpsManager – Agente Windows, ou connect direto ou Gestor de Operações gerido <br> Linux - Todos os agentes Linux  <br> AzureStorage – Azure Diagnostics |

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ec77209c0995bf5aec0957c8d4d2269f27d743bc
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142133"
 ---
 # <a name="cloudsimple-service-overview"></a>Visão geral do serviço CloudSimple
@@ -23,6 +23,6 @@ O serviço CloudSimple permite-lhe consumir Azure VMware Solution by CloudSimple
 
 Uma sub-rede de gateway é necessária por serviço CloudSimple e é única na região em que é criada. A sub-rede gateway é utilizada ao criar a rede de arestas e requer um bloco CIDR /28.  O espaço de endereço da sub-rede gateway deve ser único. Não deve sobrepor-se a qualquer rede que comunique com o ambiente CloudSimple. As redes que comunicam com o CloudSimple incluem redes no local e rede virtual Azure.  Uma sub-rede de gateway não pode ser apagada uma vez criada.  A sub-rede gateway é removida quando o serviço é eliminado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar um serviço CloudSimple no Azure.](quickstart-create-cloudsimple-service.md)

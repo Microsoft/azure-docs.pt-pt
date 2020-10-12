@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441124"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -95,7 +95,7 @@ Gateway de gestão de dados pode ser instalado das seguintes formas:
 2. Clique **em Baixar,** selecione a versão **de 64 bits** (32 bits já não está suportado) e clique em **Seguinte**.
 3. Executar o **MSI** diretamente ou guardá-lo para o seu disco rígido e executar.
 4. Na página **Welcome,** selecione um **idioma** clique **em Seguinte**.
-5. **Aceite** o Contrato de Licença do Utilizador Final e clique em **Seguinte**.
+5. **Aceite** o Contrato de Licença End-User e clique em **Seguinte**.
 6. Selecione **a pasta** para instalar o gateway e clique em **Seguinte**.
 7. Na página **Pronto para instalar,** clique em **Instalar**.
 8. Clique **em Terminar** para concluir a instalação.
@@ -544,5 +544,5 @@ Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -Resourc
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Consulte [os dados de movimento entre as instalações e o artigo lojas de dados em nuvem.](data-factory-move-data-between-onprem-and-cloud.md) Na passagem, cria-se um pipeline que utiliza o gateway para mover dados de uma base de dados do SQL Server para uma bolha Azure.

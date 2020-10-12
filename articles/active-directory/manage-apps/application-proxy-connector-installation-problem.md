@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764694"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o Conector do Agente do Proxy de Aplicações
@@ -61,7 +61,7 @@ Quando a instalação de um conector falha, a causa raiz é geralmente uma das s
 
 **Rever os requisitos necessários:**
 
-1.  Verifique se a máquina suporta TLS1.2 – Todas as versões do Windows depois de 2012 R2 devem suportar TLS 1.2. Se a sua máquina de conector for de uma versão de 2012 R2 ou anterior, certifique-se de que os seguintes KBs estão instalados na máquina:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Verifique se a máquina suporta TLS1.2 – Todas as versões do Windows depois de 2012 R2 devem suportar TLS 1.2. Se a sua máquina de conector for de uma versão de 2012 R2 ou anterior, certifique-se de que os seguintes KBs estão instalados na máquina: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contacte a sua administração de rede e peça para verificar se o representante e firewall de backend não bloqueiam o TRÁFEGO SHA512 para o tráfego de saída.
 
@@ -103,7 +103,7 @@ Siga as etapas para verificar o certificado:
 
 Se um conector não estiver ligado ao serviço durante vários meses, os seus certificados podem estar desatualizados. A falta de renovação do certificado leva a um certificado caducado. Isto faz com que o serviço de conector deixe de funcionar. O evento 1000 é registado no registo administrativo do conector:
 
-"O re-registo do conector falhou: o certificado de confiança do Conector expirou. Executar o PowerShell Register-AppProxyConnector no computador em que o Conector está a executar para voltar a registar o seu Conector."
+"O re-registo do conector falhou: o certificado de confiança do Conector expirou. Executar o cmdlet PowerShell Register-AppProxyConnector no computador em que o Conector está a funcionar para voltar a registar o seu Conector."
 
 Neste caso, desinstale e reinstale o conector para acionar o registo ou pode executar os seguintes comandos PowerShell:
 
@@ -112,7 +112,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um script de instalação sem supervisão para o conector de aplicação AD Ad Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um script de instalação sem supervisão para o conector Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se a administração é utilizada para instalar o conector
 
@@ -124,5 +124,5 @@ Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certif
 
 Selecione a sua conta de utilizador e, em seguida, "Papel de Diretório" no menu resultante. Verifique se a função selecionada é "Administrador de Aplicação". Se não conseguir aceder a nenhuma das páginas ao longo destes degraus, não tem o papel necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

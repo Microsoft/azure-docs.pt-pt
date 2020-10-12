@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317798"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
@@ -24,7 +24,7 @@ No [nível de compatibilidade 1.2](stream-analytics-compatibility-level.md), o A
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de fila.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta fila de serviço. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. |
@@ -66,7 +66,7 @@ No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos me
 
 A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Colunas de propriedade":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 

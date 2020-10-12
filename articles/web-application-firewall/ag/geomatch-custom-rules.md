@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83744291"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Regras personalizadas geomatch (pré-visualização)
@@ -207,6 +207,6 @@ Se estiver a utilizar o operador Geomatch, os selecionadores podem ser qualquer 
 | ZM | Zâmbia|
 | ZW | Zimbabué|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de aprender sobre regras personalizadas, [crie as suas próprias regras personalizadas.](create-custom-waf-rules.md)

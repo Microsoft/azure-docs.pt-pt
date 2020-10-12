@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319529"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning

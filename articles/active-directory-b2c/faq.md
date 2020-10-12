@@ -11,10 +11,10 @@ ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396438"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
@@ -49,7 +49,7 @@ A Azure AD B2C também suporta [políticas personalizadas.](custom-policy-overvi
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar âmbitos para recolher mais informações sobre os consumidores de vários fornecedores de identidade social?
 
-Não. Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
+N.º Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
 
 * Facebook: e-mail
 * Google+: e-mail

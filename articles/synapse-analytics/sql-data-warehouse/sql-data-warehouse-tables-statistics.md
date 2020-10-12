@@ -11,11 +11,11 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 914c3128805c9875249bb1998fcdb6e456e73b16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799320"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Estatísticas de tabela na piscina Sinaapse SQL
@@ -149,9 +149,6 @@ left join
 on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
-
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 **Consulta 2:** Descubra a idade das suas estatísticas verificando a última vez que as suas estatísticas foram atualizadas em cada tabela. 
 
@@ -584,7 +581,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 O DBCC SHOW_STATISTICS() é mais estritamente implementado na piscina SQL em comparação com o SQL Server:
 
 - As funcionalidades não documentadas não são suportadas.
-- Não pode usáStats_stream.
+- Não pode usá Stats_stream.
 - Não é possível juntar resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER junte-se DENSITY_VETOR.
 - NO_INFOMSGS não pode ser definido para a supressão de mensagens.
 - Os parênteses quadrados em torno das estatísticas não podem ser usados.

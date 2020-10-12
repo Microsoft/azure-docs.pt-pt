@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983594"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor

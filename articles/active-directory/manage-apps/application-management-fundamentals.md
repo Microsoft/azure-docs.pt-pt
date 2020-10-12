@@ -17,10 +17,10 @@ ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642440"
 ---
 # <a name="application-management-best-practices"></a>Gestão de aplicações boas práticas

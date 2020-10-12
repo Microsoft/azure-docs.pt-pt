@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86498802"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
@@ -33,7 +33,7 @@ ms.locfileid: "86498802"
 > 3. [Ative a solução Azure Sentinel](../../sentinel/quickstart-onboard.md) no seu espaço de trabalho.
 > 4. Aceda à página **de conectores de dados** em Azure Sentinel e ative o conector **Office 365.**
 >
-> ## <a name="frequently-asked-questions"></a>Perguntas frequentes
+> ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 > 
 > ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>P: É possível embarcar na solução do Office 365 Azure Monitor entre hoje e 31 de outubro?
 > Não, a solução Azure Monitor Office 365 scripts de bordo já não estão disponíveis. A solução será removida no dia 31 de outubro.
@@ -109,7 +109,7 @@ ms.locfileid: "86498802"
 > - Se não desacolexar a sua solução manualmente, os seus dados serão desligados automaticamente no dia 31 de outubro.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: Os meus dados serão transferidos para a nova solução?
-> Yes. Quando remover a solução **Office 365** do seu espaço de trabalho, os seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando ativar o novo conector **do Office 365** no Sentinel, o esquema é restaurado no espaço de trabalho e quaisquer dados já recolhidos ficarão disponíveis. 
+> Sim. Quando remover a solução **Office 365** do seu espaço de trabalho, os seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando ativar o novo conector **do Office 365** no Sentinel, o esquema é restaurado no espaço de trabalho e quaisquer dados já recolhidos ficarão disponíveis. 
  
 
 A solução de gestão do Office 365 permite-lhe monitorizar o ambiente do Seu Office 365 no Azure Monitor.
@@ -246,7 +246,7 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez prime
 | Coluna | Descrição |
 |:--|:--|
 | Operações | Fornece informações sobre os utilizadores ativos a partir de todas as subscrições monitorizadas do Office 365. Você também poderá ver o número de atividades que acontecem ao longo do tempo.
-| Troca | Mostra a desagregação das atividades do Exchange Server, como a Permissão de Caixa de Correio, ou Caixa de Set-Mail. |
+| Troca | Mostra a desagregação das atividades do Exchange Server, tais como Add-Mailbox Permission ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os utilizadores realizam nos documentos do SharePoint. Ao perfurar a partir deste azulejo, a página de pesquisa mostra os detalhes destas atividades, como o documento-alvo e a localização desta atividade. Por exemplo, para um evento Com Acesso a Ficheiros, poderá ver o documento que está a ser acedido, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do utilizador, tais como redefinir a palavra-passe do utilizador e as tentativas de login. Ao aprofundar, poderá ver os detalhes destas atividades como o Estado do Resultado. Isto é mais útil se quiser monitorizar atividades suspeitas no seu Diretório Ativo Azure. |
 
@@ -272,7 +272,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operação) foi concluída com êxito ou não. Os valores possíveis são bem sucedidos, parcialmenteduzidos ou falhados. Para a atividade de administração exchange, o valor é verdadeiro ou falso. |
 | IDUtilizador | A UPN (Nome Principal do Utilizador) do utilizador que realizou a ação que resultou na registo; por exemplo, my_name@my_domain_name . . Note que os registos de atividades realizadas por contas do sistema (tais como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma identificação alternativa para o utilizador identificado na propriedade UserId.  Por exemplo, esta propriedade é povoada com o passaporte único ID (PUID) para eventos realizados por utilizadores em SharePoint, OneDrive for Business e Exchange. Esta propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos realizados por contas do sistema|
-| UserType | O tipo de utilizador que executou a operação.<br><br>Admin<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>Administrador<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Diretório Ativo Azure
@@ -471,7 +471,7 @@ A tabela seguinte fornece consultas de registo de amostras para registos de atua
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize [consultas de registo no Azure Monitor](../log-query/log-query-overview.md) para ver dados de atualização detalhados.
 * [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) para exibir as suas consultas de pesquisa favoritas do Office 365.

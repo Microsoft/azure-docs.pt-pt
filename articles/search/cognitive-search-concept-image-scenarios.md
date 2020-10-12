@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020223"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informação de imagens em cenários de enriquecimento de IA
@@ -214,7 +214,7 @@ Como ajudante, se precisar de transformar coordenadas normalizadas para o espaç
         }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 + [Criar indexante (REST)](/rest/api/searchservice/create-indexer)
 + [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade de OCR](cognitive-search-skill-ocr.md)

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140875"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
@@ -53,13 +53,13 @@ Podem ser necessárias regras adicionais para o fluxo de tráfego no sentido inv
 
 As seguintes regras predefinidos são criadas em todas as tabelas de firewall.
 
-|Prioridade|Name|Rastreio do Estado|Direção|Tipo de tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
+|Prioridade|Nome|Rastreio do Estado|Direção|Tipo de tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|permitir tudo-para-internet|Com monitorização de estado|Saída|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
 |65001|negar-tudo-da-internet|Com monitorização de estado|Entrada|IP público ou tráfego de internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|
 |65002|permitir tudo-para-intranet|Sem estado|Saída|Tráfego interno ou VPN de Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
 |65003|permitir tudo-a partir de intranet|Sem estado|Entrada|Tráfego interno ou VPN de Nuvem Privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar tabelas e regras de firewall](firewall.md)

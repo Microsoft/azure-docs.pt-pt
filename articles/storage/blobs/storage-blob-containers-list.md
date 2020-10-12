@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f443cd5603e6ca0f60dc0e69b734bfa46138d476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018948"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar recipientes blob com .NET
@@ -99,7 +99,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Recipientes de lista](/rest/api/storageservices/list-containers2) 
  [Enumerando recursos blob](/rest/api/storageservices/enumerating-blob-resources)

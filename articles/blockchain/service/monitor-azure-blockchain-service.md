@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076922"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitor Azure Blockchain Service através do Azure Monitor  
@@ -36,7 +36,7 @@ Quando cria uma definição de diagnóstico, especifica quais as categorias de r
 
 **Registos de procuração blockchain** – Selecione a categoria se pretender monitorizar os registos de procuração NGNIX. Todos os detalhes da transação do cliente estão disponíveis para fins de auditoria e depuração.  
 
-**Registos de aplicações blockchain** – Selecione a categoria para obter registos da aplicação blockchain hospedada pelo serviço gerido. Por exemplo, para um membro abs-quorum, estes registos seriam os registos do próprio Quorum.  
+**Registos de aplicações blockchain** – Selecione a categoria para obter registos da aplicação blockchain hospedada pelo serviço gerido. Por exemplo, para um membro ABS-Quorum, estes registos seriam os registos do próprio Quorum.  
 
 **Pedidos métricos**: Selecione a opção de recolher dados métricos da Azure Cosmos DB para os destinos na definição de diagnóstico, que é recolhida automaticamente em Azure Metrics. Recolher dados métricos com registos de recursos para analisar ambos os tipos de dados em conjunto e enviar dados métricos fora do Azure Monitor.
 
@@ -133,10 +133,10 @@ A tabela seguinte especifica a lista de métricas blockchain que são recolhidas
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Transações Pendentes   | de palavras  |  Média | O número de transações que estão à espera de ser minadas.   |
-| Blocos processados   | de palavras  | Som  |  O número de blocos processados em cada intervalo de tempo. Atualmente o tamanho do bloco é de 5 segundos, portanto, em um minuto cada nó irá processar 12 blocos e 60 blocos em 5 minutos.   |
-|Transações Processadas    | de palavras  | Som  | O número de transações processadas num bloco.    |
-|Transações em fila    |  de palavras | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque chegaram fora de ordem e o futuro está à espera que a transação prévia chegue. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto a segunda não pode ser extraída.   |
+| Transações Pendentes   | Contagem  |  Média | O número de transações que estão à espera de ser minadas.   |
+| Blocos processados   | Contagem  | Soma  |  O número de blocos processados em cada intervalo de tempo. Atualmente o tamanho do bloco é de 5 segundos, portanto, em um minuto cada nó irá processar 12 blocos e 60 blocos em 5 minutos.   |
+|Transações Processadas    | Contagem  | Soma  | O número de transações processadas num bloco.    |
+|Transações em fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque chegaram fora de ordem e o futuro está à espera que a transação prévia chegue. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto a segunda não pode ser extraída.   |
 
 ### <a name="connection-metrics"></a>Métricas de ligação  
 
@@ -145,10 +145,10 @@ A tabela que se segue lista as diferentes métricas de ligação que são recolh
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
 |---|---|---|---|
-| Conexões Aceites   | de palavras  |  Som | O número total de ligações de clientes aceites.   |
-| Ligações Ativas  | de palavras  | Média  |  O número atual de ligações ativas ao cliente, incluindo ligações de espera.    |
-|Conexões manuseidas    | de palavras  | Som  | O número total de ligações manuseadas. Geralmente, o valor do parâmetro é o mesmo que as ligações aceites, a menos que alguns limites de recursos tenham sido atingidos.     |
-|Pedidos Tratados     |  de palavras | Som  | O número total de pedidos de clientes.  |
+| Conexões Aceites   | Contagem  |  Soma | O número total de ligações de clientes aceites.   |
+| Ligações Ativas  | Contagem  | Média  |  O número atual de ligações ativas ao cliente, incluindo ligações de espera.    |
+|Conexões manuseidas    | Contagem  | Soma  | O número total de ligações manuseadas. Geralmente, o valor do parâmetro é o mesmo que as ligações aceites, a menos que alguns limites de recursos tenham sido atingidos.     |
+|Pedidos Tratados     |  Contagem | Soma  | O número total de pedidos de clientes.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de Desempenho
@@ -158,9 +158,9 @@ A tabela seguinte lista as métricas de desempenho que são recolhidas para cada
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Percentagem de utilização do CPU   | Percentagem  |  Máx | A percentagem do uso do CPU.     |
-| IO Ler Bytes   | Kilobytes   | Som  |  A soma de IO lê bytes em todos os nós do recurso membro blockchain.      |
-|IO Escrever Bytes     | Kilobytes   | Som  | A soma de IO escreve bytes em todos os nós do recurso membro blockchain.     |
+| Percentagem de utilização do CPU   | Percentagem  |  Máx. | A percentagem do uso do CPU.     |
+| IO Ler Bytes   | Kilobytes   | Soma  |  A soma de IO lê bytes em todos os nós do recurso membro blockchain.      |
+|IO Escrever Bytes     | Kilobytes   | Soma  | A soma de IO escreve bytes em todos os nós do recurso membro blockchain.     |
 |Limite de memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
 |Utilização de Memória     | Gigabytes  |  Média | A quantidade de memória usada média em todos os nós.  |
 | Percentagem de Utilização de Memória     | Percentagem   | Média  |  A percentagem da memória usada média em todos os nós.       |

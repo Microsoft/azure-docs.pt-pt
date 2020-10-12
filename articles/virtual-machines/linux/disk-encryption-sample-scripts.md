@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279795"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux
@@ -108,7 +108,7 @@ A tabela a seguir mostra quais os parâmetros que podem ser utilizados no script
 
 5. Monitorize periodicamente o progresso da encriptação utilizando as instruções na [secção seguinte](#monitoring-os-encryption-progress).
 
-6. Depois de Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", reinicie o seu VM, ou instituindo-se nele ou utilizando o portal, PowerShell ou CLI.
+6. Depois de Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", reinicie o seu VM, insinuá-lo ou utilizando o portal, PowerShell ou CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -401,7 +401,7 @@ Para configurar a encriptação para trabalhar com o Azure, faça os seguintes p
     ![CentOS 7 Configuração - executar /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Faça upload de VHD encriptado para uma conta de armazenamento Azure
-Após a encriptação DM-Crypt ser ativada, o VHD encriptado local precisa de ser carregado para a sua conta de armazenamento.
+Após DM-Crypt encriptação está ativada, o VHD encriptado local precisa de ser carregado para a sua conta de armazenamento.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```

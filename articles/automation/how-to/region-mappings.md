@@ -6,10 +6,10 @@ services: automation
 ms.topic: conceptual
 ms.custom: references_regions
 ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440665"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
@@ -83,7 +83,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.**
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/update-mgmt-overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking.md).

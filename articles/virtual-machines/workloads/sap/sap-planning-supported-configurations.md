@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88648994"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho SAP em cenários de máquinas virtuais do Azure suportados
@@ -102,7 +102,7 @@ Para os VMs Azure, as seguintes configurações de alta disponibilidade são sup
 - Configurações n+m de escala SAP HANA utilizando [ficheiros Azure NetApp](https://azure.microsoft.com/services/netapp/) em SUSE e Red Hat. Os detalhes estão listados nestes artigos:
     - [Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
     - [Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
-- Cluster de failover do servidor SQL baseado em serviços de ficheiros de escala do Windows. Embora a recomendação para os sistemas de produção seja usar o SQL Server Always On em vez de agrupar. O SQL Server Always On proporciona uma melhor disponibilidade utilizando um armazenamento separado. Os detalhes são descritos neste artigo: 
+- Sql Server Failover cluster baseado em Windows Scale-Out File Services. Embora a recomendação para os sistemas de produção seja usar o SQL Server Always On em vez de agrupar. O SQL Server Always On proporciona uma melhor disponibilidade utilizando um armazenamento separado. Os detalhes são descritos neste artigo: 
     - [Configure uma instância de cluster de failover do SQL Server em máquinas virtuais Azure](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - O SQL Server Always On é suportado com o sistema operativo Windows para SQL Server em Azure. Esta é a recomendação padrão para a produção de instâncias do SQL Server no Azure. Os detalhes são descritos nestes artigos:
     - [Apresentando o SQL Server Always On availability groups em máquinas virtuais Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
