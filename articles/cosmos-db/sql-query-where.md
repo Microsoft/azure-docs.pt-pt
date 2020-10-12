@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523507"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>CLÁUSULA ONDE em Azure Cosmos DB
@@ -71,11 +71,11 @@ Pode utilizar os seguintes operadores binários suportados:
 
 |**Tipo de operadores**  | **Valores** |
 |---------|---------|
-|Aritmética | +,-,*,/,% |
-|Bitwise    | \|, &, ^, <<, >> >>>  (turno certo de preenchimento zero) |
+|Aritmético | +,-,*,/,% |
+|Bit a bit    | \|, &, ^, <<, >> >>>  (turno certo de preenchimento zero) |
 |Lógico    | E, OU, NÃO      |
 |Comparação | =, !=, &lt; &gt; , &lt; =, &gt; =, <> |
-|Cadeia     |  \|\|(concatenato) |
+|Cadeia     |  \|\| (concatenato) |
 
 As seguintes consultas utilizam operadores binários:
 
@@ -107,8 +107,8 @@ Também pode utilizar os operadores não ,-, ~, e NÃO em consultas, como mostra
 
 Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como, por exemplo, , `false` , ou , exclui o item do `null` `Undefined` `<number>` `<string>` `<object>` `<array>` resultado. Além disso, pode utilizar a `IS_DEFINED` função de verificação de tipo para consultar com base na presença ou ausência de uma determinada propriedade JSON. Por exemplo, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` devolve qualquer item JSON que não tenha um valor para `isRegistered` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [IN palavra-chave](sql-query-keywords.md#in)
-- [Cláusula FROM](sql-query-from.md)
+- [A partir da cláusula](sql-query-from.md)

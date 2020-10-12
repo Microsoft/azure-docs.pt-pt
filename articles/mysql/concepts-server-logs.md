@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81271986"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consulta lenta na Base de Dados Azure para o MySQL
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados do Azure para MySQL
 Na Base de Dados Azure para o MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.
 
 Para obter mais informações sobre o registo de consulta lenta mySQL, consulte a [secção de registo de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)do manual de referência mySQL .
@@ -59,18 +59,18 @@ A tabela seguinte descreve o que está em cada registo. Dependendo do método de
 |---|---|
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`[UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `TimeGenerated` [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome do servidor |
-| `start_time_t`[UTC] | Quando a consulta começou |
+| `start_time_t` [UTC] | Quando a consulta começou |
 | `query_time_s` | Tempo total em segundos a consulta levou a executar |
 | `lock_time_s` | Tempo total em segundos a consulta foi bloqueada |
 | `user_host_s` | Nome de utilizador |

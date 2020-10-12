@@ -8,10 +8,10 @@ ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5f5f682c8c31c17f1a645bcdacdc78f32bd5c001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77205709"
 ---
 O código para todas as funções numa aplicação de função específica está localizado numa pasta de projeto raiz que contém um ficheiro de configuração do anfitrião e uma ou mais sub-dobras. Cada sub-dobradeira contém o código para uma função separada. A estrutura da pasta é mostrada na seguinte representação:

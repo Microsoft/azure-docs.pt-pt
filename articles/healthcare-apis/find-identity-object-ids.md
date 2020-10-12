@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033630"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Encontre iDs de objeto de identidade para configuração de autenticação
@@ -68,7 +68,7 @@ Se estiver a utilizar o Azure CLI, pode utilizar:
 az ad group show --group "mygroup" --query objectId --out tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu como encontrar iDs de objeto de identidade necessários para configurar a API Azure para fHIR para usar um inquilino externo ou secundário do Azure Ative Directory. Leia em seguida como usar os IDs do objeto para configurar as definições locais de RBAC:
  

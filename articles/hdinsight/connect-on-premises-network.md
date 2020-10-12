@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086562"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
@@ -78,7 +78,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     |Subscrição |Selecione a sua subscrição apropriada.|
     |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
     |Nome da máquina virtual | Introduza um nome amigável que identifique esta máquina virtual. Este exemplo utiliza **DNSProxy**.|
-    |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
+    |Region | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível de disponibilidade desejado.  O Azure oferece um leque de opções para gerir a disponibilidade e a resiliência das suas aplicações.  Architecte a sua solução para utilizar VMs replicados em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger as suas apps e dados contra interrupções de datacenter e eventos de manutenção. Este exemplo utiliza **não é necessário um despedimento de infraestruturas.** |
     |Imagem | Deixe no **Ubuntu Server 18.04 LTS**. |
     |Tipo de autenticação | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. Recomendamos usar chaves públicas, já que são mais seguras. Este exemplo utiliza **a Palavra-passe.**  Para obter mais informações, consulte as [teclas Criar e utilizar as teclas SSH para o documento Linux VMs.](../virtual-machines/linux/mac-create-ssh-keys.md)|
@@ -95,7 +95,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     | Campo | Valor |
     | --- | --- |
     |Rede virtual | Selecione a rede virtual que criou anteriormente.|
-    |Subrede | Selecione a sub-rede predefinitiva para a rede virtual que criou anteriormente. __Não__ selecione a sub-rede utilizada pelo gateway VPN.|
+    |Sub-rede | Selecione a sub-rede predefinitiva para a rede virtual que criou anteriormente. __Não__ selecione a sub-rede utilizada pelo gateway VPN.|
     |IP público | Utilize o valor autopovoado.  |
 
     ![Definições de rede virtual HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)

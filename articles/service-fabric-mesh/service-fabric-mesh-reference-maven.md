@@ -7,10 +7,10 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.custom: devx-track-java
 ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372472"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plugin Maven para malha de tecido de serviço
@@ -88,7 +88,7 @@ Executar o seguinte comando para criar o ficheiro YAML de recurso de aplicação
 mvn azure-sfmesh:init -DapplicationName=helloworldserver
 ```
 
-- Cria uma pasta chamada `servicefabric->appresources` na sua pasta raiz que contém uma aplicação chamada YAML`app_helloworldserver`
+- Cria uma pasta chamada `servicefabric->appresources` na sua pasta raiz que contém uma aplicação chamada YAML `app_helloworldserver`
 
 ### <a name="add-resource-to-your-application"></a>Adicionar recurso à sua aplicação
 
@@ -99,7 +99,7 @@ Executar o comando abaixo para criar um yaml de recurso de rede.
 mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
-- Cria uma rede YAML em pasta `servicefabric->appresources` chamada`network_helloworldservicenetwork`
+- Cria uma rede YAML em pasta `servicefabric->appresources` chamada `network_helloworldservicenetwork`
 
 #### <a name="add-a-new-service-to-your-application"></a>Adicione um novo serviço à sua aplicação
 Executar o comando abaixo para criar um serviço yaml. 
@@ -119,7 +119,7 @@ Executar o comando abaixo para criar um recurso de gateway yaml.
 mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=80
 ```
 
-- Cria uma nova porta DE ENTRADA YAML em pasta `servicefabric->appresources` chamada`gateway_helloworldgateway`
+- Cria uma nova porta DE ENTRADA YAML em pasta `servicefabric->appresources` chamada `gateway_helloworldgateway`
 - Referências `helloworldservicelistener` como o ouvinte de serviço que está a ouvir chamadas deste gateway. Também refere o `helloworldservice` serviço como o serviço, como a rede `helloworldservicenetwork` e como a `helloworldserver` aplicação. 
 - Escutas para pedidos no porto 80
 
@@ -130,7 +130,7 @@ Executar o comando abaixo para criar um yaml de recurso de volume.
 mvn azure-sfmesh:addvolume -DvolumeAccountKey=key -DvolumeAccountName=name -DvolumeName=vol1 -DvolumeShareName=share
 ```
 
-- Cria um volume YAML em pasta `servicefabric->appresources` nomeada`volume_vol1`
+- Cria um volume YAML em pasta `servicefabric->appresources` nomeada `volume_vol1`
 - Define propriedades para parâmetros `volumeAccountKey` necessários, e como `volumeShareName` acima
 - Para obter mais informações sobre como fazer referência a este volume criado, visite o seguinte, [Implementar App usando volume de ficheiros Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
 
@@ -141,7 +141,7 @@ Executar o comando abaixo para criar um recurso secreto yaml.
 mvn azure-sfmesh:addsecret -DsecretName=secret1
 ```
 
-- Cria um YAML secreto em pasta `servicefabric->appresources` chamada`secret_secret1`
+- Cria um YAML secreto em pasta `servicefabric->appresources` chamada `secret_secret1`
 - Para mais informações sobre como fazer referência a este segredo criado, visite o seguinte, [Gerir Segredos](service-fabric-mesh-howto-manage-secrets.md)
 
 #### <a name="add-a-new-secretvalue-resource-to-your-application"></a>Adicione um novo recurso de valor secreto à sua aplicação
@@ -151,7 +151,7 @@ Executar o comando abaixo para criar um recurso secretvalue yaml.
 mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/v1
 ```
 
-- Criar um valor secreto YAML em pasta `servicefabric->appresources` nomeada`secretvalue_secret1_v1`
+- Criar um valor secreto YAML em pasta `servicefabric->appresources` nomeada `secretvalue_secret1_v1`
 
 ### <a name="run-the-application-locally"></a>Executar a aplicação localmente
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373407"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
@@ -46,7 +46,7 @@ Os seguintes cabeçalhos são obrigatórios:
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Authorization:* | Necessário. Definido como um [token de acesso `Bearer` ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre o trabalho com pedidos de API REST, consulte [componentes de um pedido/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -54,10 +54,10 @@ Para obter informações gerais sobre o trabalho com pedidos de API REST, consul
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-| Nome                       | Necessário | Tipo                                                                                | Description  |
+| Nome                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização de recursos. |
-| name                       |          | cadeia                                                                              | Nome para a máquina virtual. |
+| name                       |          | string                                                                              | Nome para a máquina virtual. |
 | propriedades.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
 | propriedades.storageProfile  |          | [ArmazenamentoProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento dos discos de máquinas virtuais. |
 | propriedades.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições do sistema operativo para a máquina virtual. |
@@ -128,7 +128,7 @@ Poderá utilizar o cliente da sua preferência para o envio deste pedido HTTP. T
 
 Existem duas respostas bem sucedidas para a operação para criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Description |
+| Nome        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

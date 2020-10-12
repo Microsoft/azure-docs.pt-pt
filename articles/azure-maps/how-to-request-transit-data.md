@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310888"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público utilizando o serviço de mobilidade Azure Maps
@@ -38,7 +38,7 @@ Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas voc
 
 Para solicitar informações detalhadas sobre agências de trânsito e tipos de trânsito apoiados para uma determinada área metropolitana, você precisará `metroId` dessa área. A [API get metro area](https://aka.ms/AzureMapsMobilityMetro) permite-lhe solicitar áreas de metrô, nas quais o serviço de Mobilidade Azure Maps está disponível. A resposta inclui detalhes como o `metroId` `metroName` , e a representação da geometria da área metropolitana no formato GeoJSON.
 
-Vamos fazer um pedido para obter a área metropolitana para a área de Seattle-Tacoma. Para solicitar a iD para uma área de metrô, complete os seguintes passos:
+Vamos fazer um pedido para obter a área do metro para a Seattle-Tacoma identificação da área metropolitana. Para solicitar a iD para uma área de metrô, complete os seguintes passos:
 
 1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 

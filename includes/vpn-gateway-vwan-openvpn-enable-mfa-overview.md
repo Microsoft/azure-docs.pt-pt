@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3417bf0bd4ae1e0aa670f9fbfcc1fbbfeb372972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77471560"
 ---
 Se quiser que os utilizadores sejam solicitados para um segundo fator de autenticação antes de conceder acesso, pode configurar a autenticação multi-factor Azure (MFA). Pode configurar mFA por utilizador, ou pode alavancar o MFA através do [Acesso Condicional.](../articles/active-directory/conditional-access/overview.md)

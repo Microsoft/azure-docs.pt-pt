@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088024"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do programador Azure Functions F#
@@ -46,7 +46,7 @@ FunctionsProject
  | - bin
 ```
 
-Há umhost.jspartilhado [no](functions-host-json.md) ficheiro que pode ser usado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.fsx) e ficheiro de configuração de ligação (function.js).
+Há umhost.jspartilhado [ no](functions-host-json.md) ficheiro que pode ser usado para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.fsx) e ficheiro de configuração de ligação (function.js).
 
 As extensões de ligação necessárias na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros reais da biblioteca na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
 
@@ -278,16 +278,16 @@ let mylog(log: ILogger, text: string) =
 
 Os caminhos que fornecem a `#load` diretiva são relativos à localização do seu `.fsx` ficheiro.
 
-* `#load "logger.fsx"`carrega um ficheiro localizado na pasta de funções.
-* `#load "package\logger.fsx"`carrega um ficheiro localizado na `package` pasta na pasta de funções.
-* `#load "..\shared\mylogger.fsx"`carrega um ficheiro localizado na `shared` pasta ao mesmo nível da pasta de função, ou seja, diretamente em `wwwroot` .
+* `#load "logger.fsx"` carrega um ficheiro localizado na pasta de funções.
+* `#load "package\logger.fsx"` carrega um ficheiro localizado na `package` pasta na pasta de funções.
+* `#load "..\shared\mylogger.fsx"` carrega um ficheiro localizado na `shared` pasta ao mesmo nível da pasta de função, ou seja, diretamente em `wwwroot` .
 
 A `#load` diretiva só funciona com `.fsx` ficheiros (script F#) e não com `.fs` ficheiros.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, veja os seguintes recursos:
 
-* [Guia F#](/dotnet/articles/fsharp/index)
+* [Guia do F#](/dotnet/articles/fsharp/index)
 * [Boas Práticas para Funções Azure](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
 * [Funções Azure dispara e encaderna](functions-triggers-bindings.md)

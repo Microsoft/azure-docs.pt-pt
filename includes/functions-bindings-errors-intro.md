@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77474173"
 ---
 Os erros levantados numa Função Azure podem vir de qualquer uma das seguintes origens:
@@ -34,7 +34,7 @@ Capturar e publicar erros é fundamental para monitorizar a saúde da sua aplica
 Os seguintes gatilhos têm suporte de retíria incorporado:
 
 * [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Armazenamento da fila Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Armazenamento de Filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Autocarro de serviço Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 Por padrão, estes gatilhos relemquem pedidos até cinco vezes. Após a quinta repetição, tanto o armazenamento da Fila Azure como o Azure Service Bus disparam escrever uma mensagem para uma [fila de venenos](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).

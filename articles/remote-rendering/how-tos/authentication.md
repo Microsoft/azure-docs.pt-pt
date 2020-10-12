@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
 ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85565855"
 ---
 # <a name="configure-authentication"></a>Configurar a autenticação
@@ -55,7 +55,7 @@ Para ajudar a controlar o nível de acesso concedido ao seu serviço, utilize as
 * **Administrador de renderização remota**: Fornece ao utilizador capacidades de conversão, gestão de sessão, renderização e diagnóstico para renderização remota do Azure.
 * **Cliente de renderização remota**: Fornece ao utilizador capacidades de gestão de sessão, renderização e diagnóstico para renderização remota do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta](create-an-account.md)
 * [Utilização das APIs frontendas Azure para autenticação](frontend-apis.md)

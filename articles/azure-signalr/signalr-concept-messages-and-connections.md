@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
 ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87853454"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e ligações no Serviço Azure SignalR

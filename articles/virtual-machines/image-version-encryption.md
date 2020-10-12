@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291930"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
@@ -59,7 +59,7 @@ Para a pré-visualização pública, primeiro tem de registar a funcionalidade.
 Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
 ```
 
-Leva alguns minutos para a inscrição ser concluída. Utilize a Get-AzProviderFeature para verificar o estado do registo da funcionalidade.
+Leva alguns minutos para a inscrição ser concluída. Utilize Get-AzProviderFeature para verificar o estado do registo de funcionalidades.
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
@@ -205,7 +205,7 @@ Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encr
 
 Pode criar um VM a partir de uma versão de imagem e utilizar chaves geridas pelo cliente para encriptar os discos. Quando criar o VM no portal, no separador **Discos,** selecione **encriptação em repouso com teclas geridas pelo cliente** ou **encriptação dupla com chaves geridas pela plataforma e geridas pelo cliente** para o tipo de **encriptação**. Em seguida, pode selecionar o conjunto de encriptação a partir do drop-down.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a encriptação do disco do lado do servidor.](./windows/disk-encryption.md)
 

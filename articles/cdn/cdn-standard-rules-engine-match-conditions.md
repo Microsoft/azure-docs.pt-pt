@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81259936"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de jogo no motor de regras standard para Azure CDN
@@ -98,10 +98,10 @@ Identifica os pedidos com base na localização ou endereço IP do solicitador.
 Operador | Valores suportados
 ---------|-----------------
 Qualquer | N/D
-Geo Match | Código de país
+Geo Match | Indicativo do país
 Jogo IP | Endereço IP (separado pelo espaço)
 Não Qualquer | N/D
-Não Geo Match | Código de país
+Não Geo Match | Indicativo do país
 Não jogo IP | Endereço IP (separado pelo espaço)
 
 #### <a name="key-information"></a>Informações-chave
@@ -221,13 +221,13 @@ Operador | Valor | Transformação de caso
 Para as regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- É igual a 
+- Igual a 
 - Contains 
 - Começa com 
 - Termina com 
-- Menor que
+- Menor do que
 - Menos ou igual
-- Maior que
+- Maior do que
 - Maior do que ou igual
 - Nem qualquer
 - Não contém
@@ -240,7 +240,7 @@ Para as regras que aceitam valores da lista de operadores padrão, os seguintes 
 
 Para operadores numéricos como *Menos do que* e Maior do que ou *iguais,* a comparação utilizada baseia-se no comprimento. Neste caso, o valor na condição de jogo deve ser um número inteiro que seja igual ao comprimento que se quer comparar. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do Motor de regras standard](cdn-standard-rules-engine-reference.md)

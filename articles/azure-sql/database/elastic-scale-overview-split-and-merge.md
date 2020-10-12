@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047525"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
@@ -31,7 +31,7 @@ A ferramenta de fusão dividida funciona como um serviço web Azure. Um administ
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>Documentation
+## <a name="documentation"></a>Documentação
 
 1. [Tutorial de ferramenta de fusão de base de dados elástica](elastic-scale-configure-deploy-split-and-merge.md)
 2. [Configuração de segurança de fusão dividida](elastic-scale-split-merge-security-configuration.md)
@@ -53,7 +53,7 @@ A ferramenta de fusão dividida funciona como um serviço web Azure. Um administ
 
 - **Fundir para encolher**
 
-  A capacidade precisa de ser diminuída devido à natureza sazonal de um negócio. A ferramenta permite reduzir para menos unidades de escala quando o negócio abranda. A função 'fusão' no Serviço de Fusão de Escala Elástica cobre este requisito.
+  A capacidade precisa de ser diminuída devido à natureza sazonal de um negócio. A ferramenta permite reduzir para menos unidades de escala quando o negócio abranda. A função 'fusão' no Serviço de Split-Merge de Escala Elástica cobre este requisito.
 
 - **Gerir hotspots movendo shardlets**
 
@@ -117,7 +117,7 @@ A ferramenta de fusão dividida funciona como um serviço web Azure. Um administ
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Os quadros "região" e "nação" são definidos como quadros de referência e serão copiados com operações de divisão/fusão/movimento. Por sua vez, as 'encomendas' e "clientes" são definidas como mesas de sharded. `C_CUSTKEY`e `O_CUSTKEY` servir como a chave de caco.
+    Os quadros "região" e "nação" são definidos como quadros de referência e serão copiados com operações de divisão/fusão/movimento. Por sua vez, as 'encomendas' e "clientes" são definidas como mesas de sharded. `C_CUSTKEY` e `O_CUSTKEY` servir como a chave de caco.
 
 - **Integridade referencial**
 
@@ -187,7 +187,7 @@ O serviço de fusão dividida funciona como um serviço de cloud na sua subscri�
 
 O Serviço de Fusão Dividida fornece a tabela **RequestStatus** na base de dados da loja de metadados para monitorização de pedidos preenchidos e em curso. A tabela lista uma linha para cada pedido de fusão por partes que tenha sido submetida a este caso do serviço de fusão por partes. Fornece as seguintes informações para cada pedido:
 
-- **Carimbo de data/hora**
+- **Timestamp**
 
   A hora e a data em que o pedido foi iniciado.
 

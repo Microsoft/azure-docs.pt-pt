@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86521382"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar para os aglomerados Apache Hadoop para Azure HDInsight - as melhores práticas de migração de dados
@@ -36,7 +36,7 @@ Existem duas opções principais para migrar dados do ambiente do local para o A
 
 O quadro seguinte tem duração de transferência de dados aproximadamente com base no volume de dados e na largura de banda da rede. Utilize uma caixa de dados se a migração de dados demorar mais de três semanas.
 
-|Qty de dados | Largura de banda de rede<br>de<br>**45 Mbps (T3)**|Largura de banda de rede<br>de<br>**100 Mbps**|Largura de banda de rede<br>de<br>**1 Gbps**|Largura de banda de rede<br>de<br>**10 Gbps**|
+|Qty de dados | Largura de banda de rede<br>de<br>**45 Mbps (T3)**|Largura de banda de rede<br>de<br>**100 Mbps**|Largura de banda de rede<br>de<br>**1 Gbps**|Largura de banda de rede<br>de<br>**10 Gbps**|
 |---|:---:|:---:|:---:|:---:|
 |1 TB|2 dias|1 dia| Duas horas|14 minutos|
 |10 TB|22 dias|10 dias|1 dia|Duas horas|
@@ -114,7 +114,7 @@ A metástore da colmeia pode ser migrada usando os scripts ou usando a replicaç
 - Transforme em caminhos específicos de HDFS para WASB/ADLS usando uma ferramenta como o XSLT.
 - Importe as políticas para ranger em execução em HDInsight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o próximo artigo desta série:
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: f99bc5b07f3749fac28f60d28b040a7e0682971b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522419"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Processar dados executando scripts U-SQL no Azure Data Lake Analytics 
@@ -39,10 +39,10 @@ A tabela a seguir fornece descrições para as propriedades genéricas utilizada
 | Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **tipo**                 | A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. | Sim                                      |
-| **accountName**          | Nome da conta Azure Data Lake Analytics.  | Sim                                      |
+| **contaName**          | Nome da conta Azure Data Lake Analytics.  | Sim                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Não                                       |
 | **subscriçãoId**       | ID de assinatura Azure                    | Não                                       |
-| **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não                                       |
+| **nome do Grupo de Recursos**    | Nome do grupo de recursos do Azure                | Não                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 O serviço Azure Data Lake Analytics está ligado a uma autenticação principal do serviço para se ligar ao serviço Azure Data Lake Analytics. Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o acesso tanto ao Data Lake Analytics como à Data Lake Store que utiliza. Para etapas detalhadas, consulte [a autenticação do Serviço ao Serviço.](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
@@ -123,7 +123,7 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas a e
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nome da atividade no oleoduto     | Sim      |
 | descrição         | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
+| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é  **DataLakeAnalyticsU-SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do ficheiro é sensível a casos. | Sim      |
 | scriptLinkedService | Serviço ligado que liga a **Azure Data Lake Store** ou **Azure Storage** que contém o script para a fábrica de dados | Sim      |
@@ -189,7 +189,7 @@ Em vez disso, é possível utilizar parâmetros dinâmicos. Por exemplo:
 
 Neste caso, os ficheiros de entrada ainda são recolhidos a partir da pasta /datalake/entrada e os ficheiros de saída são gerados na pasta /datalake/output. Os nomes dos ficheiros são dinâmicos com base na hora de início da janela ser passada quando o gasoduto é acionado.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade da colmeia](transform-data-using-hadoop-hive.md)

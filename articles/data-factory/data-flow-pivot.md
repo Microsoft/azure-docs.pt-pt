@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020
 ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086664"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformação do pivô no fluxo de dados de mapeamento
@@ -71,7 +71,7 @@ Se forem definidos valores-chave de rotação específicas, as colunas pivotadas
 
 O pivô gera novos nomes de colunas dinamicamente baseados nos valores da linha. Pode adicionar estas novas colunas aos metadados que podem ser referenciados mais tarde no fluxo de dados. Para isso, utilize o [mapa de](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) ação rápida na pré-visualização de dados. 
 
-![Colunas dinâmicas](media/data-flow/newpivot1.png "Mapa de colunas de pivô à deriva")
+![Colunas Pivot](media/data-flow/newpivot1.png "Mapa de colunas de pivô à deriva")
 
 ### <a name="sinking-pivoted-columns"></a>Afundar colunas de formação
 

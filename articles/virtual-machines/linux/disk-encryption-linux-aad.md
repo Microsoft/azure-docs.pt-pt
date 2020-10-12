@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372676"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Ativar encriptação do disco Azure com Azure AD em VMs Linux (versão anterior)
@@ -25,7 +25,7 @@ Pode ativar muitos cenários de encriptação de discos, e os passos podem varia
 - [Política de Networking e Grupo](disk-encryption-overview-aad.md#networking-and-group-policy)
 - [Requisitos de armazenamento de chaves de encriptação](disk-encryption-overview-aad.md#encryption-key-storage-requirements)
 
-Tire uma [foto,](snapshot-copy-managed-disk.md)faça uma cópia de segurança, ou ambos antes de encriptar os discos. As cópias de segurança garantem que uma opção de recuperação é possível se ocorrer uma falha inesperada durante a encriptação. VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Depois de ser feita uma cópia de segurança, pode utilizar o cmdlet Set-AzVMDiskEncryptionExtension para encriptar os discos geridos especificando o parâmetro -skipVmBackup. Para obter mais informações sobre como fazer backup e restaurar VMs encriptados, consulte [Azure Backup](../../backup/backup-azure-vms-encryption.md). 
+Tire uma [foto,](snapshot-copy-managed-disk.md)faça uma cópia de segurança, ou ambos antes de encriptar os discos. As cópias de segurança garantem que uma opção de recuperação é possível se ocorrer uma falha inesperada durante a encriptação. VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Depois de ser feita uma cópia de segurança, pode utilizar o Set-AzVMDiskEncryptionExtension cmdlet para encriptar discos geridos especificando o parâmetro -skipVmBackup. Para obter mais informações sobre como fazer backup e restaurar VMs encriptados, consulte [Azure Backup](../../backup/backup-azure-vms-encryption.md). 
 
 >[!WARNING]
  > - Se utilizou previamente [a Encriptação do Disco Azure com a aplicação AD Azure](disk-encryption-overview-aad.md) para encriptar este VM, deve continuar a utilizar esta opção para encriptar o seu VM. Não é possível utilizar [a Encriptação do Disco Azure](disk-encryption-overview.md) neste VM encriptado porque este não é um cenário suportado, o que significa que mudar a aplicação AD AZure para este VM encriptado ainda não está suportado.
@@ -41,7 +41,7 @@ Tire uma [foto,](snapshot-copy-managed-disk.md)faça uma cópia de segurança, o
 Neste cenário, pode ativar a encriptação utilizando o modelo Azure Resource Manager, os cmdlets PowerShell ou os comandos Azure CLI. 
 
 >[!IMPORTANT]
- >É obrigatório tirar uma fotografia ou fazer uma essão de apoio a uma instância VM gerida baseada em discos fora e antes de permitir a encriptação do disco Azure. Pode tirar uma fotografia do disco gerido a partir do portal Azure ou utilizar a Cópia de [Segurança Azure](../../backup/backup-azure-vms-encryption.md). As cópias de segurança garantem que uma opção de recuperação é possível em caso de falha inesperada durante a encriptação. Depois de ser feita uma cópia de segurança, utilize o cmdlet Set-AzVMDiskEncryptionExtension para encriptar os discos geridos especificando o parâmetro -skipVmBackup. O comando Set-AzVMDiskEncryptionExtension falha contra VMs geridos baseados em discos até que uma cópia de segurança seja feita e este parâmetro seja especificado. 
+ >É obrigatório tirar uma fotografia ou fazer uma essão de apoio a uma instância VM gerida baseada em discos fora e antes de permitir a encriptação do disco Azure. Pode tirar uma fotografia do disco gerido a partir do portal Azure ou utilizar a Cópia de [Segurança Azure](../../backup/backup-azure-vms-encryption.md). As cópias de segurança garantem que uma opção de recuperação é possível em caso de falha inesperada durante a encriptação. Depois de ser feita uma cópia de segurança, utilize o Set-AzVMDiskEncryptionExtension cmdlet para encriptar os discos geridos especificando o parâmetro -skipVmBackup. O comando Set-AzVMDiskEncryptionExtension falha contra VMs geridos baseados em disco até que uma cópia de segurança seja feita e este parâmetro seja especificado. 
 >
 >Encriptar ou desativar a encriptação pode fazer com que o VM reinicie. 
 >
@@ -81,7 +81,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"> </a> Ativar a encriptação num VM Linux existente ou em execução utilizando o PowerShell
 Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para ativar a encriptação numa máquina virtual IaaS em funcionamento em Azure. Tire uma [foto](snapshot-copy-managed-disk.md) ou faça uma cópia de segurança do VM com [a Azure Backup](../../backup/backup-azure-vms-encryption.md) antes que os discos sejam encriptados. O parâmetro -skipVmBackup já está especificado nos scripts PowerShell para encriptar um Linux VM em execução.
 
-- **Criptografe um VM em execução utilizando um segredo de cliente:** O seguinte script inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores. Modifique o parâmetro -VolumeType para especificar quais os discos que está a encriptar.
+- **Criptografe um VM em execução utilizando um segredo de cliente:** O seguinte script inicializa as suas variáveis e executa o Set-AzVMDiskEncryptionExtension cmdlet. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores. Modifique o parâmetro -VolumeType para especificar quais os discos que está a encriptar.
 
      ```azurepowershell
          $VMRGName = 'MyVirtualMachineResourceGroup';
@@ -187,7 +187,7 @@ Para utilizar a opção EncryptFormatAll, utilize qualquer modelo de Gestor de R
 ### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"> </a> Utilize o parâmetro EncryptFormatAll com um cmdlet PowerShell
 Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) com o parâmetro EncryptFormatAll.
 
-**Criptografe um VM em execução utilizando um segredo de cliente e EncryptFormatAll:** Como exemplo, o seguinte script inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension com o parâmetro EncryptFormatAll. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores.
+**Criptografe um VM em execução utilizando um segredo de cliente e EncryptFormatAll:** Como exemplo, o seguinte script inicializa as suas variáveis e executa o Set-AzVMDiskEncryptionExtension cmdlet com o parâmetro EncryptFormatAll. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores.
   
    ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -246,7 +246,7 @@ Utilize as instruções no apêndice para preparar imagens pré-encriptadas que 
 * [Preparar um Linux VHD pré-encriptado](disk-encryption-sample-scripts.md)
 
 >[!IMPORTANT]
- >É obrigatório tirar uma fotografia ou fazer uma essão de apoio a uma instância VM gerida baseada em discos fora e antes de permitir a encriptação do disco Azure. Pode tirar uma fotografia do disco gerido a partir do portal ou utilizar a Cópia de [Segurança Azure](../../backup/backup-azure-vms-encryption.md). As cópias de segurança garantem que uma opção de recuperação é possível em caso de falha inesperada durante a encriptação. Depois de ser feita uma cópia de segurança, utilize o cmdlet Set-AzVMDiskEncryptionExtension para encriptar os discos geridos especificando o parâmetro -skipVmBackup. O comando Set-AzVMDiskEncryptionExtension falha contra VMs geridos baseados em discos até que uma cópia de segurança seja feita e este parâmetro seja especificado. 
+ >É obrigatório tirar uma fotografia ou fazer uma essão de apoio a uma instância VM gerida baseada em discos fora e antes de permitir a encriptação do disco Azure. Pode tirar uma fotografia do disco gerido a partir do portal ou utilizar a Cópia de [Segurança Azure](../../backup/backup-azure-vms-encryption.md). As cópias de segurança garantem que uma opção de recuperação é possível em caso de falha inesperada durante a encriptação. Depois de ser feita uma cópia de segurança, utilize o Set-AzVMDiskEncryptionExtension cmdlet para encriptar os discos geridos especificando o parâmetro -skipVmBackup. O comando Set-AzVMDiskEncryptionExtension falha contra VMs geridos baseados em disco até que uma cópia de segurança seja feita e este parâmetro seja especificado. 
 >
 >Encriptar ou desativar a encriptação pode fazer com que o VM reinicie.
 
@@ -285,7 +285,7 @@ Em contraste com a sintaxe PowerShell, o CLI não requer que forneça uma versã
  Quando utilizar o PowerShell para encriptar um novo disco para o Linux, é necessário especificar uma nova versão de sequência. A versão da sequência tem de ser única. O seguinte script gera um GUID para a versão de sequência. 
  
 
--  **Criptografe um VM em execução utilizando um segredo de cliente:** O seguinte script inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores. O parâmetro -VolumeType é definido para discos de dados e não para o disco DE. Se o VM foi previamente encriptado com um tipo de volume de "OS" ou "All", então o parâmetro -VolumeType deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados serão incluídos.
+-  **Criptografe um VM em execução utilizando um segredo de cliente:** O seguinte script inicializa as suas variáveis e executa o Set-AzVMDiskEncryptionExtension cmdlet. O grupo de recursos, VM, cofre-chave, app Azure AD e segredo de clientes já deveriam ter sido criados como pré-requisitos. Substitua o MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID e My-AAD-client-secret pelos seus valores. O parâmetro -VolumeType é definido para discos de dados e não para o disco DE. Se o VM foi previamente encriptado com um tipo de volume de "OS" ou "All", então o parâmetro -VolumeType deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados serão incluídos.
 
      ```azurepowershell
          $KVRGname = 'MyKeyVaultResourceGroup';

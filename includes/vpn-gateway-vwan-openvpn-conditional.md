@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 410570302eec418f1e4bcb75d6413936a96b5171
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77471563"
 ---
 O Acesso Condicional permite um controlo de acesso fino por aplicação. Para utilizar o Acesso Condicional, deverá ter o Azure AD Premium 1 ou um licenciamento superior aplicado aos utilizadores que estarão sujeitos às regras de Acesso Condicional.
@@ -26,7 +26,7 @@ O Acesso Condicional permite um controlo de acesso fino por aplicação. Para ut
    - Clique **em Selecionar utilizadores e grupos.**
    - Verifique **os Utilizadores e grupos.**
    - Clique **em Selecionar** para selecionar um grupo ou conjunto de utilizadores a serem afetados por MFA.
-   - Clique em **Concluído**.
+   - Clique em **Done** (Concluído).
 
    ![Atribuições](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
 3. No **painel New,** navegue para os **controlos de acesso -> Grant** Pane:

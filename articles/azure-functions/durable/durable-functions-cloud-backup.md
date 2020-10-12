@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77562195"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-out/fan-in cenário em Funções Duradouras - Exemplo de backup em nuvem
@@ -17,7 +17,7 @@ ms.locfileid: "77562195"
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 Nesta amostra, as funções carregam todos os ficheiros sob um diretório especificado recursivamente para o armazenamento de bolhas. Também contam o número total de bytes que foram carregados.
 
@@ -182,7 +182,7 @@ Content-Type: application/json; charset=utf-8
 
 Agora pode ver que a orquestração está completa e aproximadamente quanto tempo demorou a completar. Também se vê um valor para o `output` campo, o que indica que cerca de 450 KB de registos foram carregados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta amostra mostrou como implementar o padrão de ventilação/ventilador. A amostra seguinte mostra como implementar o padrão do monitor utilizando [temporizadores duráveis](durable-functions-timers.md).
 

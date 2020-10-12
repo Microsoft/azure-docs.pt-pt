@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80986795"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Clientes windows
@@ -25,7 +25,7 @@ ms.locfileid: "80986795"
    * [Instruções do Gateway VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
    * [Instruções virtuais wan](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Extrair a chave privada e a impressão digital base64 do *.pfx*. Existem múltiplas formas de efetuar este procedimento. A utilização do OpenSSL na sua máquina é uma forma. O *ficheiroprofileinfo.txt* contém a chave privada e a impressão digital para o ca e o certificado Cliente. Certifique-se de usar a impressão digital do certificado de cliente.
+5. Extrair a chave privada e a impressão digital base64 do *.pfx*. Existem múltiplas formas de efetuar este procedimento. A utilização do OpenSSL na sua máquina é uma forma. O * ficheiroprofileinfo.txt* contém a chave privada e a impressão digital para o ca e o certificado Cliente. Certifique-se de usar a impressão digital do certificado de cliente.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
@@ -132,7 +132,7 @@ ms.locfileid: "80986795"
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   O *ficheiroprofileinfo.txt* conterá a chave privada e a impressão digital para a AC e o certificado Cliente. Certifique-se de usar a impressão digital do certificado de cliente.
+   O * ficheiroprofileinfo.txt* conterá a chave privada e a impressão digital para a AC e o certificado Cliente. Certifique-se de usar a impressão digital do certificado de cliente.
 
 6. Abra *profileinfo.txt* num editor de texto. Para obter a impressão digital do certificado do cliente (criança), selecione o texto incluindo e entre "-----BEGIN CERTIFICATE-----" e "-----END CERTIFICATE-----" para o certificado de criança e copiá-lo. Pode identificar o certificado da criança olhando para o sujeito=/linha.
 

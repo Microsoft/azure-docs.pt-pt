@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192602"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Otimização de streaming de mídia com Azure CDN 
@@ -103,7 +103,7 @@ O quadro que se segue enumera o conjunto de critérios a satisfazer para a otimi
 Tipos de streaming suportados | Extensões de ficheiros  
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, chave, ts, aac
-Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Estrutura de URL Seg-Frag <br> (regex correspondente: ^(/.*)Seq(\d+)-Frag(\d+)
+Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>estrutura de URL de Seg-Frag <br> (regex correspondente: ^(/.*)Seq(\d+)-Frag(\d+)
 DASH | mpd, traço, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
 Streaming suave | /manifesto/, /QualityLevels/Fragmentos/
   

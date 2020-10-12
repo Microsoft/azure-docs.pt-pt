@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 3704d1a418baeec18c3303b8203a0185790cbcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564307"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Instalar o pacote do Remote Rendering para o Unity
@@ -49,7 +49,7 @@ A Renderização Remota funciona com o **:::no-loc text="Universal render pipeli
 
 Para utilizar o **:::no-loc text="Universal render pipeline":::** pacote, o seu pacote tem de ser instalado na Unidade. Isto pode ser feito no **UI** do Gestor de Pacotes da Unidade (nome de pacote **Universal RP**, versão 7.3.1 ou mais recente), ou através do `Packages/manifest.json` ficheiro, conforme descrito no tutorial de [configuração](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-package)do projeto Unity .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Objetos e componentes de jogo de unidade](objects-components.md)
 * [Tutorial: Ver modelos remotos](../../tutorials/unity/view-remote-models/view-remote-models.md)

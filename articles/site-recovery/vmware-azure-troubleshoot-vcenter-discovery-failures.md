@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135344"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Falhas de descoberta do servidor vCenter resolução de problemas
@@ -20,7 +20,7 @@ Este artigo ajuda-o a resolver problemas que ocorrem devido a falhas na descober
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valores não numéricos na propriedade maxSnapShots
 
-Nas versões anteriores às 9.20, o vCenter desliga-se quando recupera um valor não numérico para a `snapshot.maxSnapShots` propriedade num VM.
+Nas versões anteriores às 9.20, o vCenter desliga-se quando recupera um valor não numérico para a  `snapshot.maxSnapShots` propriedade num VM.
 
 Este problema é identificado por erro ID 95126.
 
@@ -79,6 +79,6 @@ Para a configuração de procuração DRA:
 
 4. Reinicie o serviço de prestadores DE DRA.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir o servidor de configuração para recuperação de desastres VMware VM](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 

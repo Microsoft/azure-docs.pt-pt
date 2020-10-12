@@ -13,10 +13,10 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80992050"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP utilizando a Azure Data Factory
@@ -62,12 +62,12 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte descreve elementos JSON específicos de um serviço ligado FTP.
 
-| Propriedade | Descrição | Necessário | Predefinição |
+| Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
 | tipo |Desempate isto ao FtpServer. |Sim |&nbsp; |
 | anfitrião |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básico, Anónimo |
-| o nome de utilizador |Especifique o utilizador que tem acesso ao servidor FTP. |Não |&nbsp; |
+| nome de utilizador |Especifique o utilizador que tem acesso ao servidor FTP. |Não |&nbsp; |
 | palavra-passe |Especifique a palavra-passe para o utilizador (nome de utilizador). |Não |&nbsp; |
 | criptografadoCredential |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
 | gatewayName |Especifique o nome do gateway no Gateway de Gestão de Dados para ligar a um servidor FTP no local. |Não |&nbsp; |
@@ -152,11 +152,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. Fornece informações específicas do tipo de conjunto de dados. A secção **typeProperties** para um conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Subpata para a pasta. Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte por exemplo o serviço ligado à amostra e definições de conjunto de dados.<br/><br/>Você pode combinar esta propriedade com **partitionBy** para ter caminhos de pasta baseados em cortes de início e fim de datas. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o data de ficheiro** não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado encontra-se no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| ficheiroFiltro |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na **pastaPa**, em vez de todos os ficheiros.<br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1:`"fileFilter": "*.log"`<br/>Exemplo 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com Hadoop Distributed File System (HDFS). |Não |
+| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o data de ficheiro** não é especificado para um conjunto de dados de saída, o nome do ficheiro gerado encontra-se no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| ficheiroFiltro |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na **pastaPa**, em vez de todos os ficheiros.<br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com Hadoop Distributed File System (HDFS). |Não |
 | partitionedBy |Usado para especificar uma **pasta dinâmicaPath** e **data de arquivoName** para dados da série de tempo. Por exemplo, pode especificar uma **pastaPata** que é parametrizada para cada hora de dados. |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte as secções [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como estão entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate,** e os níveis suportados são **ideais** e **mais rápidos.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -388,7 +388,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas a partir do conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 * Para conhecer os factores-chave que impactam o desempenho do movimento de dados (atividade de cópia) na Data Factory, e várias formas de otimizá-lo, consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md)da atividade copy .

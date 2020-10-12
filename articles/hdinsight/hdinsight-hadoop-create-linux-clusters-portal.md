@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874032"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux em HDInsight utilizando o portal Azure
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **Analytics**  >  **Azure HDInsight** para ir à página de **cluster Create HDInsight.**
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 ![HDInsight criar básicos de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criação de um novo cluster no portal Azure")
 
@@ -50,7 +50,7 @@ A partir do separador **Básicos,** forneça as seguintes informações:
 |Subscrição|A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster.|
 |Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
 |Nome do cluster|Introduza um nome globalmente exclusivo.|
-|Região|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
+|Region|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
 |Tipo de cluster|Clique **em Selecionar o tipo de cluster** para abrir uma lista. Na lista, selecione o tipo de cluster procurado. Os clusters HDInsight vêm em diferentes tipos. Correspondem à carga de trabalho ou à tecnologia para a qual o cluster está sintonizado. Não há um método suportado para criar um cluster que combine vários tipos.|
 |Versão|A partir da lista de drop-down, selecione uma **versão**. Utilize a versão padrão se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).|
 |Nome de utilizador de início de sessão do cluster|Forneça o nome de utilizador, o padrão é **administrador**.|
@@ -59,7 +59,7 @@ A partir do separador **Básicos,** forneça as seguintes informações:
 |Nome de utilizador de Secure Shell (SSH)|Forneça o nome de utilizador, o padrão é **sshuser**|
 |Use a palavra-passe de login do cluster para SSH|Se pretender a mesma palavra-passe SSH que a palavra-passe de administração especificada anteriormente, selecione a palavra-passe de login do cluster Utilizar para a caixa de verificação **SSH.** Caso contrário, forneça uma **PALAVRA-passe** ou **UMA CHAVE PÚBLICA** para autenticar o utilizador SSH. Uma chave pública é a abordagem que recomendamos. Escolha **Selecione** na parte inferior para guardar a configuração das credenciais.  Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-Selecione **Seguinte: >>de armazenamento** para avançar para o separador seguinte.
+Selecione **Seguinte: >>de armazenamento ** para avançar para o separador seguinte.
 
 ## <a name="storage"></a>Armazenamento
 

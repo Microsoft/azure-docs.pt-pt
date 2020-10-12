@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522912"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verificação da consistência dos dados na atividade de cópia (Pré-visualização)
@@ -125,7 +125,7 @@ O esquema de um ficheiro de registo é o seguinte:
 Coluna | Descrição 
 -------- | -----------  
 Timestamp | A marca de tempo quando a ADF ignora os ficheiros inconsistentes.
-Level | O nível de registo deste item. Estará no nível 'Aviso' para o item que mostra o salto do ficheiro.
+Nível | O nível de registo deste item. Estará no nível 'Aviso' para o item que mostra o salto do ficheiro.
 OperationName | ADF copia comportamento operacional da atividade em cada ficheiro. Será 'FileSkip' para especificar o ficheiro a ser ignorado.
 OperaçãoItem | O nome do ficheiro a ser ignorado.
 Mensagem | Mais informações para ilustrar por que os ficheiros estão a ser ignorados.
@@ -139,10 +139,10 @@ A partir do ficheiro de registo acima, pode ver sample1.csv foi ignorado porque 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Copiar a tolerância à falha da atividade](copy-activity-fault-tolerance.md)
 
 

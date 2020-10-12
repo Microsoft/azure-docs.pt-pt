@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204987"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade Azure Synapse Analytics (anteriormente SQL DW)
@@ -31,7 +31,7 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 | Ligação de base de dados |Sessões abertas concurrentes máximas |1024<br/><br/>O número de sessões abertas simultâneas variará em função do DWU selecionado. DWU600c e acima suportam um máximo de 1024 sessões abertas. DWU500c e abaixo, suporte um limite máximo de sessão aberta simultânea de 512. Nota: existem limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de concordância é ultrapassado, o pedido entra numa fila interna onde espera ser processado. |
 | Ligação de base de dados |Memória máxima para declarações preparadas |20 MB |
 | [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas concurrentas máximas |128<br/><br/>  Um máximo de 128 consultas simultâneas serão executadas e as restantes consultas serão em fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os utilizadores são atribuídos a classes de recursos mais elevadas ou quando a definição da [unidade de armazém de dados](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas de DMV, são sempre permitidas a correr e não impactam o limite de consulta simultânea. Para obter mais informações sobre execução de consultas simultâneas, consulte o artigo [máximos de concordância.](memory-concurrency-limits.md) |
-| [temperatura](sql-data-warehouse-tables-temporary.md) |Máximo GB |399 GB por DW100c. No DWU1000c, a temperatura é dimensionada para 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Máximo GB |399 GB por DW100c. No DWU1000c, a temperatura é dimensionada para 3,99 TB. |
 ||||
 
 ## <a name="database-objects"></a>Objetos de base de dados
@@ -79,7 +79,7 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 | SELECIONAR |Bytes por colunas GROUP BY. |8060<br/><br/>As colunas na cláusula GRUPO BY podem ter um máximo de 8060 bytes. |
 | SELECIONAR |Bytes por ORDEM POR colunas |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes |
 | Identificadores por declaração |Número de identificadores referenciados |65,535<br/><br/> O número de identificadores que podem ser contidos numa única expressão de uma consulta é limitado. Excedendo este número resulta no erro do SQL Server 8632. Para obter mais informações, consulte [Erro Interno: Foi atingido um limite de serviços de expressão](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Literal de cordas | Número de cordas literais em comunicado | 20 000 <br/><br/>O número de constantes de cordas numa única expressão de uma consulta é limitado. Excedendo este número resulta no erro do SQL Server 8632.|
+| Literais de cadeias | Número de cordas literais em comunicado | 20 000 <br/><br/>O número de constantes de cordas numa única expressão de uma consulta é limitado. Excedendo este número resulta no erro do SQL Server 8632.|
 ||||
 
 ## <a name="metadata"></a>Metadados
@@ -92,11 +92,11 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 | sys.dm_pdw_errors |10,000 |
 | sys.dm_pdw_exec_requests |10,000 |
 | sys.dm_pdw_exec_sessions |10,000 |
-| sys.dm_pdw_request_steps |Número total de passos para os mais recentes 1000 pedidos SQL que são armazenados em sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_request_steps |Número total de etapas para os mais recentes 1000 pedidos SQL que são armazenados em sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |Os mais recentes pedidos de 1000 SQL que são armazenados em sys.dm_pdw_exec_requests. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter recomendações sobre a utilização do Azure Synapse, consulte a [Folha de Batota](cheat-sheet.md).

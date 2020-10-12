@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373390"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informação para distribuições não endossadas
