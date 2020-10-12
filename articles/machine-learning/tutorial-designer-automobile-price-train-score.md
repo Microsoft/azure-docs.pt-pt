@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
 ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404923"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço do automóvel com o designer
@@ -221,7 +221,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     > [!IMPORTANT]
     > Certifique-se de que as portas de saída esquerda de **Dados Divididos** se ligam ao **Modelo de Comboio.** A porta esquerda contém o conjunto de treino. A porta direita contém o conjunto de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de Dados Divididos liga-se à porta direita do Modelo de Comboio.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Selecione coluna":::
 
 1. Selecione o módulo **Modelo de Comboio.**
 
@@ -236,7 +236,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     O seu oleoduto deve ser assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Selecione coluna":::
 
 ### <a name="add-the-score-model-module"></a>Adicione o módulo Modelo de Pontuação
 
@@ -256,7 +256,7 @@ Utilize o módulo **Modelo avaliar** para avaliar o quão bem o seu modelo obtev
 
     O oleoduto final deve ser mais ou menos assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Selecione coluna":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o oleoduto
 
@@ -285,7 +285,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot da visualização de saída realçando a coluna Marcador":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Selecione coluna":::
 
 ### <a name="evaluate-models"></a>Avaliar modelos
 

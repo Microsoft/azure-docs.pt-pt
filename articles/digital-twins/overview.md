@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 082e05bddd4fe12b279368e44b2d986bd4fa91a7
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003852"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945333"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -84,7 +84,7 @@ Uma solução completa utilizando as Gémeas Digitais Azure pode conter as segui
 * Uma ou mais aplicações de clientes que impulsionam a instância Azure Digital Twins configurando modelos, criando topologia e extraindo insights do gráfico gémeo.
 * Um ou mais recursos de computação externos para processar eventos gerados pela Azure Digital Twins, ou fontes de dados conectadas, como dispositivos. Uma forma comum de fornecer recursos computacional é através das [Funções Azure.](../azure-functions/functions-overview.md)
 * Um hub IoT para fornecer capacidades de gestão de dispositivos e fluxo de dados IoT.
-* Serviços a jusante para lidar com tarefas como integração de fluxos de trabalho (como [Aplicações Lógicas,](../logic-apps/logic-apps-overview.md)armazenamento frio, integração de séries de tempo ou análise. 
+* Serviços a jusante para lidar com tarefas como integração de fluxos de trabalho (como [Aplicações Lógicas,](../logic-apps/logic-apps-overview.md)armazenamento frio, integração de séries de tempo ou análise).
 
 O diagrama que se segue mostra onde a Azure Digital Twins se encontra no contexto de uma solução Azure IoT maior.
 
@@ -98,7 +98,7 @@ O diagrama que se segue mostra onde a Azure Digital Twins se encontra no context
 
 Para obter uma lista dos limites das Gémeas Digitais Azure durante a pré-visualização pública, consulte [*Referência: Limites de serviço de pré-visualização do público*](reference-service-limits.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se já trabalhou com o lançamento anterior da Azure Digital Twins, saiba o que mudou:
 * [*Visão geral: Diferenças em relação ao lançamento anterior*](overview-differences.md)

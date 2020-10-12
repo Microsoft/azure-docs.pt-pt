@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: bc4b3019cb8308ea19d86eea7bf886063ea28563
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89008289"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar apaches sqoop empregos usando .NET SDK para Apache Hadoop em HDInsight
@@ -141,7 +141,7 @@ A HDInsight baseada em Linux apresenta as seguintes limitações:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora aprendeste a usar o Sqoop. Para saber mais, consulte:
+Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 
 * [Use Apache Oozie com HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop num fluxo de trabalho Oozie.
 * [Faça upload de dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para enviar dados para o armazenamento de HDInsight ou Azure Blob.

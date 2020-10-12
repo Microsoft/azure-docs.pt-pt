@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8fbce15b84371b7b7907deff361e2a2e706bec28
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567712"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configure filtros de rota para o estoiramento da Microsoft: Azure CLI
@@ -61,7 +61,7 @@ Para conseguir ligar-se com sucesso aos serviços através do estomamento da Mic
 
 * Deve fixar o filtro de rota ao circuito ExpressRoute.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
 

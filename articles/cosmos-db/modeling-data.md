@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136044"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados em Azure Cosmos DB
@@ -299,7 +299,7 @@ No exemplo acima, deixámos cair a coleção ilimitada no documento da editora. 
 Numa base de *dados relacional, muitas: muitas* relações são muitas vezes modeladas com mesas de junção, que apenas juntam registos de outras mesas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Junte-se às mesas" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de base de dados relacional" border="false":::
 
 Pode sentir-se tentado a replicar a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
@@ -432,7 +432,7 @@ Review documents:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os maiores takeaways deste artigo são entender que a modelação de dados num mundo livre de esquemas é tão importante como sempre.
 
@@ -442,4 +442,4 @@ Para saber mais sobre a Azure Cosmos DB, consulte a página de [documentação](
 
 Para entender como fragmentos os seus dados através de múltiplas divisórias, consulte [dados de partição em Azure Cosmos DB](sql-api-partition-data.md).
 
-Para aprender a modelar e dividir dados sobre Azure Cosmos DB usando um exemplo do mundo real, consulte data [Modeling and Partition - um Exemplo do Mundo Real](how-to-model-partition-example.md).
+Para aprender a modelar e dividir dados sobre Azure Cosmos DB usando um exemplo do mundo real, consulte a [ Modelação de Dados e Partição - um exemplo Real-World](how-to-model-partition-example.md).

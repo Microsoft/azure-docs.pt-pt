@@ -4,10 +4,10 @@ description: Descreve como adicionar novos certificados, certificado de capotame
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869767"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
@@ -271,7 +271,7 @@ Pode especificar qualquer número de certificados de cliente. Cada adição/elim
 
 ![Adicionar certificado de cliente][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Supressão de Certificados de Cliente - Administrador ou Read-Only usando o portal
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Supressão de Certificados de Cliente - Administração ou Read-Only usando o portal
 
 Para remover um certificado secundário de ser utilizado para a segurança do cluster, navegue para a secção de Segurança e selecione a opção 'Eliminar' a partir do menu de contexto no certificado específico.
 

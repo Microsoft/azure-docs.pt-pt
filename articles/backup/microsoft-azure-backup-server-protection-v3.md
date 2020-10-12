@@ -4,10 +4,10 @@ description: Este artigo fornece uma matriz de proteção que lista todas as car
 ms.date: 11/13/2018
 ms.topic: conceptual
 ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88763614"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção V3 RTM do servidor de backup Azure
@@ -39,7 +39,7 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |Servidores (32 e 64 bits)|Windows Server 2008 SP2|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |Servidores (32 e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |SQL Server|SQL Server 2019|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016 SP2|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016 SP1|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
@@ -51,9 +51,9 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2008|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2008|Máquina virtual do Windows em VMware (protege cargas de trabalho em funcionamento em máquina virtual do Windows em VMware)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|

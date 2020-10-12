@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707715"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorizar as métricas dos Serviços de Multimédia
@@ -70,11 +70,11 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "Egress" pelo nome métrico que lhe interessa.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
 * [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 [Registos de diagnósticos](media-services-diagnostic-logs-howto.md)

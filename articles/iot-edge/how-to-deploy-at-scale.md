@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855380"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar módulos IoT Edge em escala utilizando o portal Azure
@@ -115,7 +115,7 @@ Para adicionar um módulo da Azure Stream Analytics, siga estes passos:
 
 Depois de adicionar um módulo a uma implementação, pode selecionar o seu nome para abrir a página **do Módulo de Borda IoT de Atualização.** Nesta página, pode editar as definições do módulo, variáveis ambientais, criar opções e módulo twin. Se adicionar um módulo do mercado, pode já ter alguns destes parâmetros preenchidos.
 
-Se estiver a criar uma implementação em camadas, poderá estar a configurar um módulo que existe noutras implementações que visem os mesmos dispositivos. Para atualizar o módulo twin sem sobrepor outras versões, abra o separador **Configurações Twin Module.** Crie um novo **Módulo Twin Property** com um nome único para uma subsecção dentro das propriedades desejadas pelo módulo Twin, por `properties.desired.settings` exemplo. Se definir propriedades dentro apenas do `properties.desired` campo, substituirá as propriedades desejadas para o módulo definido em quaisquer implementações de menor prioridade.
+Se estiver a criar uma implementação em camadas, poderá estar a configurar um módulo que existe noutras implementações que visem os mesmos dispositivos. Para atualizar o módulo twin sem sobrepor outras versões, abra o **separador Definições Twin Module.** Crie uma nova **Propriedade Twin Module** com um nome único para uma subsecção dentro das propriedades desejadas pelo módulo twin, por `properties.desired.settings` exemplo. Se definir propriedades dentro apenas do `properties.desired` campo, substituirá as propriedades desejadas para o módulo definido em quaisquer implementações de menor prioridade.
 
 ![Definir propriedade twin módulo para implantação em camadas](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -183,7 +183,7 @@ Quando modificar uma implementação, as alterações replicam-se imediatamente 
 
 1. No seu hub IoT, selecione **IoT Edge** a partir do menu do painel esquerdo.
 1. Selecione o **separador IoT Edge implementações** e, em seguida, selecione a implementação que pretende configurar.
-1. Selecione o **separador 'Condições alvo'.** Altere a **Condição alvo** para direcionar os dispositivos pretendidos. Também pode ajustar a **Prioridade**.  Selecione **Guardar**.
+1. Selecione o **separador 'Estado-alvo'.** Altere a **Condição alvo** para direcionar os dispositivos pretendidos. Também pode ajustar a **Prioridade**.  Selecione **Guardar**.
 
     Se atualizar a condição do alvo, ocorrem as seguintes atualizações:
 

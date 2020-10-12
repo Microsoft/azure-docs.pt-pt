@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: bc9e18427bb3b8094911d2ac7f285d271ecd1a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91024898"
 ---
 1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Criar um recurso**.
@@ -36,7 +36,7 @@ ms.locfileid: "91024898"
 
    Esta é a mesma página, mas com fQDN em destaque:
 
-   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="Criar uma rede local gateway FQDN":::
+   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-gateway-fqdn.png" alt-text="Criar um endereço IP de gateway de rede local":::
 
    > [!NOTE]
    >

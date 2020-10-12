@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87539956"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de Segurança: Criptografia / Mitigações 
@@ -27,7 +27,7 @@ ms.locfileid: "87539956"
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Utilize apenas cifras de bloco simétricos aprovadas e comprimentos de chave](#cipher-length)</li><li>[Utilize modos de cifra de blocos aprovados e vetores de inicialização para cifras simétricas](#vector-ciphers)</li><li>[Utilize algoritmos assimétricos aprovados, comprimentos de chave e estofamento](#padding)</li><li>[Utilizar geradores de números aleatórios aprovados](#numgen)</li><li>[Não utilize cifras de fluxo simétrico](#stream-ciphers)</li><li>[Utilize algoritmos de hash MAC/HMAC/chavedo aprovados](#mac-hash)</li><li>[Utilize apenas funções de haxixe criptográfico aprovadas](#hash-functions)</li></ul> |
-| **Base de Dados** | <ul><li>[Use algoritmos de encriptação fortes para encriptar dados na base de dados](#strong-db)</li><li>[Os pacotes SSIS devem ser encriptados e assinados digitalmente](#ssis-signed)</li><li>[Adicionar assinatura digital a bases de dados críticas](#securables-db)</li><li>[Use o servidor SQL EKM para proteger as chaves de encriptação](#ekm-keys)</li><li>[Utilize funcionalidade AlwaysEncrypted se as chaves de encriptação não forem reveladas ao motor da base de dados](#keys-engine)</li></ul> |
+| **Base de dados** | <ul><li>[Use algoritmos de encriptação fortes para encriptar dados na base de dados](#strong-db)</li><li>[Os pacotes SSIS devem ser encriptados e assinados digitalmente](#ssis-signed)</li><li>[Adicionar assinatura digital a bases de dados críticas](#securables-db)</li><li>[Use o servidor SQL EKM para proteger as chaves de encriptação](#ekm-keys)</li><li>[Utilize funcionalidade AlwaysEncrypted se as chaves de encriptação não forem reveladas ao motor da base de dados](#keys-engine)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Guarde as chaves criptográficas de forma segura no dispositivo IoT](#keys-iot)</li></ul> | 
 | **Gateway de nuvem IoT** | <ul><li>[Gere uma chave simétrica aleatória de comprimento suficiente para a autenticação no IoT Hub](#random-hub)</li></ul> | 
 | **Dynamics CRM Cliente Móvel** | <ul><li>[Certifique-se de que existe uma política de gestão de dispositivos que requer um PIN de utilização e permite a limpeza remota](#pin-remote)</li></ul> | 
@@ -39,7 +39,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -50,7 +50,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -61,7 +61,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -72,7 +72,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -83,7 +83,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -94,7 +94,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -105,7 +105,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -116,7 +116,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Escolher um algoritmo de encriptação](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
@@ -127,7 +127,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Identificar a Fonte de Pacotes com Assinaturas Digitais,](https://msdn.microsoft.com/library/ms141174.aspx) [Mitigação de Ameaças e Vulnerabilidades (Serviços de Integração)](https://msdn.microsoft.com/library/bb522559.aspx) |
@@ -138,7 +138,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [ADICIONAR ASSINATURA (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
@@ -149,7 +149,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [SQL Server Gestão de Chaves Extensíveis (EKM)](https://msdn.microsoft.com/library/bb895340), [Gestão de Chaves Extensíveis Usando cofre de chave Azure (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
@@ -160,7 +160,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, MsSQL2016 |
 | **Referências**              | [Sempre encriptado (motor de base de dados)](https://msdn.microsoft.com/library/mt163865) |
@@ -171,7 +171,7 @@ ms.locfileid: "87539956"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Dispositivo OS - Windows IoT Core, Conectividade do Dispositivo - SDKs de dispositivo Azure IoT |
 | **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Configurar TPM no Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
@@ -194,7 +194,7 @@ Como se pode ver, a chave primária do dispositivo não está presente no códig
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de nuvem IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Escolha gateway - Azure IoT Hub |
 | **Referências**              | N/D  |
@@ -216,7 +216,7 @@ Como se pode ver, a chave primária do dispositivo não está presente no códig
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM Outlook Cliente | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -238,7 +238,7 @@ Como se pode ver, a chave primária do dispositivo não está presente no códig
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de Identidade | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |

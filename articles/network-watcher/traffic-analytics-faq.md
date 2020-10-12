@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87479851"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
@@ -355,7 +355,7 @@ A página do mapa geo contém duas secções principais:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação de teclado em qualquer fase
     
-- `Esc`colapsa a seleção expandida.
+- `Esc` colapsa a seleção expandida.
 - A `Up-arrow` chave executa a mesma ação que . `Esc` . A `Down arrow` chave executa a mesma ação que . `Enter` .
 - Use `Shift+Plus` para ampliar e `Shift+Minus` ampliar.
 

@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
 ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511726"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure com o portal do Azure
@@ -35,7 +35,7 @@ O Azure tem milhares de permissões que pode potencialmente incluir no seu papel
 
 | Método | Descrição |
 | --- | --- |
-| Olhe para os papéis existentes | Pode olhar para os papéis existentes para ver que permissões estão a ser usadas. Para mais informações, consulte [as funções incorporadas do Azure.](built-in-roles.md) |
+| Olhe para os papéis existentes | Pode olhar para os papéis existentes para ver que permissões estão a ser usadas. Para obter mais informações, veja [Funções incorporadas do Azure](built-in-roles.md). |
 | Procure permissões por palavra-chave | Quando criar uma função personalizada utilizando o portal Azure, pode procurar permissões através de palavras-chave. Por exemplo, pode procurar por *máquinas virtuais* ou permissões *de faturação.* Esta funcionalidade de pesquisa é descrita mais tarde no [Passo 4: Permissões](#step-4-permissions). |
 | Baixar todas as permissões | Quando criar uma função personalizada utilizando o portal Azure, pode descarregar todas as permissões como ficheiro CSV e, em seguida, pesquisar este ficheiro. No painel **de permissões Add,** clique no botão **Descarregar todas as permissões** para descarregar todas as permissões. Para obter mais informações sobre o painel de permissões Add, consulte [o passo 4: Permissões](#step-4-permissions). |
 | Ver as permissões nos documentos | Pode ver as permissões disponíveis nas [operações do fornecedor de recursos do Azure Resource Manager.](resource-provider-operations.md) |
@@ -335,7 +335,7 @@ Siga estes passos para ver os seus papéis personalizados.
 
     Pode levar alguns minutos para que o seu papel personalizado seja completamente apagado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar um papel personalizado Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)

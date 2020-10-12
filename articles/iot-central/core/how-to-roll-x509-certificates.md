@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 76e2b9542d20b5788a2875dec89d447ce38276a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122066"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Como rolar certificados de dispositivo X.509 na Aplicação Central IoT
@@ -30,7 +30,7 @@ Pode criar os seus próprios certificados X.509 utilizando uma ferramenta como a
 
 Para atualizar uma inscrição em grupo em resposta a uma falha de segurança, deve utilizar a seguinte abordagem que atualiza imediatamente o certificado atual:
 
-1. Navegue para a **Administração** no painel esquerdo e clique na **ligação do dispositivo**.
+1. Navegue para a **Administração**  no painel esquerdo e clique na **ligação do dispositivo**.
 
 2. Clique **em Grupos de Inscrição**e clique no nome de grupo na lista.
 
@@ -52,7 +52,7 @@ Para atualizar uma inscrição em grupo em resposta a uma falha de segurança, d
 
 Se estiver a rolar certificados para lidar com expirações de certificados, utilize a seguinte abordagem para atualizar imediatamente o certificado atual:
 
-1. Navegue para a **Administração** no painel esquerdo e clique na **ligação do dispositivo**. 
+1. Navegue para a **Administração**  no painel esquerdo e clique na **ligação do dispositivo**. 
 
 2. Clique **em Grupos de Inscrição**e clique no nome de grupo na lista.
 
