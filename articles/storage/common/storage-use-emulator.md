@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588200"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o Emulador de Armazenamento Azure para desenvolvimento e teste
@@ -323,7 +323,7 @@ Não existem diferenças específicas para o armazenamento da fila no emulador.
 ### <a name="version-30"></a>Versão 3.0
 
 * O Emulador de Armazenamento Azure já não é enviado no mesmo pacote que o emulador computacional.
-* A interface gráfica do utilizador emulador de armazenamento está depreciada. Foi substituído por uma interface de linha de comando scriptável. Para obter mais informações sobre a interface da linha de comando, consulte a referência da ferramenta da linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só pode ser acedida quando o Emulador Compute estiver instalado clicando à direita no ícone da bandeja do sistema e selecionando a UI do Emulator de Armazenamento de Espetáculos.
+* A interface gráfica do utilizador emulador de armazenamento está depreciada. Foi substituído por uma interface de linha de comando scriptável. Para obter mais informações sobre a interface da linha de comando, consulte o Emulador de Armazenamento Command-Line Referência de Ferramenta. A interface gráfica continuará presente na versão 3.0, mas só pode ser acedida quando o Emulador Compute estiver instalado clicando à direita no ícone da bandeja do sistema e selecionando a UI do Emulator de Armazenamento de Espetáculos.
 * A versão 2013-08-15 dos serviços de armazenamento Azure está agora totalmente suportada. (Anteriormente, esta versão só foi suportada pela versão 2.2.1 preview do Emulador de Armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes

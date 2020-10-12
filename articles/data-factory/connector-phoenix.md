@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d236b9f8800b644a0aa51597d01df1c1442475ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81416781"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados da Phoenix utilizando a Azure Data Factory 
@@ -48,21 +48,21 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Phoenix:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Phoenix** | Yes |
-| anfitrião | O endereço IP ou o nome de anfitrião do servidor Phoenix. (ou seja, 192.168.222.160)  | Yes |
-| porta | A porta TCP que o servidor Phoenix usa para ouvir as ligações do cliente. O valor predefinido é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | No |
-| httpPath | O URL parcial correspondente ao servidor Phoenix. (isto é, /gateway/sandbox/phoenix/versão). Especificar `/hbasephoenix0` se utilizar o cluster HDInsights.  | No |
-| authenticationType | O mecanismo de autenticação usado para ligar ao servidor Phoenix. <br/>Os valores permitidos são: **Anónimo,** **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
-| o nome de utilizador | O nome de utilizador usado para ligar ao servidor Phoenix.  | No |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | No |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para: **Phoenix** | Sim |
+| anfitrião | O endereço IP ou o nome de anfitrião do servidor Phoenix. (ou seja, 192.168.222.160)  | Sim |
+| porta | A porta TCP que o servidor Phoenix usa para ouvir as ligações do cliente. O valor predefinido é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
+| httpPath | O URL parcial correspondente ao servidor Phoenix. (isto é, /gateway/sandbox/phoenix/versão). Especificar `/hbasephoenix0` se utilizar o cluster HDInsights.  | Não |
+| authenticationType | O mecanismo de autenticação usado para ligar ao servidor Phoenix. <br/>Os valores permitidos são: **Anónimo,** **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| nome de utilizador | O nome de utilizador usado para ligar ao servidor Phoenix.  | Não |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | Não |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 >[!NOTE]
 >Se o seu cluster não suportar sessão pegajosa, por exemplo, HDInsight, adicione explicitamente o índice de nó no final da definição do caminho http, por exemplo, especifique `/hbasephoenix0` em vez de `/hbasephoenix` .
@@ -95,9 +95,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Phoenix, defina a propriedade tipo do conjunto de dados para **PhoenixObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PhoenixObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PhoenixObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -127,9 +127,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Phoenix, desagrafe o tipo de origem na atividade de cópia para **PhoenixSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PhoenixSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PhoenixSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

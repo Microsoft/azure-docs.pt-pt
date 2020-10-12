@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462382"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
@@ -57,7 +57,7 @@ ms.locfileid: "89462382"
     | `fr-CA` | Sylvie |
     | `fr-FR` | Rio Denise |
     | `ja-JP` | Nanami |
-    | `ko-KR` | Sol-Hi |
+    | `ko-KR` | Sun-Hi |
 
 ### <a name="bug-fixes"></a>Correções de erros
 
@@ -69,7 +69,7 @@ ms.locfileid: "89462382"
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
 Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias `cs-CZ` e `hu-HU` , 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [idiomas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
 
-| Região  | Linguagem                          |
+| Região  | Idioma                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Checo (República Checa)            | 
 | `en-HK` | Inglês (Hong Kong)               | 
@@ -164,7 +164,7 @@ Mantenha-se saudável!
 
 * Melhor precisão da pronúncia ao nível da palavra em 5 línguas.
 
-    | Linguagem | Redução do erro de pronúncia |
+    | Idioma | Redução do erro de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -177,7 +177,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após melhoria |
+    | Idioma | Input | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
@@ -293,7 +293,7 @@ Mantenha-se saudável!
  - O DialogServiceConnector suporta agora um parâmetro opcional de "bot ID" no BotFrameworkConfig. Este parâmetro permite a utilização de múltiplos bots de discurso de linha direta com um único recurso de fala Azure. Sem o parâmetro especificado, o bot predefinido (determinado pela página de configuração do canal de fala de linha direta) será utilizado.
  - DialogServiceConnector tem agora uma propriedade SpeechActivityTemplate. O conteúdo desta cadeia JSON será usado pelo Direct Line Speech para pré-povoar uma grande variedade de campos apoiados em todas as atividades que atingem um bot de Discurso de Linha Direta, incluindo atividades geradas automaticamente em resposta a eventos como o reconhecimento da fala.
  - O TTS utiliza agora a chave de subscrição para a autenticação, reduzindo a primeira latência byte do primeiro resultado da síntese após a criação de um sintetizador.
- - Modelos atualizados de reconhecimento de voz para 19 locais para uma redução média da taxa de erro de palavra de 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). Os novos modelos trazem melhorias significativas em vários domínios, incluindo cenários de Ditado, Transcrição de Call-Center e Indexação de Vídeo.
+ - Modelos atualizados de reconhecimento de voz para 19 locais para uma redução média da taxa de erro de palavra de 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). Os novos modelos trazem melhorias significativas em vários domínios, incluindo cenários de Ditado, Transcrição Call-Center e Indexação de Vídeo.
 
 **Correções de bugs**
 

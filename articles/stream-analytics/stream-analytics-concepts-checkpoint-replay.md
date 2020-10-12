@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84020613"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Checkpoint e replay conceitos em empregos Azure Stream Analytics
@@ -67,7 +67,7 @@ Para editar a sintaxe de consulta num trabalho de streaming, ou para ajustar ent
 
 Os dados do checkpoint não podem ser utilizados para um reinício de trabalho iniciado pelo utilizador. Para estimar o atraso da produção durante este reinício, utilize o mesmo procedimento descrito na secção anterior e aplique uma mitigação semelhante se o atraso for demasiado longo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre fiabilidade e escalabilidade, consulte estes artigos:
 - [Tutorial: Criar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
 - [Escalar um trabalho Azure Stream Analytics para aumentar a produção](stream-analytics-scale-jobs.md)

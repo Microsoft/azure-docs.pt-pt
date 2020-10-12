@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jingwang
 ms.openlocfilehash: c044208699bf5bebb6383cfef00bf53b744369d0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522449"
 ---
 # <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory"></a>Formatos de ficheiros suportados e codecs de compressão por atividade de cópia na Azure Data Factory
@@ -33,9 +33,9 @@ Além disso, também pode analisar ou gerar ficheiros de um determinado formato.
 * Copie os dados no formato Gzip comprimed text (CSV) a partir do armazenamento Azure Blob e escreva-os para a Base de Dados Azure SQL.
 * Muitas mais atividades que requerem serialização/deserialização ou compressão/descompressão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os outros artigos de Atividade de Cópia:
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)

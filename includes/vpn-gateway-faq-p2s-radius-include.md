@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75752459"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -23,7 +23,7 @@ A autenticação RADIUS é suportada para SKUs de VpnGw1, VpnGw2 e VpnGw3. Se es
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>A autenticação RADIUS é suportada para o modelo de implementação clássica?
  
-Não. A autenticação RADIUS não é suportada para o modelo de implementação clássica.
+N.º A autenticação RADIUS não é suportada para o modelo de implementação clássica.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>Os servidores RADIUS de terceiros são suportados?
 
@@ -35,7 +35,7 @@ Sim, os servidores RADIUS de terceiros são suportados.
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>O tráfego para um servidor RADIUS no local (a partir do gateway de VPN do Azure) pode ser encaminhado através de uma ligação do ExpressRoute?
 
-Não. O tráfego só pode ser encaminhado através de uma ligação de rede de VPNs.
+N.º O tráfego só pode ser encaminhado através de uma ligação de rede de VPNs.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Existe uma alteração no número de ligações SSTP suportadas com a autenticação RADIUS? Qual é o número máximo de ligações SSTP e IKEv2 suportadas?
 

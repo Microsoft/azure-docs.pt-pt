@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211974"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerir e monitorizar a importância da carga de trabalho no Azure Synapse Analytics
@@ -24,7 +24,7 @@ Gerir e monitorizar a importância do nível de pedido synapse em Azure Synapse 
 
 ## <a name="monitor-importance"></a>Monitorizar a importância
 
-Monitorize a importância utilizando a nova coluna de importância na visão dinâmica [do sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Monitorize a importância utilizando a nova coluna de importância na [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) visão dinâmica de gestão.
 A consulta de monitorização abaixo mostra a hora de envio e a hora de início para consultas. Reveja o tempo de envio e a hora de início, juntamente com importância para ver como a importância influenciou o agendamento.
 
 ```sql
@@ -39,7 +39,7 @@ Para aprofundar a forma como as consultas estão a ser agendadas, use as vistas 
 
 ## <a name="manage-importance-with-catalog-views"></a>Gerir importância com vistas de catálogo
 
-A vista de catálogo sys.workload_management_workload_classifiers contém informações sobre classificadores. Excluir os classificadores definidos pelo sistema que mapeiam para classes de recursos executam o seguinte código:
+A sys.workload_management_workload_classifiers vista do catálogo contém informações sobre classificadores. Excluir os classificadores definidos pelo sistema que mapeiam para classes de recursos executam o seguinte código:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-A vista do catálogo, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contém informações sobre os parâmetros utilizados na criação do classificador.  A consulta abaixo mostra que o ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com Relatórios Executivos:
+A vista do catálogo, [sys.workload_management_workload_classifier_details,](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)contém informações sobre os parâmetros utilizados na criação do classificador.  A consulta abaixo mostra que o ExecReportsClassifier foi criado no ```membername``` parâmetro para valores com Relatórios Executivos:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -68,7 +68,7 @@ IF EXISTS (SELECT 1 FROM sys.workload_management_workload_classifiers WHERE name
 GO
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a classificação, consulte [a Classificação da Carga de Trabalho.](sql-data-warehouse-workload-classification.md)
 - Para mais informações sobre importância, consulte [a Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md)

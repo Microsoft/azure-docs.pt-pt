@@ -10,10 +10,10 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90031012"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
@@ -87,6 +87,6 @@ A utilização do tempo de funcionação da atividade criará um novo cluster ut
 
 ![Executar um oleoduto com um fluxo de dados](media/iterative-development-debugging/iterative-development-dataflow.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de testar as suas alterações, promova-as para ambientes mais elevados utilizando [integração contínua e implantação na Azure Data Factory](continuous-integration-deployment.md).

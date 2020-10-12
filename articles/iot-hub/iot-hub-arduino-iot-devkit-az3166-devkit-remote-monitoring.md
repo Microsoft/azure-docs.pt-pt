@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: d75e7e7b4870f46c978fd70039441c8851844082
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337964"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligue o acelerador de solução de monitorização remota MXChip IoT a Azure IoT
@@ -26,7 +26,7 @@ O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é um tabuleiro compatível com
 
 Termine o [Guia de Início](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
 
-* Tenha o seu DevKit ligado ao Wi-Fi
+* Tenha o seu DevKit ligado a Wi-Fi
 * Preparar o ambiente de desenvolvimento
 
 Uma subscrição ativa do Azure. Se não tiver um, pode registar-se através de um destes dois métodos:

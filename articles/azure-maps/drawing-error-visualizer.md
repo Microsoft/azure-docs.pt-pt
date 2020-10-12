@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524748"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilizando o visualizador de erro de desenho de mapas Azure
@@ -80,15 +80,15 @@ Depois de lançar a ferramenta Desenho Error Visualizer, será apresentada com a
 
 :::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="App de visualizador de erro de desenho - página de início":::
 
-O _ConversionWarningsAndErrors.jsno_ ficheiro foi colocado na raiz do diretório descarregado. Para carregar o _ConversionWarningsAndErrors.jspode_ arrastar & deixar cair o ficheiro na caixa ou clicar na caixa, encontrar o ficheiro no diálogo Do Explorador de Ficheiros e, em seguida, carregar o ficheiro.
+O  _ConversionWarningsAndErrors.jsno_ ficheiro foi colocado na raiz do diretório descarregado. Para carregar o _ConversionWarningsAndErrors.jspode_ arrastar & deixar cair o ficheiro na caixa ou clicar na caixa, encontrar o ficheiro no diálogo Do Explorador de Ficheiros e, em seguida, carregar o ficheiro.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App de visualização de erro de desenho - arrastar e largar para carregar dados":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App de visualizador de erro de desenho - página de início":::
 
 Assim que o _ConversionWarningsAndErrors.jsem_ cargas de ficheiros, verá uma lista dos erros e avisos do seu pacote de desenho. Cada erro ou aviso é especificado pela camada, nível e uma mensagem detalhada. Para ver informações detalhadas sobre um erro ou aviso, clique no link **Detalhes.** Uma secção intratável aparecerá então abaixo da lista. Pode agora navegar para cada erro para saber mais detalhes sobre como resolver o erro.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App de visualizador de erro de desenho - erros e avisos":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App de visualizador de erro de desenho - página de início":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que o seu [pacote De desenho satisfaça os requisitos,](drawing-requirements.md)pode utilizar o [serviço Azure Maps Dataset](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote Drawing num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
 

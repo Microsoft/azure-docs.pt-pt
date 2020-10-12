@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
 ms.openlocfilehash: 9451b6636f2f87806e3d1e39fec4e9e4d4390485
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706831"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Residência de dados para Azure Network Watcher

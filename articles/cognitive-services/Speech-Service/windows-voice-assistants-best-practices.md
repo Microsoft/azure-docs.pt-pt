@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
 ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89293647"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências de assistente de design para o Windows 10
@@ -161,7 +161,7 @@ Podem ser **apresentadas respostas rápidas** na pré-visualização da ativaç�
 
 ![Screenshots do assistente de voz no Windows antes e depois de expandir a vista compacta](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Começa a desenvolver o teu assistente de voz](how-to-windows-voice-assistants-get-started.md)

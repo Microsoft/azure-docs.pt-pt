@@ -9,10 +9,10 @@ ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708893"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Resolução de problemas Azure NFS ações de ficheiros
@@ -90,7 +90,7 @@ O diagrama que se segue mostra conectividade utilizando pontos finais públicos.
     - A rede virtual que espreita com redes virtuais hospedadas no ponto final privado dá acesso à NFS de partilha aos clientes em redes virtuais.
     - Os pontos finais privados podem ser usados com ExpressRoute, ponto a local e VPNs site-to-site.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagrama de conectividade privada de ponto final." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagrama de conectividade de ponto final público." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Causa 2: A transferência segura necessária está ativada
 
@@ -100,7 +100,7 @@ A dupla encriptação ainda não é suportada para ações NFS. O Azure fornece 
 
 Desative a transferência segura necessária na lâmina de configuração da sua conta de armazenamento.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot da lâmina de configuração da conta de armazenamento, desativando a transferência segura necessária.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagrama de conectividade de ponto final público.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Causa 3: o pacote comum nfs não está instalado
 Antes de executar o comando de montagem, instale a embalagem executando o comando específico distro a partir de baixo.

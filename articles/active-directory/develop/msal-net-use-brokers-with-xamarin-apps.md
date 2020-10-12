@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068543"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
@@ -183,7 +183,7 @@ Adicione o URI redirecionado ao registo da aplicação no [portal Azure](https:/
 
 **Para gerar o URI de redirecionamento:**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione registos de Aplicações **de Diretório Ativo Azure**  >  **App registrations** > sua aplicação registada
 1. **Selecione autenticação**  >  **Adicione uma plataforma**  >  **iOS / macOS**
 1. Introduza o seu iD do pacote e, em seguida, **selecione Configure**.

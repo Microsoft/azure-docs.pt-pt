@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189878"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 Encontre respostas a perguntas comuns sobre o Microsoft Azure Dedicado HSM.
 
@@ -106,7 +106,7 @@ Sim, pode sincronizar hSMs no local com HSMs dedicado. [A VPN ponto-a-ponto ou a
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>P: Posso encriptar dados utilizados por outros serviços Azure utilizando chaves armazenadas em HSM dedicado?
 
-Não. Os HSMs dedicados Azure só estão acessíveis a partir de dentro da sua rede virtual.
+N.º Os HSMs dedicados Azure só estão acessíveis a partir de dentro da sua rede virtual.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>P: Posso importar chaves de um HSM existente no local para o HSM dedicado?
 
@@ -152,7 +152,7 @@ O HSM dedicado a Azure é o mais adequado para cenários de migração. Isto sig
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>P: O HSM dedicado pode ser utilizado com a chave de cliente do Office 365, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage Encryption, Azure SQL TDE?
 
-Não. O HSM dedicado é a provisionado diretamente no espaço de endereço IP privado de um cliente para que não seja acessível por outros serviços Azure ou Microsoft.
+N.º O HSM dedicado é a provisionado diretamente no espaço de endereço IP privado de um cliente para que não seja acessível por outros serviços Azure ou Microsoft.
 
 ## <a name="administration-access-and-control"></a>Administração, acesso e controlo
 
@@ -170,7 +170,7 @@ O dispositivo HSM envia com um utilizador predefinido de administração com a s
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P: A Microsoft ou qualquer pessoa na Microsoft pode aceder às teclas de acesso no meu HSM dedicado?
 
-Não. A Microsoft não tem qualquer acesso às chaves armazenadas no HSM dedicado ao cliente.
+N.º A Microsoft não tem qualquer acesso às chaves armazenadas no HSM dedicado ao cliente.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>P: Posso atualizar software/firmware em HSMs que me foram atribuídos?
 
@@ -204,7 +204,7 @@ Sim. Devem satisfazer os elevados requisitos de disponibilidade para a Rede Safe
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
-Não.
+N.º
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: Quantos HSMs posso adicionar à mesma configuração de alta disponibilidade de uma única aplicação?
 

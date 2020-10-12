@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706273"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Multi-Factor Authentication do Azure
@@ -182,7 +182,7 @@ A entrega de mensagens SMS não é garantida porque existem fatores incontroláv
 
 As aplicações de segurança de terceiros também podem bloquear a mensagem de texto de código de verificação ou a chamada telefónica. Se utilizar uma aplicação de segurança de terceiros, tente desativar a proteção e, em seguida, solicite que seja enviado outro código de verificação MFA.
 
-Se os seus utilizadores tiverem frequentemente problemas em receber mensagens de texto de forma fiável, diga-lhes para utilizarem a aplicação microsoft Authenticator ou o método de chamada telefónica. O Autenticador microsoft pode receber notificações tanto sobre ligações celulares como wi-fi. Além disso, a aplicação móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem qualquer sinal. A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+Se os seus utilizadores tiverem frequentemente problemas em receber mensagens de texto de forma fiável, diga-lhes para utilizarem a aplicação microsoft Authenticator ou o método de chamada telefónica. O Autenticador microsoft pode receber notificações tanto sobre ligações celulares como Wi-Fi. Além disso, a aplicação móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem qualquer sinal. A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 ### <a name="can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out"></a>Posso alterar o tempo que os meus utilizadores têm para introduzir o código de verificação a partir de uma mensagem de texto antes do fim do tempo do sistema?
 

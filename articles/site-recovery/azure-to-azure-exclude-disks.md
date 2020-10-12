@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135801"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação powerShell de VMs Azure
@@ -24,7 +24,7 @@ Este artigo descreve como excluir discos quando replica VMs Azure. Pode excluir 
 Antes de começar:
 
 - Certifique-se de que compreende a [arquitetura e componentes de recuperação de desastres.](azure-to-azure-architecture.md)
-- Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
+- Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) para todos os componentes.
 - Certifique-se de que tem o módulo AzureRm PowerShell "Az". Para instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 - Certifique-se de que criou um cofre de serviços de recuperação e protegeu máquinas virtuais pelo menos uma vez. Se ainda não fez estas coisas, siga o processo de recuperação de [desastres para máquinas virtuais Azure utilizando a Azure PowerShell](azure-to-azure-powershell.md).
 - Se procura informações sobre a adição de discos a um VM Azure habilitado para replicação, [reveja este artigo](azure-to-azure-enable-replication-added-disk.md).
@@ -134,6 +134,6 @@ O processo de replicação começa por semear uma cópia dos discos replicadores
 
 Após o final da replicação inicial, a replicação passa para a fase de sincronização diferencial. Neste ponto, a máquina virtual está protegida. Selecione a máquina virtual protegida para ver se algum disco está excluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [sobre a execução de um teste falhado](site-recovery-test-failover-to-azure.md).

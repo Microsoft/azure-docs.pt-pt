@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81391718"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Quickstart: Implementar app de catálogo de serviços através do portal Azure
@@ -36,7 +36,7 @@ No portal Azure, utilize os seguintes passos:
 
    ![Selecione definição para implementar](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Fornecer valores para o separador **Básicos.** Selecione a subscrição Azure para implementar a sua aplicação de catálogo de serviços para. Criar um novo grupo de recursos chamado **ApplicationGroup**. Selecione um local para a sua aplicação. Quando terminar, selecione **OK**.
+1. Fornecer valores para o **separador Básicos.** Selecione a subscrição Azure para implementar a sua aplicação de catálogo de serviços para. Criar um novo grupo de recursos chamado **ApplicationGroup**. Selecione um local para a sua aplicação. Quando terminar, selecione **OK**.
 
    ![Fornecer valores para o básico](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
@@ -58,7 +58,7 @@ Depois de a aplicação do catálogo de serviços ter sido implementada, tem doi
 
 1. Ver o grupo de recursos nomeado **ApplicationGroup{hash-characters}** para ver os recursos da aplicação do catálogo de serviços.
 
-   ![Ver recursos](./media/deploy-service-catalog-quickstart/view-resources.png)
+   ![Visualizar recursos](./media/deploy-service-catalog-quickstart/view-resources.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523983"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Tradução V2 para V3 Migração
@@ -30,7 +30,7 @@ O final deste documento contém links úteis para que possa saber mais.
 
 ## <a name="summary-of-features"></a>Resumo das características
 
-* No Trace - Em V3, o no-trace aplica-se a todos os níveis de preços do portal Azure. Esta funcionalidade significa que nenhum texto submetido à API V3, será guardado pela Microsoft.
+* No Trace - Em V3 No-Trace aplica-se a todos os níveis de preços no portal Azure. Esta funcionalidade significa que nenhum texto submetido à API V3, será guardado pela Microsoft.
 * JSON - XML é substituído por JSON. Todos os dados enviados para o serviço e recebidos do serviço estão em formato JSON.
 * Várias línguas-alvo num único pedido - O método Translate aceita várias línguas 'a' para tradução num único pedido. Por exemplo, um único pedido pode ser 'de' inglês e 'para' alemão, espanhol e japonês, ou qualquer outro grupo de línguas.
 * Dicionário bilingue - Um método bilingue de dicionário foi adicionado à API. Este método inclui "procura" e "exemplos".
@@ -45,8 +45,8 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
+| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |
@@ -141,9 +141,9 @@ Nenhuma versão do Tradutor cria um registo das suas traduções. As suas tradu�
 
 * [Política de Privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure Informação Jurídica](https://azure.microsoft.com/support/legal)
-* [Termos de Serviços Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Termos dos Serviços Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver Documentação V3.0](reference/v3-0-reference.md)

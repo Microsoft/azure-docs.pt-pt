@@ -8,10 +8,10 @@ ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
 ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87366726"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar de CouchBase para Azure Cosmos DB SQL API
@@ -187,7 +187,7 @@ Consultas N1QL é a forma de definir consultas na Base de Sofás.
 
 |Consulta N1QL | Consulta Azure CosmosDB|
 |-------------------|-------------------|
-|SELECT META( `TravelDocument` .id AS id, `TravelDocument` .* FROM `TravelDocument` WHERE = `_type` "com.xx.xx.xxx.xxx.xxx.xxxx " e país = 'Índia' e ANY m in Visas SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER POR c.Validity DESC 0 LIMIT 25 |
+|SELECT META( `TravelDocument` .id AS id, `TravelDocument` .* FROM `TravelDocument` WHERE = `_type` "com.xx.xx.xxx.xxx.xxx.xxxx " e país = 'Índia' e ANY m in Visas SATISFIES m.type == 'Multi-Entry' e m.Country IN ['Índia', Butão'] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 0   | SELECT c.id,c FROM c JOIN m in c.country='India' WHERE c._type = " com.xx.xxx.xxx.xxxx" e c.country = 'Índia' e m.type = 'Multi-Entry' e m.Country IN ('Índia', 'Butão') ORDER BY c.Validity DESC 0 LIMIT 25 |
 
 Pode notar as seguintes alterações nas suas consultas N1QL:
 
@@ -311,7 +311,7 @@ Este é um tipo simples de carga de trabalho em que você pode realizar lookups 
 
 1. Considere ter "/ID" como chave primária, o que garante que pode realizar uma operação de procura diretamente na partição específica. Crie uma coleção e especifique "/ID" como chave de partição.
 
-1. Desligue completamente a indexação. Como vai executar operações de procura, não vale a pena carregar a indexação. Para desativar a indexação, inscreva-se no portal Azure, conta DB goto Azure Cosmos. Abra o **Data Explorer,** selecione a **base de dados** e o **Contentor.** Abra o **separador Escala & Definições** e selecione a **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
+1. Desligue completamente a indexação. Como vai executar operações de procura, não vale a pena carregar a indexação. Para desativar a indexação, inscreva-se no portal Azure, conta DB goto Azure Cosmos. Abra o **Data Explorer,** selecione a **base de dados** e o **Contentor.** Abra o **separador Escala & Definições** e selecione a  **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
     
    ```json
    {
@@ -435,7 +435,7 @@ Há duas maneiras de migrar dados.
 
 * **Utilize a ferramenta de importação de dados Azure Cosmos DB:** Esta opção é recomendada para migrar usando VMs com menos quantidade de dados. Para obter etapas detalhadas, consulte o artigo [do importador de dados.](./import-data.md)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para fazer testes de desempenho, consulte testes de desempenho e escala com o artigo [DB da Azure Cosmos.](./performance-testing.md)
 * Para otimizar o código, consulte as dicas de desempenho para o artigo [DB da Azure Cosmos.](./performance-tips-async-java.md)

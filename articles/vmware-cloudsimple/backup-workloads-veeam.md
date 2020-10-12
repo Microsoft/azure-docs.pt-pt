@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525046"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Apoiar VMs de carga de trabalho na CloudSimple Private Cloud usando Veeam B&R
@@ -54,7 +54,7 @@ Para ambientes com menos de 30 TB para fazer o back up, o CloudSimple recomenda 
 
 * Servidor de backup veeam e servidor proxy instalado no mesmo VM na Cloud Privada.
 * Um repositório de apoio primário baseado em Linux em Azure configurado como um alvo para trabalhos de reserva.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um recipiente de bolhas Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um recipiente de bolhas Azure que é replicado para outra região.
 
 ![Cenários básicos de implantação](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Para ambientes com mais de 30 TB para fazer o back up, o CloudSimple recomenda a
 * Um servidor proxy por nó no cluster vSAN, como recomendado pelo Veeam.
 * O repositório de backup primário baseado no Windows na Nuvem Privada para cache de cinco dias de dados para restauros rápidos.
 * O repositório de backup Linux em Azure como alvo de trabalhos de cópia de cópia suplente para uma retenção de maior duração. Este repositório deve ser configurado como um repositório de reserva de escala.
-* `azcopy`usado para copiar os dados do repositório de backup primário para um recipiente de bolhas Azure que é replicado para outra região.
+* `azcopy` usado para copiar os dados do repositório de backup primário para um recipiente de bolhas Azure que é replicado para outra região.
 
 ![Cenários básicos de implantação](media/veeam-advanceddeployment.png)
 
@@ -98,7 +98,7 @@ O processo de implantação consiste nestas etapas:
 8. [Consola Veeam: Software de backup & recovery da Veeam Configure](#veeam-console-install-veeam-backup-and-recovery-software)
 9. [Portal CloudSimple: Configurar o acesso ao Veeam e desescalar privilégios](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 São necessários os seguintes antes de iniciar a implantação do Veeam:
 
@@ -264,7 +264,7 @@ Para desescalar os privilégios, veja [os privilégios de De-escalate.](escalate
 
 ### <a name="cloudsimple-references"></a>Referências CloudSimple
 
-* [Criar uma Cloud Privada](create-private-cloud.md)
+* [Criar uma nuvem privada](create-private-cloud.md)
 * [Criar e gerir VLANs/Subnets](create-vlan-subnet.md)
 * [vCenter Fontes de Identidade](set-vcenter-identity.md)
 * [Configuração DE DNS e DHCP de carga](dns-dhcp-setup.md)

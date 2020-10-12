@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192638"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de descarregamento de ficheiros grandes com Azure CDN
@@ -124,7 +124,7 @@ O quadro que se segue enumera o conjunto de critérios a satisfazer para a otimi
 
 Condição | Valores 
 --- | --- 
-Tipos de ficheiro suportados | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, alcatrão, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Tipos de ficheiros suportados | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, alcatrão, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Tamanho mínimo do ficheiro | 10 MB 
 Tamanho máximo do ficheiro | 150 GB 
 Características do servidor de origem | Deve apoiar pedidos byte-range 

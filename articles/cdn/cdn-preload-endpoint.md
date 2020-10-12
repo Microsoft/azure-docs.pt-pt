@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192573"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar recursos num ponto final da CDN do Azure
@@ -66,7 +66,7 @@ Este tutorial acompanha-o através do pré-carregamento de conteúdo em cache em
 > 
 > 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Purgue um ponto final Azure CDN](cdn-purge-endpoint.md)
 * [Referência Azure CDN REST API: Pré-carregamento de conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Referência Azure CDN REST API: Purgar o conteúdo de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

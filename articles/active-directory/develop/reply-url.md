@@ -12,10 +12,10 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030315"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
@@ -95,6 +95,6 @@ Nesta abordagem:
 > [!WARNING]
 > Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do estado, redirecionando assim o utilizador para um URL diferente, que é a [ameaça de redirecionamento aberto](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita no RFC 6819. Portanto, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI redirecionado contra o token.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça o [manifesto de inscrição](reference-app-manifest.md)da aplicação.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80335751"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana em Funções Duradouras - Amostra de verificação de telefone
@@ -19,7 +19,7 @@ Esta amostra implementa um sistema de verificação de telefone baseado em SMS. 
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 A verificação telefónica é usada para verificar se os utilizadores finais da sua aplicação não são spammers e que são quem dizem ser. A autenticação multi-factor é um caso de uso comum para proteger as contas dos utilizadores de hackers. O desafio de implementar a sua própria verificação de telefone é que requer uma **interação imponente** com um ser humano. Um utilizador final é normalmente fornecido algum código (por exemplo, um número de 4 dígitos) e deve responder **num período de tempo razoável**.
 

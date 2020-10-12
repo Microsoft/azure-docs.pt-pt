@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462365"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
@@ -150,7 +150,7 @@ Validar defesas de segurança é tão importante como testar qualquer outra func
 O teste de fuzz é um método para encontrar falhas de programa (erros de código) fornecendo dados de entrada mal formados para interfaces de programa (pontos de entrada) que analisam e consomem estes dados. [A Deteção](https://www.microsoft.com/en-us/security-risk-detection/) de Riscos de Segurança da Microsoft é uma ferramenta baseada na nuvem que pode usar para procurar bugs e outras vulnerabilidades de segurança no seu software antes de o implementar no Azure. A ferramenta foi concebida para capturar vulnerabilidades antes de implementar software para que não tenha de corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do Azure PaaS e nas melhores práticas de segurança para aplicações em nuvem. Em seguida, aprenda práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços Azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure Synapse Analytics e Azure Storage. À medida que os artigos sobre práticas recomendadas para outros serviços Azure ficarem disponíveis, os links serão fornecidos na seguinte lista:
 
 - [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)

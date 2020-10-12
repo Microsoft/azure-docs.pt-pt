@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462280"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL em Azure HDInsight?
@@ -137,7 +137,7 @@ No exemplo anterior, as declarações da HiveQL realizam as seguintes ações:
 |CRIAR TABELA EXTERNA|Cria uma nova tabela **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original e no formato original.|
 |FORMATO DE LINHA|Diz à Hive como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
 |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Diz à Hive onde os dados são armazenados (o `example/data` diretório) e que é armazenado como texto. Os dados podem estar num ficheiro ou difundir-se em vários ficheiros dentro do diretório.|
-|SELECT|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
+|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
 |INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que devemos apenas devolver dados de ficheiros que terminam em .log.|
 
 > [!NOTE]  
@@ -207,7 +207,7 @@ Para mais informações, consulte a documentação do [Azure Feature Pack.](http
 
 Apache Oozie é um sistema de trabalho e coordenação que gere os empregos de Hadoop. Para obter mais informações sobre a utilização de Oozie com Hive, consulte o [Use Apache Oozie para definir e executar um](../hdinsight-use-oozie-linux-mac.md) documento de fluxo de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu o que é a Hive e como usá-la com Hadoop em HDInsight, use os seguintes links para explorar outras formas de trabalhar com a Azure HDInsight.
 

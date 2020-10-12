@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d0989c31611b2f42c0219324fa517adc5c216c6c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88586610"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implementação do Azure Dedicated HSM
@@ -69,8 +69,8 @@ Uma vez determinada a arquitetura de implantação, a maioria das atividades de 
 Recomenda-se que todos os conceitos-chave do serviço, como a elevada disponibilidade e segurança, por exemplo, sejam bem compreendidos antes do fornecimento de dispositivos ou design e implementação de aplicações.
 Outros tópicos de nível de conceito:
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Rede](networking.md)
+* [Redes](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)

@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213402"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Utilização de procedimentos armazenados na piscina Sinaapse SQL
@@ -94,6 +94,6 @@ Existem alguns aspetos dos procedimentos armazenados transact-SQL que não são 
 * contextos de execução
 * declaração de retorno
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

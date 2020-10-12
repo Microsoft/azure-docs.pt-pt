@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069022"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão virtual do Windows Desktop (clássica) com o PowerShell
@@ -60,7 +60,7 @@ Começa por iniciar sessão nos módulos Az e Azure AD PowerShell. Eis como se i
     Connect-AzureAD
     ```
 
-4. Depois disso, navegue para a pasta onde guardou os dois scripts PowerShell do repo gitHub dos modelos RDS.
+4. Depois disso, navegue para a pasta onde guardou os dois scripts PowerShell do RDS-Templates gitHub repo.
 
 Mantenha a janela PowerShell que usou para iniciar um acordo aberto para executar cmdlets PowerShell adicionais durante a inscrição.
 

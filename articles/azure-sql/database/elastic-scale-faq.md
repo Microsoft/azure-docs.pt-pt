@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84045684"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Ferramentas de base de dados elásticas frequentemente feitas perguntas (FAQ)
@@ -55,6 +55,6 @@ Sim, um fragmento é uma base de dados individual, e assim um fragmento pode ser
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>A ferramenta Split Merge (ou apagar) uma base de dados durante uma operação de divisão ou fusão
 
-Não. Para operações **divididas,** a base de dados-alvo deve existir com o esquema apropriado e ser registada no Shard Map Manager.  Para operações **de fusão,** deve eliminar o fragmento do gestor do mapa de fragmentos e, em seguida, eliminar a base de dados.
+N.º Para operações **divididas,** a base de dados-alvo deve existir com o esquema apropriado e ser registada no Shard Map Manager.  Para operações **de fusão,** deve eliminar o fragmento do gestor do mapa de fragmentos e, em seguida, eliminar a base de dados.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

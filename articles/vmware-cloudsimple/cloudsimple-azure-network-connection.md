@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025083"
 ---
 # <a name="azure-network-connections-overview"></a>Visão geral das ligações da rede Azure
@@ -61,7 +61,7 @@ A ligação à rede CloudSimple a partir da rede no local e da rede virtual Azur
 * CloudSimple **não** anunciará rota padrão para as ligações ExpressRoute
 * Se o seu router no local anunciar a rota padrão, o tráfego da rede CloudSimple e da rede virtual Azure utilizará a rota padrão anunciada.  Como resultado, as máquinas virtuais em Azure não podem ser acedidas usando endereços IP públicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue a rede virtual Azure à CloudSimple usando o ExpressRoute](virtual-network-connection.md)
 * [Ligue-se de instalações para CloudSimple usando ExpressRoute](on-premises-connection.md)

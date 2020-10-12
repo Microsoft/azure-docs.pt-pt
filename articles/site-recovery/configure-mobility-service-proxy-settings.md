@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133224"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Configurar configurações de procuração do serviço de mobilidade para a recuperação de desastres de Azure
@@ -54,5 +54,5 @@ Neste caso, o cliente fornece configurações personalizadas de procuração de 
 ProxyInfo.conf contém o seguinte modelo [proxy] Endereço= http://1.2.3.4 Port=5678 BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. O BypassList não suporta wildcards como '*.windows.net', mas dar windows.net é bom o suficiente para contornar. 
 
 ## <a name="next-steps"></a>Passos seguintes:
-- Leia [orientação de rede](./azure-to-azure-about-networking.md) para replicar VMs Azure.
+- Leia [orientação de rede](./azure-to-azure-about-networking.md)  para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).

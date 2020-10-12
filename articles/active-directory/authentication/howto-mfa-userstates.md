@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1b1ff8a54037392ac01402056ada0f3040dbd123
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068937"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
@@ -44,8 +44,8 @@ O estado de um utilizador reflete se um administrador os inscreveu na autentica�
 | Estado | Descrição | Autenticação do legado afetada | Aplicativos de navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
 | Desativado | O estado predefinido para um utilizador não inscrito na Autenticação Multi-Factor Azure por utilizador. | Não | Não | Não |
-| Ativado | O utilizador está inscrito na Autenticação Multi-Factor Azure por utilizador, mas ainda pode utilizar a sua palavra-passe para autenticação antiga. Se o utilizador ainda não tiver registado métodos de autenticação MFA, receberá um pedido para registar a próxima vez que iniciar a sua inscrição na autenticação moderna (por exemplo, através de um navegador web). | Não. A autenticação do legado continua a funcionar até que o processo de registo esteja concluído. | Yes. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Yes. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
-| Imposto | O utilizador está inscrito por utilizador na Autenticação Multi-Factor Azure. Se o utilizador ainda não tiver registado métodos de autenticação, receberá um pedido para registar a próxima vez que iniciar a sua inscrição na autenticação moderna (por exemplo, através de um navegador web). Os utilizadores que completem o registo durante o estado *Ativado* são automaticamente transferidos para o estado *forçado.* | Yes. As aplicações requerem senhas de aplicação. | Yes. A autenticação multi-factor Azure é necessária no início de sação. | Yes. A autenticação multi-factor Azure é necessária no início de sação. |
+| Ativado | O utilizador está inscrito na Autenticação Multi-Factor Azure por utilizador, mas ainda pode utilizar a sua palavra-passe para autenticação antiga. Se o utilizador ainda não tiver registado métodos de autenticação MFA, receberá um pedido para registar a próxima vez que iniciar a sua inscrição na autenticação moderna (por exemplo, através de um navegador web). | N.º A autenticação do legado continua a funcionar até que o processo de registo esteja concluído. | Sim. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Sim. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
+| Imposto | O utilizador está inscrito por utilizador na Autenticação Multi-Factor Azure. Se o utilizador ainda não tiver registado métodos de autenticação, receberá um pedido para registar a próxima vez que iniciar a sua inscrição na autenticação moderna (por exemplo, através de um navegador web). Os utilizadores que completem o registo durante o estado *Ativado* são automaticamente transferidos para o estado *forçado.* | Sim. As aplicações requerem senhas de aplicação. | Sim. A autenticação multi-factor Azure é necessária no início de sação. | Sim. A autenticação multi-factor Azure é necessária no início de sação. |
 
 Todos os utilizadores começam *desativados.* Quando inscreve os utilizadores na autenticação multi-factor Azure por utilizador, o seu estado muda para *Enabled*. Quando os utilizadores ativados iniciaram o seu registo e completam o processo de registo, as alterações de estado para *Aplicadas*. Os administradores podem deslocar os utilizadores entre estados, incluindo de *Forçados* a *Ativados* ou *Deficientes*.
 

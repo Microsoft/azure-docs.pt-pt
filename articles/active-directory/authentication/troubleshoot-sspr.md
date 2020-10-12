@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a02d46688fa49401684f836a7c289906affb413
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030026"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefinição de senha no Azure Ative Directory
@@ -144,6 +144,6 @@ Para ajudá-lo corretamente, pedimos que forneça o máximo de detalhes possíve
 * **Licenciamento**: O utilizador tem uma licença AD Azure atribuída?
 * **Registo do evento**de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a SSPR, veja [como funciona: Azure AD autosserviço de autosserviço reset](concept-sspr-howitworks.md) ou [Como é que a palavra-passe de autosserviço repõe o funcionamento em Azure AD?](concept-sspr-writeback.md)
