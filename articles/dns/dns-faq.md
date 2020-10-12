@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77121717"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
@@ -68,25 +68,25 @@ O Azure DNS suporta apenas o hospedagem de domínios DNS estáticos, onde cada c
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>O Azure DNS suporta o registo do nome de domínio?
 
-Não. A Azure DNS não suporta atualmente a opção de comprar nomes de domínio. Para comprar domínios, deve utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
+N.º A Azure DNS não suporta atualmente a opção de comprar nomes de domínio. Para comprar domínios, deve utilizar um registo de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados no Azure DNS para a gestão dos registos DNS. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
 
 A funcionalidade de compra de nomes de domínio é rastreada no atraso do Azure. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-dnssec"></a>O Azure DNS suporta o DNSSEC?
 
-Não. O Azure DNS não suporta atualmente as extensões de segurança do sistema de nome de domínio (DNSSEC).
+N.º O Azure DNS não suporta atualmente as extensões de segurança do sistema de nome de domínio (DNSSEC).
 
 A função DNSSEC é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>O Azure DNS suporta transferências de zona (AXFR/IXFR)?
 
-Não. O Azure DNS não suporta transferências de zona. As zonas de DNS podem ser [importadas para O Azure DNS utilizando o Azure CLI](dns-import-export.md). Os registos DNS são geridos através do [portal de gestão Azure DNS](dns-operations-recordsets-portal.md), [REST API,](https://docs.microsoft.com/powershell/module/az.dns) [SDK,](dns-sdk.md) [PowerShell cmdlets,](dns-operations-recordsets.md)ou a [ferramenta CLI](dns-operations-recordsets-cli.md).
+N.º O Azure DNS não suporta transferências de zona. As zonas de DNS podem ser [importadas para O Azure DNS utilizando o Azure CLI](dns-import-export.md). Os registos DNS são geridos através do [portal de gestão Azure DNS](dns-operations-recordsets-portal.md), [REST API,](https://docs.microsoft.com/powershell/module/az.dns) [SDK,](dns-sdk.md) [PowerShell cmdlets,](dns-operations-recordsets.md)ou a [ferramenta CLI](dns-operations-recordsets-cli.md).
 
 A função de transferência de zona é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>O Azure DNS suporta redirecionamentos de URL?
 
-Não. Os serviços de redirecionamento de URL não são um serviço DNS. Funcionam ao nível HTTP e não ao nível DNS. Alguns fornecedores de DNS agregam um serviço de redirecionamento de URL como parte da sua oferta global. Este serviço não é atualmente suportado pelo Azure DNS.
+N.º Os serviços de redirecionamento de URL não são um serviço DNS. Funcionam ao nível HTTP e não ao nível DNS. Alguns fornecedores de DNS agregam um serviço de redirecionamento de URL como parte da sua oferta global. Este serviço não é atualmente suportado pelo Azure DNS.
 
 A função de redirecionamento de URL é rastreada no atraso do Azure DNS. Utilize o site de comentários para [registar o seu suporte para esta função](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
@@ -195,7 +195,7 @@ Os nomes de domínio internacionalizados (IDNs) codificam cada nome DNS utilizan
 
 Para configurar iDNs em DNS Azure, converta o nome da zona ou o nome do conjunto de registos para o código punycode. O Azure DNS não suporta atualmente a conversão incorporada para ou a partir de um código de punycode.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure DNS](dns-overview.md).
 

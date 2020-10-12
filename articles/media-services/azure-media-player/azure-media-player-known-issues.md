@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
 ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87043617"
 ---
 # <a name="known-issues"></a>Problemas Conhecidos #

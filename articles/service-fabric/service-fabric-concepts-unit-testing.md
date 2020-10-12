@@ -4,10 +4,10 @@ description: Conheça os conceitos e práticas de serviço de teste de unidade S
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75433918"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade de teste de serviços estatais em Tecido de Serviço
@@ -111,5 +111,5 @@ Processos de longa duração ou assíncronos que devem ser encerrados quando um 
 #### <a name="verify-which-replicas-should-serve-requests"></a>Verifique quais réplicas devem servir pedidos
 Os testes devem afirmar o comportamento esperado se um pedido for encaminhado para uma réplica não primária. O Service Fabric fornece a capacidade de ter réplicas secundárias que servem pedidos. No entanto, as gravações para coleções fiáveis só podem ocorrer a partir da réplica primária. Se a sua aplicação pretender apenas réplicas primárias para servir pedidos ou, apenas um subconjunto de pedidos pode ser tratado por um secundário, então os testes devem afirmar o comportamento esperado tanto para os casos positivos como negativos. O caso negativo sendo um pedido é encaminhado para uma réplica que não deve lidar com o pedido e, sendo o positivo o oposto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [equipar os serviços estatais de teste](service-fabric-how-to-unit-test-stateful-services.md).

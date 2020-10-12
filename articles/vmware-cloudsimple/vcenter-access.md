@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 18d9463bc512257034860e1188372879524924f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77022669"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>Aceda ao seu portal Private Cloud vCenter
 
 Pode lançar o seu portal Private Cloud vCenter a partir do portal Azure ou do portal CloudSimple.  o portal vCenter permite-lhe gerir a infraestrutura VMware na sua Nuvem Privada.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A ligação à rede tem de ser estabelecida e a resolução do nome DNS deve ser ativada para aceder ao portal vCenter.  Pode estabelecer a ligação de rede à sua Nuvem Privada utilizando qualquer uma das opções abaixo.
 
@@ -64,7 +64,7 @@ Pode lançar o portal vCenter da sua Cloud Privada a partir do portal CloudSimpl
 
     ![Lançamento vSphere Cliente - Resumo](media/cloudsimple-resources-summary-launch-vcenter.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie e gere VLANs/sub-redes para as suas Nuvens Privadas](create-vlan-subnet.md)
 * [CloudSimple Modelo de permissão em nuvem privada de VMware vCenter](learn-private-cloud-permissions.md)

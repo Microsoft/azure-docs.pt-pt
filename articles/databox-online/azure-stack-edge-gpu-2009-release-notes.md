@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460480"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack Edge Pro com notas de lançamento gpu Geral Availability (GA)
@@ -35,7 +35,7 @@ As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Ed
 
 A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo Azure Stack Edge Pro.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 |**1.**|Funcionalidades de pré-visualização |Para esta versão GA, as seguintes funcionalidades: Local Azure Resource Manager, VMs, Kubernetes, Azure Arc habilitado a Kubernetes, serviço multi-processo (MPS) para GPU - estão todas disponíveis na pré-visualização do seu dispositivo Azure Stack Edge Pro.  |Estas funcionalidades estarão geralmente disponíveis num lançamento posterior. |
 | **2.** |Azure Stack Edge Pro + Azure SQL | A criação da base de dados SQL requer acesso ao Administrador.   |Faça os seguintes passos em vez dos passos 1-2 em [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Na UI local do seu dispositivo, ative a interface compute. **Selecione Compute > Port # > Ative para calcular > Apply.**</li><li>Faça o download `sqlcmd` na sua máquina de clientes a partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Ligue-se ao endereço IP da interface de computação (a porta que estava ativada), adicionando um "1401" ao final do endereço.</li><li>O comando final será assim: sqlcmd -S {Interface IP},1401 -U SA -P "Forte! Passw0rd".</li>Depois disso, os passos 3-4 da documentação atual devem ser idênticos. </li></ul> |
@@ -63,7 +63,7 @@ A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo A
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Prepare-se para implementar o dispositivo Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-prep.md)
 

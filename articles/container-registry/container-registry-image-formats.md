@@ -4,10 +4,10 @@ description: Conheça os formatos de conteúdo suportados pelo Registo de Conten
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84695271"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo suportados no Registo de Contentores Azure
@@ -32,11 +32,11 @@ O Registo de Contentores Azure suporta a [Especificação de Distribuição do O
 
 Para saber mais sobre os artefactos do OCI, consulte o Registo de [OCI como repo de armazenamento (ORAS)](https://github.com/deislabs/oras) e os [artefactos OCI](https://github.com/opencontainers/artifacts) repo no GitHub.
 
-## <a name="helm-charts"></a>Gráficos de leme
+## <a name="helm-charts"></a>Gráficos Helm
 
 O Registo de Contentores Azure pode acolher repositórios para [gráficos Helm,](https://helm.sh/)um formato de embalagem usado para gerir e implementar rapidamente aplicações para Kubernetes. [A](https://docs.helm.sh/using_helm/#installing-helm) versão do cliente helm 2 (2.11.0 ou mais tarde) é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja como [empurrar e puxar](container-registry-get-started-docker-cli.md) imagens com o Registo do Contentor Azure.
 

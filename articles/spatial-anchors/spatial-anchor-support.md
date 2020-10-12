@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74276977"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opções de suporte de âncoras espaciais Azure
@@ -48,6 +48,6 @@ Na parte inferior de cada artigo de conteúdo, há uma oportunidade de abrir um 
 
 Para fornecer feedback, partilhe uma ideia ou sugestão para o serviço Azure Spatial Anchors, ou vote nas ideias que outros apresentaram, visite o [Azure Spatial Anchors Feedback Forum](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para perguntas frequentes sobre âncoras espaciais Azure, consulte a página [de PERGUNTAS Frequentes.](spatial-anchor-faq.md)

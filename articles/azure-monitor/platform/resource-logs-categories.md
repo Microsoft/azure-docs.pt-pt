@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318305"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias suportadas para Registos de Recursos Azure
@@ -169,7 +169,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |dbfs|Sistema de Ficheiros do Databricks|
 |instâncias|Piscinas de Exemplo|
 |empregos|Databricks Jobs|
-|caderno|Databricks Notebook|
+|bloco de notas|Databricks Notebook|
 |segredos|Segredos databricks|
 |sqlPermissions|Databricks SQLPermissions|
 |ssh|Databricks SSH|
@@ -255,7 +255,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |Check Point|Check Point|
 |Ligação|Ligação|
 |Erro|Erro|
-|Registro hospedeiro|Registro hospedeiro|
+|HostRegistration|HostRegistration|
 |Gestão|Gestão|
 
 
@@ -347,7 +347,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |---|---|
 |ArchiveLogs|Registos de Arquivo|
 |AutoScaleLogs|Registos de escala automática|
-|CustomerManagedKeyUserLogs|Registos-chave geridos pelo cliente|
+|CustomerManagedKeyUserLogs|Customer-Managed registos de chaves|
 |EventHubVNetConnectionEvent|Registos de ligação de filtragem VNet/IP|
 |KafkaCoordinatorLogs|Registos do Coordenador kafka|
 |KafkaUserErrorLogs|Registos de erro do utilizador kafka|
@@ -709,7 +709,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |ScanLogs|Troncos de varredura antivírus|
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre registos de recursos](./platform-logs-overview.md)
 * [Fluxo de registos de recursos para **Centros de Eventos**](./resource-logs.md#send-to-azure-event-hubs)

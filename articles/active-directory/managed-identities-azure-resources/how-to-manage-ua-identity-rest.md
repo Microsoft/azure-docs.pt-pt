@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969403"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador usando chamadas REST API
@@ -74,13 +74,13 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        |
 
 **Corpo de pedido**
 
 |Nome  |Descrição  |
 |---------|---------|
-|localização     | Necessário. Localização de recursos.        |
+|localização     | Obrigatório. Localização de recursos.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador
 
@@ -97,7 +97,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuída pelo utilizador
 
@@ -117,7 +117,7 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
-|*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido.        |
 
 ## <a name="next-steps"></a>Passos seguintes
 

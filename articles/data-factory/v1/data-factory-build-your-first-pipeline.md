@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75966080"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Construa o seu primeiro oleoduto para transformar dados usando o cluster Hadoop
@@ -82,7 +82,7 @@ Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 1. **Subscrição do Azure** - Se não tiver uma subscrição do Azure, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja o artigo [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre como poderá obter uma conta de avaliação gratuita.
 2. **Armazenamento do Azure** – Utilize uma conta de armazenamento do Azure para armazenar os dados deste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, anote o **nome** da conta e **a chave de acesso**. Para obter informações sobre como recuperar as chaves de acesso à conta de armazenamento, consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 3. Faça o download e reveja o ficheiro de consulta da Hive **(HQL)** localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql) . Esta consulta transforma dados de entrada para produzir dados de saída.
-4. Faça o download e reveja o ficheiro de entrada de amostra **(input.log)** localizado em:[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+4. Faça o download e reveja o ficheiro de entrada de amostra **(input.log)** localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crie um recipiente blob chamado **adfgetstared** no seu Azure Blob Storage.
 6. Faça o upload do ficheiro **partitionweblogs.hql** para a pasta de **scripts** no recipiente **adfgetstarted.** Utilize ferramentas como o [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 7. Faça o upload do ficheiro **input.log** para a pasta **de dados de entrada** no recipiente **adfgetstarted.**

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315784"
 ---
 # <a name="bring-your-own-key-specification"></a>Especificação Traga a sua própria chave
@@ -31,7 +31,7 @@ Seguem-se os requisitos:
 
 ## <a name="terminology"></a>Terminologia
 
-|Nome chave|Tipo chave|Origem|Description|
+|Nome chave|Tipo chave|Origem|Descrição|
 |---|---|---|---|
 |Chave de troca (KEK)|RSA|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure
 Chave de embrulho|AES|Fornecedor HSM|Uma chave AES [efémera] gerada pelo HSM on-prem

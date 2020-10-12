@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332989"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Melhores práticas da Sincronização de Dados SQL do Azure 
@@ -41,7 +41,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Contas de base de dados com privilégios menos necessários
 
--   **Para a configuração da sincronização**. Criar/Alterar Tabela; Alterar Base de Dados; Criar Procedimento; Selecione/ Alter Schema; Criar tipo definido pelo utilizador.
+-   **Para a configuração da sincronização**. Criar/Alterar Tabela; Alterar Base de Dados; Criar Procedimento; Selecione/ Alter Schema; Criar User-Defined Tipo.
 
 -   **Para sincronização em curso**. Selecione/ Insira/Atualização/ Elimine as tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de rastreio; Executar permissão sobre procedimentos armazenados criados pelo serviço; Execute a permissão nos tipos de tabela definidos pelo utilizador.
 

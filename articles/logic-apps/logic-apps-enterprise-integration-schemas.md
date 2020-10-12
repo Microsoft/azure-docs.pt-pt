@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75979368"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas em Azure Logic Apps com Enterprise Integration Pack
@@ -184,7 +184,7 @@ Para atualizar um esquema existente, tem de carregar um novo ficheiro de esquema
 
 1. Para confirmar que pretende eliminar o esquema, escolha **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o Pacote de Integração Empresarial](logic-apps-enterprise-integration-overview.md)
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md)

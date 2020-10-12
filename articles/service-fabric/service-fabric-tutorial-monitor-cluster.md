@@ -7,17 +7,17 @@ ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020121"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorize um cluster de tecido de serviço em Azure
 
 A monitorização e os diagnósticos são fundamentais para o desenvolvimento, teste e implantação de cargas de trabalho em qualquer ambiente em nuvem. Este tutorial é a segunda parte de uma série, e mostra-lhe como monitorizar e diagnosticar um cluster de Tecidos de Serviço usando eventos, contadores de desempenho e relatórios de saúde.   Para mais informações, leia a visão geral sobre [a monitorização do cluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) e a [monitorização das infraestruturas.](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ver eventos de Tecido de Serviço

@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88041532"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful numa política personalizada do Azure Ative Directory B2C
@@ -60,7 +60,7 @@ Para enviar uma carga complexa json:
 1. Construa a sua carga útil JSON com a transformação de reclamações [de GenerateJson.](json-transformations.md)
 1. No perfil técnico da API REST:
     1. Adicione uma transformação de reclamações de entrada com uma referência à transformação de `GenerateJson` sinistros.
-    1. Descodem a `SendClaimsIn` opção de metadados para`body`
+    1. Descodem a `SendClaimsIn` opção de metadados para `body`
     1. Desaver a `ClaimUsedForRequestPayload` opção de metadados para o nome da reclamação que contém a carga útil JSON.
     1. Na reclamação de entrada, adicione uma referência à reclamação de entrada que contém a carga útil JSON.
 

@@ -7,10 +7,10 @@ ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435614"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceda ao Azure Storage como uma partilha de rede a partir de um contentor no Serviço de Aplicações
@@ -114,7 +114,7 @@ Uma vez que a partilha esteja ligada à aplicação, pode verificar isso executa
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ::: zone pivot="container-windows"
 

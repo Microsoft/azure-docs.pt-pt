@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312911"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Caixa de configuração para o provisionamento automático do utilizador
@@ -79,7 +79,7 @@ Se o provisionamento automático estiver ativado, os utilizadores e/ou grupos de
  * Se os objetos de grupo foram configurados para serem provisionados, então todos os objetos de grupo atribuídos são a provisionados para a Box, e todos os utilizadores que são membros desses grupos. O grupo e os membros do utilizador são preservados ao serem escritos para a Box.
 
 > [!TIP] 
-> Pode também optar por ativar o Sign-On Único baseado em SAML, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
+> Pode também optar por ativar Sign-On única baseada em SAML para caixa, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Para configurar o provisionamento automático da conta de utilizador:
 

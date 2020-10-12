@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331017"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenha pontos finais de ligação e forme cordas de conexão para o seu grupo de servidor de hiperescala pós-escala pós-escala ativado pelo Arco
@@ -62,7 +62,7 @@ Devolve uma saída como:
 ```
 Utilize estes pontos finais para:
 - Forme as suas cordas de ligação e conecte-se com as ferramentas ou aplicações do seu cliente
-- Aceda aos dashboards Grafana e Kibana a partir do seu navegador
+- Aceder aos dashboards do Grafana e Kibana a partir do browser
 
 Por exemplo, pode utilizar o ponto final chamado _PostgreSQL Instance_ para se conectar com o psql ao seu grupo de servidor. Por exemplo:
 ```console

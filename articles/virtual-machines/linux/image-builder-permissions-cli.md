@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068237"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configure permissões do Serviço de Construtores de Imagem Azure usando O Azure CLI
@@ -234,7 +234,7 @@ Substitua as seguintes definições de espaço reservado:
 | \<Storage account container\> | Nome do contentor da conta de armazenamento |
 | \<Subscription ID\> | Subscrição do Azure |
 
-Para obter mais informações utilizando uma identidade gerida atribuída ao utilizador, consulte a [Criação de uma Imagem Personalizada que utilizará uma Identidade Gerida atribuída ao utilizador Azure para aceder de forma aparente aos ficheiros Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). O quickstart percorre como criar e configurar a identidade gerida atribuída pelo utilizador para aceder a uma conta de armazenamento.
+Para obter mais informações utilizando uma identidade gerida atribuída ao utilizador, consulte a [Criação de uma Imagem Personalizada que utilizará um Azure User-Assigned Identidade Gerida para aceder de forma aparente aos ficheiros Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). O quickstart percorre como criar e configurar a identidade gerida atribuída pelo utilizador para aceder a uma conta de armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

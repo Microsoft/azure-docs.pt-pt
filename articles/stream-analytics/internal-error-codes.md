@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 9dc3d873ddfef9a729f583cd914ca4700d562ff3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045234"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Códigos de erro internos Azure Stream Analytics
@@ -22,7 +22,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 * **Causa:** O tamanho do lote usado para escrever para Cosmos DB é muito grande. 
 * **Recomendação**: Reda parada com um tamanho de lote menor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas em ligações de entrada](stream-analytics-troubleshoot-input.md)
 * [Resolução de problemas Saídas Azure Stream Analytics](stream-analytics-troubleshoot-output.md)
