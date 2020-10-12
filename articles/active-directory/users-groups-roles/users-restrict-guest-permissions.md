@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055219"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
@@ -103,7 +103,7 @@ Resposta de exemplo:
 
 Com esta funcionalidade, adicionámos a capacidade de configurar as permissões restritas através de cmdlets PowerShell v2. Os cmdlets Get e set PowerShell foram publicados na versão 2.0.2.85.
 
-### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Obtenha comando: Get-AzureADMSAuthorizationPolicy
+### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Obtenha o comando: Get-AzureADMSAuthorizationPolicy
 
 Exemplo:
 
@@ -119,7 +119,7 @@ GuestUserRoleId                                   : 10dae51f-b6af-4016-8d66-8c2a
 PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 ````
 
-### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Conjunto de comando: Set-AzureADMSAuthorizationPolicy
+### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Definir comando: Set-AzureADMSAuthorizationPolicy
 
 Exemplo:
 
@@ -150,19 +150,19 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
 
 Pergunta | Resposta
 -------- | ------
 Onde se aplicam estas permissões? | Estas permissões de nível de diretório são aplicadas em todos os serviços e portais AZure AD, incluindo o Microsoft Graph, PowerShell v2, o portal Azure e o portal My Apps. Os serviços da Microsoft 365 que aproveitam os grupos microsoft 365 para cenários de colaboração também são afetados, nomeadamente o Outlook, Microsoft Teams e SharePoint.
 Que partes do portal My Apps irá afetar esta funcionalidade? | A funcionalidade dos grupos no portal My Apps irá homenagear estas novas permissões. Isto inclui todos os caminhos para ver a lista de grupos e membros do grupo nas Minhas Apps. Não foram feitas alterações à disponibilidade de azulejos do grupo. A disponibilidade de azulejos de grupo ainda é controlada pela configuração do grupo existente no portal de administração Azure.
-Estas permissões substituem as definições de hóspedes do SharePoint ou da Microsoft Teams? | Não. As definições existentes ainda controlam a experiência e o acesso nessas aplicações. Por exemplo, se vir problemas no SharePoint, verifique duas vezes as definições de partilha externa.
+Estas permissões substituem as definições de hóspedes do SharePoint ou da Microsoft Teams? | N.º As definições existentes ainda controlam a experiência e o acesso nessas aplicações. Por exemplo, se vir problemas no SharePoint, verifique duas vezes as definições de partilha externa.
 Quais são os problemas de compatibilidade conhecidos no Planner e no Yammer? | <li>Com permissões definidas para 'restrito', os hóspedes que iniciaram sessão na aplicação Planner ou que acedam ao Planner em Microsoft Teams não poderão aceder aos seus planos ou a quaisquer tarefas.<li>Com permissões definidas para 'restrito', os hóspedes que entrarem em Yammer não poderão sair do grupo.
 As minhas permissões de hóspedes existentes serão alteradas no meu inquilino? | Não foram efetuadas alterações nas definições atuais. Mantemos a retrocompatibilidade com as definições existentes. Decide quando quer fazer mudanças.
-Estas permissões serão definidas por defeito? | Não. As permissões por defeito existentes permanecem inalteradas. Pode configurar opcionalmente as permissões para serem mais restritivas.
+Estas permissões serão definidas por defeito? | N.º As permissões por defeito existentes permanecem inalteradas. Pode configurar opcionalmente as permissões para serem mais restritivas.
 Existem requisitos de licença para esta funcionalidade? | Não, não há novos requisitos de licenciamento com esta funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as permissões existentes no Azure AD, veja [quais são as permissões padrão do utilizador no Azure Ative Directory?](../fundamentals/users-default-permissions.md)
 - Para ver os métodos da Microsoft Graph API para restringir o acesso dos hóspedes, consulte [o tipo de recurso de autorização](/graph/api/resources/authorizationpolicy).

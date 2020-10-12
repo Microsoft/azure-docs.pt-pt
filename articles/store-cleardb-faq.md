@@ -13,10 +13,10 @@ ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
 ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196073"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ para bases de dados ClearDB MySql com Serviço de Aplicações Azure
@@ -75,7 +75,7 @@ Se criou uma base de dados ClearDB em clássico, não poderá ver a sua base de 
 Contacte [o suporte da ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer questões relacionadas com a base de dados. Esteja preparado para fornecer-lhes as informações de subscrição do Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Posso criar utilizadores adicionais para a minha solução de cluster de base de dados ClearDB MySQL?
-Não. Não é possível criar utilizadores adicionais, mas pode criar bases de dados adicionais no seu cluster de base de dados ClearDB.  
+N.º Não é possível criar utilizadores adicionais, mas pode criar bases de dados adicionais no seu cluster de base de dados ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>As bases de dados básicas/pro podem ser atualizadas no local semelhantes aos planos planetários de hoje no portal ClearDB?
 Sim, as bases de dados de séries básicas podem ser atualizadas no local (Basic 60 a Basic 500). A série Pro pode ser atualizada no local (Pro 125 através pro 1000) exceto no Pro 60. Não apoiamos atualmente a atualização da base de dados Pro 60. 

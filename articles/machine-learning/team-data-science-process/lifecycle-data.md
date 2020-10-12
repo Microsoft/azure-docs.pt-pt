@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195074"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de aquisição e compreensão de dados do Processo de Ciência de Dados da Equipa
@@ -70,7 +70,7 @@ Seguem-se os resultados nesta fase:
    * **Arquitetura de solução**: A arquitetura da solução pode ser um diagrama ou descrição do seu pipeline de dados que utiliza para executar pontuação ou previsões em novos dados depois de ter construído um modelo. Também contém o pipeline para reconverter o seu modelo com base em novos dados. Guarde o documento no diretório do [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando utilizar o modelo de estrutura do diretório TDSP.
    * **Decisão do checkpoint**: Antes de iniciar a engenharia e a construção de modelos completos, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a prossegui-lo. Pode, por exemplo, estar pronto para prosseguir, precisar de recolher mais dados, ou abandonar o projeto, uma vez que os dados não existem para responder à pergunta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 

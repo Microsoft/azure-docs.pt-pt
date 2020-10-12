@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025270"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configure uma ligação de alta disponibilidade desde as instalações até ao gateway VPN cloudSimple
@@ -21,7 +21,7 @@ Os administradores de rede podem configurar uma ligação VPN site-to-site de al
 
 Este guia apresenta passos para configurar uma firewall no local para uma ligação de alta disponibilidade do IPsec Site-to-Site. Os passos detalhados são específicos do tipo de firewall no local. Como exemplos, este guia apresenta passos para dois tipos de firewalls: Cisco ASA e Palo Alto Networks.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Complete as seguintes tarefas antes de configurar a firewall no local.
 
@@ -44,7 +44,7 @@ Para ativar a fase 1 (IKEv1) na interface externa, insira o seguinte comando CLI
 
 ### <a name="2-create-an-ikev1-policy"></a>2. Criar uma política IKEv1
 
-Crie uma política IKEv1 que defina os algoritmos e métodos a serem usados para hashing, autenticação, grupo Diffie-Hellman, vida útil e encriptação.
+Crie uma política IKEv1 que defina os algoritmos e métodos a serem usados para hashing, autenticação, Diffie-Hellman grupo, vida útil e encriptação.
 
 ```
 crypto ikev1 policy 1
@@ -141,7 +141,7 @@ Saída da fase 2:
 
 ## <a name="configure-on-premises-palo-alto-networks-firewall"></a>Configurar no local firewall Palo Alto Networks
 
-As instruções desta secção aplicam-se à versão 7.1 da Palo Alto Networks e posteriormente. Neste exemplo de configuração, palo Alto Networks VM-Series Software Version 8.1.0 é implantado e configurado no modo IKEv1.
+As instruções desta secção aplicam-se à versão 7.1 da Palo Alto Networks e posteriormente. Neste exemplo de configuração, palo Alto Networks VM-Series Versão de Software 8.1.0 é implantado e configurado no modo IKEv1.
 
 Para que a VPN local funcione, deve permitir o UDP 500/4500 e ESP (protocolo IP 50) a partir do IP público primário e secundário cloudSimple (PEER IP) na interface externa do gateway palo Alto Networks.
 
@@ -167,7 +167,7 @@ Selecione Routers virtuais **de rede**  >  **Virtual Routers**  >  *predefinidos
 * O nome. Insira qualquer nome para uma identificação fácil da finalidade da rota.
 * Destino, destino. Especificar as sub-redes de nuvem privada CloudSimple a serem alcançadas através de interfaces de túneis S2S a partir do local
 * A interface. Selecione a interface do túnel primário criada no passo 1 (Secção-2) a partir do dropdown. Neste exemplo, é o túnel.20.
-* Próximo salto. selecione **Nenhuma**.
+* Próximo salto. Selecione **Nenhuma**.
 * Distância Admin. Mantenha a predefinição.
 * Métrica. Introduza qualquer valor de 1 a 65535. A chave é introduzir uma métrica mais baixa para a rota correspondente à interface do túnel primário em comparação com a interface de túnel secundário correspondente, tornando a rota anterior preferida. Se o túnel.20 tiver um valor métrico de 20 em oposição a um valor métrico de 30 para o túnel.30, o túnel.20 é preferido.
 * Mesa de Rota. Mantenha a predefinição.
@@ -266,7 +266,7 @@ Separador geral:
 Separador de IDs Proxy: Clique **em IPv4**  >  **Adicione** e configuure o seguinte:
 
 * Identificação por procuração. Insira qualquer nome para o tráfego interessante. Pode haver várias identificações de Proxy dentro de um túnel IPsec.
-* Local. Especifique as sub-redes locais no local que são autorizadas a comunicar com sub-redes Private Cloud sobre a VPN Site-to-Site.
+* É local. Especifique as sub-redes locais no local que são autorizadas a comunicar com sub-redes Private Cloud sobre a VPN Site-to-Site.
 * É remoto. Especifique as sub-redes remotas Private Cloud que são autorizadas a comunicar com as sub-redes locais.
 * O protocolo. Selecione **qualquer**.
 

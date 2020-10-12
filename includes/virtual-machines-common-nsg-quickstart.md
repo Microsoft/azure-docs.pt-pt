@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184229"
 ---
 Abre uma porta, ou cria um ponto final, para uma máquina virtual (VM) em Azure, criando um filtro de rede numa sub-rede ou numa interface de rede VM. Coloca-se estes filtros, que controlam o tráfego de entrada e saída, num grupo de segurança de rede ligado ao recurso que recebe o tráfego.
@@ -21,7 +21,7 @@ O exemplo neste artigo demonstra como criar um filtro de rede que utiliza a port
 
 Depois de criar um VM configurado para servir pedidos web na porta TCP padrão 80, você pode:
 
-1. Crie um grupo de segurança de rede.
+1. Criar um grupo de segurança de rede.
 
 2. Criar uma regra de segurança de entrada que permite o tráfego e atribuir valores às seguintes definições:
 

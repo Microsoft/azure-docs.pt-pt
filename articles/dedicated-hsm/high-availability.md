@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189856"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicado HSM alta disponibilidade
@@ -38,7 +38,7 @@ Outros tópicos de nível de conceito:
 
 * [Arquitetura de Implantação](deployment-architecture.md)
 * [Segurança Física](physical-security.md)
-* [Rede](networking.md)
+* [Redes](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)
 

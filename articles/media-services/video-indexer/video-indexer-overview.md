@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
 ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052142"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
@@ -116,9 +116,9 @@ Pode aceder às capacidades do Indexador de Vídeo de três formas:
 
 Se estiver a utilizar o website, os insights são adicionados como metadados e são visíveis no portal. Se estiver a utilizar APIs, os insights estão disponíveis como um ficheiro JSON.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os seguintes artigos:
+Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os artigos seguintes:
 
 - [Começa com o site do Video Indexer.](video-indexer-get-started.md)
 - [Processar conteúdo com índice de vídeo REST API](video-indexer-use-apis.md).

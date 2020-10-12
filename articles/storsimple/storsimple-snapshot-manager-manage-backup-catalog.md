@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054998"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Use storSimple Snapshot Manager para gerir o catálogo de backup
@@ -161,7 +161,7 @@ Deve fazer uma essão de apoio regular na base de dados StorSimple Snapshot Mana
 6. Elimine o ficheiro XML do catálogo e substitua-o pela versão de reserva que criou. 
 7. Clique no ícone StorSimple Snapshot Manager para iniciar o StorSimple Snapshot Manager. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a utilização do StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba mais sobre [as tarefas e fluxos de trabalho do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 

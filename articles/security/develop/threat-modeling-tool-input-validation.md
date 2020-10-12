@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89293358"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entradas / Mitigações 
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [IE8 Parte de Segurança V - Proteção Abrangente](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
-| **Passos** | <p>Para cada página que possa conter conteúdo controlável do utilizador, deve utilizar o cabeçalho HTTP `X-Content-Type-Options:nosniff` . Para cumprir este requisito, pode definir o cabeçalho necessário página a página apenas para as páginas que possam conter conteúdo controlável pelo utilizador, ou pode defini-lo globalmente para todas as páginas da aplicação.</p><p>Cada tipo de ficheiro entregue a partir de um servidor web tem um [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) associado (também chamado *de tipo de conteúdo)* que descreve a natureza do conteúdo (isto é, imagem, texto, aplicação, etc.)</p><p>O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que o seu conteúdo não deve ser meifrado por MIME. Este cabeçalho foi concebido para atenuar os ataques mime-sniffing. O suporte para este cabeçalho foi adicionado no Internet Explorer 8 (IE8)</p><p>Apenas os utilizadores do Internet Explorer 8 (IE8) beneficiarão de Opções de Tipo de Conteúdo X. Versões anteriores do Internet Explorer não respeitam atualmente o cabeçalho X-Content-Type-Options</p><p>O Internet Explorer 8 (e mais tarde) são os únicos principais navegadores a implementar uma funcionalidade de opt-out de cheiro mime. Se e quando outros grandes navegadores (Firefox, Safari, Chrome) implementarem funcionalidades semelhantes, esta recomendação será atualizada para incluir sintaxe para esses navegadores também</p>|
+| **Passos** | <p>Para cada página que possa conter conteúdo controlável do utilizador, deve utilizar o cabeçalho HTTP `X-Content-Type-Options:nosniff` . Para cumprir este requisito, pode definir o cabeçalho necessário página a página apenas para as páginas que possam conter conteúdo controlável pelo utilizador, ou pode defini-lo globalmente para todas as páginas da aplicação.</p><p>Cada tipo de ficheiro entregue a partir de um servidor web tem um [tipo MIME](https://en.wikipedia.org/wiki/Mime_type) associado (também chamado *de tipo de conteúdo)* que descreve a natureza do conteúdo (isto é, imagem, texto, aplicação, etc.)</p><p>O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que o seu conteúdo não deve ser meifrado por MIME. Este cabeçalho foi concebido para atenuar MIME-Sniffing ataques. O suporte para este cabeçalho foi adicionado no Internet Explorer 8 (IE8)</p><p>Apenas os utilizadores do Internet Explorer 8 (IE8) beneficiarão de Opções de Tipo de Conteúdo X. Versões anteriores do Internet Explorer não respeitam atualmente o cabeçalho X-Content-Type-Options</p><p>O Internet Explorer 8 (e mais tarde) são os únicos principais navegadores a implementar uma funcionalidade de opt-out de cheiro mime. Se e quando outros grandes navegadores (Firefox, Safari, Chrome) implementarem funcionalidades semelhantes, esta recomendação será atualizada para incluir sintaxe para esses navegadores também</p>|
 
 ### <a name="example"></a>Exemplo
 Para ativar o cabeçalho necessário globalmente para todas as páginas da aplicação, pode fazer uma das seguintes: 

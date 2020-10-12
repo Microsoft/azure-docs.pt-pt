@@ -4,10 +4,10 @@ description: O Azure Service Fabric permite especificar limites de recursos para
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81115136"
 ---
 # <a name="resource-governance"></a>Governação de recursos
@@ -232,7 +232,7 @@ Estes recursos podem ser combinados com CPU e memória. Aqui está um exemplo de
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Cluster Resource Manager, leia [Introdução ao gestor de recursos do cluster de tecido de serviço.](service-fabric-cluster-resource-manager-introduction.md)
 * Para saber mais sobre o modelo de aplicação, pacotes de serviço e pacotes de código -- e como as réplicas mapeam para eles -- leia [modelo uma aplicação em Tecido de Serviço](service-fabric-application-model.md).

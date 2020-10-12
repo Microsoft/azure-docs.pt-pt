@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 91b7c58890518559c046023bd78c9248e9840f9f
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89468754"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Quickstart para Bash em Azure Cloud Shell
@@ -95,7 +95,7 @@ Ao estabelecer a ligação SSH, você deve ver o pedido de boas-vindas Ubuntu. <
    az group delete -n MyRG
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre os ficheiros persistentes para Bash in Cloud Shell](persisting-shell-storage.md) <br>
 [Saiba mais sobre a Azure CLI](/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Ficheiros Azure](../storage/files/storage-files-introduction.md) <br>

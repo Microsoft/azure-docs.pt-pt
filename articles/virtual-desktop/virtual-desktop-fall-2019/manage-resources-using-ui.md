@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462586"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
@@ -48,7 +48,7 @@ Antes de iniciar, certifique-se de que o servidor e as aplicações do cliente t
 
 Siga estas instruções para implementar o modelo de Gestão de Recursos Azure:
 
-1. Aceda à [página GitHub Azure RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+1. Vá à [página de RDS-Templates GitHub Azure](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Implemente o modelo no Azure.
     - Se estiver a implementar uma subscrição da Enterprise, desloque-se para baixo e selecione **Implementar para Azure**.
     - Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estas instruções para implementar no Azure:
@@ -110,6 +110,6 @@ Siga estas instruções para lançar a ferramenta:
 
 Se encontrar problemas com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos [modelos do Gestor de Recursos Azure para serviços de ambiente de trabalho remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para os reportar no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a implantar e conectar-se à ferramenta de gestão, pode aprender a usar o Serviço Azure para monitorizar problemas de serviço e avisos de saúde. Para saber mais, consulte o nosso [serviço de alertas de serviço tutorial.](set-up-service-alerts-2019.md)

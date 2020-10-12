@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77539472"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Resolver problemas de conectividade do Azure Private Link
@@ -109,7 +109,7 @@ Se sentir problemas de conectividade com a configuração do seu link privado, r
 
 1. Contacte a equipa [de Suporte Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se o seu problema ainda não estiver resolvido e ainda existir um problema de conectividade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Criar um serviço de ligação privada (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
  * [Guia de resolução de problemas do Azure Private Endpoint](troubleshoot-private-endpoint-connectivity.md)

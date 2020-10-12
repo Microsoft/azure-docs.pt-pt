@@ -8,10 +8,10 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
 ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033256"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Centro de Parceiros
@@ -101,6 +101,6 @@ Também pode exportar a sua lista de contactos existente de uma oferta e, em seg
 
 * *Estados/Províncias (Opcional):*  Ao preencher o modelo, utilize o formato XX-XX como indicado na [tabela Estados/Províncias](./commercial-marketplace-co-sell-states.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para mais informações, consulte [Vender com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)

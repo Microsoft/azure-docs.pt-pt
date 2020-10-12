@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 633f7f9231e08acdb0e08ee97067d2a469bbdb45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75980181"
 ---
 Pode seguir a [documentação do Azure Resource Manager](../articles/azure-resource-manager/templates/deploy-powershell.md) para implementar o modelo anterior.

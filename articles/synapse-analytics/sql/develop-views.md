@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90032729"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Vistas T-SQL usando O SQL de Sinapse
@@ -77,7 +77,7 @@ As vistas no Synapse SQL são armazenadas apenas como metadados. Consequentement
 * Não há suporte para as dicas EXPAND / NOEXPAND
 * Não existem pontos de vista indexados no SQL de Sinaapse
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
 

@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
 ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323030"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator para Android na nuvem pública na China
@@ -44,18 +44,18 @@ Se um utilizador já ter conseguido configurar a autenticação de entrada de te
 
 ## <a name="multi-factor-authentication-workaround"></a>Solução de autenticação multi-factor
 
-Em vez de utilizarem notificações push para autenticação multi-factor, os utilizadores podem [configurar a sua aplicação Authenticator para receber códigos de verificação](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) no seu dispositivo que podem usar para o MFA para verificar a sua identidade. Estes códigos de verificação são válidos por 30 segundos e para usá-los, os administradores devem permitir ao seu inquilino efetuar a verificação usando códigos de verificação de senha única (TOTP) baseados no tempo.
+Em vez de utilizarem notificações push para autenticação multi-factor, os utilizadores podem [configurar a sua aplicação Authenticator para receber códigos de verificação](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) no seu dispositivo que podem usar para o MFA para verificar a sua identidade. Estes códigos de verificação são válidos por 30 segundos e para usá-los, os administradores devem permitir ao seu inquilino efetuar a verificação usando códigos de verificação de passwords One-Time (TOTP) baseados no tempo.
 
 ## <a name="availability"></a>Disponibilidade
 
 Funcionalidade autenticadora da Microsoft | Disponibilidade na China
 ------------------------------- | ---------------------
-Registo de MFA utilizando notificações push | No
-Conta MFA pré-existente que verifica a identidade usando notificações push | No
-Conta MFA pré-existente que realiza verificação manual de notificações | Yes
-Registo/autenticação de MFA apenas através de códigos TOTP/verificação | Yes
-Registo de inscrição no telefone | No
-Inscrição de telefone existente usando notificações push | No
+Registo de MFA utilizando notificações push | Não
+Conta MFA pré-existente que verifica a identidade usando notificações push | Não
+Conta MFA pré-existente que realiza verificação manual de notificações | Sim
+Registo/autenticação de MFA apenas através de códigos TOTP/verificação | Sim
+Registo de inscrição no telefone | Não
+Inscrição de telefone existente usando notificações push | Não
 Verificação de entrada de telefone existente através da verificação manual dos pedidos de autenticação | Sim
 
 ## <a name="next-steps"></a>Próximos passos

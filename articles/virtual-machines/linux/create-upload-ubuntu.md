@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
 ms.openlocfilehash: 8b34e266214285f6483acca59050780810e62345
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373356"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare an Ubuntu virtual machine for Azure (Preparar uma máquina virtual Ubuntu para o Azure)

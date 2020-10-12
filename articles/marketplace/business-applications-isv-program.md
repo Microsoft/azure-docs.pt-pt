@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
 ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463704"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
@@ -72,7 +72,7 @@ O passo final para a inscrição no programa IsV Connect aplicações empresaria
 > [!IMPORTANT]
 > Precisa de recertificar as suas apps a cada 6 meses para as manter ao vivo no AppSource. Para mais detalhes, consulte a política de [mercado Política de Certificação do Mercado Comercial.](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pergunte ao seu Gestor de Conta ou contacte [o Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) para obter assistência na sua conta. Para obter informações gerais sobre o Programa de Ligação isv de aplicações empresariais, consulte:
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463781"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Criação de regras de firewall IP para permitir o acesso do indexante

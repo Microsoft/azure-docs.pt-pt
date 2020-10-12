@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309820"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Retire imagens de um registo de contentores Azure para um cluster Kubernetes
@@ -74,10 +74,10 @@ spec:
     - name: acr-secret
 ```
 
-No exemplo anterior, `my-awesome-app:v1` é o nome da imagem a retirar do registo do contentor Azure, e `acr-secret` é o nome do segredo de puxar que criou para aceder ao registo. Quando implementa a cápsula, a Kubernetes retira automaticamente a imagem do seu registo, se ainda não estiver presente no cluster.
+No exemplo anterior, `my-awesome-app:v1` é o nome da imagem a retirar do registo do contentor Azure, e  `acr-secret` é o nome do segredo de puxar que criou para aceder ao registo. Quando implementa a cápsula, a Kubernetes retira automaticamente a imagem do seu registo, se ainda não estiver presente no cluster.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o trabalho com os principais serviços e o Registo de Contentores Azure, consulte [a autenticação do Registo de Contentores Azure com os principais serviços](container-registry-auth-service-principal.md)
 * Saiba mais sobre a imagem a puxar segredos na documentação de [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)

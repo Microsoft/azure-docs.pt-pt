@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85601331"
 ---
 # <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Migrar configurações do Azure Firewall para a política do Azure Firewall utilizando o Powershell
@@ -157,6 +157,6 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
     Write-Host "Created NatRuleCollectionGroup "  $natRuleGroup.Name
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a implementação do Azure Firewall Manager: [Visão geral do Azure Firewall Manager](deployment-overview.md).

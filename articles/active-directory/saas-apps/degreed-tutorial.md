@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: b0cc937cae4230d3310b682a51988243f0207fc0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutorial: Integração do Diretório Ativo Azure com Degreed
@@ -71,7 +71,7 @@ Para configurar e testar o Azure AD com Degreed, você precisa completar os segu
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-2. **[Configure SSO acordado](#configure-degreed-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure SSO acordado](#configure-degreed-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Degreed test user](#create-degreed-test-user)** - ter uma contraparte de Britta Simon em Degreed que está ligada à representação AZure AD do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -98,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o identificador e o URL de resposta. Contacte [a equipa de suporte do Cliente Degreed](mailto:admin@degreed.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 

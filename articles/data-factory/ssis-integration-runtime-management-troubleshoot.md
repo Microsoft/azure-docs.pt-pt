@@ -12,10 +12,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86172031"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Resolução de problemas SSIS Integração Gestão de tempo de execução na Azure Data Factory
@@ -78,7 +78,7 @@ Para outros problemas, verifique a Mensagem de erro de exceção do SQL e corrij
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Este tipo de mensagem de erro é assim: "Nome de objeto inválido 'catálogo.catalog_properties'." Nesta situação, ou já tem uma base de dados chamada SSISDB, mas não foi criada pelo SSIS IR, ou a base de dados está num estado inválido que é causado por erros na última provisão do IR SSIS. Pode deixar cair a base de dados existente com o nome SSISDB, ou pode configurar uma nova Base de Dados SQL ou sql Gestd Instance para o IR.
+Este tipo de mensagem de erro parece-se com isto: "Nome de objeto inválido 'catalog.catalog_properties'." Nesta situação, ou já tem uma base de dados chamada SSISDB, mas não foi criada pelo SSIS IR, ou a base de dados está num estado inválido que é causado por erros na última provisão do IR SSIS. Pode deixar cair a base de dados existente com o nome SSISDB, ou pode configurar uma nova Base de Dados SQL ou sql Gestd Instance para o IR.
 
 ## <a name="custom-setup-issues"></a>Problemas de configuração personalizados
 
@@ -192,4 +192,4 @@ O Azure-SSIS IR é atualizado automaticamente regularmente. Novos nós de IR sã
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-Quando pretender trazer os seus próprios endereços IP públicos estáticos, devem ser fornecidos dois endereços IP públicos. Um deles será usado para criar os nós de INFRAVERMELHOs imediatamente e outro será usado durante a atualização do IR. Este erro pode ocorrer quando o outro endereço IP público não é utilizável durante a atualização. Consulte o [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para possíveis causas.
+Quando pretender trazer os seus próprios endereços IP públicos estáticos, devem ser fornecidos dois endereços IP públicos. Um deles será usado para criar os nós de INFRAVERMELHOs imediatamente e outro será usado durante a atualização do IR. Este erro pode ocorrer quando o outro endereço IP público não é utilizável durante a atualização. Consulte o  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para possíveis causas.

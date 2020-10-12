@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972853"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recursos do livro
@@ -102,9 +102,9 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 ## <a name="resource-parameter-options"></a>Opções de parâmetros de recurso
 | Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | O ID de recursos selecionados | _/subscrições/<sub-id>/resourceGroups/<>/fornecedores/fornecedores/<tipo de recursos>/acmeauthentication_ |
+| `{Applications}` | O ID de recursos selecionados | _/subscrições/<sub-id>/resourceGroups/<>/fornecedores/<>do tipo de recursos /acmeauthentication_ |
 | `{Applications:label}` | O rótulo do recurso selecionado | `acmefrontend` |
-| `{Applications:value}` | O valor do recurso selecionado | _«/subscrições/<sub-id>/resourceGroups/<>/fornecedores/fornecedores/<tipo de recursos>/acmeauthentication"_ |
+| `{Applications:value}` | O valor do recurso selecionado | _«/subscrições/<sub-id>/resourceGroups/<>/fornecedores/<>/acmeauthentication do grupo de recursos_ |
 | `{Applications:name}` | O nome do recurso selecionado | `acmefrontend` |
 | `{Applications:resourceGroup}` | O grupo de recursos do recurso selecionado | `acmegroup` |
 | `{Applications:resourceType}` | O tipo de recurso selecionado | _microsoft.insights/componentes_ |

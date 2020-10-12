@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77111762"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Utilize uma identidade gerida pelo Azure em Tarefas ACR 
@@ -84,7 +84,7 @@ Você pode obter o documento de identificação de recursos da identidade execut
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Conceder as permissões de identidade para aceder a outros recursos da Azure
 
-Dependendo dos requisitos da sua tarefa, conceda as permissões de identidade para aceder a outros recursos da Azure. Os exemplos incluem:
+Dependendo dos requisitos da sua tarefa, conceda as permissões de identidade para aceder a outros recursos da Azure. Alguns exemplos:
 
 * Atribua à identidade gerida um papel com puxar, empurrar e puxar, ou outras permissões para um registo de contentores-alvo em Azure. Para obter uma lista completa das funções de registo, consulte [as funções e permissões do Registo do Contentor de Azure](container-registry-roles.md). 
 * Atribua à identidade gerida um papel para ler segredos num cofre de chaves Azure.
@@ -131,7 +131,7 @@ Pode obter a identificação do cliente da identidade, executando o comando [de 
 
 Depois de configurar uma tarefa com uma identidade gerida, executar a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, desencadeie-a manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run] Se configurar gatilhos de tarefas adicionais e automatizados, a tarefa é executada quando ativada automaticamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar e a utilizar uma identidade gerida atribuída pelo utilizador ou atribuída ao sistema numa tarefa ACR. Para cenários de acesso a recursos seguros a partir de uma tarefa ACR utilizando uma identidade gerida, consulte:
 

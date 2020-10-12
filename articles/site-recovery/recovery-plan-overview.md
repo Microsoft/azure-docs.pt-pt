@@ -4,10 +4,10 @@ description: Saiba mais sobre os planos de recuperação na Recuperação do Loc
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343919"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
@@ -91,7 +91,7 @@ Veja um vídeo de exemplo rápido mostrando um failover no clique para um plano 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
 - [Executar](site-recovery-failover.md) os fracassos. 

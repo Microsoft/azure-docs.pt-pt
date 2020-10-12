@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86134847"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>criar recuperação de desastres para uma implementação de Citrix XenApp e XenDesktop de vários níveis
@@ -190,6 +190,6 @@ Siga [esta orientação](site-recovery-test-failover-to-azure.md) para fazer um 
 
 Siga [esta orientação](site-recovery-failover.md) quando estiver a fazer uma falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode [saber mais](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre a replicação de implementações de Citrix XenApp e XenDesktop neste livro branco. Veja a orientação para [replicar outras aplicações](site-recovery-workload.md) utilizando a Recuperação do Site.

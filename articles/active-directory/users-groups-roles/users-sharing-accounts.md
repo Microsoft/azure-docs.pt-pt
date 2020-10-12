@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055168"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
@@ -69,12 +69,12 @@ As funcionalidades AZURE AD que permitem a partilha de conta incluem:
 Para utilizar a Azure AD para partilhar uma conta, tem de:
 
 * Adicione uma [galeria de aplicativos](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) de aplicações ou [aplicação personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Configure o pedido de senha Sign-On único (SSO)
+* Configure o pedido de palavra-passe Single Sign-On (SSO)
 * Use [a atribuição baseada em grupo](groups-saasapps.md) e selecione a opção de introduzir uma credencial partilhada
 
 Também pode tornar a sua conta partilhada mais segura com a Autenticação Multi-Factor (MFA) (saiba mais sobre [a garantia de aplicações com Azure AD)](../authentication/concept-mfa-howitworks.md)e pode delegar a capacidade de gerir quem tem acesso à aplicação utilizando a gestão do grupo [de self-service Azure AD.](groups-self-service-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Proteger aplicativos com acesso condicional](../conditional-access/overview.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052754"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funcionalidades e licenças para autenticação multi-factor Azure
@@ -78,7 +78,7 @@ Se não pretender ativar a autenticação multi-factor Azure para todos os utili
 * Se utilizar uma Conta Microsoft, [registe-se para autenticação multi-factor](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 * Se não estiver a utilizar uma Conta Microsoft, [ligue a autenticação de vários fatores para um utilizador ou grupo em Azure AD](howto-mfa-userstates.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre os custos, consulte [os preços de autenticação multi-factor Azure](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 * [O que é acesso condicional](../conditional-access/overview.md)

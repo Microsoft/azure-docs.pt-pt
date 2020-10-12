@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270445"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
@@ -58,9 +58,9 @@ A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados 
 
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
-conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Yes
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
-firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
+conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
+firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | N.º A predefinição é `true`.
 
 > [!NOTE]
 > 

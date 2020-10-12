@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463644"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Resolução de problemas SINL único sinal de insusição no Azure Ative Directory
@@ -53,7 +53,7 @@ Se os valores não corresponderem aos padrões pré-configurados no Azure AD. Po
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é que eu defini o formato EntityID (User Identifier)
 Não poderá selecionar o formato EntityID (User Identifier) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
 
-A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o protocolo [SEML de assinatura única](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) sob a secção NameIDPolicy,
+A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o artigo [Protocolo de Sign-On SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) de solteiro na secção NameIDPolicy,
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados AD Azure para completar a configuração com a aplicação
 Para descarregar os metadados ou certificados da aplicação a partir da Azure AD, siga estes passos:
@@ -72,5 +72,5 @@ A Azure AD não fornece um URL para obter os metadados. Os metadados só podem s
 ## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar reclamações da SAML enviadas para uma aplicação
 Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)

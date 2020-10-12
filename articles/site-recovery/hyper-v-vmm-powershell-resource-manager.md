@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086222"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastres de Hiper-VMs para um local secundário utilizando o PowerShell (Gestor de Recursos)
@@ -23,7 +23,7 @@ Este artigo mostra como automatizar os passos para a replicação de VMs hiper-V
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Reveja a [arquitetura e os componentes do cenário](hyper-v-vmm-architecture.md).
-- Reveja os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Reveja os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) para todos os componentes.
 - Certifique-se de que os servidores do Gestor de Máquinas Virtuais e os anfitriões Hiper-V cumprem os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md).
 - Verifique se os VMs que pretende replicar cumprem o [suporte replicado da máquina](./vmware-physical-secondary-support-matrix.md).
 

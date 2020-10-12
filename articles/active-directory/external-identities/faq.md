@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274049"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
@@ -30,7 +30,7 @@ Estas perguntas frequentes (FAQs) sobre a colaboração business-to-business (Az
 Sem dúvida! Consulte a nossa [publicação de blog sobre esta funcionalidade.](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/) Para obter mais informações sobre como personalizar a página de insusição da sua organização, consulte [a marca Add company para iniciar sing e as páginas do Painel de Acesso.](../fundamentals/customize-branding.md)
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Os utilizadores de colaboração B2B podem aceder ao SharePoint Online e ao OneDrive?
-Sim. No entanto, a capacidade de procurar utilizadores convidados existentes no SharePoint Online utilizando o picker de pessoas está **desligada** por padrão. Para ligar a opção de pesquisa de utilizadores convidados existentes, desempeciumos **o ShowPeoplePickerSuggestionsForGuestUsers** para **On**. Você pode ligar esta definição ao nível do inquilino ou ao nível de recolha do site. Pode alterar esta definição utilizando os cmdletes Set-SPOTenant e Set-SPOSite. Com estes cmdlets, os membros podem pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SharePoint Online que já foram a provisionados.
+Sim. No entanto, a capacidade de procurar utilizadores convidados existentes no SharePoint Online utilizando o picker de pessoas está **desligada** por padrão. Para ligar a opção de pesquisa de utilizadores convidados existentes, desempeciumos **o ShowPeoplePickerSuggestionsForGuestUsers** para **On**. Você pode ligar esta definição ao nível do inquilino ou ao nível de recolha do site. Pode alterar esta definição utilizando os Set-SPOTenant e Set-SPOSite cmdlets. Com estes cmdlets, os membros podem pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SharePoint Online que já foram a provisionados.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>A funcionalidade de upload do CSV ainda está suportada?
 Sim. Para obter mais informações sobre a utilização da função de upload de ficheiros .csv, consulte [esta amostra PowerShell](code-samples.md).
@@ -118,7 +118,7 @@ Se o parceiro tiver um inquilino AD Azure que é federado para a infraestrutura 
 Estamos a eliminar as diferenças entre a colaboração B2B e o negócio-consumidor (B2C) em termos de apoio de identidades. A identidade utilizada não é uma boa razão para escolher entre usar b2B ou usar B2C. Para obter informações sobre a escolha da sua opção de colaboração, consulte [Compare B2B e B2C no Azure Ative Directory](compare-with-b2c.md).
 
 ### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Uma conta local Azure AD B2C pode ser convidada para um inquilino da AD Azure para colaboração B2B?
-Não. Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
+N.º Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicações e serviços suportam utilizadores convidados Azure B2B?
 Todas as aplicações integradas a Azure podem suportar utilizadores convidados Azure B2B, mas devem usar um ponto final configurado como inquilino para autenticar os utilizadores convidados. Poderá também ser necessário [personalizar as reclamações](claims-mapping.md) no token SAML que é emitido quando um utilizador convidado autentica para a aplicação. 

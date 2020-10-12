@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/02/2019
 ms.author: alkohli
 ms.openlocfilehash: c071d372ba90d29806fd8a44909e2c803a8d3fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84339285"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gerir um dispositivo Azure Data Box Gateway via Windows PowerShell
@@ -23,13 +23,13 @@ Este artigo centra-se nas tarefas que faz utilizando a interface PowerShell.
 
 Este artigo inclui os seguintes procedimentos:
 
-- Ligue-se à interface PowerShell
+- Ligue-se à interface do PowerShell
 - Criar um pacote de suporte
 - Carregar certificado
 - Arranque em ambiente não-DHCP
 - Ver informações do dispositivo
 
-## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface PowerShell
+## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface do PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -49,6 +49,6 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Implemente o [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) no portal do Azure.

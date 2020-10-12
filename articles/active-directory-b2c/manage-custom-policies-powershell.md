@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387682"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir as políticas personalizadas Azure AD B2C com a Azure PowerShell
@@ -193,7 +193,7 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 
 Para obter informações sobre a resolução de problemas de políticas personalizadas, consulte [as políticas personalizadas do Azure AD B2C e o Quadro de Experiência de Identidade](active-directory-b2c-guide-troubleshooting-custom.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a utilização do PowerShell para implementar políticas personalizadas como parte de um pipeline de integração contínua/entrega contínua (CI/CD), consulte [implementar políticas personalizadas a partir de um oleoduto Azure DevOps](deploy-custom-policies-devops.md).
 

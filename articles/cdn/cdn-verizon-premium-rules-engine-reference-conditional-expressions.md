@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81253514"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Azure CDN da Verizon Premium regras expressões condicionais do motor
@@ -30,12 +30,12 @@ SENÃO SE| Uma expressão MAIS SE especifica uma condição alternativa que deve
 
  > [!TIP]
    > Uma regra subsequente pode anular as ações especificadas por uma regra anterior.
-   > Exemplo: Uma regra catch-all protege todos os pedidos através da autenticação baseada em token. Outra regra pode ser criada diretamente abaixo dela para abrir uma exceção para certos tipos de pedidos.
+   > Exemplo: Uma regra catch-all protege todos os pedidos através Token-Based Autenticação. Outra regra pode ser criada diretamente abaixo dela para abrir uma exceção para certos tipos de pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
-- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Funcionalidades do motor de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-verizon-premium-rules-engine.md)

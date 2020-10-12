@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
 ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196428"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
@@ -39,7 +39,7 @@ Os dados de referência são modelados como uma sequência de bolhas (definidas 
 
 Para configurar os seus dados de referência, primeiro precisa de criar uma entrada que seja do tipo Dados de **Referência.** O quadro abaixo explica cada propriedade que terá de fornecer ao mesmo tempo que cria a entrada de dados de referência com a sua descrição:
 
-|**Nome da Propriedade**  |**Descrição**  |
+|**Nome da propriedade**  |**Descrição**  |
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será usado na consulta de trabalho para referenciar esta entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão as suas bolhas. Se estiver na mesma subscrição que o seu Stream Analytics Job, pode selecioná-lo a partir do drop-down.   |
@@ -98,7 +98,7 @@ Para configurar os seus dados de referência sql Database, primeiro precisa de c
 
 Pode utilizar [a Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Tem de [configurar o ponto final público em SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, configurar manualmente as seguintes definições no Azure Stream Analytics. A máquina virtual Azure que executa o SQL Server com uma base de dados anexada também é suportada configurando manualmente as definições abaixo.
 
-|**Nome da Propriedade**|**Descrição**  |
+|**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para referenciar esta entrada.|
 |Subscrição|Escolher a sua subscrição|
@@ -138,7 +138,7 @@ FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 

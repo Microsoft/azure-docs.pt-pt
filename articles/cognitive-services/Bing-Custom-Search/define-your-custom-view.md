@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86183210"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
@@ -114,7 +114,7 @@ Super boost, boost e demote não estão disponíveis para as pesquisas de imagem
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Pin fatias para o topo dos resultados da pesquisa
 
-O portal também permite fixar URLs no topo dos resultados de pesquisa para termos de pesquisa específicos, utilizando o separador **Pinned.** Insira um URL e consulte para especificar a página web que aparecerá como o resultado principal. Note que pode fixar um máximo de uma página web por consulta de pesquisa, e apenas páginas web indexadas serão exibidas em pesquisas. Os resultados da fixação não estão disponíveis para pesquisas de imagem ou vídeo.
+O portal também permite fixar URLs no topo dos resultados de pesquisa para termos de pesquisa específicos, utilizando o **separador Pinned.** Introduza um URL e uma consulta para especificar a página web que aparecerá como o resultado superior. Note que pode fixar um máximo de uma página web por consulta de pesquisa, e apenas páginas web indexadas serão exibidas em pesquisas. Os resultados da fixação não estão disponíveis para pesquisas de imagem ou vídeo.
 
 Pode fixar uma página web no topo de duas maneiras:
 

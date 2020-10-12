@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646477"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Resolução de problemas com serviço de provisionamento de dispositivos de hub Azure IoT
@@ -82,4 +82,4 @@ Use esta tabela para compreender e resolver erros comuns.
 | 404 | A instância do Serviço de Provisionamento de Dispositivos, ou um recurso (por exemplo, uma inscrição) não existe. |404 Não Encontrado |
 | 412 | O ETag no pedido não corresponde ao ETag do recurso existente, de acordo com o RFC7232. | 412 Pré-condição falhou |
 | 429 | As operações estão a ser estranguladas pelo serviço. Para limites de serviço específicos, consulte [os limites do Serviço de Provisionamento de Dispositivos IoT Hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Pedidos a mais |
-| 500 | Ocorreu um erro interno. | 500 Erro de Servidor Interno|
+| 500 | Ocorreu um erro interno. | Erro Interno do Servidor 500|

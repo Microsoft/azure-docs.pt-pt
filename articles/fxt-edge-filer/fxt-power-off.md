@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
 ms.openlocfilehash: d597d5d1e86a2ea13363bc270fb55304d77dee5c
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184878"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Como desligar com segurança o hardware do Azure FXT Edge Filer

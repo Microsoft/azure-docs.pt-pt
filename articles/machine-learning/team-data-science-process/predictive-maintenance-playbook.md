@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267974"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA da Azure para soluções de manutenção preditiva
@@ -43,7 +43,7 @@ O conteúdo do BDM não espera que o leitor tenha qualquer conhecimento prévio 
 
 As empresas exigem que os equipamentos críticos estejam a funcionar no pico da eficiência e utilização para concretizarem o seu retorno sobre os investimentos de capital. Estes ativos podem ir desde motores de aeronaves, turbinas, elevadores ou refrigeradores industriais - que custam milhões - até aparelhos do dia-a-dia, como fotocopiadoras, máquinas de café ou refrigeradores de água.
 - Por defeito, a maioria das empresas depende da _manutenção corretiva,_ onde as peças são substituídas à medida que falham. A manutenção corretiva garante que as peças são utilizadas completamente (portanto, não desperdiçam a vida útil dos componentes), mas custa ao negócio em tempo de inatividade, mão de obra e requisitos de manutenção não programados (horas de folga ou locais inconvenientes).
-- No nível seguinte, as empresas praticam _a manutenção preventiva,_ onde determinam o tempo de vida útil de uma parte, e mantêm-na ou substituem-na antes de uma falha. A manutenção preventiva evita falhas não programadas e catastróficas. Mas os elevados custos de tempo de inatividade programado, subutilização do componente durante a sua vida útil, e mão de obra ainda permanecem.
+- No nível seguinte, as empresas praticam  _a manutenção preventiva,_ onde determinam o tempo de vida útil de uma parte, e mantêm-na ou substituem-na antes de uma falha. A manutenção preventiva evita falhas não programadas e catastróficas. Mas os elevados custos de tempo de inatividade programado, subutilização do componente durante a sua vida útil, e mão de obra ainda permanecem.
 - O objetivo da _manutenção preditiva_ é otimizar o equilíbrio entre manutenção corretiva e preventiva, permitindo _apenas a tempo_ a substituição dos componentes. Esta abordagem só substitui os componentes quando estão perto de uma falha. Ao prolongar o tempo de vida dos componentes (em comparação com a manutenção preventiva) e à redução dos custos de manutenção e mão de obra não programados (sobre a manutenção corretiva), as empresas podem obter poupanças de custos e vantagens competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas de negócios no PdM
@@ -114,7 +114,7 @@ O sucesso de qualquer aprendizagem depende da (a) qualidade do que está a ser e
 
 ### <a name="relevant-data"></a>Dados relevantes
 
-Em primeiro lugar, os dados têm de ser _relevantes para o problema._ Considere o caso de utilização _da falha_ da roda discutido acima - os dados de treino devem conter características relacionadas com as operações das rodas. Se o problema era prever a falha do sistema de _tração,_ os dados de formação têm de abranger todos os diferentes componentes para o sistema de tração. O primeiro caso visa um componente específico, enquanto o segundo caso visa a falha de um subsistema maior. A recomendação geral é a conceção de sistemas de previsão sobre componentes específicos e não subsistemas maiores, uma vez que estes últimos terão dados mais dispersos. O perito em domínios (ver [problemas de qualificação para manutenção preditiva)](#qualifying-problems-for-predictive-maintenance)deve ajudar na seleção dos subconjuntos de dados mais relevantes para a análise. As fontes de dados relevantes são discutidas mais detalhadamente na [preparação de dados para a manutenção preditiva.](#data-preparation-for-predictive-maintenance)
+Em primeiro lugar, os dados têm de ser _relevantes para o problema._ Considere o caso de utilização _da falha_ da roda discutido acima - os dados de treino devem conter características relacionadas com as operações das rodas. Se o problema era prever a falha do sistema de  _tração,_ os dados de formação têm de abranger todos os diferentes componentes para o sistema de tração. O primeiro caso visa um componente específico, enquanto o segundo caso visa a falha de um subsistema maior. A recomendação geral é a conceção de sistemas de previsão sobre componentes específicos e não subsistemas maiores, uma vez que estes últimos terão dados mais dispersos. O perito em domínios (ver [problemas de qualificação para manutenção preditiva)](#qualifying-problems-for-predictive-maintenance)deve ajudar na seleção dos subconjuntos de dados mais relevantes para a análise. As fontes de dados relevantes são discutidas mais detalhadamente na [preparação de dados para a manutenção preditiva.](#data-preparation-for-predictive-maintenance)
 
 ### <a name="sufficient-data"></a>Dados suficientes
 São frequentemente feitas duas questões no que diz respeito aos dados históricos de falhas: (1) "Quantos eventos de falha são necessários para treinar um modelo?" (2) "Quantos registos são considerados "suficientes"? Não há respostas definitivas, mas apenas regras do polegar. Para (1), mais o número de eventos de falha, melhor o modelo. Para (2), e o número exato de eventos de falha depende dos dados e do contexto do problema que está a ser resolvido. Mas por outro lado, se uma máquina falhar com demasiada frequência, então o negócio irá substituí-la, o que reduzirá as situações de falha. Aqui, mais uma vez, a orientação do perito em domínios é importante. No entanto, existem métodos para lidar com a questão dos _acontecimentos raros._ São discutidos na secção [Handling dados desequilibrados](#handling-imbalanced-data).
@@ -153,7 +153,7 @@ As funcionalidades estáticas são metadados sobre o equipamento. Exemplos disso
 
 Exemplos de dados relevantes para os [casos de utilização do PdM](#sample-pdm-use-cases) da amostra são tabulados abaixo:
 
-| Use estojo | Exemplos de dados relevantes |
+| Caso de Utilização | Exemplos de dados relevantes |
 |:---------|---------------------------|
 |_Atraso de voo e cancelamentos_ | Informações sobre a rota de voo sob a forma de pernas de voo e registos de página. Os dados das pernas de voo incluem detalhes de encaminhamento, tais como data de partida/chegada, hora, aeroporto, escalas, etc. O registo de página inclui uma série de códigos de erro e manutenção registados pelo pessoal de manutenção no solo.|
 |_Falha nas peças do motor do motor da aeronave_ | Dados recolhidos de sensores na aeronave que fornecem informações sobre o estado das várias partes. Os registos de manutenção ajudam a identificar quando ocorreram falhas nos componentes e quando foram substituídos.|
@@ -188,7 +188,7 @@ Outras etapas de pré-processamento de dados incluem o manuseamento de _valores 
 
 Com as fontes de dados pré-processadas acima em vigor, a transformação final antes da engenharia de recursos é juntar-se às tabelas acima com base no identificador de ativos e no timetamp. A tabela resultante teria valores nulos para a coluna de avaria quando a máquina estiver em funcionamento normal. Estes valores nulos podem ser imputados por um indicador para o funcionamento normal. Utilize esta coluna de falha para criar _etiquetas para o modelo preditivo_. Para obter mais informações, consulte a secção sobre [técnicas de modelação para manutenção preditiva.](#modeling-techniques-for-predictive-maintenance)
 
-## <a name="feature-engineering"></a>Com engenharia
+## <a name="feature-engineering"></a>Desenvolvimento de funcionalidades
 A engenharia de recursos é o primeiro passo antes de modelar os dados. O seu papel no processo de ciência dos dados [é descrito aqui.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features) Uma _característica_ é um atributo preditivo para o modelo - como temperatura, pressão, vibração, e assim por diante. Para o PdM, a engenharia de recursos envolve a abstração da saúde de uma máquina sobre dados históricos recolhidos ao longo de uma duração considerável. Nesse sentido, é diferente dos seus pares, tais como monitorização remota, deteção de anomalias e deteção de falhas. 
 
 ### <a name="time-windows"></a>Janelas do tempo
@@ -257,7 +257,7 @@ Esta secção discute as principais técnicas de modelação para problemas de P
 > deve ser determinado em consulta com o perito em domínios.
 
 ### <a name="binary-classification"></a>Classificação binária
-A classificação binária é usada para _prever a probabilidade de um equipamento falhar num período de tempo futuro_ - chamado período de horizonte futuro _X_. X é determinado pelo problema do negócio e pelos dados em questão, em consulta com o especialista em domínio. Os exemplos são:
+A classificação binária é usada para _prever a probabilidade de um equipamento falhar num período de tempo futuro_ - chamado período de horizonte futuro _X_. X é determinado pelo problema do negócio e pelos dados em questão, em consulta com o especialista em domínio. Eis alguns exemplos:
 - _tempo mínimo_ de chumbo necessário para substituir componentes, implantar recursos de manutenção, efetuar a manutenção para evitar um problema que possa ocorrer nesse período.
 - _contagem mínima de eventos_ que podem acontecer antes de um problema ocorrer.
 
@@ -362,7 +362,7 @@ Muitos problemas de PDM enfrentam conjuntos de dados desequilibrados, onde uma c
 
 Com o desequilíbrio de classe nos dados, o desempenho da maioria dos algoritmos de aprendizagem padrão está comprometido, uma vez que visam minimizar a taxa de erro geral. Para um conjunto de dados com exemplos 99% negativos e 1% positivos, um modelo pode ser mostrado ter 99% de precisão rotulando todos os casos como negativos. Mas o modelo classificará mal todos os exemplos positivos; então, mesmo que a sua precisão seja alta, o algoritmo não é útil. Consequentemente, as métricas de avaliação convencionais, tais como _a precisão global da taxa de erro,_ são insuficientes para uma aprendizagem desequilibrada. Quando confrontados com conjuntos de dados desequilibrados, outras métricas são utilizadas para a avaliação do modelo:
 - Precisão
-- Recall
+- Chamar de volta
 - Resultados da F1
 - ROC ajustado por custos (características de funcionamento do recetor)
 
@@ -426,7 +426,7 @@ A secção final deste guia fornece uma lista de modelos de solução PdM, tutor
 | # | Título | Descrição |
 |--:|:------|-------------|
 | 2 | [Modelo de solução de manutenção preditiva Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de código aberto que demonstra modelação Azure ML e uma infraestrutura Azure completa capaz de suportar cenários de Manutenção Preditiva no contexto da monitorização remota IoT. |
-| 3 | [Aprendizagem para Manutenção Preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com uma solução de demonstração de utilização de redes LSTM (Memória de Longo Prazo) (uma classe de Redes Neuronais Recorrentes) para Manutenção Preditiva, com um [post de blog nesta amostra](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 3 | [Aprendizagem para Manutenção Preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com uma solução de demonstração de utilização de redes LSTM (Long Short-Term Memory) (uma classe de Redes Neuronais Recorrentes) para Manutenção Preditiva, com um [post de blog nesta amostra.](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)|
 | 4 | [Manutenção Preditiva Azure para Aeroespacial](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Um dos primeiros modelos de solução PdM baseados no Azure ML v1.0 para manutenção de aeronaves. Este guia teve origem neste projeto. |
 | 5 | [Kit de ferramentas Azure AI para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA na Borda IoT utilizando o TensorFlow; toolkit embala modelos de aprendizagem profunda em recipientes Docker compatíveis com a Azure IoT Edge e expõe esses modelos como APIs REST.
 | 6 | [Manutenção Preditiva Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Solução pré-configurada. Modelo PdM de manutenção de aeronaves com Suíte IoT. [Outro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e [passagem por cima](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relacionado com o mesmo projeto. |

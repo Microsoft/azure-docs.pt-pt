@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386220"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
@@ -193,7 +193,7 @@ Parameters              :
 
 Depois de implementar o modelo, pode levar alguns minutos para a projeção do recurso ser concluída. Pode ter de esperar alguns minutos (normalmente não mais do que cinco) antes de passar para a secção seguinte para selecionar a subscrição.
 
-## <a name="select-your-subscription"></a>Selecionar a sua subscrição
+## <a name="select-your-subscription"></a>Selecione a sua subscrição
 
 Depois de ter implementado o modelo e ter esperado alguns minutos para que a projeção do recurso esteja concluída, associe a sua subscrição ao seu diretório Azure AD B2C com os seguintes passos.
 
@@ -213,7 +213,7 @@ As definições de diagnóstico definem onde devem ser enviados registos e métr
 
 - [Conta de armazenamento Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
 - [Soluções de centros](../azure-monitor/platform/resource-logs-stream-event-hubs.md) de eventos.
-- [Área de trabalho do Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Log Analytics espaço de trabalho](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Se ainda não o fez, crie uma instância do seu tipo de destino escolhido no grupo de recursos especificado no [modelo Azure Resource Manager](#create-an-azure-resource-manager-template).
 
@@ -234,7 +234,7 @@ Para configurar as definições de monitorização dos registos de atividade Azu
 1. Dê um nome se já não tiver um.
 1. Verifique a caixa para cada destino para enviar os registos. Selecione **Configurar** para especificar as suas definições conforme descrito no quadro seguinte.
 
-    | Definição | Descrição |
+    | Definições | Descrição |
     |:---|:---|
     | Arquivar numa conta de armazenamento | Nome da conta de armazenamento. |
     | Transmitir em fluxo para um hub de eventos | O espaço de nome onde o centro de eventos é criado (se esta for a sua primeira vez de registos de streaming) ou transmitido para (se já existem recursos que estão a transmitir essa categoria de registo para este espaço de nome).
@@ -243,7 +243,7 @@ Para configurar as definições de monitorização dos registos de atividade Azu
 1. Selecione **AuditLogs** e **SignInLogs**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a adição e configuração das definições de diagnóstico no Azure Monitor, consulte [Tutorial: Colete e analise os registos de recursos a partir de um recurso Azure](../azure-monitor/insights/monitor-azure-resource.md).
 

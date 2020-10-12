@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: cde0e2d118490801aeee3874e220d298fea24598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81416843"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados da Oracle Responsys utilizando a Azure Data Factory (Preview)
@@ -47,15 +47,15 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Oracle Responsys:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Responsys** | Yes |
-| endpoint | O ponto final do servidor Respopnsys  | Yes |
-| clientId | O ID do cliente associado à aplicação Responsys.  | Yes |
-| segredo de clientes | O segredo do cliente associado à aplicação Responsys. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Yes |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| tipo | A propriedade tipo deve ser definida para: **Responsys** | Sim |
+| endpoint | O ponto final do servidor Respopnsys  | Sim |
+| clientId | O ID do cliente associado à aplicação Responsys.  | Sim |
+| segredo de clientes | O segredo do cliente associado à aplicação Responsys. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Sim |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -86,9 +86,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Oracle Responsys, defina a propriedade tipo do conjunto de dados para **ResponsysObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **ResponsysObject** | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **ResponsysObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -117,9 +117,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Oracle Responsys, desaponsabilita o tipo de origem na atividade de cópia para **ResponsysSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ResponsysSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ResponsysSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

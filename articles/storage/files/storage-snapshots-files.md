@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84235606"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Descrição geral de partilha de instantâneos de ficheiros do Azure
@@ -91,7 +91,7 @@ Antes de implementar o programador de instantâneos de partilha, considere cuida
 
 As imagens partilhadas fornecem apenas proteção ao nível do ficheiro. As imagens partilhadas não impedem a eliminação de dedos gordos numa parte de ficheiro ou numa conta de armazenamento. Para ajudar a proteger uma conta de armazenamento de eliminações acidentais, pode [ativar a eliminação suave,](storage-files-prevent-file-share-deletion.md)ou bloquear a conta de armazenamento e/ou o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Trabalhando com fotos partilhadas em:
     - [Backup de partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md)
     - [PowerShell](storage-how-to-use-files-powershell.md)

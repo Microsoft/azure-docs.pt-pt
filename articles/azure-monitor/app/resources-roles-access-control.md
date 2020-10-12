@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89076689"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acessos em Insights de Aplicações
@@ -102,7 +102,7 @@ Se o utilizador que deseja não estiver no diretório, pode convidar qualquer pe
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Consulta PowerShell para determinar a adesão ao papel
 

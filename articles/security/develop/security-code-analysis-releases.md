@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362045"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Microsoft Security Code Analysis lança e roteiro
@@ -73,7 +73,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft em parceria com o De
 
 O serviço de fuzzing MSRD preterido será substituído por uma plataforma de pelúia auto-hospedada de código aberto para o Azure. Esta plataforma está atualmente a ser desenvolvida e testada em parceria com muitas das principais equipas de produtos da Microsoft. Esta plataforma de fuzzing irá integrar desinfetantes e permitir testes de fuzz adaptativos e de aprendizagem incorporados em oleodutos CI/CD que crescem ao longo do tempo com projetos de software. O lançamento da Open Source desta plataforma está agendado para a segunda metade de 2020.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter instruções sobre como embarcar e instalar a Microsoft Security Code Analysis, consulte o nosso [guia de embarque e instalação](security-code-analysis-onboard.md).
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463948"
 ---
 # <a name="how-to-investigate-risk"></a>How To: Investigar riscos
@@ -38,7 +38,7 @@ A seleção de entradas individuais expande uma janela de detalhes abaixo das de
 
 ![Relatório de Proteção de Identidade de exemplo mostrando ins e detalhes de risco](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
 
-## <a name="risky-users"></a>Utilizadores arriscados
+## <a name="risky-users"></a>Utilizadores de risco
 
 Com as informações fornecidas pelo relatório de utilizadores arriscados, os administradores podem encontrar:
 
@@ -91,7 +91,7 @@ Com as informações fornecidas pelo relatório de deteção de riscos, os admin
 
 Os administradores podem então optar por voltar ao relatório de risco ou de inscrição do utilizador para tomar medidas com base nas informações recolhidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 

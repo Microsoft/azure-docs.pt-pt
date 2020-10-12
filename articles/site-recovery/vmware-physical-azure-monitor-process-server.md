@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86134742"
 ---
 # <a name="monitor-the-process-server"></a>Monitorize o servidor de processo
@@ -93,7 +93,7 @@ Pode monitorizar o estado de saúde dos seus servidores de processo da seguinte 
 Também pode monitorizar servidores de processo no cofre sob **a Infraestrutura de Recuperação do Local.** Na **Gestão da sua infraestrutura de recuperação do site,** clique em **Servidores de Configuração**. Selecione o servidor de configuração associado ao servidor de processo e faça um exercício para baixo em detalhes do servidor de processo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver algum problema com servidores de processo, siga a nossa [orientação de resolução de problemas](vmware-physical-azure-troubleshoot-process-server.md)
 - Se precisar de mais ajuda, publique a sua pergunta na [página de perguntas do Microsoft Q&Uma página de perguntas para a recuperação do site Azure](/answers/topics/azure-site-recovery.html). 

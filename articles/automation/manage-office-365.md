@@ -5,10 +5,10 @@ services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185318"
 ---
 # <a name="manage-office-365-services"></a>Gerir os serviços do Office 365
@@ -31,7 +31,7 @@ A utilização do Office 365 dentro da Azure Automation requer o Microsoft Azure
 >[!NOTE]
 >Para utilizar o MSOnline PowerShell, tem de ser membro da Azure AD. Os utilizadores convidados não podem usar o módulo.
 
-## <a name="create-an-azure-automation-account"></a>Criar uma conta de Automatização do Azure
+## <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
 Para completar os passos deste artigo, precisa de uma conta na Azure Automation. Ver [Criar uma conta Azure Automation](automation-quickstart-create-account.md).
  
@@ -101,7 +101,7 @@ Pode utilizar o seu script num livro de regras da Azure Automation. Por exemplo,
 3. Selecione o novo runbook e clique em **Editar.**
 4. Copie o seu script e cole-o no editor textual para o livro de bordo.
 5. Selecione **ATIVOS,** em seguida, **expanda as credenciais** e verifique se a credencial do Office 365 está lá.
-6. Clique em **Save** (Guardar).
+6. Clique em **Guardar**.
 7. Selecione **Test pane**e, em seguida, clique **em Iniciar** para começar a testar o seu runbook. Consulte [os runbooks da Azure Automation](./manage-runbooks.md).
 8. Quando o teste estiver concluído, saia do painel de teste.
 

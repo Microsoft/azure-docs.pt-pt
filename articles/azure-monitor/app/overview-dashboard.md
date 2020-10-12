@@ -4,10 +4,10 @@ description: Monitorize as aplicações com insights de aplicação Azure e func
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970607"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral de insights de aplicação
@@ -59,5 +59,5 @@ Se selecionar configurações de **azulejos configurados** e definir um interval
 
 - [Funis](./usage-funnels.md)
 - [Retenção](./usage-retention.md)
-- [Fluxos do Utilizador](./usage-flows.md)
+- [Fluxos de Utilizador](./usage-flows.md)
 

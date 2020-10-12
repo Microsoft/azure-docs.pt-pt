@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883918"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
@@ -48,7 +48,7 @@ Para abrir o mapa da Rede:
 
 1. A partir do menu do Security Center, abra o painel de instrumentos do Azure Defender e selecione **o mapa de Rede**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Abertura do mapa de rede a partir do painel Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Tipos de recursos de rede de inventário de ativos" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Selecione o menu **Layers** escolha **Topologia.**
  
