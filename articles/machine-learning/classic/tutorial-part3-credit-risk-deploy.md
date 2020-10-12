@@ -10,10 +10,10 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.openlocfilehash: 148a3deb23219036f2fd9d8fe4dad93e9fb96b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91348770"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementar modelo de risco de crédito - Azure Machine Learning Studio (clássico)
@@ -180,7 +180,7 @@ Você pode testar um serviço web clássico no **Machine Learning Studio (cláss
 Só é possível testar um novo serviço web no portal **Machine Learning Web Services.**
 
 > [!TIP]
-> Ao testar no portal Azure Machine Learning Web Services, pode ter o portal a criar dados de amostra que pode utilizar para testar o serviço de Resposta a Pedidos. Na página **Configurar,** selecione "Sim" para **dados de amostra ativados?** Quando abre o separador Resposta Pedido na página **Teste,** o portal preenche os dados da amostra retirados do conjunto de dados de risco de crédito original.
+> Ao testar no portal Azure Machine Learning Web Services, pode ter o portal a criar dados de amostra que pode utilizar para testar o serviço de Request-Response. Na página **Configurar,** selecione "Sim" para **dados de amostra ativados?** Quando abre o separador Request-Response na página **Teste,** o portal preenche os dados da amostra retirados do conjunto de dados originais de risco de crédito.
 
 ### <a name="test-a-classic-web-service"></a>Teste um serviço web clássico
 

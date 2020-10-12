@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89424876"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automatização do Azure aos planos de recuperação
@@ -262,7 +262,7 @@ Este vídeo dá outro exemplo. Demonstra como recuperar uma aplicação WordPres
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre uma [Azure Automation Run As account](../automation/manage-runas-account.md)
 - Reveja [os scripts da amostra da Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).

@@ -4,10 +4,10 @@ description: Exporte dados de diagnóstico e utilização para armazenamento no 
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324340"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
@@ -36,7 +36,7 @@ A Exportação Contínua **não suporta** as seguintes funcionalidades/configura
 
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
-## <a name="create-a-continuous-export"></a><a name="setup"></a>Criar uma Exportação Contínua
+## <a name="create-a-continuous-export"></a><a name="setup"></a> Criar uma Exportação Contínua
 
 1. No recurso Application Insights para a sua app em configuração à esquerda, abra exportação contínua e escolha **Adicionar:**
 
@@ -81,7 +81,7 @@ Para parar a exportação permanentemente, elimine-a. Ao fazê-lo, não elimina 
 ### <a name="cant-add-or-change-an-export"></a>Não pode adicionar ou mudar uma exportação?
 * Para adicionar ou alterar exportações, precisa dos direitos de acesso de Proprietário, Contribuidor ou Contribuidor do Application Insights. [Conheça os papéis.][roles]
 
-## <a name="what-events-do-you-get"></a><a name="analyze"></a>Que eventos obtém?
+## <a name="what-events-do-you-get"></a><a name="analyze"></a> Que eventos obtém?
 Os dados exportados são a telemetria bruta que recebemos da sua aplicação, exceto que adicionamos dados de localização, que calculamos a partir do endereço IP do cliente.
 
 Os dados que tenham sido descartados por [amostragem](./sampling.md) não constam dos dados exportados.
@@ -95,7 +95,7 @@ Os dados também incluem os resultados de quaisquer [testes web de disponibilida
 >
 >
 
-## <a name="inspect-the-data"></a><a name="get"></a>Inspecione os dados
+## <a name="inspect-the-data"></a><a name="get"></a> Inspecione os dados
 Pode inspecionar o armazenamento diretamente no portal. Clique em casa no menu mais à esquerda, no topo onde diz "Serviços Azure" selecione **contas de armazenamento**, selecione o nome da conta de armazenamento, na página geral selecione **Blobs** em serviços e, finalmente, selecione o nome do recipiente.
 
 Para inspecionar o armazenamento do Azure no Estúdio Visual, abra **a vista,** **o Cloud Explorer**. (Se não tiver o comando do menu, tem de instalar o Azure SDK: Abra o diálogo do **Novo Projeto,** expanda o Visual C#/Cloud e escolha **Obter Microsoft Azure SDK para .NET**.)
@@ -114,10 +114,10 @@ $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}
 
 Onde
 
-* `blobCreationTimeUtc`é o momento em que a bolha foi criada no armazenamento interno de encenação
-* `blobDeliveryTimeUtc`é o momento em que a bolha é copiada para o armazenamento do destino de exportação
+* `blobCreationTimeUtc` é o momento em que a bolha foi criada no armazenamento interno de encenação
+* `blobDeliveryTimeUtc` é o momento em que a bolha é copiada para o armazenamento do destino de exportação
 
-## <a name="data-format"></a><a name="format"></a>Formato de dados
+## <a name="data-format"></a><a name="format"></a> Formato de dados
 * Cada bolha é um ficheiro de texto que contém várias linhas separadas de '\n'. Contém a telemetria processada durante um período de tempo de cerca de meio minuto.
 * Cada linha representa um ponto de dados de telemetria, como um pedido ou vista de página.
 * Cada linha é um documento JSON não testado. Se quiser ver as linhas, abra a bolha no Estúdio Visual e escolha **Editar**  >  Ficheiro de Formato**Avançado:**  >  **Format File**
@@ -190,17 +190,17 @@ Em escalas maiores, considere [hdInsight](https://azure.microsoft.com/services/h
     Não, desculpa. O nosso motor de exportação atualmente só funciona com armazenamento Azure neste momento.  
 * *Há algum limite para a quantidade de dados que colocou na minha loja?*
 
-    Não. Vamos continuar a empurrar os dados até apagares a exportação. Paramos se atingirmos os limites exteriores para o armazenamento de bolhas, mas isso é muito grande. Cabe-te a ti controlar o armazenamento que usas.  
+    N.º Vamos continuar a empurrar os dados até apagares a exportação. Paramos se atingirmos os limites exteriores para o armazenamento de bolhas, mas isso é muito grande. Cabe-te a ti controlar o armazenamento que usas.  
 * *Quantas bolhas devo ver no depósito?*
 
   * Para cada tipo de dados selecionado para exportar, é criada uma nova bolha a cada minuto (se os dados estiverem disponíveis).
   * Além disso, para aplicações com tráfego elevado, são atribuídas unidades de partição adicionais. Neste caso, cada unidade cria uma bolha a cada minuto.
 * *Regenera a chave do meu armazenamento ou mudei o nome do contentor, e agora a exportação não funciona.*
 
-    Editar a exportação e abrir o separador destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
+    Edite a exportação e abra o separador destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
 * *Posso parar a exportação?*
 
-    Yes. Clique em Disable.
+    Sim. Clique em Disable.
 
 ## <a name="code-samples"></a>Exemplos de código
 

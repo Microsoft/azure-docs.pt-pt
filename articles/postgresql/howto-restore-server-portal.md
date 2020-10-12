@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708089"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
@@ -120,6 +120,6 @@ O novo servidor criado pela geo restauro tem o mesmo nome de login de administra
 O novo servidor criado durante o restauro não tem as regras de firewall ou os pontos finais de serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias de segurança](concepts-backup.md)do serviço.
 - Saiba mais sobre opções [de continuidade de negócios.](concepts-business-continuity.md)

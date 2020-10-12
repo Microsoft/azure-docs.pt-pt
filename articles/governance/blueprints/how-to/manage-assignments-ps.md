@@ -4,10 +4,10 @@ description: Aprenda a gerir as atribuições de plantas com o módulo oficial A
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: 3bcb3731bd1270497945fa86406d08b2f9750c85
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051411"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir atribuições com a PowerShell

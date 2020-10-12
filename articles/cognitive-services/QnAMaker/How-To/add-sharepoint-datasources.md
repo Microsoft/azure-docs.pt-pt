@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776872"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados do SharePoint segura à sua base de conhecimentos
@@ -123,7 +123,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Selecione o utilizador autenticado para o Ative Directory Admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Selecione uma conta De Sign-On com permissões para conceder permissões para o Diretório Ativo.
+1. Selecione uma conta Sign-On com permissões para conceder permissões para o Diretório Ativo.
 
 
 

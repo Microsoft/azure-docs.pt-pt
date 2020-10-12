@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836127"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
@@ -176,7 +176,7 @@ Você poderia usar proxy para permitir chamadas pacemaker para o azure managemen
 ### <a name="important-considerations"></a>Considerações importantes
 
   - Se já houver procuração corporativa no local, pode encaminhar chamadas de saída para pontos finais públicos através dele. As chamadas de saída para os pontos finais públicos passarão pelo ponto de controlo corporativo.  
-  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão Azure: `https://management.azure.com` e`https://login.microsoftonline.com`  
+  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão Azure: `https://management.azure.com` e `https://login.microsoftonline.com`  
   - Certifique-se de que há uma rota dos VMs para o Proxy  
   - O Proxy só tratará as chamadas HTTP/HTTPS. Se houver necessidade adicional de fazer chamadas de saída para o ponto final público sobre diferentes protocolos (como o RFC), será necessária uma solução alternativa  
   - A solução Proxy deve estar altamente disponível, para evitar instabilidade no cluster Pacemaker  

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
 ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708344"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
@@ -131,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -234,7 +234,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Name
+6. Nome
 7. Resumo
 8. Descrição
 9. Ligações úteis
@@ -490,6 +490,6 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

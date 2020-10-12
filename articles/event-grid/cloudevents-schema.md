@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 4e8f4c62221e5782ad04695fba172c0aefb62454
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324200"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use esquema cloudEvents v1.0 com grade de eventos

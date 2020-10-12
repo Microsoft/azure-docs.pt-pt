@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829089"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
@@ -254,7 +254,7 @@ Mover o **comando para executar a** propriedade para a configuração **protegid
 
 Num Azure IaaS VM que utiliza extensões, na consola de certificados, poderá ver certificados que têm o sujeito **_Gerador de Certificados PCR Azure._** Num VM RDFE Clássico, estes certificados têm o nome de **_Contat de Gestão de Serviços Windows Azure para Extensões_**.
 
-Estes certificados asseguram a comunicação entre o VM e o seu anfitrião durante a transferência de definições protegidas (palavra-passe, outras credenciais) utilizadas por extensões. Os certificados são construídos pelo controlador de tecido Azure e passados para o Agente VM. Se parar e iniciar o VM todos os dias, um novo certificado pode ser criado pelo controlador de tecido. O certificado está guardado na loja de certificados pessoais do computador. Estes certificados podem ser eliminados. O Agente VM recria certificados se necessário.
+Estes certificados garantem a comunicação entre a VM e o anfitrião durante a transferência das definições protegidas (palavra-passe, outras credenciais) utilizadas pelas extensões. Os certificados são criados pelo controlador dos recursos de infraestrutura do Azure e transferidos pelo Agente da VM. Se parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador dos recursos de infraestrutura. O certificado é armazenado no Arquivo de certificados pessoais do computador. Estes certificados podem ser eliminados. O Agente VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como é que os agentes e as extensões são atualizados?
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660560"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de identidade para a sua solução de identidade híbrida
@@ -107,9 +107,9 @@ Também tem de avaliar os requisitos do utilizador. Esta avaliação é importan
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Determinar os requisitos de sincronização do diretório](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

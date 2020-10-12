@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619802"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Configurar e utilizar registos Azure Monitor com uma aplicação SaaS de Base de Dados Azure SQL multitenant
@@ -87,7 +87,7 @@ Neste exercício, abra o espaço de trabalho do Log Analytics no portal Azure pa
 
 1. Selecione **visão geral** para abrir a solução de análise de registo no portal Azure.
 
-   ![Descrição Geral](./media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![Descrição geral](./media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Pode levar alguns minutos até que a solução esteja ativa. 

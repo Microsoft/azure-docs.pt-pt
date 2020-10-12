@@ -4,10 +4,10 @@ description: Controlo do mapeamento do sistema iso 27001 App Service Environment
 ms.date: 07/13/2020
 ms.topic: sample
 ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541225"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
@@ -193,7 +193,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da amostra de projeto de projeto de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 

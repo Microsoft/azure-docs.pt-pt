@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
 ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541752"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento de Blob Azure usando informações de rastreio de alterações utilizando o PowerShell
@@ -329,7 +329,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
     ```
 
     Crie o contentor adftutorial no seu Armazenamento de Blobs do Azure como parte dos pré-requisitos. Crie o contentor se ainda não existir ou defina-o com o nome de um contentor existente. Neste tutorial, o nome de ficheiro de saída é gerado dinamicamente através da expressão: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Executar o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: SinkDataset
+2.  Executar o Set-AzDataFactoryV2Dataset cmdlet para criar o conjunto de dados: SinkDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -367,7 +367,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
     ```
 
     Crie a tabela table_store_ChangeTracking_version como parte dos pré-requisitos.
-2.  Executar o cmdlet Set-AzDataFactoryV2Dataset para criar o conjunto de dados: ChangeTrackingDataset
+2.  Executar o Set-AzDataFactoryV2Dataset cmdlet para criar o conjunto de dados: ChangeTrackingDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -416,7 +416,7 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
         }
     }
     ```
-2. Executar o cmdlet Set-AzDataFactoryV2Pipeline para criar o pipeline: FullCopyPipeline.
+2. Executar o Set-AzDataFactoryV2Pipeline cmdlet para criar o oleoduto: FullCopyPipeline.
 
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
@@ -605,7 +605,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
     }
 
     ```
-2. Executar o cmdlet Set-AzDataFactoryV2Pipeline para criar o pipeline: FullCopyPipeline.
+2. Executar o Set-AzDataFactoryV2Pipeline cmdlet para criar o oleoduto: FullCopyPipeline.
 
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -660,7 +660,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

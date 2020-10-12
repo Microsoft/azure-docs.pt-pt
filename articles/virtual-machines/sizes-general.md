@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: a0d095c22de28368edc11fe9ab8e658c0d3ae7f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3ddf0491c31ded6983df9da724e9321775bd1d3
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053808"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945231"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
@@ -29,9 +29,9 @@ Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equil
 
 - [Dav4 e Dasv4-series](dav4-dasv4-series.md) são novos tamanhos que usando o processador EPYC TM 7452 da AMD 2.35Ghz<sup>EPYC TM</sup> 7452 numa configuração multi-roscada com até 256 cache L3 MB dedicando 8 MB dessa cache L3 a cada 8 núcleos aumentando as opções de clientes para executar as suas cargas de trabalho para fins gerais. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série D & Dsv3.
 
-- [Série Dv4 e Dsv4](dv4-dsv4-series.md) A série Dv4 e Dsv4 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade do relógio Turbo de 3,4 GHz.
+- [Série Dv4 e Dsv4](dv4-dsv4-series.md) A série Dv4 e Dsv4 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho de uso geral. Apresenta toda a velocidade do relógio Turbo core de 3,4 GHz.
 
-- [Série Ddv4 e Ddsv4](ddv4-ddsv4-series.md) A série Ddv4 e Ddsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Extensões de Vetores Avançados Intel &reg; 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local para leitura e escrita em comparação com os [tamanhos Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2.](./linux/generation-2.md)
+- [Série Ddv4 e Ddsv4](ddv4-ddsv4-series.md) A série Ddv4 e Ddsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho de uso geral. Dispõe de todas as velocidades do relógio Turbo core de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel Advanced Vetor &reg; Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local para leitura e escrita em comparação com os [tamanhos Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2.](./linux/generation-2.md)
 
 - [Série Dv3 e Dsv3](dv3-dsv3-series.md) Os VMs funcionam na 2ª Geração Intel® Xeon® Platinum 8272CL (Lago cascade), Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2 673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) numa configuração hiper roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho para fins gerais. A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para a hipertonagem. A série Dv3 já não tem os tamanhos VM de alta memória da série D/Dv2, estas foram movidas para a memória otimizada [série Ev3 e Esv3](ev3-esv3-series.md).
 
@@ -48,7 +48,7 @@ Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equil
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051394"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Balançador de Carga Azure

@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 2d28d8f1f09814822b29e9d45d4e75283c8955cc
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618748"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893225"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -40,7 +40,7 @@ O ficheiro tem três secções:
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um perfil principal de serviço ou de publicação. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
+|**Construir** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
 |**Implementar** | 1. Implementar a aplicação web. |
 
 ## <a name="use-the-deployment-center"></a>Utilize o Centro de Implantação
@@ -141,7 +141,7 @@ Quando configurar o ficheiro de fluxo de trabalho mais tarde, utilize o segredo 
 
 A configuração do ambiente pode ser feita utilizando uma das ações de configuração.
 
-|**Linguagem**  |**Ação de configuração**  |
+|**Idioma**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**ASP.NET**     | `actions/setup-dotnet` |
@@ -483,7 +483,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Building web app
-      uses: azure/appservice-build@v2-beta
+      uses: azure/appservice-build@v2
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v2
       with:

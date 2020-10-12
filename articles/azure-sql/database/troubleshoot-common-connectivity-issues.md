@@ -13,10 +13,10 @@ ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777076"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance

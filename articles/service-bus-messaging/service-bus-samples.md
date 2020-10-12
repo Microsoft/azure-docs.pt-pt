@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 2f2392630c0023c8d6321a5716075a65e8127dd0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326274"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço

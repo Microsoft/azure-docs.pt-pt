@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439255"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de registos Azure Monitor para Apps Lógicas e Automatização de Energia
@@ -122,7 +122,7 @@ Quando a aplicação lógica estiver concluída, verifique o correio do destinat
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre [aplicações lógicas](../../logic-apps/index.yml)

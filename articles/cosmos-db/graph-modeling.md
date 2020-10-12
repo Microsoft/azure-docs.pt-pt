@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409770"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
@@ -47,12 +47,12 @@ Seguem-se as melhores práticas para as propriedades nos objetos gráficos:
 
 | Objeto | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértex | ID | String | Exclusivamente aplicada por divisória. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
-| Vértex | etiqueta | String | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
+| Vértex | ID | Cadeia | Exclusivamente aplicada por divisória. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
+| Vértex | etiqueta | Cadeia | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
 | Vértex | propriedades | String, Boolean, Numérico | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada vértice. |
 | Vértex | chave de partição | String, Boolean, Numérico | Esta propriedade define onde o vértice e as suas bordas de saída serão armazenados. Leia mais sobre [a partição de gráficos.](graph-partitioning.md) |
-| Microsoft Edge | ID | String | Exclusivamente aplicada por divisória. Gerado automaticamente por defeito. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
-| Microsoft Edge | etiqueta | String | Esta propriedade é usada para definir o tipo de relacionamento que dois vértices têm. |
+| Microsoft Edge | ID | Cadeia | Exclusivamente aplicada por divisória. Gerado automaticamente por defeito. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
+| Microsoft Edge | etiqueta | Cadeia | Esta propriedade é usada para definir o tipo de relacionamento que dois vértices têm. |
 | Microsoft Edge | propriedades | String, Boolean, Numérico | Uma lista de propriedades separadas armazenadas como pares de valores-chave em cada borda. |
 
 > [!NOTE]
@@ -105,7 +105,7 @@ A utilização de rótulos de relacionamento descritivos pode melhorar a eficiê
 * Use termos não genéricos para rotular uma relação.
 * Associar o rótulo do vértice de origem ao rótulo do vértice-alvo com o nome da relação.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemplos de rotulagem de relacionamento." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
 Quanto mais específica o rótulo que o atravessador utilizar para filtrar as bordas, melhor. Esta decisão pode ter um impacto significativo também no custo da consulta. Pode avaliar o custo da consulta a qualquer momento [utilizando o passo de execuçãoProfile](graph-execution-profile.md).
 

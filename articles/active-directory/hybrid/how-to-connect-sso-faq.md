@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - Perguntas frequentes Microsoft Docs'
+title: 'Azure AD Connect: Single Sign-On sem emenda - Perguntas frequentes Microsoft Docs'
 description: Respostas a perguntas frequentes sobre O Diretório Ativo sem emenda sem emenda.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658341"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
-Neste artigo, abordamos perguntas frequentes sobre O Diretório Ativo Sem Emenda Sem Emenda (SSO sem emenda). Continua a verificar se há novos conteúdos.
+Neste artigo, abordamos perguntas frequentes sobre O Azure Ative Directory Seamless Single Sign-On (Seamless SSO). Continua a verificar se há novos conteúdos.
 
 **Q: Que métodos de inscrição funcionam sem emenda SSO com**
 
@@ -62,7 +62,7 @@ Se quiser outras aplicações utilizando a nossa experiência de inscrição sil
 
 **P: O SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
 
-Yes. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de aplicações da Microsoft 365. `Alternate ID` Consulte a documentação específica do pedido para a declaração de apoio.
+Sim. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de aplicações da Microsoft 365. `Alternate ID` Consulte a documentação específica do pedido para a declaração de apoio.
 
 **P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../devices/overview.md) e pela Seamless SSO?**
 
@@ -153,7 +153,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    **Passo 3. Elimine manualmente a `AZUREADSSO` conta do computador de cada floresta AD que vê listada.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [**Quickstart**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.

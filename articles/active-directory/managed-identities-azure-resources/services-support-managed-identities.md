@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843180"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure

@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4ac981fb3aa17cbc242b5cc51cd579f926bad034
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257981"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Mídia

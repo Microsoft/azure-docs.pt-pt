@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91256467"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos no local funciona em dispositivos associados ao Azure AD
@@ -46,7 +46,7 @@ Durante uma tentativa de acesso a um recurso que solicita a Kerberos ou a NTLM n
 
 Todas as aplicações configuradas para **autenticação integrada no Windows** obtêm SSO de forma perfeita quando um utilizador tenta aceder às suas.
 
-O Windows Hello for Business requer uma configuração adicional para ativar o SSO no local a partir de um dispositivo azure AD. Para obter mais informações, consulte [dispositivos de ad Configure Azure Ad para o single-sign on using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+O Windows Hello for Business requer uma configuração adicional para ativar o SSO no local a partir de um dispositivo azure AD. Para obter mais informações, consulte [dispositivos de ad Configure Azure Ad para Single-Sign No uso do Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 ## <a name="what-you-get"></a>O que obtém
 

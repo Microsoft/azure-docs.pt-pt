@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657217"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
@@ -154,14 +154,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
+| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
-| **Personalização** | Personalizar link helpdesk | Yes |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
+| **Personalização** | Personalizar link helpdesk | Sim |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -341,7 +341,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 * [O que é o Writeback da Palavra-Passe?](./concept-sspr-writeback.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a implementar sSPR, consulte o reset da [palavra-passe de autosserviço do Enable Azure AD](tutorial-enable-sspr.md)
 

@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776974"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida base de conhecimento no Fabricante QnA

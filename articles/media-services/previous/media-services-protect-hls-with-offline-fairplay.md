@@ -17,10 +17,10 @@ ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5e003e17490c2e35ef3f8adfdef6de0377cda7d5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259715"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS)
@@ -209,7 +209,7 @@ As seguintes perguntas frequentes prestam assistência à resolução de problem
 
 - **Porque é que só o áudio reproduz, mas não o vídeo durante o modo offline?** Este comportamento parece ser por design da aplicação da amostra. Quando existe uma faixa de áudio alternativa (o que é o caso do HLS) durante o modo offline, tanto o iOS 10 como o iOS 11 estão por defeito na faixa de áudio alternativa. Para compensar este comportamento para o modo offline FPS, remova a faixa de áudio alternativa do fluxo. Para isso nos Serviços de Media, adicione o filtro manifesto dinâmico "audio-only=falso". Por outras palavras, um URL HLS termina com .ism/manifest (formato=m3u8-aapl,audio-only=falso). 
 - **Porque é que ainda reproduz áudio apenas sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave de cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser em cache. Purgue a cache.
-- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
+- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
 - **Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "Guia de Programação de Streaming fairPlay".
 - **O que significa o último parâmetro no seguinte modo API para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`

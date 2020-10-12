@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421463"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
@@ -62,7 +62,7 @@ A partir do dropdown do **formato do identificador de nome Escolher,** pode sele
 | **Não especificado** | A plataforma de identidade da Microsoft utilizará o formato NameID não especificado como. |
 | **Nome qualificado do domínio do Windows** | A plataforma de identidade da Microsoft utilizará o Nome WindowsDomainQualified como o formato NameID. |
 
-O NameID transitório também é suportado, mas não está disponível no dropdown e não pode ser configurado do lado de Azure. Para saber mais sobre o atributo NameIDPolicy, consulte o [protocolo SAML de assinatura única](single-sign-on-saml-protocol.md).
+O NameID transitório também é suportado, mas não está disponível no dropdown e não pode ser configurado do lado de Azure. Para saber mais sobre o atributo NameIDPolicy, consulte [o protocolo Single Sign-On SAML](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Atributos
 
@@ -175,7 +175,7 @@ Em primeiro lugar, a plataforma de identidade da Microsoft verifica se o tipo de
 
 ![Configuração condicional de reclamações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

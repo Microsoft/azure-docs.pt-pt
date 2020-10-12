@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439088"
 ---
 # <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
@@ -51,7 +51,7 @@ Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machin
 
 9.  Envie o oleoduto. Se o seu conjunto de dados tiver um tamanho maior, levará algum tempo e recomenda-se a computação gpu.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o [Modelo De Pytorch de Comboio](train-pytorch-model.md) ao Modelo de Imagem de [Pontuação,](score-image-model.md)para prever valores para novos exemplos de entrada.
 
@@ -66,7 +66,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name          | Intervalo            | Tipo    | Predefinição | Descrição                              |
+| Nome          | Intervalo            | Tipo    | Predefinição | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Épocas        | >0               | Número inteiro | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
 | Tamanho do lote    | >0               | Número inteiro | 16      | Quantas instâncias para treinar num lote   |
@@ -80,7 +80,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

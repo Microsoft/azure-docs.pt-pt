@@ -11,10 +11,10 @@ ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89258440"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
@@ -50,7 +50,7 @@ As reclamações em fichas de identificação não são devolvidas em nenhuma or
 
 A tabela que se segue lista as alegações que pode esperar em fichas de identificação e fichas de acesso emitidas pela Azure AD B2C.
 
-| Name | Afirmação | Valor de exemplo | Descrição |
+| Nome | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do token. Para Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o token se não corresponder. O público é sinónimo de recurso. |
 | Emissor | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Identifica também o diretório em que o utilizador foi autenticado. A sua aplicação deverá validar a alegação do emitente para garantir que o token provém do ponto final apropriado. |
