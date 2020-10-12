@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708990"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -102,6 +102,6 @@ AzureDiagnostics
 | where Message contains "AUDIT:"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre o registo na Base de Dados Azure para PostgreSQL](concepts-server-logs.md)
 - Saiba como definir parâmetros utilizando o [portal Azure](howto-configure-server-parameters-using-portal.md), [Azure CLI,](howto-configure-server-parameters-using-cli.md)ou [REST API](/rest/api/postgresql/configurations/createorupdate).

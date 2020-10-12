@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442179"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para protocolo OpenVPN ou IKEv2 da SSTP
@@ -160,7 +160,7 @@ Uma configuração P2S requer alguns passos específicos. Os seguintes artigos c
 
 * [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure uma ligação P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

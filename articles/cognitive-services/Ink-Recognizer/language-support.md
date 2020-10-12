@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
 ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051088"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte linguístico e regional para a API do Reconhecimento de Tinta
@@ -25,7 +25,7 @@ Este artigo explica quais as línguas suportadas para a API do Reconhecimento de
 
 ## <a name="supported-languages"></a>Linguagens suportadas
 
-| Linguagem                                   | Código do idioma   |
+| Idioma                                   | Código do idioma   |
 |:-------------------------------------------|:---------------:|
 | Afrikaans                                  |    `af-ZA`      |
 | Albanês                                   |     `sq-AL`     |
@@ -91,7 +91,7 @@ Este artigo explica quais as línguas suportadas para a API do Reconhecimento de
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API do Reconhecedor de Tinta Digital?](overview.md)
 * [Envio de traços de tinta digital para a API do Reconhecimento de Tinta](concepts/send-ink-data.md)

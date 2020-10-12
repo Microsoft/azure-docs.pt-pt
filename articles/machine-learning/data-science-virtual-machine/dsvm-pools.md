@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708973"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas virtuais de ciência de dados
@@ -55,7 +55,7 @@ O [script que monta a partilha de Ficheiros Azure](https://raw.githubusercontent
 
 A balança de máquina virtual define o suporte a autoscaling. Pode definir regras sobre quando criar instâncias adicionais e quando reduzir as instâncias. Por exemplo, pode reduzir para zero casos para economizar nos custos de utilização de hardware na nuvem quando os VMs não são usados de todo. As páginas de documentação dos conjuntos de escala de máquinas virtuais fornecem [passos detalhados para a autoscalagem.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma identidade comum](dsvm-common-identity.md)
 * [Armazenar credenciais de segurança para aceder a recursos na nuvem](dsvm-secure-access-keys.md)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
 ms.openlocfilehash: 8191d68f701a3be6a37d8623d2d900f6aa6c1851
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939541"
 ---
 # <a name="security-module-for-azure-rtos-api-preview"></a>Módulo de Segurança para Azure RTOS API (pré-visualização)

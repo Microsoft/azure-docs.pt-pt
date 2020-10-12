@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297475"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorizar a atividade de migração utilizando o Serviço de Migração da Base de Dados de Azure
@@ -108,7 +108,7 @@ A parte inferior da lâmina lista as tabelas e mostra um resumo rápido do progr
 
 A tabela seguinte descreve os campos indicados nos detalhes do nível de tabela.
 
-| Nome do campo        | Description       |
+| Nome do campo        | Descrição       |
 | ------------- | ------------- |
 | **Carga completa concluída**      | Número de tabelas preenchidas com carga completa de dados. |
 | **Carga completa em fila**      | Número de mesas em fila para a carga completa.      |
@@ -129,7 +129,7 @@ Existem dois separadores que mostram o progresso da migração na sincronizaçã
 
 O quadro que se segue descreve os campos indicados no progresso migratório ao nível da tabela.
 
-| Nome do campo        | Description       |
+| Nome do campo        | Descrição       |
 | ------------- | ------------- |
 | **Estado - Sincronização**      | A sincronização contínua está a funcionar. |
 | **Inserir**      | Número de inserções de CDC em linhas aplicadas ao alvo.      |

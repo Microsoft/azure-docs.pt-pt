@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940129"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como fazer: A bordo dos seus dados métricos ao Metrics Advisor
@@ -74,15 +74,15 @@ Se o ponto de datação de um ponto de dados for omitido, o Metrics Advisor util
 
 |Seleção  |Descrição  |Notas  |
 |---------|---------|---------|
-| **Nome a Apresentar** | Nome a ser exibido no seu espaço de trabalho em vez do nome original da coluna. | |
+| **Nome do visor** | Nome a ser exibido no seu espaço de trabalho em vez do nome original da coluna. | |
 |**Timestamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o tempotamp.        | Opcional. Deve ser especificado com no máximo uma coluna. Se obter uma coluna não pode ser especificada como erro **do Timestamp,** verifique a sua consulta ou fonte de dados para obter os tempos duplicados.      |
-|**Medida**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
+|**Medir**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
 |**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar zero ou mais colunas como dimensões. Nota: tenha cuidado ao selecionar uma coluna de não-cordas como uma dimensão. | Opcional.        |
 |**Ignorar**     | Ignore a coluna selecionada.        | Opcional. Veja o texto abaixo.       |
 
 Se pretender ignorar as colunas, recomendamos atualizar a sua consulta ou fonte de dados para excluir essas colunas. Também pode ignorar colunas usando **colunas Ignore** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é erroneamente definida como *ignorada,* o Metrics Advisor pode acabar por ingerir dados parciais. Por exemplo, assuma que os dados da sua consulta são os seguintes:
 
-| ID de linha | Timestamp | País | Linguagem | Receita |
+| ID de linha | Timestamp | País | Idioma | Receita |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -99,7 +99,7 @@ Se *o País* é uma dimensão e a *linguagem* é definida como *ignorada,* entã
 
 O Metrics Advisor pode realizar automaticamente a agregação (por exemplo, SUM, MAX, MIN) em cada dimensão durante a ingestão, em seguida, constrói uma hierarquia que será usada na análise de casos de raiz e outras funcionalidades de diagnóstico. 
 
-Considere os seguintes cenários:
+Pondere os seguintes cenários:
 
 * *Não preciso de incluir a análise dos meus dados.*
 
@@ -109,7 +109,7 @@ Considere os seguintes cenários:
 
     Esta opção significa que o Metrics Advisor não precisa de arregaçar os dados porque as linhas já estão resumidas. Por exemplo, se selecionar *apenas NU,* então a segunda linha de dados no exemplo abaixo será vista como uma agregação de todos os países e da linguagem *EN-US;* a quarta linha de dados que tem um valor vazio para *o País,* no entanto, será vista como uma linha ordinária que pode indicar dados incompletos.
     
-    | País | Linguagem | Receita |
+    | País | Idioma | Receita |
     |---------|----------|--------|
     | China   | ZH-CN    | 10000  |
     | (NU)  | EN-US    | 999999 |
@@ -188,7 +188,7 @@ Para verificar detalhes da falha de ingestão:
 2. Clique em **Estado** de clique e escolha **Falha ou** **Erro**.
 3. Paire sobre uma ingestão falhada, e veja a mensagem de detalhes que aparece.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Verifique a ingestão falhada":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progresso de ingestão":::
 
 Um estado *falhado* indica que a ingestão desta fonte de dados será novamente julgada mais tarde.
 Um *estado de erro* indica que o Metrics Advisor não voltará a tentar a fonte de dados. Para recarregar os dados, é necessário acionar manualmente um enchimento/recarga.

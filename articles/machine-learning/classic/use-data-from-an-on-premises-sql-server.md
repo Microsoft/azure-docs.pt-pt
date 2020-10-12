@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357493"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Execute análises com o Azure Machine Learning Studio (clássico) usando uma base de dados sql server
@@ -40,9 +40,9 @@ Para aceder a uma base de dados do SQL Server no Azure Machine Learning Studio (
 
 Também pode instalar o IR com antecedência, descarregando e executando o pacote de configuração MSI a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). O MSI também pode ser usado para atualizar um IR existente para a versão mais recente, com todas as configurações preservadas.
 
-O tempo de integração auto-hospedado da Fábrica de Dados tem os seguintes pré-requisitos:
+A Data Factory Self-Hosted Integration Runtime tem os seguintes pré-requisitos:
 
-* A Integração Auto-Hospedada da Fábrica de Dados requer um Sistema Operativo de 64 bits com .NET Framework 4.6.1 ou superior.
+* A Integração Self-Hosted da Fábrica de Dados requer um Sistema Operativo de 64 bits com .NET Framework 4.6.1 ou superior.
 * As versões suportadas do sistema operativo Windows são o Windows 10 , Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * A configuração recomendada para a máquina de infravermelhos é de pelo menos 2 GHz, 4 Core CPU, 8GB de RAM e disco de 80GB.
 * Se a máquina hospedeira hibernar, o IR não responderá aos pedidos de dados. Por isso, configurar um plano de alimentação apropriado no computador antes de instalar o IR. Se a máquina estiver configurada para hibernar, a instalação IV apresenta uma mensagem.

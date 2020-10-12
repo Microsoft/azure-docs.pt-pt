@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 8d97c713dfec574a8ef7f3f0dde4701ddea0e98b
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669010"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitor Azure para soluções SAP (pré-visualização)
@@ -110,7 +110,7 @@ Seguem-se os principais destaques da arquitetura:
 ## <a name="pricing"></a>Preços
 O Azure Monitor for SAP Solutions é um produto gratuito (sem taxa de licença). Os clientes são responsáveis pelo pagamento do custo dos componentes subjacentes no grupo de recursos geridos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os fornecedores e crie o seu primeiro recurso Azure Monitor para soluções SAP.
  - Saiba mais sobre [Fornecedores](./azure-monitor-providers.md)

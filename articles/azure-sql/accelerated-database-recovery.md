@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327634"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperação acelerada da base de dados em Azure SQL 
