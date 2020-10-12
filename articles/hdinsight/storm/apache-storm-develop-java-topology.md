@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
 ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322878"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia da Tempestade Apache em Java
@@ -826,7 +826,7 @@ As aplicações tridentes podem ser criadas utilizando projetos Maven. Usa os me
 
 Para mais informações sobre tridente, consulte a Visão Geral da [API Trident.](https://storm.apache.org/releases/current/Trident-API-Overview.html)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeste a criar uma topologia da Tempestade Apache usando o Java. Agora aprenda a:
 

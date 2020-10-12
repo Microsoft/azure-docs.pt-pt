@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
 ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441821"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação
@@ -61,7 +61,7 @@ Após o início da migração, ocorrem as seguintes alterações:
 * Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação (Pré-visualização).
 * Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Monitor de Ligação (Pré-visualização), consulte:
 * [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação (Pré-visualização)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)

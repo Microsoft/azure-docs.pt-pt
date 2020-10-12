@@ -4,10 +4,10 @@ description: Como excluir discos da replicação para Azure com a Recuperação 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333669"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
@@ -24,9 +24,9 @@ Este artigo descreve como excluir os discos da replicação durante a recuperaç
 
 Pode excluir discos da replicação como resumido na tabela.
 
-**Azure para o Azure** | **VMware para o Azure** | **Hiper-V para Azure** | **Servidor Físico para Azure**
+**Azure para o Azure** | **VMware para o Azure** | **Hyper-V para o Azure** | **Servidor Físico para Azure**
 --- | --- | --- | ---
-Yes | Yes | Yes | Yes
+Sim | Sim | Sim | Sim
 
 ## <a name="exclude-limitations"></a>Excluir limitações
 
@@ -210,7 +210,7 @@ As nossas definições de ficheiros de paging na origem VM são as seguintes:
 ![Screenshot do diálogo de memória virtual com a linha D: Drive [Volume de Pagefile] realçada mostrando um tamanho de ficheiro de paging (MB) de 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Permitimos a replicação para o VM.
-2. Excluímos a DB-Disk1 da replicação.
+2. Excluímos DB-Disk1 da replicação.
 
 #### <a name="disks-after-failover"></a>Discos após falha
 
@@ -245,7 +245,7 @@ As nossas definições de ficheiros de paging nas VM no local são as seguintes:
 ![Definições de ficheiro de paginação na máquina virtual no local](./media/exclude-disks-replication/pagefile-g-drive-source-vm.png)
 
 1. Permitimos a replicação para o VM.
-2. Excluímos a DB-Disk1 da replicação.
+2. Excluímos DB-Disk1 da replicação.
 
 #### <a name="disks-after-failover"></a>Discos após falha
 

@@ -7,10 +7,10 @@ ms.date: 09/20/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022161"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Remoing de serviço em C# com Serviços Fiáveis
@@ -269,7 +269,7 @@ Construa o conjunto do cliente com o conjunto de interfaces para se certificar d
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Utilize aulas explícitas de remoing para criar uma fábrica de ouvintes/clientes para a versão V2 (compatível com interface)
 
-Siga estes passos.
+Siga estes passos:
 
 1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
@@ -358,7 +358,7 @@ Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Use serialização personalizada com uma mensagem embrulhada de remoting
 
 Para uma mensagem embrulhada de remoing, criamos um único objeto embrulhado com todos os parâmetros como campo.
-Siga estes passos.
+Siga estes passos:
 
 1. Implemente a `IServiceRemotingMessageSerializationProvider` interface para fornecer implementação para serialização personalizada.
     Este código mostra como é a implementação.

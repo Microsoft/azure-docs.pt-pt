@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022280"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
@@ -97,7 +97,7 @@ A utilização do projeto de identidade pod permite a autenticação contra o ap
 
 Quando as aplicações precisam de uma credencial, comunicam com o cofre digital, recuperam os conteúdos secretos mais recentes e ligam-se ao serviço necessário. Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para a recuperação de uma credencial do Azure Key Vault utilizando identidades geridas por cápsulas é mostrado no seguinte diagrama:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para recuperar uma credencial do Key Vault usando uma identidade gerida por cápsulas":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Fluxo de trabalho simplificado para identidade gerida em Azure":::
 
 Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves de conta de armazenamento ou certificados. Pode integrar o Azure Key Vault com um cluster AKS utilizando o [fornecedor Azure Key Vault para o Controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O controlador CSI Secrets Store permite ao cluster AKS recuperar conteúdos secretos do Key Vault e fornecê-los de forma segura apenas à cápsula de pedido. Trabalhe com o seu operador de cluster para implantar o motorista CSI Secrets Store em nós de trabalhadores AKS. Pode utilizar uma identidade gerida por um pod para solicitar acesso ao Key Vault e recuperar os conteúdos secretos necessários através do Controlador CSI Secrets Store.
 

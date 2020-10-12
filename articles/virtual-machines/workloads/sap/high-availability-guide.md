@@ -16,10 +16,10 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: efd3f0f19325bdaccf98d10306c90488c78b3de7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653771"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure
@@ -798,7 +798,7 @@ Para configurar o modelo ASCS/SCS multi-SID, no [modelo ASCS/SCS multi-SID,][sap
   -  **Disponibilidade do sistema**. Selecione **HA**.
   -  **Nome de utilizador admin e senha de administração**. Crie um novo utilizador que possa ser utilizado para iniciar sessão na máquina.
   -  **Sub-rede nova ou existente.** Desa parte para determinar se deve ser criada uma nova rede virtual e uma sub-rede, ou se deve ser utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **a existência**.
-  -  **Id da sub-rede.** Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/<*id de subscrição*>/resourceGroups/<*nome do grupo de recursos*>/fornecedores/Microsoft.Network/virtualNetworks/<nome de rede *virtual*>/sub-redes/<nome *da sub-rede*>
+  -  **Id da sub-rede.** Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/<*id de subscrição*>/resourceGroups/<*nome do grupo de recursos*>/fornecedores/microsoft.Network/virtualNetworks/<nome de rede *virtual*>/sub-redes/<nome *da sub-rede*>
 
 O modelo implementa uma instância Azure Load Balancer, que suporta vários sistemas SAP.
 

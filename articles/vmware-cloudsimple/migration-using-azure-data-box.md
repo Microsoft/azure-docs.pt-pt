@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ab772bd9cb415045ef70cb4cf9a518791befb192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507671"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migração de dados para Azure VMware Solution usando Azure Data Box
@@ -38,7 +38,7 @@ Utilizar a Caixa de Dados nos seguintes cenários para a migração de dados em 
 * Para migrar dados de máquinas virtuais para configurar ambientes de desenvolvimento e teste.
 * Para migrar um grande número de modelos de máquinas virtuais, ficheiros ISO e discos de máquinas virtuais.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Verifique os pré-requisitos e [encomende a Caixa de Dados](../databox/data-box-deploy-ordered.md) através do seu portal Azure. Durante o processo de encomenda, deve selecionar uma conta de armazenamento que permita o armazenamento da Blob. Depois de receber o dispositivo Data Box, conecte-o à sua rede no local e [instale o dispositivo](../databox/data-box-deploy-set-up.md) com um endereço IP que seja acessível a partir da sua rede de gestão vSphere.
 
@@ -327,7 +327,7 @@ Depois de todos os dados são copiados para a sua nuvem privada, pode remover a 
     
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a Caixa de Dados.](../databox/data-box-overview.md)
 * Saiba mais sobre diferentes opções para [migrar cargas de trabalho para a sua nuvem privada.](migrate-workloads.md)

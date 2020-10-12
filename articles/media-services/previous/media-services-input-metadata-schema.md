@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267841"
 ---
 # <a name="input-metadata"></a>Inserir Metadados
@@ -130,8 +130,8 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 | **Perfil** |**xs: corda** |Perfil da pista de vídeo. |
 | **Nível** |**xs: corda** |Nível de pista de vídeo. |
 | **PixelFormat** |**xs: corda** |O formato pixel da pista de vídeo. |
-| **Width**<br /><br /> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
-| **Height**<br /><br /> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
+| **Largura**<br /><br /> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
+| **Altura**<br /><br /> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
 | **DisplayAspectRatioNumerator**<br /><br /> Necessário |**xs: duplo** |Numerador de aspeto de visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br /><br /> Necessário |**xs:duplo** |Denominador de rácio de aspeto do visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br /><br /> Necessário |**xs: duplo** |Numerador de aspeto da amostra de vídeo. |
@@ -151,7 +151,7 @@ Veja um exemplo XML no final deste artigo: [exemplo XML](media-services-input-me
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **chave**<br /><br /> Necessário |**xs:cadeia** |A chave no par chave/valor. |
-| **valor**<br /><br /> Necessário |**xs:cadeia** |O valor no par chave/valor. |
+| **value**<br /><br /> Necessário |**xs:cadeia** |O valor no par chave/valor. |
 
 ## <a name="programtype"></a><a name="ProgramType"></a> ProgramType
 **ProgramType** é um tipo complexo global que descreve um programa.  

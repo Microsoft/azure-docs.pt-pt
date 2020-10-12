@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer backup de uma partilha de ficheiros A
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077001"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Faça o back up de uma partilha de ficheiros Azure usando o PowerShell

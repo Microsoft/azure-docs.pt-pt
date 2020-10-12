@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
 ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83873643"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados da DB2 utilizando a Azure Data Factory
@@ -67,7 +67,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço vinculado DB2:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Db2** | Sim |
 | conexãoStragem | Especifique as informações necessárias para ligar à instância DB2.<br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
@@ -75,12 +75,12 @@ As seguintes propriedades são suportadas para o serviço vinculado DB2:
 
 Propriedades típicas dentro da cadeia de ligação:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | servidor |Nome do servidor DB2. Pode especificar o número da porta seguindo o nome do servidor delimitado por cólon, por `server:port` exemplo.<br>O conector DB2 utiliza o protocolo DDM/DRDA e, por predefinição, utiliza a porta 50000 se não for especificada. A porta que a sua base de dados DB2 específica utiliza pode ser diferente com base na versão e nas suas definições, por exemplo para DB2 LUW a porta predefinida é 50000, para AS400 a porta predefinido é 446 ou 448 quando o TLS ativado. Consulte os seguintes documentos DB2 sobre como a porta é configurada tipicamente: [DB2 z/OS,](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html) [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm), e [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação usada para ligar à base de dados DB2.<br/>O valor permitido é: **Básico.** |Sim |
-| o nome de utilizador |Especifique o nome do utilizador para ligar à base de dados DB2. |Sim |
+| nome de utilizador |Especifique o nome do utilizador para ligar à base de dados DB2. |Sim |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
 | pacoteCollection | Especificar em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. Se isto não estiver definido, a Data Factory utiliza o nome {username} como valor predefinido. | Não |
 | nome de certificadoCommonName | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | Não |
@@ -164,7 +164,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da DB2, as seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Db2Table** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
@@ -199,7 +199,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do DB2, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Db2Source** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -246,34 +246,34 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados D
 |:--- |:--- |
 | BigInt |Int64 |
 | Binário |Byte[] |
-| Blobs |Byte[] |
-| Char |String |
-| Clob |String |
-| Data |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
+| Blob |Byte[] |
+| Char |Cadeia |
+| Clob |Cadeia |
+| Date |Datetime |
+| DB2DynArray |Cadeia |
+| DbClob |Cadeia |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Double |Double |
-| Float |Double |
-| Gráfico |String |
+| Double (Duplo) |Double (Duplo) |
+| Float |Double (Duplo) |
+| Gráfico |Cadeia |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
+| LongVarChar |Cadeia |
+| LongVarGraphic |Cadeia |
 | Numérico |Decimal |
 | Real |Único |
 | PequenoInt |Int16 |
 | Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
-| Rio VarChar |String |
-| VarGraphic |String |
+| Rio VarChar |Cadeia |
+| VarGraphic |Cadeia |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

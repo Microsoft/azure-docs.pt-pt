@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277296"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
@@ -65,7 +65,7 @@ Neste artigo, você irá baixar e instalar os seguintes pacotes de software. O c
 
 | Requisito | Description |
 |--|--|
-| Câmara | O recipiente de análise espacial não está ligado a uma marca de câmara específica. O dispositivo da câmara precisa de suportar o Protocolo de Streaming em Tempo Real (RTSP) e a codificação H.264, estar acessível ao computador anfitrião e ser capaz de ser transmitido a 15FPS e resolução de 1080p. |
+| Câmara | O recipiente de análise espacial não está ligado a uma marca de câmara específica. O dispositivo da câmara precisa de suportar Real-Time Protocolo de Streaming (RTSP) e codificação H.264, estar acessível ao computador anfitrião e ser capaz de ser transmitido a 15FPS e resolução de 1080p. |
 | Linux OS | [O Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) deve ser instalado no computador anfitrião.  |
 
 
@@ -111,7 +111,7 @@ No [portal Azure,](https://portal.azure.com/)navegue para o seu recurso Azure St
 
 Na página de **computação Configure Edge,**   escolha um Hub IoT existente ou opte por criar um novo. Por padrão, um nível de preços Standard (S1) é usado para criar um recurso IoT Hub. Para utilizar um recurso IoT Hub de nível livre, crie um e, em seguida, selecione-o. O recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é usado pelo recurso Azure Stack Edge 
 
-Clique em **Create** (Criar). A criação de recursos IoT Hub pode demorar alguns minutos. Após a criação do recurso IoT Hub, o azulejo **computacional Configure Edge** atualizar-se-á para mostrar a nova configuração. Para confirmar que a função de computação Edge foi configurada, selecione **Ver configurar** no azulejo **computacional Configure.**  
+Clique em **Criar**. A criação de recursos IoT Hub pode demorar alguns minutos. Após a criação do recurso IoT Hub, o azulejo **computacional Configure Edge** atualizar-se-á para mostrar a nova configuração. Para confirmar que a função de computação Edge foi configurada, selecione **Ver configurar** no azulejo **computacional Configure.**  
 
 Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. O tempo de execução Azure IoT Edge já estará em funcionamento no dispositivo IoT Edge.            
 

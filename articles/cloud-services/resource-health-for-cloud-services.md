@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
 ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056064"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)

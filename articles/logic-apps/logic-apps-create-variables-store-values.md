@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333907"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Armazenar e gerir valores através de variáveis no Azure Logic Apps
@@ -67,9 +67,9 @@ Pode criar uma variável e declarar o seu tipo de dados e valor inicial - tudo d
 
    | Propriedade | Necessário | Valor |  Descrição |
    |----------|----------|-------|--------------|
-   | **Nome** | Yes | <*nome variável*> | O nome para a variável para incrementar |
-   | **Tipo** | Yes | <*tipo variável*> | O tipo de dados para a variável |
-   | **Valor** | No | <*valor inicial*> | O valor iniciar da variável <p><p>**Dica**: Embora opcional, desate este valor como uma boa prática para que conheça sempre o valor inicial da sua variável. |
+   | **Nome** | Sim | <*nome variável*> | O nome para a variável para incrementar |
+   | **Tipo** | Sim | <*tipo variável*> | O tipo de dados para a variável |
+   | **Valor** | Não | <*valor inicial*> | O valor iniciar da variável <p><p>**Dica**: Embora opcional, desate este valor como uma boa prática para que conheça sempre o valor inicial da sua variável. |
    |||||
 
    Por exemplo:
@@ -207,8 +207,8 @@ Para aumentar ou *incrementar* uma variável por um valor constante, adicione a 
 
    | Propriedade | Necessário | Valor |  Descrição |
    |----------|----------|-------|--------------|
-   | **Nome** | Yes | <*nome variável*> | O nome para a variável para incrementar |
-   | **Valor** | No | <*incremento-valor*> | O valor utilizado para incrementar a variável. O valor predefinido é um. <p><p>**Dica**: Embora opcional, desa esta medida seja uma boa prática para que conheça sempre o valor específico para incrementar a sua variável. |
+   | **Nome** | Sim | <*nome variável*> | O nome para a variável para incrementar |
+   | **Valor** | Não | <*incremento-valor*> | O valor utilizado para incrementar a variável. O valor predefinido é um. <p><p>**Dica**: Embora opcional, desa esta medida seja uma boa prática para que conheça sempre o valor específico para incrementar a sua variável. |
    ||||
 
    Por exemplo:
@@ -328,8 +328,8 @@ Aqui estão as propriedades para a ação **variável Decrement:**
 
 | Propriedade | Necessário | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Yes | <*nome variável*> | O nome para a variável para decrédão | 
-| **Valor** | No | <*incremento-valor*> | O valor para decrementar a variável. O valor predefinido é um. <p><p>**Dica**: Embora opcional, deslome este valor como uma boa prática para que conheça sempre o valor específico para decrementar a sua variável. |
+| **Nome** | Sim | <*nome variável*> | O nome para a variável para decrédão | 
+| **Valor** | Não | <*incremento-valor*> | O valor para decrementar a variável. O valor predefinido é um. <p><p>**Dica**: Embora opcional, deslome este valor como uma boa prática para que conheça sempre o valor específico para decrementar a sua variável. |
 ||||| 
 
 Se mudar do designer para o editor de visualização de código, eis a forma como a ação **variável Decrement** aparece dentro da definição da sua aplicação lógica, que está no formato JSON.
@@ -361,8 +361,8 @@ Aqui estão as propriedades para a ação **variável set:**
 
 | Propriedade | Necessário | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Yes | <*nome variável*> | O nome para a variável para mudar |
-| **Valor** | Yes | <*novo valor*> | O valor que pretende atribuir a variável. Ambos devem ter o mesmo tipo de dados. |
+| **Nome** | Sim | <*nome variável*> | O nome para a variável para mudar |
+| **Valor** | Sim | <*novo valor*> | O valor que pretende atribuir a variável. Ambos devem ter o mesmo tipo de dados. |
 ||||| 
 
 > [!NOTE]
@@ -419,8 +419,8 @@ Aqui estão as propriedades do **Apêndice para...** ações:
 
 | Propriedade | Necessário | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Yes | <*nome variável*> | O nome para a variável para mudar |
-| **Valor** | Yes | <*valor apêndice*> | O valor que quer anexar, que pode ter qualquer tipo |
+| **Nome** | Sim | <*nome variável*> | O nome para a variável para mudar |
+| **Valor** | Sim | <*valor apêndice*> | O valor que quer anexar, que pode ter qualquer tipo |
 |||||
 
 Se mudar do designer para o editor de visualização de código, eis a forma como o **Apêndice para a** ação variável de matriz aparece dentro da definição da sua aplicação lógica, que está no formato JSON. Este exemplo cria uma variável de matriz, e adiciona outro valor como o último item na matriz. O seu resultado é uma variável atualizada que contém esta matriz: `[1,2,3,"red"]`

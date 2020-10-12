@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511641"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de função Azure
@@ -239,7 +239,7 @@ Proprietário
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de dados blob de armazenamento
+Contribuinte de Dados do Armazenamento de Blobs
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -294,7 +294,7 @@ A `Actions` permissão especifica as operações de gestão que o papel permite 
 A `NotActions` permissão especifica as operações de gestão que estão excluídas do `Actions` permitido. Utilize a `NotActions` permissão se o conjunto de operações que pretende permitir for mais facilmente definido excluindo operações restritas. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotActions` operações das `Actions` operações.
 
 > [!NOTE]
-> Se um utilizador tiver uma função que exclua uma operação em `NotActions` , e lhe for atribuída uma segunda função que garanta o acesso à mesma operação, o utilizador pode realizar essa operação. `NotActions`não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações permitidas quando as operações específicas precisam de ser excluídas.
+> Se um utilizador tiver uma função que exclua uma operação em `NotActions` , e lhe for atribuída uma segunda função que garanta o acesso à mesma operação, o utilizador pode realizar essa operação. `NotActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações permitidas quando as operações específicas precisam de ser excluídas.
 >
 
 ## <a name="dataactions"></a>DataActions
@@ -314,7 +314,7 @@ A `DataActions` permissão especifica as operações de dados que a função per
 A `NotDataActions` permissão especifica as operações de dados que estão excluídas do permitido `DataActions` . O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as `NotDataActions` operações das `DataActions` operações. Cada fornecedor de recursos fornece o seu respetivo conjunto de APIs para realizar operações de dados.
 
 > [!NOTE]
-> Se um utilizador tiver uma função que exclua uma operação de dados em `NotDataActions` , e lhe for atribuída uma segunda função que concede acesso à mesma operação de dados, o utilizador pode realizar essa operação de dados. `NotDataActions`não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações de dados permitidas quando as operações específicas de dados precisam de ser excluídas.
+> Se um utilizador tiver uma função que exclua uma operação de dados em `NotDataActions` , e lhe for atribuída uma segunda função que concede acesso à mesma operação de dados, o utilizador pode realizar essa operação de dados. `NotDataActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações de dados permitidas quando as operações específicas de dados precisam de ser excluídas.
 >
 
 ## <a name="assignablescopes"></a>Scopes atribuíveis
@@ -335,7 +335,7 @@ As funções incorporadas `AssignableScopes` definiram-se no âmbito da raiz ( `
 
 Para obter informações sobre `AssignableScopes` funções personalizadas, consulte [as funções personalizadas Azure](custom-roles.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Funções incorporadas do Azure](built-in-roles.md)
 * [Funções personalizadas do Azure](custom-roles.md)

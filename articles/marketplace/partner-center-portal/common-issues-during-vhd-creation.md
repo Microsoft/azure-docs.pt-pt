@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
 ms.openlocfilehash: f4d30cdb931d6523eba3aac003caeee38a8c024d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653533"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Questões comuns durante a criação de VHD

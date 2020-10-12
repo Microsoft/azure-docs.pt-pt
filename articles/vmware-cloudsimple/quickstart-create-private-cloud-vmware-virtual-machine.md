@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140858"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware na sua Nuvem Privada
@@ -139,7 +139,7 @@ As páginas 'Rede' no portal CloudSimple permitem especificar a configuração p
 5. Utilize o deslizador para alterar o tempo limite de marcha lenta, se desejar.
 6. Insira o endereço IP local para o qual pretende atribuir um endereço IP público.
 7. Introduza um nome DNS associado, se desejar.
-8. Clique em **Concluído**.
+8. Clique em **Done** (Concluído).
 
     ![IP público](media/quick-create-pc-public-ip.png)
 
@@ -223,7 +223,7 @@ Pode instalar soluções na cloudSimple Private Cloud para tirar o máximo parti
 
 Para instalar uma solução, deve solicitar privilégios adicionais por um período limitado. Ver [privilégios escalate.](escalate-private-cloud-privileges.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](on-premises-connection.md)

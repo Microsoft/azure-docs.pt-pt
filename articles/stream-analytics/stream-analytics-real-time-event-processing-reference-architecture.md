@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 23c7112639a64097d95df29bde16636702837f9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83832984"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: Processamento de eventos em tempo real com o Microsoft Azure Stream Analytics
@@ -24,12 +24,12 @@ O Microsoft Azure fornece um extenso catálogo de tecnologias de análise que s�
 
 ## <a name="contents"></a>Conteúdos
 * Resumo Executivo
-* Introdução à Análise em Tempo Real
-* Proposta de valor de dados em tempo real em Azure
-* Cenários comuns para análises em tempo real
+* Introdução à Real-Time Analytics
+* Proposta de valor de dados de Real-Time em Azure
+* Cenários Comuns para Real-Time Analytics
 * Arquitetura e Componentes
   * Origens de Dados
-  * Camada de Integração de Dados
+  * Camada Data-Integration
   * Camada de análise em tempo real
   * Camada de armazenamento de dados
   * Apresentação / Camada de Consumo
@@ -46,7 +46,7 @@ O Microsoft Azure fornece um extenso catálogo de tecnologias de análise que s�
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

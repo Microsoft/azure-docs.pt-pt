@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140841"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nóns cloudSimple
@@ -38,7 +38,7 @@ Estão disponíveis os seguintes tipos de nós para provisionamento ou reserva.
 
 | SKU           | CS28 - Nó                 | CS36 - Nó                 | CS36m - Nó                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Região        | Leste dos EUA, Oeste dos EUA            | Leste dos EUA, Oeste dos EUA            | Europa Ocidental                 |
+| Region        | Leste dos EUA, Oeste dos EUA            | Leste dos EUA, Oeste dos EUA            | Europa Ocidental                 |
 | CPU           | 2x2.2 GHz, 28 Cores (56 HT) | 2x2.3 GHz, 36 Cores (72 HT) | 2x2.3 GHz, 36 Cores (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Disco cache    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |
@@ -56,7 +56,7 @@ Os seguintes limites de nó aplicam-se às Nuvens Privadas.
 | Número máximo de nós numa Nuvem Privada | 64 |
 | Número mínimo de nós num novo cluster | 3 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [providenciar os nóns](create-nodes.md)
 * Saiba mais sobre [Nuvens Privadas](cloudsimple-private-cloud.md)

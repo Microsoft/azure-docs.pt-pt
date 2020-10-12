@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268541"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
@@ -29,7 +29,7 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 * *Tema*, que inclui funcionalidades como o tema do ambiente de trabalho e as definições da barra de tarefas.
 * *Definições do Internet Explorer*, que incluem os favoritos e os separadores recentemente abertos.
 * *Definições do navegador Microsoft Edge*, como favoritos e lista de leitura.
-* *Palavras-passe*, incluindo palavras-passe de Internet, perfis wi-fi, entre outros.
+* *Palavras-passe*, incluindo palavras-passe da Internet, perfis de Wi-Fi, entre outros.
 * *Preferências de idioma*, que incluem definições relativas a esquemas de teclado, ao idioma do sistema, à data e hora e mais.
 * *Funcionalidades de facilidade de acesso*, tais como o tema de alto contraste, o Narrador e a Lupa.
 * *Outras definições do Windows*, tais como as definições do rato.
@@ -66,7 +66,7 @@ Se o domínio ative directy se ligar ao Azure AD, o seu dispositivo tentará sin
 Se armazenar quaisquer dados pessoais no seu dispositivo corporativo, deve estar ciente de que o Windows OS e os dados da aplicação começarão a sincronizar com o Azure AD. Isto tem as seguintes implicações:
 
 * As definições pessoais da sua conta Microsoft afastar-se-ão das definições do seu trabalho ou das contas AZure AD da escola. Isto porque a conta microsoft e as definições AD do Azure estão agora a utilizar contas separadas.
-* Dados pessoais como palavras-passe Wi-Fi, credenciais web e favoritos do Internet Explorer que foram previamente sincronizados através de uma conta da Microsoft conectada serão sincronizados através do Azure AD.
+* Dados pessoais como Wi-Fi palavras-passe, credenciais web e favoritos do Internet Explorer que foram previamente sincronizados através de uma conta da Microsoft conectada serão sincronizados através do Azure AD.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Como funcionam as contas da Microsoft e da interoperabilidade do Roaming do Estado da Azure AD Enterprise?
 
@@ -77,7 +77,7 @@ Nos lançamentos de novembro de 2015 ou posteriores do Windows 10, o Enterprise 
 Quando várias contas AD da Azure de diferentes inquilinos da AD Azure estiverem no mesmo dispositivo, você deve atualizar o registo do dispositivo para comunicar com o serviço de Gestão de Direitos Azure para cada inquilino AZure AD.  
 
 1. Encontre o GUID para cada inquilino AZure AD. Abra o portal Azure e selecione um inquilino AZure AD. O GUID para o arrendatário está na página Propriedades para o inquilino selecionado https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) (, rotulada **ID do Diretório**. 
-2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC \<tenant ID GUID> **.
+2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
    A partir da chave **ID GUID** do inquilino, crie um novo valor multi-string (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para os seus dados, especifique os URLs do ponto de distribuição de licenciamento dos outros inquilinos da Azure a que o dispositivo acede.
 3. Pode encontrar os URLs do ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration** a partir do módulo AADRM. Se os valores para o **LicenciamentoIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem os mesmos, especifique o valor apenas uma vez.
 

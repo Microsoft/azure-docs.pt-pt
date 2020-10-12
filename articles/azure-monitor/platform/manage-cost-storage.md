@@ -15,10 +15,10 @@ ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578262"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
@@ -124,7 +124,7 @@ Mais detalhes sobre as limitações do nível de preços estão disponíveis nos
 Nenhum dos níveis de preços antigos tem preços regionais.  
 
 > [!NOTE]
-> Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou do Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
+> Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou da Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
@@ -567,7 +567,7 @@ union *
 Esta consulta não é uma réplica exata de como a utilização é calculada, mas funcionará para fornecer recomendações de nível de preços na maioria dos casos.  
 
 > [!NOTE]
-> Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou do Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
+> Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou da Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Crie um alerta quando a recolha de dados é alta
 

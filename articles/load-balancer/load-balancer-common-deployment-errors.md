@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
 ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84221002"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Resolução de problemas erros comuns de implantação do Azure com o Equilibrador de Carga Azure
@@ -39,7 +39,7 @@ Este artigo descreve alguns erros comuns de implementação do Balançador de Ca
 |RecursosDeploymentFailure| Se o seu equilibrador de carga estiver num estado falhado, siga estes passos para trazê-lo de volta do estado falhado:<ol><li>Vá a https://resources.azure.com , e inscreva-se com as suas credenciais do portal Azure.</li><li>Selecione **Ler/Escrever**.</li><li>À esquerda, expanda as **Subscrições**e, em seguida, expanda a Subscrição com o Balanceador de Carga para atualizar.</li><li>Expandir **grupos de recursos**e, em seguida, expandir o grupo de recursos com o Balanceador de Carga para atualizar.</li><li>Selecione **Microsoft.Network**  >  **LoadBalancers**e, em seguida, selecione o Balanceador de Carga para atualizar, **LoadBalancer_1**.</li><li>Na página de exibição para **LoadBalancer_1**, selecione **GET**  >  **GET Edit**.</li><li>Atualize o valor **do ProvisioningState** de **Failed** to **Succeeded**.</li><li>Selecione **PUT**.</li></ol>|
 |  |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja através da tabela de [comparação SKU](./skus.md) do balanceador de carga Azure
 * Saiba mais sobre [os limites do balançador de carga Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)

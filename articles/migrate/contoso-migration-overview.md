@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: f9f7b3b64cf91019ed4e40d5d52b859419b74836
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107636"
 ---
 # <a name="contoso-migration-series"></a>Série de migração do Contoso
@@ -45,7 +45,7 @@ Os artigos da série são resumidos na tabela abaixo.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre](/azure/architecture/cloud-adoption/migrate/) migração em nuvem.
 - Conheça as estratégias de migração para outros cenários (pares de origem/alvo) no [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/)

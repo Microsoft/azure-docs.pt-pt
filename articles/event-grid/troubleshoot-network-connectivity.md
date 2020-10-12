@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
 ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119009"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Problemas de conectividade resolução de problemas - Azure Event Grid
@@ -61,7 +61,7 @@ Se a sua aplicação estiver a decorrer dentro de uma sub-rede e se houver um gr
 
 Verifique se o endereço IP público da máquina em que a aplicação está a ser executada não está bloqueado pela firewall IP tópico/domínio do EventGrid.
 
-Por predefinição, os tópicos/domínios da Grelha de Eventos estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Por predefinição, os tópicos/domínios da Grelha de Eventos estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 As regras de firewall IP são aplicadas ao nível tópico/domínio da Grade de Eventos. Por isso, as regras aplicam-se a todas as ligações dos clientes utilizando qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra IP permitida no tópico/domínio da Grelha de Eventos é rejeitada como proibida. A resposta não menciona a regra do IP.
 
@@ -116,6 +116,6 @@ Problemas de conectividade transitórios podem ocorrer devido a atualizações e
 
 Apanhar estes erros transitórios, recuar e, em seguida, voltar a tentar a chamada, garantirá que o seu código é resistente a estas questões transitórias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio.](https://azure.microsoft.com/support/options/)
