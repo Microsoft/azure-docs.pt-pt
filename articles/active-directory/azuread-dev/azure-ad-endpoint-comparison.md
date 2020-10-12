@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116398"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
@@ -61,7 +61,7 @@ O consentimento da administração feito em nome de uma organização ainda requ
 
 Para aplicações que utilizem o ponto final v1.0, uma aplicação pode comportar-se como um **recurso**, ou um destinatário de fichas. Um recurso pode definir uma série de **âmbitos** ou **oAuth2Permissions** que entende, permitindo que as aplicações do cliente solicitem fichas desse recurso para um determinado conjunto de âmbitos. Considere a API do Gráfico da Microsoft como um exemplo de um recurso:
 
-* Identificador de recursos, `AppID URI` ou:`https://graph.microsoft.com/`
+* Identificador de recursos, `AppID URI` ou: `https://graph.microsoft.com/`
 * Âmbitos, ou `oAuth2Permissions` : , , e assim por `Directory.Read` `Directory.Write` diante.
 
 Isto é válido para o ponto final da plataforma de identidade da Microsoft. Uma aplicação ainda pode comportar-se como um recurso, definir âmbitos e ser identificado por um URI. As aplicações do cliente ainda podem solicitar o acesso a esses âmbitos. No entanto, a forma como um cliente solicita essas permissões mudou.

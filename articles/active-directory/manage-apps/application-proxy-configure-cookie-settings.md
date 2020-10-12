@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764898"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Definições de cookies para aceder a aplicações no local no Azure Ative Directory
@@ -29,7 +29,7 @@ O Azure Ative Directory (Azure AD) tem cookies de acesso e sessão para aceder a
 
 | Definição de cookies | Predefinição | Descrição | Recomendações |
 | -------------- | ------- | ----------- | --------------- |
-| Use cookie apenas HTTP | **Não** | **Sim** permite que o Application Proxy inclua a bandeira HTTPOnly em cabeçalhos de resposta HTTP. Esta bandeira proporciona benefícios adicionais de segurança, por exemplo, evita que a script (CSS) do lado do cliente copie ou modifique os cookies.<br></br><br></br>Antes de suportarmos a definição HTTP-Only, o Application Proxy encriptava e transmitia cookies através de um canal TLS seguro para proteger contra modificações. | Use **Sim** por causa dos benefícios adicionais de segurança.<br></br><br></br>Use **O** para clientes ou agentes de utilizador que necessitem de acesso ao cookie da sessão. Por exemplo, utilize **O** para um cliente RDP ou MTSC que se conecta a um servidor Remote Desktop Gateway através do Application Proxy.|
+| Use HTTP-Only Cookie | **Não** | **Sim** permite que o Application Proxy inclua a bandeira HTTPOnly em cabeçalhos de resposta HTTP. Esta bandeira proporciona benefícios adicionais de segurança, por exemplo, evita que a script (CSS) do lado do cliente copie ou modifique os cookies.<br></br><br></br>Antes de suportarmos a definição de HTTP-Only, o Application Proxy encriptava e transmitia cookies através de um canal TLS seguro para proteger contra modificações. | Use **Sim** por causa dos benefícios adicionais de segurança.<br></br><br></br>Use **O** para clientes ou agentes de utilizador que necessitem de acesso ao cookie da sessão. Por exemplo, utilize **O** para um cliente RDP ou MTSC que se conecta a um servidor Remote Desktop Gateway através do Application Proxy.|
 | Use Secure Cookie | **Não** | **Sim** permite que o Application Proxy inclua a bandeira Secure em cabeçalhos de resposta HTTP. Os Cookies Seguros aumentam a segurança transmitindo cookies através de um canal protegido TLS, como HTTPS. Isto impede que os cookies sejam observados por partes não autorizadas devido à transmissão do cookie em texto claro. | Use **Sim** por causa dos benefícios adicionais de segurança.|
 | Use cookie persistente | **Não** | **Sim** permite que o Application Proxy desemproputa os seus cookies de acesso para não expirar quando o navegador está fechado. A persistência dura até que o token de acesso expire, ou até que o utilizador elimine manualmente os cookies persistentes. | Utilização **Nº** devido ao risco de segurança associado à autenticação dos utilizadores.<br></br><br></br>Sugerimos apenas usar **Sim** para aplicações mais antigas que não podem partilhar cookies entre processos. É melhor atualizar a sua aplicação para lidar com cookies de partilha entre processos em vez de usar cookies persistentes. Por exemplo, poderá necessitar de cookies persistentes para permitir que um utilizador abra documentos do Office na vista do explorador a partir de um site do SharePoint. Sem cookies persistentes, esta operação pode falhar se os cookies de acesso não forem partilhados entre o navegador, o processo de explorador e o processo do Office. |
 
@@ -41,7 +41,7 @@ A partir da versão Chrome 80 e eventualmente nos navegadores que alavancam o Ch
 
 Estas alterações aos cookies Proxy da Aplicação serão lançadas ao longo das próximas semanas antes da data de lançamento do Chrome 80.
 
-Além disso, se a sua aplicação back-end tiver cookies que precisam de estar disponíveis num contexto de terceiros, deve optar explicitamente alterando a sua aplicação para utilizar o SameSite=Nenhum para estes cookies. O Application Proxy traduz o cabeçalho Set-Cookie para o seu URLS e respeitará as definições para estes cookies definidos pela aplicação back-end.
+Além disso, se a sua aplicação back-end tiver cookies que precisam de estar disponíveis num contexto de terceiros, deve optar explicitamente alterando a sua aplicação para utilizar o SameSite=Nenhum para estes cookies. Application Proxy traduz o cabeçalho Set-Cookie para o seu URLS e respeitará as definições para estes cookies definidos pela aplicação back-end.
 
 
 

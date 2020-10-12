@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073321"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Capacidades multi-modelo da Base de Dados Azure SQL & SQL Gestd Instance
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Pode personalizar esta estrutura de valor-chave para se adaptar às suas necessidades sem quaisquer constrangimentos. Como exemplo, o valor pode ser documento XML em vez de `nvarchar(max)` tipo, se o valor for documento JSON, pode colocar `CHECK` restrições que verifiquem a validade do conteúdo JSON. Pode colocar qualquer número de valores relacionados com uma chave nas colunas adicionais, adicionar colunas e índices computados para simplificar e otimizar o acesso aos dados, definir a tabela como tabela apenas de memória/otimizada para obter um melhor desempenho, etc.
 
-Veja [como a BWin está a usar o OLTP de memória para alcançar um desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a sua solução de caching ASP.NET que alcançou 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par de valor-chave na prática.
+Veja [como a BWin está a usar In-Memory OLTP para alcançar um desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a sua solução de caching ASP.NET que alcançou 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par de valor-chave na prática.
 
 ## <a name="next-steps"></a>Passos seguintes
 

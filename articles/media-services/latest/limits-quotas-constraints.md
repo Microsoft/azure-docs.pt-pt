@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265495"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
@@ -113,4 +113,4 @@ Para os recursos que não são fixados, pode solicitar o auser das quotas, abrin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição Geral](media-services-overview.md)
+[Descrição geral](media-services-overview.md)

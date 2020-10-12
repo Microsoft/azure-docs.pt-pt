@@ -4,10 +4,10 @@ description: Este artigo resume o suporte de backup do Azure quando faz cópias 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332683"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
@@ -130,14 +130,14 @@ Os sistemas operativos devem ser de 64 bits e devem estar a executar os mais rec
 
 **Sistema operativo** | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Yes | No |  Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows 8.1 (Enterprise, Pro)| Yes |No | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows 8 (Enterprise, Pro) | Yes | No | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Serviço e Gestão de Imagem de Implantação (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Sim |Não | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Sim | Não | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Serviço e Gestão de Imagem de Implantação (DISM.exe)
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 
 Para obter mais informações, consulte [os sistemas operativos MABS e DPM suportados.](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)
 
@@ -151,9 +151,9 @@ Para ambientes no local ou ambientes hospedados, onde não é possível atualiza
 
 | **Sistema Operativo**                                       | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | No                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
-| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes               | Yes                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Yes               | No                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sim               | Não                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim               | Sim                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Sim               | Não                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limites de backup
 

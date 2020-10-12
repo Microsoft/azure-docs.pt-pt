@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052001"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
@@ -107,7 +107,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | Esgrima azul ou esgrima SBD (altamente recomendado). Método para evitar situações cerebrais divididas. |
 | SBD VM | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).
@@ -327,7 +327,7 @@ Os seguintes itens são pré-fixados com:
 > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
 >
 > Note que a mudança requer breves tempos de inatividade.  
-> Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Endurecimento de Deteção de Equilíbrio de Carga Azure,](https://www.suse.com/support/kb/doc/?id=7024128)não existe qualquer necessidade de mudar imediatamente para o agente de recursos azure-lb.
+> Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não existe qualquer requisito para mudar imediatamente para o agente de recursos azure-lb.
 
 **[1]** Configuração do Pacemaker específica da IBM Db2 HADR:
 <pre><code># Put Pacemaker into maintenance mode
@@ -478,7 +478,7 @@ Se efetuou a instalação antes de criar a configuração Db2 HADR, faça as alt
 
 Utilize a ferramenta J2EE Config para verificar ou atualizar o URL JDBC. Como a ferramenta J2EE Config é uma ferramenta gráfica, é necessário instalar o servidor X:
  
-1. Inscreva-se no servidor de aplicação primária da instância J2EE e execute:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Inscreva-se no servidor de aplicação primária da instância J2EE e execute:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro esquerdo, escolha **a loja de segurança.**
 1. No quadro direito, escolha a chave jdbc/pool/ \<SAPSID> /url.
 1. Mude o nome do anfitrião no URL JDBC para o nome de anfitrião virtual.
@@ -495,7 +495,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS onde os registos são escritos de ambos os nós. A quota da NFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, veja:
+Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, consulte:
 
 - [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)

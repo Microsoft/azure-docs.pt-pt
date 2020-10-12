@@ -4,10 +4,10 @@ description: Este artigo descreve como converter o seu esquema personalizado par
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 836e7b340c5c89100207e2f9409710b8dfa5e3bf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105528"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados no esquema do Event Grid
@@ -200,7 +200,7 @@ A segunda subscrição usou o esquema do evento de entrada. O formato do evento 
 
 Note que os campos originais foram entregues.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

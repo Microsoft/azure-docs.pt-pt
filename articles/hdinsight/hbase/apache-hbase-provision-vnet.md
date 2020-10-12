@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087746"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters Apache HBase em HDInsight na Rede Virtual Azure
@@ -43,7 +43,7 @@ Nesta secção, você cria um cluster Apache HBase baseado em Linux com a conta 
 > * **Nome da sub-rede**: sub-rede1
 > * **Intervalo de endereços da sub-rede**: 10.0.0.0/24
 >
-> `CLUSTERNAME`é substituído pelo nome de cluster que fornece ao utilizar o modelo.
+> `CLUSTERNAME` é substituído pelo nome de cluster que fornece ao utilizar o modelo.
 
 1. Selecione a seguinte imagem para abrir o modelo no portal Azure. O modelo está localizado em [modelos de arranque rápido Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
@@ -144,13 +144,13 @@ Para utilizar estas informações numa aplicação Java, pode seguir os passos e
 > [!NOTE]  
 > Para obter mais informações sobre a resolução de nomes em redes virtuais Azure, incluindo como utilizar o seu próprio servidor DNS, consulte [a Resolução de Nomes (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a criar um cluster Apache HBase. Para saber mais, consulte:
+Neste artigo, aprendeu a criar um cluster Apache HBase. Para saber mais, veja:
 
 * [Introdução ao HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Use os nódes de borda vazios em HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Configure a replicação apache HBase em HDInsight](apache-hbase-replication.md)
 * [Criar clusters Apache Hadoop em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Começar a usar Apache HBase com Apache Hadoop em HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Descrição Geral da Rede Virtual](../../virtual-network/virtual-networks-overview.md)
+* [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)

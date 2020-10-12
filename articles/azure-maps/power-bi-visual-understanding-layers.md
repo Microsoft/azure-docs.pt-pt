@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261848"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Compreender camadas no Azure Maps Power BI visual
@@ -71,7 +71,7 @@ Estas camadas também têm uma opção a ser posicionadas em relação a outras 
 
 A secção geral da camada do painel **de formato** são configurações comuns que se aplicam às camadas que estão ligadas ao conjunto de dados Power BI no painel **fields** (camada de bolha, gráfico de barras).
 
-| Definição     | Descrição   |
+| Definições     | Descrição   |
 |-------------|---------------|
 | Transparência nãolectionada | A transparência das formas que não são selecionadas, quando uma ou mais formas são selecionadas.  |
 | Mostrar zeros              | Especifica se os pontos que têm um valor de tamanho zero devem ser mostrados no mapa usando o raio mínimo. |
@@ -87,12 +87,12 @@ Altere a forma como os seus dados são apresentados no mapa:
 > [Adicionar uma camada de bolha](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de gráfico de barras](power-bi-visual-add-bar-chart-layer.md)
+> [Adicionar uma camada de gráfico de barras](power-bi-visual-add-bar-chart-layer.md)
 
 Adicione mais contexto ao mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de referência](power-bi-visual-add-reference-layer.md)
+> [Adicionar uma camada de referência](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de mosaico](power-bi-visual-add-tile-layer.md)

@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264288"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Operações de Serviços de Mídia REST Visão geral da API
@@ -78,23 +78,23 @@ Segue-se um conjunto de cabeçalhos opcionais:
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| Data |Data RFC 1123 |Tempotam do pedido |
+| Date |Data RFC 1123 |Tempotam do pedido |
 | Aceitar |Tipo do conteúdo |O tipo de conteúdo solicitado para a resposta, tais como:<p> -aplicação/json;odata=verbose<p> - aplicação/átomo+xml<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca de bolhas, onde uma resposta bem sucedida contém o fluxo de bolhas como a carga útil. |
-| Aceitação-Codificação |Gzip, esvaziar |Codificação GZIP e DEFLATE, quando aplicável. Nota: Para grandes recursos, os Serviços de Comunicação Social podem ignorar este cabeçalho e devolver dados não comprimidos. |
+| Accept-Encoding |Gzip, esvaziar |Codificação GZIP e DEFLATE, quando aplicável. Nota: Para grandes recursos, os Serviços de Comunicação Social podem ignorar este cabeçalho e devolver dados não comprimidos. |
 | Accept-Language |"en", "es", e assim por diante. |Especifica a língua preferida para a resposta. |
-| Aceitar-Charset |Tipo de charset como "UTF-8" |O padrão é UTF-8. |
+| Accept-Charset |Tipo de charset como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, escavados através de uma chamada GET. |
 | Content-Type |Tipo do conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
-| cliente-pedido id |String |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
+| cliente-pedido id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos Media Services
 Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos, dependendo do recurso que solicitou e da ação que pretendia realizar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| pedido id |String |Um identificador único para a operação atual, serviço gerado. |
-| cliente-pedido id |String |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
-| Data |Data RFC 1123 |A data/hora em que o pedido foi processado. |
+| pedido id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
+| cliente-pedido id |Cadeia |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
+| Date |Data RFC 1123 |A data/hora em que o pedido foi processado. |
 | Content-Type |Varia |O tipo de conteúdo do corpo de resposta. |
 | Codificação de conteúdos |Varia |Gzip ou esvazie, conforme apropriado. |
 

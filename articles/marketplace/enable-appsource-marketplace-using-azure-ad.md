@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
 ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88607411"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre a sua listagem de marketplace comercial com o Azure Ative Directory
@@ -33,12 +33,12 @@ As várias [opções de listagem de](determine-your-listing-type.md) mercado com
 
 | Tipo de oferta    | Azure AD SSO necessário para contactar-me?  | Azure AD SSO necessário para julgamento? | Azure AD SSO necessário para test drive?  | Azure AD SSO necessário para a Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Máquina Virtual | N/D | No | No | No |
+| Máquina Virtual | N/D | Não | Não | Não |
 | Azure Apps (modelo de solução)  | N/D | N/D | N/D | N/D |
-| Aplicativos geridos  | N/D | N/D | N/D | No |
-| SaaS  | Não | Yes | Yes | Yes |
-| Contentores  | N/D | N/D | N/D | No |
-| Serviços de Consultoria  | No | N/D | N/D | N/D |
+| Aplicativos geridos  | N/D | N/D | N/D | Não |
+| SaaS  | Não | Sim | Sim | Sim |
+| Contentores  | N/D | N/D | N/D | Não |
+| Serviços de Consultoria  | Não | N/D | N/D | N/D |
 
 Para obter mais informações sobre os requisitos técnicos da SaaS, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](./azure-ad-saas.md)
 

@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888710"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
@@ -155,7 +155,7 @@ Sim. Para obter mais informações, consulte [Configurar um ambiente de prepara�
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso aceder a Kubernetes para manipular os meus recipientes de aplicação?
 
-Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, permitindo-lhe concentrar-se no código de aplicação e na lógica de negócio.
+N.º  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, permitindo-lhe concentrar-se no código de aplicação e na lógica de negócio.
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
@@ -163,7 +163,7 @@ Sim. Para obter mais informações, consulte [lançar a sua aplicação Cloud Sp
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud suporta autoscaling em instâncias de aplicações?
 
-Não.
+N.º
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quais são as melhores práticas para migrar microserviços da Nuvem de primavera existentes para Azure Spring Cloud?

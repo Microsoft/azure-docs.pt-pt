@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: d865ac8bae475365dbfc6c8bad990a1acc7998f0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116755"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação multi-inquilino

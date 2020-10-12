@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317181"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 O contexto passado para a sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
 
-| Nome da propriedade  | Tipo  | Description |
+| Nome da propriedade  | Tipo  | Descrição |
 |---------|---------|---------|
 | `invocationId` | Cadeia | Fornece um identificador único para a invocação de funções específicas. |
 | `functionName` | Cadeia | Fornece o nome da função de execução |

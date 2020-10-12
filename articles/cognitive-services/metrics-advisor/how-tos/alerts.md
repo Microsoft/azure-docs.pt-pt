@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977791"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Como fazer: Configurar alertas e receber notificações usando um gancho
@@ -67,7 +67,7 @@ Quando uma notificação é empurrada através de um gancho web, você pode usar
 - `query_alert_result_anomalies`
 - `query_alert_result_incidents`
 
-### <a name="azure-devops"></a>Azure DevOps
+### <a name="azure-devops"></a>DevOps do Azure
 
 O Metrics Advisor também suporta a criação automática de um item de trabalho em Azure DevOps para rastrear problemas/bugs quando qualquer anomalia detetada. Todos os alertas podem ser enviados através dos ganchos Azure DevOps.
 
@@ -88,11 +88,11 @@ Para criar um gancho Azure DevOps, terá de adicionar as seguintes informações
 Vá à página de detalhes das métricas para encontrar a secção **de definições de alerta,** no canto inferior esquerdo da página de detalhes das métricas. Lista todas as definições de alerta que se aplicam à configuração de deteção selecionada. Quando uma nova configuração de deteção é criada, não há definição de alerta e nenhum alerta será enviado.  
 Pode utilizar o **add,** **editar** e **eliminar** ícones para modificar as definições de alerta.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Item do menu de definições de alerta.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="janela de criação de gancho web.":::
 
 Clique nos botões **de adicionar** ou **editar** para obter uma janela para adicionar ou editar as definições de alerta.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Adicionar ou editar definições de alerta":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="janela de criação de gancho web.":::
 
 **Nome de definição de**alerta : O nome desta definição de alerta. Será exibido no título de e-mail de alerta.
 
@@ -134,7 +134,7 @@ O seletor **do operador** é a relação lógica de cada secção, para determin
 |AND     | Envie apenas um alerta se uma série corresponder a cada secção de alerta, e todos os pontos de dados são anomalias. Se as métricas tiverem nomes de dimensão diferentes, um alerta nunca será acionado.         |
 |OU     | Envie o alerta se pelo menos uma secção contiver anomalias.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operador para secção de definição de alerta múltiplo":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="janela de criação de gancho web.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

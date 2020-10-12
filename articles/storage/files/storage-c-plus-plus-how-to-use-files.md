@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515385"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolver para Ficheiros Azure com C++
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar ficheiros e diretórios numa partilha de ficheiros Azure
 
-A obtenção de uma lista de ficheiros e diretórios dentro de uma ação é facilmente feita ligando **list_files_and_directories** numa referência **cloud_file_directory.** Para aceder ao rico conjunto de propriedades e métodos para um **list_file_and_directory_item**devolvido, deve ligar para o método **list_file_and_directory_item.as_file** para obter um objeto **cloud_file,** ou o método **list_file_and_directory_item.as_directory** para obter um objeto **cloud_file_directory.**
+A obtenção de uma lista de ficheiros e diretórios dentro de uma ação é facilmente feita ligando **list_files_and_directories** numa referência **cloud_file_directory.** Para aceder ao rico conjunto de propriedades e métodos para um **list_file_and_directory_item**devolvido, deve ligar para o método **list_file_and_directory_item.as_file** para obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directy** para obter um objeto **cloud_file_directory.**
 
 O código que se segue demonstra como recuperar e desaudam o URI de cada item no diretório de raiz da ação.
 
@@ -363,11 +363,11 @@ if (share.exists())
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Storage do Azure, explore estes recursos:
 
 * [Biblioteca de Clientes do Storage para C++](https://github.com/Azure/azure-storage-cpp)
 * [Amostras de serviço de ficheiros de armazenamento Azure em C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Explorador do Storage do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Explorador de Armazenamento do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentação de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

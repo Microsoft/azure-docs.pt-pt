@@ -8,17 +8,17 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
 ms.openlocfilehash: 4eb3c3e893a276aed10807a13a0f2d6d3bc4e71d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87316843"
 ---
 # <a name="common-sas-uri-issues-and-fixes"></a>Problemas e correções comuns da SAS URI
 
 Seguem-se questões comuns encontradas ao trabalhar com assinaturas de acesso partilhado (que são usadas para identificar e partilhar os VHDs carregados para a sua solução), juntamente com as resoluções sugeridas.
 
-| **Emissão** | **Mensagem de falha** | **Correção** |
+| **Problema** | **Mensagem de falha** | **Correção** |
 | --------- | ------------------- | ------- |
 | *Falha na cópia de imagens* |  |  |
 | "?" não é encontrado em SAS URI | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Atualize o SAS URI utilizando ferramentas recomendadas. |

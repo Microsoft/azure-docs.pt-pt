@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782522"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Opções de suporte de renderização remota Azure
@@ -31,7 +31,7 @@ Para abrir um bilhete de suporte técnico dentro do portal Azure para renderiza�
 1. Preencha os campos:
 
     * **Tipo de emissão:**`Technical`
-    * **Serviço**:`Remote Rendering`
+    * **Serviço**: `Remote Rendering`
 
     ![Campos de bilhetes de apoio ao portal Azure](media/portal-request.png)
 
@@ -58,6 +58,6 @@ Para fornecer feedback, partilhe uma ideia ou sugestão para renderização remo
 
 Para respostas rápidas e fiáveis sobre as suas questões técnicas de produtos da Microsoft Engineers, Azure Most Valuable Professionals (MVPs), ou da nossa comunidade especializada, envolva-se connosco no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), o destino preferido da Azure para apoio à comunidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas](troubleshoot.md)

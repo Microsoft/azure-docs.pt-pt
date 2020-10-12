@@ -11,13 +11,13 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
 ms.openlocfilehash: c95e1012decf1e3ae4ee3fbab8aae1a4c1a71be9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87544623"
 ---
-# <a name="continuously-deploy-models"></a>Implementar continuamente modelos
+# <a name="continuously-deploy-models"></a>Implementar modelos de forma contínua
 
 Este artigo mostra como usar a implementação contínua em Azure DevOps para verificar automaticamente novas versões de modelos registados e empurrar esses novos modelos para a produção.
 
@@ -25,7 +25,7 @@ Este artigo mostra como usar a implementação contínua em Azure DevOps para ve
 
 Este artigo pressupõe que já registou um modelo no seu espaço de trabalho Azure Machine Learning. Consulte [este tutorial](how-to-train-scikit-learn.md) para um exemplo de formação e registo de um modelo de aprendizagem de scikit.
 
-## <a name="continuously-deploy-models"></a>Implementar continuamente modelos
+## <a name="continuously-deploy-models"></a>Implementar modelos de forma contínua
 
 Pode implementar continuamente os modelos utilizando a extensão machine learning para [Azure DevOps](https://azure.microsoft.com/services/devops/). Pode utilizar a extensão machine learning para Azure DevOps para desencadear um oleoduto de implantação quando um novo modelo de aprendizagem automática estiver registado num espaço de trabalho de Aprendizagem automática Azure.
 
