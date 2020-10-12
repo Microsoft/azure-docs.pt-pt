@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8d62f87a6bf33bbbd85b68c9d2e0c6f4a93adf16
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044435"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantia Stream Analytics fiabilidade do trabalho durante atualizações de serviço
@@ -29,7 +29,7 @@ O artigo sobre **[disponibilidade e regiões emparelhadas](https://docs.microsof
 
 Recomenda-se a colocação de empregos idênticos em ambas as regiões emparelhadas. Em seguida, deve [monitorizar estes trabalhos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) para ser notificado quando algo inesperado acontece. Se um destes trabalhos acabar num [estado falhado](https://docs.microsoft.com/azure/stream-analytics/job-states) após uma atualização do serviço Stream Analytics, pode contactar o apoio ao cliente para ajudar a identificar a causa principal. Deve também falhar em relação a qualquer consumidor a jusante à produção de emprego saudável.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)

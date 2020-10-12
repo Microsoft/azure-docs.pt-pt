@@ -8,10 +8,10 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: how-to
 ms.date: 05/09/2017
 ms.openlocfilehash: 0ef1bff996589d09326e80b770953bd6b34966c5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132437"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Começa com o Catálogo U-SQL em Azure Data Lake Analytics

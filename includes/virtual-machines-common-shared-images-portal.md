@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82789007"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
@@ -93,7 +93,7 @@ Pode demorar um pouco a replicar a imagem em todas as regiões-alvo.
 
 Recomendamos que partilhe o acesso ao nível da galeria de imagens. O seguinte acompanha-o através da partilha da galeria que acabou de criar.
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **Grupos de Recursos.** 
 1. Na lista de grupos de recursos, selecione **myGalleryRG**. A lâmina do seu grupo de recursos abrir-se-á.
 1. No menu à esquerda da página **myGalleryRG,** selecione **Access control (IAM)**. 

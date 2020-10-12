@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044588"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Construa uma solução IoT utilizando o Stream Analytics

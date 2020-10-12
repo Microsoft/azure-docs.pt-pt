@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: b0a6bf3dd6585b600ff7283f6fd47cb87b68feda
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86028183"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gerir recursos da Azure Cosmos DB MongoDB API utilizando modelos do Gestor de Recursos Azure
@@ -33,7 +33,7 @@ Para criar qualquer um dos recursos DB do Azure Cosmos abaixo, copie o modelo de
 
 Este modelo criará uma conta Azure Cosmos para a MongoDB API (3.2 ou 3.6) com duas coleções que partilham a produção de escala automática ao nível da base de dados. Este modelo também está disponível para uma implementação de um clique a partir da Galeria de Modelos Azure Quickstart.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb-autoscale/azuredeploy.json":::
 
@@ -43,15 +43,15 @@ Este modelo criará uma conta Azure Cosmos para a MongoDB API (3.2 ou 3.6) com d
 
 Este modelo criará uma conta Azure Cosmos para a MongoDB API (3.2 ou 3.6) com duas coleções que partilham 400 RU/s padrão (manual) de produção ao nível da base de dados. Este modelo também está disponível para uma implementação de um clique a partir da Galeria de Modelos Azure Quickstart.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Seguem-se alguns recursos adicionais:
 
-* [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/)
+* [Documentação do Azure Resource Manager](/azure/azure-resource-manager/)
 * [Esquema de fornecedor de recursos Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
 * [Modelos de arranque rápido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Resolução de problemas erros comuns de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/common-deployment-errors.md)

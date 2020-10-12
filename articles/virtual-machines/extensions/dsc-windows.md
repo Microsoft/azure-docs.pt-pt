@@ -14,10 +14,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689491"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão DSC powershell
@@ -97,7 +97,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publicador | Microsoft.Powershell.DSC | string |
@@ -106,7 +106,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 ### <a name="settings-property-values"></a>Definições Valores de propriedade
 
-| Name | Tipo de Dados | Descrição
+| Nome | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | definições.wmfVersion | string | Especifica a versão do Quadro de Gestão do Windows que deve ser instalada no seu VM. Definir esta propriedade para 'mais recente' instalará a versão mais atualizada do WMF. Os únicos valores atuais possíveis para esta propriedade são '4.0', '5.0' e 'último'. Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é 'mais recente'. |
 | settings.configuration.url | string | Especifica a localização do URL para descarregar o seu ficheiro zip de configuração DSC. Se o URL fornecido necessitar de um token SAS para acesso, você precisará definir a propriedade protectedSettings.configurationUrlSasToken para o valor do seu token SAS. Esta propriedade é necessária se settings.configuration.script e/ou settings.configuration.fun são definidos.
@@ -120,7 +120,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 ### <a name="protected-settings-property-values"></a>Definições protegidas Valores de propriedade
 
-| Name | Tipo de Dados | Descrição
+| Nome | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | protectedSettings.configurationArments | string | Define quaisquer parâmetros que gostaria de passar para a sua configuração DSC. Esta propriedade será encriptada. |
 | protectedSettings.configurationUrlSasToken | string | Especifica o token SAS para aceder ao URL definido por configuração.url. Esta propriedade será encriptada. |

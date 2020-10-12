@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697695"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das Funções do Azure
@@ -44,7 +44,7 @@ Os centros de eventos são úteis para suportar comunicações de alto volume.
 
 ### <a name="write-functions-to-be-stateless"></a>Escrever funções para ser apátrida 
 
-As funções devem ser apátridas e idempotentes, se possível. Associe todas as informações necessárias do Estado aos seus dados. Por exemplo, uma ordem que está a ser processada teria provavelmente um `state` membro associado. Uma função poderia processar uma ordem com base nesse estado enquanto a função em si permanece apátrida. 
+As funções devem ser apátridas e idempotentes, se possível. Associe as informações de estado necessárias aos seus dados. Por exemplo, uma ordem que está a ser processada teria provavelmente um `state` membro associado. Uma função poderia processar uma ordem com base nesse estado enquanto a função em si permanece apátrida. 
 
 As funções idempotentes são especialmente recomendadas com gatilhos temporizadores. Por exemplo, se tiver algo que deve ser executado uma vez por dia, escreva-o para que possa correr a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não há trabalho para um determinado dia. Além disso, se uma corrida anterior não tiver sido concluída, a próxima corrida deve retomar onde ficou.
 
@@ -104,7 +104,7 @@ O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções cr
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receba mensagens em lote sempre que possível
 
-Alguns gatilhos como o Event Hub permitem receber um lote de mensagens numa única invocação.  As mensagens de lote têm um desempenho muito melhor.  Pode configurar o tamanho máximo do lote no `host.json` ficheiro conforme detalhado nohost.jsna [documentação de referência](functions-host-json.md)
+Alguns gatilhos como o Event Hub permitem receber um lote de mensagens numa única invocação.  As mensagens de lote têm um desempenho muito melhor.  Pode configurar o tamanho máximo do lote no `host.json` ficheiro conforme detalhado nohost.jsna [ documentação de referência](functions-host-json.md)
 
 Para as funções C#, pode alterar o tipo para uma matriz fortemente dotada.  Por exemplo, em vez `EventData sensorEvent` da assinatura do método poderia ser `EventData[] sensorEvent` .  Para outras línguas, você precisará explicitamente definir a propriedade cardinalitásia no seu `function.json` `many` para, de modo a permitir o lote [como mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
@@ -116,9 +116,9 @@ As definições no host.jsno ficheiro aplicam-se em todas as funções dentro da
 
 Outras opções de configuração do anfitrião encontram-se no [host.jsno artigo de configuração](functions-host-json.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Como gerir ligações em Funções Azure](manage-connections.md)
 * [Melhores práticas do Azure App Service](../app-service/app-service-best-practices.md)

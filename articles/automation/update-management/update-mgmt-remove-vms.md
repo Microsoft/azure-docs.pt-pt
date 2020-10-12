@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.custom: mvc
 ms.openlocfilehash: 66631adbb56a98431e70f956f3e860b16e8f7ea2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648640"
 ---
 # <a name="remove-vms-from-update-management"></a>Remover VMs da Gestão de Atualizações
@@ -43,6 +43,6 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 >[!NOTE]
 >As máquinas ainda são mostradas depois de as ter desenrolado porque reportamos todas as máquinas avaliadas nas últimas 24 horas. Depois de retirar a máquina, tem de esperar 24 horas antes de deixarem de estar listadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para voltar a ativar a sua máquina virtual, consulte [Ativar a Gestão de Atualização navegando no portal Azure](update-mgmt-enable-portal.md) ou ativando a [Gestão de Atualização a partir de um VM Azure](update-mgmt-enable-vm.md).

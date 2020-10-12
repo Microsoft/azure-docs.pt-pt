@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044231"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para a saída de armazenamento Azure Blob
@@ -235,7 +235,7 @@ Abaixo estão as limitações atuais desta característica:
 
 4. [A Identidade Atribuída ao Utilizador](../active-directory/managed-identities-azure-resources/overview.md) não é suportada. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O diretor de serviço deve ser gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)
 * [Azure Stream Analytics divisória de saída de bolha personalizada](./stream-analytics-custom-path-patterns-blob-storage-output.md)

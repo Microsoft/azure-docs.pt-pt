@@ -4,10 +4,10 @@ description: Neste tutorial, você usa políticas para impor padrões, controlar
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: d8dc65d50182b5336a683c2da8e2a5d8ebb9e849
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650089"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor o cumprimento
@@ -516,7 +516,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Resolver um recurso negado ou em não conformidade
 > - Implementar uma nova política numa organização
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo:
 

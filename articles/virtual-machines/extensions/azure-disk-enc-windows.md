@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80066871"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Encriptação do disco Azure para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Disk Encryption aproveita o BitLocker para fornecer encriptação completa do disco em máquinas virtuais Azure que executam o Windows.  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos na subscrição do cofre principal. 
 
@@ -139,7 +139,7 @@ O esquema 1.1 requer `aadClientID` e ou não é recomendado para novos `aadClien
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.Security | string |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: dapine
 ms.openlocfilehash: 3ae3a9583e4373a2c9b7dde91929cb8b809b442f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86035514"
 ---
 ## <a name="sample-source-code"></a>Código-fonte da amostra

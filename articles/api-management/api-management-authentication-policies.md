@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243720"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Políticas de autenticação
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Políticas de autenticação
 
 -   [Autenticar com Básico](api-management-authentication-policies.md#Basic) - Autenticar com um serviço de backend utilizando a autenticação Básica.
 
@@ -31,7 +31,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   [Autenticar com identidade gerida](api-management-authentication-policies.md#ManagedIdentity) - Autenticar com a [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para o serviço de Gestão da API.
 
-##  <a name="authenticate-with-basic"></a><a name="Basic"></a>Autenticar com Básico
+##  <a name="authenticate-with-basic"></a><a name="Basic"></a> Autenticar com Básico
  Utilize a `authentication-basic` apólice para autenticar com um serviço de backend utilizando a autenticação Básica. Esta política define efetivamente o cabeçalho de autorização HTTP para o valor correspondente às credenciais fornecidas na apólice.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -48,16 +48,16 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Yes|
+|autenticação-básico|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
+|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -66,7 +66,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Autenticar com certificado de cliente
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticar com certificado de cliente
  Utilize a `authentication-certificate` apólice para autenticar com um serviço de backend utilizando o certificado do cliente. O certificado tem de ser instalado primeiro [na API Management](https://go.microsoft.com/fwlink/?LinkID=511599) e é identificado pela sua impressão digital.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -97,13 +97,13 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Yes|  
+|certificado de autenticação|Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Obrigatório|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
 |certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
@@ -117,7 +117,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
   
 -   **Âmbitos de política:** todos os âmbitos  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autenticar com identidade gerida  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autenticar com identidade gerida  
  Utilize a `authentication-managed-identity` apólice para autenticar com um serviço de backend utilizando a identidade gerida. Esta política utiliza essencialmente a identidade gerida para obter um token de acesso do Azure Ative Directory para aceder ao recurso especificado. Após a obtenção com sucesso do token, a política definirá o valor do token no `Authorization` cabeçalho utilizando o `Bearer` esquema.
 
 Tanto a identidade atribuída ao sistema como qualquer uma das identidades atribuídas pelo utilizador podem ser usadas para solicitar token. Se `client-id` não for fornecida a identidade atribuída ao sistema é assumida. Se a `client-id` variável for fornecida, é solicitada a ficha para essa identidade atribuída ao utilizador a partir do Azure Ative Directory
@@ -174,15 +174,15 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Yes|  
+|identidade gerida por autenticação |Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Obrigatório|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|
 |id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|Não|identidade atribuída ao sistema|
 |nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
 |ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  

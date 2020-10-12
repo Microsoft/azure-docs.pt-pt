@@ -4,10 +4,10 @@ description: Este artigo abrange todos os preparativos necessários para gerir a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476143"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagens a partir do Azure DevOps
@@ -26,7 +26,7 @@ O próximo passo na adoção da fábrica de imagens para a sua equipa é percebe
     - A configuração. As entradas para a fábrica de imagem
         - Imagens Douradas. Esta pasta contém ficheiros JSON que representam as definições de imagens personalizadas.
         - Labs.js. Arquivar onde as equipas se inscrevem para receber imagens personalizadas específicas.
-- Os guiões. O motor da fábrica de imagens.
+- Scripts. O motor da fábrica de imagens.
 
 Os artigos nesta secção fornecem mais detalhes sobre estes scripts e modelos.
 
@@ -43,7 +43,7 @@ Todos os PowerShell, modelos e configuração para a fábrica de imagem estão l
 1. Visite o projeto Azure DevOps que criou no passo anterior (URL parece **https: \/ / \<accountname> .visualstudio.com/MyFirstProject**).
 2. **Selecione Importar um Repositório**.
 3. Introduza o **URL do clone** para o DevTest Labs Repo: `https://github.com/Azure/azure-devtestlab` .
-4. Selecione **Importar**.
+4. Selecione **Import** (Importar).
 
     ![Import Git repo](./media/set-up-devops-lab/import-git-repo.png)
 
@@ -107,7 +107,7 @@ Se selecionar a tarefa de construção, verá todos os detalhes no painel certo 
 3. Escolha o **ponto final**de serviço .
 4. Para **Caminho do Script**, selecione **... (elipse)** à direita.
 5. Navegue para **MakeGoldenImageVMs.ps1** roteiro.
-6. Os parâmetros do script devem ser assim:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+6. Os parâmetros do script devem ser assim: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Complete a definição de construção](./media/set-up-devops-lab/complete-build-definition.png)
 
@@ -117,5 +117,5 @@ Vamos verificar se tem tudo preparado corretamente, fazendo fila para uma nova c
 
 ![VMs no laboratório](./media/set-up-devops-lab/vms-in-lab.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 O primeiro passo para a criação da fábrica de imagens com base na Azure DevTest Labs está completo. No próximo artigo da série, obtém-se os VMs generalizados e guardados para imagens personalizadas. Depois, distribui-os a todos os outros laboratórios. Veja o próximo artigo da série: [Guarde imagens personalizadas e distribua para vários laboratórios](image-factory-save-distribute-custom-images.md).

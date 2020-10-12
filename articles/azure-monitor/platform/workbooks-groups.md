@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892085"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Como usar grupos em livros
@@ -98,8 +98,8 @@ Quando um modelo é carregado em um grupo, o livro tenta fundir quaisquer parâm
 
 Considere um modelo que tem dois parâmetros no topo.
 
-- `TimeRange`- um parâmetro de intervalo de tempo.
-- `Filter`- um parâmetro de texto.
+- `TimeRange` - um parâmetro de intervalo de tempo.
+- `Filter` - um parâmetro de texto.
 
 ![Item dos parâmetros de edição: "parâmetros de nível superior"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ Quando o segundo modelo for carregado no grupo, os parâmetros duplicados serão
 
 Considere o modelo de um grupo que tem dois parâmetros no topo.
 
-- `TimeRange`- um parâmetro de intervalo de tempo.
-- `FilterB`- um parâmetro de texto, note que não é `Filter` como o modelo superior tinha.
+- `TimeRange` - um parâmetro de intervalo de tempo.
+- `FilterB` - um parâmetro de texto, note que não é `Filter` como o modelo superior tinha.
 
 ![Edição de um item de grupo com o resultado de parâmetros fundidos](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Quando o modelo do item do grupo estiver carregado, o `TimeRange` parâmetro será fundido fora do grupo. Em seguida, o livro terá os parâmetros iniciais passo com `TimeRange` e , e o passo do parâmetro do grupo só `Filter` incluirá`FilterB`
+Quando o modelo do item do grupo estiver carregado, o `TimeRange` parâmetro será fundido fora do grupo. Em seguida, o livro terá os parâmetros iniciais passo com `TimeRange` e , e o passo do parâmetro do grupo só `Filter` incluirá `FilterB`
 
 ![resultado de parâmetros que não se fundirão](./media/workbooks-groups/groups-wont-merge-away-result.png)
 
@@ -142,6 +142,6 @@ Para transformar um modelo maior em vários sub-modelos:
 5. Se quiser que esse grupo seja carregado a partir de um modelo, pode utilizar o botão da barra de ferramentas *Editar* no grupo. Isto abrirá apenas o conteúdo desse grupo como um livro numa nova janela. Em seguida, pode guardá-lo conforme apropriado e fechar esta vista do livro (não feche o navegador, apenas essa vista para voltar ao livro anterior que estava a editar).
 6. Em seguida, pode alterar o passo de grupo para carregar a partir do modelo e definir o campo de identificação do modelo para o livro/modelo que criou no passo 5. Para trabalhar com os IDs dos livros, a fonte precisa de ser um ID de recursos de um livro partilhado. Prima *a Carga* e o conteúdo desse grupo serão agora carregados a partir desse sub-modelo em vez de serem guardados dentro deste livro exterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Visão geral dos livros](workbooks-overview.md)
 - [Utilização de JSONPath com livros de trabalho](workbooks-jsonpath.md)

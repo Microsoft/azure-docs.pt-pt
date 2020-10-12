@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 02dde8a27b9687e58bf1a09c1a951f306937f0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906088"
 ---
 #### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker puxa para o recipiente de extração de frase chave

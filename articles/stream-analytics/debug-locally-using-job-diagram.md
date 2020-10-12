@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045404"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
@@ -52,7 +52,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Fontes de entrada ao vivo do diagrama de trabalho](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Hub de Eventos** | Tipo de fonte de entrada.|
@@ -62,13 +62,13 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 | **Eventos Degradados**|A contagem de eventos que tiveram outro problema que não a deserialização.|
 |**Eventos Iniciais**| O número de eventos que têm um horário de inscrição antes da marca de água alta.|
 |**Eventos Tardios**| O número de eventos que têm um carimbo de tempo de aplicação após a marca de água elevada.|
-|**Fontes de evento**| O número de unidades de dados lidas. Por exemplo, o número de bolhas.|
+|**Origens de Eventos**| O número de unidades de dados lidas. Por exemplo, o número de bolhas.|
 
 #### <a name="input-sources-local-input"></a>Fontes de entrada (entrada local)
 
 ![Fontes de entrada locais do diagrama de trabalho](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
@@ -79,7 +79,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Passo de consulta do diagrama de trabalho](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |-|-|
 |**TripData**|O nome do conjunto de resultados temporários.|
 |**Contagem de Linhas**| O número de linhas geradas a partir do degrau.|
@@ -89,7 +89,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Diagrama de trabalho pias de saída locais](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |-|-|
 |**regionaggEH**|O nome da saída.|
 |**Eventos**|O número de eventos a afundar.|
@@ -98,7 +98,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 
 ![Diagrama de trabalho pias de saída locais](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |-|-|
 |**regionaggEH**|O nome da saída.|
 |**Saída local**| Resultado de saída para um ficheiro local.|
@@ -121,7 +121,7 @@ Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+
 
 * Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções de entrada local não.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

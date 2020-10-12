@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243550"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar as políticas de Gestão de API
@@ -80,11 +80,11 @@ As seguintes políticas podem ser utilizadas na `on-error` secção política.
 
 Quando ocorre um erro e o controlo salta para a `on-error` secção de política, o erro é armazenado em [contexto. Propriedade LastError,](api-management-policy-expressions.md#ContextVariables) que pode ser acedida por políticas na `on-error` secção. A LastError tem as seguintes propriedades.
 
-| Nome       | Tipo   | Descrição                                                                                               | Necessário |
+| Nome       | Tipo   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Yes      |
+| `Source`   | string | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Sim      |
 | `Reason`   | string | Código de erro amigável à máquina, que pode ser utilizado no manuseamento de erros.                                       | Não       |
-| `Message`  | string | Descrição de erros legíveis pelo homem.                                                                         | Yes      |
+| `Message`  | string | Descrição de erros legíveis pelo homem.                                                                         | Sim      |
 | `Scope`    | string | Nome do âmbito onde ocorreu o erro e pode ser de "global", "produto", "api" ou "operação" | Não       |
 | `Section`  | string | Nome da secção onde ocorreu erro. Valores possíveis: "entrada", "backend", "outbound" ou "on-error".      | Não       |
 | `Path`     | string | Especifica a política aninhada, por exemplo "escolher[3]/quando[2]".                                                 | Não       |

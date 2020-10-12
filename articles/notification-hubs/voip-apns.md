@@ -7,10 +7,10 @@ ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80146891"
 ---
 # <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Utilize o APNS VOIP através de Centros de Notificação (não suportados oficialmente)
@@ -21,7 +21,7 @@ ms.locfileid: "80146891"
 
 Se ainda optar por enviar notificações APNS VOIP através de Centros de Notificação, esteja ciente das seguintes limitações:
 
-- O envio de uma notificação VOIP requer que o `apns-topic` cabeçalho seja definido para o pacote de aplicações ID + o `.voip` sufixo. Por exemplo, para uma aplicação de amostra com o iD do `com.microsoft.nhubsample` pacote, o `apns-topic` cabeçalho deve ser definido para`com.microsoft.nhubsample.voip.`
+- O envio de uma notificação VOIP requer que o `apns-topic` cabeçalho seja definido para o pacote de aplicações ID + o `.voip` sufixo. Por exemplo, para uma aplicação de amostra com o iD do `com.microsoft.nhubsample` pacote, o `apns-topic` cabeçalho deve ser definido para `com.microsoft.nhubsample.voip.`
 
    Este método não funciona bem com os Hubs de Notificação Azure, porque o ID do pacote da aplicação deve ser configurado como parte das credenciais apns do hub, e o valor não pode ser alterado. Além disso, os Centros de Notificação não permitem que o valor do `apns-topic` cabeçalho seja ultrapassado no tempo de execução.
 

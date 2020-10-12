@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039692"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de resolução de domínios com um domínio gerido por serviços de domínio do diretório ativo Azure
@@ -58,7 +58,7 @@ Para resolver problemas relacionados com as credenciais, reveja as seguintes eta
 1. Tente usar as credenciais para uma conta de utilizador que faz parte do domínio gerido para juntar VMs ao domínio gerido.
 1. Certifique-se de que [ativou a sincronização da palavra-passe][enable-password-sync] e esperou o tempo suficiente para que a sincronização inicial da palavra-passe se completasse.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma compreensão mais profunda dos processos do Ative Directory como parte da operação de união de domínios, consulte as questões de [Junção e autenticação][join-authentication-issues].
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699299"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva os seus próprios módulos IoT Edge
@@ -95,7 +95,7 @@ Para todos os idiomas da tabela seguinte, o IoT Edge suporta o desenvolvimento d
 | C | Estúdio Visual 2017/2019 |
 | C# | Código do Estúdio Visual (sem capacidades de depuração)<br>Estúdio Visual 2017/2019 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare o seu ambiente de desenvolvimento e teste para ioT Edge](development-environment.md)
 
@@ -103,4 +103,4 @@ Para todos os idiomas da tabela seguinte, o IoT Edge suporta o desenvolvimento d
 
 [Use o Código do Estúdio Visual para desenvolver módulos para IoT Edge](how-to-vs-code-develop-module.md)
 
-[Compreender e usar SDKs hub Azure IoT](../iot-hub/iot-hub-devguide-sdks.md)
+[Compreender e utilizar os SDKs do Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md)

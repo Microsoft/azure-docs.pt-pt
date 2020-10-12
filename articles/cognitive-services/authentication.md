@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232751"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar pedidos aos Serviços Cognitivos da Azure
@@ -175,7 +175,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que são os Serviços Cognitivos?](welcome.md)
 * [Preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)

@@ -4,10 +4,10 @@ description: Neste tutorial, você elabora uma definição de política personal
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649832"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
@@ -476,7 +476,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Determinou o efeito de usar
 > - Compôs a definição de política
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, use a sua definição de política personalizada para criar e atribuir uma política:
 

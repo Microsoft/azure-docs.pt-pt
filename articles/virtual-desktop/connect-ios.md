@@ -7,10 +7,10 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230046"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente iOS

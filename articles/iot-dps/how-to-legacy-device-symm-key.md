@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90529405"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como providenciar dispositivos que utilizem grupos de inscrição chave simétricos
@@ -32,7 +32,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > A amostra utilizada neste artigo está escrita em C. Existe também uma [amostra de chave simétrica de dispositivo C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para utilizar esta amostra, faça o download ou clone do [repositório azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções em linha no código de amostra. Pode seguir as instruções deste artigo para criar um grupo de inscrição de chaves simétricas utilizando o portal e para encontrar o ID Scope e as chaves primárias e secundárias do grupo de inscrição necessárias para executar a amostra. Também pode criar inscrições individuais utilizando a amostra.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Será definido um ID de registo único para cada dispositivo com base em informações que identifiquem esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 

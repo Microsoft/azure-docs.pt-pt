@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040423"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure
@@ -40,7 +40,7 @@ O estado no direito superior indica a saúde geral do domínio gerido. O estado 
 
 | Estado | Ícone | Explicação |
 | --- | :----: | --- |
-| A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticos ou de aviso. O domínio pode ter alertas informativos. |
+| Em Execução | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticos ou de aviso. O domínio pode ter alertas informativos. |
 | Precisa de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não existem alertas críticos sobre o domínio gerido, mas há um ou mais alertas que devem ser abordados. |
 | Precisa de atenção (crítica) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Há um ou mais alertas críticos sobre o domínio gerido que devem ser abordados. Pode também ter alertas e/ou alertas informativos. |
 | Implantação | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio gerido está a ser implantado. |
@@ -80,7 +80,7 @@ Os alertas de estado de saúde são categorizados nos seguintes níveis de gravi
  * **Os alertas** notificam-no de problemas que podem afetar as operações de domínio geridos se o problema persistir. Estes alertas também oferecem recomendações para garantir o domínio gerido.
  * **Alertas informativos** são notificações que não afetam negativamente o domínio gerido. Os alertas informativos fornecem algumas informações sobre o que está a acontecer no domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre alertas que sejam mostrados na página do estado de saúde, consulte [alertas resolvedores no seu domínio gerido][troubleshoot-alerts]
 

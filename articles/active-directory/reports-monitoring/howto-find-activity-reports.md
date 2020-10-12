@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230624"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
@@ -106,7 +106,7 @@ Para aceder ao relatório de inscrições:
 
 Pode utilizar o relatório de insusimento para visualizar detalhes sobre a utilização da aplicação, filtrando o nome de utilizador ou o nome da aplicação.
 
-![Página de eventos de inscrição do filtro](./media/howto-find-activity-reports/07.png "Página de eventos de inscrição do filtro")
+![Filtrar Sign-In página eventos](./media/howto-find-activity-reports/07.png "Filtrar Sign-In página eventos")
 
 ## <a name="security-reports"></a>Relatórios de segurança
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689321"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Mover o grupo de segurança da rede Azure (NSG) para outra região usando o portal Azure
@@ -88,7 +88,7 @@ Os passos a seguir mostram como preparar o grupo de segurança da rede para o mo
 
 12. Também pode alterar outros parâmetros no modelo se escolher, e é opcional dependendo dos seus requisitos:
 
-    * **Regras de segurança** - Pode editar quais as regras que são implementadas no NSG alvo adicionando ou removendo regras à secção **de regras de segurança** notemplate.js**em** arquivo:
+    * **Regras de segurança** - Pode editar quais as regras que são implementadas no NSG alvo adicionando ou removendo regras à secção **de regras de segurança** notemplate.js** em** arquivo:
 
         ```json
            "resources": [
@@ -173,10 +173,10 @@ Se desejar descartar o NSG alvo, elimine o grupo de recursos que contém o NSG a
 
 Para comprometer as alterações e completar o movimento do NSG, elimine a fonte NSG ou o grupo de recursos. Para tal, selecione o grupo de segurança da rede ou grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** no topo de cada página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, mudou um grupo de segurança da rede Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

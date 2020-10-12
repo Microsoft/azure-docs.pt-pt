@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354824"
 ---
 # <a name="eventstore-overview"></a>Visão geral da loja de eventos

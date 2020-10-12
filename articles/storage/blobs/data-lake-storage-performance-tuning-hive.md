@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034775"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho de sintonização: Hive, HDInsight & Azure Data Lake Storage Gen2
@@ -58,7 +58,7 @@ As cargas de trabalho intensivas de I/O podem beneficiar de um maior paralelismo
 O número simultâneo de tarefas em execução ou paralelismo será limitado pela memória total do YARN.  O número de contentores DE FIOS ditará quantas tarefas simultâneas podem ser executadas.  Para encontrar a memória yarn por nó, você pode ir a Ambari.  Navegue até YARN e veja o separador Configs.  A memória YARN é apresentada nesta janela.  
 
 - Total da memória YARN = nós * memória YARN por nó
-- \#de recipientes YARN = Total memória YARN / Tamanho do recipiente Tez
+- \# de recipientes YARN = Total memória YARN / Tamanho do recipiente Tez
 
 A chave para melhorar o desempenho usando data lake storage gen2 é aumentar a conúnquidade o mais possível.  O Tez calcula automaticamente o número de tarefas que devem ser criadas para que não seja necessário defini-lo.   
 
@@ -68,7 +68,7 @@ Digamos que tem um aglomerado de 8 nó D14.
 
 - Total da memória YARN = nós * memória YARN por nó
 - Total de memória YARN = 8 nóns * 96GB = 768GB
-- \#de contentores YARN = 768GB / 3072MB = 256
+- \# de contentores YARN = 768GB / 3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a afinação da Colmeia
 

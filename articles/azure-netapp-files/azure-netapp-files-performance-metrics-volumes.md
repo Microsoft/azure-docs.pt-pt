@@ -8,17 +8,17 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82692273"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
 Este artigo fornece recomendações de teste de referência para desempenho de volume e métricas usando Ficheiros Azure NetApp.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para compreender as características de desempenho de um volume de Ficheiros Azure NetApp, pode utilizar a ferramenta de código aberto [FIO](https://github.com/axboe/fio) para executar uma série de referências para simular uma variedade de cargas de trabalho. O FIO pode ser instalado tanto em sistemas operativos Linux como windows.  É uma excelente ferramenta para obter uma imagem rápida de IOPS e produção para um volume.
 
@@ -109,7 +109,7 @@ Pode aceder aos balcões do Azure NetApp Files numa base por volume a partir da 
 
 Também pode criar um dashboard no Azure Monitor para Ficheiros Azure NetApp, indo à página Métricas, filtrando para NetApp e especificando os contadores de volume de interesse: 
 
-![Dashboard Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
+![Dashboard do Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
 
 ### <a name="azure-monitor-api-access"></a>Acesso Azure Monitor API
 

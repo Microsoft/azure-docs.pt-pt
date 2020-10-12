@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86241901"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contentores de tecido de serviço

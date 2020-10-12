@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243159"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da Azure API
@@ -41,7 +41,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 -   [Cabeçalho](#Header)  
 -   [Pedido de HTTP](#HTTPRequest)  
 -   [RESPOSTA HTTP](#HTTPResponse)  
--   [Emissão](#Issue)  
+-   [Problema](#Issue)  
 -   [Operação](#Operation)  
 -   [Menu de operação](#Menu)  
 -   [Item do menu de operação](#MenuItem)  
@@ -56,7 +56,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 -   [S-in do utilizador](#UseSignIn)  
 -   [Inscrição do utilizador](#UserSignUp)  
   
-##  <a name="api"></a><a name="API"></a>API  
+##  <a name="api"></a><a name="API"></a> API  
  A `API` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -70,7 +70,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`authenticationSettings`|[Definições de autenticação do servidor de autorização](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Recolha de configurações de autenticação incluídas nesta API.|  
 |`subscriptionKeyParameterNames`|objeto|Propriedade opcional que pode ser usada para especificar nomes personalizados para consulta e/ou parâmetros de cabeçalho contendo a chave de subscrição. Quando esta propriedade estiver presente, deve conter pelo menos uma das duas propriedades seguintes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="api-summary"></a><a name="APISummary"></a>Resumo da API  
+##  <a name="api-summary"></a><a name="APISummary"></a> Resumo da API  
  A `API summary` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -79,7 +79,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`name`|string|Nome da API. Não deve estar vazio. O comprimento máximo é de 100 caracteres.|  
 |`description`|string|Descrição da API. Não deve estar vazio. Pode incluir tags de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
   
-##  <a name="application"></a><a name="Application"></a>Aplicação  
+##  <a name="application"></a><a name="Application"></a> Aplicação  
  A `application` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -97,7 +97,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Attachments`|Recolha de entidades [de anexos.](#Attachment)|Quaisquer anexos para a aplicação, tais como imagens ou ícones.|  
 |`Icon`|[Anexo](#Attachment)|O ícone para a aplicação.|  
   
-##  <a name="attachment"></a><a name="Attachment"></a>Anexo  
+##  <a name="attachment"></a><a name="Attachment"></a> Anexo  
  A `attachment` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -107,7 +107,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Type`|string|O tipo de ligação.|  
 |`ContentType`|string|O tipo de mídia do anexo.|  
   
-##  <a name="code-sample"></a><a name="Sample"></a>Amostra de código  
+##  <a name="code-sample"></a><a name="Sample"></a> Amostra de código  
   
 |Propriedade|Tipo|Description|  
 |--------------|----------|-----------------|  
@@ -124,7 +124,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`headers`|Coleção de entidades [header.](#Header)|Cabeçalhos para esta operação.|  
 |`parameters`|Recolha de entidades [parâmetros.](#Parameter)|Parâmetros definidos para esta operação.|  
   
-##  <a name="comment"></a><a name="Comment"></a>Comentário  
+##  <a name="comment"></a><a name="Comment"></a> Comentário  
  A `API` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Descrição|  
@@ -134,7 +134,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`DeveloperCompany`|string|O nome da empresa do construtor.|  
 |`PostedOn`|DateTime|A data e a hora do comentário foi publicado.|  
   
-##  <a name="issue"></a><a name="Issue"></a>Emissão  
+##  <a name="issue"></a><a name="Issue"></a> Emissão  
  A `issue` entidade tem os seguintes imóveis.  
   
 |Propriedade|Tipo|Description|  
@@ -150,7 +150,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Attachments`|Recolha de entidades [de anexos.](api-management-template-data-model-reference.md#Attachment)|Qualquer ligação com o assunto.|  
 |`Services`|Recolha de entidades da [API.](#API)|As APIs subscreveram pelo utilizador que apresentou o problema.|  
   
-##  <a name="filtering"></a><a name="Filtering"></a>Filtragem  
+##  <a name="filtering"></a><a name="Filtering"></a> Filtragem  
  A `filtering` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -158,7 +158,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Pattern`|cadeia (de carateres)|O termo de pesquisa atual; ou `null` se não houver termo de pesquisa.|  
 |`Placeholder`|string|O texto a exibir na caixa de pesquisa quando não houver um termo de pesquisa especificado.|  
   
-##  <a name="header"></a><a name="Header"></a>Cabeçalho  
+##  <a name="header"></a><a name="Header"></a> Cabeçalho  
  Esta secção descreve a `parameter` representação.  
   
 |Propriedade|Tipo|Description|  
@@ -171,7 +171,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`required`|boolean|Se o cabeçalho é necessário.|  
 |`readOnly`|boolean|Se o cabeçalho é só leitura.|  
   
-##  <a name="http-request"></a><a name="HTTPRequest"></a>HTTP Pedido  
+##  <a name="http-request"></a><a name="HTTPRequest"></a> HTTP Pedido  
  Esta secção descreve a `request` representação.  
   
 |Propriedade|Tipo|Description|  
@@ -181,7 +181,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`parameters`|matriz de [parâmetro](#Parameter)|Recolha de parâmetros de pedido de operação.|  
 |`representations`|matriz de [representação](#Representation)|Recolha de operação requer representações.|  
   
-##  <a name="http-response"></a><a name="HTTPResponse"></a>RESPOSTA HTTP  
+##  <a name="http-response"></a><a name="HTTPResponse"></a> RESPOSTA HTTP  
  Esta secção descreve a `response` representação.  
   
 |Propriedade|Tipo|Descrição|  
@@ -190,7 +190,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`description`|string|Descrição da resposta da operação.|  
 |`representations`|matriz de [representação](#Representation)|Recolha de representações de resposta de operação.|  
   
-##  <a name="operation"></a><a name="Operation"></a>Operação  
+##  <a name="operation"></a><a name="Operation"></a> Operação  
  A `operation` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -205,7 +205,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`request`|[Pedido de HTTP](#HTTPRequest)|Uma entidade que contém detalhes do pedido.|  
 |`responses`|matriz de [resposta HTTP](#HTTPResponse)|Conjunto de entidades de resposta [HTTP.](#HTTPResponse)|  
   
-##  <a name="operation-menu"></a><a name="Menu"></a>Menu de operação  
+##  <a name="operation-menu"></a><a name="Menu"></a> Menu de operação  
  A `operation menu` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -215,7 +215,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Action`|string|O tipo de menu.|  
 |`MenuItems`|Entidades de item do menu de coleção de [operação.](#MenuItem)|As operações para a atual API.|  
   
-##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Item do menu de operação  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a> Item do menu de operação  
  A `operation menu item` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -224,7 +224,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Title`|string|A descrição da operação.|  
 |`HttpMethod`|string|O método http da operação.|  
   
-##  <a name="paging"></a><a name="Paging"></a>Paging  
+##  <a name="paging"></a><a name="Paging"></a> Paging  
  A `paging` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Descrição|  
@@ -235,7 +235,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`ShowAll`|boolean|Se sho todos os resultados em uma única página.|  
 |`PageCount`|número|O número de páginas de resultados.|  
   
-##  <a name="parameter"></a><a name="Parameter"></a>Parâmetro  
+##  <a name="parameter"></a><a name="Parameter"></a> Parâmetro  
  Esta secção descreve a `parameter` representação.  
   
 |Propriedade|Tipo|Description|  
@@ -248,7 +248,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`kind`|número|Se este parâmetro é um parâmetro de caminho (1), ou um parâmetro de consulta (2).|  
 |`typeName`|string|Tipo de parâmetro.|  
   
-##  <a name="product"></a><a name="Product"></a>Produto  
+##  <a name="product"></a><a name="Product"></a> Produto  
  A `product` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -261,7 +261,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`AllowMultipleSubscriptions`|boolean|Especifica se um utilizador pode ter várias subscrições deste produto ao mesmo tempo.|  
 |`MultipleSubscriptionsCount`|número|O número máximo de subscrições deste produto é permitido por um utilizador ter ao mesmo tempo.|  
   
-##  <a name="provider"></a><a name="Provider"></a>Provedor  
+##  <a name="provider"></a><a name="Provider"></a> Provedor  
  A `provider` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Descrição|  
@@ -270,7 +270,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`AuthenticationType`|string|O tipo de fornecedor. (Azure Ative Directy, Login do Facebook, Google Account, Microsoft Account, Twitter).|  
 |`Caption`|string|Mostrar o nome do fornecedor.|  
   
-##  <a name="representation"></a><a name="Representation"></a>Representação  
+##  <a name="representation"></a><a name="Representation"></a> Representação  
  Esta secção descreve um `representation` .  
   
 |Propriedade|Tipo|Description|  
@@ -278,7 +278,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`contentType`|cadeia (de carateres)|Especifica um tipo de conteúdo registado ou personalizado para esta representação, por exemplo, `application/xml` .|  
 |`sample`|string|Um exemplo da representação.|  
   
-##  <a name="subscription"></a><a name="Subscription"></a>Assinatura  
+##  <a name="subscription"></a><a name="Subscription"></a> Assinatura  
  A `subscription` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -288,7 +288,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`ProductTitle`|string|Nome do produto. Não deve estar vazio. O comprimento máximo é de 100 caracteres.|  
 |`ProductDescription`|string|Descrição do produto. Não deve estar vazio. Pode incluir tags de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
 |`ProductDetailsUrl`|string|URL relativo aos detalhes do produto.|  
-|`state`|string|O estado da assinatura. Os estados possíveis são:<br /><br /> - `0 - suspended`– a subscrição está bloqueada e o assinante não pode chamar APIs do produto.<br /><br /> - `1 - active`– a subscrição está ativa.<br /><br /> - `2 - expired`– a subscrição atingiu a data de validade e foi desativada.<br /><br /> - `3 - submitted`– o pedido de subscrição foi feito pelo desenvolvedor, mas ainda não foi aprovado ou rejeitado.<br /><br /> - `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br /><br /> - `5 - cancelled`– a subscrição foi cancelada pelo desenvolvedor ou administrador.|  
+|`state`|string|O estado da assinatura. Os estados possíveis são:<br /><br /> - `0 - suspended` – a subscrição está bloqueada e o assinante não pode chamar APIs do produto.<br /><br /> - `1 - active` – a subscrição está ativa.<br /><br /> - `2 - expired` – a subscrição atingiu a data de validade e foi desativada.<br /><br /> - `3 - submitted` – o pedido de subscrição foi feito pelo desenvolvedor, mas ainda não foi aprovado ou rejeitado.<br /><br /> - `4 - rejected` – o pedido de subscrição foi negado por um administrador.<br /><br /> - `5 - cancelled` – a subscrição foi cancelada pelo desenvolvedor ou administrador.|  
 |`DisplayName`|string|Mostrar o nome da subscrição.|  
 |`CreatedDate`|dataTime|A data em que a subscrição foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z` .|  
 |`CanBeCancelled`|boolean|Se a subscrição pode ser cancelada pelo utilizador atual.|  
@@ -304,7 +304,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`CancelUrl`|string|O Url relativo para cancelar a subscrição.|  
 |`RenewUrl`|string|O Url relativo para renovar a subscrição.|  
   
-##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Resumo da assinatura  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a> Resumo da assinatura  
  A `subscription summary` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -312,7 +312,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`Id`|cadeia (de carateres)|Identificador de recursos. Identifica exclusivamente a subscrição no âmbito da atual instância de serviço de Gestão da API. O valor é um URL relativo válido no formato de onde está um identificador de `subscriptions/{sid}` `{sid}` subscrição. Esta propriedade é só para leitura.|  
 |`DisplayName`|string|O nome de exibição da subscrição|  
   
-##  <a name="user-account-info"></a><a name="UserAccountInfo"></a>Informação da conta do utilizador  
+##  <a name="user-account-info"></a><a name="UserAccountInfo"></a> Informação da conta do utilizador  
  A `user account info` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -325,7 +325,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`ProviderName`|string|Nome do fornecedor de autenticação.|  
 |`IsBasicAccount`|boolean|Verdade se esta conta foi registada usando e-mail e senha; falso se a conta foi registada usando um provedor.|  
   
-##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Sindução do utilizador  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> Sindução do utilizador  
  A `user sign in` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Description|  
@@ -343,7 +343,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`UserRegistrationTerms`|string|Termos que um utilizador deve concordar antes de iniciar sessão.|  
 |`UserRegistrationTermsEnabled`|boolean|Se os termos estão ativados.|  
   
-##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Inscrição do utilizador  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a> Inscrição do utilizador  
  A `user sign up` entidade tem os seguintes imóveis:  
   
 |Propriedade|Tipo|Descrição|  

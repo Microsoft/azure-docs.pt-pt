@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: 79cc17ba4f845e2263d1a09af4a3f9ae4150f362
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292219"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressões e funções no Azure Data Factory
@@ -221,7 +221,7 @@ Estas funções são úteis dentro de condições, podem ser usadas para avaliar
 | [base64](control-flow-expression-language-functions.md#base64) | Retornar a versão codificada base64 para uma cadeia. |
 | [base64ToBinary](control-flow-expression-language-functions.md#base64ToBinary) | Devolva a versão binária para uma cadeia codificada base64. |
 | [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Devolva a versão de corda para uma corda codificada base64. |
-| [binary](control-flow-expression-language-functions.md#binary) | Devolva a versão binária por um valor de entrada. |
+| [binário](control-flow-expression-language-functions.md#binary) | Devolva a versão binária por um valor de entrada. |
 | [bool](control-flow-expression-language-functions.md#bool) | Devolva a versão Boolean por um valor de entrada. |
 | [coalesce](control-flow-expression-language-functions.md#coalesce) | Devolva o primeiro valor não nulo de um ou mais parâmetros. |
 | [criarArray](control-flow-expression-language-functions.md#createArray) | Retornar uma matriz de várias entradas. |
@@ -235,7 +235,7 @@ Estas funções são úteis dentro de condições, podem ser usadas para avaliar
 | [flutuante](control-flow-expression-language-functions.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
 | [int](control-flow-expression-language-functions.md#int) | Devolva a versão inteiro por uma corda. |
 | [json](control-flow-expression-language-functions.md#json) | Retornar o valor ou objeto do tipo JavaScript (JSON) para uma cadeia ou XML. |
-| [string](control-flow-expression-language-functions.md#string) | Devolva a versão de corda para obter um valor de entrada. |
+| [cadeia](control-flow-expression-language-functions.md#string) | Devolva a versão de corda para obter um valor de entrada. |
 | [uriComponente](control-flow-expression-language-functions.md#uriComponent) | Retornar a versão codificada uri por um valor de entrada substituindo caracteres inseguros por URL por caracteres de fuga. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Devolva a versão binária para uma corda codificada uri. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Devolva a versão de corda para uma corda codificada uri. |
@@ -296,12 +296,12 @@ Devolva o resultado da adição de dois números.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, *summand_2 <*> | Yes | Inteiro, Flutuante ou Misturado | Os números a adicionar |
+| <*summand_1*>, *summand_2 <*> | Sim | Inteiro, Flutuante ou Misturado | Os números a adicionar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
 | <*resultado-soma*> | Inteiro ou Flutuante | O resultado da adição dos números especificados |
 ||||
@@ -326,14 +326,14 @@ Adicione alguns dias a uma hora de tempo.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*Dias*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de dias a adicionar |
+| <*Dias*> | Sim | Número inteiro | O número positivo ou negativo de dias a adicionar |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de dias  |
 ||||
@@ -368,14 +368,14 @@ Adicione algumas horas a um tempotando.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*horas*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de horas a adicionar |
+| <*horas*> | Sim | Número inteiro | O número positivo ou negativo de horas a adicionar |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de horas  |
 ||||
@@ -410,14 +410,14 @@ Adicione alguns minutos a uma hora de tempo.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*minutos*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de minutos a adicionar |
+| <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos a adicionar |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de minutos |
 ||||
@@ -452,14 +452,14 @@ Adicione alguns segundos a um tempotando.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*segundos*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de segundos a adicionar |
+| <*segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de segundos  |
 ||||
@@ -495,15 +495,15 @@ Consulte também [getFutureTime()](#getFutureTime).
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para adicionar |
 | <*timeUnit*> | Sim | String | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de unidades de tempo  |
 ||||
@@ -539,12 +539,12 @@ Devolva-se quando ambas as expressões são verdadeiras, ou retorna falsas quand
 and(<expression1>, <expression2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão1*>, *expressão <2*> | Yes | Booleano | As expressões para verificar |
+| <*expressão1*>, *expressão <2*> | Sim | Booleano | As expressões para verificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
 | true ou false | Booleano | Retornar verdadeiro quando ambas as expressões são verdadeiras. Devolva-se falso quando pelo menos uma expressão é falsa. |
 ||||
@@ -592,12 +592,12 @@ Para várias entradas, consulte [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para criar uma matriz |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | [<*valor*>] | Matriz | Uma matriz que contém a única entrada especificada |
 ||||
@@ -622,12 +622,12 @@ Retornar a versão codificada base64 para uma cadeia.
 base64('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia de entrada |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*base64-string*> | Cadeia | A versão codificada de base64 para a cadeia de entrada |
 ||||
@@ -652,12 +652,12 @@ Devolva a versão binária para uma cadeia codificada base64.
 base64ToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia codificada base64 para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*binário-para-base64-corda*> | Cadeia | A versão binária para a cadeia codificada base64 |
 ||||
@@ -686,12 +686,12 @@ Embora ambas as funções funcionem da mesma forma, `base64ToString()` é prefer
 base64ToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia codificada de base64 para descodificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*descodificada base64-cadeia*> | Cadeia | A versão de corda para uma cadeia codificada base64 |
 ||||
@@ -716,12 +716,12 @@ Devolva a versão binária para uma corda.
 binary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*valor binário para a entrada*> | Cadeia | A versão binária para a cadeia especificada |
 ||||
@@ -748,12 +748,12 @@ Devolva a versão Boolean por um valor.
 bool(<value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Qualquer | O valor para converter |
+| <*valor*> | Sim | Qualquer | O valor para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | A versão Boolean para o valor especificado |
 ||||
@@ -783,12 +783,12 @@ Cordas vazias, matrizes vazias e objetos vazios não são nulos.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2 object_2*>... | Yes | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulo |
+| <*object_1*>, <*object_2 object_2*>... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulo |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*primeiro não-náu ponto*> | Qualquer | O primeiro item ou valor que não é nulo. Se todos os parâmetros forem nulos, esta função retorna nulo. |
 ||||
@@ -819,12 +819,12 @@ Combine duas ou mais cordas e devolva a corda combinada.
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*text1*>, <*texto2*>, ... | Sim | String | Pelo menos duas cordas para combinar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*text1text2...*> | Cadeia | A corda criada a partir das cordas de entrada combinadas |
 ||||
@@ -858,13 +858,13 @@ Especificamente, esta função funciona nestes tipos de coleção:
 * Uma *matriz* para encontrar um *valor*
 * Um *dicionário* para encontrar uma *chave*
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | String, Array ou Dicionário | A coleção para verificar |
-| <*valor*> | Yes | String, Array ou Dicionário, respectivamente | O item para encontrar |
+| <*coleção*> | Sim | String, Array ou Dicionário | A coleção para verificar |
+| <*valor*> | Sim | String, Array ou Dicionário, respectivamente | O item para encontrar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Devolva-se quando o item for encontrado. Devolva-se falso quando não for encontrado. |
 ||||
@@ -895,14 +895,14 @@ Converta um relógio de tempo da Universal Time Coordinated (UTC) para o fuso ho
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário do alvo. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*tempotamp convertido*> | Cadeia | A hora convertida para o fuso horário alvo |
 ||||
@@ -937,7 +937,7 @@ Converta um relógio do fuso horário de origem para o fuso horário alvo.
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
@@ -945,7 +945,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*tempotamp convertido*> | Cadeia | A hora convertida para o fuso horário alvo |
 ||||
@@ -980,14 +980,14 @@ Converter um tempotando do fuso horário de origem para o tempo universal coorde
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*tempotamp convertido*> | Cadeia | A hora convertida para UTC |
 ||||
@@ -1023,12 +1023,12 @@ Para matrizes de entrada únicas, consulte [matriz()](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto1*>, <*objeto2*>, ... | Yes | Qualquer, mas não misturado | Pelo menos dois itens para criar a matriz |
+| <*objeto1*>, <*objeto2*>, ... | Sim | Qualquer, mas não misturado | Pelo menos dois itens para criar a matriz |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | [<*objeto1*>, <> de *objeto2,* ...] | Matriz | A matriz criada a partir de todos os itens de entrada |
 ||||
@@ -1053,12 +1053,12 @@ Devolva um identificador de recursos uniformes de dados (URI) para uma cadeia.
 dataUri('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*data-uri*> | Cadeia | O dado URI para a cadeia de entrada |
 ||||
@@ -1085,12 +1085,12 @@ Embora ambas as funções funcionem da mesma forma, `dataUriBinary()` é prefer�
 dataUriToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | Os dados URI para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*binário-para-dados-uri*> | Cadeia | A versão binária para o dado URI |
 ||||
@@ -1120,12 +1120,12 @@ Devolva a versão de cadeia para um identificador de recursos uniforme de dados 
 dataUriToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | Os dados URI para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*string-for-data-uri*> | Cadeia | A versão de cadeia para o dado URI |
 ||||
@@ -1150,14 +1150,14 @@ Devolva o dia do mês de um tempotando.
 dayOfMonth('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia-do-dia*> | Integer (Número inteiro) | O dia do mês a partir da hora de tempo especificada |
+| <*dia-do-dia*> | Número inteiro | O dia do mês a partir da hora de tempo especificada |
 ||||
 
 *Exemplo*
@@ -1180,14 +1180,14 @@ Volte o dia da semana de uma hora.
 dayOfWeek('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia-de-semana*> | Integer (Número inteiro) | O dia da semana a partir do horário especificado, onde domingo é 0, segunda-feira é 1, e assim por diante |
+| <*dia-de-semana*> | Número inteiro | O dia da semana a partir do horário especificado, onde domingo é 0, segunda-feira é 1, e assim por diante |
 ||||
 
 *Exemplo*
@@ -1210,14 +1210,14 @@ Volte o dia do ano de um timetamp.
 dayOfYear('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia-do-ano*> | Integer (Número inteiro) | O dia do ano a partir da hora de tempo especificada |
+| <*dia-do-ano*> | Número inteiro | O dia do ano a partir da hora de tempo especificada |
 ||||
 
 *Exemplo*
@@ -1242,12 +1242,12 @@ Embora ambas as funções funcionem da mesma forma, `base64ToString()` é prefer
 decodeBase64('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia codificada de base64 para descodificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*descodificada base64-cadeia*> | Cadeia | A versão de corda para uma cadeia codificada base64 |
 ||||
@@ -1274,12 +1274,12 @@ Embora ambas as funções funcionem da mesma forma, `dataUriToBinary()` é prefe
 decodeDataUri('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia URI de dados para descodificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*binário-para-dados-uri*> | Cadeia | A versão binária para uma cadeia URI de dados |
 ||||
@@ -1309,12 +1309,12 @@ Retornar uma corda que substitua os caracteres de fuga por versões descodificad
 decodeUriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda com os personagens de fuga para descodificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*descodificado-uri*> | Cadeia | A cadeia atualizada com os caracteres de fuga descodificados |
 ||||
@@ -1340,15 +1340,15 @@ Para obter o resultado remanescente, consulte [mod()](#mod).
 div(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*dividendo*> | Yes | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
-| <*divisor*> | Yes | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0 |
+| <*dividendo*> | Sim | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
+| <*divisor*> | Sim | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0 |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*resultado do quociente*> | Integer (Número inteiro) | O número inteiro resulta da divisão do primeiro número pelo segundo número |
+| <*resultado do quociente*> | Número inteiro | O número inteiro resulta da divisão do primeiro número pelo segundo número |
 ||||
 
 *Exemplo*
@@ -1374,12 +1374,12 @@ Embora ambas as funções funcionem da mesma forma, `uriComponent()` é preferí
 encodeUriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para converter para formato codificado URI |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*codificado-uri*> | Cadeia | A cadeia codificada uri com caracteres de fuga |
 ||||
@@ -1406,12 +1406,12 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | String, Array ou Objeto | A coleção para verificar |
+| <*coleção*> | Sim | String, Array ou Objeto | A coleção para verificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Volte a ser verdadeiro quando a coleção estiver vazia. Devolva-se falso quando não estiver vazio. |
 ||||
@@ -1442,13 +1442,13 @@ Esta função não é sensível a casos.
 endsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda para verificar |
 | <*searchText*> | Sim | String | O final substring para encontrar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false  | Booleano | Volte a ser verdadeiro quando o sub-final for encontrado. Devolva-se falso quando não for encontrado. |
 ||||
@@ -1484,12 +1484,12 @@ Devolva-se quando ambos são equivalentes, ou devolva falso quando não são equ
 equals('<object1>', '<object2>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto1*>, <*objeto2*> | Yes | Vários | Os valores, expressões ou objetos para comparar |
+| <*objeto1*>, <*objeto2*> | Sim | Vários | Os valores, expressões ou objetos para comparar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Retorno verdadeiro quando ambos são equivalentes. Devolva falso quando não é equivalente. |
 ||||
@@ -1519,12 +1519,12 @@ first('<collection>')
 first([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção onde encontrar o primeiro item |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção onde encontrar o primeiro item |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*primeiro artigo de recolha*> | Qualquer | O primeiro item da coleção |
 ||||
@@ -1553,12 +1553,12 @@ Converta uma versão de corda para um número de ponto flutuante para um número
 float('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia que tem um número de ponto flutuante válido para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*valor flutuante*> | Float | O número do ponto flutuante para a cadeia especificada |
 ||||
@@ -1583,13 +1583,13 @@ Devolva uma estada de tempo no formato especificado.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*reformatizado-timestamp*> | Cadeia | A datatampada atualizada no formato especificado |
 ||||
@@ -1614,14 +1614,14 @@ Retornar a temperatura atual mais as unidades de tempo especificadas.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para adicionar |
 | <*timeUnit*> | Sim | String | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A datatamp atual mais o número especificado de unidades de tempo |
 ||||
@@ -1658,14 +1658,14 @@ Retornar o tempo de tempo atual menos as unidades de tempo especificadas.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | String | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | O tempotando atual menos o número especificado de unidades de tempo |
 ||||
@@ -1704,13 +1704,13 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior do que o segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O valor de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior do que o segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O valor de comparação |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Retorno verdadeiro quando o primeiro valor é maior do que o segundo valor. Devolução falsa quando o primeiro valor é igual ou inferior ao segundo valor. |
 ||||
@@ -1741,13 +1741,13 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior ou igual ao segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O valor de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior ou igual ao segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O valor de comparação |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Retorno verdadeiro quando o primeiro valor é maior ou igual ao segundo valor. Devolução falsa quando o primeiro valor é inferior ao segundo valor. |
 ||||
@@ -1782,12 +1782,12 @@ Além disso, pode especificar um formato diferente para o GUID que não seja o f
 guid('<format>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*formato*> | Não | String | Um único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID devolvido. Por predefinição, o formato é "D", mas pode usar "N", "D", "B", "P" ou "X". |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*Valor GUID*> | Cadeia | Um GUID gerado aleatoriamente |
 ||||
@@ -1813,14 +1813,14 @@ Com base no resultado, devolva um valor especificado.
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Yes | Booleano | A expressão para verificar |
-| <*valorIfTrue*> | Yes | Qualquer | O valor para voltar quando a expressão é verdadeira |
-| <*valorIfFalse*> | Yes | Qualquer | O valor a devolver quando a expressão é falsa |
+| <*expressão*> | Sim | Booleano | A expressão para verificar |
+| <*valorIfTrue*> | Sim | Qualquer | O valor para voltar quando a expressão é verdadeira |
+| <*valorIfFalse*> | Sim | Qualquer | O valor a devolver quando a expressão é falsa |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*valor de devolução especificado*> | Qualquer | O valor especificado que retorna com base em se a expressão é verdadeira ou falsa |
 ||||
@@ -1845,15 +1845,15 @@ Esta função não é sensível a casos, e os índices começam com o número 0.
 indexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda que tem o sub-adc de ser encontrado |
 | <*searchText*> | Sim | String | O sub-cordão para encontrar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*índice-valor*>| Integer (Número inteiro) | A posição inicial ou o valor do índice para o sublpeso especificado. <p>Se a corda não for encontrada, devolva o número -1. |
+| <*índice-valor*>| Número inteiro | A posição inicial ou o valor do índice para o sublpeso especificado. <p>Se a corda não for encontrada, devolva o número -1. |
 ||||
 
 *Exemplo*
@@ -1876,14 +1876,14 @@ Devolva a versão inteiro por uma corda.
 int('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*resultado inteiro*> | Integer (Número inteiro) | A versão inteiro para a cadeia especificada |
+| <*resultado inteiro*> | Número inteiro | A versão inteiro para a cadeia especificada |
 ||||
 
 *Exemplo*
@@ -1906,12 +1906,12 @@ Retornar o valor ou objeto do tipo JavaScript (JSON) para uma cadeia ou XML.
 json('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | String ou XML | A corda ou XML para converter |
+| <*valor*> | Sim | String ou XML | A corda ou XML para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*Resultado do JSON*> | Tipo ou objeto nativo JSON | O valor ou objeto de tipo nativo JSON para a cadeia especificada ou XML. Se a corda for nula, a função devolve um objeto vazio. |
 ||||
@@ -1978,12 +1978,12 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção1*>, <*coleção2*>, ... | Yes | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *apenas* os itens comuns |
+| <*coleção1*>, <*coleção2*>, ... | Sim | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *apenas* os itens comuns |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*itens comuns*> | Matriz ou Objeto, respectivamente | Uma coleção que tem apenas os itens comuns em todas as coleções especificadas |
 ||||
@@ -2008,13 +2008,13 @@ Devolva uma corda que tenha todos os itens de uma matriz e tenha cada personagem
 join([<collection>], '<delimiter>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Matriz | A matriz que tem os itens para se juntar |
+| <*coleção*> | Sim | Matriz | A matriz que tem os itens para se juntar |
 | <*delimiter*> | Sim | String | O separador que aparece entre cada personagem na cadeia resultante |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*char1* >< *delimiter* >< *char2* ><> *delimitador...* | Cadeia | A cadeia resultante criada a partir de todos os itens na matriz especificada |
 ||||
@@ -2040,12 +2040,12 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção onde encontrar o último item |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção onde encontrar o último item |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*último artigo de recolha*> | String ou Array, respectivamente | O último item da coleção |
 ||||
@@ -2075,15 +2075,15 @@ Esta função não é sensível a casos, e os índices começam com o número 0.
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda que tem o sub-adc de ser encontrado |
 | <*searchText*> | Sim | String | O sub-cordão para encontrar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor de índice final*> | Integer (Número inteiro) | A posição inicial ou o valor do índice para a última ocorrência do sublpesto especificado. <p>Se a corda não for encontrada, devolva o número -1. |
+| <*valor de índice final*> | Número inteiro | A posição inicial ou o valor do índice para a última ocorrência do sublpesto especificado. <p>Se a corda não for encontrada, devolva o número -1. |
 ||||
 
 *Exemplo*
@@ -2107,14 +2107,14 @@ length('<collection>')
 length([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção com os itens a contar |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção com os itens a contar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*comprimento ou contagem*> | Integer (Número inteiro) | O número de itens na coleção |
+| <*comprimento ou contagem*> | Número inteiro | O número de itens na coleção |
 ||||
 
 *Exemplo*
@@ -2140,13 +2140,13 @@ less(<value>, <compareTo>)
 less('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos do que o segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O item de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos do que o segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O item de comparação |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Retorno verdadeiro quando o primeiro valor é inferior ao segundo valor. Devolução falsa quando o primeiro valor é igual ou superior ao segundo valor. |
 ||||
@@ -2177,13 +2177,13 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos ou igual ao segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O item de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos ou igual ao segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O item de comparação |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false  | Booleano | Retorno verdadeiro quando o primeiro valor é inferior ou igual ao segundo valor. Devolução falsa quando o primeiro valor é maior do que o segundo valor. |
 ||||
@@ -2213,13 +2213,13 @@ max(<number1>, <number2>, ...)
 max([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*número1*>, <*número2*>, ... | Yes | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais você quer o valor mais alto |
-| [<número *1*>, <> *número2,* ...] | Yes | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais você quer o valor mais alto |
+| <*número1*>, <*número2*>, ... | Sim | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais você quer o valor mais alto |
+| [<número *1*>, <> *número2,* ...] | Sim | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais você quer o valor mais alto |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*valor máximo*> | Inteiro ou Flutuante | O valor mais elevado na matriz especificada ou conjunto de números |
 ||||
@@ -2246,13 +2246,13 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*número1*>, <*número2*>, ... | Yes | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais se pretende o valor mais baixo |
-| [<número *1*>, <> *número2,* ...] | Yes | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais se quer o valor mais baixo |
+| <*número1*>, <*número2*>, ... | Sim | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais se pretende o valor mais baixo |
+| [<número *1*>, <> *número2,* ...] | Sim | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais se quer o valor mais baixo |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*min-valor*> | Inteiro ou Flutuante | O valor mais baixo no conjunto especificado de números ou matriz especificado |
 ||||
@@ -2279,13 +2279,13 @@ Para obter o resultado inteiro, consulte [div()](#div).
 mod(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*dividendo*> | Yes | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
-| <*divisor*> | Yes | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0. |
+| <*dividendo*> | Sim | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
+| <*divisor*> | Sim | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*modulo-resultado*> | Inteiro ou Flutuante | O restante de dividir o primeiro número pelo segundo número |
 ||||
@@ -2310,13 +2310,13 @@ Retire o produto da multiplicação de dois números.
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | Yes | Inteiro ou Flutuante | O número a multiplicar por *multiplicand2* |
-| <*multiplicand2*> | Yes | Inteiro ou Flutuante | O número que múltiplos *multiplicand1* |
+| <*multiplicand1*> | Sim | Inteiro ou Flutuante | O número a multiplicar por *multiplicand2* |
+| <*multiplicand2*> | Sim | Inteiro ou Flutuante | O número que múltiplos *multiplicand1* |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*resultado do produto*> | Inteiro ou Flutuante | O produto de multiplicar o primeiro número pelo segundo número |
 ||||
@@ -2346,12 +2346,12 @@ Devolva-se quando a expressão é falsa, ou devolva falsa quando verdadeira.
 not(<expression>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Yes | Booleano | A expressão para verificar |
+| <*expressão*> | Sim | Booleano | A expressão para verificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Retornar verdadeiro quando a expressão é falsa. Devolva-se falsa quando a expressão é verdadeira. |
 ||||
@@ -2395,12 +2395,12 @@ Devolva-se quando pelo menos uma expressão é verdadeira, ou devolva falsa quan
 or(<expression1>, <expression2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão1*>, *expressão <2*> | Yes | Booleano | As expressões para verificar |
+| <*expressão1*>, *expressão <2*> | Sim | Booleano | As expressões para verificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false | Booleano | Voltar verdadeiro quando pelo menos uma expressão é verdadeira. Devolva-se falsa quando ambas as expressões são falsas. |
 ||||
@@ -2443,15 +2443,15 @@ Devolva um inteiro aleatório de uma gama especificada, que é inclusiva apenas 
 rand(<minValue>, <maxValue>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Yes | Integer (Número inteiro) | O número mais baixo de inteiros na gama |
-| <*maxValue*> | Yes | Integer (Número inteiro) | O inteiro que segue o mais alto inteiro na gama que a função pode devolver |
+| <*minValue*> | Sim | Número inteiro | O número mais baixo de inteiros na gama |
+| <*maxValue*> | Sim | Número inteiro | O inteiro que segue o mais alto inteiro na gama que a função pode devolver |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*resultado aleatório*> | Integer (Número inteiro) | O número inteiro aleatório devolvido da gama especificada |
+| <*resultado aleatório*> | Número inteiro | O número inteiro aleatório devolvido da gama especificada |
 ||||
 
 *Exemplo*
@@ -2474,13 +2474,13 @@ Devolva uma matriz de inteiros que começa a partir de um inteiro especificado.
 range(<startIndex>, <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Yes | Integer (Número inteiro) | Um valor inteiro que inicia a matriz como o primeiro item |
-| <*contar*> | Yes | Integer (Número inteiro) | O número de inteiros na matriz |
+| <*startIndex*> | Sim | Número inteiro | Um valor inteiro que inicia a matriz como o primeiro item |
+| <*contar*> | Sim | Número inteiro | O número de inteiros na matriz |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | [<> *de resultados de gama]* | Matriz | A matriz com inteiros a partir do índice especificado |
 ||||
@@ -2505,14 +2505,14 @@ Substitua um sub-adc de sublagem com a corda especificada e devolva a cadeia de 
 replace('<text>', '<oldText>', '<newText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda que tem o sub-cordão para substituir |
 | <*oldText*> | Sim | String | O sub-cordão para substituir |
 | <*newText*> | Sim | String | A cadeia de substituição |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*texto atualizado*> | Cadeia | A cadeia atualizada após a substituição do sub-cordão <p>Se o sub-adc de sublagem não for encontrado, devolva a corda original. |
 ||||
@@ -2537,13 +2537,13 @@ Retire os itens da parte da frente de uma coleção e devolva *todos os outros* 
 skip([<collection>], <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Matriz | A coleção cujos itens você quer remover |
-| <*contar*> | Yes | Integer (Número inteiro) | Um número inteiro positivo para o número de itens a remover na frente |
+| <*coleção*> | Sim | Matriz | A coleção cujos itens você quer remover |
+| <*contar*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens a remover na frente |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | [<> *de recolha atualizada]* | Matriz | A recolha atualizada após a remoção dos itens especificados |
 ||||
@@ -2568,13 +2568,13 @@ Devolva uma matriz que contenha sublutos, separadas por vírgulas, com base no c
 split('<text>', '<delimiter>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda para separar em sublamentos com base no limonado especificado na cadeia original |
 | <*delimiter*> | Sim | String | O personagem na corda original para usar como o delimiter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | [<*substring1*><*substring2*>,...] | Matriz | Uma matriz que contém sublutos da corda original, separada por vírgulas |
 ||||
@@ -2599,13 +2599,13 @@ Volte o início do dia para uma hora de tempo.
 startOfDay('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir da marca de zero horas para o dia |
 ||||
@@ -2630,13 +2630,13 @@ Volte a ligar o início da hora para uma hora marcada.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir da marca de zero minutos para a hora |
 ||||
@@ -2661,13 +2661,13 @@ Devolva o início do mês para uma hora de tempo.
 startOfMonth('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir do primeiro dia do mês na marca de zero horas |
 ||||
@@ -2694,13 +2694,13 @@ Esta função não é sensível a casos.
 startsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda para verificar |
 | <*searchText*> | Sim | String | A cadeia inicial para encontrar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | true ou false  | Booleano | Volte a ser verdadeiro quando o sub-ataque inicial for encontrado. Devolva-se falso quando não for encontrado. |
 ||||
@@ -2735,12 +2735,12 @@ Devolva a versão de corda por um valor.
 string(<value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Qualquer | O valor para converter |
+| <*valor*> | Sim | Qualquer | O valor para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*valor de cordas*> | Cadeia | A versão de corda para o valor especificado |
 ||||
@@ -2775,13 +2775,13 @@ Devolva o resultado da subtração do segundo número do primeiro número.
 sub(<minuend>, <subtrahend>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | Yes | Inteiro ou Flutuante | O número a partir do qual subtrair o *subtraído* |
-| <*subtrahend*> | Yes | Inteiro ou Flutuante | O número para subtrair do *minuend* |
+| <*minuend*> | Sim | Inteiro ou Flutuante | O número a partir do qual subtrair o *subtraído* |
+| <*subtrahend*> | Sim | Inteiro ou Flutuante | O número para subtrair do *minuend* |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*resultado*> | Inteiro ou Flutuante | O resultado da subtração do segundo número do primeiro número |
 ||||
@@ -2807,14 +2807,14 @@ Os valores do índice começam com o número 0.
 substring('<text>', <startIndex>, <length>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda cujos personagens quer |
-| <*startIndex*> | Yes | Integer (Número inteiro) | Um número positivo igual ou superior a 0 que pretende utilizar como posição inicial ou valor de índice |
-| <*comprimento*> | Yes | Integer (Número inteiro) | Um número positivo de caracteres que você quer no substring |
+| <*startIndex*> | Sim | Número inteiro | Um número positivo igual ou superior a 0 que pretende utilizar como posição inicial ou valor de índice |
+| <*comprimento*> | Sim | Número inteiro | Um número positivo de caracteres que você quer no substring |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*subdiscípe-resultado*> | Cadeia | Um sub-cordão com o número especificado de caracteres, a partir da posição de índice especificado na cadeia de origem |
 ||||
@@ -2840,15 +2840,15 @@ Consulte também [getPastTime](#getPastTime).
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda que contém a hora da hora |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
 | <*timeUnit*> | Sim | String | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*hora atualizada*> | Cadeia | O tempotamp menos o número especificado de unidades de tempo |
 ||||
@@ -2884,13 +2884,13 @@ take('<collection>', <count>)
 take([<collection>], <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção cujos itens você quer |
-| <*contar*> | Yes | Integer (Número inteiro) | Um número inteiro positivo para o número de itens que você quer da frente |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção cujos itens você quer |
+| <*contar*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens que você quer da frente |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*subconjunto*> ou [<*subconjunto*>] | String ou Array, respectivamente | Uma cadeia ou matriz que tem o número especificado de itens retirados da parte da frente da coleção original |
 ||||
@@ -2920,14 +2920,14 @@ Um *carrapato* é um intervalo de 100 nanosegundos.
 ticks('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*timetamp*> | Sim | String | A corda para uma hora de tempo |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*carrapatos-número*> | Integer (Número inteiro) | O número de carrapatos desde a marca de tempo especificado |
+| <*carrapatos-número*> | Número inteiro | O número de carrapatos desde a marca de tempo especificado |
 ||||
 
 <a name="toLower"></a>
@@ -2940,12 +2940,12 @@ Devolva uma corda em formato minúsculo. Se um personagem na corda não tiver um
 toLower('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda para voltar em formato minúsculo |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*texto minúsculo*> | Cadeia | A corda original em formato minúsculo |
 ||||
@@ -2970,12 +2970,12 @@ Devolva uma corda em formato maiúscula. Se um personagem na corda não tiver um
 toUpper('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda para voltar em formato maiúscula |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*texto maiúscula*> | Cadeia | A corda original em formato maiúscula |
 ||||
@@ -3000,12 +3000,12 @@ Remova o espaço branco de uma corda e devolva a corda atualizada.
 trim('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*Texto*> | Sim | String | A corda que tem o espaço branco líder e trailing para remover |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*texto atualizado*> | Cadeia | Uma versão atualizada para a cadeia original sem liderar ou seguir espaço em branco |
 ||||
@@ -3032,12 +3032,12 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção1*>, <*coleção2*>, ...  | Yes | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *todos os* itens |
+| <*coleção1*>, <*coleção2*>, ...  | Sim | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *todos os* itens |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*actualizaçãoCollection*> | Matriz ou Objeto, respectivamente | Uma coleção com todos os itens das coleções especificadas - sem duplicados |
 ||||
@@ -3064,12 +3064,12 @@ Embora ambas as funções funcionem da mesma forma, `uriComponent()` é preferí
 uriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda para converter para formato codificado URI |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*codificado-uri*> | Cadeia | A cadeia codificada uri com caracteres de fuga |
 ||||
@@ -3094,12 +3094,12 @@ Devolva a versão binária para um componente de identificação de recursos uni
 uriComponentToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia codificada uri para converter |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*binário-para-codificado-uri*> | Cadeia | A versão binária para a cadeia codificada uri. O conteúdo binário é codificado e representado por `$content` . |
 ||||
@@ -3129,12 +3129,12 @@ Retorna a versão de corda para uma cadeia codificada de identificação de recu
 uriComponentToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A cadeia codificada uri para descodificar |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*descodificado-uri*> | Cadeia | A versão descodificada para a cadeia codificada uri |
 ||||
@@ -3161,12 +3161,12 @@ utcNow('<format>')
 
 Opcionalmente, pode especificar um formato diferente com o *<formato*> parâmetro.
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*formato*> | Não | String | Ou um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*actual-timetamp*> | Cadeia | A data e hora atuais |
 ||||
@@ -3203,12 +3203,12 @@ Retornar a versão XML para uma cadeia que contenha um objeto JSON.
 xml('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*valor*> | Sim | String | A corda com o objeto JSON para converter <p>O objeto JSON deve ter apenas uma propriedade raiz, que não pode ser uma matriz. <br>Utilize o carácter de backslash \\ () como um personagem de fuga para a marca de dupla citação ("). |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*versão xml*> | Objeto | O XML codificado para o string especificado ou objeto JSON |
 ||||
@@ -3261,13 +3261,13 @@ Verifique se xML se trata de nós ou valores que correspondam a uma expressão X
 xpath('<xml>', '<xpath>')
 ```
 
-| Parâmetro | Necessário | Tipo | Description |
+| Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | Yes | Qualquer | A cadeia XML para procurar nóles ou valores que correspondam a um valor de expressão XPath |
-| <*xpath*> | Yes | Qualquer | A expressão XPath usada para encontrar nosdes ou valores XML correspondentes |
+| <*xml*> | Sim | Qualquer | A cadeia XML para procurar nóles ou valores que correspondam a um valor de expressão XPath |
+| <*xpath*> | Sim | Qualquer | A expressão XPath usada para encontrar nosdes ou valores XML correspondentes |
 |||||
 
-| Valor devolvido | Tipo | Description |
+| Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
 | <*xml-nó*> | XML | Um nó XML quando apenas um nó corresponde à expressão XPath especificada |
 | <*valor*> | Qualquer | O valor de um nó XML quando apenas um valor corresponde à expressão XPath especificada |

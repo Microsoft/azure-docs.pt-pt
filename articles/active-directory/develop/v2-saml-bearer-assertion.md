@@ -12,10 +12,10 @@ ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227921"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade microsoft e fluxo de afirmação do portador de OAuth 2.0 SAML

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232530"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de conjunto de microfone SDK de dispositivos de fala
@@ -30,7 +30,7 @@ Recomenda-se a utilização das seguintes geometrias de matrizes com a Microsoft
 | Geometria & de Microfones | Matriz Circular | Matriz Circular | Matriz Linear | Matriz Linear |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \#Mics | 7 | 4 | 4 | 2 |
+| \# Mics | 7 | 4 | 4 | 2 |
 | Geometria | 6 Exterior, 1 Centro, Raio = 42,5 mm, Uniformemente Espaçado | 3 Exterior, 1 Centro, Raio = 42,5 mm, Uniformemente Espaçado | Comprimento = 120 mm, Espaçamento = 40 mm | Espaçamento = 40 mm |
 
 Os canais de microfone devem ser encomendados de acordo com a numeragem representada para cada matriz acima, aumentando a partir de 0. O Microsoft Audio Stack necessitará de um fluxo adicional de reprodução de áudio para realizar o cancelamento do eco.
@@ -49,7 +49,7 @@ As propriedades recomendadas ao selecionar microfones são:
 | Ponto de sobrecarga acústica (AOP) | \>= 120 dBSPL (THD = 10%) |
 | Taxa de bit | Mínimo de 24 bits |
 | Taxa de Amostragem | Mínimo de 16 kHz\* |
-| Resposta de Frequência | ± 3 dB, máscara flutuante 200-8000 Hz\* |
+| Resposta de Frequência | ± 3 dB, 200-8000 Hz Máscara Flutuante\* |
 | Fiabilidade | Intervalo de temperatura de armazenamento -40°C a 70°C<br />Intervalo de temperatura operacional -20°C a 55°C |
 
 \*_Podem ser necessárias taxas de amostragem mais elevadas ou gamas de frequências "mais amplas" para aplicações de comunicações de alta qualidade (VoIP)_
@@ -62,7 +62,7 @@ O desempenho da matriz do microfone quando integrado num dispositivo diferirá d
 
 | Parâmetro          | Recomendado                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \>63 dB (sinal de 1 kHz 94 dBSPL, ruído ponderado A) |
+| SNR                | \> 63 dB (sinal de 1 kHz 94 dBSPL, ruído ponderado A) |
 | Sensibilidade à saída | -26 dBFS/Pa @ 1 kHz (recomendado)                  |
 | Correspondência de amplitude | ± 2 dB, 200-8000 Hz                                |
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5ª Ordem             |
@@ -81,7 +81,7 @@ Como o cancelamento de eco é necessário para dispositivos de reconhecimento de
 | Considerações de Linearidade | Não é necessário um processamento não linear após a referência ao altifalante, caso contrário é necessário um fluxo de referência de backback baseado em hardware |
 | Speaker Loopback | Fornecido via WASAPI, APIs privados, plug-in alsa personalizado (Linux), ou fornecido através de canal firmware |
 | THD% | 3ª Oitava Bandas mínimas 5ª Encomenda, 70 dBA Playback @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Acoplamento de eco aos microfones | \>-10 dB TCLw utilizando o método ITU-T G.122 anexo B.4, normalizado ao nível do microfone<br />TCLw = TCLwmeasured \+ (Nível medido - Sensibilidade à saída do alvo)<br />TCLw = TCLwmeasured \+ (Nível medido - (-26)) |
+| Acoplamento de eco aos microfones | \> -10 dB TCLw utilizando o método ITU-T G.122 anexo B.4, normalizado ao nível do microfone<br />TCLw = TCLwmeasured \+ (Nível medido - Sensibilidade à saída do alvo)<br />TCLw = TCLwmeasured \+ (Nível medido - (-26)) |
 
 ## <a name="integration-design-architecture"></a>Arquitetura de design de integração
 

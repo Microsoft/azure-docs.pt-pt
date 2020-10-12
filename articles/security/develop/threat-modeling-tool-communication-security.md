@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89004567"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: Segurança de Comunicação / Mitigações 
@@ -181,7 +181,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Encriptação de nível de transporte de armazenamento Azure – usando HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
+| **Referências**              | [Encriptação Transport-Level de armazenamento Azure – Usando HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
 | **Passos** | Para garantir a segurança dos dados de armazenamento Azure em trânsito, utilize sempre o protocolo HTTPS quando ligar para as APIs REST ou aceder a objetos armazenados. Além disso, as Assinaturas de Acesso Partilhado, que podem ser usadas para delegar o acesso a objetos de armazenamento Azure, incluem uma opção para especificar que apenas o protocolo HTTPS pode ser utilizado quando utilizar assinaturas de acesso partilhado, garantindo que qualquer pessoa que envie links com fichas SAS utilizará o protocolo adequado.|
 
 ## <a name="validate-md5-hash-after-downloading-blob-if-https-cannot-be-enabled"></a><a id="md5-https"></a>Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado

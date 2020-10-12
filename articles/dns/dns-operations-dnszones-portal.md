@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689168"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerir as Zonas DNS no portal Azure
@@ -58,6 +58,6 @@ No portal Azure, navegue para **mais serviços**  >  **em**  >  **rede zonas DNS
 
 Navegue para uma zona DE DNS no portal. Na lâmina da **zona DNS,** clique na **zona de eliminar**. Em seguida, é solicitado que confirme que pretende eliminar a zona DNS. A eliminação de uma zona de DNS também elimina todos os registos que estão contidos na zona.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como trabalhar com a sua Zona DNS e registos visitando [Começar com o Azure DNS utilizando o portal Azure](dns-getstarted-portal.md).
