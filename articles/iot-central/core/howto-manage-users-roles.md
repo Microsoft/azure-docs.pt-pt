@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80365503"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na sua aplicação IoT Central
@@ -25,7 +25,7 @@ Para aceder e utilizar a secção **Administração,** deve estar na função **
 
 Todos os utilizadores devem ter uma conta de utilizador antes de poderem iniciar sôm e aceder a uma aplicação Azure IoT Central. As contas microsoft accounts e Azure Ative Directory são suportadas no Azure IoT Central. Os grupos de Diretório Ativo Azure não são atualmente apoiados na Azure IoT Central.
 
-Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [quickstart: Adicione novos utilizadores ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e  [quickstart: Adicione novos utilizadores ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Para adicionar um utilizador a uma aplicação IoT Central, aceda à página **de Utilizadores** na secção **Administração.**
     
@@ -93,17 +93,17 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões do modelo do dispositivo**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Gerir | Vista <br/> Outras dependências: Ver instâncias do dispositivo  |
 | Controlo Total | Ver, Gerir <br/> Outras dependências: Ver instâncias do dispositivo |
 
 **Permissões de instância do dispositivo**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos |
+| Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
 | Criar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
 | Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
@@ -112,9 +112,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de grupos de dispositivos**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo |
+| Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
 | Criar | Ver, Atualizar <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
 | Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
@@ -122,19 +122,19 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de gestão da conectividade do dispositivo**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Ler caso | Nenhuma <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
-| Gerir instância | Nenhuma |
-| Ler global | Nenhuma   |
+| Ler caso | Nenhum <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
+| Gerir instância | Nenhum |
+| Ler global | Nenhum   |
 | Gerir globalmente | Ler Global |
 | Controlo Total | Ler exemplo, Gerir exemplos, ler globalmente, gerir globalmente. <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
 
 **Permissões de emprego**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
+| Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
 | Criar | Ver, Atualizar <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
 | Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
@@ -143,9 +143,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de regras**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma <br/> Outras dependências: Ver modelos de dispositivos |
+| Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos |
 | Criar | Ver, Atualizar <br/> Outras dependências: Ver modelos de dispositivos |
 | Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos |
@@ -155,9 +155,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de definições de aplicações**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Copiar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
 | Eliminar | Vista   |
@@ -165,26 +165,26 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de exportação de modelo de aplicação**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Exportar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
 | Controlo Total | Vista, Exportação <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, dashboards de aplicações, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
 
 **Permissões de faturação**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Gerir | Nenhuma     |
+| Gerir | Nenhum     |
 | Controlo Total | Gerir |
 
 #### <a name="managing-users-and-roles"></a>Gestão de utilizadores e funções
 
 **Permissões de funções personalizadas**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma |
+| Vista | Nenhum |
 | Atualizar | Vista |
 | Criar | Ver, Atualizar |
 | Eliminar | Vista |
@@ -192,9 +192,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de gestão de utilizadores**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma <br/> Outras dependências: Ver funções personalizadas |
+| Vista | Nenhum <br/> Outras dependências: Ver funções personalizadas |
 | Adicionar | Vista <br/> Outras dependências: Ver funções personalizadas |
 | Eliminar | Vista <br/> Outras dependências: Ver funções personalizadas |
 | Controlo Total | Ver, Adicionar, Excluir <br/> Outras dependências: Ver funções personalizadas |
@@ -206,9 +206,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões do painel de aplicações**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Criar | Ver, Atualizar |
 | Eliminar | Vista   |
@@ -216,9 +216,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de painéis pessoais**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Criar | Ver, Atualizar   |
 | Eliminar | Vista   |
@@ -226,17 +226,17 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de marcação, favicon e cores**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Controlo Total | Ver, Atualizar |
 
 **Permissões de links de ajuda**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Controlo Total | Ver, Atualizar |
 
@@ -244,9 +244,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões de exportação de dados**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Atualizar | Vista   |
 | Criar | Ver, Atualizar  |
 | Eliminar | Vista   |
@@ -254,9 +254,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 **Permissões simbólicas da API**
 
-| Name | Dependências |
+| Nome | Dependências |
 | ---- | -------- |
-| Vista | Nenhuma     |
+| Vista | Nenhum     |
 | Criar | Vista   |
 | Eliminar | Vista   |
 | Controlo Total | Ver, Criar, Eliminar |

@@ -4,10 +4,10 @@ description: Saiba como criar ambientes multi-VM e recursos PaaS em Azure DevTes
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88182413"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager
@@ -123,7 +123,7 @@ Uma vez que adicione um modelo de Gestor de Recursos Azure ao laboratório, os s
 
 1. No painel **Add,** introduza um valor **de nome Ambiente** para mostrar aos utilizadores do ambiente.
 
-   O modelo Azure Resource Manager define o resto dos campos de entrada. Se oazuredeploy.parameter.jsdo modelo *no* ficheiro definir valores predefinidos, os campos de entrada mostram esses valores.
+   O modelo Azure Resource Manager define o resto dos campos de entrada. Se oazuredeploy.parameter.jsdo modelo * no* ficheiro definir valores predefinidos, os campos de entrada mostram esses valores.
 
    Para parâmetros de *tipo de corda segura,* pode utilizar segredos do seu Cofre de Chaves Azure. Para aprender sobre guardar segredos num cofre chave e usá-los ao criar recursos de laboratório, consulte os segredos da [Loja no Cofre da Chave Azure.](devtest-lab-store-secrets-in-key-vault.md)  
 
@@ -162,7 +162,7 @@ Antes de prosseguir, certifique-se de que tem um modelo de Gestor de Recursos Az
 
 O seguinte guião de amostra cria um ambiente no seu laboratório. Os comentários ajudam-no a compreender melhor o guião.
 
-1. Guarde o seguinte script PowerShell para o seu disco rígido à medida *quedeployenv.ps1*.
+1. Guarde o seguinte script PowerShell para o seu disco rígido à medida * quedeployenv.ps1*.
 
    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

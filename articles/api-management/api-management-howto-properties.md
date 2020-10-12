@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852196"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como utilizar valores nomeados nas políticas de gestão da API da Azure
@@ -84,7 +84,7 @@ Para utilizar um valor nomeado numa apólice, coloque o seu nome dentro de um pa
 
 Neste exemplo, `ContosoHeader` é usado como o nome de um cabeçalho numa `set-header` política, e é usado como o valor `ContosoHeaderValue` desse cabeçalho. Quando esta política é avaliada durante um pedido ou resposta à porta de administração da API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` são substituídas pelos respetivos valores.
 
-Os valores nomeados podem ser utilizados como valores completos de atributos ou elementos, como mostrado no exemplo anterior, mas também podem ser inseridos ou combinados com parte de uma expressão de texto literal, como mostra o seguinte exemplo:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Os valores nomeados podem ser utilizados como valores completos de atributos ou elementos, como mostrado no exemplo anterior, mas também podem ser inseridos ou combinados com parte de uma expressão de texto literal, como mostra o seguinte exemplo: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
 Os valores nomeados também podem conter expressões políticas. No exemplo seguinte, o `ExpressionProperty` é usado.
 

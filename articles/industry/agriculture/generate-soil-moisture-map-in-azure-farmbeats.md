@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482572"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar mapa de calor de humidade do solo
@@ -22,7 +22,7 @@ Este artigo descreve o processo de geração de um mapa de calor de humidade do 
 - [Atribuir sensores a Quintas](#get-soil-moisture-sensor-data-from-partner)
 - [Gerar mapa de calor de humidade do solo](#generate-soil-moisture-heatmap)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se do seguinte:  
 
@@ -91,6 +91,6 @@ Utilize os passos seguintes:
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que gerou com sucesso um heatmap de humidade do solo, aprenda a [gerar colocação de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingere dados históricos de telemetria.](ingest-historical-telemetry-data-in-azure-farmbeats.md) 

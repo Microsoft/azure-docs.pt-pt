@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84015507"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
@@ -22,10 +22,10 @@ Uma vez criado um servidor de Serviços de Análise em Azure, pode haver algumas
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
-## <a name="sql-server-management-studio"></a>SQL Server Management Studio
+## <a name="sql-server-management-studio"></a>O SQL Server Management Studio
 Ligar-se ao seu servidor em Azure é como ligar-se a uma instância de servidor na sua própria organização. A partir de SSMS, pode executar muitas das mesmas tarefas, tais como processar dados ou criar um script de processamento, gerir funções e usar o PowerShell.
   
-![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
+![O SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
 ### <a name="download-and-install-ssms"></a>Transferir e instalar o SSMS
 Para obter todas as funcionalidades mais recentes e a experiência mais suave ao ligar-se ao servidor Azure Analysis Services, certifique-se de que está a utilizar a versão mais recente do SSMS. 
@@ -56,13 +56,13 @@ Para obter todas as funcionalidades mais recentes e a experiência mais suave ao
     ![Ligar no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Administradores de servidores e utilizadores de bases de dados
-Nos Serviços de Análise Azure, existem dois tipos de utilizadores, administradores de servidores e utilizadores de bases de dados. Ambos os tipos de utilizadores devem estar no seu Diretório Ativo Azure e devem ser especificados por endereço de e-mail organizacional ou UPN. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+Nos Serviços de Análise Azure, existem dois tipos de utilizadores, administradores de servidores e utilizadores de bases de dados. Ambos os tipos de utilizadores devem estar no seu Diretório Ativo Azure e devem ser especificados por endereço de e-mail organizacional ou UPN. Para saber mais, veja [Authentication and user permissions](analysis-services-manage-users.md) (Permissões de autenticação e utilizador).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Problemas de ligação à resolução de problemas
 Ao ligar o SSMS, se tiver problemas, poderá ter de limpar a cache de início de sessão. Nada está em cache para o disco. Para limpar a cache, feche e reinicie o processo de ligação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se ainda não implementou um modelo tabular para o seu novo servidor, agora é uma boa altura. Para obter mais informações, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementar no Azure Analysis Services).
 
 Se implementou um modelo no seu servidor, está pronto para o ligar usando um cliente ou navegador. Para saber mais, consulte [obter dados do servidor Azure Analysis Services](analysis-services-connect.md).

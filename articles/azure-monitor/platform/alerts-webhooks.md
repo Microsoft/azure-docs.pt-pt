@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852111"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Azure Monitor
@@ -74,14 +74,14 @@ A operação POST contém a seguinte carga útil json e esquema para todos os al
 
 | Campo | Obrigatório | Conjunto fixo de valores | Notas |
 |:--- |:--- |:--- |:--- |
-| status |Y |Ativado, resolvido |O estado do alerta com base nas condições definidas. |
-| contexto |Y | |O contexto de alerta. |
-| carimbo de data/hora |Y | |O momento em que o alerta foi desencadeado. |
-| ID |Y | |Todas as regras de alerta têm uma identificação única. |
-| name |Y | |O nome de alerta. |
-| descrição |Y | |Uma descrição do alerta. |
-| estadoTip |Y |Métrica, Evento |Dois tipos de alertas são suportados: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos são baseados num evento no registo de atividades. Utilize este valor para verificar se o alerta se baseia numa métrica ou num evento. |
-| condição |Y | |Os campos específicos para verificar com base no valor **de estadoType.** |
+| status |S |Ativado, resolvido |O estado do alerta com base nas condições definidas. |
+| contexto |S | |O contexto de alerta. |
+| carimbo de data/hora |S | |O momento em que o alerta foi desencadeado. |
+| ID |S | |Todas as regras de alerta têm uma identificação única. |
+| name |S | |O nome de alerta. |
+| descrição |S | |Uma descrição do alerta. |
+| estadoTip |S |Métrica, Evento |Dois tipos de alertas são suportados: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos são baseados num evento no registo de atividades. Utilize este valor para verificar se o alerta se baseia numa métrica ou num evento. |
+| condição |S | |Os campos específicos para verificar com base no valor **de estadoType.** |
 | nome métrico |Para alertas métricos | |O nome da métrica que define o que a regra monitoriza. |
 | métricaSa |Para alertas métricos |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |A unidade permitida na métrica. Ver [valores permitidos.](/previous-versions/azure/reference/dn802430(v=azure.100)) |
 | métricaValue |Para alertas métricos | |O valor real da métrica que causou o alerta. |
@@ -89,13 +89,13 @@ A operação POST contém a seguinte carga útil json e esquema para todos os al
 | tamanho de janelas |Para alertas métricos | |O período de tempo que é usado para monitorizar a atividade de alerta com base no limiar. O valor deve estar entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas métricos |Média, Último, Máximo, Mínimo, Nenhum, Total |Como os dados recolhidos devem ser combinados ao longo do tempo. O valor predefinido é médio. Ver [valores permitidos.](/previous-versions/azure/reference/dn802410(v=azure.100)) |
 | operador |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |
-| subscriptionId |Y | |O ID de assinatura Azure. |
-| resourceGroupName |Y | |O nome do grupo de recursos para o recurso afetado. |
-| resourceName |Y | |O nome do recurso do recurso afetado. |
-| resourceType |Y | |O tipo de recurso do recurso afetado. |
-| resourceId |Y | |A identificação de recursos do recurso afetado. |
-| Reedição de recursos |Y | |A região ou localização do recurso afetado. |
-| portalLink |Y | |Uma ligação direta à página de resumo do recurso do portal. |
+| subscriptionId |S | |O ID de assinatura Azure. |
+| resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
+| resourceName |S | |O nome do recurso do recurso afetado. |
+| resourceType |S | |O tipo de recurso do recurso afetado. |
+| resourceId |S | |A identificação de recursos do recurso afetado. |
+| Reedição de recursos |S | |A região ou localização do recurso afetado. |
+| portalLink |S | |Uma ligação direta à página de resumo do recurso do portal. |
 | propriedades |N |Opcional |Um conjunto de pares chave/valor que tem detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Num fluxo de trabalho personalizado baseado em UI ou lógica, os utilizadores podem introduzir pares chave/valor que podem ser passados através da carga útil. Uma forma alternativa de passar propriedades personalizadas de volta para o webhook é através do próprio webhook URI (como parâmetros de consulta). |
 
 > [!NOTE]

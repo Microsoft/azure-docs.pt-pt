@@ -4,17 +4,17 @@ description: Descreve como definir variáveis num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75483820"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo de gestor de recursos Azure
+# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo do Azure Resource Manager
 
 Este artigo descreve como definir e usar variáveis no seu modelo de Gestor de Recursos Azure. Usa variáveis para simplificar o seu modelo. Em vez de repetir expressões complicadas ao longo do seu modelo, define uma variável que contém a expressão complicada. Em seguida, você refere essa variável conforme necessário em todo o seu modelo.
 
-O Gestor de Recursos resolve variáveis antes de iniciar as operações de implantação. Onde quer que a variável seja utilizada no modelo, o Gestor de Recursos substitui-a pelo valor resolvido.
+O Gestor de Recursos resolve variáveis antes de iniciar as operações de implantação. Onde quer que a variável seja utilizada no modelo, o Resource Manager substitui-a pelo valor resolvido.
 
 ## <a name="define-variable"></a>Definir variável
 
@@ -91,7 +91,7 @@ Os exemplos que se seguem demonstram cenários para a utilização de variáveis
 | [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define valores de configuração. O modelo não implementa recursos. Constrói valores variáveis e devolve esses valores. |
 | [regras de segurança da rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e arquivo de [parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói um conjunto no formato correto para atribuir regras de segurança a um grupo de segurança de rede. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer as propriedades disponíveis para variáveis, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).
 * Para recomendações sobre a criação de variáveis, consulte [as melhores práticas - variáveis.](template-best-practices.md#variables)

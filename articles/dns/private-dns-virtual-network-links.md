@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646766"
 ---
 # <a name="what-is-a-virtual-network-link"></a>O que é uma ligação de rede virtual?
@@ -47,7 +47,7 @@ Para entender quantas redes de registo e resolução, pode ligar-se a zonas priv
 
 * Quando elimina uma rede virtual, todas as ligações de rede virtual e registos DNS auto-registados associados a ela em diferentes zonas privadas de DNS são automaticamente eliminadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como ligar uma rede virtual a uma zona privada de DNS utilizando [o portal Azure](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
 

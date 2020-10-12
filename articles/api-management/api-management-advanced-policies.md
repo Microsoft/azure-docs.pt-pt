@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851686"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API
 
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
 
-## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Políticas avançadas
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Políticas avançadas
 
 -   [Fluxo de](api-management-advanced-policies.md#choose) controlo - Aplica, condicionalmente, declarações políticas baseadas nos resultados da avaliação das [expressões booleanas](api-management-policy-expressions.md).
 -   [Pedido de encaminhar](#ForwardRequest) - Remete o pedido para o serviço de backend.
@@ -41,11 +41,11 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 -   [Trace](#Trace) - Adiciona vestígios personalizados na saída do [Inspetor API,](./api-management-howto-api-inspector.md) telemetria de Insights de Aplicação e Registos de Recursos.
 -   [Aguarde](#Wait) - Espera por pedido de [envio](api-management-advanced-policies.md#SendRequest)anexo, [Obtenha valor a partir de cache,](api-management-caching-policies.md#GetFromCacheByKey)ou políticas de [fluxo de controlo](api-management-advanced-policies.md#choose) para concluir antes de prosseguir.
 
-## <a name="control-flow"></a><a name="choose"></a>Fluxo de controlo
+## <a name="control-flow"></a><a name="choose"></a> Fluxo de controlo
 
 A `choose` política aplica declarações políticas fechadas com base no resultado da avaliação das expressões booleanas, semelhantes a um caso de então ou a uma construção de comutação numa linguagem de programação.
 
-### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a>Declaração política
+### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a> Declaração política
 
 ```xml
 <choose>
@@ -65,7 +65,7 @@ A política de fluxo de controlo deve conter pelo menos um `<when/>` elemento. O
 
 ### <a name="examples"></a>Exemplos
 
-#### <a name="example"></a><a name="ChooseExample"></a>Exemplo
+#### <a name="example"></a><a name="ChooseExample"></a> Exemplo
 
 O exemplo a seguir demonstra uma política [de variável definida](api-management-advanced-policies.md#set-variable) e duas políticas de fluxo de controlo.
 
@@ -138,7 +138,7 @@ Este exemplo mostra como executar a filtragem de conteúdos removendo elementos 
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Expressão booleana &#124; constante booleana" | A expressão booleana ou constante para ser avaliada quando a declaração de política contendo `when` é avaliada. | Sim      |
 
-### <a name="usage"></a><a name="ChooseUsage"></a>Utilização
+### <a name="usage"></a><a name="ChooseUsage"></a> Utilização
 
 Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
@@ -146,7 +146,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>Pedido de encaminho
+## <a name="forward-request"></a><a name="ForwardRequest"></a> Pedido de encaminho
 
 A `forward-request` apólice remete o pedido de entrada para o serviço de backend especificado no [contexto](api-management-policy-expressions.md#ContextVariables)do pedido . O URL de serviço de backend é especificado nas [definições](./import-and-publish.md) de API e pode ser alterado usando a política [de serviço de backend set.](api-management-transformation-policies.md)
 
@@ -264,11 +264,11 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 -   **Secções políticas:** backend
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a>Limitação da concordância
+## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a> Limitação da concordância
 
 A `limit-concurrency` política impede que as políticas em anexo executem mais do que o número especificado de pedidos a qualquer momento. Ao ultrapassar esse número, os novos pedidos falharão imediatamente com o código de estado de pedidos de muitos.
 
-### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a>Declaração política
+### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a> Declaração política
 
 ```xml
 <limit-concurrency key="expression" max-count="number">
@@ -304,7 +304,7 @@ O exemplo a seguir demonstra como limitar o número de pedidos reencaminhados pa
 
 | Atributo | Descrição                                                                                        | Obrigatório | Predefinição |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| chave       | Uma corda. Expressão permitida. Especifica o âmbito de concordância. Pode ser partilhado por várias políticas. | Sim      | N/D     |
+| key       | Uma corda. Expressão permitida. Especifica o âmbito de concordância. Pode ser partilhado por várias políticas. | Sim      | N/D     |
 | contagem máxima | Um número inteiro. Especifica um número máximo de pedidos que são autorizados a entrar na apólice.           | Sim      | N/D     |
 
 ### <a name="usage"></a>Utilização
@@ -315,7 +315,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Faça login no Centro de Eventos
+## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a> Faça login no Centro de Eventos
 
 A `log-to-eventhub` política envia mensagens no formato especificado para um Centro de Eventos definido por uma entidade Logger. Como o seu nome indica, a política é utilizada para guardar informações de contexto de pedido ou resposta selecionadas para análise online ou offline.
 
@@ -369,7 +369,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="mock-response"></a><a name="mock-response"></a>Resposta falsa
+## <a name="mock-response"></a><a name="mock-response"></a> Resposta falsa
 
 O `mock-response` , como o nome indica, é usado para ridicularizar APIs e operações. Aborta a execução normal do gasoduto e devolve uma resposta ridícula ao chamador. A política tenta sempre retribuir respostas de maior fidelidade. Prefere exemplos de conteúdo de resposta, sempre que disponível. Gera respostas de amostra a partir de esquemas, quando os esquemas são fornecidos e os exemplos não são. Se nenhum dos exemplos ou esquemas for encontrado, as respostas sem conteúdo são devolvidas.
 
@@ -413,7 +413,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="retry"></a><a name="Retry"></a>Retry
+## <a name="retry"></a><a name="Retry"></a> Retry
 
 A `retry` política executa as suas políticas infantis uma vez e, em seguida, retrifica a sua execução até que a repetição se torne ou `condition` `false` redaça. `count`
 
@@ -463,7 +463,7 @@ No exemplo seguinte, o reencaminhamento de pedidos é novamente experimentado at
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condição        | Um literal ou [expressão](api-management-policy-expressions.md) booleano especificando se as retrósias devem ser paradas `false` () ou continuadas ( `true` ).      | Sim      | N/D     |
 | count            | Um número positivo que especifica o número máximo de tentativas.                                                                                | Sim      | N/D     |
-| intervalo         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
+| interval         | Um número positivo em segundos especificando o intervalo de espera entre as tentativas de repetição.                                                                 | Sim      | N/D     |
 | intervalo máximo     | Um número positivo em segundos especificando o intervalo máximo de espera entre as tentativas de repetição. É usado para implementar um algoritmo exponencial de retíria. | Não       | N/D     |
 | delta            | Um número positivo em segundos especificando o incremento do intervalo de espera. É usado para implementar os algoritmos lineares e exponenciais de retíria.             | Não       | N/D     |
 | primeira-rápida retry | Se estiver `true` definido, a primeira tentativa de repetição é executada imediatamente.                                                                                  | Não       | `false` |
@@ -481,7 +481,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="return-response"></a><a name="ReturnResponse"></a>Resposta de retorno
+## <a name="return-response"></a><a name="ReturnResponse"></a> Resposta de retorno
 
 A `return-response` apólice aborta a execução do gasoduto e devolve uma resposta padrão ou personalizada ao chamador. A resposta predefinida `200 OK` é sem corpo. A resposta personalizada pode ser especificada através de uma variável de contexto ou declarações políticas. Quando ambos são fornecidos, a resposta contida na variável de contexto é modificada pelas declarações de política antes de ser devolvida ao chamador.
 
@@ -531,7 +531,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a>Enviar um pedido de ida
+## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a> Enviar um pedido de ida
 
 A `send-one-way-request` apólice envia o pedido fornecido para o URL especificado sem esperar por uma resposta.
 
@@ -605,7 +605,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="send-request"></a><a name="SendRequest"></a>Enviar pedido
+## <a name="send-request"></a><a name="SendRequest"></a> Enviar pedido
 
 A `send-request` apólice envia o pedido fornecido para o URL especificado, esperando não mais do que o valor de tempo limite definido.
 
@@ -692,7 +692,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a>Definir http proxy
+## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a> Definir http proxy
 
 A `proxy` política permite-lhe encaminhar os pedidos reencaminhados para backends através de um representante HTTP. Apenas HTTP (não HTTPS) é suportado entre o gateway e o proxy. Autenticação básica e ntlm.
 
@@ -734,7 +734,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-request-method"></a><a name="SetRequestMethod"></a>Definir método de pedido
+## <a name="set-request-method"></a><a name="SetRequestMethod"></a> Definir método de pedido
 
 A `set-method` apólice permite-lhe alterar o método de pedido HTTP para um pedido.
 
@@ -789,7 +789,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-status-code"></a><a name="SetStatus"></a>Definir código de estado
+## <a name="set-status-code"></a><a name="SetStatus"></a> Definir código de estado
 
 A `set-status` apólice define o código de estado HTTP para o valor especificado.
 
@@ -838,17 +838,17 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 -   **Secções políticas:** saída, backend, on-error
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="set-variable"></a><a name="set-variable"></a>Conjunto variável
+## <a name="set-variable"></a><a name="set-variable"></a> Conjunto variável
 
 A `set-variable` política declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui-lhe um valor especificado através de uma [expressão](api-management-policy-expressions.md) ou de uma corda literal. se a expressão contiver um literal, será convertido para uma corda e o tipo de valor será `System.String` .
 
-### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a>Declaração política
+### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a> Declaração política
 
 ```xml
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="example"></a><a name="set-variableExample"></a>Exemplo
+### <a name="example"></a><a name="set-variableExample"></a> Exemplo
 
 O exemplo a seguir demonstra uma política variável definida na secção de entrada. Esta política variável definida cria uma `isMobile` variável de [contexto](api-management-policy-expressions.md#ContextVariables) Boolean que é definida como verdadeira se o cabeçalho de `User-Agent` pedido contiver o texto `iPad` ou `iPhone` .
 
@@ -876,7 +876,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 -   **Secções políticas:** entrada, saída, backend, erro
 -   **Âmbitos de política:** todos os âmbitos
 
-### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a>Tipos permitidos
+### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a> Tipos permitidos
 
 As expressões utilizadas na `set-variable` apólice devem devolver um dos seguintes tipos básicos.
 
@@ -912,7 +912,7 @@ As expressões utilizadas na `set-variable` apólice devem devolver um dos segui
 -   Sistema.Char?
 -   Sistema.DateTime?
 
-## <a name="trace"></a><a name="Trace"></a>Vestígios
+## <a name="trace"></a><a name="Trace"></a> Vestígios
 
 A `trace` política adiciona um traço personalizado na saída do Inspetor API, telemetria de Insights de Aplicação e/ou Registos de Recursos.
 
@@ -931,7 +931,7 @@ A `trace` política adiciona um traço personalizado na saída do Inspetor API, 
 
 ```
 
-### <a name="example"></a><a name="traceExample"></a>Exemplo
+### <a name="example"></a><a name="traceExample"></a> Exemplo
 
 ```xml
 <trace source="PetStore API" severity="verbose">
@@ -965,7 +965,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="wait"></a><a name="Wait"></a>Espera, espera.
+## <a name="wait"></a><a name="Wait"></a> Espera, espera.
 
 A `wait` política executa as suas políticas imediatas para crianças em paralelo, e aguarda que todas ou uma das suas políticas imediatas para a criança terminem antes de ser concluída. A política de espera pode ter como políticas imediatas para [crianças Enviar pedido,](api-management-advanced-policies.md#SendRequest) [obter valor a partir de cache](api-management-caching-policies.md#GetFromCacheByKey)e políticas de fluxo de [controlo.](api-management-advanced-policies.md#choose)
 
@@ -1025,7 +1025,7 @@ No exemplo seguinte, existem duas `choose` políticas como políticas imediatas 
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Predefinição |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| para       | Determina se a política aguarda que `wait` todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all`- aguardar que todas as políticas imediatas para a criança terminem<br />- qualquer - aguarde que qualquer política imediata de crianças seja completada. Uma vez concluída a primeira política imediata da criança, a `wait` política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | Não       | all     |
+| para       | Determina se a política aguarda que `wait` todas as políticas imediatas para crianças sejam concluídas ou apenas uma. Os valores permitidos são:<br /><br /> - `all` - aguardar que todas as políticas imediatas para a criança terminem<br />- qualquer - aguarde que qualquer política imediata de crianças seja completada. Uma vez concluída a primeira política imediata da criança, a `wait` política completa e a execução de quaisquer outras políticas imediatas para crianças é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Utilização
 

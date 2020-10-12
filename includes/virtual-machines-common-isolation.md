@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084059"
 ---
 O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos isolados vivem e operam na geração específica de hardware e serão depreciados quando a geração de hardware for reformada.
@@ -41,7 +41,7 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 | Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
 
-<sup>1</sup> Para mais detalhes sobre Standard_DS15_v2 e Standard_D15_v2 programa de aposentadoria de isolamento ver FAQs
+<sup>1</sup>  Para mais detalhes sobre Standard_DS15_v2 e Standard_D15_v2 programa de aposentadoria de isolamento ver FAQs
 
 
 ## <a name="faq"></a>FAQ
@@ -62,7 +62,7 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Quais são os marcos para a D15_v2 ou DS15_v2 a reforma do isolamento? 
 **A:** 
-| Data | Ação | 
+| Date | Ação | 
 | --- | --- |
 | 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, 1 ano RI) |
 | 14 de maio de 2020  | Último dia para comprar D/DS15i_v2 1 ano RI | 

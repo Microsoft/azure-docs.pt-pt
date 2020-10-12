@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565847"
 ---
-# <a name="permissions-in-azure-sentinel"></a>Permissões em Azure Sentinel
+# <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
 O Azure Sentinel usa [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções incorporadas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
 
@@ -30,7 +30,7 @@ Utilize o RBAC para criar e atribuir funções dentro da sua equipa de operaçõ
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Papéis para trabalhar em Azure Sentinel
 
-### <a name="azure-sentinel-specific-roles"></a>Funções específicas de Azure Sentinel
+### <a name="azure-sentinel-specific-roles"></a>Funções específicas do Azure Sentinel
 
 Há três funções dedicadas ao Azure Sentinel.
 
@@ -78,9 +78,9 @@ Por exemplo, um utilizador a quem é atribuído o papel **de Azure Sentinel Read
 
 ## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
 
-A tabela seguinte resume os papéis e permitiu ações em Azure Sentinel. 
+A tabela seguinte resume as funções e ações permitidas no Azure Sentinel. 
 
-| Função | Criar e executar livros de reprodução| Criar e editar livros, regras analíticas e outros recursos do Azure Sentinel | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, livros e outros recursos do Azure Sentinel |
+| Função | Criar e executar manuais de procedimentos| Criar e editar livros, regras analíticas e outros recursos do Azure Sentinel | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, livros e outros recursos do Azure Sentinel |
 |---|---|---|---|---|
 | Leitor do Azure Sentinel | -- | -- | -- | &#10003; |
 | Dispositivo de Resposta do Azure Sentinel | -- | -- | &#10003; | &#10003; |

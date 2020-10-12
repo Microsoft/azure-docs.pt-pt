@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 4ef6a920e9334c6e98b18d1db1abf39136c6f4e2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289159"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
@@ -44,7 +44,7 @@ As aplicações que lidam com eventos de Serviços de Mídia devem seguir alguma
 > [!NOTE]
 > Os eventos estão sujeitos ao Acordo de Nível de Serviço de Grelha de [Eventos (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se pretender obter notificações de eventos utilizando APIs, consulte exemplos sobre como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar eventos - portal](monitor-events-portal-how-to.md)
 * [Monitorizar eventos - CLI](job-state-events-cli-how-to.md)

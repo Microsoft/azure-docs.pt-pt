@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460552"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
@@ -107,7 +107,7 @@ A categoria de tabela determina frequentemente qual a opção a escolher para di
 |:---------------|:--------------------|
 | Fact           | Utilize a distribuição de haxixe com índice de loja de colunas agrupados. O desempenho melhora quando duas tabelas de haxixe são unidas na mesma coluna de distribuição. |
 | Dimensão      | Utilize replicado para mesas mais pequenas. Se as tabelas forem demasiado grandes para armazenar em cada nó computacional, utilize hash distribuído. |
-| Transição        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
+| Processo de teste        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
 
 ## <a name="table-partitions"></a>Divisórias de mesa
 
@@ -373,6 +373,6 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar as tabelas para a sua piscina SQL, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina SQL.](load-data-wideworldimportersdw.md)

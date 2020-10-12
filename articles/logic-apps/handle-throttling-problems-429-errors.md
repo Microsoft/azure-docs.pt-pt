@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086444"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de estrangulamento (429 - erros de "muitos pedidos") em Azure Logic Apps
@@ -21,7 +21,7 @@ Nas [Azure Logic Apps,](../logic-apps/logic-apps-overview.md)a sua aplicação l
 
 Aqui estão alguns tipos comuns de estrangulamento que a sua aplicação lógica pode experimentar:
 
-* [Aplicação lógica](#logic-app-throttling)
+* [Aplicativo lógico](#logic-app-throttling)
 * [Conector](#connector-throttling)
 * [Serviço de destino ou sistema](#destination-throttling)
 

@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184119"
 ---
 Utilize um certificado de raiz que tenha sido gerado com uma solução de empresa (recomendado) ou gere um certificado auto-assinado. Depois de criar o certificado raiz, exporte os dados do certificado público (não a chave privada) como um ficheiro X.509 codificado por Base64.cer. Em seguida, faça o upload dos dados do certificado público para o servidor Azure.

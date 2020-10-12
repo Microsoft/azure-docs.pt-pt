@@ -14,10 +14,10 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87850156"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar twilio para capacidades de voz e SMS em Python
@@ -216,7 +216,7 @@ print(str(response))
 
 Para obter mais informações sobre o TwiML, consulte [https://www.twilio.com/docs/api/twiml][twiml_reference] .
 
-Assim que tiver a sua aplicação Python configurada para fornecer respostas TwiML, utilize o URL da aplicação à medida que o URL passou para o `client.calls.create` método. Por exemplo, se tiver uma aplicação Web chamada **MyTwiML** implantada num serviço hospedado no Azure, pode utilizar o seu url como webhook como mostrado no seguinte exemplo:
+Assim que tiver a sua aplicação Python configurada para fornecer respostas TwiML, utilize o URL da aplicação à medida que o URL passou para o `client.calls.create`  método. Por exemplo, se tiver uma aplicação Web chamada **MyTwiML** implantada num serviço hospedado no Azure, pode utilizar o seu url como webhook como mostrado no seguinte exemplo:
 
 ```python
 from twilio.rest import TwilioRestClient

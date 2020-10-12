@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872247"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de sistema de ficheiros em Azure Data Lake Storage Gen1 usando Python
@@ -135,7 +135,7 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 ## <a name="next-steps"></a>Passos seguintes
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Referência Azure Data Lake Storage Gen1 Python (Filesystem)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aplicações Open Source Big Data compatíveis com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

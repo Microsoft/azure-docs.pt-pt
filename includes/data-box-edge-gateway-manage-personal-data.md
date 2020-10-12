@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184900"
 ---
 - **Detalhes do pedido**. Quando uma encomenda é criada, o endereço de envio, endereço de e-mail e informações de contacto do utilizador são armazenados no portal Azure. As informações guardadas incluem:
@@ -16,7 +16,7 @@ ms.locfileid: "67184900"
   - Número de telefone
   - Endereço de e-mail
   - Morada
-  - Localidade
+  - City
   - Código POSTAL/código postal
   - Estado
   - País/província/região

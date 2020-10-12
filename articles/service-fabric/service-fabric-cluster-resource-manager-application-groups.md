@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75452154"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos Grupos de Candidaturas
@@ -201,7 +201,7 @@ As restrições são aplicadas tanto durante a criação de aplicações como at
 - Não tente utilizar as funcionalidades do Grupo de Aplicação para limitar a aplicação a um subconjunto _específico_ de nós. Por outras palavras, pode especificar que a aplicação é executado no máximo cinco nós, mas não quais os cinco nós específicos no cluster. A restrição de uma aplicação a nós específicos pode ser alcançada usando restrições de colocação para serviços.
 - Não tente utilizar a Capacidade de Aplicação para garantir que dois serviços da mesma aplicação sejam colocados nos mesmos nós. Em vez disso, utilize restrições [de afinidade](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) ou [colocação](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Para saber como o Cluster Resource Manager gere e equilibra a carga no cluster, confira o artigo sobre a [carga de equilíbrio](service-fabric-cluster-resource-manager-balancing.md)
 - Comece do início e [obtenha uma introdução ao Gestor](service-fabric-cluster-resource-manager-introduction.md) de Recursos do Cluster de Tecido de Serviço

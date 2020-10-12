@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref, devx-track-python
 ms.openlocfilehash: c3262a2802da8dbd50fc05f7aa2fea71623c9b42
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872196"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando Python
@@ -19,7 +19,7 @@ ms.locfileid: "87872196"
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
-> * [Com a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Utilização de REST API](data-lake-store-end-user-authenticate-rest-api.md)
 >
 >
 

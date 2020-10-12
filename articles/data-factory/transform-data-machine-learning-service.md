@@ -11,10 +11,10 @@ author: djpmsft
 manager: anandsub
 ms.date: 07/16/2020
 ms.openlocfilehash: 7239c1516c4a04b57249ea4f39bff4aec9156d72
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337692"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os oleodutos Azure Machine Learning na Azure Data Factory
@@ -27,7 +27,7 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -50,7 +50,7 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 name | Nome da atividade no oleoduto | Cadeia | Sim
 tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Sim

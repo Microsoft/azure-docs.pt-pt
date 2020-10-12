@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 304c39f4b6f7852068d4e72adfad2d41eeefc26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85552965"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma fábrica de dados na Azure Data Factory
@@ -51,6 +51,6 @@ Estas são algumas das circunstâncias em que poderá achar útil copiar ou clon
 
 1. Por razões de segurança, o modelo gerado do Gestor de Recursos não contém nenhuma informação secreta, por exemplo, palavras-passe para serviços ligados. Por isso, é necessário fornecer as credenciais como parâmetros de implantação. Se a credencial de inserção manual não for desejável para as suas definições, considere recuperar as cordas de ligação e as palavras-passe do Azure Key Vault. [Ver mais](store-credentials-in-key-vault.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja as orientações para a criação de uma fábrica de dados no portal Azure na [Criação de uma fábrica de dados utilizando a UI da Azure Data Factory](quickstart-create-data-factory-portal.md).

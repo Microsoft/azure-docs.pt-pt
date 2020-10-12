@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75645468"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitore e diagnostice o processamento de pedido no proxy inverso
@@ -189,7 +189,7 @@ Aqui estão alguns exemplos sobre como interpretar os registos comuns de falha q
 > [!NOTE]
 > Os eventos relacionados com o processamento de pedidos de websocket não estão atualmente registados. Isto será adicionado no próximo lançamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Agregação e recolha de eventos utilizando o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para permitir a recolha de registos em clusters Azure.
 * Para ver eventos de Tecido de Serviço no Estúdio Visual, consulte [monitor e diagnostice localmente.](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 * Consulte o [proxy reverso Configure para ligar para serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) para amostras de modelo do Azure Resource Manager para configurar um representante inverso seguro com as diferentes opções de validação de certificado de serviço.

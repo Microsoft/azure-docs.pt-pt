@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517880"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para Application Gateway
@@ -370,7 +370,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicámos um modelo de Gestor de Recursos que instala e executa o popular analisador [de registos GoAccess](https://goaccess.io/) para Registos de Acesso gateway de aplicações. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como Visitantes Exclusivos, Ficheiros Solicitados, Anfitriões, Sistemas Operativos, Navegadores, códigos de Estado HTTP e muito mais. Para mais detalhes, consulte o [ficheiro Readme na pasta do modelo Do Gestor de Recursos no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Visualizar registos de contador e evento utilizando [registos do Monitor Azure](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o seu registo de atividades Azure com o](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) post de blog power BI.

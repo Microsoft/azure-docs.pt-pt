@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518084"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configure resumo periódico para recomendações
@@ -51,10 +51,10 @@ Aqui estão os passos para criar **a digestão da recomendação:**
 * **Passo 6:** Nesta secção final para **obter detalhes,** pode atribuir nome e estado à sua recomendação digerir. A **imprensa cria recomendação digestão** para completar a configuração.
    ![Criação completa de recomendação digestão](./media/digest-4.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre recomendações do Advisor, consulte:
-* [Introdução ao Conselheiro Azure](advisor-overview.md)
+* [Introdução ao Assistente do Azure](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
 * [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
 * [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)

@@ -7,10 +7,10 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846042"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Resolução de problemas Erros python em funções de Azure
@@ -95,7 +95,7 @@ Abra o `requirements.txt` com um editor de texto e verifique o pacote em `https:
 
 O `Module Not Found` erro pode não ocorrer quando estiver a utilizar o Windows ou o macOS para o desenvolvimento local. No entanto, o pacote não importa as funções Azure, que utiliza o Linux em tempo de execução. Isto é provavelmente causado pela utilização `pip freeze` para exportar ambiente virtual para requirements.txt a partir da sua máquina Windows ou macOS durante a inicialização do projeto.
 
-Consulte [Substituir a embalagem por equivalentes](#replace-the-package-with-equivalents) ou requirements.txtde [artesanato](#handcraft-requirementstxt) para mitigação.
+Consulte [Substituir a embalagem por equivalentes](#replace-the-package-with-equivalents) ou requirements.txtde [artesanato ](#handcraft-requirementstxt) para mitigação.
 
 ### <a name="mitigate-modulenotfounderror"></a>Módulo MitigaçãoNotFoundError
 
@@ -165,9 +165,9 @@ Se estiver a funcionar num sistema operativo x64, certifique-se de que o seu int
 
 Pode verificar a sua mordida de intérprete Python pelos seguintes comandos:
 
-No Windows in PowerShell:`py -c 'import platform; print(platform.architecture()[0])'`
+No Windows in PowerShell: `py -c 'import platform; print(platform.architecture()[0])'`
 
-Na concha semelhante ao Unix:`python3 -c 'import platform; print(platform.architecture()[0])'`
+Na concha semelhante ao Unix: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
 Se houver um desfasamento entre a bitidão do intérprete Python e a arquitetura do sistema operativo, por favor descarregue um intérprete python adequado da [Python Software Foundation.](https://python.org/downloads/release)
 

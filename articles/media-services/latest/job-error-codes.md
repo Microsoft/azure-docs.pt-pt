@@ -14,10 +14,10 @@ ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289567"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de erro de trabalho dos Serviços de Comunicação Social
@@ -34,12 +34,12 @@ O documento REST seguinte dá explicações detalhadas sobre [códigos de erro d
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Códigos de erro de ponto final de streaming](streaming-endpoint-error-codes.md)
 - [Conceitos de Azure Media Services](concepts-overview.md)
 - [Quotas e limites](limits-quotas-constraints.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Exemplo: acesso ErrorCode e Mensagem da ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

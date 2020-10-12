@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706001"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvimento de plataforma de identidade da Microsoft
@@ -54,7 +54,7 @@ Para mais informações, consulte [Os Objetos Principais de Aplicação e Servi�
 
 Para permitir a integração de uma candidatura e delegar funções de Gestão de Identidade e Acesso à AZure AD, deve ser registada junto de um [inquilino](#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a fornecer uma configuração de identidade para a sua aplicação, permitindo-lhe integrar-se com a Azure AD e utilizar funcionalidades como:
 
-* Gestão robusta de Sign-On único utilizando a gestão de identidade Azure AD e implementação do protocolo [OpenID Connect][OpenIDConnect]
+* Gestão robusta de Sign-On única utilizando a gestão de identidade Azure AD e implementação do protocolo [OpenID Connect][OpenIDConnect]
 * Acesso intermediado a [recursos protegidos](#resource-server) por [aplicações de clientes,](#client-application)via servidor de [autorização](#authorization-server) OAuth 2.0
 * [Quadro de consentimento](#consent) para gerir o acesso do cliente a recursos protegidos, com base na autorização do proprietário de recursos.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
 ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515449"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
@@ -197,7 +197,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 
 No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O delimiter de log também pode ser uma estamp de tempo.  Estes são os formatos suportados:
 
-| Formatar | O formato Json RegEx usa dois `\\` para cada um num `\` RegEx padrão, por isso, se testar numa aplicação RegEx `\\` reduza para`\` |
+| Formato | O formato Json RegEx usa dois `\\` para cada um num `\` RegEx padrão, por isso, se testar numa aplicação RegEx `\\` reduza para `\` |
 | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` |
@@ -220,5 +220,5 @@ Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Rever os cmdlets PowerShell do Log Analytics](/powershell/module/az.operationalinsights/) para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.

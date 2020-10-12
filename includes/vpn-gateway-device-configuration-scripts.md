@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77111237"
 ---
 | **Fornecedor** | **Família de dispositivos** | **Versão do firmware** |

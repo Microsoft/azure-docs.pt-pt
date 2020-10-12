@@ -14,10 +14,10 @@ ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 13277c3d46d5b68aa5705699f45a2bf9e97a78d8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291541"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro do Evento Ao Vivo dos Serviços De Media
@@ -56,10 +56,10 @@ Pode ver um dos seguintes erros do [evento LiveEventEncoderDis.](media-services-
 |Códigos de erro desconhecidos|Estes códigos de erro podem variar de erro de memória a entradas duplicadas no mapa de haxixe.|
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Códigos de erro de streaming endpoint (origem)](streaming-endpoint-error-codes.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: Stream ao vivo com serviços de mídia](stream-live-tutorial-with-api.md)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75445741"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendações para a marcação e versão das imagens dos contentores
@@ -29,7 +29,7 @@ Ao empurrar as imagens do contentor para um registo de contentores e, em seguida
 
 Uma equipa-quadro envia a versão 1.0. Sabem que vão enviar atualizações, incluindo pequenas atualizações. Para suportar etiquetas estáveis para uma determinada versão maior e menor, eles têm dois conjuntos de etiquetas estáveis.
 
-* `:1`– uma etiqueta estável para a versão principal. `1`representa a versão "mais recente" ou "mais recente" 1.* .
+* `:1` – uma etiqueta estável para a versão principal. `1` representa a versão "mais recente" ou "mais recente" 1.* .
 * `:1.0`- uma etiqueta estável para a versão 1.0, permitindo que um programador se ligue às atualizações de 1.0 e não seja lançado para 1.1 quando for lançado.
 
 A equipa também usa a `:latest` etiqueta, que aponta para a mais recente etiqueta estável, independentemente da versão principal atual.
@@ -49,7 +49,7 @@ Se uma imagem com uma etiqueta estável for atualizada, a imagem previamente mar
 A marcação única significa simplesmente que cada imagem empurrada para um registo tem uma etiqueta única. As etiquetas não são reutilizadas. Existem vários padrões que pode seguir para gerar tags únicas, incluindo:
 
 * **Carimbo de data** - Esta abordagem é bastante comum, uma vez que se pode dizer claramente quando a imagem foi construída. Mas, como correlacioná-lo de volta ao seu sistema de construção? Tens de encontrar a construção que foi concluída ao mesmo tempo? Em que fuso horário está? Todos os seus sistemas de construção estão calibrados para a UTC?
-* **Git commit** – Esta abordagem funciona até começar a suportar atualizações de imagem base. Se uma atualização de imagem base acontecer, o seu sistema de construção começa com o mesmo Git comprometendo-se com a construção anterior. No entanto, a imagem base tem um novo conteúdo. Em geral, um compromisso *semi*git fornece uma etiqueta semi-estável.
+* **Git commit**  – Esta abordagem funciona até começar a suportar atualizações de imagem base. Se uma atualização de imagem base acontecer, o seu sistema de construção começa com o mesmo Git comprometendo-se com a construção anterior. No entanto, a imagem base tem um novo conteúdo. Em geral, um compromisso *semi*git fornece uma etiqueta semi-estável.
 * **Ressalto -** Cada imagem de recipiente empurrada para um registo de contentores está associada a um manifesto, identificado por um haxixe SHA-256 único, ou digerido. Embora única, a digestão é longa, difícil de ler e não correlacionada com o seu ambiente de construção.
 * **Build ID** - Esta opção pode ser a melhor, uma vez que é provavelmente incremental, e permite-lhe correlacionar-se de volta à construção específica para encontrar todos os artefactos e registos. No entanto, como uma leitura manifesta, pode ser difícil para um humano ler.
 
@@ -61,7 +61,7 @@ Como uma boa prática, recomendamos que [bloqueie](container-registry-image-lock
 
 Bloquear uma imagem implantada ainda permite remover outras imagens não desocupadas do seu registo utilizando funcionalidades de Registo de Contentores Azure para manter o seu registo. Por exemplo, [purgar automaticamente](container-registry-auto-purge.md) manifestos não marcados ou imagens desbloqueadas com mais tempo do que uma duração especificada, ou definir uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão mais detalhada sobre os conceitos neste artigo, consulte o post de blog [Docker Tagging: As melhores práticas para marcar e verter imagens de estivadores.](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)
 
