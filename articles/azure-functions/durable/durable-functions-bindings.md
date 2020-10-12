@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081853"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Encadernações para funções duradouras (Funções Azure)
@@ -21,7 +21,7 @@ O gatilho de orquestração permite-lhe autorizar [funções orquestradoras dur�
 
 Quando utiliza as ferramentas Visual Studio para Funções Azure, o gatilho de orquestração é configurado utilizando o atributo [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .NET.
 
-Quando escreve funções de orquestrador em idiomas de script (por exemplo, scripts JavaScript ou C#), o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz dofunction.js*no* ficheiro:
+Quando escreve funções de orquestrador em idiomas de script (por exemplo, scripts JavaScript ou C#), o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz dofunction.js* no* ficheiro:
 
 ```json
 {
@@ -32,7 +32,7 @@ Quando escreve funções de orquestrador em idiomas de script (por exemplo, scri
 }
 ```
 
-* `orchestration`é o nome da orquestração que os clientes devem usar quando querem iniciar novos casos desta função orquestradora. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
+* `orchestration` é o nome da orquestração que os clientes devem usar quando querem iniciar novos casos desta função orquestradora. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
 
 Internamente, este gatilho encaderna uma série de filas na conta de armazenamento predefinido para a aplicação de função. Estas filas são detalhes de implementação interna da extensão, razão pela qual não estão explicitamente configuradas nas propriedades vinculativas.
 
@@ -128,7 +128,7 @@ O gatilho de atividade permite-lhe autorizar funções que são chamadas por fun
 
 Se estiver a utilizar o Visual Studio, o gatilho de atividade é configurado utilizando o `ActivityTriggerAttribute` atributo .NET.
 
-Se estiver a utilizar o Código VS ou o portal Azure para o desenvolvimento, o gatilho de atividade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js*em*:
+Se estiver a utilizar o Código VS ou o portal Azure para o desenvolvimento, o gatilho de atividade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
 
 ```json
 {
@@ -139,7 +139,7 @@ Se estiver a utilizar o Código VS ou o portal Azure para o desenvolvimento, o g
 }
 ```
 
-* `activity`é o nome da atividade. Este valor é o nome que as funções do orquestrador usam para invocar esta função de atividade. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
+* `activity` é o nome da atividade. Este valor é o nome que as funções do orquestrador usam para invocar esta função de atividade. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
 
 Internamente, este gatilho encaderna uma fila na conta de armazenamento predefinido para a aplicação de função. Esta fila é um detalhe de implementação interna da extensão, razão pela qual não está explicitamente configurada nas propriedades de encadernação.
 
@@ -249,7 +249,7 @@ A ligação do cliente de orquestração permite-lhe escrever funções que inte
 
 Se estiver a utilizar o Visual Studio, pode ligar-se ao cliente de orquestração utilizando o `OrchestrationClientAttribute` atributo .NET para Funções Duradouras 1.0. A partir das Funções Duráveis 2.0, pode ligar-se ao cliente de orquestração utilizando o `DurableClientAttribute` atributo .NET.
 
-Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js*em*:
+Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
 
 ```json
 {
@@ -261,8 +261,8 @@ Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.j
 }
 ```
 
-* `taskHub`- Usado em cenários onde várias aplicações de funções partilham a mesma conta de armazenamento, mas precisam de ser isoladas umas das outras. Se não for especificado, o valor predefinido `host.json` é utilizado. Este valor deve corresponder ao valor utilizado pelas funções do orquestrador-alvo.
-* `connectionName`- O nome de uma definição de aplicação que contém uma cadeia de ligação de conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação deve ser a mesma utilizada pelas funções do orquestrador-alvo. Se não for especificado, é utilizado o fio de ligação da conta de armazenamento predefinido para a aplicação de função.
+* `taskHub` - Usado em cenários onde várias aplicações de funções partilham a mesma conta de armazenamento, mas precisam de ser isoladas umas das outras. Se não for especificado, o valor predefinido `host.json` é utilizado. Este valor deve corresponder ao valor utilizado pelas funções do orquestrador-alvo.
+* `connectionName` - O nome de uma definição de aplicação que contém uma cadeia de ligação de conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação deve ser a mesma utilizada pelas funções do orquestrador-alvo. Se não for especificado, é utilizado o fio de ligação da conta de armazenamento predefinido para a aplicação de função.
 
 > [!NOTE]
 > Na maioria dos casos, recomendamos que omita estas propriedades e confie no comportamento padrão.
@@ -303,7 +303,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Amostra de cliente (não Estúdio Visual)
 
-Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar os *seguintesfunction.jsno* ficheiro. Este exemplo mostra como configurar uma função desencadeada por filas que utiliza a ligação duradoura do cliente de orquestração:
+Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar os * seguintesfunction.jsno* ficheiro. Este exemplo mostra como configurar uma função desencadeada por filas que utiliza a ligação duradoura do cliente de orquestração:
 
 ```json
 {
@@ -511,7 +511,7 @@ Se estiver a utilizar o Visual Studio, pode ligar-se ao cliente da entidade util
 > [!NOTE]
 > O `[DurableClientAttribute]` também pode ser usado para ligar ao cliente da [orquestração.](#orchestration-client)
 
-Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho da entidade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js*em*:
+Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho da entidade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
 
 ```json
 {
@@ -523,8 +523,8 @@ Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.j
 }
 ```
 
-* `taskHub`- Usado em cenários onde várias aplicações de funções partilham a mesma conta de armazenamento, mas precisam de ser isoladas umas das outras. Se não for especificado, o valor predefinido `host.json` é utilizado. Este valor deve corresponder ao valor utilizado pelas funções da entidade-alvo.
-* `connectionName`- O nome de uma definição de aplicação que contém uma cadeia de ligação de conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação deve ser a mesma utilizada pelas funções da entidade-alvo. Se não for especificado, é utilizado o fio de ligação da conta de armazenamento predefinido para a aplicação de função.
+* `taskHub` - Usado em cenários onde várias aplicações de funções partilham a mesma conta de armazenamento, mas precisam de ser isoladas umas das outras. Se não for especificado, o valor predefinido `host.json` é utilizado. Este valor deve corresponder ao valor utilizado pelas funções da entidade-alvo.
+* `connectionName` - O nome de uma definição de aplicação que contém uma cadeia de ligação de conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação deve ser a mesma utilizada pelas funções da entidade-alvo. Se não for especificado, é utilizado o fio de ligação da conta de armazenamento predefinido para a aplicação de função.
 
 > [!NOTE]
 > Na maioria dos casos, recomendamos que omita as propriedades opcionais e confie no comportamento padrão.

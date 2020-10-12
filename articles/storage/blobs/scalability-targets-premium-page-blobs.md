@@ -10,10 +10,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654808"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Metas de escalabilidade e desempenho para contas de armazenamento de blob de página premium
@@ -43,7 +43,7 @@ Se estiver a utilizar contas de armazenamento de blob de página premium para di
 
 Se não conseguir migrar para discos geridos, então construa a sua aplicação para utilizar várias contas de armazenamento e dividir os seus dados através dessas contas de armazenamento. Por exemplo, se pretender anexar discos de 51-TB através de vários VMs, espalhe-os por duas contas de armazenamento. 35 TB é o limite para uma única conta de armazenamento premium. Certifique-se de que uma única conta de armazenamento de desempenho premium nunca tenha mais de 35 TB de discos a provisionados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md)
 - [Metas de escalabilidade para contas de armazenamento de blocos premium](../blobs/scalability-targets-premium-block-blobs.md)

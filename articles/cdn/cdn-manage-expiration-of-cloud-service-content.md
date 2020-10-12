@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936950"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Manage expiration of web content in Azure CDN (Gerir a expiração do conteúdo Web na CDN do Azure)
@@ -38,7 +38,7 @@ Também pode controlar as definições de cache a partir do portal Azure definin
 > Para obter mais informações sobre como o Azure CDN funciona para acelerar o acesso a ficheiros e outros recursos, consulte [a Visão Geral da Rede de Entrega de Conteúdos Azure](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Definir cabeçalhos de controlo de cache utilizando regras de cache CDN
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Definição de cabeçalhos Cache-Control utilizando regras de caching CDN
 O método preferido para configurar o cabeçalho de um servidor web `Cache-Control` é utilizar as regras de caching no portal Azure. Para obter mais informações sobre as regras de caching CDN, consulte [o comportamento do caching do Control Azure CDN com as regras de caching](cdn-caching-rules.md).
 
 > [!NOTE] 
@@ -57,7 +57,7 @@ O método preferido para configurar o cabeçalho de um servidor web `Cache-Contr
    ![Página de caching CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Para definir os cabeçalhos cache-control de um servidor web utilizando regras globais de cache:**
+**Para definir os cabeçalhos de Cache-Control de um servidor web utilizando regras globais de caching:**
 
 1. De acordo com **as regras globais de caching**, desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override**.
       
@@ -69,7 +69,7 @@ O método preferido para configurar o cabeçalho de um servidor web `Cache-Contr
 
 1. Selecione **Guardar**.
 
-**Para definir os cabeçalhos cache-control de um ficheiro web, utilizando regras de cache personalizadas:**
+**Para definir os cabeçalhos de Cache-Control de um ficheiro de servidor web utilizando regras de caching personalizadas:**
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
@@ -84,7 +84,7 @@ O método preferido para configurar o cabeçalho de um servidor web `Cache-Contr
 1. Selecione **Guardar**.
 
 
-## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Definição de cabeçalhos de controlo de cache utilizando ficheiros de configuração
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Definição de cabeçalhos Cache-Control utilizando ficheiros de configuração
 Para conteúdos estáticos, como imagens e folhas de estilo, pode controlar a frequência de atualização modificando os ficheiros de configuração **applicationHost.config** ou **Web.config** para a sua aplicação web. Para definir o `Cache-Control` cabeçalho para o seu conteúdo, utilize o `<system.webServer>/<staticContent>/<clientCache>` elemento em qualquer ficheiro.
 
 ### <a name="using-applicationhostconfig-files"></a>Utilização de ficheiros ApplicationHost.config
@@ -109,7 +109,7 @@ O exemplo do ficheiro de configuração XML que se segue mostra como definir o `
 
 Para utilizar o atributo **cacheControlMaxAge,** tem de definir o valor do atributo **cacheControlMode** a `UseMaxAge` . Esta definição fez com que o cabeçalho e a diretiva HTTP `Cache-Control: max-age=<nnn>` fossem adicionados à resposta. O formato do valor timepan para o atributo **cacheControlMaxAge** é `<days>.<hours>:<min>:<sec>` . O seu valor é convertido em segundos e é utilizado como valor da `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [a Cache \<clientCache> do Cliente. ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)  
 
-## <a name="setting-cache-control-headers-programmatically"></a>Definir cabeçalhos de controlo de cache programáticamente
+## <a name="setting-cache-control-headers-programmatically"></a>Definição de cabeçalhos Cache-Control programáticamente
 Para aplicações ASP.NET, controla o comportamento de cache cdN programáticamente definindo a propriedade **HttpResponse.Cache** da API .NET. Para obter informações sobre a propriedade **HttpResponse.Cache,** consulte [httpResponse.Cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
 
 Para programaticamente cache conteúdo de aplicação em ASP.NET, siga estes passos:
@@ -128,7 +128,7 @@ Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
 
-## <a name="testing-the-cache-control-header"></a>Testar o cabeçalho cache-control
+## <a name="testing-the-cache-control-header"></a>Testar o cabeçalho Cache-Control
 Pode verificar facilmente as definições de TTL do seu conteúdo web. Com as [ferramentas](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)de desenvolvimento do seu navegador, teste que o seu conteúdo web inclui o `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como **wget,** [Carteiro](https://www.getpostman.com/)ou [Violinista](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Passos Seguintes

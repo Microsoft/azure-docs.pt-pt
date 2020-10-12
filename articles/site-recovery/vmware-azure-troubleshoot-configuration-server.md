@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113076"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
@@ -28,8 +28,8 @@ A máquina de origem regista-se com o servidor de configuração quando instala 
    1. Verifique se o ID do anfitrião solicitado é o mesmo que o ID do anfitrião da máquina de origem.
    2. Verifique se a máquina de origem tem pelo menos um endereço IP atribuído ao NIC físico. Para que o registo do agente com o servidor de configuração tenha sucesso, a máquina de origem deve ter pelo menos um endereço IP v4 válido atribuído ao NIC físico.
    3. Executar um dos seguintes comandos na máquina de origem para obter todos os endereços IP da máquina de origem:
-      - Para janelas:`> ipconfig /all`
-      - Para Linux:`# ifconfig -a`
+      - Para janelas: `> ipconfig /all`
+      - Para Linux: `# ifconfig -a`
 
 3. Se o fio **Não For encontrado Endereço IP Válido** encontrado, procure a cadeia **Reason=>NU**. Este erro ocorre se a máquina de origem utilizar um anfitrião vazio para registar-se com o servidor de configuração. Se a corda for encontrada:
     - Depois de resolver os problemas, siga as diretrizes no [Registo da máquina de origem com o servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para voltar a tentar o registo manualmente.

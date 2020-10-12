@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539848"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database para procedimentos armazenados de gestão MariaDB
@@ -43,6 +43,6 @@ Os seguintes procedimentos armazenados estão disponíveis na Base de Dados Azur
 |*mysql.az_kill_query*|processlist_id|N/D|Equivalente ao [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Terminará a declaração que a ligação está atualmente a executar. Deixa a ligação viva.|
 |*mysql.az_load_timezone*|N/D|N/D|Cargas tabelas de fuso horário para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como configurar a [replicação de dados](howto-data-in-replication.md)
 - Saiba como usar as tabelas de [fuso horário](howto-server-parameters.md#working-with-the-time-zone-parameter)

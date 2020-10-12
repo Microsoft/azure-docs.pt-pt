@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285388"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Dimensione o seu Azure Arc ativado pelo grupo de servidores pós-escala PostgreSQL adicionando mais nóns de trabalhadores
@@ -152,7 +152,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 ```
 
 > [!CAUTION]
-> O lançamento de pré-visualização não suporta a escala de volta. Por exemplo, ainda não é possível reduzir o número de nós dos trabalhadores. Se precisar de o fazer, tem de extrair/fazer backup dos dados, deixar cair o grupo de servidores, criar um novo grupo de servidores com menos nós de trabalhadores e, em seguida, importar os dados.
+> A versão de pré-visualização não permite a redução horizontal. Por exemplo, ainda não pode reduzir o número de nós de trabalho. Se precisar de o fazer, tem de extrair/fazer cópia de segurança dos dados, remover o grupo de servidores, criar um novo grupo de servidores com menos nós de trabalho e, em seguida, importar os dados.
 
 Neste exemplo, aumentamos o número de nós de trabalhador de 2 para 4, executando o seguinte comando:
 

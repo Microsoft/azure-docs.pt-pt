@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281631"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Integração contínua e implantação contínua para dispositivos Azure IoT Edge
@@ -80,7 +80,7 @@ Nesta secção, cria-se um novo oleoduto de construção. Configura o pipeline p
 
     ![Selecione assistente de show para abrir a paleta de tarefas](./media/how-to-continuous-integration-continuous-deployment/show-assistant.png)
 
-7. Para adicionar uma tarefa, coloque o cursor no final do YAML ou onde quiser que as instruções para a sua tarefa sejam adicionadas. Procure e selecione **Azure IoT Edge**. Preencha os parâmetros da tarefa da seguinte forma. Em seguida, selecione **Adicionar**.
+7. Para adicionar uma tarefa, coloque o cursor no final do YAML ou onde quiser que as instruções para a sua tarefa sejam adicionadas. Procure e selecione **Azure IoT Edge**. Preencha os parâmetros da tarefa da seguinte forma. Em seguida, **selecione Adicionar**.
 
    | Parâmetro | Descrição |
    | --- | --- |
