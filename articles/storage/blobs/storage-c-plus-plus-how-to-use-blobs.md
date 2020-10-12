@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033636"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como utilizar o armazenamento Blob a partir de C++
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Em alternativa, pode utilizar o método **upload_from_file** para enviar um ficheiro para uma bolha de bloco.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Como: Listar as bolhas num recipiente
-Para listar os blobs num contentor, obtenha primeiro uma referência de contentor. Em seguida, pode utilizar o método **de list_blobs** do recipiente para recuperar as bolhas e/ou diretórios dentro dele. Para aceder ao rico conjunto de propriedades e métodos para um **list_blob_item**devolvido, deve ligar para o método **list_blob_item.as_blob** para obter um objeto **cloud_blob,** ou o método **list_blob.as_directory** para obter um objeto cloud_blob_directory. O seguinte código demonstra como recuperar e desaudam o URI de cada item no recipiente **do meu contentor de amostras:**
+Para listar os blobs num contentor, obtenha primeiro uma referência de contentor. Em seguida, pode utilizar o método **de list_blobs** do recipiente para recuperar as bolhas e/ou diretórios dentro dele. Para aceder ao rico conjunto de propriedades e métodos para um **list_blob_item**devolvido, deve ligar para o método **list_blob_item.as_blob** para obter um objeto  **cloud_blob,** ou o método **list_blob.as_directy** para obter um objeto cloud_blob_directory. O seguinte código demonstra como recuperar e desaudam o URI de cada item no recipiente **do meu contentor de amostras:**
 
 ```cpp
 // Retrieve storage account from connection string.

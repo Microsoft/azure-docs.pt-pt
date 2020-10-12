@@ -4,10 +4,10 @@ description: Aprenda a implementar modelos de Gestor de Recursos Azure aninhados
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 39002e286fafd4f813333a14ed86256a517897e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481345"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar modelos aninhados do Gestor de Recursos Azure para ambientes de teste
@@ -65,7 +65,7 @@ Aqui está a imagem da mesma estrutura do projeto no Visual Studio:
 
 Pode adicionar pastas adicionais na pasta primária, mas não mais profundas do que um único nível. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para mais detalhes sobre ambientes: 
 
 - [Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md)

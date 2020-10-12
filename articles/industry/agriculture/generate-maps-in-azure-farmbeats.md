@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709067"
 ---
 # <a name="generate-maps"></a>Gerar mapas
@@ -26,7 +26,7 @@ Um mapa de colocação de sensores FarmBeats ajuda-o na colocação de sensores 
 
 Este mapa é derivado segmentando a capota como visto ao longo de várias datas ao longo do ano. Até o solo e os edifícios são parte do dossel. Pode remover sensores que não são necessários no local. Este mapa é para orientação, e você pode alterar a posição e os números ligeiramente com base no seu conhecimento personalizado. Adicionar sensores não vai regredir os resultados do mapa de calor da humidade do solo, mas há a possibilidade de deterioração da precisão do mapa de calor se o número do sensor for reduzido.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Encontre os seguintes pré-requisitos antes de tentar gerar um mapa de colocação de sensores:
 
@@ -163,7 +163,7 @@ Siga estes passos.
 
 A humidade do solo é a água que está guardada nos espaços entre partículas do solo.O mapa de calor da humidade do solo ajuda-o a compreender os dados de humidade do solo a qualquer profundidade, em alta resolução dentro da sua quinta. Para gerar um mapa de calor preciso e utilizável da humidade do solo, é necessária uma colocação uniforme de sensores. Todos os sensores devem ser do mesmo fornecedor. Diferentes fornecedores têm diferenças na forma como a humidade do solo é medida juntamente com as diferenças de calibração. O mapa de calor é gerado para uma determinada profundidade utilizando os sensores implantados a essa profundidade.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Conheça os seguintes pré-requisitos antes de tentar gerar um mapa de calor da humidade do solo:
 

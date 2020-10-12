@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005528"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Crie uma experiência de âncora eficaz usando âncoras espaciais Azure
@@ -76,7 +76,7 @@ Da mesma forma, em ambientes onde as características visuais mudam porque a mai
 
 Em muitos casos, uma âncora é um ponto de entrada para a experiência da sua aplicação. Você vai querer passar por este passo de forma rápida e fiável para que os utilizadores possam entrar na sua experiência. Passar tempo na forma como os utilizadores vão encontrar as suas âncoras é um passo importante de design. É útil pensar em encontrar âncoras em termos de dois cenários amplos: alvos e *quartos.* *rooms*
 
-### <a name="targets"></a>Destinos
+### <a name="targets"></a>Targets
 
 No cenário alvo, a localização de uma âncora é bem conhecida. Por exemplo, numa aplicação de pintura de realidade mista fictícia, um utilizador coloca uma tela virtual na parede. Ela instrui os outros utilizadores na sala a apontar os seus dispositivos para o mesmo lugar na parede para localizar a âncora e iniciar a experiência.
 

@@ -4,10 +4,10 @@ description: Conheça o mecanismo de atualização de uma atribuição de planta
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651379"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de projeto existente
@@ -20,7 +20,7 @@ Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem vá
 
 ## <a name="updating-assignments"></a>Atualização de atribuições
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **as plantas atribuídas** da página à esquerda.
 
@@ -32,11 +32,11 @@ Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem vá
 
 1. Na página de detalhes da atribuição atualizada, consulte o novo estado. Neste exemplo, adicionámos **Locking** à missão.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot de uma designação de planta atualizada mostrando o modo de bloqueio alterado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot da página de atribuição Blueprint com o botão 'Actualização' realçado." border="false":::
 
 1. Explore detalhes sobre outras **operações de atribuição** utilizando o drop-down. A tabela de atualizações de **recursos geridos** através de uma operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot de uma atribuição de planta atualizada mostrando as operações de atribuição e o seu estado." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot da página de atribuição Blueprint com o botão 'Actualização' realçado." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras de atualização das atribuições
 

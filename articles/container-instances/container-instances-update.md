@@ -4,10 +4,10 @@ description: Saiba como atualizar os recipientes de funcionamento nos grupos de 
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82928725"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contentores no Azure Container Instances
@@ -76,7 +76,7 @@ As alterações a estas propriedades requerem a eliminação do grupo de content
 
 Quando se apaga um grupo de contentores e o recria, não é "redistribuído", mas criou novos. Todas as camadas de imagem são retiradas frescas do registo, não das em cache por uma implantação anterior. O endereço IP do contentor também pode mudar devido à sua implantação num hospedeiro diferente subjacente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Mencionado várias vezes neste artigo é o **grupo de contentores.** Todos os contentores em Azure Container Instances são implantados num grupo de contentores, e os grupos de contentores podem conter mais de um contentor.
 

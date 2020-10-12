@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85984856"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando REST API
@@ -18,7 +18,7 @@ ms.locfileid: "85984856"
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
-> * [Com a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Utilização de REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -37,14 +37,14 @@ A autenticação do utilizador final é a abordagem recomendada se pretender que
 
 O resultado de ter o login do utilizador final é que a sua aplicação recebe um token de acesso e um token de atualização. O token de acesso é anexado a cada pedido feito à Data Lake Storage Gen1 ou data lake analytics, e é válido por uma hora por padrão. O token de atualização pode ser usado para obter um novo token de acesso, e é válido por padrão até duas semanas, se usado regularmente. Pode utilizar duas abordagens diferentes para o login do utilizador final.
 
-Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as operações são efetuadas no contexto do utilizador. Executar os seguintes passos:
+Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as operações são efetuadas no contexto do utilizador. Efetue os seguintes passos:
 
 1. Através da sua aplicação, redirecione o utilizador para o seguinte URL:
 
     `https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>`
 
    > [!NOTE]
-   > \<REDIRECT-URI>precisa ser codificado para ser usado em um URL. Assim, para https://localhost , usar `https%3A%2F%2Flocalhost` )
+   > \<REDIRECT-URI> precisa ser codificado para ser usado em um URL. Assim, para https://localhost , usar `https%3A%2F%2Flocalhost` )
 
     Para o objetivo deste tutorial, pode substituir os valores de marcador de posição no URL acima e colá-lo na barra de endereço do browser. Será redirecionado para a autenticação utilizando o seu início de sessão do Azure. Depois de iniciar sessão com êxito, a resposta é apresentada na barra de endereço do browser. A resposta estará no seguinte formato:
 
@@ -84,7 +84,7 @@ Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as
 
 Para obter mais informações sobre a autenticação de utilizador interativa, veja [Fluxo de concessão de códigos de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com a Azure Data Lake Storage Gen1 usando a REST API. Agora pode olhar para os seguintes artigos que falam sobre como usar a API REST para trabalhar com a Azure Data Lake Storage Gen1.
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-get-started-rest-api.md)

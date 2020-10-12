@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89399944"
 ---
 # <a name="application-layer-security-with-front-door"></a>Segurança da camada de aplicação com porta da frente
@@ -49,7 +49,7 @@ A Porta Frontal fornece a capacidade de monitorizar aplicações web contra ataq
 A segurança da camada de aplicação da porta da frente é gratuita durante a pré-visualização.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

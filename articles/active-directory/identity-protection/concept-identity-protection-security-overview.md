@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86024082"
 ---
-# <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Ative Directory Identity Protection - Visão geral de segurança
+# <a name="azure-active-directory-identity-protection---security-overview"></a>Descrição geral de segurança do Azure Active Directory Identity Protection
 
 A [visão geral](https://aka.ms/IdentityProtectionRefresh) da Segurança no portal Azure dá-lhe uma visão da postura de segurança da sua organização. Ajuda a identificar potenciais ataques e a compreender a eficácia das suas políticas.
 
@@ -62,7 +62,7 @@ O azulejo 'Legacy Authentication' mostra a contagem de autenticações antigas d
 
 O Identity Secure Score mede e compara a sua postura de segurança com os padrões da indústria. Se clicar em azulejo 'Identity Secure Score (Preview)', irá redirecionar para a lâmina 'Identity Secure Score', onde poderá aprender mais sobre como melhorar a sua postura de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o risco](concept-identity-protection-risks.md)
 

@@ -4,10 +4,10 @@ description: Fornece uma visão geral do aparelho Azure Migrate utilizado na ava
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322262"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
@@ -85,7 +85,7 @@ O aparelho comunica com servidores/agrupamentos vCenter e hiper-V utilizando o s
 
 O aparelho é atualizado à medida que os agentes Azure Migrate que estão a trabalhar no aparelho são atualizados. Isto acontece automaticamente porque a atualização automática é ativada no aparelho por predefinição. Pode alterar esta definição predefinida para atualizar os agentes manualmente.
 
-Desativar a atualização automática no registo definindo a tecla HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" para 0 (DWORD).
+Desligue a atualização automática do registo definindo a tecla "AutoUpdate" HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance para 0 (DWORD).
 
 
 ## <a name="next-steps"></a>Passos seguintes

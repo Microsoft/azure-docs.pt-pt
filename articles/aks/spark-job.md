@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 074e3db3234794aa891d5452b0c19060193c6d0c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243975"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando apache spark empregos em AKS
@@ -29,7 +29,7 @@ Para completar os passos dentro deste artigo, você precisa do seguinte.
 * SBT ([Scala Build Tool)][sbt-install]instalado no seu sistema.
 * Ferramentas de linha de comando Git instaladas no seu sistema.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 A faísca é usada para o processamento de dados em larga escala e requer que os nós Kubernetes sejam dimensionados para satisfazer os requisitos de recursos spark. Recomendamos um tamanho mínimo `Standard_D3_v2` para os seus nós do Serviço Azure Kubernetes (AKS).
 
@@ -271,7 +271,7 @@ Depois de terminado o trabalho, a cápsula de motorista estará em estado "concl
 kubectl get pods --show-all
 ```
 
-Saída:
+Resultado:
 
 ```output
 NAME                                               READY     STATUS      RESTARTS   AGE

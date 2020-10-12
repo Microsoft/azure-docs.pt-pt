@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
 ms.openlocfilehash: a13a2a081815f2a3b668caf9b4e78c2208601cb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84702998"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Implementar uma aplicação de pilha dupla IPv6 em Azure - PowerShell
@@ -353,7 +353,7 @@ Pode ver a rede virtual de pilha dupla IPv6 no portal Azure da seguinte forma:
   ![IPv6 dual stack rede virtual em Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
@@ -361,6 +361,6 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name dsRG1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um Balanceador de Carga Standard com uma configuração IP de dois frontend (IPv4 e IPv6). Também criou duas máquinas virtuais que incluíam NICs com configurações IP duplas (IPV4 + IPv6) que foram adicionadas ao pool back-end do equilibrista de carga. Para saber mais sobre o suporte do IPv6 nas redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)

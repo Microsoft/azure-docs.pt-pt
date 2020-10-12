@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027465"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência dos dados usando Spark on Azure HDInsight
@@ -50,9 +50,9 @@ Estes cadernos devem ser executados no núcleo pySpark3 do servidor de cadernos 
 > [!NOTE]
 > O conjunto de dados da companhia aérea foi adicionado aos cadernos Spark 2.0 para ilustrar melhor o uso de algoritmos de classificação. Consulte as seguintes ligações para obter informações sobre o conjunto de dados de partida on-time da companhia aérea e o conjunto de dados meteorológicos:
 > 
-> - Dados de partida a horas da companhia aérea:[https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> - Dados de partida a horas da companhia aérea: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
-> - Dados meteorológicos do aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+> - Dados meteorológicos do aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
@@ -185,7 +185,7 @@ Agora pode:
 
 ![Curva ROC de regressão logística para abordagem genérica](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 Agora que foi configurado com um cluster HDInsight Spark e carregou os cadernos Jupyter, está pronto para trabalhar através dos tópicos que correspondem aos três cadernos PySpark. Eles mostram como explorar os seus dados e, em seguida, como criar e consumir modelos. O notebook avançado de exploração e modelação de dados mostra como incluir validação cruzada, varredura de hiper-parâmetros e avaliação de modelos.
 
 **Exploração de dados e modelação com faísca:** Explore o conjunto de dados e crie, marque e avalie os modelos de machine learning trabalhando através dos [modelos de classificação e regressão de Criar binários para dados com o tópico do kit de ferramentas Spark MLlib.](spark-data-exploration-modeling.md)

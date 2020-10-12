@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: a6e9bea5d600771a7754142a4df4c0af503ccf5d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075489"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET para HDInsight baseado no Windows para o HDInsight baseado em Linux
@@ -65,7 +65,7 @@ Para obter mais informações sobre o acesso aos registos, consulte os seguintes
 
 * [Aceder a registos de aplicações apache Hadoop YARN em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use C# com MapReduce em HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 

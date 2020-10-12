@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: f0aeef7bc67f5c59bb80d5ff24a97be737447a81
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510186"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de colocação em cache da Gestão de API
@@ -112,7 +112,7 @@ Para obter mais informações, consulte [as expressões de política](api-manage
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | permitir-resposta privada-caching | Quando definido `true` para , permite o caching de pedidos que contêm um cabeçalho de autorização.                                                                                                                                                                                                                                                                        | Não       | false             |
 | tipo caching               | Escolha entre os seguintes valores do atributo:<br />- `internal` para utilizar a cache de gestão da API incorporada,<br />- `external` utilizar a cache externa tal como descrito na [Utilização de uma cache Azure externa para redis na gestão API Azure](api-management-howto-cache-external.md),<br />- `prefer-external` utilizar cache externo se configurar ou cache interna de outra forma. | Não       | `prefer-external` |
-| a jusante-tipo de caching        | Este atributo deve ser definido para um dos seguintes valores.<br /><br /> - nenhum - não é permitido o caching a jusante.<br />- é permitido um caching privado a jusante.<br />- é permitido um caching público - privado e partilhado a jusante.                                                                                                          | Não       | nenhum              |
+| a jusante-tipo de caching        | Este atributo deve ser definido para um dos seguintes valores.<br /><br /> - nenhum - não é permitido o caching a jusante.<br />- é permitido um caching privado a jusante.<br />- é permitido um caching público - privado e partilhado a jusante.                                                                                                          | Não       | nenhuma              |
 | deve-revalidar                | Quando o cache a jusante é ativado, este atributo liga ou desliga a diretiva relativa ao controlo de `must-revalidate` caches em respostas de gateway.                                                                                                                                                                                                                      | Não       | true              |
 | variar por desenvolvedor              | Configurar `true` para cache respostas por conta de desenvolvedor que detém [a chave de subscrição](./api-management-subscriptions.md) incluída no pedido.                                                                                                                                                                                                                                                                                                  | Sim      |         Falso          |
 | variar-por-desenvolvedor-grupos       | Configurar `true` para cache respostas por grupo de [utilizador](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sim      |       Falso            |

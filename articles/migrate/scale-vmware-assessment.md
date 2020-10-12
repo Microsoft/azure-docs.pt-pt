@@ -4,10 +4,10 @@ description: Descreve como avaliar um grande número de VMware VMs para migraç�
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171914"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avaliar um grande número de VMware VMs para migração para Azure
@@ -37,7 +37,7 @@ Ao planear a avaliação de um grande número de VMware VMs, há algumas coisas 
 - **Plano explica a descoberta**: O aparelho Azure Migrate utiliza uma conta com acesso ao servidor vCenter para descobrir VMs para avaliação e migração. Se estiver a descobrir mais de 10.000 VMs, crie várias contas, pois é necessário que não haja sobreposição entre os VM descobertos a partir de dois aparelhos num projeto. 
 
 > [!NOTE]
-> Se estiver a configurar vários aparelhos, certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário não apoiado. Se um VM for descoberto por mais de um aparelho, isto resulta em duplicados na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração de Servidores.
+> Se estiver a configurar vários aparelhos, certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma deteção com uma sobreposição desse tipo é um cenário não suportado. Se um VM for descoberto por mais de um aparelho, isto resulta em duplicados na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração de Servidores.
 
 ## <a name="planning-limits"></a>Limites de planeamento
  
@@ -56,9 +56,9 @@ Com estes limites em mente, eis alguns exemplos de implementações:
 **vCenter Server** | **VMs no servidor** | **Recomendação** | **Ação**
 ---|---|---|---
 Um | < 10.000 | Um projeto Azure Migrate.<br/> Um aparelho.<br/> Uma conta vCenter para a descoberta. | Configurar o aparelho, ligar ao servidor vCenter com uma conta.
-Um | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Várias contas vCenter. | Instale o aparelho para cada 10.000 VMs.<br/><br/> Crie contas vCenter e divida o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos. <br/> <br/> Certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário não apoiado. Se um VM for descoberto por mais de um aparelho, isto resulta numa duplicação na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração do Servidor.
+Um | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Várias contas vCenter. | Instale o aparelho para cada 10.000 VMs.<br/><br/> Crie contas vCenter e divida o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos. <br/> <br/> Certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma deteção com uma sobreposição desse tipo é um cenário não suportado. Se um VM for descoberto por mais de um aparelho, isto resulta numa duplicação na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração do Servidor.
 Vários | < 10.000 |  Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Uma conta vCenter para a descoberta. | Configurar aparelhos, ligar ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos.
-Vários | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Várias contas vCenter. | Se a descoberta do vCenter Server < 10.000 VMs, crie um aparelho para cada servidor vCenter.<br/><br/> Se a descoberta do servidor vCenter > 10.000 VMs, instale um aparelho para cada 10.000 VMs.<br/> Crie contas vCenter e divida o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos. <br/><br/> Certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário não apoiado. Se um VM for descoberto por mais de um aparelho, isto resulta numa duplicação na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração do Servidor.
+Vários | > 10.000 | Um projeto Azure Migrate.<br/> Vários aparelhos.<br/> Várias contas vCenter. | Se a descoberta do vCenter Server < 10.000 VMs, crie um aparelho para cada servidor vCenter.<br/><br/> Se a descoberta do servidor vCenter > 10.000 VMs, instale um aparelho para cada 10.000 VMs.<br/> Crie contas vCenter e divida o inventário para limitar o acesso a uma conta a menos de 10.000 VMs.<br/> Ligue cada aparelho ao servidor vCenter com uma conta.<br/> Pode analisar dependências através de máquinas que são descobertas com diferentes aparelhos. <br/><br/> Certifique-se de que não existe sobreposição entre os VMs nas contas vCenter fornecidas. Uma deteção com uma sobreposição desse tipo é um cenário não suportado. Se um VM for descoberto por mais de um aparelho, isto resulta numa duplicação na descoberta e em problemas, permitindo a replicação para o VM utilizando o portal Azure na Migração do Servidor.
 
 
 
@@ -99,7 +99,7 @@ De acordo com os seus requisitos de planeamento, faça o seguinte:
 Siga as instruções [deste tutorial](tutorial-assess-vmware.md) para configurar estas definições.
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, irá:
  

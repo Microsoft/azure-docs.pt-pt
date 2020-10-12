@@ -4,10 +4,10 @@ description: Este tópico dá respostas ao Live Video Analytics nas FAQs IoT Edg
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011520"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
@@ -27,28 +27,28 @@ Quais são as variáveis do sistema que podem ser usadas na definição de topol
 ## <a name="configuration-and-deployment"></a>Configuração e implantação
 
 Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
-    * Yes. Consulte o artigo sobre [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Sim. Consulte o artigo sobre [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura a partir de câmara IP e definições de RTSP
 
 * Preciso de utilizar um SDK especial no meu dispositivo para enviar uma transmissão de fluxo de vídeo?
-    * Não. Live Video Analytics on IoT Edge suporta a captura de meios usando o protocolo de streaming de vídeo RTSP (que é suportado na maioria das câmaras IP).
+    * N.º Live Video Analytics on IoT Edge suporta a captura de meios usando o protocolo de streaming de vídeo RTSP (que é suportado na maioria das câmaras IP).
 * Posso pressionar os meios de comunicação para live video analytics no IoT Edge usando RTMP ou Smooth (como um Evento ao Vivo dos Serviços de Media)?
-    * Não. A LVA suporta apenas o RTSP para capturar vídeos a partir de câmaras IP.
+    * N.º A LVA suporta apenas o RTSP para capturar vídeos a partir de câmaras IP.
     * Qualquer câmara que suporte o streaming RTSP sobre o TCP/HTTP deve funcionar. 
 * Posso reiniciar ou atualizar o URL da origem RTSP numa instância de gráfico?
     * Sim, quando a instância do gráfico está em estado inativo.  
 * Existe um simulador RTSP disponível para ser utilizado durante o teste e desenvolvimento?
-    * Yes. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
+    * Sim. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
 * É suportada a deteção ONVIF de câmaras IP no Edge?
     * Não, não existe suporte para a deteção ONVIF de dispositivos no Edge.
 
 ## <a name="streaming-and-playback"></a>Streaming e reprodução
 
 * Os ativos registados na AMS a partir da borda podem ser reproduzidos utilizando tecnologias de streaming de Media Services como o HLS ou o DASH?
-    * Yes. Os ativos registados podem ser transmitidos como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um Streaming Endpoint criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um manifesto HLS ou DASH para streaming para qualquer estrutura de jogador capaz. Para obter detalhes sobre a criação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
+    * Sim. Os ativos registados podem ser transmitidos como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um Streaming Endpoint criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um manifesto HLS ou DASH para streaming para qualquer estrutura de jogador capaz. Para obter detalhes sobre a criação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
 * Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?
-    * Yes. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e drm estão disponíveis para utilização nos ativos registados a partir de um gráfico de mídia.
+    * Sim. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e drm estão disponíveis para utilização nos ativos registados a partir de um gráfico de mídia.
 * Que jogadores posso usar para ver conteúdo dos ativos gravados?
    * Todos os jogadores padrão que suportam a versão 3 (HLS) do Apple HTTP Live Streaming (HLS) ou a versão 4 são suportados. Além disso, qualquer jogador que seja capaz de cumprir a reprodução MPEG-DASH também é suportado.
     Os jogadores recomendados para testes incluem:
@@ -70,9 +70,9 @@ Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
 ## <a name="monitoring-and-metrics"></a>Monitorização e métricas
 
 * Posso monitorizar o gráfico de mídia na borda usando a Grade de Eventos?
-    * Não. Atualmente, a Grade de Eventos não é suportada.
+    * N.º Atualmente, a Grade de Eventos não é suportada.
 * Posso usar o Azure Monitor para ver a saúde, as métricas e o desempenho dos meus gráficos mediáticos na nuvem ou no limite?
-    * Não.
+    * N.º
 * Existem ferramentas para facilitar a monitorização do módulo IoT Edge dos Serviços de Comunicação Social?
     * O Código do Estúdio Visual suporta a extensão "Azure IoT Tools" que lhe permite monitorizar facilmente os pontos finais do módulo LVAEdge. Pode utilizar esta ferramenta para começar rapidamente a monitorizar o ponto final incorporado do IoT Hub para "eventos" e ver as mensagens de inferência que são encaminhadas do dispositivo de borda para a nuvem. 
 

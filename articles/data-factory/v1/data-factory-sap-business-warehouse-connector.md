@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707281"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando a Azure Data Factory
@@ -66,7 +66,7 @@ Propriedade | Descrição | Valores permitidos | Necessário
 servidor | Nome do servidor em que reside a instância SAP BW. | string | Sim
 sistemaNumbre | Número do sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma corda. | Sim
 clientId | Identificação do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma corda. | Sim
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
+nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
 palavra-passe | A palavra-passe do utilizador. | string | Sim
 gatewayName | Nome do gateway que o serviço data factory deve usar para ligar ao caso SAP BW no local. | string | Sim
 criptografadoCredential | A cadeia de credencial encriptada. | cadeia (de carateres) | No
@@ -291,27 +291,27 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são utilizados de tipos SAP 
 Tipo de dados no Dicionário ABAP | .NET Data Type
 -------------------------------- | --------------
 ACCP |  int
-CHAR | String
-CLNT | String
+CHAR | Cadeia
+CLNT | Cadeia
 CURR | Decimal
-RIO CUKY | String
+RIO CUKY | Cadeia
 DEC | Decimal
-FLTP | Double
+FLTP | Double (Duplo)
 INT1 | Byte
 INT2 | Int16
 INT4 | int
-LANG | String
-LCHR | String
+LANG | Cadeia
+LCHR | Cadeia
 RIO LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-CORDA | String
-UNIDADE | String
-DATS | String
-NUMC | String
-TIMS | String
+CORDA | Cadeia
+UNIDADE | Cadeia
+DATS | Cadeia
+NUMC | Cadeia
+TIMS | Cadeia
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas a partir do conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015277"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
@@ -119,7 +119,7 @@ Nesta amostra, um utilizador externo B2B e um grupo são adicionados à função
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Adicionar funções e utilizadores utilizando o PowerShell
 
-O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de bases de dados específicos de tarefas e o cmdlet Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
+O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de bases de dados específicos de tarefas e o cmdlet de Invoke-ASCmd de uso geral que aceita uma consulta ou script de Script de Script de Modelo Tabular (TMSL). Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
@@ -139,7 +139,7 @@ Os filtros de linha aplicam-se às linhas especificadas e linhas relacionadas. Q
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
-|Região|=Região[País]="EUA"|  
+|Region|=Região[País]="EUA"|  
 |ProductCategory|=ProductCategory[Nome]="Bicicletas"|  
 |Transações|=Transações[Ano]=2016|  
   

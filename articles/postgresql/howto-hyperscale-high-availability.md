@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907396"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar Alta disponibilidade de Hiperescala (Citus)
@@ -29,7 +29,7 @@ Clique no botão **Guardar** para aplicar a sua seleção. Permitir o HA pode de
 
 O **separador Visão Geral** do grupo do servidor listará todos os nós e os seus standbys, juntamente com uma coluna **de alta disponibilidade** indicando se HA está habilitado com sucesso para cada nó.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="a coluna ha na visão geral do grupo do servidor":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="ha slider":::
 
 ### <a name="next-steps"></a>Passos seguintes
 

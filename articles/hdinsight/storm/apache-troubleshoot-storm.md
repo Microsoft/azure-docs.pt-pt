@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84700370"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Resolução de problemas Tempestade Apache usando Azure HDInsight
@@ -113,7 +113,7 @@ Um nó de gateway é um serviço de procuração inversa e de porta de entrada q
 ### <a name="head-nodes"></a>Nó de cabeça
 
 Os nódes de cabeça de tempestade executam os seguintes serviços:
-* Rio Nimbus
+* Nimbus
 * Servidor Ambari
 * Servidor Ambari Metrics
 * Colecionador de Métricas Ambari
@@ -165,7 +165,7 @@ A configuração log4J do supervisor é lida a partir de `/usr/hdp/\<HDP version
 
 O ficheiro de configuração Log4J do trabalhador é lido a partir de `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
-Exemplos:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+Exemplos: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
@@ -174,11 +174,11 @@ Exemplos:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 Ao submeter uma topologia, o utilizador pode receber uma mensagem de erro semelhante a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-Para resolver, o utilizador poderá ter de arquivar um bilhete para reiniciar/reiniciar os nós. Para mais informações, [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html) consulte.
+Para resolver, o utilizador poderá ter de arquivar um bilhete para reiniciar/reiniciar os nós. Para obter mais informações, veja [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

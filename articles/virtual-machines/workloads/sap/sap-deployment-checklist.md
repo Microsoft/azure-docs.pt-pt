@@ -16,10 +16,10 @@ ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650689"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
@@ -161,7 +161,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
             -   [Nota de suporte SAP #2753418 - Potencial degradação do desempenho devido ao recuo do temporizador](https://launchpad.support.sap.com/#/notes/2753418)
             -   [Nota de suporte SAP #2791572 - Degradação de desempenho por causa do suporte vdso em falta para hiper-V em Azure](https://launchpad.support.sap.com/#/notes/2791572)
             -   [Nota de suporte SAP #2382421 - Otimização da Configuração da Rede no Nível HANA e OS](https://launchpad.support.sap.com/#/notes/2382421)
-            -   [Nota de suporte SAP #2694118 - Red Hat Enterprise Linux HA Add-On on Azure](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [Nota de suporte DA SAP #2694118 - Red Hat Enterprise Linux HA Add-On em Azure](https://launchpad.support.sap.com/#/notes/2694118)
             -   [Nota de suporte SAP #1984787 - SUSE LINUX Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
             -   [Nota de suporte SAP #2002167 - Red Hat Enterprise Linux 7.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/0002002167)
             -   [Nota de suporte SAP #2292690 - SAP HANA DB: Definições recomendadas de OS para RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690)
@@ -298,7 +298,7 @@ Esta fase tem a ver com monitorização, operação e administração do sistema
 3. Otimize os tempos em que pode desligar os sistemas.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja estes artigos:
 
 - [Azure Virtual Machines planejamento e implementação para SAP NetWeaver](./planning-guide.md)

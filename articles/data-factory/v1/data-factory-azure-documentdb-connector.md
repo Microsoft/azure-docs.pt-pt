@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84702299"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para a Azure Cosmos DB usando a Azure Data Factory
@@ -123,7 +123,7 @@ No caso de atividade de Copy quando a fonte é do tipo **DocumentDbCollectionSou
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a declaração SQL que é executada:`select <columns defined in structure> from mycollection` |
+| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a declaração SQL que é executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Personagem especial para indicar que o documento está aninhado |Qualquer personagem. <br/><br/>AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de nidificaçãoSeparator, que é "". nos exemplos acima. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela. |Não |
 
 **DocumentDbCollectionSink** suporta as seguintes propriedades:
@@ -480,7 +480,7 @@ Em seguida, a saída JSON em Cosmos DB será como:
 ```
 AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de **nidificaçãoSeparator,** que é "". neste exemplo. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela.
 
-## <a name="appendix"></a>Anexo
+## <a name="appendix"></a>Apêndice
 1. **Pergunta:** A Atividade de Cópia suporta a atualização dos registos existentes?
 
     **Resposta:** Não.

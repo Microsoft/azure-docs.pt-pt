@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246695"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar a cópia de segurança no Tecido de Serviço Azure
@@ -207,7 +207,7 @@ Para a perda de _dados_ ou corrupção de _dados,_ as divisórias apoiadas para 
 
 O exemplo a seguir é a continuação da [reserva periódica para um serviço estadual fiável e para os atores fiáveis.](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors) Neste exemplo, uma política de backup está ativada para a partição, e o serviço está a fazer backups numa frequência desejada no Azure Storage.
 
-Selecione uma cópia de segurança da saída do [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Neste cenário, a cópia de segurança é gerada a partir do mesmo cluster que antes.
+Selecione uma cópia de segurança da saída do  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). Neste cenário, a cópia de segurança é gerada a partir do mesmo cluster que antes.
 
 Para ativar a restauração, escolha uma cópia de segurança da lista. Para a corrupção de _dados_de perda de / _dados_em vigor, selecione a seguinte cópia de segurança:
 
@@ -317,7 +317,7 @@ O pedido de restauro progride na seguinte ordem:
 
 ## <a name="automatic-restore"></a>Restauro automático
 
-Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no cluster de tecido de serviço para _restauro automático._ Na política de backup definida `AutoRestore` como _verdadeira_. Permitir a _restauração automática_ restaura automaticamente os dados da cópia de segurança mais recente da partição quando a perda de dados é reportada. Para obter mais informações, veja:
+Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no cluster de tecido de serviço para _restauro automático._ Na política de backup definida `AutoRestore` como _verdadeira_. Permitir a _restauração automática_ restaura automaticamente os dados da cópia de segurança mais recente da partição quando a perda de dados é reportada. Para obter mais informações, consulte:
 
 - [Ativação de restauro automático na política de backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Referência da API do RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)

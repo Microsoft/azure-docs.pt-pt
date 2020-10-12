@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023130"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depurar erros ao autorizar uma aplicação de Comandos Personalizados
@@ -48,7 +48,7 @@ Não é permitido apagar um parâmetro quando este está a ser utilizado. Remova
 Não está autorizado a eliminar um Ponto Final web quando este estiver a ser utilizado. Remova qualquer ação **call Web Endpoint** que utilize este Web Endpoint antes de remover um Ponto Final web.
 
 ## <a name="errors-when-training-an-application"></a>Erros ao treinar uma aplicação
-### <a name="built-in-intents"></a>Intenções incorporadas
+### <a name="built-in-intents"></a>Built-In intenções
 LUIS tem intençãos incorporadas Sim/Sem intenções. Tendo frases de amostra com apenas "sim", "não" falharia no treino. 
 
 | Palavra-chave | Variações | 
@@ -95,7 +95,7 @@ Para exportar rapidamente uma aplicação existente e importá-la para uma nova 
 ### <a name="save-button-is-disabled"></a>O botão de poupança está desativado
 Se nunca atribuir um recurso de previsão LUIS à sua aplicação, o botão Guardar será desativado quando tentar alterar o seu recurso de autoria sem adicionar um recurso de previsão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

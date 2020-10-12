@@ -10,10 +10,10 @@ ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83121036"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Provisão de extensão de sequência em conjuntos de escala de máquina virtual
@@ -36,7 +36,7 @@ Por exemplo, se o seu modelo de conjunto de escalas tiver duas extensões – Ex
 -   Extensão -> Extensão de Extensão
 
 Se a sua aplicação exigir que a extensão A seja sempre prevista antes da extensão B, então deve utilizar a sequência de extensão, conforme descrito neste artigo. Com a sequência de extensão, apenas uma sequência ocorrerá agora:
--   Extensão - extensão >B
+-   Extensão - extensão > B
 
 Quaisquer extensões não especificadas numa sequência de provisionamento definida podem ser previstas a qualquer momento, incluindo antes, depois ou durante uma sequência definida. A sequência de extensão apenas especifica que uma extensão específica será prevista após outra extensão específica. Não afeta o provisionamento de qualquer outra extensão definida no modelo.
 
@@ -249,5 +249,5 @@ az vmss extension set \
 ### <a name="not-able-to-remove-extensions"></a>Não consegue remover extensões?
 Certifique-se de que as extensões que estão a ser removidas não estão listadas ao abrigo de extensões posteriores a quaisquer outras extensões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

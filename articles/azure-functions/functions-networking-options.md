@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530098"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
@@ -74,7 +74,7 @@ Para saber mais, consulte os [requisitos da conta de Armazenamento.](./functions
 
 ## <a name="use-key-vault-references"></a>Utilizar as referências do Key Vault
 
-Pode utilizar referências do Azure Key Vault para utilizar segredos do Azure Key Vault na sua aplicação Azure Functions sem exigir alterações de código. Azure Key Vault é um serviço que fornece gestão de segredos centralizados, com controlo total sobre políticas de acesso e histórico de auditoria.
+Pode utilizar referências do Azure Key Vault para utilizar segredos do Azure Key Vault na sua aplicação Azure Functions sem exigir alterações de código. O Azure Key Vault é um serviço que fornece gestão centralizada de segredos, com controlo total sobre políticas de acesso e histórico de auditoria.
 
 Atualmente, [as referências do Key Vault](../app-service/app-service-key-vault-references.md) não funcionarão se o cofre da chave estiver seguro com pontos finais de serviço. Para se ligar a um cofre de chaves utilizando a integração virtual da rede, tem de ligar para o Key Vault no seu código de aplicação.
 

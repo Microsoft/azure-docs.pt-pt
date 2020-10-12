@@ -6,10 +6,10 @@ ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
 ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323270"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Azure Monitor para a sua aplicação Python

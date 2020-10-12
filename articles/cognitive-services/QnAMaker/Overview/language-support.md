@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650895"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte linguístico para um recurso e bases de conhecimento do QnA Maker
@@ -51,7 +51,7 @@ Rever [línguas suportadas](../overview/language-support.md) para o QnA Maker.
 
 A lista a seguir contém os idiomas suportados para um recurso QnA Maker. 
 
-|Linguagem|
+|Idioma|
 |--|
 |Árabe|
 |Arménio|
@@ -131,7 +131,7 @@ Enquanto as capacidades de Pesquisa Cognitiva Azure estão a par para línguas s
 
 Este ranking adicional é um trabalho interno do ranker do QnA Maker.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Seleção de idioma](../how-to/language-knowledge-base.md)

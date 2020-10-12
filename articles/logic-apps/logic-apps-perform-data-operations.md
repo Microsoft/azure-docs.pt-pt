@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710376"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realizar operações de dados em Azure Logic Apps
@@ -35,7 +35,7 @@ Estas ações ajudam-no a trabalhar com dados em matrizes.
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. |
 | [**Matriz de filtro**](#filter-array-action) | Crie um subconjunto de matriz a partir de uma matriz com base no filtro ou condição especificados. |
 | [**Associar**](#join-action) | Crie uma cadeia a partir de todos os itens numa matriz e separe cada item com o carácter especificado. |
-| [**Selecionar**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens numa matriz diferente. |
+| [**Selecione**](#select-action) | Crie uma matriz a partir das propriedades especificadas para todos os itens numa matriz diferente. |
 ||| 
 
 **Ações da JSON**
@@ -106,7 +106,7 @@ Para experimentar um exemplo, siga estes passos utilizando o Logic App Designer.
 
    ![Exemplo terminado para ação "Compor"](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Para obter mais informações sobre esta ação na definição de fluxo de trabalho subjacente, consulte a ação [Compose](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
 
@@ -167,7 +167,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
    ![Exemplo final para ação "Criar tabela CSV"](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 ### <a name="customize-table-format"></a>Personalizar formato de mesa
 
@@ -318,7 +318,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
    ![Exemplo final para "Criar tabela HTML"](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 ### <a name="customize-table-format"></a>Personalizar formato de mesa
 
@@ -482,7 +482,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
    ![Exemplo terminado para ação "Filter array"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Para obter mais informações sobre esta ação na definição de fluxo de trabalho subjacente, consulte [a ação de consulta](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
 
@@ -544,7 +544,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
    ![Fornecer o caráter separador](./media/logic-apps-perform-data-operations/finished-join-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Para obter mais informações sobre esta ação na definição de fluxo de trabalho subjacente, consulte a [ação "Join".](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action)
 
@@ -612,7 +612,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
       ![Introduza o conteúdo JSON para gerar o esquema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Para obter mais informações sobre esta ação na definição de fluxo de trabalho subjacente, consulte [a ação Parse JSON](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
@@ -683,7 +683,7 @@ Se preferir trabalhar no editor de visualização de código, pode copiar o exem
 
    ![Exemplo terminado para ação "Selecione"](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Para obter mais informações sobre esta ação na definição de fluxo de trabalho subjacente, consulte [ação Select](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
@@ -707,6 +707,6 @@ Para confirmar se a ação **Select** cria os resultados esperados, envie-se uma
 
    ![E-mail com resultados de ação "Selecione"](./media/logic-apps-perform-data-operations/select-email-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

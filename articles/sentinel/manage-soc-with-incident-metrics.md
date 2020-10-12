@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761730"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerir melhor o SOC com métricas de incidentes
@@ -80,11 +80,11 @@ Para complementar a tabela **SecurityIncidents,** fornecemos-lhe um modelo de li
 - Atividades recentes 
 - Classificações finais recentes  
 
-Pode encontrar este novo modelo de livro, escolhendo livros de **trabalho** do menu de navegação Azure Sentinel e selecionando o separador **Modelos.** Escolha a eficiência das **operações** de Segurança na galeria e clique num dos botões de **modelo View Saved Workbook** e **View.**
+Pode encontrar este novo modelo de livro, escolhendo livros de **trabalho** do menu de navegação Azure Sentinel e selecionando o **separador Modelos.** Escolha a eficiência das **operações** de segurança na galeria e clique num dos botões **de livro guardados view** e ver o **modelo.**
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria de livros de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela de incidentes de segurança":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Livro de incidentes de segurança completo":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela de incidentes de segurança":::
 
 Pode utilizar o modelo para criar os seus próprios livros personalizados adaptados às suas necessidades específicas.
 

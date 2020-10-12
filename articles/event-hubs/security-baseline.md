@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401134"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança Azure para centros de eventos
@@ -970,7 +970,7 @@ Compreenda a recuperação de geo-desastres para os Hubs de Eventos Azure: https
 
 **Orientação**: Azure Event Hubs fornece encriptação de dados em repouso com Azure Storage Service Encryption (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar o Cofre de Chaves Azure para armazenar chaves geridas pelo cliente, certifique-se de cópias de segurança automáticas regulares das suas Chaves.
 
-Certifique-se de cópias de segurança automáticas regulares dos seus Segredos do Cofre de Chaves com o seguinte comando PowerShell: Backup-AzKeyVaultSecret
+Certifique-se de cópias de segurança automáticas regulares dos seus Segredos do Cofre chave com o seguinte comando PowerShell: Backup-AzKeyVaultSecret
 
 Como configurar chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
@@ -1087,7 +1087,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Cliente
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](../security/benchmarks/overview.md)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](../security/benchmarks/security-baselines-overview.md)

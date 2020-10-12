@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480852"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
@@ -51,5 +51,5 @@ As equipas piloto iniciais podem necessitar de apoio aprofundado para começar. 
 4. Com base na absorção inicial, verifique se a previsão original do espaço do endereço IP ainda é razoável e precisa
 5. Garantir que as revisões de conformidade e segurança adequadas foram concluídas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja o próximo artigo desta série: [Governance of Azure DevTest Labs infrastructure](devtest-lab-guidance-governance-resources.md)
