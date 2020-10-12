@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146628"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps

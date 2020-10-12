@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180648"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
@@ -137,7 +137,7 @@ O recurso de aplicação de função é definido utilizando um recurso do tipo *
 
 Uma aplicação de função deve incluir estas definições de aplicação:
 
-| Nome da definição                 | Description                                                                               | Valores de exemplo                        |
+| Nome da definição                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de ligação a uma conta de armazenamento que o tempo de execução de Funções utiliza para a fila interna | Ver [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do tempo de funcionamento das Funções Azure                                                | `~2`                                  |

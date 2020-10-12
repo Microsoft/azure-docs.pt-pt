@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 24d026785025dba4ae45de404edec67c2cf3871a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335590"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na Gestão API da Azure
@@ -227,7 +227,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Description|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |referênciasCódigo|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
 |errorCode|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  

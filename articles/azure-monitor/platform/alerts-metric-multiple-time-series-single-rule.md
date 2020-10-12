@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/04/2020
 ms.subservice: alerts
 ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704485"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorize várias séries de tempo numa única regra de alerta métrico
@@ -180,6 +180,6 @@ Por exemplo, uma regra de alerta pode mostrar uma estimativa de preço elevado s
 Para evitar custos excessivos, cada regra de alerta pode monitorizar até 5000 séries de tempo por padrão. Para levantar este limite da sua subscrição, abra um bilhete de apoio.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a monitorização em escala utilizando alertas métricos e [limiares dinâmicos.](alerts-dynamic-thresholds.md)

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704604"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
@@ -22,7 +22,7 @@ Para ajudá-lo a compreender o estado do seu domínio gerido Azure Ative Directo
 
 Este artigo mostra-lhe como usar os Livros de Trabalho do Monitor Azure para rever eventos de auditoria de segurança em Azure AD DS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -108,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 

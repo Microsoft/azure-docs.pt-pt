@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707528"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -72,7 +72,7 @@ Se vir um erro relacionado com **o GSS,** é provável que utilize uma versão m
    - Planeamos concluir a atualização até ao final de novembro. Considere usar uma versão de motorista de trabalho entretanto.
    - Ou, considere desativar o pedido do GSS.  Utilize um parâmetro de ligação como `gssEncMode=disable` .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Compreenda [o que está disponível em cada nível de preços](concepts-pricing-tiers.md)
 - Saiba mais sobre [versões de base de dados postgresql suportadas](concepts-supported-versions.md)
 - [Reveja como fazer o back up e restaurar um servidor na Base de Dados Azure para PostgreSQL utilizando o portal Azure](howto-restore-server-portal.md)

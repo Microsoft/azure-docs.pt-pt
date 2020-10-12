@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005219"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
@@ -114,7 +114,7 @@ Siga estas instruções para confirmar a instalação dos componentes e para ver
 
 Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de anfitrião de sessão (manualmente ou através do modelo Azure Resource Manager e PowerShell DSC), fornece um token de registo. A secção seguinte abrange problemas de resolução de problemas que se aplicam ao Windows Virtual Desktop Agent e ao token.
 
-### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: O estado arquivado no cmdlet Get-AzWvdSessionHost mostra o estado como Indisponível
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: O estado arquivado no Get-AzWvdSessionHost cmdlet mostra o estado como Indisponível
 
 > [!div class="mx-imgBorder"]
 > ![O cmdlet Get-AzWvdSessionHost mostra o estado como Indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de 
 2. Executar o **cmdlet New-AzWvdRegistrationInfo** para gerar um novo token.
 3. Confirme se o parâmetro *-ExpriationTime* está definido para 3 dias.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: O agente virtual do Windows não está a reportar um batimento cardíaco ao executar o Get-AzWvdSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: O agente virtual do Windows não está a reportar um batimento cardíaco ao executar Get-AzWvdSessionHost
 
 **Causa 1:** O serviço RDAgentBootLoader foi interrompido.
 

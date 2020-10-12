@@ -14,10 +14,10 @@ ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006609"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs

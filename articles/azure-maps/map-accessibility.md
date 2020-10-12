@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006218"
 ---
 # <a name="building-an-accessible-application"></a>Construção de uma aplicação acessível
@@ -103,15 +103,15 @@ O mapa tem uma série de atalhos de teclado construídos que facilitam a utiliza
 | Tecla Seta Para a Direita | Pan o mapa direito 100 pixels |
 | Tecla de seta para baixo | Panorâmica do mapa para baixo 100 pixels |
 | Tecla de seta para cima | Pan o mapa até 100 pixels |
-| `Shift`+ seta para cima | Aumente o tom do mapa em 10 graus |
-| `Shift`+ seta para baixo | Diminuir o tom do mapa em 10 graus |
-| `Shift`+ seta direita | Rode o mapa 15 graus no sentido horário |
-| `Shift`+ seta esquerda | Rode o mapa 15 graus no sentido contrário ao dos ponteiros do relógio |
+| `Shift` + seta para cima | Aumente o tom do mapa em 10 graus |
+| `Shift` + seta para baixo | Diminuir o tom do mapa em 10 graus |
+| `Shift` + seta direita | Rode o mapa 15 graus no sentido horário |
+| `Shift` + seta esquerda | Rode o mapa 15 graus no sentido contrário ao dos ponteiros do relógio |
 | Sinal de `+` mais () ou <sup>*</sup> sinal de Iguais `=` () | Ampliar |
 | Menos sinal, Hífen `-` (), ou <sup>*</sup> Sublinhado `_` () | Reduzir | 
-| `Shift`+ arrasto de rato no mapa para desenhar área | Zoom na área |
+| `Shift` + arrasto de rato no mapa para desenhar área | Zoom na área |
 
-<sup>*</sup>Estes atalhos-chave geralmente partilham a mesma chave num teclado. Estes atalhos foram adicionados para melhorar a experiência do utilizador. Também não importa se o utilizador usa a chave de mudança ou não para estes atalhos.
+<sup>*</sup> Estes atalhos-chave geralmente partilham a mesma chave num teclado. Estes atalhos foram adicionados para melhorar a experiência do utilizador. Também não importa se o utilizador usa a chave de mudança ou não para estes atalhos.
 
 ## <a name="screen-reader-support"></a>Suporte do Leitor de Ecrã
 

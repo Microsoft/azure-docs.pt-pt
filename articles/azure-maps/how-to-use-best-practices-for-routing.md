@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086407"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
@@ -21,7 +21,7 @@ As APIs da Rota e da Matriz de Rotas no [Serviço de Rota](https://docs.microsof
 
 > [!div class="checklist"]
 > * Escolha entre as ApIs de Rota e a API de Encaminhamento De Matriz
-> * Solicite tempos de viagem históricos e previstos, com base em dados de tráfego em tempo real e históricos
+> * Solicitar tempos de viagem históricos e previstos, com base nos dados de tráfego históricos e em tempo real
 > * Solicite detalhes da rota, como tempo e distância, para todo o percurso e cada etapa do percurso
 > * Rota de pedido para um veículo comercial, como um caminhão
 > * Solicite informações de tráfego ao longo de uma rota, como engarrafamentos e informações sobre portagens
@@ -205,7 +205,7 @@ Esta opção pode ser usada para colorir as secções ao renderizar o mapa, como
 
 ![Secções coloridas renderizadas no mapa](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota multi-stop
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota com várias paragens
 
 A Azure Maps fornece atualmente duas formas de otimização de rotas:
 
@@ -282,7 +282,7 @@ O Azure Maps Web SDK fornece um [módulo de serviço.](https://docs.microsoft.co
 Para saber mais, consulte:
 
 > [!div class="nextstepaction"]
-> [Serviço de Rota Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Serviço de itinerários do Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Como utilizar o módulo de Serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

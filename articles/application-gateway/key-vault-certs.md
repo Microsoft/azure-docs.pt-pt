@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
 ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282352"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Rescisão de TLS com certificados Key Vault

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7dd4c95c3c02f4b4a807b5238aa61e76ecb56e3e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716423"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificados Azure Ative Para Android
@@ -33,7 +33,7 @@ Esta funcionalidade está disponível em pré-visualização no Office 365 US Go
 
 ## <a name="microsoft-mobile-applications-support"></a>Suporte a aplicações móveis da Microsoft
 
-| Aplicações | Suporte |
+| Apps | Suporte |
 | --- | --- |
 | App Azure Information Protection |![Marca de verificação significa apoio para esta aplicação][1] |
 | Intune Portal da Empresa |![Marca de verificação significa apoio para esta aplicação][1] |

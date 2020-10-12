@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -9,15 +9,15 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102911"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os seguintes cenários podem beneficiar muito da explosão:
-- **Melhorando os tempos de arranque** – Com a explosão, a sua instância arrancará a uma taxa significativamente mais rápida. Por exemplo, o disco de OS padrão para VMs habilitados a prémios é o disco P4, que é um desempenho previsto de até 120 IOPS e 25 MB/s. Com a explosão, o P4 pode ir até 3500 IOPS e 170 MB/s permitindo que um tempo de arranque acelere em 6X.
+- **Melhorando os tempos de arranque**  – Com a explosão, a sua instância arrancará a uma taxa significativamente mais rápida. Por exemplo, o disco de OS padrão para VMs habilitados a prémios é o disco P4, que é um desempenho previsto de até 120 IOPS e 25 MB/s. Com a explosão, o P4 pode ir até 3500 IOPS e 170 MB/s permitindo que um tempo de arranque acelere em 6X.
 - **Manuseamento de trabalhos** em lotes – Algumas cargas de trabalho da aplicação são de natureza cíclica e requerem um desempenho de base durante a maior parte do tempo e exigem um desempenho mais elevado por um curto período de tempo. Um exemplo disso é um programa de contabilidade que processa transações diárias que requerem uma pequena quantidade de tráfego de discos. Depois, no final do mês, concilia relatórios que precisam de uma quantidade muito maior de tráfego de discos.
 - **Preparação para picos de tráfego** – Os servidores web e as suas aplicações podem experimentar picos de tráfego a qualquer momento. Se o seu servidor web for apoiado por VMs ou discos que utilizem explosões, os servidores estão mais bem equipados para lidar com picos de tráfego. 
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/13/2020
 ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076779"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copie os dados de e para a Salesforce Service Cloud utilizando a Azure Data Factory
@@ -64,12 +64,12 @@ As seguintes propriedades são suportadas para o serviço ligado à Salesforce.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para **SalesforceServiceCloud**. |Yes |
-| ambienteUrl | Especifique o URL da instância Cloud do Serviço Salesforce. <br> - O padrão é `"https://login.salesforce.com"` . <br> - Para copiar dados da caixa de areia, especifique `"https://test.salesforce.com"` . <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"` . |No |
-| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Yes |
-| palavra-passe |Especifique uma palavra-passe para a conta de utilizador.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Especifique um sinal de segurança para a conta de utilizador. <br/><br/>Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) O token de segurança só pode ser ignorado se adicionar o IP do Tempo de Integração à [lista de endereços IP fidedignas](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao utilizar o Azure IR, consulte os [endereços IP do tempo de execução da integração Azure](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um sinal de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |No |
-| apiVersion | Especifique a versão API salesforce/granel para utilizar, por `48.0` exemplo. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. | No |
+| tipo |A propriedade tipo deve ser definida para **SalesforceServiceCloud**. |Sim |
+| ambienteUrl | Especifique o URL da instância Cloud do Serviço Salesforce. <br> - O padrão é `"https://login.salesforce.com"` . <br> - Para copiar dados da caixa de areia, especifique `"https://test.salesforce.com"` . <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"` . |Não |
+| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| palavra-passe |Especifique uma palavra-passe para a conta de utilizador.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um sinal de segurança para a conta de utilizador. <br/><br/>Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) O token de segurança só pode ser ignorado se adicionar o IP do Tempo de Integração à [lista de endereços IP fidedignas](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao utilizar o Azure IR, consulte os [endereços IP do tempo de execução da integração Azure](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um sinal de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Não |
+| apiVersion | Especifique a versão API salesforce/granel para utilizar, por `48.0` exemplo. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. | Não |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não para fonte, Sim para afundar se o serviço ligado à fonte não tiver tempo de integração |
 
 >[!IMPORTANT]
@@ -143,7 +143,7 @@ Para copiar dados de e para Salesforce Service Cloud, as seguintes propriedades 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SalesforceServiceCloudObject**.  | Yes |
+| tipo | A propriedade tipo deve ser definida para **SalesforceServiceCloudObject**.  | Sim |
 | objectApiName | O nome do objeto Salesforce para obter dados de. | Não para a fonte, sim para a pia |
 
 > [!IMPORTANT]
@@ -172,7 +172,7 @@ Para copiar dados de e para Salesforce Service Cloud, as seguintes propriedades 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable**. | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela na Salesforce Service Cloud. | Não (se for especificada "consulta" na fonte de atividade) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -185,9 +185,9 @@ Para copiar dados da Salesforce Service Cloud, as seguintes propriedades são su
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceServiceCloudSource**. | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceServiceCloudSource**. | Sim |
 | consulta |Utilize a consulta personalizada para ler dados. Pode utilizar a consulta [de idioma de consulta de objetos salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou consulta SQL-92. Veja mais dicas na secção [de dicas de consulta.](#query-tips) Se a consulta não for especificada, todos os dados do objeto Cloud do Serviço Salesforce especificados em "objectApiName" no conjunto de dados serão recuperados. | Não (se for especificado "objectApiName" no conjunto de dados) |
-| readOportur-se | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo os eliminados. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **consultaTo.**  | No |
+| readOportur-se | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo os eliminados. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **consultaTo.**  | Não |
 
 > [!IMPORTANT]
 > A parte "__c" do **Nome API** é necessária para qualquer objeto personalizado.
@@ -232,7 +232,7 @@ Para copiar dados para a Salesforce Service Cloud, as seguintes propriedades sã
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para **SalesforceServiceCloudSink**. | Yes |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para **SalesforceServiceCloudSink**. | Sim |
 | escrever Comportamento | O comportamento de escrita para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (predefinição é Inserir) |
 | nome externoIdField | O nome do campo de identificação externo para a operação de upsert. O campo especificado deve ser definido como "Campo de ID Externo" no objeto Cloud de Serviço Salesforce. Não pode ter valores NULOS nos dados de entrada correspondentes. | Sim para "Upsert" |
 | escreverBatchSize | A contagem de dados escrita para a Salesforce Service Cloud em cada lote. | Não (o padrão é 5.000) |
@@ -289,8 +289,8 @@ Ao copiar dados da Salesforce Service Cloud, pode utilizar consulta SOQL ou sql.
 
 | Syntax | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
-| Seleção de colunas | É necessário enumerar os campos a serem copiados na consulta, por exemplo.`SELECT field1, filed2 FROM objectname` | `SELECT *`é suportado para além da seleção de colunas. |
-| Marcas de aspas | Os nomes arquivados/objetos não podem ser citados. | Os nomes de campo/objeto podem ser citados, por exemplo.`SELECT "id" FROM "Account"` |
+| Seleção de colunas | É necessário enumerar os campos a serem copiados na consulta, por exemplo. `SELECT field1, filed2 FROM objectname` | `SELECT *` é suportado para além da seleção de colunas. |
+| Marcas de aspas | Os nomes arquivados/objetos não podem ser citados. | Os nomes de campo/objeto podem ser citados, por exemplo. `SELECT "id" FROM "Account"` |
 | Formato de data |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e as amostras na secção seguinte. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e as amostras na secção seguinte. |
 | Valores booleano | Representado como `False` `True` e, por `SELECT … WHERE IsDeleted=True` exemplo. | Representado como 0 ou 1, por `SELECT … WHERE IsDeleted=1` exemplo. |
 | Renomeação de coluna | Não suportado. | Apoiado, por exemplo: `SELECT a AS b FROM …` . |
@@ -301,7 +301,7 @@ Ao copiar dados da Salesforce Service Cloud, pode utilizar consulta SOQL ou sql.
 Quando especificar a consulta SOQL ou SQL, preste atenção à diferença do formato DateTime. Por exemplo:
 
 * **Amostra SOQL:**`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Amostra SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Amostra SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Erro de MALFORMED_QUERY: Truncado
 
@@ -316,8 +316,8 @@ Ao copiar dados da Salesforce Service Cloud, os seguintes mapeamentos são usado
 | Número automático |Cadeia |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Data |DateTime |
-| Date/Time |DateTime |
+| Date |DateTime |
+| Data/Hora |DateTime |
 | E-mail |Cadeia |
 | ID |Cadeia |
 | Relação de procura |Cadeia |
