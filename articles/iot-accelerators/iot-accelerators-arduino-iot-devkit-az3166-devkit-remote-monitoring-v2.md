@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337675"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Ligue um dispositivo IoT DevKit ao acelerador de solução de monitorização remota
@@ -24,7 +24,7 @@ Este guia de como fazer mostra-lhe como executar uma aplicação de amostra no s
 
 O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é um tabuleiro compatível com Arduino com periféricos e sensores ricos. Você pode desenvolver para ele usando [a bancada de trabalho do dispositivo Azure IoT](https://aka.ms/iot-workbench) ou o pacote de extensão [Azure IoT Tools](https://aka.ms/azure-iot-tools) em Visual Studio Code. O [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contém aplicações de amostras para ajudá-lo a protótipo soluções IoT.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 
@@ -77,7 +77,7 @@ Para verificar se a aplicação da amostra que carregou para o dispositivo DevKi
 
 ### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>Ver a telemetria enviada para a solução de Monitorização Remota
 
-Quando a aplicação da amostra é executado, o dispositivo DevKit envia a telemetria dos dados dos seus sensores através do Wi-Fi para o seu acelerador de solução. Para ver a telemetria:
+Quando a aplicação da amostra é executado, o dispositivo DevKit envia telemetria dos dados dos seus sensores ao longo de Wi-Fi para o seu acelerador de solução. Para ver a telemetria:
 
 1. Vá ao painel de instrumentos da solução e clique no **Device Explorer**.
 

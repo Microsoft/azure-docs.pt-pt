@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362130"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na Base de Dados Azure para o MySQL
@@ -31,7 +31,7 @@ Outros parâmetros que pode ajustar incluem:
 - `audit_log_exclude_users`: Os utilizadores do MySQL devem ser excluídos da exploração madeireira. O comprimento máximo do parâmetro é de 512 caracteres.
 
 > [!NOTE]
-> `audit_log_include_users`tem maior prioridade sobre `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e , o `audit_log_exclude_users`  =  `demouser` utilizador será incluído nos registos de auditoria porque `audit_log_include_users` tem maior prioridade.
+> `audit_log_include_users` tem maior prioridade sobre `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e , o `audit_log_exclude_users`  =  `demouser` utilizador será incluído nos registos de auditoria porque `audit_log_include_users` tem maior prioridade.
 
 | **Evento** | **Descrição** |
 |---|---|
@@ -60,10 +60,10 @@ As secções seguintes descrevem o que éprodução por registos de auditoria do
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
@@ -91,10 +91,10 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
@@ -104,7 +104,7 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR` `RESULT` (apenas disponível para MySQL 5.6) |
 | `event_time` | Hora de início de consulta no calendário utc |
-| `error_code_d` | Código de erro se a consulta falhar. `0`significa que não há erro |
+| `error_code_d` | Código de erro se a consulta falhar. `0` significa que não há erro |
 | `thread_id_d` | ID de fio que executou a consulta |
 | `host_s` | Vazio |
 | `ip_s` | Endereço IP do cliente que liga ao MySQL |
@@ -122,10 +122,10 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
@@ -133,7 +133,7 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT` `UPDATE` ou`DELETE` |
+| `event_subclass_s` | `READ`, `INSERT` `UPDATE` ou `DELETE` |
 | `connection_id_d` | ID de ligação única gerado pelo MySQL |
 | `db_s` | Nome da base de dados acedida |
 | `table_s` | Nome da mesa acedida |
@@ -194,6 +194,6 @@ Assim que os seus registos de auditoria forem canalizados para Registos do Monit
     | order by TimeGenerated asc nulls last
     ``` 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar registos de auditoria no portal Azure](howto-configure-audit-logs-portal.md)

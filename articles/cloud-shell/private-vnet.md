@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
 ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89468543"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementar a Cloud Shell numa rede virtual Azure
@@ -93,7 +93,7 @@ No portal Azure, ou utilizando o Azure CLI, a Azure PowerShell, etc. criar um gr
 > [!NOTE]
 > Durante a pré-visualização pública, o grupo de recursos e a rede virtual devem estar localizados em WestCentralUS ou WestUS.
 
-### <a name="arm-templates"></a>Modelos de ARM
+### <a name="arm-templates"></a>Modelos do ARM
 Utilize o [modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template) para criar recursos cloud shell numa rede virtual e o [Modelo Azure Quickstart](https://aka.ms/cloudshell/docs/vnet/template/storage) para criar o armazenamento necessário. Tome nota dos seus nomes de recursos, principalmente o nome da sua partilha de ficheiros.
 
 ### <a name="open-relay-firewall"></a>Firewall de retransmissão aberta
@@ -113,5 +113,5 @@ Ligue-se à Cloud Shell, será solicitado com a primeira experiência de execuç
 
 ![Ilustra as definições de experiência isoladas do Cloud Shell.](media/private-vnet/vnet-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre as Redes Virtuais Azure](../virtual-network/virtual-networks-overview.md)

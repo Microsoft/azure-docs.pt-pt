@@ -15,15 +15,15 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146658"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicione ou remova atribuições de funções Azure usando Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando a Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando a Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "86146658"
 
 Para adicionar ou remover atribuições de funções, você deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 - [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Obtenha iDs de objeto
@@ -47,7 +47,7 @@ Get-AzADUser -StartsWith <string_in_quotes>
 (Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-### <a name="group"></a>Grupo
+### <a name="group"></a>Group
 
 Para obter o ID do objeto para um grupo AD Azure, pode utilizar [o Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 

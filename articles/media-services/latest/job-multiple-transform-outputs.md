@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e5fe12b02503aff625a1cc2c39a71abcdf3dab0b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296792"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
@@ -136,6 +136,6 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Azure Media Services v3 amostras usando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

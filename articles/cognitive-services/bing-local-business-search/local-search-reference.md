@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84171468"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 referência
@@ -33,7 +33,7 @@ Para obter informações sobre a utilização permitida e exibição de [resulta
 
 
   
-## <a name="endpoint"></a>Ponto Final  
+## <a name="endpoint"></a>Ponto final  
 Para solicitar os resultados locais do negócio, envie um pedido GET para: 
 
 ``` 
@@ -71,7 +71,7 @@ Seguem-se os cabeçalhos que um pedido e resposta podem incluir.
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna requerida para obter os parâmetros necessários. Tem de codificar os parâmetros de consulta.  
   
   
-|Name|Valor|Tipo|Necessário|  
+|Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>contar|O número de resultados a devolver, a começar pelo índice especificado pelo `offset` parâmetro.|Cadeia|Não|   
 |<a name="localCategories"></a>localCategorias|Lista de opções que definem pesquisa por categoria de negócio.  Consulte [a pesquisa das Categorias de Negócios Locais](local-categories.md)|Cadeia|Não|  
@@ -108,7 +108,7 @@ Define o erro que ocorreu.
 ### <a name="errorresponse"></a>Resposta de erros  
 O objeto de nível superior que a resposta inclui quando o pedido falha.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Tipo dica.|Cadeia|  
 |<a name="errors"></a>erros|Uma lista de erros que descrevem as razões pelas quais o pedido falhou.|[Erro](#error)[]|  
@@ -118,7 +118,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falha.
 ### <a name="license"></a>Licença  
 Define a licença segundo a qual o texto ou a foto podem ser utilizados.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|O nome da licença.|Cadeia|  
 |url|O URL para um site onde o utilizador pode obter mais informações sobre a licença.<br /><br /> Use o nome e o URL para criar uma hiperligação.|Cadeia|  
@@ -127,7 +127,7 @@ Define a licença segundo a qual o texto ou a foto podem ser utilizados.
 ### <a name="link"></a>Ligação  
 Define os componentes de uma hiperligação.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Tipo dica.|Cadeia|  
 |texto|O texto do visor.|Cadeia|  
@@ -141,7 +141,7 @@ Define uma editora.
   
 Note que um editor pode fornecer o seu nome ou o seu website ou ambos.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|O nome da editora.|Cadeia|  
 |url|O URL para o site da editora.<br /><br /> Note que o editor não pode fornecer um site.|Cadeia|  
@@ -151,7 +151,7 @@ Note que um editor pode fornecer o seu nome ou o seu website ou ambos.
 ### <a name="place"></a>Lugar  
 Define informações sobre um negócio local, como um restaurante ou hotel.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que pode ser definida para uma das seguintes:<br /><br /><ul><li>Hotel</li><li>Negócios Locais<br /></li><li>Restaurante</ul><li>|Cadeia|  
 |address|O endereço postal do local onde se encontra a entidade.|PostalAddress|  
@@ -175,21 +175,21 @@ Define o contexto de consulta que Bing usou para o pedido.
 
 ### <a name="identifiable"></a>Identificável
 
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recursos|Cadeia|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados de pesquisa, como mainline.
 
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados de pesquisa a apresentar no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa para visualizar.
 
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
 |resultadoIndex|Um índice baseado em zero do item na resposta a exibir. Se o artigo não incluir este campo, apresente todos os itens na resposta. Por exemplo, exiba todos os artigos noticiosos na resposta notícia.|Número inteiro|
 |answerType|A resposta que contém o item a exibir. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, utilize o tipo de resposta apenas se este objeto incluir o campo de valor; caso contrário, ignorá-lo.|Cadeia|
@@ -199,7 +199,7 @@ Define um item de resultado de pesquisa para visualizar.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde no conteúdo da página de resultados de pesquisa deve ser colocado e em que ordem.  
   
-|Name|Valor|  
+|Nome|Valor|  
 |----------|-----------|  
 |<a name="ranking-mainline"></a>mainline|Os resultados da pesquisa a exibir na linha principal.|  
 |<a name="ranking-pole"></a>polo|Os resultados da pesquisa que devem ser proporcionados ao tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).|  
@@ -210,10 +210,10 @@ Define o objeto de nível superior que a resposta inclui quando o pedido é bem 
   
 Note que se o serviço suspeitar de um ataque de negação de serviço, o pedido será bem sucedido (código de estado HTTP é de 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Name|Valor|Tipo|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Sugestão do tipo, que está definida para SearchResponse.|Cadeia|  
-|lugares|Uma lista de entidades relevantes para a consulta de pesquisa.|Objeto JSON|  
+|realiza|Uma lista de entidades relevantes para a consulta de pesquisa.|Objeto JSON|  
 |consultaContexto|Um objeto que contém a cadeia de consulta que Bing usou para o pedido.<br /><br /> Este objeto contém a cadeia de consulta tal como inserida pelo utilizador. Também pode conter uma cadeia de consulta alterada que Bing usou para a consulta se a cadeia de consulta contivesse um erro ortográfico.|[QueryContexto](#querycontext)|  
 
 
@@ -269,7 +269,7 @@ Seguem-se os possíveis valores de código de erro e de sub-erro.
 |InvalidAuthorization|AutorizaçãoSDissing<br/>AutorizaçãoSAundação|Bing devolve invalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, falta o `Ocp-Apim-Subscription-Key` cabeçalho ou a chave de subscrição não é válida.<br/><br/>A redundância ocorre se especificar mais de um método de autenticação.<br/><br/>Se o erro for invalidauthorization, o código de estado HTTP é 401.
 |Authorização insuficiente|AutorizaçãoDisabled<br/>AutorizaçãoSDusa|Bing devolve aautorização insuficiente quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Pesquisa de negócios local quickstart](quickstarts/local-quickstart.md)
 - [Pesquisa de negócios locais Java quickstart](quickstarts/local-search-java-quickstart.md)
 - [Início rápido do nó de pesquisa de negócios local](quickstarts/local-search-node-quickstart.md)

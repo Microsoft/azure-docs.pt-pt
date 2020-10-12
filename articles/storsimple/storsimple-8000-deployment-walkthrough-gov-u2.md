@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556020"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Coloque o seu dispositivo StorSimple no portal do Governo
@@ -196,7 +196,7 @@ Execute os seguintes passos no portal do Governo para criar uma cópia de segura
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Configurar um [dispositivo virtual](storsimple-8000-cloud-appliance-u2.md).
 * Utilizar o [serviço Gestor de Dispositivos do StorSimple](storsimple-8000-manager-service-administration.md) para gerir o dispositivo StorSimple.
 

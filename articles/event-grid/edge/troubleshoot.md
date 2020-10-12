@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171351"
 ---
 # <a name="common-issues"></a>Problemas Comuns
@@ -100,7 +100,7 @@ As razões típicas para isto são:
 
 * Inicie sessão no VM onde o módulo 'Grade de Eventos' está implantado e veja os seus registos.
 
-* Ligue por registo de entrega definindo **o corretor:logDeliverySuccess=verdadeiro** e reimplantando o módulo de Grelha de Evento e retorcendo o pedido. Ligar o registo por entrega pode ter impacto na produção e latência, pelo que uma vez concluída a depuração, a nossa recomendação é voltar a **ligá-lo ao módulo corretor:logDeliverySuccess=falso** e reafectando o módulo de Grade de Eventos.
+* Ligue por registo de entrega definindo **o corretor:logDeliverySuccess=verdadeiro** e reimplantando o módulo de Grelha de Evento e retorcendo o pedido. Ligar o registo por entrega pode ter impacto na produção e latência, pelo que uma vez concluída a depuração, a nossa recomendação é voltar a **ligá-lo ao módulo corretor:logDeliverySuccess=falso**  e reafectando o módulo de Grade de Eventos.
 
 * Ligue as métricas definindo **métricas:reportertype=consola** e reposicione o módulo de grelha de evento. Qualquer operação depois disso resultará em métricas registadas na consola do módulo Event Grid, que pode ser usado para depurar ainda mais. A nossa recomendação é ligar as métricas apenas para depuração e uma vez completa para desligá-la definindo **métricas:reportertype=nenhum** e reafectando o módulo de Grade de Eventos.
 

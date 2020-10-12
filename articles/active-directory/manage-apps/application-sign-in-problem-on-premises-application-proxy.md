@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29aa4eb0bc40f0b2b960c49cf7b17dc62d92b0ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367721"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de adesão a um pedido no local utilizando o representante de aplicação AZure AD
@@ -58,5 +58,5 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
   * [Estou com problemas na instalação do Conector de Agente de Procuração de Aplicações](application-proxy-connector-installation-problem.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [How to provide secure remote access to on-premises applications](application-proxy.md) (Como fornecer acesso remoto seguro a aplicações no local)

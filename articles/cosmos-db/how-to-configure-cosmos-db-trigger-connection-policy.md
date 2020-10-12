@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: df30a0ddca58e6d7bd74184fa7287df6818cfc37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84117152"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Como configurar a política de ligação utilizada pelo gatilho de Funções Azure para Cosmos DB
@@ -50,7 +50,7 @@ Se o seu projeto Azure Functions estiver a trabalhar com o tempo de execução A
 > [!NOTE]
 > Ao trabalhar com o plano de hospedagem do plano de consumo de funções Azure, cada instância tem um limite na quantidade de Ligações de Tomada que pode manter. Ao trabalhar com o modo Direct /TCP, por design são criadas mais ligações e podem atingir o limite do [Plano de Consumo,](../azure-functions/manage-connections.md#connection-limit)caso em que pode utilizar o modo Gateway ou executar as suas Funções Azure no [Modo de Serviço de Aplicações](../azure-functions/functions-scale.md#app-service-plan).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Limites de ligação nas funções Azure](../azure-functions/manage-connections.md#connection-limit)
 * [Dicas de desempenho do Azure Cosmos DB](./performance-tips.md)

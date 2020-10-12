@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: d64c2175072d9979cfda2ea5f75beb34d3ad0d6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482377"
 ---
 # <a name="integration-patterns"></a>Padrões de integração
@@ -30,6 +30,6 @@ Ao tornar-se um parceiro de dados com a Azure FarmBeats, pode abrir os seus sist
 
 Uma vez que os dados estão disponíveis dentro da instância Azure FarmBeats dos seus clientes, os seus clientes podem construir análises e ferramentas mais ricas em cima dos seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a integração de dados de sensores, consulte [a integração de dados de sensores](sensor-partner-integration-in-azure-farmbeats.md) e para a integração de parceiros de imagem, consulte [a integração de parceiros de imagem](imagery-partner-integration-in-azure-farmbeats.md).

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
 ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85559408"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades geridas para o Serviço Azure SignalR
@@ -46,7 +46,7 @@ A criação de uma instância do Serviço Azure SignalR com uma identidade atrib
 
 5. Procure a identidade que criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída ao utilizador no portal":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adicionar uma identidade atribuída ao sistema no portal":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Use uma identidade gerida em cenários sem servidor
 
@@ -77,6 +77,6 @@ O middleware Azure Ative Directory (Azure AD) tem capacidades incorporadas para 
 
 Fornecemos bibliotecas e amostras de código que mostram como lidar com a validação de fichas. Existem também várias bibliotecas parceiras de código aberto disponíveis para validação JSON Web Token (JWT). Há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação AD AZure e amostras de código, consulte [as bibliotecas de autenticação da plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](signalr-concept-serverless-development-config.md)

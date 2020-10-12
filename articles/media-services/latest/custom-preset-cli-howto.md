@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295790"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com uma transformação personalizada - Azure CLI
@@ -142,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação. Para um exemplo completo que mostre como submeter um trabalho sob uma transformação, consulte [Quickstart: Stream video files - Azure CLI](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [CLI do Azure](/cli/azure/ams)

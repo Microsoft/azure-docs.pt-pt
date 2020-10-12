@@ -5,10 +5,10 @@ ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
 ms.openlocfilehash: 1928a8238cd73087e3c199675574dd1395f4d76d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68881339"
 ---
 #### <a name="built-in-log-streaming"></a>Transmissão em fluxo de registos incorporada

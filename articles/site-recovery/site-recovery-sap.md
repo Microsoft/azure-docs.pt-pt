@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133694"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastres para uma implementação de aplicativos SAP NetWeaver de vários níveis
@@ -117,7 +117,7 @@ Para começar a replicar todas as máquinas virtuais da aplicação SAP para o c
 
 * Para obter orientações sobre a proteção do nível de base de dados em execução no SQL Server, aprenda [a proteger o SQL Server](site-recovery-sql.md).
 
-## <a name="networking-configuration"></a>Configuração de rede
+## <a name="networking-configuration"></a>Configuração da rede
 
 Se utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual seja tomada. Para definir o endereço IP, aceda ao cartão de interface de rede de **configurações de computação e rede**  >  **Network interface card**.
 
@@ -141,7 +141,7 @@ Pode implementar os scripts de Recuperação de Sítio mais utilizados na sua co
 [![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Adicione um script pré-ação ao Grupo 1 para falhar sobre o grupo de disponibilidade do SQL Server. Utilize o script ASR-SQL-FailoverAG publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script adequadamente.
-1. Adicione um script pós-acção para fixar um equilibrador de carga nas máquinas virtuais falhadas do nível Web (Grupo 1). Utilize o script ASR-AddSingleLoadBalancer publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script, se necessário.
+1. Adicione um script pós-acção para fixar um equilibrador de carga nas máquinas virtuais falhadas do nível Web (Grupo 1). Utilize o ASR-AddSingleLoadBalancer script publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script, se necessário.
 
 ![Plano de Recuperação do SAP](./media/site-recovery-sap/sap_recovery_plan.png)
 
@@ -166,6 +166,6 @@ Para obter mais informações, consulte [test failover to Azure in Site Recovery
 
 Para obter mais informações, consulte [Failover na Recuperação do Local.](site-recovery-failover.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a construção de uma solução de recuperação de desastres para implementações SAP NetWeaver utilizando a Recuperação do Site. Consulte o papel branco transferível [SAP NetWeaver: Construindo uma solução de recuperação de desastres com recuperação do local.](https://aka.ms/asr_sap) O livro branco discute recomendações para várias arquiteturas SAP. Pode ver aplicações suportadas e tipos de VM para SAP on Azure. Existem também opções de plano para testar a sua solução de recuperação de desastres.
 * Saiba mais sobre [a replicação de outras cargas de trabalho](site-recovery-workload.md) utilizando a Recuperação do Site.

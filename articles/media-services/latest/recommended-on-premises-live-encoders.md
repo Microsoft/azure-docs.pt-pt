@@ -10,10 +10,10 @@ ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: media-services
 ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295364"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming verificados no local
@@ -116,10 +116,10 @@ Para reproduzir conteúdo, tanto um stream de áudio como de vídeo deve estar p
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU / Memória / etc) pois o upload de fragmentos para a nuvem envolve operações de CPU e IO. Se alterar quaisquer definições no codificador, certifique-se de que repor os canais /evento ao vivo para que a alteração produza efeitos.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Streaming em direto com media services v3](live-streaming-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como verificar o seu codificação](become-on-premises-encoder-partner.md)

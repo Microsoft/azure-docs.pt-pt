@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146610"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de Firewall de Aplicação Web para Gateway de Aplicações
@@ -51,7 +51,7 @@ Em primeiro lugar, crie uma política de WAF básica com um Conjunto de Regras P
 
    > [!NOTE]
    > Se atribuir uma política ao seu Application Gateway (ou ouvinte) que já tenha uma política em vigor, a política original é substituída e substituída pela nova política.
-4. Selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
+4. Selecione **Rever + criar** e, em seguida, selecione **Criar**.
 
    ![Fundamentos básicos da política da WAF](../media/create-waf-policy-ag/waf-policy-basics.png)
 

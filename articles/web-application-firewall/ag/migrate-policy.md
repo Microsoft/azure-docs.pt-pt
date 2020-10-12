@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143849"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de Firewall de aplicação web usando Azure PowerShell
@@ -27,7 +27,7 @@ Utilize os seguintes passos para executar o roteiro de migração:
 1. Abra a janela da casca de nuvem seguinte ou abra uma de dentro do portal.
 2. Copie o guião para a janela da casca da nuvem e execute-o.
 3. O script pede iD de subscrição, nome do Grupo de Recursos, o nome do Gateway de aplicação a que o config WAF está associado, e o nome da nova política da WAF que criar. Assim que introduzir estas entradas, o script executa e cria a sua nova política WAF
-4. Associe a nova política da WAF com o seu gateway de aplicação. Vá à política da WAF no portal e selecione o separador **Gateways de Aplicação Associado.** Selecione **Associar um Gateway de Aplicação** e, em seguida, selecione o Gateway de Aplicação para associar a política da WAF.
+4. Associe a nova política da WAF com o seu gateway de aplicação. Vá à política da WAF no portal e selecione o separador **Gateways de Aplicação Associado.** Selecione **Associar um Gateway de aplicação** e, em seguida, selecione o Gateway de aplicação para associar a política WAF.
 
 > [!NOTE]
 > O guião não completa uma migração se existirem as seguintes condições:

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85565197"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Loja de conhecimento "projeções" em Pesquisa Cognitiva Azure
@@ -202,7 +202,7 @@ Em alternativa, se precisar de utilizar os dados enriquecidos num oleoduto de ci
 
 Finalmente, se necessitar de exportar os seus dados da loja de conhecimentos, a Azure Data Factory dispõe de conectores para exportar os dados e aterrar na base de dados à sua escolha. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como próximo passo, crie a sua primeira loja de conhecimentos utilizando dados e instruções de amostra.
 

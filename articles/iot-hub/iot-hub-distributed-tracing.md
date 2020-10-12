@@ -14,10 +14,10 @@ ms.custom:
 - fasttrack-edit
 - iot
 ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462042"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Trace Azure IoT mensagens dispositivo-nuvem com rastreio distribuído (pré-visualização)
@@ -252,7 +252,7 @@ Para atualizar a configuração de amostragem de rastreio distribuída para vár
 | Nome do elemento | Necessário | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sim | Número inteiro | Dois valores de modo são atualmente suportados para ligar e desligar a amostragem. `1` está ligado e, `2` está desligado. |
-| `sampling_rate` | Yes | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
+| `sampling_rate` | Sim | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consulta e visualização
 
@@ -325,7 +325,7 @@ Uma vez ativado, o suporte de rastreio distribuído para o IoT Hub seguirá este
 - A capacidade de twin cloud-to-device não está disponível para [o nível básico IoT Hub](iot-hub-scaling.md#basic-and-standard-tiers). No entanto, o IoT Hub ainda irá registar-se no Azure Monitor se vir um cabeçalho de contexto de traço devidamente composto.
 - Para garantir um funcionamento eficiente, o IoT Hub imporá um acelerador à taxa de exploração madeireira que pode ocorrer como parte do rastreio distribuído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o padrão de rastreio distribuído em microserviços, consulte o [padrão de arquitetura Microservice: rastreio distribuído.](https://microservices.io/patterns/observability/distributed-tracing.html)
 - Para configurar a configuração para aplicar definições de rastreio distribuídos a um grande número de dispositivos, consulte [dispositivos Configure e monitoriem dispositivos IoT à escala](iot-hub-auto-device-config.md).

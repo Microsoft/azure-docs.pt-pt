@@ -9,15 +9,15 @@ ms.date: 03/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c3c9dbca6a76bf0b10a83087fc31d9fa41c6bd03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78331303"
 ---
 1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Criar um recurso**. 
 
-   ![Criar um recurso no portal Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+   ![Criar um recurso no portal do Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
 2. No campo **'Pesquisar no Mercado'** digite 'Virtual Network Gateway'. Localize **o gateway de rede virtual** na devolução da pesquisa e selecione a entrada. Na página **de gateway de rede Virtual,** selecione **Criar**. É aberta a página **Criar gateway de rede virtual**.
 3. No **separador Básicos,** preencha os valores do seu gateway de rede virtual.
 

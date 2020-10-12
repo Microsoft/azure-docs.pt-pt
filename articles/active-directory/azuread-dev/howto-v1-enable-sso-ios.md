@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383704"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Permitir o SSO de aplicações cruzadas no iOS utilizando o ADAL
@@ -46,7 +46,7 @@ Este como-assumir que sabe como:
 * Forcam a sua aplicação utilizando o portal legado para Azure AD. Para mais informações, consulte [Registar uma aplicação](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Integre a sua aplicação com o [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-## <a name="single-sign-on-concepts"></a>Conceitos de inscrição única
+## <a name="single-sign-on-concepts"></a>Conceitos de início de sessão único
 
 ### <a name="identity-brokers"></a>Corretores de identidade
 
@@ -175,11 +175,11 @@ Para que a plataforma de identidade saiba que é permitido partilhar fichas atra
 
 Redirecionar URIs permite identificar diferentes aplicações para o serviço de identidade da Microsoft se utilizar o mesmo ID de aplicação. Cada aplicação pode ter várias URIs de redirecionamento registadas no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Um exemplo de como isto parece abaixo:
 
-App1 Redirecionar URI:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+App1 Redirecionar URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-App2 Redirecionar URI:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+App2 Redirecionar URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-App3 Redirecionamento URI:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+App3 Redirecionamento URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando partilha um chaveiro em todas as suas aplicações qualquer aplicação pode eliminar utilizadores ou, pior, eliminar todos os tokens da sua aplicação. Isto é particularmente desastroso se tiver aplicações que dependem dos tokens para fazer trabalhos de fundo. Partilhar um porta-chaves significa que deve ter muito cuidado em todas as operações de remoção através dos SDKs de identidade.
 
-Já está! O SDK irá agora partilhar credenciais em todas as suas aplicações. A lista de utilizadores também será partilhada em todas as instâncias de aplicação.
+Já está. O SDK irá agora partilhar credenciais em todas as suas aplicações. A lista de utilizadores também será partilhada em todas as instâncias de aplicação.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ligar sSO para corretor assistido SSO
 
@@ -323,6 +323,6 @@ A ADAL utiliza o canOpenURL: para verificar se o corretor está instalado no dis
 
 Agora, a identidade SDK partilhará automaticamente credenciais através das suas aplicações e invocará o corretor se estiver presente no seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o protocolo SAML de assinatura única](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)

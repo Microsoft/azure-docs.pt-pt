@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
 ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84169139"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de Pesquisa Visual Bing
@@ -73,7 +73,7 @@ Os pedidos só podem ser enviados como HTTP POST.
 
 Os parâmetros seguintes são os parâmetros de consulta que o pedido deve especificar. No mínimo, deve incluir o `mkt` parâmetro de consulta:
 
-| Name | Valor | Tipo | Necessário |
+| Nome | Valor | Tipo | Necessário |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | Um código de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Não       |
 | <a name="mkt"></a>mkt   | O mercado de onde os resultados provêm. <br /><br /> **NOTA:** Deve sempre especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Sim      |
@@ -465,7 +465,7 @@ Se a imagem contiver uma entidade reconhecida, como uma pessoa culturalmente con
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [O que é a API de Pesquisa Visual do Bing?](../overview.md)
 - [Tutorial: Criar uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

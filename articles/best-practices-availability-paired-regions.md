@@ -9,13 +9,13 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194322"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade empresarial e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade de negócio e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure
 
 ## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
 
@@ -33,23 +33,23 @@ Note que nem todos os serviços Azure replicam automaticamente os dados, nem tod
 
 ## <a name="can-i-select-my-regional-pairs"></a>Posso escolher os meus pares regionais?
 
-Não. Alguns serviços da Azure dependem de pares regionais, como o [armazenamento redundante](./storage/common/storage-redundancy.md)de Azure. Estes serviços não permitem criar novos pares regionais.  Da mesma forma, como a Azure controla a priorização planeada de manutenção e recuperação para pares regionais, não pode definir os seus próprios pares regionais para tirar partido destes serviços. No entanto, você pode criar a sua própria solução de recuperação de desastres construindo serviços em qualquer número de regiões e aproveitando os serviços Azure para emparelhá-los. 
+N.º Alguns serviços da Azure dependem de pares regionais, como o [armazenamento redundante](./storage/common/storage-redundancy.md)de Azure. Estes serviços não permitem criar novos pares regionais.  Da mesma forma, como a Azure controla a priorização planeada de manutenção e recuperação para pares regionais, não pode definir os seus próprios pares regionais para tirar partido destes serviços. No entanto, você pode criar a sua própria solução de recuperação de desastres construindo serviços em qualquer número de regiões e aproveitando os serviços Azure para emparelhá-los. 
 
 Por exemplo, pode utilizar serviços Azure como [a AzCopy](./storage/common/storage-use-azcopy-v10.md) para agendar cópias de dados para uma conta de Armazenamento numa região diferente.  Utilizando [o Azure DNS e o Azure Traffic Manager,](./networking/disaster-recovery-dns-traffic-manager.md)os clientes podem projetar uma arquitetura resiliente para as suas aplicações que sobreviverão à perda da região primária.
 
 ## <a name="am-i-limited-to-using-services-within-my-regional-pairs"></a>Limito-me a usar serviços dentro dos meus pares regionais?
 
-Não. Enquanto um determinado serviço Azure pode contar com um par regional, você pode hospedar seus outros serviços em qualquer região que satisfaça as suas necessidades de negócio.  Uma solução de armazenamento Azure GRS pode emparelhar dados no Canadá Central com um par no Canadá East enquanto utiliza recursos compute localizados no Leste dos EUA.  
+N.º Enquanto um determinado serviço Azure pode contar com um par regional, você pode hospedar seus outros serviços em qualquer região que satisfaça as suas necessidades de negócio.  Uma solução de armazenamento Azure GRS pode emparelhar dados no Canadá Central com um par no Canadá East enquanto utiliza recursos compute localizados no Leste dos EUA.  
 
 ## <a name="must-i-use-azure-regional-pairs"></a>Devo usar pares regionais Azure?
 
-Não. Os clientes podem aproveitar os serviços da Azure para arquiteto um serviço resiliente sem depender dos pares regionais da Azure.  No entanto, recomendamos que configuure a recuperação de desastres de continuidade de negócios (BCDR) em pares regionais para beneficiar do [isolamento](./security/fundamentals/isolation-choices.md) e melhorar [a disponibilidade.](./availability-zones/az-overview.md) Nas aplicações que suportam várias regiões ativas, recomendamos a utilização de ambas as regiões num par de regiões sempre que possível. Isto garante uma ótima disponibilidade para aplicações e tempo de recuperação minimizado em caso de desastre. Sempre que possível, desenhe a sua aplicação para [máxima resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) e facilidade de recuperação de [desastres.](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
+N.º Os clientes podem aproveitar os serviços da Azure para arquiteto um serviço resiliente sem depender dos pares regionais da Azure.  No entanto, recomendamos que configuure a recuperação de desastres de continuidade de negócios (BCDR) em pares regionais para beneficiar do [isolamento](./security/fundamentals/isolation-choices.md) e melhorar [a disponibilidade.](./availability-zones/az-overview.md) Nas aplicações que suportam várias regiões ativas, recomendamos a utilização de ambas as regiões num par de regiões sempre que possível. Isto garante uma ótima disponibilidade para aplicações e tempo de recuperação minimizado em caso de desastre. Sempre que possível, desenhe a sua aplicação para [máxima resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) e facilidade de recuperação de [desastres.](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
 
 ## <a name="azure-regional-pairs"></a>Pares Regionais Azure
 
 | Geografia | Par Regional A | Par Regional B  |
 |:--- |:--- |:--- |
-| Ásia-Pacífico |Ásia Oriental (Hong Kong) | Sudeste Asiático (Singapura) |
+| Asia-Pacific |Ásia Oriental (Hong Kong) | Sudeste Asiático (Singapura) |
 | Austrália |Leste da Austrália |Austrália Sudeste |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |E.U.A. Centro-Sul |
@@ -66,7 +66,7 @@ Não. Os clientes podem aproveitar os serviços da Azure para arquiteto um servi
 | América do Norte |E.U.A. Leste |E.U.A. Oeste |
 | América do Norte |E.U.A. Leste 2 |E.U.A. Central |
 | América do Norte |E.U.A. Centro-Norte |E.U.A. Centro-Sul |
-| América do Norte |E.U.A.Oeste 2 |E.U.A. Centro-Oeste |
+| América do Norte |E.U.A. Oeste 2 |E.U.A. Centro-Oeste |
 | Noruega | Leste da Noruega | Oeste da Noruega |
 | África do Sul | África do Sul Norte |África do Sul |
 | Suíça | Suíça Norte |Suíça Oeste |
@@ -104,7 +104,7 @@ Como referido na figura 2.
 
 5. **Isolamento físico** – Quando possível, o Azure prefere pelo menos 300 milhas de separação entre datacenters em pares regionais, embora isso não seja prático ou possível em todas as geografias. A separação física do centro de dados reduz a probabilidade de desastres naturais, agitação civil, falhas de energia ou falhas físicas na rede que afetam ambas as regiões ao mesmo tempo. O isolamento está sujeito aos constrangimentos dentro da geografia (dimensão geográfica, disponibilidade de infraestruturas de energia/rede, regulamentos, etc.).  
 
-6. **Replicação fornecida pela plataforma** - Alguns serviços como o Geo-Redundant Storage fornecem replicação automática à região emparelhada.
+6. **Replicação fornecida pela plataforma** - Alguns serviços como Geo-Redundant Armazenamento fornecem replicação automática para a região emparelhada.
 
 7. **Ordem de recuperação** da região – Em caso de paralisação alargada, a recuperação de uma região é prioritária em cada par. As aplicações implementadas entre regiões emparelhadas têm a garantia de ter uma das regiões recuperadas com prioridade. Se um pedido for implementado em regiões que não estão emparelhadas, a recuperação pode ser adiada – no pior dos casos, as regiões escolhidas podem ser as duas últimas a ser recuperadas.
 

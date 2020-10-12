@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462433"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como: Executar uma aplicação com Fortanix Enclave Manager 
@@ -28,7 +28,7 @@ Fortanix é um fornecedor de software de terceiros com produtos e serviços cons
 
 
 
-Este tutorial mostra-lhe como converter a sua imagem de aplicação numa imagem confidencial protegida por computação. Este ambiente utiliza o software [Fortanix,](https://www.fortanix.com/) alimentado por máquinas virtuais da Série DCsv2 da Azure. Esta solução orquestra políticas críticas de segurança, tais como verificação de identidade e controlo de acesso a dados.
+Este tutorial mostra-lhe como converter a sua imagem de aplicação numa imagem confidencial protegida por computação. Este ambiente utiliza o software [Fortanix,](https://www.fortanix.com/) alimentado pelas máquinas virtuais DCsv2-Series intel SGX ativadas pela Azure. Esta solução orquestra políticas críticas de segurança, tais como verificação de identidade e controlo de acesso a dados.
 
  Para o apoio específico de Fortanix, junte-se à [comunidade Fortanix Slack](https://fortanix.com/community/) e use o canal #enclavemanager.
 
@@ -117,10 +117,10 @@ A criação de um Agente De Nó Fortanix irá implementar uma máquina virtual, 
      ![mercado de pesquisa](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. Selecione **Get It Now**, preencha as suas informações se necessário e selecione **Continue**. Será redirecionado para o portal Azure. 
 1. Selecione **Criar** para introduzir a página de implementação do Agente de Computação Confidencial Fortanix.
-1. Nesta página, você estará inserindo informações para implementar uma máquina virtual. Especificamente, este VM é uma máquina virtual ativada pela Série SCsv2 intel SGX da Azure com o software Fortanix Node Agent instalado. O Agente Nó permitirá que a sua imagem convertida seja executada de forma segura nos nós Intel SGX em Azure.  Selecione o grupo **de subscrição** e **recursos** onde pretende implementar a máquina virtual e os recursos associados. 
+1. Nesta página, você estará inserindo informações para implementar uma máquina virtual. Especificamente, este VM é uma máquina virtual ativada por Intel SGX DCsv2-Series a partir de Azure com o software Fortanix Node Agent instalado. O Agente Nó permitirá que a sua imagem convertida seja executada de forma segura nos nós Intel SGX em Azure.  Selecione o grupo **de subscrição** e **recursos** onde pretende implementar a máquina virtual e os recursos associados. 
  
     > [!NOTE]
-    > Existem constrangimentos ao implementar máquinas virtuais da Série DCsv2 em Azure. Poderá ter de solicitar uma quota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para mais informações. 
+    > Existem constrangimentos ao implementar DCsv2-Series máquinas virtuais em Azure. Poderá ter de solicitar uma quota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para mais informações. 
 
 1. Selecione uma região disponível.
 1. Introduza um nome para a sua máquina virtual no campo **Nome do Nó.** 
@@ -168,7 +168,7 @@ Para eliminar a Conta Gestora do Enclave fortanix que criou, vá à [Página de 
 
   ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, usou a ferramenta Fortanix para converter a sua imagem de aplicação para funcionar em cima de uma máquina virtual de computação confidencial. Para obter mais informações sobre máquinas virtuais de computação confidencial no Azure, consulte [Soluções em Máquinas Virtuais.](virtual-machine-solutions.md) 
 

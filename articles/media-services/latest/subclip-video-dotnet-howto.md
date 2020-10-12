@@ -15,10 +15,10 @@ ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296571"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip um vídeo ao codificar com os Media Services - .NET
@@ -90,6 +90,6 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como codificar com uma transformação personalizada](customize-encoder-presets-how-to.md) 

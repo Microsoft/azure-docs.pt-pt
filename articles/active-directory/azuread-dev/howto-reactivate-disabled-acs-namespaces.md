@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383722"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nome do Serviço de Controlo de Acesso desativado
@@ -124,6 +124,6 @@ As novas prorrogações deixarão de ser automaticamente aprovadas. Se precisar 
 - Se tiver algum problema depois de seguir este como fazer, contacte o suporte da [Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 - Se tiver dúvidas ou feedback sobre a reforma da ACS, contacte-nos em acsfeedback@microsoft.com .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja as informações sobre a reforma da ACS em [Como: Migrar do Serviço de Controlo de Acesso Azure](active-directory-acs-migration.md).

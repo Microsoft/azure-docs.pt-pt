@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
 ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206631"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação twilio para funções Azure
@@ -334,7 +334,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**|**nome**| Nome variável utilizado no código de função para a mensagem de texto SMS Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor deve ser definido como o nome de uma definição de app que detém o seu Sid conta Twilio `TwilioAccountSid` (). Se não for definido, o nome de definição de aplicação predefinido é "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor deve ser definido como o nome de uma definição de aplicação que detém o seu token de autenticação Twilio ( `TwilioAccountAuthToken` ). Se não for definido, o nome de definição de aplicação padrão é "AzureWebJobsTwilioAuthToken". |
-|**para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
+|**Para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
 |**De**|**De** | **De**| Este valor é definido para o número de telefone de onde o texto SMS é enviado.|
 |**corpo**|**corpo** | **Corpo**| Este valor pode ser utilizado para codificar a mensagem de texto SMS se não precisar de a definir dinamicamente no código para a sua função. |  
 

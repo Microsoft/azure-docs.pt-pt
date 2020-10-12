@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
 ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846025"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Configuração de identidade do Diretório Ativo Azure para Azure API para FHIR
@@ -97,10 +97,10 @@ Ao utilizar um servidor FHIR, pode utilizar os `v1.0` pontos finais ou os `v2.0`
 
 As secções pertinentes da documentação da AD Azure são:
 
-* `v1.0`ponto final:
+* `v1.0` ponto final:
     * [Fluxo de código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code).
     * [Fluxo de credenciais de cliente.](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* `v2.0`ponto final:
+* `v2.0` ponto final:
     * [Fluxo de código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
     * [Fluxo de credenciais de cliente.](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 

@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: aebe1d995f3cb6da4663876b8d39d36a1a8b16c9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030172"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos pelo utilizador dentro do SQL da Sinapse
@@ -120,6 +120,6 @@ FROM    [edw].customer
 
 Se forem necessárias mais permissões granulares, pode utilizar funções de base de dados. Para obter mais informações sobre as funções de base de dados, consulte as [funções de base de dados Gerir e artigos de utilizadores.](../../analysis-services/analysis-services-database-users.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)

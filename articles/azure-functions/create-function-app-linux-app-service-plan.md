@@ -4,10 +4,10 @@ description: Saiba como criar a sua primeira Função Azure no Linux utilizando 
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970737"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar uma aplicação de função no Linux num plano de Serviço de Aplicações Azure
@@ -44,7 +44,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     |**Versão**| Número da versão | Escolha a versão do seu tempo de execução instalado.  |
     |**Região**| Região preferida | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Página básica":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Criar uma aplicação de funções no portal do Azure":::
 
 1. Selecione **Seguinte : Hospedagem**. Na página **'Hospedagem',** insira as seguintes definições.
 
@@ -54,7 +54,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     |**Sistema operativo**| **Linux** | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. |
     | **[Planear](../azure-functions/functions-scale.md)** | **Consumo (Sem servidor)** | O plano de alojamento que define a forma como os recursos são alocados à sua aplicação Function App. No **Plano de Consumo** predefinido, os recursos são adicionados dinamicamente, conforme necessário por parte das suas funções. Neste hospedagem [sem servidor,](https://azure.microsoft.com/overview/serverless-computing/) paga-se apenas pelo tempo que as suas funções são executadas. Quando executa num plano do Serviço de Aplicações, tem de gerir o [dimensionamento da sua aplicação de funções](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Página de hospedagem":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Criar uma aplicação de funções no portal do Azure":::
 
 1. Selecione **Seguinte : Monitorização**. Na página **'Monitor'** insira as seguintes definições.
 
@@ -62,7 +62,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Sim** (padrão) | Cria um recurso Application Insights com o mesmo *nome app* na região suportada mais próxima. Ao expandir esta definição ou selecionar **Criar novos,** pode alterar o nome De Insights de Aplicação ou escolher uma região diferente numa [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde pretende armazenar os seus dados. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Página de monitorização":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Criar uma aplicação de funções no portal do Azure":::
 
 1. Selecione **Review + crie** para rever as seleções de configuração da aplicação.
 

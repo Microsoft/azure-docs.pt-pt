@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296095"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
@@ -646,7 +646,7 @@ A Microsoft gere a infraestrutura subjacente às Apps Azure Logic e implementou 
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
 
-**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o Controlo de Acesso Baseado em Funções (RBAC) para que possa atribuir funções personalizadas ou integradas aos membros da sua subscrição Azure:
+**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o Azure Role-Based Access Control (RBAC) para que possa atribuir funções personalizadas ou incorporadas aos membros da sua subscrição Azure:
 
 - Logic App Contributor: Permite-lhe gerir aplicações lógicas, mas não pode alterar o acesso às mesmos.
 - Operador de aplicativos logicos: Permite-lhe ler, ativar e desativar aplicações lógicas, mas não pode editá-las ou atualizá-las.
@@ -1190,13 +1190,13 @@ Teste de restauração de chaves geridas pelo cliente. Note que isto se aplica a
 
 Proteja as chaves geridas pelo cliente. Note que isto se aplica apenas a Aplicações Lógicas em ambientes de serviço de integração (ISE).
 
-Ativar a proteção soft-Delete e purgar no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 - [Saiba mais sobre continuidade de negócios e recuperação de desastres para Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
 - [Confiem chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviço de integração (ISEs) em Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [Como permitir a proteção soft-delete e purgar no cofre de chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1292,7 +1292,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

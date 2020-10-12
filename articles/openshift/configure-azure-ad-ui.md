@@ -9,17 +9,17 @@ ms.author: asabbour
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
 ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469886"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação do Diretório Ativo Azure para um cluster Azure Red Hat OpenShift 4 (Portal)
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Construa o URL de **retorno de OAuth** do cluster e tome nota dele. Certifique-se de que substitui **o aro-rg** pelo nome do seu grupo de recursos e **pelo aro-cluster** pelo nome do seu cluster.
 

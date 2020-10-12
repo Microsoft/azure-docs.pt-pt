@@ -9,10 +9,10 @@ ms.date: 12/01/2016
 ms.author: memccror
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c2cec08d86760694ec3c41a98af62c6b86e0a4c9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071096"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como escalar um serviço em nuvem em PowerShell

@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194923"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Empurre os dados para um índice de pesquisa cognitiva Azure utilizando a Azure Data Factory
@@ -55,7 +55,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 
 A tabela seguinte fornece descrições para elementos JSON específicos do serviço Azure Cognitive Search.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Sim |
 | url | URL para o serviço de pesquisa. | Sim |
@@ -65,7 +65,7 @@ A tabela seguinte fornece descrições para elementos JSON específicos do servi
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados. A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção typeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Sim |
 | nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
@@ -99,10 +99,10 @@ A tabela seguinte especifica se um tipo de dados de pesquisa cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva Azure | Suportado em Azure Cognitive Search Sink |
 | ---------------------- | ------------------------------ |
-| String | S |
+| Cadeia | S |
 | Int32 | S |
 | Int64 | S |
-| Double | S |
+| Double (Duplo) | S |
 | Booleano | S |
 | DataTimeOffset | S |
 | Matriz de Cordas | N |
@@ -290,7 +290,7 @@ Também pode mapear colunas de conjunto de dados de origem para colunas a partir
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Consulte o guia de [desempenho e afinação da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber sobre os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) e várias formas de otimizá-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 * [Copiar tutorial de atividade](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instruções passo a passo para a criação de um oleoduto com uma Atividade de Cópia.

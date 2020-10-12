@@ -4,10 +4,10 @@ description: Descreve como especificar se deve utilizar um modo de implementaç�
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371588"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Gestor de Recursos Azure
@@ -124,7 +124,7 @@ O exemplo a seguir mostra um modelo ligado definido para o modo de implementaç�
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](template-syntax.md)
 * Para saber mais sobre a implementação de recursos, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75644635"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar ficheiros de configuração em Tecido de Serviço
@@ -57,5 +57,5 @@ Neste exemplo, substitui-se um valor de configuração utilizando parâmetros na
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Visual Studio, consulte [Gerir as aplicações de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).

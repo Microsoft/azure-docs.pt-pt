@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462552"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre aceleradores de soluções do IoT
@@ -46,9 +46,9 @@ Nos últimos dois anos, a arquitetura em nuvem evoluiu muito. Os microserviços 
 
 Consulte [Para adicionar uma subscrição existente ao seu diretório AD Azure](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um Administrador de Serviço ou Coadministrador quando iniciado sessão com uma conta organizacional
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quero alterar um Administrador de Serviço ou Co-Administrator quando iniciar sessão com uma conta organizacional
 
-Consulte o artigo [De formação em Administração e Coadministrador de Serviços de alteração quando iniciado sessão com uma conta organizacional.](https://azure.microsoft.com/support/changing-service-admin-and-co-admin)
+Consulte o artigo [De alteração de serviços Administrador e Co-Administrator quando iniciado sessão com uma conta organizacional](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Porque estou a ver este erro? "A sua conta não tem as permissões adequadas para criar uma solução. Consulte o seu administrador de conta ou tente com uma conta diferente."
 
@@ -78,7 +78,7 @@ Sim, a nova Monitorização Remota está disponível nas mesmas regiões geográ
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Posso continuar a alavancar os meus investimentos existentes em aceleradores de solução Azure IoT?
 
-Yes. Qualquer solução que exista hoje continua a funcionar na sua subscrição Azure e o código fonte permanece disponível no GitHub.
+Sim. Qualquer solução que exista hoje continua a funcionar na sua subscrição Azure e o código fonte permanece disponível no GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT é possível aprovisionar numa subscrição?
 
@@ -103,7 +103,7 @@ Atualmente, não é possível criar um acelerador de soluções com uma conta [M
 
 Veja o post de Eric Golpe no blog [Walkthrough of Deleting a Azure AD Tenant](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 

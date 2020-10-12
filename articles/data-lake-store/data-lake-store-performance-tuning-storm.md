@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192816"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para storm on HDInsight e Azure Data Lake Storage Gen1
@@ -98,7 +98,7 @@ Se a taxa de entrada de tuples não for alta, por isso o tampão de 4-MB demora 
 * Reduzindo o número de parafusos, para que haja menos tampão para preencher.
 * Ter uma política baseada no tempo ou na contagem, onde um hflush é acionado cada x flushes ou cada milissegundos, e os tuples acumulados até agora são reconhecidos de volta.
 
-A produção neste caso é menor, mas com uma taxa lenta de eventos, a produção máxima não é o maior objetivo de qualquer maneira. Estas mitigações ajudam a reduzir o tempo total que um tuple leva para fluir até à loja. Isto pode importar se você quiser um oleoduto em tempo real mesmo com uma taxa de evento baixa. Note também que se a sua taxa de tuple de entrada for baixa, deve ajustar o parâmetro topology.message.timeout_secs, para que os tuples não se desemfetem enquanto estão a ser tamponados ou processados.
+A produção neste caso é menor, mas com uma taxa lenta de eventos, a produção máxima não é o maior objetivo de qualquer maneira. Estas mitigações ajudam a reduzir o tempo total que um tuple leva para fluir até à loja. Isto pode importar se você quiser um oleoduto em tempo real mesmo com uma taxa de evento baixa. Note também que se a sua taxa de tuple de entrada for baixa, deve ajustar o parâmetro topology.message.timeout_secs, para que os tuples não se esfole enquanto estão a ser tamponados ou processados.
 
 ## <a name="monitor-your-topology-in-storm"></a>Monitorize a sua topologia em Tempestade  
 Enquanto a sua topologia está em funcionamento, pode monitorá-la na interface do utilizador Storm. Aqui estão os principais parâmetros a analisar:

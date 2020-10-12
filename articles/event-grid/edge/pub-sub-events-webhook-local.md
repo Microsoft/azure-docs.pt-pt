@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171453"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicar, subscrever eventos localmente
@@ -75,7 +75,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
           }
         }
     ```    
- 1. Clique em **Guardar**
+ 1. Clicar em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo Azure Event Grid Subscriber antes de os colocar em conjunto.
 
     >[!IMPORTANT]
@@ -97,7 +97,7 @@ Esta secção mostra-lhe como implantar outro módulo IoT que funcionaria como u
    * **Nome**: assinante
    * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contentores:** Nenhuma
-1. Clique em **Guardar**
+1. Clicar em **Guardar**
 1. Clique **ao lado** para continuar na secção de rotas
 
  ### <a name="setup-routes"></a>Rotas de configuração

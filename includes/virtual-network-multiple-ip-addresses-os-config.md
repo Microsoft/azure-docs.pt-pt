@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194200"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
@@ -59,7 +59,7 @@ ping -S 10.0.0.7 outlook.com
   <summary>Expandir</summary>
 Recomendamos que procure a documentação mais recente para a sua distribuição Linux. 
 
-1. Abra uma janela de terminal.
+1. Abra uma janela do terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
 
    ```bash
@@ -138,14 +138,14 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Certifique-se de que substitui:
     - **10.0.0.5** pelo endereço IP privado que tem um endereço IP público associado ao mesmo
     - **10.0.0.1** para o gateway predefinido
-    - **eth2** para o nome do seu NIC secundário</details>
+    - **eth2** para o nome do seu NIC secundário </details>
 
 ### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
 <details>
   <summary>Expandir</summary>
 Ubuntu 18.04 ou acima mudaram para a `netplan` gestão da rede de OS. Recomendamos que procure a documentação mais recente para a sua distribuição Linux. 
 
-1. Abra uma janela de terminal.
+1. Abra uma janela do terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
 
     ```bash
@@ -182,7 +182,7 @@ Ubuntu 18.04 ou acima mudaram para a `netplan` gestão da rede de OS. Recomendam
     ```
 
 > [!NOTE]
-> `netplan try`aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, por favor, aguarde 120 segundos e, em seguida, reconecte-se. Nessa altura, as alterações terão sido revoadas.
+> `netplan try` aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, por favor, aguarde 120 segundos e, em seguida, reconecte-se. Nessa altura, as alterações terão sido revoadas.
 
 7. Assumindo que não há problemas com `netplan try` , aplique as alterações de configuração:
 
@@ -236,13 +236,13 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Certifique-se de que substitui:
     - **10.0.0.5** pelo endereço IP privado que tem um endereço IP público associado ao mesmo
     - **10.0.0.1** para o gateway predefinido
-    - **eth2** para o nome do seu NIC secundário</details>
+    - **eth2** para o nome do seu NIC secundário </details>
 
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Chapéu Vermelho, CentOS, entre outros)
 <details>
   <summary>Expandir</summary>
 
-1. Abra uma janela de terminal.
+1. Abra uma janela do terminal.
 2. Certifique-se de que é o utilizador raiz. Se não for, introduza o seguinte comando:
 
     ```bash
@@ -322,4 +322,4 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Certifique-se de que substitui:
     - **10.0.0.5** pelo endereço IP privado que tem um endereço IP público associado ao mesmo
     - **10.0.0.1** para o gateway predefinido
-    - **eth2** para o nome do seu NIC secundário</details>
+    - **eth2** para o nome do seu NIC secundário </details>

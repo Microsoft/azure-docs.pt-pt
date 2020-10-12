@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383739"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Manipulação de erros das melhores práticas para clientes da Azure Ative Directory Authentication Library (ADAL)
@@ -545,7 +545,7 @@ Para explorar erros ADAL específicos, o código fonte no [repositório azure-ac
 
 Podem surgir erros no iOS durante a entrada de informação quando os utilizadores utilizam visualizações web e a natureza da autenticação. Isto pode ser causado por condições como erros TLS, intervalos ou erros de rede:
 
-- Para a Partilha de Direitos, os logins não são persistentes e a cache parece vazia. Pode resolver adicionando a seguinte linha de código ao chaveiro:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Para a Partilha de Direitos, os logins não são persistentes e a cache parece vazia. Pode resolver adicionando a seguinte linha de código ao chaveiro: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Para o conjunto de erros NsUrlDomain, a ação muda dependendo da lógica da aplicação. Consulte a [documentação de referência da NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) para casos específicos que podem ser manuseados.
 - Consulte [as questões comuns do ADAL Obj-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) para a lista de erros comuns mantidos pela equipa ADAL Objective-C.
 

@@ -6,13 +6,13 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184623"
 ---
-# <a name="troubleshoot-azure-vm-extension-issues"></a>Problemas de resolução de problemas Problemas Azure VM problemas de extensão
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Resolver problemas da extensão da VM do Azure
 
 Este artigo fornece medidas de resolução de problemas que podem ajudá-lo a resolver erros de recuperação do site Azure relacionados com o agente VM e extensão.
 
@@ -84,12 +84,12 @@ A maioria das falhas relacionadas com o agente ou relacionadas com extensões pa
    > [!NOTE]
    > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos baixar o código do agente diretamente do GitHub e atualizá-lo. Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página do [agente Do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
 
-1. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando:`ps -e`
+1. Certifique-se de que o agente Azure está a funcionar no VM executando o seguinte comando: `ps -e`
 
    Se o processo não estiver em curso, reinicie-o utilizando os seguintes comandos:
 
-   - Para Ubuntu:`service walinuxagent start`
-   - Para outras distribuições:`service waagent start`
+   - Para Ubuntu: `service walinuxagent start`
+   - Para outras distribuições: `service waagent start`
 
 1. [Configure o agente de reinício automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Ativar a proteção da máquina virtual.

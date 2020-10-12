@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564234"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substitua um controlador EBOD no seu dispositivo StorSimple
@@ -98,6 +98,6 @@ O procedimento e a tabela seguintes explicam como instalar um módulo controlado
    | 8 |Recinto EBOD |
    | 9 |Unidades de Distribuição de Energia |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a substituição do componente de hardware StorSimple](storsimple-8000-hardware-component-replacement.md).
 

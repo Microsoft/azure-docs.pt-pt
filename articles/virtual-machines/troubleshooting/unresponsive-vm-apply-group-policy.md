@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
 ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526015"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>VM não responde ao aplicar a política de utilizadores e grupos locais de política de grupo
@@ -31,7 +31,7 @@ Quando está a utilizar [diagnósticos de arranque](./boot-diagnostics.md) para 
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012 R2).":::
 
 ## <a name="cause"></a>Causa
 
@@ -66,23 +66,7 @@ Eis a política problemática:
 1. Na VM de reparação, abra o Editor de Registos.
 1. Localize a **chave HKEY_LOCAL_MACHINE** e selecione a Colmeia de Carga de **Ficheiros**no  >  **Load Hive** menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="A screenshot mostra HKEY_LOCAL_MACHINE e o menu contendo Load Hive.":::
-
-    - Pode utilizar a Colmeia de Carga para carregar as chaves de registo de um sistema offline. Neste caso, o sistema é o disco partido ligado à VM de reparação.
-    - As definições em todo o sistema são armazenadas `HKEY_LOCAL_MACHINE` e podem ser abreviadas como "HKLM".
-1. No disco anexo, vá ao `\windows\system32\config\SOFTWARE` ficheiro e abra-o.
-
-    1. Quando lhe pedirem um nome, insira BROKENSOFTWARE.
-    1. Para verificar se brokensoftware foi carregado, expanda **HKEY_LOCAL_MACHINE** e procure a chave BROKENSOFTWARE adicionada.
-1. Vá ao BROKENSOFTWARE e verifique se existe a chave CleanupProfile na colmeia carregada.
-
-    1. Se a chave existir, a política cleanupProfile está definida. O seu valor representa a política de retenção medida em dias. Continua a apagar a chave.
-    1. Se a chave não existir, a política do CleanupProfile não está definida. [Envie um bilhete de suporte,](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)incluindo o ficheiro memory.dmp localizado no diretório windows do disco OS anexado.
-
-1. Elimine a tecla CleanupProfiles utilizando este comando:
-
-    ```
-    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012 R2)." /v CleanupProfiles /f
     ```
 1.  Descarregue a colmeia BROKENSOFTWARE utilizando este comando:
 
@@ -148,6 +132,6 @@ Não use esta política:
 
 `Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver problemas quando aplicar o Windows Update, veja que [o VM não responde com o erro "C01A001D" ao aplicar o Windows Update](./unresponsive-vm-apply-windows-update.md).

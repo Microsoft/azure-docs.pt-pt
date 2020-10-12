@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470039"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
@@ -107,7 +107,7 @@ O Azure Red Hat OpenShift requer permissões para executar tarefas no seu cluste
 
 Siga as instruções na [Criar um objeto de aplicação AD AZure e utilizador](howto-aad-app-configuration.md) para criar um principal de serviço, gerar um URL de retorno secreto e de autenticação do cliente para a sua aplicação, e criar um novo grupo de segurança AD AD E um utilizador para aceder ao cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está agora pronto para usar o Azure Red Hat OpenShift!
 

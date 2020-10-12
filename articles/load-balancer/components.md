@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
 ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589712"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do balançador de carga Azure
