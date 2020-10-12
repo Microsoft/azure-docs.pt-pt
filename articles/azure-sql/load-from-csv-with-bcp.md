@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e59cc056d92206f13b746f040f3563c6c6e0af04
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616793"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Carregar dados do CSV para a Base de Dados SQL do Azure ou para a SqL (ficheiros planos)
@@ -23,7 +23,7 @@ ms.locfileid: "91616793"
 
 Pode utilizar o utilitário da linha de comando do BCP para importar dados de um ficheiro CSV para a Base de Dados Azure SQL ou para a Azure SQL Gerenciada.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

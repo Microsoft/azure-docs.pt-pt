@@ -4,10 +4,10 @@ description: Saiba como usar a Azure DevTest Labs para cenários de ambiente de 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89299835"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Utilize laboratórios Azure DevTest para ambientes de teste de VM e PaaS

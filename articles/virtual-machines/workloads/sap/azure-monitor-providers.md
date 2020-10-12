@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: e18d0b84e987e6c36f3f3b4215743025cac76d45
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987260"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)

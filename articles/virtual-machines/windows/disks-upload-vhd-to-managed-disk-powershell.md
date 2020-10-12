@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88689614"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell

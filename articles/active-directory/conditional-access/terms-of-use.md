@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085914"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
@@ -117,7 +117,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Description |
+   | Modelo | Descrição |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |

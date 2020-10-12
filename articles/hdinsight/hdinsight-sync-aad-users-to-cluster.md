@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504660"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
@@ -146,7 +146,7 @@ Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar 
 Quando o novo utilizador (ou qualquer outro utilizador de domínio) entra em Ambari, utiliza o seu nome de utilizador completo Azure AD e credenciais de domínio.  Ambari exibe um pseudónimo do utilizador, que é o nome de exibição do utilizador em Azure AD.
 O novo utilizador de exemplo tem o nome de `hiveuser3@contoso.com` utilizador. Em Ambari, este novo utilizador aparece como `hiveuser3` mas o utilizador entra em Ambari como `hiveuser3@contoso.com` .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Configure as políticas da Colmeia Apache em HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
 * [Gerir clusters HDInsight com ESP](hdinsight-domain-joined-manage.md)

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: e7f013d16b899418a5262f23dfcc595a1e270616
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281213"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a partilha de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
@@ -18,7 +18,7 @@ As aplicações baseadas em contentores precisam frequentemente de aceder e pers
 
 Para obter mais informações sobre volumes kubernetes, consulte [as opções de Armazenamento para aplicações em AKS][concepts-storage].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Monte a partilha de ficheiros como um volume
 
-Para montar os Ficheiros Azure partilhar na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro nomeado `azure-files-pod.yaml` com o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath` , que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
+Para montar os Ficheiros Azure partilhem na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-files-pod.yaml` o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath` , que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
 ```yaml
 apiVersion: v1

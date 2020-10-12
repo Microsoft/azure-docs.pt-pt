@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539576"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Upgrade para Azure Cognitive Search .NET SDK versão 11
@@ -192,7 +192,7 @@ Em termos de atualizações da versão de serviço, em que as alterações de c�
 
 + [Os resultados ordenados](search-query-odata-orderby.md) para valores nulos mudaram nesta versão, com os valores nulos a aparecerem primeiro se o tipo for `asc` e durar se o tipo for `desc` . Se escreveu código para lidar com a classificação dos valores nulos, deve rever e potencialmente remover esse código se já não for necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Azure.Search.Docpacote de uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Exemplos no GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)

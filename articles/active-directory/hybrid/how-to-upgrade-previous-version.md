@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319865"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualizar de uma versão anterior para a mais recente
@@ -131,7 +131,7 @@ Pode haver situações em que não queira que estas sobreposições ocorram imed
 5. Para retomar o programador, executar o seguinte cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Lembre-se de executar os passos de sincronização necessários o mais rápido possível. Pode executar manualmente estes passos utilizando o Gestor de Serviço de Sincronização ou adicionar as substituições de volta utilizando o cmdlet Set-ADSyncSchedulerConnectorOverride.
+   > Lembre-se de executar os passos de sincronização necessários o mais rápido possível. Pode executar manualmente estes passos utilizando o Gestor de Serviço de Sincronização ou adicionar as sobreposições utilizando o Set-ADSyncSchedulerConnectorOverride cmdlet.
 
 Para adicionar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 

@@ -9,10 +9,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616861"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
@@ -47,7 +47,7 @@ Isto deve funcionar em muitos cenários, e nós entendemos que um endereço IP e
 Para obter mais informações sobre mecanismos de segurança de rede suportados nas lojas de dados em Azure Integration Runtime e Self-hosted Integration Runtime, consulte abaixo de duas tabelas.  
 * **Tempo de execução da integração Azure**
 
-    | Arquivos de Dados                  | Mecanismo de Segurança da Rede Suportado nas Lojas de Dados | Private Link     | Serviço de Confiança     | Gama IP estática | Etiquetas de Serviço | Permitir serviços Azure |
+    | Arquivos de Dados                  | Mecanismo de Segurança da Rede Suportado nas Lojas de Dados | Ligação Privada     | Serviço de Confiança     | Gama IP estática | Etiquetas de Serviço | Permitir serviços Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
     | Lojas de dados Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Sim             | -            | Sim                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Sim*            | Sim*         | -                    |

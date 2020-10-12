@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
 ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446170"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure

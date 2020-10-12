@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - contperfq1
 ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500373"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
@@ -73,13 +73,13 @@ Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Windo
 
 Os seguintes passos demonstram um exemplo de uma instalação de janelas utilizando o `-proxy` argumento:
 
-1. O comando Invoke-WebRequest necessita de informações proxy para aceder ao script do instalador. Em seguida, o comando Implementar-IoTEdge necessita da informação proxy para descarregar os ficheiros de instalação.
+1. O comando Invoke-WebRequest precisa de informação por procuração para aceder ao script do instalador. Em seguida, o comando Deploy-IoTEdge precisa da informação proxy para descarregar os ficheiros de instalação.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
    ```
 
-2. O comando Initialize-IoTEdge não precisa de passar pelo servidor proxy, pelo que o segundo passo requer apenas informações de procuração para Invoke-WebRequest.
+2. O comando Initialize-IoTEdge não precisa de passar pelo servidor proxy, por isso o segundo passo requer apenas informações de procuração para Invoke-WebRequest.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
@@ -271,7 +271,7 @@ Se incluiu a variável ambiente **UpstreamProtocol** no ficheiro confige.yaml no
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os papéis do tempo de [execução IoT Edge](iot-edge-runtime.md).
 

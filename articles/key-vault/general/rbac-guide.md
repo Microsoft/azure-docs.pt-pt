@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772792"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
@@ -224,7 +224,7 @@ Para obter mais informações sobre como criar funções personalizadas, consult
 
 -   Funitências latência: no desempenho esperado atual, levará até 10 minutos (600 segundos) após a alteração das atribuições de funções para que o papel seja aplicado
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - [Visão geral do Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Tutorial de Papéis Personalizados](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

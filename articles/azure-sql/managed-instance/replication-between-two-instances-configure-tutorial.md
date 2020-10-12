@@ -13,10 +13,10 @@ ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617065"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
@@ -44,7 +44,7 @@ Este tutorial destina-se a um público experiente e assume que o utilizador est�
 
 
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Configurar a SQL Managed Instance para funcionar como editor e/ou distribuidor requer:
 

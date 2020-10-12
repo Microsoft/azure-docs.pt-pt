@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: e618395a2a4a11b4afb311d612cf5d0e27503dc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898862"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: Atribuir dados a clusters
@@ -45,7 +45,7 @@ O módulo Dedesemesto dados a Clusters devolve um conjunto de dados que contém 
   
 5.  Envie o oleoduto.  
   
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 +  Para ver os valores no conjunto de dados, clique com o botão direito no módulo e, em seguida, **selecione Visualize**. Ou selecione o módulo e mude para o **separador Saídas** no painel direito, clique no ícone histograma nas **saídas** da Porta para visualizar o resultado.
 

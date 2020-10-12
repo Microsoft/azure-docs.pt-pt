@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898847"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore da decisão reforçada
@@ -97,7 +97,7 @@ O método de aumento do gradiente também pode ser usado para problemas de class
 
 10. Envie o oleoduto.  
   
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 

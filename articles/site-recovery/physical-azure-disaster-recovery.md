@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927288"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Confiússe de desastre para Azure para servidores físicos no local
@@ -32,7 +32,7 @@ Este tutorial mostra-lhe como configurar a recuperação de desastres de servido
 Para concluir este tutorial:
 
 - Certifique-se de que compreende a [arquitetura e os componentes](physical-azure-architecture.md) para este cenário.
-- Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) para todos os componentes.
 - Certifique-se de que os servidores que pretende replicar cumprem os [requisitos do Azure VM](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepara o Azure. Precisa de uma subscrição Azure, uma rede virtual Azure e uma conta de armazenamento.
 - Prepare uma conta para a instalação automática do serviço Mobility em cada servidor que pretende replicar.
@@ -85,7 +85,7 @@ O serviço Mobility tem de ser instalado em cada servidor que pretende replicar.
 
 - Pode utilizar um domínio ou conta local
 - Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto na máquina local. Para isso, no registo em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy,** com um valor de 1.
-- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve estar na raiz do servidor Linux de origem.
 
 

@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 32a8214a5bd6844c9177c7af159a453bc3673efc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450484"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts

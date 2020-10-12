@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: abnarain
 ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069480"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
@@ -478,7 +478,7 @@ Segue-se a resposta esperada:
 
 O nó de tempo de execução integrado auto-hospedado pode ter um estado **inativo,** como mostra a seguinte imagem:
 
-![Nó iv inativo auto-hospedado](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Nó iv Self-Hosted inativo](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 Este comportamento ocorre quando os nós não conseguem comunicar uns com os outros.
 

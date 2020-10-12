@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064155"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Gerir com segurança as dependências dos frascos
+# <a name="safely-manage-jar-dependencies"></a>Gerir dependências jar com segurança
 
 Os componentes instalados em clusters HDInsight têm dependências de bibliotecas de terceiros. Normalmente, uma versão específica de módulos comuns como o Guava é referenciada por estes componentes incorporados. Quando submete uma aplicação com as suas dependências, pode causar um conflito entre diferentes versões do mesmo módulo. Se a versão componente que se refere primeiro no classpath, os componentes incorporados podem lançar exceções devido à incompatibilidade da versão. No entanto, se os componentes incorporados injetarem as suas dependências no caminho de classe primeiro, a sua aplicação pode lançar erros como `NoSuchMethod` .
 
@@ -77,7 +77,7 @@ assemblyShadeRules in assembly := Seq(
 
 Depois podes correr `sbt clean` e construir o ficheiro do frasco `sbt assembly` sombreado. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use ferramentas HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
 

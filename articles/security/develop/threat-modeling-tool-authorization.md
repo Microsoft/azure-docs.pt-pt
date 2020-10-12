@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300005"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
@@ -36,7 +36,7 @@ ms.locfileid: "89300005"
 | **Limite de confiança do tecido de serviço** | <ul><li>[Restringir o acesso do cliente a operações de cluster usando o RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Realizar modelação de segurança e utilizar a Segurança do Nível de Campo sempre que necessário](#modeling-field)</li></ul> |
 | **Portal crm dinâmico** | <ul><li>[Realizar modelação de segurança das contas do portal tendo em conta que o modelo de segurança do portal difere do resto do CRM](#portal-security)</li></ul> |
-| **Armazenamento do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir o Controlo de Acesso Baseado em Funções (RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir Role-Based Controlo de Acesso (RBAC) para a conta de armazenamento Azure usando O Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Implementar jailbreak implícito ou deteção de enraizamento](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controlo de autorização de implementação do WCF](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implementar mecanismo de autorização adequado na ASP.NET Web API](#authz-aspnet)</li></ul> |
@@ -107,7 +107,7 @@ ms.locfileid: "89300005"
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | <p>O princípio significa dar apenas a uma conta de utilizador os privilégios essenciais para que os utilizadores trabalhem. Por exemplo, um utilizador de backup não precisa de instalar software: por isso, o utilizador de backup tem direitos apenas para executar aplicações de backup e de backup. Quaisquer outros privilégios, como a instalação de novos softwares, estão bloqueados. O princípio aplica-se também a um utilizador de computador pessoal que normalmente trabalha numa conta normal de utilizador, e abre uma conta privilegiada e protegida por palavra-passe (isto é, um superuser) apenas quando a situação a exige. </p><p>Este princípio também pode ser aplicado às suas aplicações web. Em vez de depender exclusivamente de métodos de autenticação baseados em funções utilizando sessões, queremos atribuir privilégios aos utilizadores através de um sistema de autenticação baseado em bases de dados. Ainda utilizamos sessões para identificar se o utilizador foi iniciado corretamente, só agora em vez de atribuir esse utilizador com uma função específica que lhe atribuímos com privilégios para verificar quais as ações que tem o privilégio de realizar no sistema. Também um grande pro deste método é que, sempre que um utilizador tem de ser atribuído menos privilégios, as suas alterações serão aplicadas no voo, uma vez que a atribuição não depende da sessão que de outra forma teve de expirar primeiro.</p>|
+| **Passos** | <p>O princípio significa dar apenas a uma conta de utilizador os privilégios essenciais para que os utilizadores trabalhem. Por exemplo, um utilizador de backup não precisa de instalar software: por isso, o utilizador de backup tem direitos apenas para executar aplicações de backup e de backup. Quaisquer outros privilégios, como a instalação de novos softwares, estão bloqueados. O princípio aplica-se também a um utilizador de computador pessoal que normalmente trabalha numa conta normal de utilizador, e abre uma conta privilegiada e protegida por palavra-passe (isto é, um superuser) apenas quando a situação a exige. </p><p>Este princípio também pode ser aplicado às suas aplicações web. Em vez de depender exclusivamente de métodos de autenticação baseados em funções utilizando sessões, queremos atribuir privilégios aos utilizadores através de um sistema de autenticação Database-Based. Ainda utilizamos sessões para identificar se o utilizador foi iniciado corretamente, só agora em vez de atribuir esse utilizador com uma função específica que lhe atribuímos com privilégios para verificar quais as ações que tem o privilégio de realizar no sistema. Também um grande pro deste método é que, sempre que um utilizador tem de ser atribuído menos privilégios, as suas alterações serão aplicadas no voo, uma vez que a atribuição não depende da sessão que de outra forma teve de expirar primeiro.</p>|
 
 ## <a name="business-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>As decisões de autorização de acesso à lógica do negócio e ao acesso aos recursos não devem basear-se em parâmetros de pedido de entrada
 
@@ -158,8 +158,8 @@ Agora, um possível intruso não pode adulterar e alterar a operação da aplica
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2016 |
-| **Referências**              | [Segurança de nível de linha sql (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
-| **Passos** | <p>A Segurança ao Nível da Linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, associação a um grupo ou contexto de execução).</p><p>A Segurança de Nível de Linha (RLS) simplifica a conceção e codificação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. É possível, por exemplo, garantir que os colaboradores só têm acesso às linhas de dados que são pertinentes para o departamento deles ou limitar o acesso a dados por parte de um cliente apenas àqueles que são relevantes para a empresa dele.</p><p>A lógica de restrição de acesso está localizada no nível da base de dados e não longe dos dados de outro nível de aplicação. O sistema de base de dados aplica as restrições de acesso sempre que o acesso aos dados é tentado a partir de qualquer nível. Isto torna o sistema de segurança mais fiável e robusto, reduzindo a área de superfície do sistema de segurança.</p><p>|
+| **Referências**              | [Sql Server Row-Level Security (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Passos** | <p>A Segurança ao Nível da Linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, associação a um grupo ou contexto de execução).</p><p>Row-Level Security (RLS) simplifica a conceção e codificação da segurança na sua aplicação. O RLS permite-lhe implementar restrições ao acesso à linha de dados. É possível, por exemplo, garantir que os colaboradores só têm acesso às linhas de dados que são pertinentes para o departamento deles ou limitar o acesso a dados por parte de um cliente apenas àqueles que são relevantes para a empresa dele.</p><p>A lógica de restrição de acesso está localizada no nível da base de dados e não longe dos dados de outro nível de aplicação. O sistema de base de dados aplica as restrições de acesso sempre que o acesso aos dados é tentado a partir de qualquer nível. Isto torna o sistema de segurança mais fiável e robusto, reduzindo a área de superfície do sistema de segurança.</p><p>|
 
 Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa é aplicável apenas ao SQL Server a partir de 2016, Azure SQL Database e SQL Managed Instance. Se a função RLS fora da caixa não for implementada, deve ser assegurado que o acesso aos dados é restrito usando visualizações e procedimentos
 
@@ -284,7 +284,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Referências**              | [Como delegar o acesso a objetos na sua conta de armazenamento Azure usando SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 | **Passos** | Em certos cenários comerciais, o Azure Table Storage pode ser necessário para armazenar dados sensíveis que atendam a diferentes partes. Por exemplo, dados sensíveis relativos a diferentes países/regiões. Nesses casos, as assinaturas SAS podem ser construídas especificando as gamas de chaves de partição e linha, de modo a que um utilizador possa aceder a dados específicos de um determinado país/região.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Permitir o Controlo de Acesso Baseado em Funções (RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure
+## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Permitir Role-Based Controlo de Acesso (RBAC) para a conta de armazenamento Azure usando O Gestor de Recursos Azure
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como garantir a sua conta de armazenamento com Controlo de Acesso Baseado em Fun (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Referências**              | [Como garantir a sua conta de armazenamento com Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | **Passos** | <p>Quando criar uma nova conta de armazenamento, selecione um modelo de implementação do Classic ou do Azure Resource Manager. O modelo clássico de criação de recursos em Azure só permite o acesso total ou nada à subscrição e, por sua vez, à conta de armazenamento.</p><p>Com o modelo Azure Resource Manager, coloca a conta de armazenamento num grupo de recursos e controla o acesso ao plano de gestão dessa conta de armazenamento específica utilizando o Azure Ative Directory. Por exemplo, pode dar a utilizadores específicos a possibilidade de acederem às chaves da conta de armazenamento, enquanto outros utilizadores podem ver informações sobre a conta de armazenamento, mas não conseguem aceder às chaves da conta de armazenamento.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementar jailbreak implícito ou deteção de enraizamento

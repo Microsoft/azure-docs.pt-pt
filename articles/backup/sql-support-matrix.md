@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
 ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926455"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
@@ -60,39 +60,39 @@ Dependendo da preferência de backup e dos tipos de backups (completo/diferencia
 
 #### <a name="backup-preference-primary"></a>Preferência de backup: Primário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Primário
-Apenas cópia cheia |  Primário
+Registar |  Primário
+Copy-Only Cheio |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: Apenas secundário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: Secundário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
 #### <a name="no-backup-preference"></a>Sem preferência de backup
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
 ## <a name="next-steps"></a>Passos seguintes
 

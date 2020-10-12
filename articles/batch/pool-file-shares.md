@@ -4,10 +4,10 @@ description: Como montar uma partilha de Ficheiros Azure a partir de nós de com
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986428"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Use uma partilha de ficheiros Azure com uma piscina de Lote

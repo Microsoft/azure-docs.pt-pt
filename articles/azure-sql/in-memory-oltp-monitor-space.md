@@ -12,20 +12,20 @@ ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 2134cf1fda5f0f1699feb46582813d198304f92e
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616385"
 ---
-# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitor de armazenamento OLTP na memória OLTP em Azure SQL Database e Azure SQL Managed Instance
+# <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitor In-Memory armazenamento OLTP em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Quando se utiliza [o OLTP in-memory](in-memory-oltp-overview.md), os dados em tabelas otimizadas pela memória e variáveis de tabela residem no armazenamento de OLTP in-memory.
+Ao utilizar [o OLTP in-memory](in-memory-oltp-overview.md), os dados em tabelas otimizadas pela memória e variáveis de tabela residem no armazenamento In-Memory OLTP.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se enquadram na tampa de armazenamento OLTP in-memory
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se enquadram na tampa de armazenamento In-Memory OLTP
 
-Determine as tampas de armazenamento dos diferentes níveis de serviço. Cada nível de serviço Premium e Business Critical tem um tamanho máximo de armazenamento OLTP in-memory.
+Determine as tampas de armazenamento dos diferentes níveis de serviço. Cada nível de serviço Premium e Business Critical tem um tamanho máximo de armazenamento In-Memory OLTP.
 
 - [Limites de recursos baseados em DTU - base de dados única](database/resource-limits-dtu-single-databases.md)
 - [Limites de recursos baseados em DTU - piscinas elásticas](database/resource-limits-dtu-elastic-pools.md)
@@ -55,9 +55,9 @@ Ou utilize a seguinte consulta para mostrar a utilização do armazenamento na m
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrigir situações de armazenamento OLTP fora de memória - Erros 41823 e 41840
 
-A touca de armazenamento OLTP na sua base de dados resulta em operações INSERT, UPDATE, ALTER e CREATE que falham com a mensagem de erro 41823 (para bases de dados únicas) ou erro 41840 (para piscinas elásticas). Ambos os erros fazem com que a transação ativa aborte.
+Ao acertar na tampa de armazenamento OLTP In-Memory na sua base de dados resulta em operações INSERT, UPDATE, ALTER e CREATE que falham com a mensagem de erro 41823 (para bases de dados únicas) ou erro 41840 (para piscinas elásticas). Ambos os erros fazem com que a transação ativa aborte.
 
-As mensagens de erro 41823 e 41840 indicam que as tabelas e variáveis de tabela otimizadas pela memória na base de dados ou na piscina atingiram o tamanho máximo de armazenamento de OLTP in-memory.
+As mensagens de erro 41823 e 41840 indicam que as tabelas e variáveis de tabela otimizadas pela memória na base de dados ou na piscina atingiram o tamanho máximo de armazenamento In-Memory OLTP.
 
 Para resolver este erro, também:
 
@@ -65,7 +65,7 @@ Para resolver este erro, também:
 - Atualize o nível de serviço para um com armazenamento de memória suficiente para os dados que precisa de manter em tabelas otimizadas pela memória.
 
 > [!NOTE]
-> Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento OLTP disponível suficiente e a reorientação da operação tem sucesso. Por isso, recomendamos que monitorize o armazenamento geral disponível em memória OLTP e que refaça quando encontrar o erro 41823 ou 41840. Para obter mais informações sobre a lógica de relemissão, consulte [a Lógica de Deteção de Conflitos e Retripsto com OLTP in-memory](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há suficiente In-Memory armazenamento OLTP, e reorientar a operação tem sucesso. Por isso, recomendamos que monitorizem o armazenamento geral In-Memory OLTP e reagem quando encontrarmos pela primeira vez o erro 41823 ou o 41840. Para obter mais informações sobre a lógica de relemissão, consulte [a Lógica de Deteção de Conflitos e Retripsto com In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Passos seguintes
 

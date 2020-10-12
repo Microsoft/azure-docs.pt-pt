@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616708"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL

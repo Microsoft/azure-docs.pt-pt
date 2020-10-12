@@ -7,10 +7,10 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88661202"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
@@ -31,7 +31,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
 
 <a name="supported-connections"></a>
 
-## <a name="supported-data-sources"></a>Origens de dados suportadas
+## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
 
 Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conectores no local](../connectors/apis-list.md#on-premises-connectors) para estas fontes de dados:
 

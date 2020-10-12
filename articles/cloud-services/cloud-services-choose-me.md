@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88224293"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços em Nuvem Azure
@@ -43,7 +43,7 @@ O Azure Cloud Services também fornece monitorização. Tal como as Máquinas Vi
 
 A natureza PaaS da Azure Cloud Services também tem outras implicações. Uma das mais importantes é que as aplicações construídas sobre esta tecnologia devem ser escritas para funcionar corretamente quando qualquer instância de função web ou trabalhador falha. Para isso, uma aplicação Azure Cloud Services não deve manter o estado no sistema de ficheiros dos seus próprios VMs. Ao contrário dos VMs criados com Máquinas Virtuais, as escritas feitas para VMs Azure Cloud Não são persistentes. Não há nada como um disco de dados das Máquinas Virtuais. Em vez disso, uma aplicação Azure Cloud Services deve escrever explicitamente todos os estados para Azure SQL Database, blobs, tabelas ou algum outro armazenamento externo. A construção de aplicações desta forma torna-as mais fáceis de escalar e mais resistentes ao fracasso, que são ambos objetivos importantes dos Serviços Azure Cloud.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar uma aplicação de serviço em nuvem em .NET](cloud-services-dotnet-get-started.md) 
 * [Crie uma aplicação de serviço em nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Criar uma aplicação de serviço em nuvem em PHP](../cloud-services-php-create-web-role.md) 

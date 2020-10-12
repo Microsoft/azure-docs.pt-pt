@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504337"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix em Azure HDInsight
@@ -134,7 +134,7 @@ Um cluster HDInsight HBase inclui o [UI Ambari](hdinsight-hadoop-manage-ambari.m
 
     ![Secção de configuração Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Use Apache Phoenix com clusters HBase baseados em Linux em HDInsight](hbase/apache-hbase-query-with-phoenix.md)
 

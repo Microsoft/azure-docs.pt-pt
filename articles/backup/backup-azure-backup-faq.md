@@ -4,10 +4,10 @@ description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backu
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986430"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
@@ -43,7 +43,7 @@ Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](back
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
-Não. Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
+N.º Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso mudar a definição de redundância de armazenamento depois de uma cópia de segurança?
 
@@ -139,7 +139,7 @@ Não, o Azure Backup não suporta a eliminação ou limpeza de itens individuais
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança após ter sido iniciada, os dados transferidos serão eliminados?
 
-Não. Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
+N.º Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
 
 - O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança.
 - Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros.
@@ -159,13 +159,13 @@ Sim, há políticas personalizadas. Por exemplo, pode configurar requisitos de r
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso utilizar horários diferentes para o agendamento de cópias de segurança e políticas de retenção?
 
-Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
+N.º Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
 
 ![Agendar Cópia de Segurança e Retenção](./media/backup-azure-backup-faq/Schedule.png)
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point"></a>Se uma cópia de segurança for mantida durante muito tempo, demora mais tempo para recuperar um ponto de dados mais antigo?
 
-Não. Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
+N.º Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, afeta o armazenamento de cópia de segurança faturável total?
 
@@ -188,7 +188,7 @@ Não há limite para o número de recuperações do Reforço Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure?
 
-Não. A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
+N.º A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero a minha política de cópias de segurança?
 
