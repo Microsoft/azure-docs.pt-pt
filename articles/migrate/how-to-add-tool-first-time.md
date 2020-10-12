@@ -4,10 +4,10 @@ description: Descreve como criar um projeto Azure Migrate e adicionar uma ferram
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86102536"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
@@ -19,10 +19,10 @@ A Azure Migrate fornece um centro central para acompanhar a descoberta, avaliaç
 
 Se ainda não criou um projeto Azure Migrate, verifique se tem as permissões certas.
 
-1. No portal Azure, abra a subscrição e selecione **Access control (IAM)**.
+1. No portal do Azure, abra a subscrição e selecione **Controlo de acesso (IAM)** .
 2. No Acesso ao Cheque, encontre a conta relevante e clique nela para ver permissões. Deve ter permissões de Colaborador ou Proprietário.
-    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
-    - Se não é o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
+    - Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir a função.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Criar um projeto e adicionar uma ferramenta
 
@@ -39,13 +39,13 @@ Crie um novo projeto Azure Migrate numa subscrição do Azure e adicione uma fer
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
 
-    ![Descubra e avalie servidores](./media/how-to-add-tool-first-time/assess-migrate.png)
+    ![Detetar e avaliar servidores](./media/how-to-add-tool-first-time/assess-migrate.png)
 
 1. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
 3. Em **Detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto.  Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-    ![Criar um projeto Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
+    ![Criar um projeto do Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
 
     - A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local. Pode selecionar qualquer região-alvo para a migração real.
     - Se precisar de implementar um projeto dentro de uma região específica numa geografia, use a seguinte API para criar um projeto. Especifique o ID de subscrição, o nome do grupo de recursos e o nome do projeto, juntamente com a localização. Reveja as geografias/regiões para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
@@ -73,7 +73,7 @@ Em algumas circunstâncias, poderá ser necessário criar projetos adicionais da
 3. Em **Definições**, **selecione Clique aqui para criar um novo projeto**.
 4. Crie um novo projeto e adicione uma nova ferramenta como descrito no procedimento anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Começa com [o Azure Migrate: Avaliação do servidor,](migrate-services-overview.md#azure-migrate-server-assessment-tool)ou [Azure Migrate: Migração de servidores](migrate-services-overview.md#azure-migrate-server-migration-tool).
 - Se adicionou uma ferramenta ISV, ou Movere, [reveja os passos](prepare-isv-movere.md) para preparar a ligação da ferramenta ao Azure Migrate.

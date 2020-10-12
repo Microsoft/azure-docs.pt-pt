@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
 ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319338"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Acelere a análise de big data em tempo real usando o conector Spark

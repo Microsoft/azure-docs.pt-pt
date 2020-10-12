@@ -8,10 +8,10 @@ ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997375"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Produção padrão de provisão (manual) numa base de dados em Azure Cosmos DB

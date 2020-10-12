@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 9d5add1349650663b226023b9f46868f242ac4f9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87265216"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar VMs novas no Azure
@@ -20,7 +20,7 @@ Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM genera
 
 Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](managed-disks-overview.md)

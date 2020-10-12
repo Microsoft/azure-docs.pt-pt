@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617881"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -84,7 +84,7 @@ Para obter informações sobre cópias de segurança utilizando o T-SQL, consult
 
 ## <a name="security"></a>Segurança
 
-### <a name="auditing"></a>Auditing (Auditoria)
+### <a name="auditing"></a>Auditoria
 
 As principais diferenças entre a auditoria no Microsoft Azure SQL e no SQL Server são:
 

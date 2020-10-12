@@ -1,18 +1,18 @@
 ---
-title: Migrando para a Ponte para Kubernetes
+title: Migrar para o Bridge to Kubernetes
 services: azure-dev-spaces
 ms.date: 09/21/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
 ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997171"
 ---
-# <a name="migrating-to-bridge-to-kubernetes"></a>Migrando para a Ponte para Kubernetes
+# <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes
 
 A ponte para Kubernetes oferece uma alternativa de peso mais leve a muitos dos cenários de desenvolvimento que funcionam com a Azure Dev Spaces. Bridge to Kubernetes é uma experiência do lado do cliente usando extensões em [Visual Studio][vs]e Visual   Studio [Code][vsc].  
 
@@ -34,31 +34,31 @@ A Ponte para Kubernetes permite que os desenvolvedores trabalhem diretamente nos
 
 Azure Dev Spaces e Bridge to Kubernetes têm características semelhantes, também diferem em várias áreas:
 
-| Requisito  | Azure Dev Spaces  | Ponte para Kubernetes  |
+| Requisito  | Azure Dev Spaces  | Bridge to Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | Em 15 regiões de Azure | Qualquer região de serviço da AKS    |
 | **Segurança** |
 | Acesso de segurança necessário no seu cluster  | Colaborador do Cluster AKS  | Kubernetes RBAC -Atualização de implantação   |
 | Acesso de segurança necessário no seu computador de desenvolvimento  | N/D  | Administrador local / sudo   |
 | **Usabilidade** |
-| Independente dos artefactos de Kubernetes e Docker  | No  | Yes   |
-| Reversão automática de alterações, pós-depuro  | No  | Yes   |
+| Independente dos artefactos de Kubernetes e Docker  | Não  | Sim   |
+| Reversão automática de alterações, pós-depuro  | Não  | Sim   |
 | **Ambientes** |
-| Obras com Visual Studio 2019  | Yes  | Yes   |
-| Trabalha com Código de Estúdio Visual  | Yes  | Yes   |
-| Trabalha com o CLI  | Yes  | No   |
+| Obras com Visual Studio 2019  | Sim  | Sim   |
+| Trabalha com Código de Estúdio Visual  | Sim  | Sim   |
+| Trabalha com o CLI  | Sim  | Não   |
 | **Compatibilidade do Sistema Operativo** |
-| Funciona no Windows 10  | Yes  | Yes  |
-| Trabalha em Linux  | Yes  | Yes  |
-| Trabalha no macOS  | Yes  | Yes  |
+| Funciona no Windows 10  | Sim  | Sim  |
+| Trabalha em Linux  | Sim  | Sim  |
+| Trabalha no macOS  | Sim  | Sim  |
 | **Capacidades** |
-| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Yes  | Yes  |
-| Variáveis ambientais seletivamente substituindo  | No  | Yes  |
-| Criação de Dockerfile e Gráfico helm  | Yes  | No  |
-| Implementação persistente do código para Kubernetes  | Yes  | No  |
-| Depuragem remota em uma cápsula Kubernetes  | Yes  | No  |
-| Depuragem local, ligada a Kubernetes  | No  | Yes  |
-| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Yes  | Yes  |
+| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Sim  | Sim  |
+| Variáveis ambientais seletivamente substituindo  | Não  | Sim  |
+| Criação de Dockerfile e Gráfico helm  | Sim  | Não  |
+| Implementação persistente do código para Kubernetes  | Sim  | Não  |
+| Depuragem remota em uma cápsula Kubernetes  | Sim  | Não  |
+| Depuragem local, ligada a Kubernetes  | Não  | Sim  |
+| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Sim  | Sim  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Desenvolvimento do loop interno de Kubernetes
 

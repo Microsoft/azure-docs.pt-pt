@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084295"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para a Oracle no local através da Azure Data Factory
@@ -99,7 +99,7 @@ As secções seguintes fornecem detalhes sobre as propriedades JSON que utiliza 
 
 A tabela a seguir descreve elementos JSON específicos do serviço ligado à Oráculo:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade **tipo** deve ser definida para **OnPremisesOracle**. |Sim |
 | Tipo de motorista | Especificar qual o condutor a utilizar para copiar dados de ou para uma base de dados oracle. Os valores permitidos são **Microsoft** e **ODP** (predefinição). Consulte [a versão e a instalação suportadas](#supported-versions-and-installation) para obter detalhes do condutor. | Não |
@@ -150,7 +150,7 @@ As secções de um ficheiro JSON do conjunto de dados, tais como estrutura, disp
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **de tipos de direitos** para o conjunto de dados do tipo **OracleTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |O nome da tabela na base de dados Oráculo a que o serviço ligado se refere. |Não (se **o oracleReaderQuery** ou **OracleSource** for especificado) |
 
@@ -604,27 +604,27 @@ Quando se move dados da Oracle, os seguintes mapeamentos são usados do tipo de 
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(suportado apenas nas versões Oracle 10g e posteriores quando utiliza um controlador Microsoft) |
-| CHAR |String |
-| CLOB |String |
-| DATA |DateTime |
+| CHAR |Cadeia |
+| CLOB |Cadeia |
+| DATE |DateTime |
 | FLUTUAR |Decimal, String (se a precisão > 28) |
 | INTEGER |Decimal, String (se a precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DE INTERVALO PARA SEGUNDO |TimeSpan |
-| Longo |String |
+| Longo |Cadeia |
 | LONGO CRU |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Cadeia |
+| NCLOB |Cadeia |
 | NÚMERO |Decimal, String (se a precisão > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Cadeia |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |Cadeia |
 | TIMETAMP |DateTime |
 | TIMETAMP COM FUSO HORÁRIO LOCAL |DateTime |
 | TIMETAMP COM FUSO HORÁRIO |DateTime |
 | INTEIRO NÃO ASSINADO |Número |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Cadeia |
+| XML |Cadeia |
 
 > [!NOTE]
 > Os tipos de **dados INTERVALO DE ANO A MÊS** e **INTERVALO DIA A SEGUNDO** não são suportados quando utiliza um controlador Microsoft.

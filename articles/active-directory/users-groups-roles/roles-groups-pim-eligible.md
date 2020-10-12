@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539899"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
@@ -101,7 +101,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566080"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
@@ -128,8 +128,8 @@ Se não tem certeza de onde está a borda da nuvem, isolar os componentes Azure 
 Se dois VNets (VNets A e B no diagrama) estiverem ligados ao **mesmo** circuito ExpressRoute, pode realizar uma série de testes para isolar o problema em Azure (ou provar que não está no Azure)
  
 ### <a name="test-plan"></a>Plano de teste
-1. Executar o teste Get-LinkPerformance entre VM1 e VM2. Este teste fornece uma visão se o problema é local ou não. Se este teste produzir resultados aceitáveis de latência e largura de banda, pode marcar a rede VNet local como boa.
-2. Assumindo que o tráfego VNet local é bom, faça o teste Get-LinkPerformance entre VM1 e VM3. Este teste exercita a ligação através da rede Microsoft até ao MSEE e volta ao Azure. Se este teste produzir resultados aceitáveis de latência e largura de banda, pode marcar a rede Azure como boa.
+1. Escoda o teste de Get-LinkPerformance entre VM1 e VM2. Este teste fornece uma visão se o problema é local ou não. Se este teste produzir resultados aceitáveis de latência e largura de banda, pode marcar a rede VNet local como boa.
+2. Assumindo que o tráfego vNet local é bom, executar o teste de Get-LinkPerformance entre VM1 e VM3. Este teste exercita a ligação através da rede Microsoft até ao MSEE e volta ao Azure. Se este teste produzir resultados aceitáveis de latência e largura de banda, pode marcar a rede Azure como boa.
 3. Se o Azure for excluído, podes realizar uma sequência de testes semelhante na tua Rede Corporativa. Se isso também for bem testes, é hora de trabalhar com o seu fornecedor de serviços ou ISP para diagnosticar a sua ligação WAN. Exemplo: Executar este teste entre duas sucursais, ou entre o seu desk e um servidor de data center. Dependendo do que está a testar, encontre pontos finais (servidores, computadores, etc.) que possam exercer esse caminho.
 
 >[!IMPORTANT]
@@ -160,7 +160,7 @@ Configuração do teste:
  - Um circuito ExpressRoute Premium de 10Gbps no local identificado com Private Peering ativado.
  - Um Azure VNet com uma porta de entrada UltraPerformance na região especificada.
  - Um DS5v2 VM a executar o Windows Server 2016 no VNet. O VM não era de domínio, construído a partir da imagem padrão de Azure (sem otimização ou personalização) com AzureCT instalado.
- - Todos os testes foram utilizando o comando AzureCT Get-LinkPerformance com um teste de carga de 5 minutos para cada um dos seis testes. Por exemplo:
+ - Todos os testes foram utilizando o comando AzureCT Get-LinkPerformance com um teste de carga de 5 minutos para cada uma das seis provas. Por exemplo:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -196,7 +196,7 @@ Configuração do teste:
 
 \* A latência para o Brasil é um bom exemplo onde a distância de linha reta difere significativamente da distância de corrida de fibra. Eu esperaria que a latência fosse na vizinhança de 160 ms, mas na verdade é 189 ms. Esta diferença em contra a minha expectativa pode indicar um problema de rede em algum lugar, mas o mais provável é que a corrida de fibra não vá para o Brasil em linha reta e tenha mais 1.000 km de viagem para chegar ao Brasil a partir de Seattle.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 1. Descarregue o Azure Connectivity Toolkit do GitHub [https://aka.ms/AzCT][ACT]
 2. Siga as instruções para testar o [desempenho da ligação][Performance Doc]
 

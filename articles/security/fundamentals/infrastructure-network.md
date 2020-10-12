@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567877"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura da rede Azure
@@ -61,13 +61,13 @@ Os componentes de rede acima são projetados para fornecer a máxima disponibili
 ## <a name="datacenter-network-resiliency"></a>Resiliência da rede datacenter
 Vamos ilustrar o princípio do design de resiliência usando a rede datacenter.
 
-A rede datacenter é uma versão modificada de uma [rede Clos,](https://en.wikipedia.org/wiki/Clos_network)fornecendo alta largura de banda bi-secções para tráfego em escala de nuvem. A rede é construída usando um grande número de dispositivos de mercadorias para reduzir o impacto causado por falha de hardware individual. Estes dispositivos estão estrategicamente localizados em diferentes locais físicos com potência separada e domínio de arrefecimento para reduzir o impacto de um evento ambiental.  No plano de controlo, todos os dispositivos de rede estão a funcionar como modo de encaminhamento do modelo OSI Layer 3, o que elimina a questão histórica do circuito de tráfego. Todos os caminhos entre diferentes níveis estão ativos para fornecer alta redundância e largura de banda utilizando o roteamento multi-path de custo igual-custo (ECMP).
+A rede datacenter é uma versão modificada de uma [rede Clos,](https://en.wikipedia.org/wiki/Clos_network)fornecendo alta largura de banda bi-secções para tráfego em escala de nuvem. A rede é construída usando um grande número de dispositivos de mercadorias para reduzir o impacto causado por falha de hardware individual. Estes dispositivos estão estrategicamente localizados em diferentes locais físicos com potência separada e domínio de arrefecimento para reduzir o impacto de um evento ambiental.  No plano de controlo, todos os dispositivos de rede estão a funcionar como modo de encaminhamento do modelo OSI Layer 3, o que elimina a questão histórica do circuito de tráfego. Todos os caminhos entre diferentes níveis estão ativos para fornecer alta redundância e largura de banda utilizando Equal-Cost encaminhamento multi-path (ECMP).
 
 O diagrama seguinte demonstra que a rede do datacenter é construída por diferentes níveis de dispositivos de rede. As barras do diagrama representam grupos de dispositivos de rede que proporcionam redundância e alta conectividade de largura de banda.
 
 ![Rede datacenter](./media/infrastructure-network/datacenter-network.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

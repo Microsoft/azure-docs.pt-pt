@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: be6a0a5b700c4110acd4481b12130185c9878883
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962784"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando o CLI

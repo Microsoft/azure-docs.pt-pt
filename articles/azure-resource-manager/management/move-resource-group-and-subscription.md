@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319559"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
@@ -178,11 +178,11 @@ Quando vê o grupo de recursos, a opção de movimento é desativada.
 
 Para ativar a opção de movimento, selecione os recursos que pretende mover. Para selecionar todos os recursos, selecione a caixa de verificação no topo da lista. Ou, selecione recursos individualmente. Após a seleção dos recursos, a opção de movimento está ativada.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opção de mudança desativado":::
 
 Selecione o botão **Move.**
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opções de movimento":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opção de mudança desativado":::
 
 Este botão dá-lhe três opções:
 
@@ -194,11 +194,11 @@ Selecione se está a mover os recursos para um novo grupo de recursos ou uma nov
 
 Selecione o grupo de recursos de destino. Reconheça que precisa de atualizar scripts para estes recursos e selecione **OK**. Se selecionou para mudar para uma nova subscrição, também deve selecionar a subscrição do destino.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="selecionar destino":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opção de mudança desativado":::
 
 Depois de validar que os recursos podem ser movidos, vê uma notificação de que a operação de movimento está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificação":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opção de mudança desativado":::
 
 Quando estiver concluído, é notificado do resultado.
 

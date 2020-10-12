@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320919"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
@@ -171,7 +171,7 @@ END
         Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
 7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (Azure Storage, Azure SQL Database, Azure SQL Managed Instance, e assim por diante) e computas (HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
-8. Clique em **Create** (Criar).      
+8. Clique em **Criar**.      
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
 
    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
@@ -276,7 +276,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
         | Nome | Tipo | Valor |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   

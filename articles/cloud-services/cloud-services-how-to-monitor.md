@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847241"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à Monitorização do Serviço de Nuvem
@@ -92,7 +92,7 @@ Ao publicar o Serviço cloud do Visual Studio, é-lhe dada a opção de enviar o
 Note que, embora possa utilizar o Application Insights para exibir os contadores de desempenho (e as outras definições) que especificou através da extensão de Diagnóstico do Windows Azure, só obtém uma experiência mais rica integrando o SDK de Insights de Aplicação nas suas funções de trabalhador e web.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre insights de aplicações com serviços cloud](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)

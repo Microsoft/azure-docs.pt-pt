@@ -13,10 +13,10 @@ ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88234844"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestão do fornecimento de conta de utilizador para aplicações empresariais no portal Azure

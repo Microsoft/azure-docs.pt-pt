@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056205"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Reagir plugin para Informações JavaScript SDK
@@ -64,7 +64,7 @@ export default withAITracking(reactPlugin,appInsights, MyComponent);
 
 ## <a name="configuration"></a>Configuração
 
-| Name    | Predefinição | Descrição                                                                                                    |
+| Nome    | Predefinição | Descrição                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | histórico | nulo    | Reagir na história do router. Para obter mais informações, consulte a documentação do [pacote do revesidor de reagem](https://reactrouter.com/web/api/history). Para aprender a aceder ao objeto histórico fora dos componentes, consulte o [Re-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
@@ -89,7 +89,7 @@ Também pode executar consultas personalizadas para dividir os dados do Applicat
 
 Confira a [demonstração de Informação de Aplicação](https://github.com/Azure-Samples/application-insights-react-demo)React .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o JavaScript SDK, consulte a [documentação SDK javaScript da aplicação.](javascript.md)
 - Para saber mais sobre a linguagem de consulta de Kusto e consultando dados em Log Analytics, consulte a [visão geral](../../azure-monitor/log-query/log-query-overview.md)da consulta de log .

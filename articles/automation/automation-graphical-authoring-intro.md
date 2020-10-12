@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987335"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
@@ -95,7 +95,7 @@ Quando ativar a repetição de uma atividade, pode definir um atraso e uma condi
 
 A condição de relemissão é uma expressão PowerShell que é avaliada após cada vez que a atividade é executado. Se a expressão se resolver para True, a atividade volta a funcionar. Se a expressão se resolver para Falso, a atividade não volta a funcionar e o livro passa para a atividade seguinte.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot mostrando a Retry até que esta condição seja um campo verdadeiro e exemplos de expressões PowerShell que podem ser usadas na condição de relemissão.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot das definições de funcionalidade de relíndi ativação.":::
 
 A condição de retagem pode usar uma variável nomeada `RetryData` que dá acesso à informação sobre as retrações da atividade. Esta variável tem as propriedades no quadro seguinte:
 
@@ -256,7 +256,7 @@ Cada parâmetro de entrada é definido pelas propriedades no quadro seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome | Necessário. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
+| Nome | Obrigatório. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
 | Descrição |Opcional. Descrição da finalidade para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dado não for selecionado, predefinitivo ao String.|
 | Obrigatório | Opcional. Definição que especifica se deve ser fornecido um valor para o parâmetro. Se `yes` escolher, deve ser fornecido um valor quando o livro de recortes for iniciado. Se `no` escolher, não é necessário um valor quando o livro de execução é iniciado e pode ser utilizado um valor predefinido. O livro de execuções não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
@@ -383,7 +383,7 @@ A `Get Run As Connection` atividade, `Get-AutomationConnection` ou, é configura
 
 A próxima atividade, `Connect-AzAccount` adiciona a execução autenticada Como conta para utilização no livro de recortes.
 
-![Conjunto de parâmetros Connect-AzAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+![Conjunto de parâmetros de Connect-AzAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
 >Para os livros powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro gráfico só pode `Connect-AzAccount` usar-se sozinho.

@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88134484"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
@@ -84,7 +84,7 @@ Se o cliente web continuar a pedir credenciais, siga estas instruções:
 4. Limpe a cache do browser. Para mais informações, consulte [Cache de navegador Limpo para o seu navegador.](https://binged.it/2RKyfdU)
 5. Abra o seu navegador em modo Privado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto cria um ambiente de ambiente de trabalho virtual do Windows e uma piscina de anfitrião num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)

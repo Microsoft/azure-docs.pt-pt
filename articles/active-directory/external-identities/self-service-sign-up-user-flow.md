@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287054"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
@@ -27,7 +27,7 @@ Pode criar fluxos de utilizadores para apps que são construídas pela sua organ
 > [!NOTE]
 > Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou o Teams.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="add-social-identity-providers-optional"></a>Adicionar fornecedores de identidade social (opcional)
 

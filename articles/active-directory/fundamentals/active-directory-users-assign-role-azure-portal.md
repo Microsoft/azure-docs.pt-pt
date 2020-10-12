@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321247"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
@@ -73,7 +73,7 @@ Se precisar de remover a atribuição de funções de um utilizador, também pod
 
     A função de administrador de aplicação é removida de Alain Charon e já não aparece na página **Alain Charon - Funções Administrativas.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
 

@@ -12,10 +12,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 7a257b4c2bea3bd3384a55c0a6b85d7fdd2ca583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84872079"
 ---
 # <a name="onboarding-peering-service-model"></a>Modelo de serviço de peering de bordo
@@ -51,7 +51,7 @@ Para embarcar a telemetria do Serviço de Observação de Pares, o cliente deve 
 
 Depois disso, pode medir a telemetria referindo-se [aqui.](measure-connection-telemetry.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender passo a passo processo sobre como registar a ligação do Serviço de Peering, consulte [o Serviço de Peering Register - Portal Azure](azure-portal.md).
 

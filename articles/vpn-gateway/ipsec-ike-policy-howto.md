@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996756"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configure a política IPsec/IKE para as ligações S2S VPN ou VNet-to-VNet: Portal Azure
@@ -83,7 +83,7 @@ A tabela a seguir lista os algoritmos criptográficos suportados e os pontos for
   * IKE corresponde ao Modo Principal ou fase 1
   * O IPsec corresponde ao Modo Rápido ou fase 2
   * O Grupo DH especifica o Grupo Diffie-Hellmen utilizado no Modo Principal ou na Fase 1
-  * Grupo PFS especificou o Grupo Diffie-Hellmen utilizado em Modo Rápido ou Fase 2
+  * O Grupo PFS especificou o Grupo Diffie-Hellmen utilizado em Modo Rápido ou Fase 2
 
 * A vida útil do IKE Main Mode SA é fixada a 28.800 segundos nas portas Azure VPN.
 
@@ -99,7 +99,7 @@ A tabela a seguir lista os algoritmos criptográficos suportados e os pontos for
 
 ### <a name="diffie-hellman-groups"></a>Grupos Diffie-Hellman
 
-A tabela que se segue lista os grupos Diffie-Hellman correspondentes, apoiados pela política aduaneira:
+A tabela que se segue lista os grupos Diffie-Hellman correspondentes apoiados pela política de costumes:
 
 | **Grupo Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Comprimento da chave** |
 | --- | --- | --- | --- |
@@ -116,7 +116,7 @@ Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) e [RFC5114](https://tool
 
 Esta secção percorre os passos para criar uma ligação VPN site-to-site com uma política IPsec/IKE. Os seguintes passos criam a ligação tal como indicado no seguinte diagrama:
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Política site-a-local" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagrama de política IPsec/IKE" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Passo 1 - Criar a rede virtual, gateway VPN e gateway de rede local
 
@@ -124,19 +124,19 @@ Crie os seguintes recursos, como mostrado nas imagens abaixo. Para obter passos,
 
 * **Rede virtual:**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="VNet":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Diagrama de política IPsec/IKE":::
 
 * **Gateway VPN:** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Porta de entrada":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Diagrama de política IPsec/IKE":::
 
 * **Gateway de rede local:** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Site":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Diagrama de política IPsec/IKE":::
 
 * **Ligação:** VNet1 para Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Ligação":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Diagrama de política IPsec/IKE":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>Passo 2 - Configurar a política IPsec/IKE sobre a ligação S2S VPN
 
@@ -147,15 +147,15 @@ Nesta secção, configurar uma política IPsec/IKE com os seguintes algoritmos e
 
 1. Navegue para o recurso de ligação, **VNet1toSite6,** no portal Azure. Selecione a página **de Configuração** e selecione a política **personalizada** IPsec/IKE para mostrar todas as opções de configuração. A imagem abaixo mostra a configuração de acordo com a lista:
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Local 6":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Diagrama de política IPsec/IKE":::
 
 1. Se utilizar o GCMAES para O IPsec, deve utilizar o mesmo algoritmo GCMAES e comprimento de chave tanto para encriptação e integridade do IPsec. Por exemplo, a imagem abaixo especifica GCMAES128 para encriptação IPsec e integridade IPsec:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="GCMAES para IPsec":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="Diagrama de política IPsec/IKE":::
 
 1. Pode selecionar opcionalmente a opção **de** **seletores de tráfego baseados em políticas** de utilização para permitir que o gateway Azure VPN se conecte a dispositivos VPN baseados em políticas nas instalações, conforme descrito acima.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Seletor de tráfego baseado em políticas":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Diagrama de política IPsec/IKE":::
 
 1. Uma vez selecionadas todas as opções, **selecione Guardar** para comprometer as alterações ao recurso de ligação. A apólice será aplicada dentro de um minuto.
 
@@ -170,13 +170,13 @@ Nesta secção, configurar uma política IPsec/IKE com os seguintes algoritmos e
 
 Os passos para criar uma ligação VNet-vNet com uma política IPsec/IKE são semelhantes aos de uma ligação S2S VPN.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagrama de política VNet-to-VNet" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagrama de política IPsec/IKE" border="false":::
 
 1. Utilize os passos no [artigo de ligação Criar um vNet-vNet](vpn-gateway-vnet-vnet-rm-ps.md) para criar a sua ligação VNet-to-VNet.
 
 2. Após completar os passos, verá duas ligações VNet-vNet, como mostrado na imagem abaixo do recurso VNet2GW:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Ligações VNet a VNet":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Diagrama de política IPsec/IKE":::
 
 3. Navegue para o recurso de ligação e vá à página **de Configuração** no portal. Selecione **Personal on** the **IPsec/IKE policy** to show the custom policy options. Selecione os algoritmos criptográficos com os comprimentos de tecla correspondentes.
 
@@ -184,7 +184,7 @@ Os passos para criar uma ligação VNet-vNet com uma política IPsec/IKE são se
    * IKE: AES128, SHA1, DHGroup14, DPD timeout 45 segundos
    * IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 segundos & 10240000KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Política de conexão":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Diagrama de política IPsec/IKE":::
 
 4. **Selecione Guardar** para aplicar as alterações de política no recurso de ligação.
 
@@ -203,7 +203,7 @@ Os passos para criar uma ligação VNet-vNet com uma política IPsec/IKE são se
 
 2. Selecione **Predefinição** na opção **política IPsec/IKE.** Isto removerá toda a política personalizada previamente especificada na ligação e restabelecerá as definições padrão IPsec/IKE nesta ligação:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Eliminar política":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Diagrama de política IPsec/IKE":::
 
 3. **Selecione Guardar** para remover a política personalizada e restaurar as definições IPsec/IKE predefinidos na ligação.
 

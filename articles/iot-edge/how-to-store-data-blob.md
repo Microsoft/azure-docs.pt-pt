@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287256"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
@@ -79,10 +79,10 @@ O nome desta definição é `deviceToCloudUploadProperties` . Se estiver a utili
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
-| uploadOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental:`deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, O Mais Velho Primeiro | Permite-lhe escolher a ordem em que os dados são copiados para a Azure. Definido por `OldestFirst` defeito. A ordem é determinada pelo último tempo modificado da Blob. <br><br> Variável ambiental:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`é uma cadeia de ligação que lhe permite especificar a conta de armazenamento para a qual pretende que os seus dados sejam carregados. `Azure Storage Account Name` `Azure Storage Account Key` Especificar, . `End point suffix` . Adicione o sufixo EndpointS adequado do Azure onde os dados serão carregados, varia para Global Azure, Government Azure e Microsoft Azure Stack. <br><br> Pode optar por especificar a cadeia de ligação SAS do Azure Storage Sas aqui. Mas tem que atualizar esta propriedade quando expirar. <br><br> Variável ambiental:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite especificar os nomes dos recipientes que pretende enviar para Azure. Este módulo permite especificar os nomes dos recipientes de origem e alvo. Se não especificar o nome do recipiente-alvo, atribuirá automaticamente o nome do recipiente como `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Pode criar cordas de modelo para o nome do recipiente-alvo, verificar a coluna de valores possíveis. <br>* %h -> IoT Hub Name (3-50 caracteres). <br>* %d -> IoT Edge Device ID (1 a 129 caracteres). <br>* %m -> Nome do módulo (1 a 64 caracteres). <br>* %c -> Nome do Recipiente de Origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do recipiente é de 63 caracteres, ao mesmo tempo que atribui automaticamente o nome do recipiente-alvo se o tamanho do recipiente exceder 63 caracteres, cortará cada secção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 caracteres. <br><br> Variável ambiental:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| uploadOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, O Mais Velho Primeiro | Permite-lhe escolher a ordem em que os dados são copiados para a Azure. Definido por `OldestFirst` defeito. A ordem é determinada pelo último tempo modificado da Blob. <br><br> Variável ambiental: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` é uma cadeia de ligação que lhe permite especificar a conta de armazenamento para a qual pretende que os seus dados sejam carregados. `Azure Storage Account Name` `Azure Storage Account Key` Especificar, . `End point suffix` . Adicione o sufixo EndpointS adequado do Azure onde os dados serão carregados, varia para Global Azure, Government Azure e Microsoft Azure Stack. <br><br> Pode optar por especificar a cadeia de ligação SAS do Azure Storage Sas aqui. Mas tem que atualizar esta propriedade quando expirar. <br><br> Variável ambiental: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Permite especificar os nomes dos recipientes que pretende enviar para Azure. Este módulo permite especificar os nomes dos recipientes de origem e alvo. Se não especificar o nome do recipiente-alvo, atribuirá automaticamente o nome do recipiente como `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Pode criar cordas de modelo para o nome do recipiente-alvo, verificar a coluna de valores possíveis. <br>* %h -> IoT Hub Name (3-50 caracteres). <br>* %d -> IoT Edge Device ID (1 a 129 caracteres). <br>* %m -> Nome do módulo (1 a 64 caracteres). <br>* %c -> Nome do Recipiente de Origem (3 a 63 caracteres). <br><br>O tamanho máximo do nome do recipiente é de 63 caracteres, ao mesmo tempo que atribui automaticamente o nome do recipiente-alvo se o tamanho do recipiente exceder 63 caracteres, cortará cada secção (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 caracteres. <br><br> Variável ambiental: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | excluirAfterUpload | TRUE, false | Definido por `false` defeito. Quando estiver `true` programado, eliminará automaticamente os dados quando o upload para o armazenamento na nuvem estiver terminado. <br><br> **ATENÇÃO**: Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local após um upload bem sucedido, e quaisquer futuras operações do Bloco de Apêndice para essas bolhas falharão. Utilize esta definição com cuidado, não o ative se a sua aplicação não for frequente as operações de apêndice ou não suportar operações de apêndice contínuos<br><br> Variável ambiental: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
@@ -91,9 +91,9 @@ O nome desta definição é `deviceAutoDeleteProperties` . Se estiver a utilizar
 
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
-| deleteOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental:`deviceAutoDeleteProperties__deleteOn={false,true}` |
-| excluirAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo apagará automaticamente as suas bolhas do armazenamento local quando este valor expirar. <br><br> Variável ambiental:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| manter o Uploading | TRUE, false | Por predefinição, é definido para `true` , e irá reter o blob enquanto estiver a ser carregado para armazenamento na nuvem se o Apagar Depois expirar. Pode defini-lo `false` e apagará os dados assim que o Eliminar Minuto expirar. Nota: Para que esta propriedade funcione uploadOn deve ser definido como verdadeiro.  <br><br> **ATENÇÃO:** Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local quando o valor expirar, e quaisquer futuras operações do Bloco de Apêndice a essas bolhas falharão. É melhor certificar-se de que o valor de validade é suficientemente grande para a frequência esperada das operações de apêndice realizadas pela sua aplicação.<br><br> Variável ambiental:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| deleteOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| excluirAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo apagará automaticamente as suas bolhas do armazenamento local quando este valor expirar. <br><br> Variável ambiental: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| manter o Uploading | TRUE, false | Por predefinição, é definido para `true` , e irá reter o blob enquanto estiver a ser carregado para armazenamento na nuvem se o Apagar Depois expirar. Pode defini-lo `false` e apagará os dados assim que o Eliminar Minuto expirar. Nota: Para que esta propriedade funcione uploadOn deve ser definido como verdadeiro.  <br><br> **ATENÇÃO:** Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local quando o valor expirar, e quaisquer futuras operações do Bloco de Apêndice a essas bolhas falharão. É melhor certificar-se de que o valor de validade é suficientemente grande para a frequência esperada das operações de apêndice realizadas pela sua aplicação.<br><br> Variável ambiental: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Usando a partilha SMB como o seu armazenamento local
 
@@ -185,7 +185,7 @@ As seguintes amostras de arranque rápido utilizam idiomas que também são supo
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-  * Versões antes de V2.1 do Python SDK têm um problema conhecido onde o módulo não devolve o tempo de criação de blob. Por causa desta questão, alguns métodos como as bolhas de lista não funcionam. Como solução alternativa, coloque explicitamente a versão API no cliente blob para '2017-04-17'. Exemplo:`block_blob_service._X_MS_VERSION = '2017-04-17'`
+  * Versões antes de V2.1 do Python SDK têm um problema conhecido onde o módulo não devolve o tempo de criação de blob. Por causa desta questão, alguns métodos como as bolhas de lista não funcionam. Como solução alternativa, coloque explicitamente a versão API no cliente blob para '2017-04-17'. Exemplo:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Amostra de Blob de Apêndice](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
@@ -201,7 +201,7 @@ Pode utilizar [o Azure Storage Explorer](https://azure.microsoft.com/features/st
 
 1. Ligue ao Azure Storage usando uma cadeia de ligação
 
-1. Fornecer cadeia de ligação:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. Fornecer cadeia de ligação: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. Assemem os degraus para se conectarem.
 
@@ -298,7 +298,7 @@ Aqui estão as [notas de lançamento no estivador hub](https://hub.docker.com/_/
 
 O seu feedback é importante para nós para tornar este módulo e as suas funcionalidades úteis e fáceis de usar. Por favor, partilhe o seu feedback e diga-nos como podemos melhorar.
 
-Pode nos alcançar emabsiotfeedback@microsoft.com
+Pode nos alcançar em absiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 

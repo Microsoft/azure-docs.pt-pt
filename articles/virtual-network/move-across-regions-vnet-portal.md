@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711447"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Mover uma rede virtual Azure para outra região utilizando o portal Azure
@@ -204,10 +204,10 @@ Para comprometer as alterações e completar o movimento de rede virtual, elimin
 1. No painel de instrumentos do portal Azure, selecione a rede virtual ou o grupo de recursos.
 1. Na parte superior de cada painel, **selecione Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você mudou uma rede virtual Azure de uma região para outra usando o portal Azure e, em seguida, limpou os recursos de origem não necessários. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover máquinas virtuais Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

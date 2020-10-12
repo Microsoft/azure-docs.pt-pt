@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116073"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
@@ -43,7 +43,7 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
 
 ## <a name="configure-the-custom-policy"></a>Configure a política personalizada
 
-1. Abra o ficheiro do partido de base (RP), por *exemplo,SignUpOrSignin.xml*.
+1. Abra o ficheiro do partido de base (RP), por * exemplo,SignUpOrSignin.xml*.
 1. Adicione os seguintes atributos ao `<TrustFrameworkPolicy>` elemento:
 
    ```xml
@@ -58,9 +58,9 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"`diz à ApplicationInsights para acelerar a telemetria através do gasoduto de processamento. Bom para o desenvolvimento, mas limitado em grandes volumes.
-    * `ClientEnabled="true"`envia o script do lado do cliente ApplicationInsights para visualização da página de rastreio e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Application Insights. Ao `ClientEnabled= "true"` configurar, adicione Application Insights ao seu script de página e obtém os horários das cargas de página e chamadas AJAX, contagens, detalhes das exceções do navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional**, e está definido `false` por padrão.
-    * `ServerEnabled="true"`envia o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights.
+    * `DeveloperMode="true"` diz à ApplicationInsights para acelerar a telemetria através do gasoduto de processamento. Bom para o desenvolvimento, mas limitado em grandes volumes.
+    * `ClientEnabled="true"` envia o script do lado do cliente ApplicationInsights para visualização da página de rastreio e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Application Insights. Ao `ClientEnabled= "true"` configurar, adicione Application Insights ao seu script de página e obtém os horários das cargas de página e chamadas AJAX, contagens, detalhes das exceções do navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional**, e está definido `false` por padrão.
+    * `ServerEnabled="true"` envia o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights.
 
     Por exemplo:
 

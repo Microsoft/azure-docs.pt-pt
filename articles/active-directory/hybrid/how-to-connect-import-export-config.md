@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da80af9fe598186fa25d59601c9fa4faccb4286a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87447044"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings-public-preview"></a>Importar e exportar configurações de configuração AZure AD Connect (pré-visualização pública)
@@ -40,7 +40,7 @@ Importar configurações previamente exportadas:
 1. Instale **o Azure AD Connect** num novo servidor.
 1. Selecione a opção **Personalizar** após a página **Welcome.**
 1. Selecione **Definições de sincronização de importação**. Navegue para o ficheiro de definições JSON previamente exportado.
-1. Selecione **Install** (Instalar).
+1. Selecione **Instalar**.
 
    ![Screenshot que mostra o ecrã de componentes necessários para instalar](media/how-to-connect-import-export-config/import1.png)
 

@@ -9,10 +9,10 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716678"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transforme JSON e XML usando modelos líquidos como mapas em Azure Logic Apps

@@ -16,10 +16,10 @@ ms.date: 10/17/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763164"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
@@ -71,6 +71,6 @@ Para **desativar todas as futuras operações de consentimento do utilizador em 
 6.  Definir os **Utilizadores pode permitir que as aplicações acedam aos dados da empresa em seu nome** para alternar para **No** e clicar no botão Guardar.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir o acesso a apps](what-is-access-management.md)

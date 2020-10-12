@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086488"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use os nódrupes de borda vazios em aglomerados Apache Hadoop em HDInsight
@@ -86,7 +86,7 @@ Nesta secção, utilize um modelo de Gestor de Recursos para adicionar um nó de
     |Localização|Selecione a localização do cluster HDInsight existente.|
     |Nome do Cluster|Insira o nome de um cluster HDInsight existente.|
 
-1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione **Comprar** para criar o nó de borda.
+1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione  **Comprar** para criar o nó de borda.
 
 > [!IMPORTANT]  
 > Certifique-se de selecionar o grupo de recursos Azure para o cluster HDInsight existente.  Caso contrário, obtém-se a mensagem de erro "Não pode efetuar a operação solicitada em recursos aninhados. O &lt; clustername dos pais não> encontrados."
@@ -117,7 +117,7 @@ Nesta secção, utilize um modelo de Gestor de Recursos para criar um cluster HD
 
     Algumas propriedades foram codificadas no modelo: Tipo cluster, contagem de nós de trabalhador cluster, tamanho do nó de borda e nome do nó de borda.
 
-1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione **Comprar** para criar o cluster com o nó de borda.
+1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione  **Comprar** para criar o cluster com o nó de borda.
 
 ## <a name="add-multiple-edge-nodes"></a>Adicione vários nosdes de borda
 
@@ -162,9 +162,9 @@ Pode apagar um nó de borda do portal Azure.
 4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete**.
 5. Selecione **Sim** para confirmar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a adicionar um nó de borda e como aceder ao nó de borda. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu a adicionar um nó de borda e como aceder ao nó de borda. Para saber mais, leia os artigos seguintes:
 
 * [Instalar aplicações HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar aplicações HDInsight nos clusters.
 * [Instale aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar uma aplicação HDInsight não publicada para o HDInsight.

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
 ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121022"
 ---
 # <a name="translator-v30"></a>Tradutor v3.0
@@ -156,7 +156,7 @@ Pode encontrar o ponto final personalizado depois de criar um [recurso de tradut
 |Cabeçalhos|Descrição|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição ao Tradutor.|
-|Ocp-Apim-Região de Subscrição| O valor é a região do recurso tradutor. Este valor é opcional se o recurso for`global`|
+|Ocp-Apim-Região de Subscrição| O valor é a região do recurso tradutor. Este valor é opcional se o recurso for `global`|
 
 Aqui está um pedido de exemplo para ligar para o Tradutor usando o ponto final personalizado
 

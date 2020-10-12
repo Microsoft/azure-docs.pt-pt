@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86274514"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimize o autovacuum numa base de dados Azure para PostgreSQL - Servidor Único
@@ -57,7 +57,7 @@ Aqui estão alguns parâmetros de configuração de autovacuum que pode atualiza
 Parâmetro|Descrição|Valor predefinido
 ---|---|---
 autovacuum_vacuum_threshold|Especifica o número mínimo de tuples atualizados ou eliminados necessários para desencadear uma operação de vácuo em qualquer tabela. O padrão é de 50 tuples. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor. Para anular a regulação para tabelas individuais, altere os parâmetros de armazenamento da tabela.|50
-autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela para adicionar ao autovacuum_vacuum_threshold ao decidir se deve desencadear uma operação de vácuo. O padrão é 0.2, que é 20 por cento do tamanho da mesa. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor. Para anular a regulação para tabelas individuais, altere os parâmetros de armazenamento da tabela.|0,2
+autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela para adicionar ao autovacuum_vacuum_threshold ao decidir se deve desencadear uma operação de vácuo. O padrão é 0.2, que é 20 por cento do tamanho da mesa. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor. Para anular a regulação para tabelas individuais, altere os parâmetros de armazenamento da tabela.|0.2
 autovacuum_vacuum_cost_limit|Especifica o valor-limite de custo utilizado nas operações automáticas de vácuo. Se for especificado -1, que é o padrão, é utilizado o valor regular vacuum_cost_limit. Se houver mais de um trabalhador, o valor é distribuído proporcionalmente entre os trabalhadores autovacuum em funcionamento. A soma dos limites para cada trabalhador não excede o valor desta variável. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor. Para anular a regulação para tabelas individuais, altere os parâmetros de armazenamento da tabela.|-1
 autovacuum_vacuum_cost_delay|Especifica o valor do atraso de custo utilizado nas operações automáticas de vácuo. Se for especificado -1, utiliza-se o valor regular vacuum_cost_delay. O valor predefinido é de 20 milissegundos. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor. Para anular a regulação para tabelas individuais, altere os parâmetros de armazenamento da tabela.|20 ms
 autovacuum_naptime | Especifica o atraso mínimo entre autovacuum em qualquer base de dados. Em cada ronda, o daemon examina a base de dados e emite comandos VACUUM e ANALYZE conforme necessário para as tabelas nessa base de dados. O atraso é medido em segundos. Desfie este parâmetro apenas no ficheiro postgresql.conf ou na linha de comando do servidor.| 15 s

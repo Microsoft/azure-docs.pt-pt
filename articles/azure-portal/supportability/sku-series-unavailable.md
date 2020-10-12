@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
 ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763827"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU indisponível

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84981953"
 ---
 # <a name="text-split-cognitive-skill"></a>Habilidade cognitiva dividida de texto
@@ -130,7 +130,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se uma língua não for suportada, é gerada uma advertência e o texto é dividido nos limites do personagem.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

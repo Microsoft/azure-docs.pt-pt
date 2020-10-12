@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: 8645afac5734cdbffb8df6f341529e688ca526d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754596"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
@@ -55,7 +55,7 @@ Se estiver a utilizar o Pivotal Cloud Foundry, o corretor de serviços também e
 
 O Cloud Foundry é adequado para o desenvolvimento ágil de software, incluindo o uso de integração contínua (CI) e entrega contínua (CD). Se utilizar o Azure DevOps Services para gerir os seus projetos e pretender configurar um oleoduto CI/CD direcionado para cloud foundry, pode utilizar a [extensão de construção de cloud foundry de serviços Azure DevOps.](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension) O plugin torna simples configurar e automatizar implementações para cloud foundry, quer esteja a funcionar em Azure ou noutro ambiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implementar a Configuração da Nuvem Pivotal do Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 - [Implementar uma aplicação para Cloud Foundry em Azure](./cloudfoundry-deploy-your-first-app.md)

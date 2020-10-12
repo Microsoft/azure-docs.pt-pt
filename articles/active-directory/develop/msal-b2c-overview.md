@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119795"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilize a Microsoft Authentication Library para o JavaScript para trabalhar com o Azure AD B2C
@@ -201,7 +201,7 @@ Quando um utilizador **seleciona a palavra-passe Esquecida,** a sua aplicação 
 
     Depois de redefinir a sua palavra-passe, o utilizador é devolvido à aplicação para iniciar novamente o sposição.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ecrãs de fluxo de reset de palavra-passe mostrados por Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Ecrã de inscrição exibido por Azure AD B2C" border="false":::
 
     Para obter mais informações sobre códigos de erro e exceções de manuseamento, consulte [códigos de erro e de exceção da MSAL](msal-handling-exceptions.md).
 
@@ -209,6 +209,6 @@ Quando um utilizador **seleciona a palavra-passe Esquecida,** a sua aplicação 
 
 Saiba mais sobre estes conceitos Azure AD B2C:
 
-- [Fluxos de utilizadores](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Fluxos do utilizador](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md)
 - [Personalização da Experiência do Utilizador](../../active-directory-b2c/custom-policy-configure-user-input.md)

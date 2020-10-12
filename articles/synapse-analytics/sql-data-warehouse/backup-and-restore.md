@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482552"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauro na piscina Azure Synapse SQL
@@ -76,11 +76,11 @@ Um geo-backup é criado uma vez por dia para um [centro de dados emparelhado](..
 
 ## <a name="backup-and-restore-costs"></a>Backup e restaurar custos
 
-Você vai notar que a conta Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação de desastres. A taxa de armazenamento é o custo total para armazenar os seus dados na região primária, juntamente com as alterações incrementais capturadas por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, consulte a [Compreensão de como os Snapshots Acumulam Encargos](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A taxa geo-redundante cobre os custos de armazenamento dos geo-backups.  
+Você vai notar que a conta Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação de desastres. A taxa de armazenamento é o custo total para armazenar os seus dados na região primária, juntamente com as alterações incrementais capturadas por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, consulte a  [Compreensão de como os Snapshots Acumulam Encargos](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A taxa geo-redundante cobre os custos de armazenamento dos geo-backups.  
 
 O custo total do seu armazém de dados primário e sete dias de alterações instantâneas é arredondado para a tuberculose mais próxima. Por exemplo, se o seu armazém de dados for de 1,5 TB e os instantâneos capturarem 100 GB, é cobrado 2 TB de dados a taxas de armazenamento Azure Premium.
 
-Se estiver a utilizar um armazenamento geo-redundante, receberá uma taxa de armazenamento separada. O armazenamento geo-redundante é faturado na taxa padrão de armazenamento geográfico redundante de leitura (RA-GRS).
+Se estiver a utilizar um armazenamento geo-redundante, receberá uma taxa de armazenamento separada. O armazenamento geo-redundante é faturado na taxa padrão de armazenamento Read-Access Geograficamente redundante (RA-GRS).
 
 Para obter mais informações sobre os preços da Azure Synapse, consulte [os preços da Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Não é cobrado por saída de dados ao restaurar as regiões.
 
@@ -105,6 +105,6 @@ Você pode [restaurar a sua piscina SQL](sql-data-warehouse-restore-from-geo-bac
 > [!NOTE]
 > Para realizar uma restauração geo-redundante não deve ter optado por sair desta funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre pontos de restauro, consulte [pontos de restauro definidos pelo utilizador](sql-data-warehouse-restore-points.md)

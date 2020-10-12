@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987658"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Criar um runbook gráfico
@@ -124,7 +124,7 @@ O livro de execução que criou ainda está no modo Draft. Tem de ser publicado 
 
     Note que o painel streams pode mostrar outros fluxos para uma tarefa de runbook, como verbose e fluxos de erro, se o livro de bordo lhes escrever.
 
-9. Feche o painel streams e o painel job para voltar à página MyFirstRunbook-Graphical.
+9. Feche o painel de streams e o painel de trabalho para voltar à página MyFirstRunbook-Graphical.
 
 10. Para ver todos os trabalhos para o livro, selecione **Jobs** under **Resources**. A página Jobs lista todos os empregos criados pelo seu runbook. Devia ver apenas um emprego na lista, já que só dirigiu o trabalho uma vez.
 
@@ -156,7 +156,7 @@ Agora que tem uma variável para manter o ID de subscrição, pode configurar o 
 >[!NOTE]
 >Para os livros powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro gráfico só pode `Connect-AzAccount` usar-se sozinho.
 
-1. Navegue para o seu runbook e **selecione Editar** na página MyFirstRunbook-Graphical.
+1. Navegue no seu runbook e **selecione Editar** na página MyFirstRunbook-Graphical.
 
 2. Já não precisas da `Write Hello World to output` entrada. Basta clicar na elipse e selecionar **Eliminar**.
 
@@ -242,7 +242,7 @@ Agora deve adicionar uma `Start-AzVM` atividade para iniciar uma máquina virtua
 
 9. Clique **em Iniciar** o teste. Uma vez concluído, certifique-se de que o VM começou. O seu livro deve parecer o seguinte neste momento.
 
-    ![Saída inicial do Runbook Start-AzVM](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+    ![Saída de Start-AzVM do runbook](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters"></a>Passo 8 - Adicione parâmetros de entrada adicionais
 

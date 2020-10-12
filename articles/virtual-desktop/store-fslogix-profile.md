@@ -7,17 +7,17 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568698"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
 
 O Azure oferece múltiplas soluções de armazenamento que pode utilizar para armazenar o seu contentor de perfil FSLogix. Este artigo compara as soluções de armazenamento que o Azure oferece para os recipientes de perfil de utilizador do Windows Virtual Desktop FSLogix. Recomendamos o armazenamento de recipientes de perfil FSLogix em Ficheiros Azure para a maioria dos nossos clientes.
 
-O Windows Virtual Desktop oferece recipientes de perfil FSLogix como a solução recomendada para o perfil do utilizador. O FSLogix foi concebido para percorrer perfis em ambientes informáticos remotos, como o Windows Virtual Desktop. No início de sposição, este recipiente é ligado dinamicamente ao ambiente de computação utilizando um Disco Rígido Virtual (VHD) suportado de forma nativa e um Disco Rígido Virtual Hiper-V (VHDX). O perfil do utilizador está imediatamente disponível e aparece no sistema exatamente como um perfil de utilizador nativo.
+O Windows Virtual Desktop oferece recipientes de perfil FSLogix como a solução recomendada para o perfil do utilizador. O FSLogix foi concebido para percorrer perfis em ambientes informáticos remotos, como o Windows Virtual Desktop. No início de sposição, este recipiente é ligado dinamicamente ao ambiente de computação utilizando um Disco Rígido Virtual (VHD) suportado de forma nativa e um Disco Rígido Virtual Hiper-V (VHDX). O perfil do utilizador fica imediatamente disponível e aparece no sistema exatamente como um perfil de utilizador nativo.
 
 As tabelas que se seguem comparam as soluções de armazenamento que o Azure Storage oferece para os perfis de utilizadores do perfil do pcra do Windows Virtual Desktop FSLogix.
 
@@ -45,7 +45,7 @@ As tabelas que se seguem comparam as soluções de armazenamento que o Azure Sto
 
 Assim que tiver escolhido o seu método de armazenamento, consulte [os preços do Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre os nossos planos de preços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os recipientes de perfil FSLogix, discos de perfil do utilizador e outras tecnologias de perfil de utilizador, consulte a tabela em [recipientes de perfil FSLogix e ficheiros Azure](fslogix-containers-azure-files.md).
 

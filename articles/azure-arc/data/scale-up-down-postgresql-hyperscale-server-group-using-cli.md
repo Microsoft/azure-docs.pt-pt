@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285320"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Dimensione para cima e para baixo uma base de dados de Azure para o grupo de servidores de hiperescala PostgreSQL usando CLI (azdata ou kubectl)
@@ -183,7 +183,7 @@ Para reduzir o grupo de servidor executa o mesmo comando, mas define valores inf
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Dimensione a sua Base de Dados de Azure para o grupo de servidores de hiperescala PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Aumentar horizontalmente o grupo de servidores de Hyperscale da Base de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento de Kubernetes](storage-configuration.md)
 - [Expansão das reclamações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
