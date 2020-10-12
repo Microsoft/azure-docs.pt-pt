@@ -1,6 +1,6 @@
 ---
 title: Azure Single Sign out Protocolo SAML
-description: Este artigo descreve o Protocolo SAML de assinatura única no Diretório Ativo Azure
+description: Este artigo descreve o Protocolo SAML de Sign-Out Único no Diretório Ativo do Azure
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118268"
 ---
-# <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de assinatura única
+# <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Sign-Out Única
 
 O Azure Ative Directory (Azure AD) suporta o perfil de sessão de assinatura único do navegador SAML 2.0. Para que a súmis funcione corretamente, o **LogoutURL** para o pedido deve ser explicitamente registado no Azure AD durante o registo da aplicação. O Azure AD utiliza o LogoutURL para redirecionar os utilizadores depois de terem sido assinados.
 
@@ -40,9 +40,9 @@ O serviço de nuvem envia uma `LogoutRequest` mensagem para a Azure AD para indi
 ### <a name="logoutrequest"></a>LogoutRequest
 O `LogoutRequest` elemento enviado para a Azure AD requer os seguintes atributos:
 
-* `ID`- Isto identifica o pedido de inscrição. O valor de `ID` não deve começar com um número. A prática típica é anexar o **id** à representação de cordas de um GUID.
-* `Version`- Desa couuser o valor deste elemento a **2.0**. Este valor é preciso.
-* `IssueInstant`- Trata-se de uma `DateTime` cadeia com um valor de Tempo Universal coordenado (UTC) e formato de ida e volta [("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A AZure AD espera um valor deste tipo, mas não o aplica.
+* `ID` - Isto identifica o pedido de inscrição. O valor de `ID` não deve começar com um número. A prática típica é anexar o **id** à representação de cordas de um GUID.
+* `Version` - Desa couuser o valor deste elemento a **2.0**. Este valor é preciso.
+* `IssueInstant` - Trata-se de uma `DateTime` cadeia com um valor de Tempo Universal coordenado (UTC) e formato de ida e volta [("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A AZure AD espera um valor deste tipo, mas não o aplica.
 
 ### <a name="issuer"></a>Emissor
 O `Issuer` elemento num must corresponde `LogoutRequest` exatamente a um dos **nomes ServicePrincipalNames** no serviço de nuvem em Azure AD. Normalmente, isto é definido para o **ID URI da app** que é especificado durante o registo da aplicação.

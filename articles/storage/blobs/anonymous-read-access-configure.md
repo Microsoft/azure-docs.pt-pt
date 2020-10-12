@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087359"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
@@ -207,7 +207,7 @@ Para atualizar o nível de acesso público a um ou mais contentores existentes n
 
 Quando o acesso público é proibido para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, verá que a definição está desativada porque o acesso público é proibido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando que a definição do nível de acesso público do contentor é bloqueada quando o acesso público é proibido":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando como permitir ou desativar o acesso público blob para conta":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/19/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4231f348f99073406fcb6a5bef9bf0f84cacf2eb
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707681"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalize os parâmetros de configuração do servidor para Azure Database para PostgreSQL - Servidor Único utilizando O Azure CLI
@@ -50,6 +50,6 @@ az postgres server configuration set --name log_min_messages --resource-group my
 ```
 Este comando reinicia a configuração de ** \_ \_ mensagens de log min** para o valor predefinido **AVISO**. Para obter mais informações sobre a configuração do servidor e valores admissíveis, consulte a documentação PostgreSQL na [Configuração do Servidor](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba como reiniciar um servidor](howto-restart-server-cli.md)
 - Para configurar e aceder aos registos de servidores, consulte [registos de servidores na Base de Dados de Azure para PostgreSQL](concepts-server-logs.md)

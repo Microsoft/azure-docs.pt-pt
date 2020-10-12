@@ -1,7 +1,7 @@
 ---
-title: 'Árvore de decisão reforçada de duas classes: referência do módulo'
+title: 'Two-Class Árvore de Decisão Reforçada: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de árvore de decisão reforçada de duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada.
+description: Aprenda a usar o módulo Two-Class Da Árvore de Decisão Reforçada em Azure Machine Learning para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907738"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão reforçada de duas classes
+# <a name="two-class-boosted-decision-tree-module"></a>Two-Class módulo de árvore de decisão reforçada
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
@@ -77,7 +77,7 @@ Pode treinar este tipo de modelo utilizando [o Modelo de Comboio.](././train-mod
     > 
     > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
    
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 

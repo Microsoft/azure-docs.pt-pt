@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
 ms.openlocfilehash: e118c22829bc55e8baafb87db20817ab043ef4df
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540783"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento do Azure
@@ -263,7 +263,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-set-up-training-targets.md)

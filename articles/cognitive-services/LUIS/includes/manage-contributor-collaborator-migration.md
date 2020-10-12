@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.openlocfilehash: 28629b05ab18ea02edce2a9bf1e9cd27a7090999
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540914"
 ---
 A gestão das contribuições dos colaboradores depende do estado atual da app.

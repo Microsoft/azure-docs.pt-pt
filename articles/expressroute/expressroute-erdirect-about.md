@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
 ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566403"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
@@ -39,7 +39,7 @@ Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscri
 | --- | --- |
 | Utiliza prestadores de serviços para permitir o embarque rápido e a conectividade na infraestrutura existente | Requer 100 Gbps/10 Gbps de infraestrutura e gestão completa de todas as camadas
 | Integra-se com centenas de fornecedores, incluindo ethernet e MPLS | Capacidade direta/dedicada para indústrias reguladas e ingestão massiva de dados |
-| Circuitos SKUs de 50 Mbps a 10 Gbps | O cliente pode selecionar uma combinação do seguinte circuito SKUs em 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> O cliente pode selecionar uma combinação do seguinte circuito SKUs em 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| Circuitos SKUs de 50 Mbps a 10 Gbps | O cliente pode selecionar uma combinação do seguinte circuito SKUs em 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> O cliente pode selecionar uma combinação do seguinte circuito SKUs em 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Otimizado para inquilino único | Otimizado para inquilino único com múltiplas unidades de negócio e múltiplos ambientes de trabalho
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos Diretos ExpressRoute
@@ -57,7 +57,7 @@ O ExpressRoute Direct suporta cenários maciços de ingestão de dados no armaze
 | **100 Gbps ExpressRoute Direct** | **10 Gbps ExpressRoute Direct** | 
 | --- | --- |
 | **Largura de banda subscrita**: 200 Gbps | **Largura de banda subscrita**: 20 Gbps |
-| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 ## <a name="technical-requirements"></a>Requisitos Técnicos
 
@@ -91,6 +91,6 @@ O ExpressRoute Direct suporta a marcação VLAN QinQ e Dot1Q.
 
 O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com ligações redundantes ativas/ativas na Rede Global da Microsoft. A infraestrutura ExpressRoute é redundante e a conectividade na Microsoft Global Network é redundante e diversificada e escala em conformidade com os requisitos do cliente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar o ExpressRoute Direct](expressroute-howto-erdirect.md)

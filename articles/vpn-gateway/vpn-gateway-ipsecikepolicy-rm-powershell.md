@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392655"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política IPsec/IKE para ligações VPN S2S ou VNet a VNet
@@ -84,7 +84,7 @@ A tabela a seguir lista os algoritmos criptográficos suportados e os pontos for
 >    * IKEv2 corresponde ao Modo Principal ou fase 1
 >    * O IPsec corresponde ao Modo Rápido ou fase 2
 >    * O Grupo DH especifica o Grupo Diffie-Hellmen utilizado no Modo Principal ou na Fase 1
->    * Grupo PFS especificou o Grupo Diffie-Hellmen utilizado em Modo Rápido ou Fase 2
+>    * O Grupo PFS especificou o Grupo Diffie-Hellmen utilizado em Modo Rápido ou Fase 2
 > 4. A duração do SA do Modo Principal do IKEv2 é fixa em 28 800 segundos em gateways de VPN do Azure
 > 5. A definição de "UsePolicyBasedTrafficSelectors" para $True numa ligação configurará a porta de entrada Azure VPN para ligar à firewall VPN baseada em políticas nas instalações. Se ativar os controladores PolicyBasedTrafficS, tem de garantir que o seu dispositivo VPN tem os seletores de tráfego correspondentes definidos com todas as combinações dos prefixos da rede no local (gateway de rede local) de/para os prefixos da rede virtual Azure, em vez de qualquer-para-qualquer. Por exemplo, se os prefixos de rede local são 10.1.0.0/16 e 10.2.0.0/16, e os prefixos de rede virtual são 192.168.0.0/16 e 172.16.0.0/16, tem de especificar os seletores de tráfego seguintes:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -94,7 +94,7 @@ A tabela a seguir lista os algoritmos criptográficos suportados e os pontos for
 
 Para obter mais informações sobre os seletores de tráfego baseados em políticas, consulte [ligar vários dispositivos VPN baseados em políticas no local.](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 
-A tabela que se segue lista os grupos Diffie-Hellman correspondentes, apoiados pela política aduaneira:
+A tabela que se segue lista os grupos Diffie-Hellman correspondentes apoiados pela política de costumes:
 
 | **Grupo Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Comprimento da chave** |
 | --- | --- | --- | --- |
@@ -341,7 +341,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Se não houver uma política IPsec/IKE configurada, o comando (PS> $connection6. IpsecPolicies) recebe um retorno vazio. Não significa que o IPsec/IKE não esteja configurado na ligação, mas que não exista uma política personalizada de IPsec/IKE. A ligação real utiliza a política padrão negociada entre o seu dispositivo VPN no local e o gateway Azure VPN.
+Se não houver uma política IPsec/IKE configurada, o comando (PS> $connection 6. IpsecPolicies) recebe um retorno vazio. Não significa que o IPsec/IKE não esteja configurado na ligação, mas que não exista uma política personalizada de IPsec/IKE. A ligação real utiliza a política padrão negociada entre o seu dispositivo VPN no local e o gateway Azure VPN.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Adicionar ou atualizar uma política IPsec/IKE para uma ligação
 
@@ -400,7 +400,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 Pode utilizar o mesmo script para verificar se a apólice foi removida da ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [os dispositivos VPN baseados em políticas para ligar vários dispositivos VPN baseados em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre os seletores de tráfego baseados em políticas.
 

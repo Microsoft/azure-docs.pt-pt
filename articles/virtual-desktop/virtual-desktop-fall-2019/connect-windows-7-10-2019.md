@@ -7,10 +7,10 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008366"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Conecte-se com o cliente do Windows Desktop (clássico)
@@ -61,8 +61,8 @@ Há duas formas de subscrever um Espaço de Trabalho. O cliente pode tentar desc
 1. A partir da página principal do cliente, **selecione Subscreva com URL**.
 2. Insira o URL do Espaço de Trabalho ou o seu endereço de e-mail:
    - Se utilizar o **URL workspace,** use o que o seu administrador lhe deu. Se aceder a recursos a partir do Windows Virtual Desktop, pode utilizar um dos seguintes URLs:
-     - Windows Virtual Desktop (clássico):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (clássico): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Se estiver a utilizar o campo **de e-mail,** insira o seu endereço de e-mail. Isto indica ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador tiver configurado a [descoberta de e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selecione **Seguinte**.
 4. Inscreva-se na sua conta de utilizador quando solicitado.

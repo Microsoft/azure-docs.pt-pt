@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717851"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
@@ -51,12 +51,12 @@ Um Gateway RD pode ser configurado para usar uma loja de política central para 
 
 Quando a extensão NPS para Azure é integrada com o NPS e o Remote Desktop Gateway, o fluxo de autenticação bem-sucedido é o seguinte:
 
-1. O servidor Remote Desktop Gateway recebe um pedido de autenticação de um utilizador de ambiente de trabalho remoto para se ligar a um recurso, como uma sessão de Desktop Remoto. Atuando como cliente RADIUS, o servidor Remote Desktop Gateway converte o pedido numa mensagem RADIUS Access-Request e envia a mensagem para o servidor RADIUS (NPS) onde a extensão NPS está instalada.
+1. O servidor Remote Desktop Gateway recebe um pedido de autenticação de um utilizador de ambiente de trabalho remoto para se ligar a um recurso, como uma sessão de Desktop Remoto. Atuando como cliente RADIUS, o servidor Remote Desktop Gateway converte o pedido num RADIUS Access-Request mensagem e envia a mensagem para o servidor RADIUS (NPS) onde a extensão NPS está instalada.
 1. O nome de utilizador e a combinação de palavra-passe são verificados no Ative Directory e o utilizador é autenticado.
 1. Se todas as condições especificadas no Pedido de Conexão NPS e nas Políticas de Rede forem satisfeitas (por exemplo, restrições de data do dia ou de grupo), a extensão NPS desencadeia um pedido de autenticação secundária com Azure MFA.
 1. A Azure MFA comunica com a Azure AD, recupera os detalhes do utilizador e executa a autenticação secundária utilizando métodos suportados.
 1. Após o sucesso do desafio MFA, a Azure MFA comunica o resultado à extensão NPS.
-1. O servidor NPS, onde a extensão está instalada, envia uma mensagem RADIUS Access-Accept para a política RD CAP para o servidor Remote Desktop Gateway.
+1. O servidor NPS, onde a extensão está instalada, envia uma mensagem de Access-Accept RADIUS para a política RD CAP para o servidor Remote Desktop Gateway.
 1. O utilizador tem acesso ao recurso de rede solicitado através do Gateway RD.
 
 ## <a name="prerequisites"></a>Pré-requisitos

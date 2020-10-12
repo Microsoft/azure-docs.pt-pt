@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 1a9aa212c95d8fef58c3fa92b2c1135f81b708be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84736769"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Ligações de resolução de problemas com o Observador de Redes Azure utilizando o Azure CLI
@@ -29,7 +29,7 @@ ms.locfileid: "84736769"
 
 Saiba como utilizar a resolução de problemas de ligação para verificar se pode ser estabelecida uma ligação TCP direta de uma máquina virtual para um determinado ponto final.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem os seguintes recursos:
 
@@ -269,7 +269,7 @@ O seguinte json é a resposta exemplo de executar o cmdlet anterior. Como o cheq
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de máquina virtual ao visualizar [Criar uma captura de pacotes desencadeados por alerta](network-watcher-alert-triggered-packet-capture.md)
 

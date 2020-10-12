@@ -3,12 +3,12 @@ title: Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 description: Configure o seu ambiente de Solução VMware Azure para fazer backup de máquinas virtuais utilizando o Servidor de Backup Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: a62bccb729cfa6aec89a3ce6de7283f5d9412428
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580310"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893021"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 
@@ -105,36 +105,6 @@ A VMware 6.7 tinha o TLS ativado como protocolo de comunicação.
 
 1. Clique com o botão direito no TLS. Ficheiro REG e **selecione Merge** ou **Open** para adicionar as definições ao registo.
 
-## <a name="add-the-provisioning-ip-address"></a>Adicione o endereço IP de provisionamento 
-
-Durante a pré-visualização, a Azure VMware Solution não resolve o anfitrião ESX a partir da máquina virtual implantada na rede virtual. Terá de realizar passos adicionais para adicionar a entrada do ficheiro do anfitrião na máquina virtual do Azure Backup Server.
-
-### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identifique o endereço IP para anfitriões ESXi
-
-1. Abra o navegador e inscreva-se nos URLs vCenter. 
-
-   > [!TIP]
-   > Pode encontrar os URLs em [Connect ao vCenter local da sua nuvem privada.](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud)
-
-1. No vSphere Client, selecione o cluster para o quais planeia ativar a cópia de segurança.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="vSphere Web Client":::
-
-1. **Selecione**  >  **Networking**  >  **adaptadores VMKernel**de rede configurar . Na lista de dispositivos, identifique o adaptador de rede que tem **a função de Provisionamento** ativado. Tome nota do **endereço IP** e do nome de anfitrião ESXi.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="vSphere Web Client":::
-
-1. Repita o passo anterior para cada anfitrião ESXi em todos os clusters para os que pretende ativar.
-
-### <a name="update-the-host-file-on-azure-backup-server"></a>Atualize o ficheiro do anfitrião no Azure Backup Server
-
-1. Abra o Bloco de Notas como administrador.
-
-1. Selecione **File**  >  **Open**e procure c:\Windows\System32\Drivers\etc\hosts.
-
-1. Adicione a entrada para cada anfitrião ESXi juntamente com o endereço IP que identificou na secção anterior.
-
-1. Guarde as suas alterações e feche o Bloco de Notas.
 
 ## <a name="add-the-account-on-azure-backup-server"></a>Adicione a conta no Azure Backup Server
 

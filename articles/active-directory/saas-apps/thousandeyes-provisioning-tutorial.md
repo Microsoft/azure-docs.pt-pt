@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355827"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar MilEyes para o provisionamento automático do utilizador
@@ -51,7 +51,7 @@ Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os
 Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da ThousandEyes que fornece a API, e configura o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas em ThousandEyes com base na atribuição de utilizadores e grupos em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar um único sign-on baseado em SAML para MilEyes, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
+> Pode também optar por ativar Sign-On individuais baseadas em SAML para MilEyes, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configure o fornecimento automático de conta de utilizador à ThousandEyes em Azure AD
 
@@ -73,7 +73,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 7. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
 
-8. Clique em **Save** (Guardar).
+8. Clique em **Guardar**.
 
 9. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to ThousandEyes**.
 
@@ -81,7 +81,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 11. Para ativar o serviço de prestação de Ad Azure para ThousandEyes, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
-12. Clique em **Save** (Guardar).
+12. Clique em **Guardar**.
 
 Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos a MilEyes na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
 

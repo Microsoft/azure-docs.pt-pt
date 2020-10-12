@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 1dcc2a944fc527e4cbc8c7c1072503377ecb5798
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505272"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas MapReduce personalizados
@@ -70,7 +70,7 @@ Os programas MapReduce mais comuns são escritos em Java e compilados num fichei
 
     Este comando submete o trabalho de MapReduce ao YARN. O ficheiro de entrada é `/example/data/sample.log` , e o diretório de saída é `/example/data/logoutput` . O ficheiro de entrada e quaisquer ficheiros de saída são armazenados no armazenamento predefinido para o cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use C# com mapReduce streaming em Apache Hadoop em HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Desenvolver programas Java MapReduce para Apache Hadoop em HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

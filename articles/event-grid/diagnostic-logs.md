@@ -4,10 +4,10 @@ description: Este artigo fornece informações conceptuais sobre registos de dia
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116748"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Registos de diagnóstico para tópicos/domínios da Grelha de Eventos Azure
@@ -18,12 +18,12 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | ------------- | --------- | ----------- | 
-| Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>**Valor do exemplo:** 01-29-2020 09:52:02.700</p> |
-| Nome de subscrição de eventos | String | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
-| Categoria | String | O nome da categoria de registo. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
-| OperationName | String | O nome da operação foi realizado enquanto se depara com a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |
-| Mensagem | String | A mensagem de registo para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
-| ResourceId | String | O ID de recursos para o tópico/recurso de domínio<p>**Valores de exemplo:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
+| Hora | DateTime | O tempo em que a entrada de registo foi gerada <p>**Valor do exemplo:**  01-29-2020 09:52:02.700</p> |
+| Nome de subscrição de eventos | Cadeia | O nome da subscrição do evento <p>**Valor de exemplo:** "EVENTSUB1"</p> <p>Esta propriedade existe apenas para registos de falha de entrega.</p>  |
+| Categoria | Cadeia | O nome da categoria de registo. <p>**Valores de exemplo:** "DeliveryFailures" ou "PublishFailures" | 
+| OperationName | Cadeia | O nome da operação foi realizado enquanto se depara com a falha.<p>**Valores de exemplo:** "Entregar" para falhas de entrega. |
+| Mensagem | Cadeia | A mensagem de registo para o utilizador explicando o motivo da falha e outros detalhes adicionais. |
+| ResourceId | Cadeia | O ID de recursos para o tópico/recurso de domínio<p>**Valores de exemplo:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Exemplo
 
@@ -38,5 +38,5 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a ativar registos de diagnóstico para tópicos ou domínios, consulte [Ativar registos de diagnóstico](enable-diagnostic-logs-topic.md).

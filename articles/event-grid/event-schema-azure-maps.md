@@ -4,10 +4,10 @@ description: Descreve as propriedades e esquemas fornecidos para eventos Azure M
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461991"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como fonte de grade de eventos
@@ -100,61 +100,61 @@ O exemplo a seguir mostra esquema para **GeofenceResult**
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| subject | cadeia | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | cadeia | Identificador único para o evento. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
 | dados | objeto | Dados de eventos geofencing. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| apiCategoria | cadeia | Categoria API do evento. |
-| apiName | cadeia | Nome da API do evento. |
+| apiCategoria | string | Categoria API do evento. |
+| apiName | string | Nome da API do evento. |
 | issues | objeto | Lista as questões encontradas durante o processamento. Se algum problema for devolvido, então não haverá geometrias devolvidas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
 | geometrias | objeto | Lista as geometrias da cerca que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 
 O objeto de erro é devolvido quando ocorre um erro na API do Mapa. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | erro | ErrorDetails |Este objeto é devolvido quando ocorre um erro na API do Mapa  |
 
 O objeto ErrorDetails é devolvido quando ocorre um erro na API do Mapa. O ErrorDetails ou o objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| code | cadeia | O código de estado HTTP. |
-| message | cadeia | Se disponível, uma descrição legível humana do erro. |
+| code | string | O código de estado HTTP. |
+| message | string | Se disponível, uma descrição legível humana do erro. |
 | interior | InteriorError | Se disponível, um objeto que contenha informações específicas do serviço sobre o erro. |
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| code | cadeia | A mensagem de erro. |
+| code | string | A mensagem de erro. |
 
 O objeto de geometria, lista iDs de geometria das geosfências que expiraram em relação ao tempo de utilização no pedido. O objeto de geometria tem itens de geometria com as seguintes propriedades: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |:-------- |:---- |:----------- |
-| deviceid | cadeia | Identificação do dispositivo. |
-| distância | cadeia | <p>Distância da coordenada até à fronteira mais próxima da geofence. Positivo significa que a coordenada está fora da geofência. Se a coordenada estiver fora da geofence, mas mais do que o valor de searchBuffer longe da fronteira de geofência mais próxima, então o valor é 999. Negativo significa que a coordenada está dentro da geofência. Se a coordenada estiver dentro do polígono, mas mais do que o valor de searchBuffer longe da fronteira geofencing mais próxima, então o valor é -999. Um valor de 999 significa que há uma grande confiança que a coordenada está bem fora da geo-fence. Um valor de -999 significa que há uma grande confiança que a coordenada está bem dentro da geofência.<p> |
-| geometria |cadeia | O id único identifica a geometria da geofência. |
+| deviceid | string | Identificação do dispositivo. |
+| distância | string | <p>Distância da coordenada até à fronteira mais próxima da geofence. Positivo significa que a coordenada está fora da geofência. Se a coordenada estiver fora da geofence, mas mais do que o valor de searchBuffer longe da fronteira de geofência mais próxima, então o valor é 999. Negativo significa que a coordenada está dentro da geofência. Se a coordenada estiver dentro do polígono, mas mais do que o valor de searchBuffer longe da fronteira geofencing mais próxima, então o valor é -999. Um valor de 999 significa que há uma grande confiança que a coordenada está bem fora da geo-fence. Um valor de -999 significa que há uma grande confiança que a coordenada está bem dentro da geofência.<p> |
+| geometria |string | O id único identifica a geometria da geofência. |
 | nearestlat | número | Latitude do ponto mais próximo da geometria. |
 | nearestlon | número | Longitude do ponto mais próximo da geometria. |
-| udId | cadeia | O id único devolvido do serviço de upload do utilizador ao carregar um geofence. Não será incluída na API de geofencing pós-api. |
+| udId | string | O id único devolvido do serviço de upload do utilizador ao carregar um geofence. Não será incluída na API de geofencing pós-api. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | corda[] | Listas do ID de geometria da geofência que é expirada em relação ao tempo de utilizador no pedido. |
 | geometrias | geometrias[] |Lista as geometrias da cerca que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
