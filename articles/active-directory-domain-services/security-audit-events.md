@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 98e64f1ea1196b6fd773514d4dad5b6e178a6898
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88722539"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
@@ -239,7 +239,7 @@ Estão disponíveis as seguintes categorias de eventos de auditoria:
 |Segurança de gestão de conta|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
 |Segurança de rastreio de detalhes|Nenhum|
 |Segurança de acesso DS|5136, 5137, 5138, 5139, 5141|
-|Segurança logon-logoff|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
+|segurança Logon-Logoff|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
 |Segurança de acesso a objetos|Nenhum|
 |Segurança de mudança de política|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Segurança de uso de privilégios|4985|

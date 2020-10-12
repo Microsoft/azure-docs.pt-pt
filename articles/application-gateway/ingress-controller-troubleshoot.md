@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207165"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Resolução de problemas comuns ou problemas com o Controlador Ingress
@@ -95,7 +95,7 @@ Obtenha a lista dos ingressess: `kubectl get ingress` . Esperamos que tenha sido
 
 ![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Uma das cápsulas será a AGIC. `kubectl get pods`apresentará uma lista de cápsulas, uma das quais começará com "ingresss-azure". Obtenha todos os registos da cápsula `kubectl logs <name-of-ingress-controller-pod>` para verificar se tivemos uma implementação bem sucedida. Uma implementação bem sucedida teria adicionado as seguintes linhas ao registo:
+Uma das cápsulas será a AGIC. `kubectl get pods` apresentará uma lista de cápsulas, uma das quais começará com "ingresss-azure". Obtenha todos os registos da cápsula `kubectl logs <name-of-ingress-controller-pod>` para verificar se tivemos uma implementação bem sucedida. Uma implementação bem sucedida teria adicionado as seguintes linhas ao registo:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -142,7 +142,7 @@ Devem estar em vigor para que a AGIC funcione como esperado:
      ```
 
   2. Um ou mais **serviços,** referindo-se às cápsulas acima através de `selector` etiquetas correspondentes.
-     Verifique isto da [Cloud Shell](https://shell.azure.com/) com`kubectl get services -o wide`
+     Verifique isto da [Cloud Shell](https://shell.azure.com/) com `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -150,7 +150,7 @@ Devem estar em vigor para que a AGIC funcione como esperado:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, anotado `kubernetes.io/ingress.class: azure/application-gateway` com, referenciando o serviço acima Verifique isto da [Cloud Shell](https://shell.azure.com/) com`kubectl get ingress -o wide --show-labels`
+  3. **Ingress**, anotado `kubernetes.io/ingress.class: azure/application-gateway` com, referenciando o serviço acima Verifique isto da [Cloud Shell](https://shell.azure.com/) com `kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -199,9 +199,9 @@ Devem estar em vigor para que a AGIC funcione como esperado:
 
 
 * Se a cápsula AGIC não for saudável `STATUS` (coluna do comando acima não `Running` é):
-  - obter registos para entender o porquê:`kubectl logs <pod-name>`
-  - para a instância anterior da cápsula:`kubectl logs <pod-name> --previous`
-  - descrever a cápsula para obter mais contexto:`kubectl describe pod <pod-name>`
+  - obter registos para entender o porquê: `kubectl logs <pod-name>`
+  - para a instância anterior da cápsula: `kubectl logs <pod-name> --previous`
+  - descrever a cápsula para obter mais contexto: `kubectl describe pod <pod-name>`
 
 
 * Tem um [serviço](https://kubernetes.io/docs/concepts/services-networking/service/) Kubernetes e recursos [ingress?](https://kubernetes.io/docs/concepts/services-networking/ingress/)
@@ -224,7 +224,7 @@ Devem estar em vigor para que a AGIC funcione como esperado:
 
 
 * A AGIC emite eventos kubernetes para certos erros críticos. Pode ver estes:
-  - no seu terminal via`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - no seu terminal via `kubectl get events --sort-by=.metadata.creationTimestamp`
   - no seu navegador utilizando o [UI Web Kubernetes (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
@@ -245,7 +245,7 @@ A comunidade Kubernetes estabeleceu 9 níveis de registo para a ferramenta [kube
 
 Os níveis de verbosidade são ajustáveis através da `verbosityLevel` variável no ficheiro [helm-config.yaml.](#sample-helm-config-file) Aumente o nível de verbosidade `5` para que o config JSON despachasse para a [ARM:](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
   - adicionar `verbosityLevel: 5` em uma linha por si só em [helm-config.yaml](#sample-helm-config-file) e reinstalar
-  - obter troncos com`kubectl logs <pod-name>`
+  - obter troncos com `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>Arquivo config de amostra helm
 ```yaml

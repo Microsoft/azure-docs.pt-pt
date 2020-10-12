@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628057"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
@@ -80,7 +80,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 | Taxa de amostra              | 8.000 Hz ou 16.000 Hz |
 | Canais                 | 1 (mono)              |
 | Comprimento máximo por áudio | Duas horas               |
-| Formato de amostra            | PCM, 16-bit           |
+| Sample format (Formato de exemplo)            | PCM, 16-bit           |
 | Formato de arquivo           | .zip                  |
 | Tamanho máximo do arquivo     | 2 GB                  |
 
@@ -108,7 +108,7 @@ Os ficheiros áudio podem ter silêncio no início e no fim da gravação. Se po
 | Taxa de amostra              | 8.000 Hz ou 16.000 Hz               |
 | Canais                 | 1 (mono)                            |
 | Comprimento máximo por áudio | 2 horas (testes) / 60 s (treino) |
-| Formato de amostra            | PCM, 16-bit                         |
+| Sample format (Formato de exemplo)            | PCM, 16-bit                         |
 | Formato de arquivo           | .zip                                |
 | Tamanho máximo do fecho de correr         | 2 GB                                |
 
@@ -186,7 +186,7 @@ A forma falada é a sequência fonética escrita. Pode ser composto por letra, p
 
 A pronúncia personalizada está disponível em inglês `en-US` e alemão ( em inglês) e em alemão `de-DE` . Esta tabela mostra caracteres suportados pela linguagem:
 
-| Linguagem | Região | Personagens |
+| Idioma | Região | Personagens |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -199,7 +199,7 @@ Utilize a seguinte tabela para garantir que o seu ficheiro de dados relacionado 
 | # de pronúncias por linha | 1 |
 | Tamanho máximo do ficheiro | 1 MB (1 KB para nível livre) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)

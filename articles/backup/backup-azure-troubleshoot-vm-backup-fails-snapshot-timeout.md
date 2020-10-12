@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182042"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
@@ -249,10 +249,10 @@ Se necessitar de registo verboso para waagent, siga estes passos:
 2. Altere o valor **Logs.Verbose** de *n* para *y*.
 3. Guarde a alteração e, em seguida, reinicie o waagent completando os passos descritos anteriormente nesta secção.
 
-### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>As opções de configuração do Agente VM não estão definidas (para Os VMs Linux)
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>VM-Agent opções de configuração não estão definidas (para Os VMs Linux)
 
 Um ficheiro de configuração (/etc/waagent.conf) controla as ações do waagent. Configuração Extensões de opções **de ficheiro.O enable** deve ser definido para **y** e **Provisioning.Agent** deve ser configurado para **auto** para cópia de segurança funcionar.
-Para obter a lista completa das opções de ficheiros de configuração de vídeo-agente VM, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Para obter a lista completa das opções de ficheiros de configuração VM-Agent, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controlo de aplicações está a bloquear IaaSBcdrExtension.exe
 

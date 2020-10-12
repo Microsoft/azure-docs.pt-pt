@@ -8,10 +8,10 @@ ms.date: 09/27/2018
 ms.author: guybo
 ms.subservice: disks
 ms.openlocfilehash: 9a3498939ddf57e2520a140ff693a30de913fae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84658291"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configure a LVM num Linux VM em Azure
@@ -134,7 +134,7 @@ Neste guia assumimos que anexou três discos de dados, aos quais nos referimos c
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Opcional) Parâmetros de arranque de segurança em`/etc/fstab`
+5. (Opcional) Parâmetros de arranque de segurança em `/etc/fstab`
    
     Muitas distribuições incluem os `nobootwait` parâmetros ou `nofail` montagem que podem ser adicionados ao `/etc/fstab` ficheiro. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    

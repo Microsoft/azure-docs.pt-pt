@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69733071c5b43ee9c8e6450e3a9924bc656d5c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485610"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurar as definições do Servidor MFA
@@ -66,6 +66,6 @@ Para configurar o caching, complete os seguintes passos:
 1. Se necessário, selecione um tipo de autenticação e especifique uma aplicação.
 1. Selecione **Adicionar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estão disponíveis opções adicionais de configuração do MFA Server a partir da consola web do próprio MFA Server. Também pode [configurar o Azure MFA Server para uma elevada disponibilidade.](howto-mfaserver-deploy-ha.md)

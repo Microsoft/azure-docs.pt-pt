@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009176"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop (clássico)
@@ -74,7 +74,7 @@ Aqui está como recolocar o modelo do Gestor de Recursos Azure para expandir uma
 
 Siga as instruções em [Criar uma piscina de anfitriões utilizando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até chegar ao Run the [Azure Marketplace oferecendo uma nova piscina de anfitriões.](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 Todos os valores nesta secção devem corresponder ao que forneceu quando criou os VMs de anfitrião e de anfitrião de sessão, com exceção *dos utilizadores de ambientes de trabalho predefinidos:*
 

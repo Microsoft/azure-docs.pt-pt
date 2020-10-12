@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628680"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte de Gateway de aplicações para extremidades traseiras multi-arrendatários, como o serviço app
@@ -61,6 +61,6 @@ Pode haver cenários em que o nome anfitrião na resposta do serviço app pode d
 
 Para resolver estes casos, consulte [a reorientação da Resolução de Problemas para a emissão de URL do serviço app](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar um gateway de aplicações com uma app multi-inquilino, como a app de serviço da App Azure App, como membro de back-end pool, visitando [aplicações web do Configure App Service com App Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)

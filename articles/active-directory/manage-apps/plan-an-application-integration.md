@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182331"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrar o Azure Ative Directory com candidaturas a iniciar guia
@@ -71,7 +71,7 @@ Os seguintes artigos discutem as diferentes formas de integração das aplicaç�
 * [Integrar lista de tutoriais de aplicações do SaaS](../active-directory-saas-tutorial-list.md)
 
 ### <a name="authentication-types"></a>Tipos de autenticação
-Cada uma das suas aplicações pode ter diferentes requisitos de autenticação. Com a Azure AD, os certificados de assinatura podem ser utilizados com aplicações que utilizam protocolos SAML 2.0, WS-Federação ou OpenID Connect Protocols, bem como signo único de palavra-passe. Para obter mais informações sobre os tipos de autenticação de aplicações para utilização com Azure AD consulte [os Certificados de Gestão de Sinais Únicos Federados em Diretório Ativo Azure](manage-certificates-for-federated-single-sign-on.md) e [sinal de palavra-passe com base em](what-is-single-sign-on.md).
+Cada uma das suas aplicações pode ter diferentes requisitos de autenticação. Com a Azure AD, os certificados de assinatura podem ser utilizados com aplicações que utilizam protocolos SAML 2.0, WS-Federação ou OpenID Connect Protocols, bem como signo único de palavra-passe. Para obter mais informações sobre os tipos de autenticação de aplicações para utilização com Azure AD consulte [os Certificados de Gestão de Sign-On Federados em Diretório Ativo Azure](manage-certificates-for-federated-single-sign-on.md) e [sinal de palavra-passe com base em](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Ativar SSO com Proxy app AD AZure
 Com o Microsoft Azure AD Application Proxy, pode fornecer acesso a aplicações localizadas dentro da sua rede privada de forma segura, a partir de qualquer lugar e em qualquer dispositivo. Depois de ter instalado um conector proxy de aplicação dentro do seu ambiente, pode ser facilmente configurado com Azure AD.
@@ -79,7 +79,7 @@ Com o Microsoft Azure AD Application Proxy, pode fornecer acesso a aplicações 
 ### <a name="integrating-custom-applications"></a>Integração de aplicações personalizadas
 Se está a escrever uma nova aplicação e quer ajudar os desenvolvedores a alavancar o poder da AZure AD, consulte [os desenvolvedores orientadores.](../active-directory-applications-guiding-developers-for-lob-applications.md)
 
-Se pretender adicionar a sua aplicação personalizada à Galeria de Aplicações Azure, consulte ["Traga a sua própria app" com a configuração SAML de Self-Service Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+Se pretender adicionar a sua aplicação personalizada à Galeria de Aplicações Azure, consulte ["Traga a sua própria app" com a Azure AD Self-Service configuração SAML.](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 
 ## <a name="managing-access-to-applications"></a>Gerir o acesso às aplicações
 Os seguintes artigos descrevem formas de gerir o acesso às aplicações depois de terem sido integrados com a AZure AD utilizando conectores AD Ad Azure e Azure AD.

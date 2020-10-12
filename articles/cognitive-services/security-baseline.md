@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393898"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de segurança Azure para Serviços Cognitivos
@@ -948,7 +948,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 Também pode utilizar a função de gestão do ciclo de vida para fazer backup de dados para o nível Archive. Além disso, ative a eliminação suave para as suas cópias de segurança armazenadas na conta de Armazenamento.
 
-* [Compreender a redundância de armazenamento Azure e os acordos de nível de serviço](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Compreender os acordos de redundância e Service-Level de armazenamento da Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Gerir o ciclo de vida do Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
@@ -992,13 +992,13 @@ Também pode utilizar a função de gestão do ciclo de vida para fazer backup d
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura os seus modelos de Gestor de Recursos Azure. Para proteger os recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps ou Ative Directory se integrados com TFS.  Utilize o controlo de acesso baseado em funções para proteger as chaves geridas pelo cliente. Ativar a proteção soft-Delete e purgar no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
+**Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura os seus modelos de Gestor de Recursos Azure. Para proteger os recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps ou Ative Directory se integrados com TFS.  Utilize o controlo de acesso baseado em funções para proteger as chaves geridas pelo cliente. Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
 
 * [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 * [Sobre permissões e grupos em Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-* [Como permitir a proteção soft-delete e purgar no cofre de chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1090,7 +1090,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

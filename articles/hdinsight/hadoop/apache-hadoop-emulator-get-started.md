@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207475"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começa com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual

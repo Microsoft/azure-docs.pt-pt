@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687334"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto do livro
@@ -27,10 +27,10 @@ Um uso comum de caixas de texto é como variáveis internas usadas por outros co
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`SlowRequestThreshold`
-    2. Tipo de parâmetro:`Text`
-    3. Necessário:`checked`
-    4. Obtenha o valor predefinido da consulta:`unchecked`
+    1. Nome do parâmetro: `SlowRequestThreshold`
+    2. Tipo de parâmetro: `Text`
+    3. Necessário: `checked`
+    4. Obtenha o valor predefinido da consulta: `unchecked`
 5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
     ![Imagem mostrando a criação de um parâmetro de texto](./media/workbooks-text/text-create.png)
@@ -67,10 +67,10 @@ Um uso comum de caixas de texto é como variáveis internas usadas por outros co
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`SlowRequestThreshold`
-    2. Tipo de parâmetro:`Text`
-    3. Necessário:`checked`
-    4. Obtenha o valor predefinido da consulta:`checked`
+    1. Nome do parâmetro: `SlowRequestThreshold`
+    2. Tipo de parâmetro: `Text`
+    3. Necessário: `checked`
+    4. Obtenha o valor predefinido da consulta: `checked`
 5. Na caixa KQL, adicione este corte:
     ```kusto
     requests
@@ -85,7 +85,7 @@ Um uso comum de caixas de texto é como variáveis internas usadas por outros co
 > [!NOTE]
 > Embora este exemplo questione os dados do Application Insights, a abordagem pode ser usada para qualquer fonte de dados baseada em registos - Log Analytics, Azure Resource Graph, etc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

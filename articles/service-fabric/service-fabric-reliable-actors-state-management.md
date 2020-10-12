@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611706"
 ---
 # <a name="reliable-actors-state-management"></a>Gestão estatal de atores confiáveis
@@ -117,7 +117,7 @@ Deve ter uma política clara sobre a gestão do tamanho do estado em cada divis�
  
 Se alguma vez vir que o tamanho do ficheiro de base de dados de um Serviço de Ator está a aumentar para além do tamanho esperado, certifique-se de que está a seguir as diretrizes anteriores. Se estiver a seguir estas diretrizes e ainda estiver a ter problemas de tamanho de ficheiro de base de dados, deverá [abrir um bilhete de apoio](service-fabric-support.md) com a equipa de produtos para obter ajuda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O estado que está armazenado em Reliable Actors deve ser serializado antes de ser escrito em disco e replicado para alta disponibilidade. Saiba mais sobre [a serialização do tipo ator.](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 

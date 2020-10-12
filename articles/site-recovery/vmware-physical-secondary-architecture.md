@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496972"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação VMware/servidor físico para um site secundário no local
@@ -42,7 +42,7 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |

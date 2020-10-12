@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: larryfr
 ms.openlocfilehash: 428a3ad17c81b465635207de622398e814289d87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81616850"
 ---
 > [!TIP]

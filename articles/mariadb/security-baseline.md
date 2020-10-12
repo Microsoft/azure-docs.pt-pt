@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393841"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de Base de Segurança Azure para Base de Dados Azure para MariaDB
@@ -28,7 +28,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual
 
-**Orientação**: Configurar link privado para base de dados Azure para MariaDB com pontos finais privados. O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um ponto final privado. O Azure Private Link essencialmente traz serviços Azure dentro da sua Rede Virtual privada (VNet). O tráfego entre a sua rede virtual e a instância MariaDB percorre a rede de espinha dorsal da Microsoft.
+**Orientação**: Configurar link privado para base de dados Azure para MariaDB com pontos finais privados. A Ligação Privada permite-lhe estabelecer ligação a vários serviços PaaS no Azure através de um ponto final privado. O Azure Private Link essencialmente traz os serviços do Azure dentro da sua Rede Privada Virtual (VNet). O tráfego entre a sua rede virtual e a instância MariaDB percorre a rede de espinha dorsal da Microsoft.
 
 Em alternativa, poderá utilizar os pontos finais do Serviço de Rede Virtual para proteger e limitar o acesso à rede à sua Base de Dados Azure para implementações MariaDB. As regras de rede virtual são uma funcionalidade de segurança de firewall que controla se a sua Base de Dados Azure para MariaDB aceita comunicações que são enviadas a partir de sub-redes específicas em redes virtuais.
 
@@ -956,7 +956,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
 
-**Orientação**: A base de dados Azure para MariaDB recebe cópias de segurança completas, diferenciais e de registo de transações.  A Azure Database for MariaDB cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.  O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+**Orientação**: A base de dados Azure para MariaDB recebe cópias de segurança completas, diferenciais e de registo de transações.  A Azure Database for MariaDB cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante do utilizador. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.  O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 Compreenda os backups para a MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
@@ -998,7 +998,7 @@ Compreenda a cópia de segurança e a restauração na Base de Dados Azure para 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: A base de dados Azure para MariaDB recebe cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+**Orientação**: A base de dados Azure para MariaDB recebe cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 Compreenda a cópia de segurança e a restauração na Base de Dados Azure para MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
@@ -1096,7 +1096,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

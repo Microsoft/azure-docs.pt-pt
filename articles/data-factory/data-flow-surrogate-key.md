@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
 ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606303"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformação chave de substituição no fluxo de dados de mapeamento 
@@ -41,7 +41,7 @@ Para semear o valor chave com o max anterior, existem duas técnicas que pode us
 
 #### <a name="database-sources"></a>Fontes de base de dados
 
-Utilize uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Utilize uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Consulta de chave de substituição](media/data-flow/sk002.png "Consulta de transformação de chave de substituição")
 
@@ -81,6 +81,6 @@ AggregateDayStats
     ) ~> SurrogateKey1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes exemplos utilizam as transformações [da Coluna Unida](data-flow-join.md) e [Derivada.](data-flow-derived-column.md)

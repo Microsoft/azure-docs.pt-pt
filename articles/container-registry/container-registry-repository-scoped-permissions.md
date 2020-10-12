@@ -4,10 +4,10 @@ description: Criar um token com permissões apositórios específicos num regist
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509411"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um símbolo com permissões de âmbito de repositório
@@ -157,9 +157,9 @@ O exemplo a seguir cria um símbolo e cria um mapa de âmbito com as seguintes p
 1. No **mapa scope**, selecione Criar **novo**.
 1. Configure o mapa de âmbito:
     1. Introduza um nome e descrição para o mapa de âmbito. 
-    1. Sob **repositórios,** insira, `samples/hello-world` e sob **permissões,** selecione `content/read` e `content/write` . Em seguida, selecione **+Adicionar**.  
+    1. Sob **repositórios,** insira, `samples/hello-world` e sob **permissões,** selecione  `content/read` e `content/write` . Em seguida, selecione **+Adicionar**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar mapa de âmbito no portal":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar ficha no portal":::
 
     1. Depois de adicionar repositórios e permissões, **selecione Adicionar** para adicionar o mapa de âmbito.
 1. Aceite o **estado** de token padrão de **Ativado** e, em seguida, selecione **Criar**.
@@ -176,7 +176,7 @@ Para utilizar um símbolo criado no portal, tem de gerar uma palavra-passe. Pode
 1. No ecrã da palavra-passe, configurar opcionalmente uma data de validade para a palavra-passe e selecionar **Gerar**. É recomendado para definir uma data de validade.
 1. Depois de gerar uma palavra-passe, copie-a e guarde-a para um local seguro. Não é possível recuperar uma palavra-passe gerada depois de fechar o ecrã, mas pode gerar uma nova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar palavra-passe simbólica no portal":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar ficha no portal":::
 
 ## <a name="authenticate-with-token"></a>Autenticar com ficha
 
@@ -186,11 +186,11 @@ O método de autenticação depende da ação configurada ou das ações associa
 
 |Ação  |Como autenticar  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete`em Azure CLI<br/><br/>Exemplo: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
-  |`content/read`     |  `docker login`<br/><br/>`az acr login`em Azure CLI<br/><br/>Exemplo: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
-  |`content/write`     |  `docker login`<br/><br/>`az acr login`em Azure CLI     |
-  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests`em Azure CLI   |
-  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update`em Azure CLI |
+  |`content/delete`    | `az acr repository delete` em Azure CLI<br/><br/>Exemplo: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` em Azure CLI<br/><br/>Exemplo: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` em Azure CLI     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` em Azure CLI   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` em Azure CLI |
 
 ## <a name="examples-use-token"></a>Exemplos: Use o símbolo
 
@@ -423,7 +423,7 @@ az acr token delete --name MyToken --registry myregistry
 
 No portal, selecione o token no ecrã **Tokens (Preview)** e selecione **Descartar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para gerir mapas de âmbito e fichas, utilize comandos adicionais nos grupos de comando [az acr e][az-acr-scope-map] [az acr token.][az-acr-token]
 * Consulte a [visão geral](container-registry-authentication.md) da autenticação para outras opções para autenticar com um registo de contentores Azure, incluindo a utilização de uma identidade do Diretório Ativo Azure, um principal serviço ou uma conta de administração.

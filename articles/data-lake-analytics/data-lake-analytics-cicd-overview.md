@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496122"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para a Azure Data Lake Analytics  
@@ -355,7 +355,7 @@ A adição de casos de teste para funções valorizadas por tabelas e procedimen
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Implementar base de dados U-SQL através de Gasodutos Azure
 
-`PackageDeploymentTool.exe`fornece as interfaces de programação e linha de comando que ajudam a implementar pacotes de implementação de base de dados U-SQL, **.usqldbpack**. O SDK está incluído no [pacote U-SQL SDK NuGet,](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)localizado na **construção/runtime/PackageDeploymentTool.exe**. Ao `PackageDeploymentTool.exe` utilizar, pode implementar bases de dados U-SQL tanto para a Azure Data Lake Analytics como para as contas locais.
+`PackageDeploymentTool.exe` fornece as interfaces de programação e linha de comando que ajudam a implementar pacotes de implementação de base de dados U-SQL, **.usqldbpack**. O SDK está incluído no [pacote U-SQL SDK NuGet,](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)localizado na **construção/runtime/PackageDeploymentTool.exe**. Ao `PackageDeploymentTool.exe` utilizar, pode implementar bases de dados U-SQL tanto para a Azure Data Lake Analytics como para as contas locais.
 
 > [!NOTE]
 >
@@ -425,7 +425,7 @@ Tome as seguintes medidas para configurar uma tarefa de implantação de bases d
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Adicione uma **tarefa de Linha de Comando** num oleoduto de construção ou libertação e preencha o script chamando `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe`está localizada sob a pasta **$DBDeploymentTool** definida. O guião da amostra é o seguinte: 
+2. Adicione uma **tarefa de Linha de Comando** num oleoduto de construção ou libertação e preencha o script chamando `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe` está localizada sob a pasta **$DBDeploymentTool** definida. O guião da amostra é o seguinte: 
 
     * Implementar uma base de dados U-SQL localmente:
 

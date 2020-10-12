@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 926de9f3fd357cd9d9ca067e4f7beff7d03eec95
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394196"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para ligações ponto-a-local utilizando o MakeCert
@@ -77,7 +77,7 @@ Os passos seguintes acompanham-no através da geração de um certificado de cli
 
 Para instalar um certificado de cliente, consulte [instalar um certificado de cliente.](point-to-site-how-to-vpn-client-install-azure-cert.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue com a sua configuração Ponto-a-Local. 
 

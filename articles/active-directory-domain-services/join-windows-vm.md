@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723032"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -68,7 +68,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
     |----------------------|-------------------|
     | Grupo de recursos       | Selecione ou crie um grupo de recursos, como *o myResourceGroup* |
     | Nome da máquina virtual | Insira um nome para o VM, como *myVM* |
-    | Region               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
+    | Região               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
     | Nome de utilizador             | Introduza um nome de utilizador para a conta de administrador local para criar no VM, como *azureuser* |
     | Palavra-passe             | Introduza e confirme, uma senha segura para o administrador local criar no VM. Não especifique as credenciais de uma conta de utilizador de domínio. |
 
@@ -178,7 +178,7 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando Azure Bas
 
 Uma vez reiniciado o VM do Servidor do Windows, quaisquer políticas aplicadas no domínio gerido são empurradas para o VM. Também pode agora iniciar serção no VM do Servidor do Windows utilizando credenciais de domínio apropriadas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 No próximo tutorial, utiliza este VM do Windows Server para instalar as ferramentas de gestão que lhe permitem administrar o domínio gerido. Se não quiser continuar nesta série tutorial, reveja os seguintes passos de limpeza para [eliminar o VM](#delete-the-vm). Caso contrário, [continue para o próximo tutorial.](#next-steps)
 

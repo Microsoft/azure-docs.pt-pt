@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 993a73a42887b3869c097d14b6945a1093ac6889
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723066"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure

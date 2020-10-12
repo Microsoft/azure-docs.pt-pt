@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385268"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão usando políticas personalizadas no Azure Ative Directory B2C
@@ -59,7 +59,7 @@ Quando redireciona o utilizador para o ponto final de assinatura Azure AD B2C (t
 
 Para apoiar uma única assinatura, os perfis técnicos do emitente simbólico para o JWT e para a SAML devem especificar:
 
-- O nome do protocolo, como`<Protocol Name="OpenIdConnect" />`
+- O nome do protocolo, como `<Protocol Name="OpenIdConnect" />`
 - A referência ao perfil técnico da sessão, tal como `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 O exemplo a seguir ilustra os emitentes JWT e SAML com uma única súmia:
@@ -101,6 +101,6 @@ O exemplo a seguir ilustra os emitentes JWT e SAML com uma única súmia:
 </ClaimsProvider>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).

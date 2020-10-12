@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727271"
 ---
 # <a name="api"></a>API #
@@ -70,7 +70,7 @@ Os eventos devem ser registados diretamente após a inicialização do jogador p
     //add other event listeners
 ```
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 <!---Some context for the following links goes here--->
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

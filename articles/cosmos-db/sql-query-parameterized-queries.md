@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: f66bc89ef56dd0c2291903d531a4637210abd8df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496989"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Consultas parametrizadas em Azure Cosmos DB

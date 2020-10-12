@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629028"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Preparar um modelo para Voz Personalizada
@@ -58,7 +58,7 @@ Pode inspecionar os dados e avaliar a precisão do modelo utilizando estes docum
 
 Se optar por testar a precisão, é importante selecionar um conjunto de dados acústico que seja diferente daquele que usou com o seu modelo para obter uma noção realista do desempenho do modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)
 

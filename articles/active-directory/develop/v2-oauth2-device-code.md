@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272455"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2.0
@@ -63,12 +63,12 @@ Uma resposta bem sucedida será um objeto JSON contendo as informações necess�
 
 | Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
-|`device_code`     | String | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
-|`user_code`       | String | Uma corda curta mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
+|`device_code`     | Cadeia | Uma longa corda usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para solicitar o sinal de acesso do servidor de autorização. |
+|`user_code`       | Cadeia | Uma corda curta mostrada ao utilizador que é usada para identificar a sessão num dispositivo secundário.|
 |`verification_uri`| URI | O URI a que o utilizador deve ir com o `user_code` para iniciar sinsus. |
 |`expires_in`      | int | O número de segundos antes `device_code` do e `user_code` expirar. |
 |`interval`        | int | O número de segundos que o cliente deve esperar entre os pedidos de sondagens. |
-| `message`        | String | Uma cadeia legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um **parâmetro de consulta** no pedido do `?mkt=xx-XX` formulário, preenchendo o código de cultura linguística apropriado. |
+| `message`        | Cadeia | Uma cadeia legível pelo homem com instruções para o utilizador. Isto pode ser localizado através da inclusão de um **parâmetro de consulta** no pedido do `?mkt=xx-XX` formulário, preenchendo o código de cultura linguística apropriado. |
 
 > [!NOTE]
 > O `verification_uri_complete` campo de resposta não está incluído ou suportado neste momento.  Mencionamos isto porque se ler o [padrão](https://tools.ietf.org/html/rfc8628) vê que `verification_uri_complete` está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
@@ -125,7 +125,7 @@ Uma resposta simbólica bem sucedida será como:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | String| Sempre "Portador. |
+| `token_type` | Cadeia| Sempre "Portador. |
 | `scope` | Cadeias separadas do espaço | Se um token de acesso foi devolvido, este lista os âmbitos para os para oses para os qual o token de acesso é válido. |
 | `expires_in`| int | O número de segundos antes do token de acesso incluído é válido para. |
 | `access_token`| Corda opaca | Emitido para os [âmbitos](v2-permissions-and-consent.md) que foram solicitados.  |

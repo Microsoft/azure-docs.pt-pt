@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281135"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados da Salesforce utilizando a Azure Data Factory
@@ -66,11 +66,11 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado à Salesforce.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **Salesforce**. |Sim |
 | ambienteUrl | Especifique o URL da instância Salesforce. <br><br> - Predefinido é "https: \/ /login.salesforce.com". <br> - Para copiar dados da caixa de areia, especifique https://test.salesforce.com " " <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
-| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe para a conta de utilizador. |Sim |
 | securityToken |Especifique um sinal de segurança para a conta de utilizador. Consulte [obter um sinal de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como reiniciar/obter um sinal de segurança. Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) |Sim |
 
@@ -79,7 +79,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipoproperties para um conjunto de dados do tipo **RelationalTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |O nome da mesa na Salesforce. |Não (se for especificada uma **consulta** de **RelationalSource)** |
 
@@ -288,7 +288,7 @@ Consulte [as propriedades do tipo RelationalSource](#copy-activity-properties) p
 | Número automático |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Data |DateTime |
+| Date |DateTime |
 | Data/Hora |DateTime |
 | E-mail |String |
 | Id |String |
@@ -298,7 +298,7 @@ Consulte [as propriedades do tipo RelationalSource](#copy-activity-properties) p
 | Percentagem |Decimal |
 | Telefone |String |
 | Picklist |String |
-| Texto |String |
+| Texto |Cadeia |
 | Área de Texto |String |
 | Área de texto (longo) |String |
 | Área de texto (Rico) |String |

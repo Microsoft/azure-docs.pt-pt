@@ -8,10 +8,10 @@ ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182127"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
@@ -27,7 +27,7 @@ Um equilibrador de carga **interno (ou privado)** é utilizado onde apenas os IP
 
 Este documento abrange a integração com o balanceador de carga pública. Para a integração interna do balanceador de carga, consulte a documentação do [balançador interno de carga AKS](internal-lb.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 O Azure Load Balancer está disponível em dois SKUs - *Básico* e *Standard*. Por padrão, *o Standard* SKU é utilizado quando cria um cluster AKS. Utilize o *SKU Standard* para ter acesso a funcionalidades adicionais, como uma piscina de backend maior, [**várias piscinas de nó,**](use-multiple-node-pools.md)e [**Zonas de Disponibilidade.**](availability-zones.md) É o Balancer de Carga recomendado SKU para AKS.
 

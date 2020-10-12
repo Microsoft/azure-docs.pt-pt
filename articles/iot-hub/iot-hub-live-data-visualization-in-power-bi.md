@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
 ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84634514"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensores em tempo real do Azure IoT Hub utilizando o Power BI
@@ -34,7 +34,7 @@ Aprende a visualizar dados de sensores em tempo real que o seu hub Azure IoT rec
 
 * Crie e publique um relatório Power BI para visualizar os dados.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 * Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes artigos abrangem os seguintes requisitos:
   
@@ -122,7 +122,7 @@ Vamos começar por criar um trabalho de Stream Analytics. Depois de criar o trab
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa do Stream Analytics
 
-1. Em **Job topology**, selecione **Consulta**.
+1. Em **Topologia da tarefa**, selecione **Consulta**.
 
 2. Substitua `[YourInputAlias]` pelo alias de entrada da tarefa.
 
@@ -195,7 +195,7 @@ Os passos a seguir mostram-lhe como criar e publicar um relatório utilizando o 
 
 A Microsoft também oferece as [aplicações móveis Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) para visualização e interação com os seus dashboards Power BI e relatórios no seu dispositivo móvel.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você usou com sucesso o Power BI para visualizar dados de sensores em tempo real a partir do seu hub Azure IoT.
 
