@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
 ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323034"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para geração 2 VMs em Azure
@@ -67,7 +67,7 @@ A Geração 2 VMs suporta as seguintes imagens do Marketplace:
 * Oracle Linux 7.7, 7.7-CI
 
 > [!NOTE]
-> Tamanhos específicos da máquina virtual como mv2-Series só podem suportar um subconjunto destas imagens - por favor, olhe para a documentação do tamanho da máquina virtual relevante para detalhes completos.
+> Tamanhos específicos da máquina virtual como Mv2-Series só podem suportar um subconjunto destas imagens - por favor, olhe para a documentação do tamanho da máquina virtual relevante para obter detalhes completos.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>No local vs. Azure geração 2 VMs
 
@@ -99,7 +99,7 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 | Disco/imagem/swap OS personalizados         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte de conjunto de escala de máquina virtual | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
-| Backup/restauro                    | :heavy_check_mark: | :heavy_check_mark: |
+| Cópia de segurança/restauro                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens partilhada              | :heavy_check_mark: | :heavy_check_mark: |
 | Encriptação do disco Azure             | :heavy_check_mark: | :x:                |
 
@@ -163,10 +163,10 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **A geração 2 VMs está disponível em todas as regiões de Azure?**  
-    Yes. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
+    Sim. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
 
 * **Existe uma diferença de preço entre a geração 1 e a geração 2 VMs?**  
-   Não.
+   N.º
 
 * **Tenho um ficheiro .vhd da minha geração 2 VM no local. Posso usar esse ficheiro .vhd para criar uma geração 2 VM em Azure?**
   Sim, podes trazer o teu ficheiro geração 2 .vhd para o Azure e usá-lo para criar uma geração de 2 VM. Utilize os seguintes passos para o fazer:
@@ -198,7 +198,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
   Pode ver um aviso para discos de SO maiores que 2 TiB. O aviso não se aplica à geração 2 VMs. No entanto, os tamanhos do disco DEL superior a 4 TiB não são suportados.
 
 * **A geração 2 VMs suporta rede acelerada?**  
-    Yes. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
+    Sim. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
 
 * **A geração 2 VMs suporta Secure Boot ou vTPM em Azure?**
     Tanto a geração 1 como a geração 2 VMs em Azure não suportam o Secure Boot ou o vTPM. 
@@ -207,7 +207,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
     Não, a geração 2 VMs suporta apenas VHD.
 
 * **A geração 2 VMs suporta o armazenamento do disco Azure Ultra?**  
-    Yes.
+    Sim.
 
 * **Posso migrar um VM da geração 1 para a geração 2?**  
     Não, não podes mudar a geração de um VM depois de o criares. Se precisar de alternar entre gerações VM, crie um novo VM de uma geração diferente.
@@ -219,7 +219,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
     1. Verifique se a propriedade de **geração VM** está definida para **a Gen 2** no separador **Avançado.**
     1. Verifique se está à procura de um [tamanho VM que suporte VMs Gen2](#generation-2-vm-sizes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [máquinas virtuais de geração 2 em Hyper-V.](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 

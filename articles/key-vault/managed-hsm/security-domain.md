@@ -8,10 +8,10 @@ author: amitbapat
 ms.author: ambapat
 ms.date: 09/15/2020
 ms.openlocfilehash: 37e2541d0b53c96fd3f85da31b2c0ce5b68b551a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997212"
 ---
 # <a name="about-the-managed-hsm-security-domain"></a>Sobre o domínio de segurança gerido do HSM

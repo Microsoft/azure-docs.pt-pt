@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347767"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erro de paragem do Windows - 0xC000021A Processo do sistema de estado encerrado
@@ -37,7 +37,7 @@ Quando utiliza [diagnósticos boot](https://docs.microsoft.com/azure/virtual-mac
 
 Erro 0xC000021A significa **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Este erro ocorre quando um processo crítico, como o WinLogon (winlogon.exe) ou o Subsistema de Tempo de Execução do Servidor do Cliente (csrss.exe) falha. Uma vez que o núcleo deteta que qualquer um desses serviços parou, aumenta o erro **STOP 0xC00021A.** Este erro pode ter várias causas, incluindo:
+Este erro ocorre quando um processo crítico, como o WinLogon (winlogon.exe) ou o Subsistema Run-Time do Servidor de Clientes (csrss.exe) falha. Uma vez que o núcleo deteta que qualquer um desses serviços parou, aumenta o erro **STOP 0xC00021A.** Este erro pode ter várias causas, incluindo:
 
 - Foram instalados ficheiros de sistema desajustados.
 - Uma instalação de atualização de serviços ou KB falhou.

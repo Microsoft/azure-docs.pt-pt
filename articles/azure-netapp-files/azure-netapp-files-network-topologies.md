@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
 ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89569497"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
@@ -56,13 +56,13 @@ A tabela seguinte descreve as topologias de rede suportadas pelos Ficheiros Azur
 
 |    Topologias    |    É apoiado    |     Solução    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Conectividade ao volume num VNet local    |    Yes    |         |
-|    Conectividade ao volume num VNet espremiado (mesma região)    |    Yes    |         |
-|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    No    |    Nenhum    |
-|    Conectividade a um volume sobre gateway ExpressRoute    |    Yes    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Yes    |        |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Yes    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Yes    |         |
+|    Conectividade ao volume num VNet local    |    Sim    |         |
+|    Conectividade ao volume num VNet espremiado (mesma região)    |    Sim    |         |
+|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    Não    |    Nenhum    |
+|    Conectividade a um volume sobre gateway ExpressRoute    |    Sim    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Sim    |        |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Sim    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Sim    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rede virtual para volumes de ficheiros Azure NetApp
@@ -131,6 +131,6 @@ Na topologia ilustrada acima, a rede no local está ligada a um hub VNet em Azur
 * VM 4 em VNet 1 falado não pode ligar-se ao Volume 3 em VNet 2 falado. Além disso, vM 5 em VNet2 falado não pode ligar-se ao Volume 2 em VNet 1 falado. É o caso porque os VNets falados não são vigiados e _o encaminhamento de trânsito não é suportado sobre o espremiado VNet_.
 * Na arquitetura acima referida, se houver uma porta de entrada no VNET falado também, a conectividade com o volume ANF a partir da ligação on-prem sobre o gateway no Hub será perdida. Por design, seria dada preferência ao gateway no VNet falado e assim apenas máquinas que se conectam sobre esse gateway podem ligar-se ao volume ANF.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como agrupar 
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: fc79775b79c9846ee435917731428627fc65549e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649958"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Padrão de política Azure: definições de política de grupo
@@ -36,7 +36,7 @@ Cada definição de política incluída deve fornecer a **políticaDefinitionId*
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

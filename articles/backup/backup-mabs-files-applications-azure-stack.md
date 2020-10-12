@@ -4,10 +4,10 @@ description: Utilize o Azure Backup para fazer backup e recuperar ficheiros e ap
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180988"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer o back up ficheiros e aplicações no Azure Stack
@@ -52,13 +52,13 @@ Para configurar o Servidor de Backup Azure para proteger ficheiros em máquinas 
 
     Para selecionar **quero proteção on-line,** primeiro deve selecionar **Que quero proteção a curto prazo utilizando:** Disco. O Azure Backup Server não protege a fita, por isso o disco é a única opção para proteção a curto prazo.
 
-5. No ecrã **Especificar Objetivos de Curto Prazo,** escolha quanto tempo para reter os pontos de recuperação guardados no disco e quando guardar cópias de segurança incrementais. Selecione **Seguinte**.
+5. No ecrã **'Objetivos Short-Term' especifique,** escolha quanto tempo para reter os pontos de recuperação guardados no disco e quando guardar cópias de segurança incrementais. Selecione **Seguinte**.
 
     > [!IMPORTANT]
     > **Não** deve reter dados de recuperação operacional (backup) em discos ligados ao Servidor de Backup Azure durante mais de cinco dias.
     >
 
-    ![Especificar objetivos de curto prazo](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
+    ![Especificar Short-Term Objetivos](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     Em vez de selecionar um intervalo para cópias de segurança incrementais, para executar uma cópia de segurança completa expressa pouco antes de cada ponto de recuperação programado, selecione **Just before a recovery point**. Se estiver a proteger as cargas de trabalho da aplicação, o Azure Backup Server cria pontos de recuperação de acordo com o calendário de frequência de sincronização (desde que a aplicação suporte cópias de segurança incrementais). Se a aplicação não suportar cópias de segurança incrementais, o Azure Backup Server executa uma cópia de segurança expressa completa.
 

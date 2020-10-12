@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
 ms.openlocfilehash: e88c1b976ce1de0ce0be4b6a5f85af6790802323
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321633"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar a sua Base de Dados Azure SQL ou falhar para um secundário

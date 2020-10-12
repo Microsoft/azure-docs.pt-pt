@@ -9,10 +9,10 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
 ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401593"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure Powershell
@@ -110,7 +110,7 @@ A remoção do intervalo de endereços IP pode ser concluída utilizando [remove
 
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [os métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager .
 
 Conheça o [método de encaminhamento de tráfego sub-rede](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

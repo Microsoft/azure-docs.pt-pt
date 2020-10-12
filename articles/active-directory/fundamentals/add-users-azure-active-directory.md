@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321094"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
@@ -40,9 +40,9 @@ Para adicionar um novo utilizador, siga estes passos:
 
 1. Na página **do Utilizador,** introduza informações para este utilizador:
 
-   - **Nome**. Necessário. O primeiro e último nome do novo utilizador. Por exemplo, *Mary Parker.*
+   - **Nome**. Obrigatório. O primeiro e último nome do novo utilizador. Por exemplo, *Mary Parker.*
 
-   - **Nome do utilizador**. Necessário. O nome de utilizador do novo utilizador. Por exemplo, `mary@contoso.com`.
+   - **Nome do utilizador**. Obrigatório. O nome de utilizador do novo utilizador. Por exemplo, `mary@contoso.com`.
 
      A parte de domínio do nome de utilizador deve utilizar o nome de domínio inicial, * \<yourdomainname> .onmicrosoft.com*, ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar o seu nome de domínio personalizado utilizando o portal Azure Ative Directory](add-custom-domain.md).
 
@@ -93,7 +93,7 @@ Quando um utilizador é eliminado, quaisquer licenças consumidas pelo utilizado
 >[!Note]
 >Tem de utilizar o Windows Server Ative Directory para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory. Depois de completar a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de adicionar os seus utilizadores, pode fazer os seguintes processos básicos:
 

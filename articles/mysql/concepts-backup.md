@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418590"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
@@ -19,7 +19,7 @@ A Azure Database for MySQL cria automaticamente cópias de segurança do servido
 
 ## <a name="backups"></a>Cópias de segurança
 
-A Azure Database for MySQL retira cópias dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (servidores de armazenamento máximo de 4-TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode [configurar opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+A Azure Database for MySQL retira cópias dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (servidores de armazenamento máximo de 4-TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode [configurar opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 Estes ficheiros de cópia de segurança não são expostos ao utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MySQL. Pode usar [o meu "mysqldump"](concepts-migrate-dump-restore.md) para copiar uma base de dados.
 
@@ -27,14 +27,14 @@ Estes ficheiros de cópia de segurança não são expostos ao utilizador e não 
 
 #### <a name="servers-with-up-to-4-tb-storage"></a>Servidores com armazenamento até 4-TB
 
-Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos.
+Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança de registo de transações ocorrem a cada cinco minutos.
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento até 16-TB
-Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança total do instantâneo é programada imediatamente após a criação de um servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança instantâneas subsequentes são apenas cópias de segurança diferenciais. 
+Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
 
-As cópias de segurança instantâneas diferenciais ocorrem pelo menos uma vez por dia. As cópias de segurança instantânea diferenciais não ocorrem num horário fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50-GB desde a última cópia de segurança diferencial. Em um dia, um máximo de seis instantâneos diferenciais são permitidos. 
+As cópias de segurança de instantâneos diferenciais ocorrem, pelo menos, uma vez por dia. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50-GB desde a última cópia de segurança diferencial. Num dia, são permitidos, no máximo, seis instantâneos diferenciais. 
 
-As cópias de segurança do registo de transações ocorrem a cada cinco minutos. 
+As cópias de segurança de registo de transações ocorrem a cada cinco minutos. 
 
 ### <a name="backup-retention"></a>Retenção da cópia de segurança
 
@@ -55,7 +55,7 @@ A Azure Database for MySQL proporciona a flexibilidade para escolher entre armaz
 
 A Azure Database for MySQL fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento adicional de backup utilizado é cobrado em GB por mês. Por exemplo, se tiver provisionado um servidor com 250 GB de armazenamento, tem 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custo adicional. O armazenamento consumido para cópias de segurança superiores a 250 GB é cobrado de acordo com o [modelo de preços.](https://azure.microsoft.com/pricing/details/mysql/) 
 
-Pode utilizar a métrica [de armazenamento de backup utilizada](concepts-monitoring.md) no Azure Monitor disponível através do portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no Backup Storage representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada anteriormente. A atividade transacional pesada no servidor pode fazer com que o uso de armazenamento de cópias de segurança aumente independentemente do tamanho total da base de dados. Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante. 
+Pode utilizar a métrica [de armazenamento de backup utilizada](concepts-monitoring.md) no Azure Monitor disponível através do portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no Backup Storage representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada anteriormente. Uma atividade transacional intensa no servidor pode aumentar a utilização do armazenamento de cópias de segurança, independentemente do tamanho total da base de dados. Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante. 
 
 O principal meio de controlar o custo de armazenamento de backup é definindo o período de retenção de backup adequado e escolhendo as opções de redundância de backup certas para cumprir os objetivos de recuperação pretendidos. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança.
 
@@ -105,7 +105,7 @@ Após uma restauração de qualquer mecanismo de recuperação, deve executar as
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a continuidade do negócio, consulte a [visão geral](concepts-business-continuity.md)da continuidade do negócio.
 - Para restaurar um ponto no tempo usando o portal Azure, consulte restaurar o [servidor a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).

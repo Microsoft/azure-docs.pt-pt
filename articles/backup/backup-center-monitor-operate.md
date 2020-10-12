@@ -1,16 +1,16 @@
 ---
-title: Monitorize e opere backups usando o Backup Center
+title: Monitorizar e operar cópias de segurança através do Centro de Cópias de Segurança
 description: Este artigo explica como monitorizar e operar backups em escala usando backup Center
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996672"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorize e opere backups usando o Backup Center
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorizar e operar cópias de segurança através do Centro de Cópias de Segurança
 
 Como administrador de reserva, pode usar o Backup Center como uma única vidraça para monitorizar os seus trabalhos e o inventário de backup no dia-a-dia. Também pode utilizar o Backup Center para realizar as suas operações regulares, tais como responder a pedidos de backup a pedido, restaurar backups, criar políticas de backup, e assim por diante.
 

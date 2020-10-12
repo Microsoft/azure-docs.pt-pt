@@ -4,10 +4,10 @@ description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Ser
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378088"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
@@ -58,7 +58,7 @@ Existem dois custos associados à solução de backup de partilha de ficheiros A
 
 Para obter estimativas detalhadas para o backup de ações de ficheiros Azure, você pode baixar o estimador de preços de [Azure Backup](https://aka.ms/AzureBackupCostEstimates)detalhado .  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.md)

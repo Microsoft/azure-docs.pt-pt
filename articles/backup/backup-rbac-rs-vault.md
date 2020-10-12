@@ -1,17 +1,17 @@
 ---
-title: Gerir backups com controlo de acesso baseado em funções
+title: Gerir backups com Role-Based Controlo de Acesso
 description: Use o Control de Acesso baseado em funções para gerir o acesso a operações de gestão de backup no cofre dos Serviços de Recuperação.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376133"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilize Role-Based Controlo de Acesso para gerir pontos de recuperação de backup do Azure
 
 O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
 
@@ -37,7 +37,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | | Contribuidor de Máquina Virtual | Recurso VM |
 | Backup a pedido da VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | Restaurar VMs | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor | Grupo de recursos no qual a VM será implantada |
+| | Contribuinte | Grupo de recursos no qual a VM será implantada |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Restaurar a cópia de segurança dos discos não geridos VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
@@ -45,7 +45,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | Restaurar discos geridos a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | | Contribuidor de Conta de Armazenamento | Conta de Armazenamento Temporário selecionada como parte da restauração para reter dados do cofre antes de convertê-los em discos geridos |
-| | Contribuidor | Grupo de recursos para o qual os discos geridos serão restaurados |
+| | Contribuinte | Grupo de recursos para o qual os discos geridos serão restaurados |
 | Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Criar política de backup para backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
@@ -75,7 +75,7 @@ A tabela seguinte captura as ações de gestão de Backup e o papel corresponden
 | Conta de armazenamento não registro do cofre |Colaborador de backup | Cofre dos Serviços de Recuperação |
 | |Contribuidor de Conta de Armazenamento | Recurso de conta de armazenamento|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:

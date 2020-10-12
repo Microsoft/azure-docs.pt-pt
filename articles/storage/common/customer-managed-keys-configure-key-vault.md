@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90995987"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar encriptação com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure
@@ -157,7 +157,7 @@ az keyvault key create \
 
 ---
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar encriptação com chaves geridas pelo cliente
+## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar a encriptação com chaves geridas pelo cliente
 
 Em seguida, configufique a sua conta de Armazenamento Azure para utilizar chaves geridas pelo cliente com o Azure Key Vault e, em seguida, especifique a chave para associar à conta de armazenamento.
 
@@ -190,7 +190,7 @@ Para configurar as teclas geridas pelo cliente com atualização automática da 
 
 Depois de ter especificado a chave, o portal Azure indica que a atualização automática da versão chave está ativada e exibe a versão chave atualmente em uso para encriptação.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando atualização automática da versão chave ativada":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando como permitir a proteção de purga ao criar um cofre chave":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

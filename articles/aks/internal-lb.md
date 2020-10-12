@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285888"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrador interno de carga com o Serviço Azure Kubernetes (AKS)
@@ -19,7 +19,7 @@ Para restringir o acesso às suas aplicações no Serviço Azure Kubernetes (AKS
 > [!NOTE]
 > O Azure Load Balancer está disponível em dois SKUs - *Básico* e *Standard*. Por padrão, o SKU padrão é utilizado quando cria um cluster AKS.  Ao criar um Serviço com o tipo de LoadBalancer, obterá o mesmo tipo LB que quando forctifica o cluster. Para obter mais informações, consulte [a comparação SKU do balanceador de carga Azure][azure-lb-comparison].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

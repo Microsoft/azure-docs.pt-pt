@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776294"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
@@ -218,7 +218,7 @@ Os runbooks que funcionam em caixas de areia Azure não suportam processos de ch
 
 ## <a name="device-and-application-characteristics"></a>Características do dispositivo e da aplicação
 
-Os trabalhos de runbook em caixas de areia Azure não podem aceder a nenhum dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os trabalhos que correm na nuvem não conseguem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma é construída sobre o Modelo Comum de Informação (CIM), fornecendo os padrões da indústria para definir características de dispositivo e aplicação.
+Os trabalhos de runbook em caixas de areia Azure não podem aceder a nenhum dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não conseguem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma é construída sobre o Modelo Comum de Informação (CIM), fornecendo os padrões da indústria para definir características de dispositivo e aplicação.
 
 ## <a name="webhooks"></a>Webhooks
 

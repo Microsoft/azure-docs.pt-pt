@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707953"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões do PostgreSQL na Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -271,12 +271,12 @@ CREATE EXTENSION timescaledb;
 SELECT timescaledb_pre_restore();
 ```
 
-Agora podes fazer pg_dump na base de dados original e depois fazêpg_restore. Após a restauração, certifique-se de executar o seguinte comando na base de dados restaurada:
+Agora podes fazer pg_dump na base de dados original e depois fazê pg_restore. Após a restauração, certifique-se de executar o seguinte comando na base de dados restaurada:
 
 ```SQL
 SELECT timescaledb_post_restore();
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Se não vir uma extensão que gostaria de usar, avise-nos. Vote nos pedidos existentes ou crie novos pedidos de feedback no nosso [fórum de comentários.](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)

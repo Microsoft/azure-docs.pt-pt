@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 01a450c045c996cdcb49b8fbfdf1ce572ee2d1df
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760605"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
@@ -167,11 +167,11 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
 1. Criar um conjunto de disponibilidade  
    Definir domínio de atualização máxima
 1. Criar Máquina Virtual 1  
-   Utilize pelo menos sLES4SAP 12 SP1, neste exemplo a imagem SLES4SAP 12 SP1https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   Utilize pelo menos sLES4SAP 12 SP1, neste exemplo a imagem SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES Para Aplicações SAP 12 SP1 é usado  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Criar Máquina Virtual 2  
-   Utilize pelo menos sLES4SAP 12 SP1, neste exemplo a imagem SLES4SAP 12 SP1https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   Utilize pelo menos sLES4SAP 12 SP1, neste exemplo a imagem SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES Para Aplicações SAP 12 SP1 é usado  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione pelo menos um disco de dados a ambas as máquinas virtuais  
@@ -252,7 +252,7 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
 > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir o parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -403,7 +403,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note que a mudança requer breves tempos de inatividade.  
-   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Endurecimento de Deteção de Equilíbrio de Carga Azure,](https://www.suse.com/support/kb/doc/?id=7024128)não existe qualquer necessidade de mudar imediatamente para o agente de recursos azure-lb.
+   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não existe qualquer requisito para mudar imediatamente para o agente de recursos azure-lb.
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    

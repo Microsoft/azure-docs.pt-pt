@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401372"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
@@ -53,7 +53,7 @@ Nesta secção, você cria dois VMs *myEndpointVMEastUS* e *myEndpointVMWEurope*
     |---|---|
     |Nome|myIISVMEastUS|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo** e, em seguida, *escreva myResourceGroupTM1*.|
     |Localização| Selecione **East US**.|
     |||
@@ -139,7 +139,7 @@ Nesta secção, você cria um VM *(mVMEastUS* e *myVMWestEurope*) em cada regiã
     |---|---|
     |Nome|myVMEastUS|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Existente** e selecione *myResourceGroupTM1*.|
     |||
 
@@ -194,7 +194,7 @@ Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIIS
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final do Azure                                   |
-    | Name           | myTestWebSiteEndpoint                                        |
+    | Nome           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Definições de encaminhamento de sub-rede    |   Adicione o endereço IP do VM de teste *myVMEastUS.* Qualquer consulta do utilizador originária deste VM será direcionada para o *myTestWebSiteEndpoint*.    |
@@ -239,7 +239,7 @@ Nesta seção, pode ver o Gestor de Tráfego em ação.
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminar o perfil do Gestor de Tráfego
 Quando já não for necessário, elimine os grupos de recursos (**ResourceGroupTM1** e **ResourceGroupTM2**). Para tal, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [método de encaminhamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Saiba mais sobre o [método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md).

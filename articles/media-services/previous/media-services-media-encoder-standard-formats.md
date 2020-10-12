@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257437"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
@@ -114,7 +114,7 @@ A tabela que se segue lista os formatos de códigos e ficheiros suportados para 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 [Codificação de conteúdos a pedido com serviços de mídia Azure](media-services-encode-asset.md)
 
 [Como codificar com o Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
 ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142541"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilize o envio auto-gerido para a Caixa de Dados Azure no portal Azure
@@ -86,6 +86,6 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
 11. Uma vez que o dispositivo é recebido, a cópia de dados continuará. Quando a cópia terminar, a encomenda está completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Data Box](data-box-quickstart-portal.md)

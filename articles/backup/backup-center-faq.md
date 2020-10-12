@@ -4,10 +4,10 @@ description: Este artigo responde frequentemente a perguntas sobre backup Center
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997687"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Backup Center - Perguntas frequentes
@@ -30,7 +30,7 @@ O Backup Center destina-se a fornecer informações em tempo real. Pode haver al
 
 ### <a name="do-i-need-to-configure-anything-to-see-data-in-backup-center"></a>Preciso de configurar alguma coisa para ver os dados no Backup Center?
 
-Não. O Centro de Reserva sai pronto para fora da caixa. No entanto, para visualizar [relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports) no Centro de Backup, é necessário configurar relatórios para os seus cofres.
+N.º O Centro de Reserva sai pronto para fora da caixa. No entanto, para visualizar [relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports) no Centro de Backup, é necessário configurar relatórios para os seus cofres.
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Preciso de alguma autorização especial para usar o Backup Center?
 
