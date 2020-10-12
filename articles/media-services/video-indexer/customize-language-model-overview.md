@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
 ms.openlocfilehash: 29490e08748a37f7eb93fbb8804f55f74c53df35
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047135"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Personalize um modelo de linguagem com indexador de vídeo

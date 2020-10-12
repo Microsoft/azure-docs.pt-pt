@@ -4,10 +4,10 @@ description: Saiba como armazenar gráficos Helm para as suas aplicações Kuber
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537872"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe as fichas de Helm para um registo de contentores Azure
@@ -278,7 +278,7 @@ Para eliminar um gráfico do registo do contentor, utilize o comando de elimina�
 az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre como criar e implementar gráficos helm, consulte [gráficos de Helm em Desenvolvimento][develop-helm-charts].
 * Saiba mais sobre a instalação de aplicações com o Helm in [Azure Kubernetes Service (AKS)](../aks/kubernetes-helm.md).

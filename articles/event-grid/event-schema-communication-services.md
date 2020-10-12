@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
 ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347575"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Serviços de Comunicação Azure como fonte de rede de eventos

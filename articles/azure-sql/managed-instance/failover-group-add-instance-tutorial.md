@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
 ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617745"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
@@ -1097,7 +1097,7 @@ Limpe os recursos eliminando primeiro as instâncias geridas, depois o cluster v
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Terá de remover o grupo de recursos duas vezes. Remover o grupo de recursos pela primeira vez removerá as instâncias geridas e os clusters virtuais, mas depois falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Executar o comando Remove-AzResourceGroup uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
+Terá de remover o grupo de recursos duas vezes. Remover o grupo de recursos pela primeira vez removerá as instâncias geridas e os clusters virtuais, mas depois falhará com a mensagem de erro `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'` . Executar o Remove-AzResourceGroup comandar uma segunda vez para remover quaisquer recursos residuais, bem como o grupo de recursos.
 
 ```powershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

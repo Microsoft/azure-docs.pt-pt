@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: Zhchia
 ms.openlocfilehash: cf71246caef377fb607a9ca7a765ec9ca5999744
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285968"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>Tutorial: Configurar Storegate para fornecimento automático de utilizadores
@@ -144,7 +144,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Storegate**.
 

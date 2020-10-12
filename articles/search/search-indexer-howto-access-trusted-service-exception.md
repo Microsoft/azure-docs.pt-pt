@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320477"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigno

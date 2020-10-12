@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846656"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Tecido de Serviço 
@@ -31,7 +31,7 @@ Aqui está uma lista destes eventos de Tecido de Serviço organizados por entida
 
 Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui.](service-fabric-cluster-upgrade-windows-server.md)
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível | 
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Atualizar | Uma atualização de cluster começou | CM | Informativo |
 | 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização de cluster concluída | CM | Informativo | 
@@ -43,7 +43,7 @@ Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui.](service-fa
 
 **Eventos de ciclo de vida do nó** 
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível |
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NódedeactivadoCompleto | Transação Estatal | Desativação de um nó concluído | FM | Informativo | 
 | 18603 | NodeUp | Transação Estatal | O cluster detetou um nó iniciado | FM | Informativo | 
@@ -60,7 +60,7 @@ Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui.](service-fa
 
 **Eventos de ciclo de vida da aplicação**
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível | 
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | Inscrição de candidaturas | Ciclo de Vida | Foi criada uma nova aplicação | CM | Informativo | 
 | 29625 | AplicaçãoDeletada | Ciclo de Vida | Um pedido existente foi eliminado | CM | Informativo | 
@@ -70,7 +70,7 @@ Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui.](service-fa
 
 Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.](service-fabric-application-upgrade.md)
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível | 
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | AplicaçãoUpgradeStar | Atualizar | Uma atualização de aplicação já começou | CM | Informativo | 
 | 29622 | AplicaçãoUpgradadoCompleto | Atualizar | Uma atualização de aplicações foi concluída | CM | Informativo | 
@@ -82,7 +82,7 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.]
 
 **Eventos de ciclo de vida de serviço**
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível | 
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiçosCretados | Ciclo de Vida | Foi criado um novo serviço | FM | Informativo | 
 | 18658 | ServiçoDeletado | Ciclo de Vida | Um serviço existente foi eliminado | FM | Informativo | 
@@ -91,7 +91,7 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.]
 
 **Eventos de movimento de partição**
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível | 
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartiçãoReconfigurada | Ciclo de Vida | Uma reconfiguração de partição terminou | RA | Informativo | 
 
@@ -99,7 +99,7 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.]
 
 **Réplica de eventos de ciclo de vida**
 
-| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Nível |
+| EventId | Nome | Categoria | Descrição |Fonte (Tarefa) | Nível |
 | --- | --- | ---| --- | --- | --- |
 | 61701 | ReliableDictionaryOpened | Ciclo de Vida | Dicionário fiável abriu | Distribuídoddicary | Informativo |
 | 61702 | ReliableDictionaryClosed | Ciclo de Vida | Dicionário fiável fechou | Distribuídoddicary | Informativo |
@@ -133,7 +133,7 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.]
 
 **Eventos de ciclo de vida de contentores** 
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContentorEsActivados | Um contentor começou | Hosting | Informativo | 1 |
 | 23075 | ContentorEsaactivado | Um contentor parou | Hosting | Informativo | 1 |
@@ -144,26 +144,26 @@ Mais detalhes sobre atualizações de aplicações podem ser encontrados [aqui.]
 O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviço proporciona uma avaliação e reporte de saúde rica, flexível e extensível. Início do Tecido de Serviço versão 6.2, os dados de saúde são escritos como eventos da Plataforma para fornecer registos históricos de saúde. Para manter o volume de eventos de saúde baixo, só escrevemos os seguintes como eventos de Service Fabric:
 
 * Todos `Error` ou `Warning` relatórios de saúde
-* `Ok`relatórios de saúde durante as transições
+* `Ok` relatórios de saúde durante as transições
 * Quando um `Error` evento de `Warning` saúde expirar. Isto pode ser usado para determinar quanto tempo uma entidade não era saudável
 
 **Eventos de relatório de saúde de cluster**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Um novo relatório de saúde do cluster está disponível | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Um relatório de saúde do cluster existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de saúde do nó**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Um novo relatório de saúde do nó está disponível | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Um relatório de saúde do nó existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de saúde de aplicação**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Foi criado um novo relatório de saúde sobre aplicações. Isto é para aplicações não desocupadas. | HM | Informativo | 1 |
 | 54426 | ImplementadoApplicationNewHealthReport | Foi criado um novo relatório de saúde sobre aplicações | HM | Informativo | 1 |
@@ -174,21 +174,21 @@ O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviç
 
 **Eventos de relatório de saúde de serviço**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Foi criado um novo relatório de saúde de serviço | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Um relatório de saúde de serviço existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de saúde de partição**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Foi criado um novo relatório de saúde de partição | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Um relatório de saúde de partição existente expirou | HM | Informativo | 1 |
 
 **Réplica de eventos de relatório de saúde**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Foi criado um relatório de saúde de réplica imponente | HM | Informativo | 1 |
 | 54430 | Reportagem de Atimância NovaHealthReport | Foi criado um novo relatório de saúde apátrida | HM | Informativo | 1 |
@@ -199,28 +199,28 @@ O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviç
 
 **Eventos de sessão de caos**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | CaosStared | Começou uma sessão de testes caos | Capacidade de teste | Informativo | 1 |
 | 50023 | Caos coberto | Uma sessão de testes do Caos parou | Capacidade de teste | Informativo | 1 |
 
 **Eventos de nó caos**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | CaosNodeRestartscheed | Um nó tem programado para reiniciar como parte de uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 | 50087 | CaosNodeRestartCompleted | Um nó terminou de reiniciar como parte de uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de aplicação caos**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | CaosCodePackagerestartScheded | Foi agendado um reinício de um pacote de código durante uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 | 50101 | CaosCodePackageRestartCompleted | Um pacote de código reiniciou durante uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de partição do caos**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | CaosPartitionPrimaryMoveScheduled | Uma partição primária tem programado mover-se como parte de uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 | 50077 | CaosPartitionSecondaryMoveScheduled | Uma partição secundária tem programado mover-se como parte de uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
@@ -228,7 +228,7 @@ O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviç
 
 **Eventos de réplica do caos**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | CaosReplicarestartsa agendado | Foi agendado um reinício de réplica como parte de uma sessão de testes do Caos | Capacidade de teste | Informativo | 1 |
 | 50051 | CaosReplicaRemovalSchedado | Foi agendada uma remoção de réplicas como parte de uma sessão de testes do Caos. | Capacidade de teste | Informativo | 1 |
@@ -238,7 +238,7 @@ O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviç
 
 **Eventos de correlação**
 
-| EventId | Name | Descrição |Fonte (Tarefa) | Nível | Versão |
+| EventId | Nome | Descrição |Fonte (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelaçãoOperacional | Foi detetada uma correlação | Capacidade de teste | Informativo | 1 |
 
@@ -246,7 +246,7 @@ O [Modelo de Saúde do Tecido](service-fabric-health-introduction.md) de Serviç
 
 Aqui está uma lista completa de eventos fornecidos pela Service Fabric antes da versão 6.2.
 
-| EventId | Name | Fonte (Tarefa) | Nível |
+| EventId | Nome | Fonte (Tarefa) | Nível |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informativo |
 | 25621 | NodeOedSuccess | FabricNode | Informativo |
@@ -272,7 +272,7 @@ Aqui está uma lista completa de eventos fornecidos pela Service Fabric antes da
 | 18566 | ServiçosCretados | FM | Informativo |
 | 18567 | ServiçoDeletado | FM | Informativo |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha uma visão geral dos [diagnósticos em Tecido de Serviço](service-fabric-diagnostics-overview.md)
 * Saiba mais sobre o EventStore in [Service Fabric Eventstore Overview](service-fabric-diagnostics-eventstore.md)

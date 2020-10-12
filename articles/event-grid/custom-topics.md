@@ -4,10 +4,10 @@ description: Descreve tópicos personalizados na Grelha de Eventos Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113790"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na Grelha de Eventos Azure
@@ -68,7 +68,7 @@ As secções seguintes fornecem links para tutoriais para criar tópicos persona
 | [Modelo de gestor de recursos: tópico personalizado e ponto final WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Um modelo de Gestor de Recursos que cria um tópico personalizado e subscrição para esse tópico personalizado. Envia eventos para um WebHook. |
 | [Modelo de gestor de recursos: tópico personalizado e ponto final de Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo de Gestor de Recursos que cria uma subscrição para um tópico personalizado. Envia eventos para um Azure Event Hubs. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Tópicos do sistema](system-topics.md)

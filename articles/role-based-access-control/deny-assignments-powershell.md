@@ -14,10 +14,10 @@ ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790097"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Lista Azure nega atribuições usando Azure PowerShell
@@ -31,7 +31,7 @@ ms.locfileid: "84790097"
 
 Para obter informações sobre uma missão de negação, você deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read`permissão, que está incluído na maioria [dos papéis embutidos Azure](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read` permissão, que está incluído na maioria [dos papéis embutidos Azure](built-in-roles.md)
 - [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Listar atribuições de negação
@@ -123,7 +123,7 @@ Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreenda que Azure nega atribuições](deny-assignments.md)
 - [Lista Azure nega atribuições usando o portal Azure](deny-assignments-portal.md)

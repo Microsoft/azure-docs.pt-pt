@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
 ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213450"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Resolver problemas de limites de tempo da Cache do Azure para Redis
@@ -122,4 +122,4 @@ Pode utilizar os seguintes passos para investigar possíveis causas de raiz.
 - [Resolver problemas do lado do cliente da Cache do Azure para Redis](cache-troubleshoot-client.md)
 - [Resolver problemas do lado do servidor da Cache do Azure para Redis](cache-troubleshoot-server.md)
 - [Como posso comparar e testar o desempenho da minha cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [Como monitorizar a Cache Azure para Redis](cache-how-to-monitor.md)
+- [Como monitorizar a Cache do Azure para Redis](cache-how-to-monitor.md)

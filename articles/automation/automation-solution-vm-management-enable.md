@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83743761"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Ativar a solução Iniciar/Parar VMs fora do horário de expediente
@@ -82,7 +82,7 @@ Depois de clicar **em OK,** as opções de configuração são validadas e a con
   
 4. Utilize o campo **Agendar** para selecionar um horário de gestão de VM pela funcionalidade. Selecione uma data e hora de início para a sua agenda, para criar uma agenda diária recorrente a partir da hora escolhida. Não está disponível a seleção de uma região diferente. Para configurar o horário para o seu fuso horário específico depois de configurar a funcionalidade, consulte [Modificar os horários de arranque e de paragem](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Para receber notificações por e-mail de um grupo de [ação,](../azure-monitor/platform/action-groups.md)aceite o valor padrão do **Sim** no campo das **notificações por e-mail** e forneça um endereço de e-mail válido. Se selecionar **No** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o grupo de ação que é criado com endereços de e-mail válidos separados por vírgulas. 
+5. Para receber notificações por e-mail de um grupo de [ação,](../azure-monitor/platform/action-groups.md)aceite o valor padrão do **Sim** no campo das  **notificações por e-mail** e forneça um endereço de e-mail válido. Se selecionar **No** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o grupo de ação que é criado com endereços de e-mail válidos separados por vírgulas. 
 
 6. Ativar as seguintes regras de alerta:
 
@@ -103,7 +103,7 @@ Os VMs de início/paragem durante o horário de folga não incluem um conjunto d
     > [!NOTE]
     > Se tiver uma subscrição do Azure Cloud Solution Provider (Azure CSP), após a implementação estar concluída, na sua conta de Automação, vá a **Variáveis** em Recursos **Partilhados** e dedibra a variável [External_EnableClassicVMs](automation-solution-vm-management.md#variables) a **Falsa**. Isto impede a solução de procurar recursos VM clássicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar a função, consulte [Configure Stop/Start VMs durante as horas de folga](automation-solution-vm-management-config.md).
 * Para resolver erros de funcionalidade, consulte [Os VMs de início/paragem de resolução de problemas durante as horas fora de horas](troubleshoot/start-stop-vm.md).

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336399"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Metadados cronometrados de sinalização em streaming ao vivo 
@@ -57,7 +57,7 @@ Esta especificação descreve vários modos que são suportados pelos Media Serv
 | DASH                | Streaming adaptativo dinâmico em HTTP                                                                                                                                                                                                          |
 | Suave              | Protocolo de streaming suave                                                                                                                                                                                                                     |
 | MPEG2-TS            | FLUXOS de Transporte MPEG 2                                                                                                                                                                                                                      |
-| RTMP                | Protocolo multimédia em tempo real                                                                                                                                                                                                                 |
+| RTMP                | Protocolo multimédia Real-Time                                                                                                                                                                                                                 |
 | uimsbf              | Número inteiro não assinado, o mais significativo primeiro.                                                                                                                                                                                                 |
 
 ---
@@ -84,10 +84,10 @@ Os documentos que se seguem contêm disposições que, através de referência n
 | [MS-SSTR-Ingest]  | [Azure Media Services Fragmentado MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; Maio. HTTP Live Streaming. Agosto de 2017. Informativo. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | As codificações de dados Base16, Base32 e Base64 - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| [RTMP]            | ["Protocolo de Mensagens em Tempo Real da Adobe", 21 de dezembro de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [RTMP]            | ["Protocolo de Mensagens Real-Time da Adobe", 21 de dezembro de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
 | [SCTE-35-2019]    | SCTE 35: 2019 - Mensagem de inserção de programa digital para cabo - https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
-| [SCTE-214-1]      | SCTE 214-1 2016 - MPEG DASH para serviços de cabo baseados em IP Parte 1: Restrições e extensões de MPD                                                                                                                 |
-| [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH para serviços de cabo baseados em IP Parte 3: Perfil DASH/FF                                                                                                                                  |
+| [SCTE-214-1]      | SCTE 214-1 2016 - MPEG DASH para IP-Based Serviços de Cabo Parte 1: Restrições e extensões de MPD                                                                                                                 |
+| [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH para IP-Based Serviços de Cabo Parte 3: Perfil DASH/FF                                                                                                                                  |
 | [SCTE-224]        | SCTE 224 2018r1 - Interface de Agendamento e Notificação de Eventos                                                                                                                                                  |
 | [SCTE-250]        | API de Gestão de Eventos e Sinalização (ESAM)                                                                                                                                                                      |
 
@@ -208,7 +208,7 @@ O esquema para a carga de XML do EventStream XML [MPEG-DASH] é definido como (e
 ```
 
 ### <a name="built-in-supported-scheme-id-uris"></a>ID IIs do regime suportado incorporado
-| ID ID do esquema                 | Description                                                                                                                                                                                                                                          |
+| ID ID do esquema                 | Descrição                                                                                                                                                                                                                                          |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | https: \/ /aomedia.org/emsg/ID3 | Descreve como os metadados [ID3v2] podem ser transportados como metadados cronometrados num MP4 fragmentado compatível com CMAF [MPEGCMAF]. Para mais informações consulte os [metadados cronometrados no Formato Comum de Aplicação de Meios de Comunicação Social (CMAF)](https://github.com/AOMediaCodec/id3-emsg) |
 
@@ -935,7 +935,7 @@ A etiqueta "legado" EXT-X-CUE é definida como abaixo e também pode ser referen
 | ID                 | corda citada                 | Necessário                                  | Um identificador único para o evento. Se o ID não for especificado quando a mensagem for ingerida, a Azure Media Services gerará um id único.                                                                                                                                              |
 | DURATION           | número de ponto flutuante decimal | Necessário                                  | A duração do evento. Se desconhecido, o valor **deve** ser 0. As unidades são segundos de fação.                                                                                                                                                                                           |
 | DECORRIDO            | número de ponto flutuante decimal | Opcional, mas requerido para janela deslizante | Quando o sinal está a ser repetido para suportar uma janela de apresentação deslizante, este campo **DEVE** ser a quantidade de tempo de apresentação que tem decorrido desde o início do evento. As unidades são segundos fracionais. Este valor pode exceder a duração original especificada da liga ou segmento. |
-| HORA               | número de ponto flutuante decimal | Necessário                                  | A hora de apresentação do evento. As unidades são segundos fracionais.                                                                                                                                                                                                                        |
+| TIME               | número de ponto flutuante decimal | Necessário                                  | A hora de apresentação do evento. As unidades são segundos fracionais.                                                                                                                                                                                                                        |
 
 A camada de aplicação do leitor HLS utilizará o TYPE para identificar o formato da mensagem, descodificar a mensagem, aplicar as conversões de tempo necessárias e processar o evento.  Os eventos são sincronizados no tempo na lista de resumos do segmento da faixa dos pais, de acordo com o cronografo do evento.  São inseridos antes do segmento mais próximo (#EXTINF etiqueta).
 

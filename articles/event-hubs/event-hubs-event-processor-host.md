@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319507"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
@@ -188,7 +188,7 @@ Não recomendamos a utilização da aplicação quando se cria um recetor com é
 > Recomendamos a utilização de diferentes grupos de consumidores para aplicações que utilizem épocas e para aqueles que não usam épocas para evitar erros. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com o Anfitrião do Processador de Eventos, consulte os seguintes artigos para saber mais sobre os Centros de Eventos:
 

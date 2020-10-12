@@ -4,10 +4,10 @@ description: Descreve como implementar um recurso condicionalmente num modelo de
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84259325"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
@@ -88,7 +88,7 @@ Define um [recurso tão dependente](define-resource-dependency.md) de um recurso
 
 Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso não for implantado porque a condição avalia falsamente, o resultado depende da versão API DO REST que utiliza para implementar o modelo. Se utilizar uma versão anterior a 2019-05-10, o recurso **não é eliminado**. Com 2019-05-10 ou posteriormente, o recurso **é eliminado.** As versões mais recentes do Azure PowerShell e do Azure CLI apagam o recurso quando a condição é falsa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para recomendações sobre a criação de modelos, consulte [as melhores práticas do modelo ARM](template-best-practices.md).
 * Para criar múltiplas instâncias de um recurso, consulte [a iteração de recursos nos modelos ARM](copy-resources.md).

@@ -15,10 +15,10 @@ ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 08e6491e1d8d94e8e6e9112e5a19682018103325
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400354"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure

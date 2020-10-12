@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909776"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração Azure Ative Directory B2B no portal Azure
@@ -27,7 +27,7 @@ Depois de adicionar um utilizador convidado ao diretório, pode enviar ao utiliz
 > [!IMPORTANT]
 > Deve seguir os passos em [Como-a: Adicione as informações de privacidade da sua organização no Azure Ative Directory](https://aka.ms/adprivacystatement) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convites pela primeira vez, um utilizador convidado deve consentir com os seus termos de privacidade para continuar. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se de que as configurações de colaboração externa da sua organização estão configuradas de modo a que possa convidar os hóspedes. Por predefinição, todos os utilizadores e administradores podem convidar os hóspedes. Mas as políticas de colaboração externa da sua organização podem ser configuradas para evitar que certos tipos de utilizadores ou administradores convidem os hóspedes. Para saber como visualizar e definir estas políticas, consulte [a colaboração externa do Enable B2B e gerir quem pode convidar os hóspedes.](delegate-invitations.md)
 

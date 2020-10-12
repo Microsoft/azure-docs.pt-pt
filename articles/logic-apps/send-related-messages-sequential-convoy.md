@@ -7,10 +7,10 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87048666"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envie mensagens relacionadas por ordem usando um comboio sequencial em Azure Logic Apps com Azure Service Bus
@@ -195,11 +195,11 @@ Para fornecer os valores para o gatilho e ações na entrega correlacionada de e
 
   | Propriedade | Necessário para este cenário | Valor | Descrição |
   |----------|----------------------------|-------|-------------|
-  | **Nome da fila** | Yes | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
-  | **Tipo de fila** | Yes | **Principal** | Sua fila de ônibus de serviço primário |
-  | **Id de sessão** | Yes | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Intervalo** | Yes | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
-  | **Frequência** | Yes | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
+  | **Nome da fila** | Sim | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
+  | **Tipo de fila** | Sim | **Principal** | Sua fila de ônibus de serviço primário |
+  | **Id de sessão** | Sim | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
+  | **Intervalo** | Sim | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
+  | **Frequência** | Sim | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
   |||||
 
   Para obter mais informações sobre o gatilho, consulte [o Service Bus - Quando uma mensagem é recebida numa fila (peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho produz um [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).

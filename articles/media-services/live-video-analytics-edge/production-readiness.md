@@ -4,10 +4,10 @@ description: Este artigo fornece orientações sobre como configurar e implement
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071944"
 ---
 # <a name="production-readiness-and-best-practices"></a>Prontidão de produção e boas práticas
@@ -152,7 +152,7 @@ O Linux VM que está a utilizar como dispositivo de borda pode tornar-se sem res
 1. `sudo apt-get autoremove1`
 
     A opção de remoção automática remove pacotes que foram automaticamente instalados porque algum outro pacote os exigia mas, com os outros pacotes removidos, já não são necessários
-1. `sudo docker image ls`– Fornece uma lista de imagens do Docker no seu sistema de bordas
+1. `sudo docker image ls` – Fornece uma lista de imagens do Docker no seu sistema de bordas
 1. `sudo docker system prune `
 
     Docker tem uma abordagem conservadora para limpar objetos não usados (muitas vezes referidos como "recolha de lixo"), como imagens, contentores, volumes e redes: estes objetos geralmente não são removidos a menos que você explicitamente peça Docker para fazê-lo. Isto pode fazer com que o Docker use espaço extra em disco. Para cada tipo de objeto, Docker fornece um comando de ameixa. Além disso, pode utilizar ameixas secas do sistema de estivadores para limpar vários tipos de objetos ao mesmo tempo. Para obter mais informações, consulte [os objetos estivadores não reutilizados.](https://docs.docker.com/config/pruning/)

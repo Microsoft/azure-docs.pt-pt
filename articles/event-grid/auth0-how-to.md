@@ -4,10 +4,10 @@ description: Como terminar eventos de Auth0 a Azure serviços com Azure Event Gr
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103285"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integre a grelha de eventos do Azure com a Auth0
@@ -87,7 +87,7 @@ Tente [invocar qualquer uma das ações do Auth0 que desencadeiam um evento a se
 ## <a name="delivery-attempts-and-retries"></a>Tentativas de entrega e retrações
 Os eventos Auth0 são entregues ao Azure através de um mecanismo de streaming. Cada evento é enviado como é desencadeado em Auth0. Se a Grade de Eventos não puder receber o evento, o Auth0 tentará até três vezes para entregar o evento. Caso contrário, a Auth0 registará a falha de entrega no seu sistema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tópico parceiro Auth0](auth0-overview.md)
 - [Visão geral dos tópicos do parceiro](partner-topics-overview.md)

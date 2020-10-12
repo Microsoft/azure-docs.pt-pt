@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902580"
 ---
 # <a name="security-controls-for-api-management"></a>Controlos de segurança para a Gestão da API

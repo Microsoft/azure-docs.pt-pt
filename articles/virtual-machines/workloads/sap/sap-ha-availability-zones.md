@@ -17,10 +17,10 @@ ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653601"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319577"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para experiência de criação de aplicação gerida do Azure
@@ -129,7 +129,7 @@ Para `location` , especificar as propriedades para o controlo de localização q
 
 O **passo Basics** é o primeiro passo gerado quando o portal Azure analisa o ficheiro. Por predefinição, o passo básico permite que os utilizadores escolham a subscrição, o grupo de recursos e a localização para implementação.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Padrão básico":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Assistente de separador":::
 
 Pode adicionar mais elementos nesta secção. Quando possível, adicione elementos que consultam parâmetros de implantação, como o nome de um cluster ou credenciais de administrador.
 
@@ -199,7 +199,7 @@ Para filtrar os locais disponíveis apenas para os locais que suportam os tipos 
 
 A CreateUiDefinition fornece [funções](create-uidefinition-functions.md) para trabalhar com entradas e saídas de elementos, e funcionalidades como condicionalidades. Estas funções são semelhantes tanto na sintaxe como na funcionalidade das funções do modelo do Gestor de Recursos Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O createUiDefinition.jsno ficheiro em si tem um esquema simples. A verdadeira profundidade vem de todos os elementos e funções suportados. Estes itens são descritos com maior detalhe em:
 

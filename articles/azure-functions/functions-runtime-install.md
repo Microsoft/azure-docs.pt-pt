@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86540388"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a pré-visualização do tempo de execução das funções Azure 2
@@ -87,7 +87,7 @@ Para completar a instalação do tempo de execução Azure Functions, tem de com
 
     ![Azure Functions Runtime preview IIS][11]
 
-1. Clique no separador **Serviços.**  Este separador mostra o estado dos serviços na sua ferramenta de configuração de tempo de execução Azure Functions.  Se o **Serviço de Ativação do Anfitrião de Funções Azure** não estiver a funcionar após a configuração inicial, clique em **Iniciar Serviço**.
+1. Clique no separador **Serviços.**  Este separador mostra o estado dos serviços na sua ferramenta de configuração de tempo de execução Azure Functions.  Se o  **Serviço de Ativação do Anfitrião de Funções Azure** não estiver a funcionar após a configuração inicial, clique em **Iniciar Serviço**.
 
     ![Configuração de pré-visualização de tempo de execução de funções Azure Functions completa][12]
 

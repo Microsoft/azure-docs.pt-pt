@@ -12,17 +12,17 @@ manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616912"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível.A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
@@ -60,7 +60,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 

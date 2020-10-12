@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
 ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618966"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics

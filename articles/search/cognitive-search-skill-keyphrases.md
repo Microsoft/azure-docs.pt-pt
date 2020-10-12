@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936066"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de frase-chave
@@ -114,7 +114,7 @@ Se fornecer um código linguístico não suportado, é gerado um erro e não sã
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão analisados e será emitido um aviso.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

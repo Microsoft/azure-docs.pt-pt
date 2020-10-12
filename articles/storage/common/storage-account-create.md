@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333584"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -283,6 +283,6 @@ Em alternativa, pode eliminar o grupo de recursos, que elimina a conta de armaze
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da conta de armazenamento](storage-account-overview.md)
+- [Descrição geral da conta de armazenamento](storage-account-overview.md)
 - [Upgrade para uma conta de armazenamento v2 para fins gerais](storage-account-upgrade.md)
 - [Mover uma conta de Armazenamento Azure para outra região](storage-account-move.md)

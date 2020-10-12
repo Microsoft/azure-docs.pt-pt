@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504881"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Ligar dados do Azure Firewall
@@ -60,7 +60,7 @@ Saiba mais sobre [a monitorização dos registos do Azure Firewall](https://docs
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os registos do Azure Firewall ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

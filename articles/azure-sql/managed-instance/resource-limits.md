@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618120"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
@@ -36,7 +36,7 @@ A SQL Managed Instance tem características e limites de recursos que dependem d
 | **Hardware** | Processadores Intel® E5-2673 v3 (Haswell) 2.4 GHz, anexados SSD vCore = 1 PP (núcleo físico) | Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (Lago cascata) 2,5 GHz processadores, rápido NVMe SSD, vCore=1 LP (hiper-thread) |
 | **Número de vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Memória máxima (relação memória/núcleo)** | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| **Memória Max In-Memory OLTP** | Limite de instância: 1-1.5 GB por vCore| Limite de exemplo: 0.8 - 1.65 GB por vCore |
+| **Max In-Memory memória OLTP** | Limite de instância: 1-1.5 GB por vCore| Limite de exemplo: 0.8 - 1.65 GB por vCore |
 | **Armazenamento reservado de instância máxima** |  Finalidade Geral: 8 TB<br/>Critical de negócios: 1 TB | Finalidade Geral: 8 TB<br/> Business Critical 1 TB, 2 TB ou 4 TB dependendo do número de núcleos |
 
 > [!IMPORTANT]
@@ -142,7 +142,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 |Tipo de subscrição| Número máximo de sub-redes sql de instância gerida | Número máximo de unidades vCore* |
 | :---| :--- | :--- |
-|Pay-as-you-go|3|320|
+|Pay as you go|3|320|
 |CSP |8 (15 em algumas regiões**)|960 (1440 em algumas regiões**)|
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|

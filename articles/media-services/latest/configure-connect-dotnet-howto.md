@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297404"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligar aos Serviços de Mídia v3 API - .NET
@@ -229,7 +229,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Carregar, codificar e transmitir vídeos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream ao vivo com Serviços de Mídia v3 - .NET](stream-live-tutorial-with-api.md)
@@ -243,7 +243,7 @@ namespace ConsoleApp1
 - [Criar filtros com Serviços de Mídia - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos avançados de vídeo a pedido de Azure Functions v2 com Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet) (Referência de .NET)
 * Para obter mais exemplos de código, consulte as [amostras .NET SDK.](https://github.com/Azure-Samples/media-services-v3-dotnet)

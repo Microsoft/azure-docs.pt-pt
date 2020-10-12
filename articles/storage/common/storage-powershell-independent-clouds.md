@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072964"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o Armazenamento nas nuvens independentes do Azure utilizando o PowerShell
@@ -71,7 +71,7 @@ A tabela seguinte mostra os locais devolvidos para a nuvem alemã.
 
 O sufixo final para cada um destes ambientes é diferente do ponto final do Azure Public. Por exemplo, o sufixo blob endpoint para O Público azul é **blob.core.windows.net**. Para a Nuvem do Governo, o sufixo do ponto final blob é **blob.core.usgovcloudapi.net**.
 
-### <a name="get-endpoint-using-get-azenvironment"></a>Obtenha ponto final usando Get-AzEnvironment
+### <a name="get-endpoint-using-get-azenvironment"></a>Obtenha o ponto final usando Get-AzEnvironment
 
 Recupere o sufixo do ponto final utilizando [o Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto final é a propriedade *StorageEndpointSuffix* do ambiente.
 
