@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: ee35385b88bf4fbd5f899fde032b11b99a20d050
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87130040"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utilize um projeto de base de dados U-SQL para desenvolver uma base de dados U-SQL para O Lago de Dados Azure
@@ -50,7 +50,7 @@ Para um objeto de montagem, a ferramenta fornece um editor de UI fácil de usar 
 
 3.  Adicione **dependências geridas** e **ficheiros adicionais** se houver algum. Quando adiciona ficheiros adicionais, a ferramenta utiliza o caminho relativo para se certificar de que pode encontrar os conjuntos tanto na máquina local como na máquina de construção mais tarde. 
 
-@_DeployTempDirectoryé uma variável predefinida que aponta a ferramenta para a pasta de saída de construção. Sob a pasta de saída de construção, cada conjunto tem uma sub-dobragem nomeada com o nome de montagem. Todos os DLLs e ficheiros adicionais estão na subclasse. 
+@_DeployTempDirectory é uma variável predefinida que aponta a ferramenta para a pasta de saída de construção. Sob a pasta de saída de construção, cada conjunto tem uma sub-dobragem nomeada com o nome de montagem. Todos os DLLs e ficheiros adicionais estão na subclasse. 
  
 ## <a name="build-a-u-sql-database-project"></a>Construir um projeto de base de dados U-SQL
 
@@ -91,7 +91,7 @@ Pode implementar uma base de dados U-SQL através de um projeto de base de dados
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Implementar base de dados U-SQL utilizando o SDK
 
-`PackageDeploymentTool.exe`fornece a programação e interfaces de linha de comando que ajudam a implementar bases de dados U-SQL. O SDK está incluído no [pacote U-SQL SDK Nuget,](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)localizado em `build/runtime/PackageDeploymentTool.exe` .
+`PackageDeploymentTool.exe` fornece a programação e interfaces de linha de comando que ajudam a implementar bases de dados U-SQL. O SDK está incluído no [pacote U-SQL SDK Nuget,](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)localizado em `build/runtime/PackageDeploymentTool.exe` .
 
 [Saiba mais sobre o SDK e como configurar o gasoduto CI/CD para a implementação da base de dados U-SQL](data-lake-analytics-cicd-overview.md).
 

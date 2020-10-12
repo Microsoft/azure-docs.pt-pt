@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847857"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de gestor de recursos de cluster com gestão de clusters de tecido de serviço
@@ -105,7 +105,7 @@ Bloquear não é uma condição permanente. Após alguns minutos, o nó é remov
 
 Com todos estes constrangimentos, pode ter pensado "Hey – acho que as restrições de domínio de falhas são a coisa mais importante no meu sistema. Para garantir que a restrição de domínio de falhas não seja violada, estou disposto a violar outros constrangimentos."
 
-Os constrangimentos podem ser configurados com diferentes níveis de prioridade. Nomeadamente:
+Os constrangimentos podem ser configurados com diferentes níveis de prioridade. Esses avisos são:
 
    - "duro" (0)
    - "macio" (1)
@@ -199,5 +199,5 @@ Outra coisa que acontece durante as atualizações é que o Cluster Resource Man
 ### <a name="buffered-capacity--upgrade"></a>Atualização de & de capacidade tamponada
 Geralmente deseja que a atualização esteja completa, mesmo que o cluster esteja limitado ou perto de cheio. Gerir a capacidade do cluster é ainda mais importante durante as atualizações do que o habitual. Dependendo do número de domínios de atualização, entre 5 e 20 por cento da capacidade deve ser migrada à medida que a atualização passa pelo cluster. Aquele trabalho tem que ir a algum lugar. É aqui que a noção de [capacidades tamponadas](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. A capacidade tamponada é respeitada durante o funcionamento normal. O Cluster Resource Manager pode preencher nós até à sua capacidade total (consumindo o tampão) durante as atualizações, se necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Comece do início e [obtenha uma introdução ao Gestor](service-fabric-cluster-resource-manager-introduction.md) de Recursos do Cluster de Tecido de Serviço

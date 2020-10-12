@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852384"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerir um pedido de suporte do Azure
@@ -45,17 +45,17 @@ Nesta página, pode pesquisar, filtrar e classificar pedidos de suporte. Selecio
 
 1. Na página **Pedido de Apoio,** selecione **Alterar**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Alterar pedido de apoio gravidade":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Todos os pedidos de apoio":::
 
 1. O portal Azure mostra um de dois ecrãs, dependendo se o seu pedido já está atribuído a um engenheiro de suporte:
 
     - Se o seu pedido não foi atribuído, vê um ecrã como o seguinte. Selecione um novo nível de gravidade e, em seguida, selecione **Alterar**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Selecione um novo nível de gravidade":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Todos os pedidos de apoio":::
 
     - Se o seu pedido tiver sido atribuído, verá um ecrã como o seguinte. Selecione **OK,** em seguida, crie uma [nova mensagem](#send-a-message) para solicitar uma alteração no nível de gravidade.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Não pode selecionar um novo nível de gravidade":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Todos os pedidos de apoio":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Partilhe informações de diagnóstico com suporte da Azure
 
@@ -69,7 +69,7 @@ Quando cria um pedido de suporte, por predefinição é selecionada a opção **
     
     1. Na página **Pedido de Apoio,** selecione **a permissão grant**, em seguida, selecione **Sim** e **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Conceder permissões para informações de diagnóstico":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Todos os pedidos de apoio":::
 
 ## <a name="upload-files"></a>Carregar ficheiros
 
@@ -79,7 +79,7 @@ Pode utilizar a opção de upload de ficheiros para fazer upload de ficheiros de
 
 1. Na página **Pedido de Apoio,** navegue para encontrar o seu ficheiro e, em seguida, selecione **Upload**. Repita o processo se tiver vários ficheiros.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Carregar o ficheiro":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Todos os pedidos de apoio":::
 
 ### <a name="file-upload-guidelines"></a>Diretrizes de upload de ficheiros
 
@@ -126,7 +126,7 @@ Siga estas diretrizes quando utilizar a opção de upload de ficheiros:
 
 Se precisar de reabrir um pedido de apoio fechado, crie uma [nova mensagem](#send-a-message), que reabre automaticamente o pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como criar um pedido de suporte do Azure](how-to-create-azure-support-request.md)
 

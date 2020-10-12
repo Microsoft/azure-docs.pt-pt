@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/16/2019
 ms.author: alkohli
 ms.openlocfilehash: baf18ae0263215e6ff83570557255d06c3117fd4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085275"
 ---
 | Porto não.| Dentro ou fora | Âmbito portuário| Necessário|   Notas |   |

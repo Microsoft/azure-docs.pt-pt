@@ -11,10 +11,10 @@ ms.date: 06/12/2019
 ms.author: philmea
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0d8344f5f6b4ccc9f58cc1809f5d625e7e4adf68
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494065"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Executar Azure IoT Edge em máquinas virtuais do servidor do Windows

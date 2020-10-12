@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74873425"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
@@ -59,7 +59,7 @@ ms.locfileid: "74873425"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>Argumentos
+##  <a name="arguments"></a><a name="bk_arguments"></a> Argumentos
   
 * `<undefined_constant>; Undefined`  
   
@@ -116,7 +116,7 @@ ms.locfileid: "74873425"
 |\t|separador|U+0009|  
 |\uXXXX|Um caracteres Unicode definido por 4 dígitos hexadémicos.|U+XXXX|  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Dados de documento do modelo](modeling-data.md)

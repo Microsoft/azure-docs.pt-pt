@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961725"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
@@ -66,7 +66,7 @@ Sim, para configurar a integração/implantação contínua para o Registo de Co
 
 **Apoia ambientes de encenação?**
 
-Yes.
+Sim.
 
 **Posso usar *webDeploy/MSDeploy* para implementar a minha aplicação web?**
 
@@ -100,7 +100,7 @@ const io = require('socket.io')(server,{
 
 **Suporta aplicações não-compensadas .NET Core?**
 
-Yes.
+Sim.
 
 **Apoia o Compositor como gestor de dependência para aplicações PHP?**
 
@@ -138,7 +138,7 @@ O sítio SCM funciona num recipiente separado. Não é possível verificar o sis
 
 **O meu contentor personalizado ouve um porto que não seja o porto 80. Como posso configurar a minha app para encaminhar pedidos para aquele porto?**
 
-Temos deteção automática da porta. Também pode especificar uma configuração de aplicação chamada *WEBSITES_PORT* e dar-lhe o valor do número de porta esperado. Anteriormente, a plataforma utilizava a definição da aplicação *PORT.* Estamos a planear depreciar esta configuração da aplicação e *usáWEBSITES_PORT* exclusivamente.
+Temos deteção automática da porta. Também pode especificar uma configuração de aplicação chamada *WEBSITES_PORT* e dar-lhe o valor do número de porta esperado. Anteriormente, a plataforma utilizava a definição da aplicação *PORT.* Estamos a planear depreciar esta configuração da aplicação e *usá WEBSITES_PORT* exclusivamente.
 
 **Preciso implementar HTTPS no meu recipiente personalizado?**
 

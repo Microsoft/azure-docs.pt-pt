@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417917"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera na Azure Data Factory
@@ -41,9 +41,9 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Wait` atividade. | String | Yes
-tipo | Deve ser definido para **Esperar**. | String | Yes
-tempo de esperaInSegundos | O número de segundos que o gasoduto aguarda antes de continuar com o processamento. | Número inteiro | Yes
+name | O nome da `Wait` atividade. | String | Sim
+tipo | Deve ser definido para **Esperar**. | String | Sim
+tempo de esperaInSegundos | O número de segundos que o gasoduto aguarda antes de continuar com o processamento. | Número inteiro | Sim
 
 ## <a name="example"></a>Exemplo
 

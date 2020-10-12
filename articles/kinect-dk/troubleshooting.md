@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: resolução de problemas, atualização, bug, kinect, feedback, recuperação, registo, dicas
 ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277607"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect conhecidos problemas e resolução de problemas
@@ -134,7 +134,7 @@ Se não, então realizar um [reset de fábrica](https://support.microsoft.com/he
 - Para partilhar problemas de qualidade de imagem com a equipa pode:
 
 1) Faça uma pausa no [espectador Azure Kinect](azure-kinect-viewer.md) e tire uma imagem ou
-2) Veja a gravação utilizando [o gravador Azure Kinect,](azure-kinect-recorder.md)por exemplo,`k4arecorder.exe -l 5 -r 5 output.mkv`
+2) Veja a gravação utilizando [o gravador Azure Kinect,](azure-kinect-recorder.md)por exemplo, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
 ## <a name="inconsistent-or-unexpected-device-timestamps"></a>Sementetas de tempo de dispositivo inconsistentes ou inesperadas
 
@@ -166,6 +166,6 @@ O laser utilizado pela câmara de profundidade para calcular dados de profundida
 
 Para utilizar o Body Tracking SDK com Unreal, certifique-se de que adicionou `<SDK Installation Path>\tools` à variável ambiental `PATH` e copiado e para `dnn_model_2_0.onnx` `cudnn64_7.dll` `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Mais informações de apoio](support.md)
