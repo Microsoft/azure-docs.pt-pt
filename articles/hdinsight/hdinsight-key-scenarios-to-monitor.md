@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075575"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
@@ -27,12 +27,12 @@ Os clusters hadoop podem proporcionar o melhor desempenho quando a carga no clus
 
 Para obter uma visibilidade de alto nível para os nós do seu cluster e para o seu carregamento, inscreva-se no [Ambari Web UI,](hdinsight-hadoop-manage-ambari.md)em seguida, selecione o **separador Anfitriões.** Os seus anfitriões estão listados pelos seus nomes de domínio totalmente qualificados. O estado de funcionamento de cada hospedeiro é indicado por um indicador de saúde colorido:
 
-| Cor | Descrição |
+| Color | Descrição |
 | --- | --- |
-| Vermelho | Pelo menos um componente principal no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
+| Red | Pelo menos um componente principal no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente secundário no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
 | Amarelo | O Ambari Server não recebe batimentos cardíacos do anfitrião há mais de 3 minutos. |
-| Verde | Estado normal de funcionamento. |
+| Green | Estado normal de funcionamento. |
 
 Você também verá colunas mostrando o número de núcleos e quantidade de RAM para cada hospedeiro, e a média de utilização e carga do disco.
 
@@ -84,7 +84,7 @@ Se a loja de apoio do seu cluster for a Azure Data Lake Storage (ADLS), o seu es
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Desempenho do nó lento de resolução de problemas
 
-Em alguns casos, a lentidão pode ocorrer devido ao baixo espaço do disco no cluster. Investigue com estes passos:
+Em alguns casos, poderá ocorrer lentidão devido a espaço em disco reduzido no cluster. Investigue com estes passos:
 
 1. Utilize [o comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para ligar a cada um dos nós.
 
@@ -97,7 +97,7 @@ Em alguns casos, a lentidão pode ocorrer devido ao baixo espaço do disco no cl
 
 1. Reveja a saída e verifique a presença de ficheiros grandes na `mnt` pasta ou noutras pastas. Tipicamente, as `usercache` pastas ( `appcache` mnt/recurso/hadoop/yarn/local/usercache/hive/appcache/) contêm ficheiros grandes.
 
-1. Se existirem ficheiros grandes, ou um trabalho atual está a causar o crescimento do ficheiro ou um trabalho anterior falhado pode ter contribuído para este problema. Para verificar se este comportamento é causado por um trabalho atual, executar o seguinte comando:
+1. Se existirem ficheiros grandes, ou um trabalho atual está a causar o crescimento do ficheiro ou um trabalho anterior falhado pode ter contribuído para este problema. Para verificar se este comportamento é causado por um trabalho atual, execute o seguinte comando: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
@@ -109,7 +109,7 @@ Em alguns casos, a lentidão pode ocorrer devido ao baixo espaço do disco no cl
     yarn application -kill -applicationId <application_id>
     ```
 
-    `application_id`Substitua-o pelo ID da aplicação. Se não forem indicados empregos específicos, vá para o próximo passo.
+    `application_id`Substitua-o pelo ID da aplicação. Se não forem indicadas tarefas especificas, avance para o passo seguinte.
 
 1. Após o comando acima concluído, ou se não forem indicados trabalhos específicos, elimine os grandes ficheiros identificados executando um comando que se assemelha ao seguinte:
 
@@ -122,7 +122,7 @@ Para obter mais informações sobre problemas no espaço do disco, consulte [for
 > [!NOTE]  
 > Se tiver ficheiros grandes que pretende manter, mas que estão a contribuir para o problema de espaço em disco baixo, tem de aumentar o seu cluster HDInsight e reiniciar os seus serviços. Depois de completar este procedimento e esperar por alguns minutos, você vai notar que o armazenamento é libertado e o desempenho habitual do nó é restaurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite os seguintes links para obter mais informações sobre a resolução de problemas e monitorização dos seus clusters:
 

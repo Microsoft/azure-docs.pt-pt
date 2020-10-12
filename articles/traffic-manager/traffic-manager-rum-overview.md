@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 45c889ef8d67570fb075ec710616f20d110b7f50
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401610"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral das Medições de Utilizador Reais do Gestor de Tráfego
@@ -75,7 +75,7 @@ Quando utiliza As Medições Reais do Utilizador, é faturado com base no númer
 
 * [O meu uso de largura de banda Azure aumentará quando utilizar as Medições reais do utilizador?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como utilizar [as Medições reais do utilizador com páginas web](traffic-manager-create-rum-web-pages.md)
 - Saiba [como funciona o Gestor de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [o Mobile Center](https://docs.microsoft.com/mobile-center/)

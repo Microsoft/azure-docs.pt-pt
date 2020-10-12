@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e991fb0c60e8f08eb43cb7799027d4200263c9b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659542"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Defina a estratégia de proteção de dados para a sua solução de identidade híbrida
@@ -168,7 +168,7 @@ Além da capacidade de reporte principal do Azure AD Premium que pode utilizar d
 
 Uma vez que as opções de resposta a incidentes utilizam uma abordagem multicamadora, a comparação entre essas opções não é aplicável para esta tarefa. Certifique-se de que está a aproveitar todas as opções disponíveis para cada cenário que o exija a utilizar a capacidade de reporte AZure AD como parte do processo de resposta a incidentes da sua empresa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Determinar tarefas híbridas de gestão de identidade](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Consulte também

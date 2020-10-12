@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Sem emenda single sign-on / Microsoft Docs'
+title: 'Azure AD Connect: Single Sign-On sem emendas Microsoft Docs'
 description: Este tópico descreve o Azure Ative Directory (Azure AD) Seamless Single Sign-On e como permite fornecer um verdadeiro sign-on único para utilizadores de desktop corporativos dentro da sua rede corporativa.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658365"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Sem Emenda Único Sign-On
+# <a name="azure-active-directory-seamless-single-sign-on"></a>Início de Sessão Único Totalmente Integrado do Azure Active Directory
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>O que é Azure Ative Directory Seamless Single Sign-On?
 
@@ -33,7 +33,7 @@ O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO 
 
 O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) ou com os métodos [de autenticação pass-through.](how-to-connect-pta.md) O SSO sem emenda _não_ é aplicável aos Serviços da Federação de Diretório Ativo (ADFS).
 
-![Inscrição única sem emenda](./media/how-to-connect-sso/sso1.png)
+![Sign-On single sem emenda](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >O Seamless SSO precisa que o dispositivo do utilizador seja **apenas ligado** ao domínio, mas não é utilizado em dispositivos [aderidos a Azure AD ou](../devices/concept-azure-ad-join.md) [híbridos Azure AD.](../devices/concept-azure-ad-join-hybrid.md) SSO on Azure AD juntou-se, Hybrid Azure AD juntou-se, e Azure AD registrou dispositivos com base no [token de atualização primária](../devices/concept-primary-refresh-token.md).
@@ -63,11 +63,11 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes\*|Yes|Yes|Sim\*\*\*|N/D
-|Windows 8.1|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows 8|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows 7|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
-|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Yes|Sim\*\*\*|N/D
+|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
+|Windows 8.1|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Sim|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
@@ -80,7 +80,7 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 >[!NOTE]
 >Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../devices/concept-azure-ad-join.md) para a experiência de súmis ideal com a Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - Plano de [**Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.

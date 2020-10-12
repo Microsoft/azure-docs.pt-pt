@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
 ms.openlocfilehash: f78d5f839c5dd7816ae28eeed175503427abb43c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87035847"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certificações e configurações SAP em execução no Microsoft Azure
@@ -34,7 +34,7 @@ Referências:
 
 | Produto SAP | SoA apoiado | Ofertas Azure |
 | --- | --- | --- |
-| SAP HANA Developer Edition (incluindo o software do cliente HANA composto apenas por SQLODBC, ODBO-Windows, ODBC, motoristas JDBC, estúdio HANA e base de dados HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Família VM série D |
+| SAP HANA Developer Edition (incluindo o software do cliente HANA composto por SQLODBC, ODBO-Windows apenas, ODBC, motoristas JDBC, estúdio HANA e base de dados HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Família VM série D |
 | Negócio Um em HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [Plataformas IAAS Certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
 | SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilidade controlada para GS5. Suporte total para M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, M416s_v2, M416ms_v2, <br /> SAP HANA em Azure (Grandes instâncias) [PLATAFORMAS IAAS Certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 | Suíte em HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA em Azure (Grandes instâncias) [Plataformas IAAS Certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |

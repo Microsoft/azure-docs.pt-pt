@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 72178b61d7033167ed48a8ddbb661daad6081df7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87020119"
 ---
 # <a name="scaling-hpc-applications"></a>Aplicações de escala HPC
@@ -33,7 +33,7 @@ O sistema de compilador de compilador C/C++ (AOCC) da AMD otimização oferece u
 
 ### <a name="clang"></a>Clang
 
-Clang é um compilador C, C++e Objective-C que lida com pré-processamento, análise, otimização, geração de códigos, montagem e ligação. Clang suporta a `-march=znver1` bandeira para permitir a melhor geração de código e afinação para a arquitetura zen baseada em X86 da AMD.
+Clang é um compilador C, C++e Objective-C que lida com pré-processamento, análise, otimização, geração de códigos, montagem e ligação. Clang suporta a  `-march=znver1` bandeira para permitir a melhor geração de código e afinação para a arquitetura zen baseada em X86 da AMD.
 
 ### <a name="flang"></a>RIO FLANG
 

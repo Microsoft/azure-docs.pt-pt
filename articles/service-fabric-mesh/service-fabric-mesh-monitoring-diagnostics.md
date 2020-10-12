@@ -7,10 +7,10 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248412"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
@@ -50,7 +50,7 @@ O ambiente de malha expõe um punhado de métricas indicando como os seus recipi
 | Cpu atribuído | CPU atribuído de acordo com o modelo de Gestor de Recursos Azure | Millicores |
 | Roteiro Atribuído | Memória atribuída de acordo com o modelo do Gestor de Recursos Azure | MB |
 | ActualCpu | Utilização da CPU | Millicores |
-| ActualMemory | Utilização da memória | MB |
+| ActualMemory | Utilização de memória | MB |
 | Estatística do Contentor | 0 - Inválido: O estado do contentor é desconhecido <br> 1 - Pendente: O contentor tem início previsto <br> 2 - Início: O contentor está em fase de arranque <br> 3 - Iniciado: O contentor começou com sucesso <br> 4 - Paragem: O contentor está a ser parado <br> 5 - Parado: O contentor parou com sucesso | N/D |
 | AplicaçãoStatus | 0 - Desconhecido: O estatuto não é recuperável <br> 1 - Pronto: A aplicação está a funcionar com sucesso <br> 2 - Upgrade: Há uma atualização em curso <br> 3 - Criação: A aplicação está a ser criada <br> 4 - Eliminação: O pedido está a ser suprimido <br> 5 - Falha: A aplicação falhou em implantar | N/D |
 | ServiceStatus | 0 - Inválido: O serviço não tem atualmente um estado de saúde <br> 1 - Ok: O serviço é saudável  <br> 2 - Aviso: Pode haver algo errado que exija investigação <br> 3 - Erro: Há algo de errado que precisa de investigação <br> 4 - Desconhecido: O estado não é recuperável | N/D |

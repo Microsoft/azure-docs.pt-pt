@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027092"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
@@ -48,11 +48,11 @@ Siga estes passos para registos de aplicações que estão atualmente configurad
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
 1. Selecione *apenas* os URIs de redirecionamento cujas aplicações utilizarão MSAL.js 2.x e, em seguida, selecione **Configure**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Selecione redirecionar o painel URI no painel DE SPA no portal Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
 
 Estes URIs de redireccionamento devem agora aparecer no azulejo da plataforma **de aplicação de página única,** mostrando que o suporte do CORS com o fluxo de código de autorização e pkce está ativado para estes URIs.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Azulejo de aplicação de uma página no registo de aplicações no portal Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
 
 Também pode [criar um novo registo de aplicações](scenario-spa-app-registration.md) em vez de atualizar os URIs redirecionados no seu registo existente.
 

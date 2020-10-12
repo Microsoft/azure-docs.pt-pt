@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657112"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximos passos e como gerir a Azure AD Connect
@@ -84,5 +84,5 @@ A tabela seguinte fornece um resumo destas tarefas e uma breve descrição de ca
 |**Gerir federação**|Gerencie a sua infraestrutura AD FS, renove certificados e adicione servidores AD FS|
 |**Resolução de problemas**|Ajude na resolução de problemas problemas Azure AD Connect|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a integração das suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).

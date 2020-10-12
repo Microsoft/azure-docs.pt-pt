@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/14/2020
 ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83646612"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quais são as configurações de nó padrão e recomendadas para Azure HDInsight?
@@ -64,7 +64,7 @@ Para obter mais informações sobre as especificações de cada tipo VM, consult
 | Serviços ML: tamanho VM padrão |  |  |  |  |  | D4_v2 |  |
 | Serviços ML: tamanho VM recomendado mínimo |  |  |  |  |  | D4_v2 |  |
 
-\*= Tamanhos VM para clusters de pacotes de segurança empresarial spark (ESP)
+\* = Tamanhos VM para clusters de pacotes de segurança empresarial spark (ESP)
 
 ### <a name="brazil-south-and-japan-west-only"></a>Brasil sul e Japão apenas a oeste
 
@@ -84,6 +84,6 @@ Para obter mais informações sobre as especificações de cada tipo VM, consult
 > - O trabalhador é conhecido como *Supervisor* do tipo de aglomerado de tempestades.
 > - O trabalhador é conhecido como *Região* para o tipo de cluster HBase.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quais são os componentes e versões Apache Hadoop disponíveis com HDInsight?](hdinsight-component-versioning.md)

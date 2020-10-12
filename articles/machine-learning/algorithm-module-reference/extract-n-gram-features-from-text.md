@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907974"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair características N-Gram da referência do módulo de texto
@@ -106,7 +106,7 @@ O módulo suporta os seguintes cenários para a utilização de um dicionário n
 
 1.  Ligue o conjunto de dados guardado às funcionalidades Extract N-Gram do módulo de texto no seu gráfico de pontuação.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 As funcionalidades extrato N-Gram do módulo de texto criam dois tipos de saída: 
 

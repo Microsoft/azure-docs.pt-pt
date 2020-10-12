@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89653022"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configuração de configurações de definições de Gateway HTTP de aplicação
@@ -106,6 +106,6 @@ Esta capacidade substitui o cabeçalho do *anfitrião* no pedido de entrada no g
 
 Por exemplo, se *www.contoso.com* for especificado na definição do **nome anfitrião,** o pedido original * `https://appgw.eastus.cloudapp.azure.com/path1` é alterado para * quando o pedido é `https://www.contoso.com/path1` reencaminhado para o servidor de back-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre a piscina de back-end](configuration-overview.md#back-end-pool)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9118a99f285dedfe0b76e890db001627e4f85969
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657127"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
@@ -72,7 +72,7 @@ A tabela a seguir descreve os diferentes valores que são definidos para cada co
 | --- | --- |
 | Dados registados |**Email alternativo**: O utilizador usou um e-mail alternativo ou um e-mail de autenticação para autenticar.<p><p>**Telefone de escritório**: O utilizador usou um telefone de escritório para autenticar.<p>**Telemóvel**: O utilizador usou um telemóvel ou um telemóvel de autenticação para autenticar.<p>**Questões de segurança**: O utilizador utilizou perguntas de segurança para autenticar.<p>**Qualquer combinação dos métodos anteriores, por exemplo, e-mail alternativo + telemóvel**: Ocorre quando uma política de dois portões é especificada e mostra quais os dois métodos utilizados pelo utilizador para autenticar o seu pedido de reset de palavra-passe. |
 
-## <a name="self-service-password-management-activity-types"></a>Tipos de atividade de gestão de senha de autosserviço
+## <a name="self-service-password-management-activity-types"></a>Self-Service tipos de atividade de Gestão de Passwords
 
 Os seguintes tipos de atividade aparecem na categoria de eventos de auditoria **de Autosserviço Password Management:**
 
@@ -169,7 +169,7 @@ A seguinte lista explica esta atividade em detalhe:
      >[!NOTE]
      >Falha não significa que um utilizador seja incapaz de redefinir a sua própria palavra-passe. Significa que não terminaram o processo de registo. Se houver dados não verificados na sua conta que estejam corretos, como um número de telefone que não seja validado, mesmo que não tenham verificado este número de telefone, ainda podem usá-lo para redefinir a sua palavra-passe.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilização e informação sobre informações sobre o uso e informações sobre o uso da SSPR e do MFA](howto-authentication-methods-usage-insights.md)
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)

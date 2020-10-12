@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507424"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
-1.  Utilizando as credenciais de conta da Microsoft, inscreva-se no portal Azure neste URL: <https://portal.azure.com/> . Se colocar o dispositivo no portal do Governo, inscreva-se em:<https://portal.azure.us/>
+1.  Utilizando as credenciais de conta da Microsoft, inscreva-se no portal Azure neste URL: <https://portal.azure.com/> . Se colocar o dispositivo no portal do Governo, inscreva-se em: <https://portal.azure.us/>
 
 2.  No portal Azure, clique **+ Crie um armazenamento** de recursos &gt; **Storage** &gt; **StorSimple Série Virtual.**
 

@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 54a6293a29a407a7014aafb66587dcb01fc13337
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645786"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonize aplicações e bases de dados para desempenho em Azure SQL Database e Azure SQL Managed Instance
@@ -265,7 +265,7 @@ Algumas aplicações são intensivas. Por vezes, pode reduzir a carga total de I
 
 Algumas aplicações de base de dados têm cargas de trabalho pesadas. As camadas de caching podem reduzir a carga na base de dados e podem potencialmente reduzir o tamanho do cálculo necessário para suportar uma base de dados utilizando a Base de Dados Azure SQL e a Azure SQL Managed Instance. Com [a Azure Cache para Redis,](https://azure.microsoft.com/services/cache/)se tiver uma carga de trabalho pesada de leitura, pode ler os dados uma vez (ou talvez uma vez por máquina de nível de aplicação, dependendo da configuração), e, em seguida, armazenar esses dados fora da sua base de dados. Esta é uma forma de reduzir a carga da base de dados (CPU e ler IO), mas há um efeito na consistência transacional porque os dados que estão a ser lidos a partir da cache podem estar dessincronizados com os dados na base de dados. Embora em muitas aplicações algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Deve compreender completamente quaisquer requisitos de aplicação antes de implementar uma estratégia de caching de nível de aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre os níveis de serviço baseados na DTU, consulte o [modelo de compra baseado na DTU.](service-tiers-dtu.md)
 - Para obter mais informações sobre os níveis de serviço baseados em vCore, consulte [o modelo de compra baseado em vCore.](service-tiers-vcore.md)

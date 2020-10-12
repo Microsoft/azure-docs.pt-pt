@@ -16,13 +16,13 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87028248"
 ---
-# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas para uma VM do Windows no Azure
+# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolver mensagens de erro do RDP específicas para uma VM do Windows no Azure
 Pode receber uma mensagem de erro específica quando utilizar a ligação remote desktop a uma máquina virtual Windows (VM) em Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com medidas de resolução de problemas para as resolver. Se tiver problemas ligados ao seu VM utilizando RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md).
 
 Para obter informações sobre mensagens de erro específicas, consulte o seguinte:
@@ -53,7 +53,7 @@ Para obter mais informações, consulte o post de blog [Azure VM falha com "Nenh
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>O Ambiente de Trabalho Remoto não consegue encontrar o "nome" do computador.
 Causa: O cliente de ambiente de trabalho remoto no seu computador não consegue resolver o nome do computador nas definições do ficheiro RDP.
 
-Possíveis soluções:
+Soluções possíveis:
 
 * Se estiver na intranet de uma organização, certifique-se de que o seu computador tem acesso ao servidor proxy e pode enviar-lhe tráfego HTTPS.
 * Se estiver a utilizar um ficheiro RDP armazenado localmente, tente utilizar o que é gerado pelo portal. Este passo garante que tem o nome DNS correto para a máquina virtual, ou o serviço de nuvem e a porta de ponto final do VM. Aqui está uma amostra de ficheiro RDP gerado pelo portal:
@@ -75,7 +75,7 @@ Causa: O VM alvo não consegue localizar a autoridade de segurança na parte do 
 
 Quando o seu nome de utilizador está no formulário *SecurityAuthority* \\ *UserName* (exemplo: CORP\User1), a parte *SecurityAuthority* é o nome de computador do VM (para a autoridade de segurança local) ou um nome de domínio ative Diretório.
 
-Possíveis soluções:
+Soluções possíveis:
 
 * Se a conta for local para o VM, certifique-se de que o nome VM está escrito corretamente.
 * Se a conta estiver num domínio do Diretório Ativo, verifique a ortografia do nome de domínio.

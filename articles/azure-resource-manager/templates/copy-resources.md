@@ -4,10 +4,10 @@ description: Utilize a operação de cópia e as matrizes num modelo do Gestor d
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293973"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
@@ -281,7 +281,7 @@ O exemplo a seguir mostra a implementação:
 
 Os exemplos a seguir mostram cenários comuns para a criação de mais de um caso de recurso ou propriedade.
 
-|Modelo  |Description  |
+|Modelo  |Descrição  |
 |---------|---------|
 |[Armazenamento de cópias](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa mais de uma conta de armazenamento com um número de índice no nome. |
 |[Armazenamento de cópias em série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa várias contas de armazenamento uma de cada vez. O nome inclui o número do índice. |
