@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087168"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de deteção de anomalias de aprendizagem automática
@@ -129,8 +129,8 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | --- | --- | --- | --- | --- | --- |
 | detetores.historywindow |História (em # de pontos de dados) usada para cálculo de pontuação de anomalia |500 |número inteiro |10-2000 |Série temporal dependente |
 | detetores.spikesdips | Se detetar apenas picos, apenas mergulhos, ou ambos |Ambos |enumerado |Ambos, Spikes, Dips |Ambos |
-| bileveldetector.sensibilidade |Sensibilidade para o detetor de alteração de nível bidirecional. |3,25 |double |Nenhuma |3.25-5 (Valores inferiores significam mais sensíveis) |
-| trenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhuma |3.25-5 (Valores inferiores significam mais sensíveis) |
+| bileveldetector.sensibilidade |Sensibilidade para o detetor de alteração de nível bidirecional. |3,25 |double |Nenhum |3.25-5 (Valores inferiores significam mais sensíveis) |
+| trenddetector.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhum |3.25-5 (Valores inferiores significam mais sensíveis) |
 | tspikedetector.sensibilidade |Sensibilidade para detetor de TSpike |3 |número inteiro |1-10 |3-5 (Valores inferiores significam mais sensíveis) |
 | zspikedetector.sensibilidade |Sensibilidade para Detetor ZSpike |3 |número inteiro |1-10 |3-5 (Valores inferiores significam mais sensíveis) |
 | postprocess.tailRows |Número dos últimos pontos de dados a manter nos resultados da saída |0 |número inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos para manter nos resultados |N/D |
@@ -168,9 +168,9 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | pré-processamento.substituindo Aissing |Valores utilizados para imputar dados em falta |lkv (último valor conhecido) |enumerado |zero, lkv, média |N/D |
 | detetores.historywindow |História (em # de pontos de dados) usada para cálculo de pontuação de anomalia |500 |número inteiro |10-2000 |Série temporal dependente |
 | detetores.spikesdips | Se detetar apenas picos, apenas mergulhos, ou ambos |Ambos |enumerado |Ambos, Spikes, Dips |Ambos |
-| bileveldetector.sensibilidade |Sensibilidade para o detetor de alteração de nível bidirecional. |3,25 |double |Nenhuma |3.25-5 (Valores inferiores significam mais sensíveis) |
-| pós-doutoramento.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhuma |3.25-5 (Valores inferiores significam mais sensíveis) |
-| negtrenddetector.sensibilidade |Sensibilidade para detetor de tendências negativas. |3,25 |double |Nenhuma |3.25-5 (Valores inferiores significam mais sensíveis) |
+| bileveldetector.sensibilidade |Sensibilidade para o detetor de alteração de nível bidirecional. |3,25 |double |Nenhum |3.25-5 (Valores inferiores significam mais sensíveis) |
+| pós-doutoramento.sensibilidade |Sensibilidade para detetor de tendências positivo. |3,25 |double |Nenhum |3.25-5 (Valores inferiores significam mais sensíveis) |
+| negtrenddetector.sensibilidade |Sensibilidade para detetor de tendências negativas. |3,25 |double |Nenhum |3.25-5 (Valores inferiores significam mais sensíveis) |
 | tspikedetector.sensibilidade |Sensibilidade para detetor de TSpike |3 |número inteiro |1-10 |3-5 (Valores inferiores significam mais sensíveis) |
 | zspikedetector.sensibilidade |Sensibilidade para Detetor ZSpike |3 |número inteiro |1-10 |3-5 (Valores inferiores significam mais sensíveis) |
 | sazonalidade.permitir |Se a análise da sazonalidade deve ser realizada |true |boolean |TRUE, false |Série temporal dependente |

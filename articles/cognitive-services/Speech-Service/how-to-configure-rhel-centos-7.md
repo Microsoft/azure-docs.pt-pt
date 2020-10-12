@@ -1,7 +1,7 @@
 ---
-title: Como configurar o RHEL/CentOS 7 - Serviço de fala
+title: Como configurar RHEL/CentOS 7 - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a configurar o RHEL/CentOS 7 para que o SDK do discurso possa ser utilizado.
+description: Saiba como configurar o RHEL/CentOS 7 para que o SDK de discurso possa ser utilizado.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83589742"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para SDK de Fala
+# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para Discurso SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 são oficialmente apoiados pela versão 1.10.0 do Speech SDK e posteriormente. Também é possível utilizar o SDK de Fala no RHEL/CentOS 7 x64, mas isso requer a tualização do compilador C++ (para desenvolvimento C++) e a biblioteca de tempo de funcionação C++ partilhada no seu sistema.
+Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 são oficialmente suportados pela versão 1.10.0 e posterior do Speech SDK. Também é possível utilizar o SDK do Discurso no RHEL/CentOS 7 x64, mas isto requer a atualização do compilador C++ (para o desenvolvimento de C++ e da biblioteca de tempo de execução C++ partilhada no seu sistema.
 
-Para verificar a versão do compilador C++, executar:
+Para verificar a versão do compilador C++, corra:
 
 ```bash
 g++ --version
 ```
 
-Se o compilador estiver instalado, a saída deve ficar assim:
+Se o compilador for instalado, a saída deve ser assim:
 
 ```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-Esta mensagem permite-lhe saber que a versão principal do GCC 4 está instalada. Esta versão não tem suporte total para o padrão C++ 11, que o SDK de Fala utiliza. Tentar compilar um programa C++ com esta versão GCC e os cabeçalhos Do Discurso SDK resultarão em erros de compilação.
+Esta mensagem permite-lhe saber que a versão 4 principal da GCC está instalada. Esta versão não tem suporte total para o padrão C++ 11, que o Speech SDK utiliza. Tentar compilar um programa C++ com esta versão GCC e os cabeçalhos SDK do Discurso resultarão em erros de compilação.
 
-Também é importante verificar a versão da biblioteca de tempo de execução C++ partilhada (libstdc++). A maior parte do SDK do discurso é implementada como bibliotecas nativas de C++, o que significa que depende do libstdc++ independentemente da linguagem que usa para desenvolver aplicações.
+Também é importante verificar a versão da biblioteca de tempo de execução C++ partilhada (libstdc++). A maior parte do Discurso SDK é implementada como bibliotecas C++ nativas, o que significa que depende do libstdc++ independentemente do idioma que usa para desenvolver aplicações.
 
 Para encontrar a localização do libstdc++ no seu sistema, corra:
 
@@ -49,7 +49,7 @@ A saída em baunilha RHEL/CentOS 7 (x64) é:
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-Com base nesta mensagem, você vai querer verificar as definições da versão com este comando:
+Com base nesta mensagem, deverá verificar as definições de versão com este comando:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
@@ -65,18 +65,18 @@ CXXABI_1.3.7
 ...
 ```
 
-O SDK do Discurso requer **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. Pode encontrar esta informação executando `ldd libMicrosoft.CognitiveServices.Speech.core.so` as bibliotecas Speech SDK do pacote Linux.
+O SDK de Discurso requer **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. Pode encontrar esta informação executando `ldd libMicrosoft.CognitiveServices.Speech.core.so` as bibliotecas SDK do pacote Linux.
 
 > [!NOTE]
-> Recomenda-se que a versão de GCC instalada no sistema seja de, pelo **menos, 5.4.0,** com bibliotecas de tempo de funcionação correspondentes.
+> Recomenda-se que a versão do GCC instalada no sistema seja de pelo menos **5.4.0**, com bibliotecas de tempo de execução correspondentes.
 
 ## <a name="example"></a>Exemplo
 
-Este é um conjunto de comando de amostra que ilustra como configurar RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o Speech SDK 1.10.0 ou mais tarde:
+Este é um conjunto de comando de amostra que ilustra como configurar RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o Discurso SDK 1.10.0 ou mais tarde:
 
 ### <a name="1-general-setup"></a>1. Configuração geral
 
-Primeiro instale todas as dependências gerais:
+Primeiro, instale todas as dependências gerais:
 
 ```bash
 # Only run ONE of the following two commands
@@ -94,7 +94,7 @@ sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good g
 
 ### <a name="2-cc-compiler-and-runtime-libraries"></a>2. Compilador C/C++ e bibliotecas de tempo de execução
 
-Instale as embalagens pré-requisitos com este comando:
+Instale os pacotes pré-requisitos com este comando:
 
 ```bash
 sudo yum install -y gmp-devel mpfr-devel libmpc-devel
@@ -118,7 +118,7 @@ sudo yum install -y gmp-devel mpfr-devel libmpc-devel
 > sudo make install-strip
 > ```
 
-Próxima atualização do compilador e bibliotecas de tempo de execução:
+Em seguida, atualização do compilador e das bibliotecas de tempo de execução:
 
 ```bash
 # Build GCC 5.4.0 and runtimes and install them under /usr/local
@@ -130,9 +130,9 @@ make -j$(nproc)
 sudo make install-strip
 ```
 
-Se o compilador e bibliotecas atualizados precisarem de ser implantados em várias máquinas, pode simplesmente copiá-las de baixo `/usr/local` para outras máquinas. Se apenas forem necessárias as bibliotecas em tempo de execução, os ficheiros `/usr/local/lib64` serão suficientes.
+Se o compilador e as bibliotecas atualizados precisarem de ser implantados em várias máquinas, pode simplesmente copiá-las de baixo `/usr/local` para outras máquinas. Se forem necessárias apenas as bibliotecas de tempo de execução, os ficheiros `/usr/local/lib64` serão suficientes.
 
-### <a name="3-environment-settings"></a>3. Configurações ambientais
+### <a name="3-environment-settings"></a>3. Definições ambientais
 
 Executar os seguintes comandos para completar a configuração:
 

@@ -6,13 +6,13 @@ manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534027"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre do Azure para Azure
 
 Este artigo responde a questões comuns sobre a recuperação de desastres de Azure VMs para outra região de Azure para quando utilizar [a Recuperação do Sítio azul](site-recovery-overview.md).
 
@@ -183,7 +183,7 @@ O primeiro ponto de recuperação gerado tem a cópia completa. Quaisquer pontos
 
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>O aumento do período de retenção dos pontos de recuperação aumenta o custo de armazenamento?
 
-Sim, se aumentar o período de retenção de 24 horas para 72 horas, a Recuperação do Local poupará os pontos de recuperação por mais 48 horas. O tempo adicional incorrerá em taxas de armazenamento. Por exemplo, um único ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de $0,16 por mês. Os encargos adicionais seriam $1,60 × 48 por mês.
+Sim, se aumentar o período de retenção de 24 horas para 72 horas, a Recuperação do Local poupará os pontos de recuperação por mais 48 horas. O tempo adicional incorrerá em taxas de armazenamento. Por exemplo, um único ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de $0,16 por mês. Os custos adicionais seriam $1,60 × 48 por mês.
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso permitir a replicação com consistência de aplicações nos servidores Linux?
 
@@ -295,7 +295,7 @@ Sim, pode integrar os runbooks da Azure Automation no seu plano de recuperação
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Falhei da região primária para uma região de recuperação de desastres. Os VMs numa região dr são protegidos automaticamente?
 
-Não. Quando [se falha sobre](./azure-to-azure-tutorial-failover-failback.md) os VMs de uma região para outra, os VMs começam na região dr em um estado desprotegido. Para reprotecer os VMs para a região primária, é necessário [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária.
+N.º Quando [se falha sobre](./azure-to-azure-tutorial-failover-failback.md) os VMs de uma região para outra, os VMs começam na região dr em um estado desprotegido. Para reprotecer os VMs para a região primária, é necessário [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>No momento da reprotecção, a Recuperação do Sítio replica dados completos da região secundária para a região primária?
 

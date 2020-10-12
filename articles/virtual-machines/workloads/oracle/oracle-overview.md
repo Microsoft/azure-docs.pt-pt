@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
 ms.openlocfilehash: 8f20ad13953e3767e7693733d8c68f3d0aa2057c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274482"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
@@ -89,9 +89,9 @@ Também implemente aplicações personalizadas no Azure que se conectam com o OC
 Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exadata, DBaaS, Nó Único) em conjunto com o software Oracle em execução em Azure. Saiba mais sobre [as opções de base de dados de OCI.](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm) 
  
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
-A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Consulte a [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle-Azure.
+A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Veja as [faq Oracle-Azure.](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 

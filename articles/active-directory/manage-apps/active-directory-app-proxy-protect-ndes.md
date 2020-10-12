@@ -14,10 +14,10 @@ ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
 ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88078942"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integre com o Azure AD Application Proxy em um servidor do Serviço de Inscrição de Dispositivos de Rede (NDES)
@@ -83,7 +83,7 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
 
 1. Teste se pode aceder ao seu servidor NDES através do proxy Azure AD Application, colando o link que copiou no passo 10 para um browser. Deverá ver uma página de boas-vindas IIS padrão.
 
-1. Como teste final, adicione o *caminhomscep.dll* ao URL existente que colou no passo anterior:
+1. Como teste final, adicione o * caminhomscep.dll* ao URL existente que colou no passo anterior:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

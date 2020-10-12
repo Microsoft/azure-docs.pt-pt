@@ -10,10 +10,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315205"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 1.0.0-preview do Firebase SDK
@@ -62,23 +62,23 @@ O primeiro passo é criar um projeto no Android Studio:
 
 2. Depois de criar o seu projeto, **selecione Add Firebase para a sua aplicação Android.**
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Adicionar Base de Fogo":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Projeto configure":::
 
 3. Na **base de adicionar fogo à sua**página de aplicativo   Android, faça o seguinte:
 
    1. Para **o nome do pacote Android,** copie o valor do **applicationId**   no ficheiro **build.gradle** da sua aplicação. Neste exemplo,  `com.fabrikam.fcmtutorial1app` é.
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Especificar o nome do pacote":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Projeto configure":::
 
    2. Selecione **o aplicativo Registar**.
 
 4. Selecione **Descarregue google-services.jsligado**, guarde o ficheiro na pasta de **aplicações**   do seu projeto e, em seguida, selecione **Next**.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Baixar o serviço Google":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Projeto configure":::
 
 5. Na consola da Firebase, selecione o cog do seu projeto. Em seguida, selecione **Definições de Projeto**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Definições de projeto":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Projeto configure":::
 
 6. Se ainda não descarregou o **google-services.jsficheiro na** pasta de **aplicações**   do seu projeto Android Studio, pode fazê-lo nesta página.
 
@@ -94,7 +94,7 @@ O primeiro passo é criar um projeto no Android Studio:
 
 3. Na página **'Centros de Notificação',**    **selecione Adicionar**na barra de   ferramentas.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Adicionar hub":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Projeto configure":::
 
 4. Na página **'Centros de Notificação',**   faça o seguinte:
 
@@ -108,15 +108,15 @@ O primeiro passo é criar um projeto no Android Studio:
 
    5. Selecione **Criar**.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Criar hub":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Projeto configure":::
 
 5. Selecione **Notificações**   (o ícone da campainha) e, em seguida, selecione **Ir para o recurso**. Também pode atualizar a lista na página **'Centros de Notificação'**   e selecionar o seu hub.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Selecione hub":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Projeto configure":::
 
 6. Selecione Políticas de **Acesso**   da lista. Note que estão disponíveis duas cordas de ligação. Vai precisar deles mais tarde para lidar com notificações push.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Políticas de acesso":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Projeto configure":::
 
    > [!IMPORTANT]
    > Não utilize a política **de assinatura DefaultFulFuldAccesss na**sua   aplicação. Esta política deve ser utilizada apenas no back-end da aplicação.
@@ -129,7 +129,7 @@ O primeiro passo é criar um projeto no Android Studio:
 
 3. Na barra de ferramentas, **selecione Guardar**.
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Chave do servidor":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Projeto configure":::
 
 4. O portal Azure apresenta uma mensagem de que o hub foi atualizado com sucesso. O botão **Guardar**   está desativado.
 
@@ -143,15 +143,15 @@ O seu centro de notificação está agora configurado para trabalhar com mensage
 
 2. Selecione a versão alvo do Android SDK que é usado no seu projeto. Em seguida, selecione **Mostrar Detalhes do Pacote**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Gestor SDK":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Projeto configure":::
 
 3. Selecione **APIs do Google,** se ainda não estiver instalado.
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="APIs":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Projeto configure":::
 
 4. Mude para o separador **Ferramentas SDK.**   Se ainda não instalou o Google Play Services, selecione **o Google Play Services**como mostrado na imagem   seguinte. Em seguida, **selecione Aplicar**   para instalar. Anote o caminho do SDK, para utilização num passo posterior.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Serviços de jogo":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Projeto configure":::
 
 5. Se vir a caixa de diálogo **'Alterar'**   confirmando,selecione **OK**. O instalador do componente instala os componentes solicitados.  **Selecione Acabamento**   após a instalação dos componentes.
 
@@ -237,11 +237,11 @@ O seu centro de notificação está agora configurado para trabalhar com mensage
 
 4. Certifique-se de que tem um dispositivo virtual para executar a aplicação. Se não tiver uma, adicione uma da seguinte forma:
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Gestor de dispositivos":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Dispositivos virtuais":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Projeto configure":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Projeto configure":::
    3. Execute a aplicação no seu dispositivo selecionado e verifique se se regista com sucesso com o hub.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Registo de dispositivo":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Projeto configure":::
 
       > [!NOTE]
       > O registo pode falhar durante o lançamento inicial, até que o `onTokenRefresh()` método do serviço de identificação de instância seja chamado. Uma atualização deve iniciar um registo bem sucedido com o centro de notificação.
@@ -258,7 +258,7 @@ Pode enviar notificações push para o seu centro de notificações a partir do�
 
 4. Consulte o resultado da operação na lista na parte inferior da página do portal.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Enviar notificação de teste":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Projeto configure":::
 
 5. Vê a mensagem de notificação no seu dispositivo.
 

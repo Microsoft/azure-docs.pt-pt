@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-csharp
 ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89016449"
 ---
 # <a name="connect-to-synapse-sql-pool"></a>Conecte-se à piscina Sinaapse SQL

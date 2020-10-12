@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85830354"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Utilização de URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
@@ -41,7 +41,7 @@ Os URIs de redirecionamento precisam de ser diferentes para cada aplicação iOS
 Tendo em conta o seguinte registo de candidatura no portal Azure:
 
 * ID do cliente: `ABCDE-12345` (este é um ID de cliente único)
-* RedirectUris: `msauth.com.contoso.app1://auth` `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
+* RedirectUris: `msauth.com.contoso.app1://auth` `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
 
 A App1 usa redirecionamento `msauth.com.contoso.app1://auth` .\
 App2 usa `msauth.com.contoso.app2://auth` .\
@@ -53,13 +53,13 @@ Ao migrar o código que utilizou a Biblioteca de Autenticação AD Azure (ADAL) 
 
 ## <a name="msal-redirect-uri-format-requirements"></a>MSAL redireciona requisitos do formato URI
 
-* O URI redirecionado MSAL deve estar na forma`<scheme>://host`
+* O URI redirecionado MSAL deve estar na forma `<scheme>://host`
 
     Onde `<scheme>` está uma corda única que identifica a sua aplicação. Baseia-se principalmente no Identificador de Pacotes da sua aplicação para garantir a singularidade. Por exemplo, se o Bundle ID da sua aplicação `com.contoso.myapp` for, o seu URI de redirecionamento estaria no formulário: `msauth.com.contoso.myapp://auth` .
 
     Se estiver a migrar da ADAL, o seu URI de redirecionamento provavelmente terá este formato: `<scheme>://[Your_Bundle_Id]` , onde está uma corda `scheme` única. Este formato continuará a funcionar quando utilizar o MSAL.
 
-* `<scheme>`deve estar registado na info.plist da sua aplicação em `CFBundleURLTypes > CFBundleURLSchemes` .  Neste exemplo, info.plist foi aberto como código fonte:
+* `<scheme>` deve estar registado na info.plist da sua aplicação em `CFBundleURLTypes > CFBundleURLSchemes` .  Neste exemplo, info.plist foi aberto como código fonte:
 
     ```xml
     <key>CFBundleURLTypes</key>

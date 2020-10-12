@@ -15,17 +15,17 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: e4a7fb72d40f5db65e8e30264e9d68b2727749e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154411"
 ---
 # <a name="web-apps"></a>Web Apps
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-As aplicações web são aplicações que autenticam um utilizador num navegador web para uma aplicação web. Neste cenário, a aplicação web direciona o navegador do utilizador para os inscrever no AZure AD. O Azure AD devolve uma resposta de súmis através do browser do utilizador, que contém reclamações sobre o utilizador num sinal de segurança. Este cenário suporta a inscrição utilizando os protocolos OpenID Connect, SAML 2.0 e WS-Federation.
+As aplicações web são aplicações que autenticam um utilizador num navegador web para uma aplicação web. Neste cenário, a aplicação web direciona o navegador do utilizador para os inscrever no AZure AD. O Azure AD devolve uma resposta de súmis através do browser do utilizador, que contém reclamações sobre o utilizador num sinal de segurança. Este cenário suporta o início de súps utilizando os protocolos OpenID Connect, SAML 2.0 e WS-Federation.
 
 ## <a name="diagram"></a>Diagrama
 

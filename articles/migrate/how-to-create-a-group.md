@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
 ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549921"
 ---
 # <a name="create-a-group-for-assessment"></a>Criar um grupo para avaliação
@@ -86,7 +86,7 @@ Se já [criou o mapeamento de dependência](how-to-create-group-machine-dependen
     - Pode, opcionalmente, criar uma nova avaliação quando modificar o grupo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a configurar e usar [o mapeamento de dependência](how-to-create-group-machine-dependencies.md) para criar grupos de alta confiança.
 

@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5f987ab15201e4c4dabf147ac468184881e9ed17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551644"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações Web do Azure Active Directory através do fluxo de concessão de código do OAuth 2.0
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |obrigatório |O ID da aplicação atribuído à sua app quando a registou no Azure AD. Pode encontrar isto no Portal Azure. Clique no **Azure Ative Directory** na barra lateral dos **serviços,** clique nos registos da App e escolha a aplicação. |
 | response_type |obrigatório |Deve incluir `code` para o fluxo de código de autorização. |
 | redirect_uri |recomendado |O redirect_uri da sua app, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a uma das redirect_uris que registou no portal, exceto que deve estar codificada url. Para aplicações móveis & nativas, deve utilizar o valor predefinido de `https://login.microsoftonline.com/common/oauth2/nativeclient` . |
-| response_mode |opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Pode `query` `fragment` ser, ou `form_post` . . `query`fornece o código como um parâmetro de cadeia de consulta no seu URI de redirecionamento. Se estiver a solicitar um token de identificação utilizando o fluxo implícito, não pode utilizar `query` como especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se está a solicitar apenas o código, pode `query` `fragment` usar, ou `form_post` . `form_post`executa um POST contendo o código para o seu URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
+| response_mode |opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Pode `query` `fragment` ser, ou `form_post` . . `query` fornece o código como um parâmetro de cadeia de consulta no seu URI de redirecionamento. Se estiver a solicitar um token de identificação utilizando o fluxo implícito, não pode utilizar `query` como especificado na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se está a solicitar apenas o código, pode `query` `fragment` usar, ou `form_post` . `form_post` executa um POST contendo o código para o seu URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
 | state |recomendado |Um valor incluído no pedido que também é devolvido na resposta simbólica. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a vista em que estavam. |
 | recurso | recomendado |A App ID URI da API web alvo (recurso seguro). Para encontrar a App ID URI, no Portal Azure, clique no **Diretório Ativo Azure,** clique nas **inscrições da Aplicação,** abra a página **de Definições** da aplicação e, em seguida, clique em **Propriedades**. Também pode ser um recurso externo como `https://graph.microsoft.com` . Isto é exigido em um dos pedidos de autorização ou simbólico. Para garantir menos instruções de autenticação, coloque-o no pedido de autorização para garantir que o consentimento é recebido do utilizador. |
 | scope | **ignorado** | Para as aplicações V1 AD Azure, os âmbitos devem ser configurados estáticamente no Portal Azure ao abrigo das **definições**de aplicações , **Permissões Necessárias**. |
@@ -163,7 +163,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos são identificadores de inquilinos, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` `contoso.onmicrosoft.com` ou para `common` tokens independentes do inquilino |
 | client_id |obrigatório |O ID de aplicação atribuído à sua app quando a registou no Azure AD. Pode encontrar isto no portal Azure. O Id da aplicação é apresentado nas definições do registo da aplicação. |
@@ -288,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | resource_id |Devolve o identificador único do recurso. A aplicação do cliente pode usar este identificador como o valor do `resource` parâmetro quando solicita um sinal para o recurso. <p><p> É importante que a aplicação do cliente verifique este valor, caso contrário um serviço malicioso pode induzir um ataque **de elevação de privilégios** <p><p> A estratégia recomendada para prevenir um ataque é verificar se a base do URL da API web que está `resource_id` a ser acedido. Por exemplo, se `https://service.contoso.com/data` estiver a ser acedido, `resource_id` pode ser `https://service.contoso.com/` . A aplicação do cliente deve rejeitar um `resource_id` que não comece com o URL base, a menos que haja uma forma alternativa fiável de verificar o id. |
 
 #### <a name="bearer-scheme-error-codes"></a>Códigos de erro do esquema do portador
-A especificação RFC 6750 define os seguintes erros para os recursos que utilizam o cabeçalho www-autenticado e o esquema do portador na resposta.
+A especificação RFC 6750 define os seguintes erros para os recursos que utilizam o WWW-Authenticate cabeçalho e o regime do Portador na resposta.
 
 | Código de Estado HTTP | Código de Erro | Descrição | Ação do Cliente |
 | --- | --- | --- | --- |
@@ -371,5 +371,5 @@ Uma resposta de erro de amostra pode ser assim:
 
 Para obter uma descrição dos códigos de erro e da ação recomendada do cliente, consulte [códigos de erro para erros de ponto final simbólicos](#error-codes-for-token-endpoint-errors).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o ponto final Azure AD v1.0 e como adicionar autenticação e autorização às suas aplicações web e APIs web, consulte [as aplicações da amostra](sample-v1-code.md).

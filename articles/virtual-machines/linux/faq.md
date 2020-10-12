@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 84cb9860f247610621bff130aff155abf222f3c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274899"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
 Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>O que posso executar numa VM do Azure?
-Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para mais informações, consulte [Linux em Distribuições Endossadas Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para mais informações, consulte [Linux em Azure-Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -112,7 +112,7 @@ Não são permitidas as seguintes palavras-passe:
 <table>
     <tr>
         <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P@$$w0</td>
+        <td style="text-align:center">P@$$w 0</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
         <td style="text-align:center">Pa$$word</td>

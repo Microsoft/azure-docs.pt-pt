@@ -8,10 +8,10 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: a9b86f09ade0d437436779ef3e4a17fcdede2cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83664964"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guia de tamanhos do cluster de consultas interativas Azure HDInsight (Hive LLAP)
@@ -119,7 +119,7 @@ Para o nó de trabalhador D14 v2, HDI 4.0 - o valor recomendado é (80 GB - 4 GB
 (Para HDI 3.6, o valor recomendado é **de 74 GB** porque deve reservar ~2 GB adicional para o slider AM.)  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. Determinar o número de executores por daemon LLAP**  
-Configuração: ***cutorshive.llap.daemon.num.exe,*** ***hive.llap.io.threadpool.size***
+Configuração: *** cutorshive.llap.daemon.num.exe,*** ***hive.llap.io.threadpool.size***
 
 ***hive.llap.daemon.num.executors:***   
 Esta configuração controla o número de executores que podem executar tarefas em paralelo por daemon LLAP. Este valor depende do número de vcores, da quantidade de memória dada por executor e da quantidade total de memória disponível para o daemon LLAP. Normalmente, gostaríamos que este valor fosse o mais próximo possível do número de vcores.

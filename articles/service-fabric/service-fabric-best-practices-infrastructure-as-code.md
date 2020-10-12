@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253682"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
@@ -104,7 +104,7 @@ A atualização das suas máquinas virtuais é uma operação iniciada pelo util
 ```
 Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada um Domínio de Atualização de cada vez para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior.
 
-Certifique-se de que a seguinte chave de registo está definida como falsa para evitar que as máquinas hospedeiras do windows iniciem atualizações descoordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Certifique-se de que a seguinte chave de registo está definida como falsa para evitar que as máquinas de anfitrião do windows iniciem atualizações descoordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para definir a chave de registo do WindowsUpdate para falso:
 ```json

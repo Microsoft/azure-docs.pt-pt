@@ -7,10 +7,10 @@ ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
 ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85830316"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Use máquinas virtuais Azure Data Science
@@ -66,6 +66,6 @@ Se vários utilizadores partilharem um DSVM, pode evitar bloquear-se uns aos out
 1. Introduza um novo **nome de utilizador**. O nome de utilizador deve ser minúsculo para usá-lo com o JupyterHub. Introduza uma senha. Em seguida, selecione **Update**. (Os nomes de utilizador existentes não são afetados.)
 1. Repita o passo anterior para qualquer utilizadores adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre DSVMs sobre [Introdução a Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.openlocfilehash: 5be992ef8375f98b3c5978d8b71dc92ce9f91123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081507"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Gerir o acesso SSH para contas de domínio em Azure HDInsight
@@ -60,7 +60,7 @@ O registo de autenticação SSH está escrito em `/var/log/auth.log` . Se vir al
 
 Para ativar a registo de verbose, terá de reiniciar `sshd` com a `-d` opção. Como `/usr/sbin/sshd -d` você também pode correr em uma porta personalizada `sshd` (como 2222) para que você não tenha que parar o principal daemon SSH. Também pode utilizar `-v` a opção com o cliente SSH para obter mais registos (visão do lado do cliente das falhas).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters HDInsight com pacote de segurança empresarial](./apache-domain-joined-manage.md)
 * [Ligue-se ao HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).

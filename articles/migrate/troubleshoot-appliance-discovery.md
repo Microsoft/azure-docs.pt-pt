@@ -7,10 +7,10 @@ ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331782"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
@@ -30,7 +30,7 @@ Se receber o erro "O ficheiro manifesto fornecido é inválido: Entrada manifest
 1. Verifique se o ficheiro OVA do aparelho Azure Migrate é descarregado corretamente, verificando o seu valor de haxixe. [Saiba mais](./tutorial-prepare-vmware.md). Se o valor do haxixe não corresponder, descarregue novamente o ficheiro OVA e volte a tentar a implementação.
 2. Se a implementação ainda falhar, e estiver a utilizar o cliente VMware vSphere para implementar o ficheiro OVF, tente implantá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
 3. Se estiver a utilizar o cliente web vSphere e a tentar implantá-lo no vCenter Server 6.5 ou 6.7, tente implantar o OVA diretamente no anfitrião ESXi:
-   - Ligue-se diretamente ao anfitrião ESXi (em vez do vCenter Server) com o cliente web (https://<*endereço IP anfitrião*>/ui).
+   - Ligue-se diretamente ao anfitrião ESXi (em vez do vCenter Server) com o cliente web (https://<*anfitrião endereço IP*>/ui).
    - No **Inventário Doméstico**,  >  **Inventory**selecione o modelo de OVF de **File**  >  **implementação de ficheiros**. Navegue pelo OVA e complete a colocação.
 4. Se a implantação ainda falhar, contacte o suporte da Azure Migrate.
 
@@ -98,7 +98,7 @@ Erro 60028: "A descoberta não pôde ser iniciada por causa de um erro. A opera�
 - Se houver um erro de validação, reveja a orientação de remediação para corrigir os erros e, em seguida, tente a opção **Salvar e iniciar novamente** a opção de descoberta.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: A operação AD Azure falhou 
-Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Execute um dos seguintes procedimentos:
+Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Faça um dos seguintes:
 
 - Certifique-se de que a conta de utilizador que inicia a descoberta é a mesma que foi utilizada para registar o aparelho.
 - Fornecer permissões de acesso à aplicação Azure Ative para a conta do utilizador para as quais a operação de descoberta está a falhar.

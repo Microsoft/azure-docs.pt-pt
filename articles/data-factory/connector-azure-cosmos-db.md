@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: be6dbb74883f12498c5c011e35fa955509ff627c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042773"
 ---
-# <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Cosmos DB (SQL API) utilizando a Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiar e transformar os dados no Azure Cosmos DB (API SQL) com o Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-documentdb-connector.md)
@@ -157,7 +157,7 @@ As seguintes propriedades são suportadas na secção **origem** da Atividade de
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A **type** propriedade tipo da fonte de atividade da cópia deve ser definida para **CosmosDbSqlApiSource**. |Sim |
-| consulta |Especifique a consulta DB do Azure Cosmos para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, esta declaração SQL é executada:`select <columns defined in structure> from mycollection` |
+| consulta |Especifique a consulta DB do Azure Cosmos para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, esta declaração SQL é executada: `select <columns defined in structure> from mycollection` |
 | Regiões preferenciais | A lista preferida das regiões a que se conectam ao recuperar dados da Cosmos DB. | Não |
 | tamanho de página | O número de documentos por página do resultado da consulta. O padrão é "-1", o que significa que utiliza o tamanho da página dinâmica do lado do serviço até 1000. | Não |
 

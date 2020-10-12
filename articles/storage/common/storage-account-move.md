@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515015"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
@@ -113,7 +113,7 @@ Para implementar o modelo utilizando o portal Azure:
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
-6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js**no** ficheiro que descarregou na última secção.
+6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js** no** ficheiro que descarregou na última secção.
 
 7. No **template.jsno** ficheiro, nomeie a conta de armazenamento alvo, definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
@@ -268,10 +268,10 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você mudou uma conta de armazenamento Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

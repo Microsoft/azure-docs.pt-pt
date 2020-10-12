@@ -14,10 +14,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331272"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
@@ -162,7 +162,7 @@ O Microsoft Cluster Server (MSCS) não é suportado.
 
 Db2 alta disponibilidade recuperação de desastres (HADR) é suportado. Se as máquinas virtuais da configuração HA tiverem resolução de nome de trabalho, a configuração em Azure não difere de qualquer configuração que seja feita no local. Não é aconselhável confiar apenas na resolução IP.
 
-Não utilize a Geo-Replicação para as contas de armazenamento que armazenam os discos de base de dados. Para obter mais informações, consulte o documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
+Não utilize Geo-Replication para as contas de armazenamento que armazenam os discos de base de dados. Para obter mais informações, consulte o documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Redes Aceleradas
 Para implementações Db2 no Windows, é altamente recomendado utilizar a funcionalidade Azure de Rede Acelerada, conforme descrito no documento [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere igualmente as recomendações feitas em [considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 

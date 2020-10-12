@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438406"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
@@ -388,8 +388,8 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
-| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
+| **isRoutingEnabled** | Cadeia | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
+| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
 
 ##### <a name="iot-hub-egress-logs"></a>Troncos de saída do IoT Hub
 
@@ -420,9 +420,9 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | O nome do ponto final de encaminhamento |
-| **endpointType** | String | O tipo de ponto final de encaminhamento |
-| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
+| **endpointName** | Cadeia | O nome do ponto final de encaminhamento |
+| **endpointType** | Cadeia | O tipo de ponto final de encaminhamento |
+| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
 
 #### <a name="configurations"></a>Configurações
 
@@ -478,7 +478,7 @@ Algumas operações devolvem uma `sdkVersion` propriedade no `properties` objeto
 
 A tabela a seguir mostra o nome SDK usado para diferentes SDK Azure IoT:
 
-| Nome SDK na propriedade SdkVersion | Linguagem |
+| Nome SDK na propriedade SdkVersion | Idioma |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft.azure.dispositivos | .NET (C#) serviço SDK |
@@ -593,7 +593,7 @@ Para verificar a saúde dos seus centros de IoT, siga estes passos:
 
 Para saber mais sobre como interpretar dados de saúde, consulte [a visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763215"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para inscrição única federada no Azure Ative Directory
@@ -59,12 +59,12 @@ Primeiro, crie e guarde novo certificado com uma data de validade diferente:
 1. Selecione a aplicação afetada. Aparece uma página geral para a aplicação.
 1. No painel esquerdo da página geral da aplicação, selecione **Single sign-on**.
 1. Se aparecer uma única página **de método de inscrição,** selecione **SAML**.
-1. Na **configuração de um único sign-on com a página SAML - Pré-visualização,** encontre o título **do Certificado de Assinatura SAML** e selecione o ícone **Editar** (um lápis). Aparece a página **do Certificado de Assinatura SAML,** que apresenta o estado **(Ativo** ou **Inativo),** a data de validade e a impressão digital (uma corda de haxixe) de cada certificado.
+1. Na **configuração single Sign-On com página DE pré-visualização SAML,** encontre o título **do Certificado de Assinatura SAML** e selecione o ícone **editar** (um lápis). Aparece a página **do Certificado de Assinatura SAML,** que apresenta o estado **(Ativo** ou **Inativo),** a data de validade e a impressão digital (uma corda de haxixe) de cada certificado.
 1. Selecione **Novo Certificado**. Uma nova linha aparece abaixo da lista de certificados, onde a data de validade é exatamente três anos após a data atual. (As suas alterações ainda não foram guardadas, pelo que ainda pode modificar a data de validade.)
 1. Na nova linha de certificado, paire sobre a coluna de data de validade e selecione o ícone **'Data Seletiva'** (um calendário). Aparece um controlo de calendário, exibindo os dias de um mês da data de validade atual da nova linha.
 1. Utilize o controlo do calendário para definir uma nova data. Pode definir qualquer data entre a data atual e três anos após a data atual.
 1. Selecione **Guardar**. O novo certificado aparece agora com um estado de **Inativo,** a data de validade que escolheu, e uma impressão digital.
-1. Selecione o **X** para voltar à **Configuração De Inscrição Única com PÁGINA DE Pré-visualização SAML.**
+1. Selecione o **X** para voltar à configuração single Sign-On com a página **DE pré-visualização SAML.**
 
 ### <a name="upload-and-activate-a-certificate"></a>Faça upload e ativar um certificado
 

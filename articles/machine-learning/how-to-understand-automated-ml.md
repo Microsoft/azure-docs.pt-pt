@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: a38d65e66debd8e718964efdce27fe42772d8e0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315546"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado

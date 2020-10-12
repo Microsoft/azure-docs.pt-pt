@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033219"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI elemento
@@ -80,7 +80,7 @@ Quando o utilizador escolhe uma rede virtual existente, o utilizador deve mapear
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -107,8 +107,8 @@ Quando o utilizador escolhe uma rede virtual existente, o utilizador deve mapear
 
 - Se especificado, o primeiro prefixo de endereço não sobreposto de tamanho `defaultValue.addressPrefixSize` é determinado automaticamente com base nas redes virtuais existentes na subscrição do utilizador.
 - O valor `defaultValue.name` predefinido e `defaultValue.addressPrefixSize` é **nulo.**
-- `constraints.minAddressPrefixSize`deve ser especificado. Quaisquer redes virtuais existentes com um espaço de endereço inferior ao valor especificado não estão disponíveis para seleção.
-- `subnets`devem ser especificados e `constraints.minAddressPrefixSize` devem ser especificados para cada sub-rede.
+- `constraints.minAddressPrefixSize` deve ser especificado. Quaisquer redes virtuais existentes com um espaço de endereço inferior ao valor especificado não estão disponíveis para seleção.
+- `subnets` devem ser especificados e `constraints.minAddressPrefixSize` devem ser especificados para cada sub-rede.
 - Ao criar uma nova rede virtual, o prefixo de endereço de cada sub-rede é calculado automaticamente com base no prefixo de endereço da rede virtual e no respetivo `addressPrefixSize` .
 - Ao utilizar uma rede virtual existente, quaisquer subesí redes menores do que as respetivas `constraints.minAddressPrefixSize` não estão disponíveis para seleção. Além disso, se especificado, sub-redes que não tenham pelo menos `minAddressCount` endereços disponíveis não estão disponíveis para seleção. O valor predefinido é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **o seguinte** para `requireContiguousAddresses` . O valor predefinido é **verdadeiro.**
 - A criação de sub-redes numa rede virtual existente não é suportada.

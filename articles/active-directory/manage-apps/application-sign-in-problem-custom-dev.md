@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdfc2a39c6bd3b68df7feb978d2548ad67631235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759135"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas de adesão a uma aplicação desenvolvida sob medida
@@ -35,7 +35,7 @@ Existem vários erros que podem estar a fazer com que não consigas assinar uma 
 
 * Consulte [o Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) para obter quaisquer erros ou problemas semelhantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Guia de desenvolvedores de anúncios Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 

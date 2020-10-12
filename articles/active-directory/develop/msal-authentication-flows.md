@@ -13,10 +13,10 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437875"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
@@ -136,7 +136,7 @@ O fluxo [de subvenção implícita OAuth 2](v2-oauth2-implicit-grant-flow.md) pe
 
 Muitas aplicações web modernas são construídas como aplicações de página única (SPA) do lado do cliente, escritas em JavaScript ou uma estrutura SPA como Angular, Vue.js e React.js. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor. A plataforma de identidade da Microsoft permite que aplicações de página única assinem nos utilizadores e obtenham fichas para aceder a serviços de back-end ou APIs web, utilizando o fluxo de subvenção implícito. O fluxo implícito permite que a aplicação obtenha fichas de identificação para representar o utilizador autenticado, e também acesso a fichas necessárias para chamar APIs protegidas.
 
-Este fluxo de autenticação não inclui cenários de aplicação que utilizem estruturas javaScript cruzadas como Electrn ou React-Native porque requerem mais capacidades de interação com as plataformas nativas.
+Este fluxo de autenticação não inclui cenários de aplicação que utilizem quadros javaScript de plataforma cruzada como o Electron ou React-Native porque requerem mais capacidades de interação com as plataformas nativas.
 
 Os tokens emitidos através do modo de fluxo implícito têm uma **limitação de comprimento** porque são devolvidos ao navegador por URL (onde `response_mode` está ou `query` `fragment` ). Alguns navegadores limitam o comprimento do URL na barra de navegador e falham quando é muito longo. Assim, estes tokens de fluxo implícito não contêm `groups` ou `wids` reivindicações.
 
@@ -227,7 +227,7 @@ O fluxo IWA está ativado para aplicações .NET desktop, .NET Core e Windows Un
 
 Para obter mais informações sobre o consentimento, consulte [permissões v2.0 e consentimento.](v2-permissions-and-consent.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu os fluxos de autenticação suportados pela Microsoft Authentication Library (MSAL), saiba a aquisição e caching dos tokens utilizados nestes fluxos:
 

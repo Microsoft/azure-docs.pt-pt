@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.openlocfilehash: 0387b4363a438ac48142d97b2a829faf38f1895d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87036663"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorize e gere os trabalhos do Stream Analytics com cmdlets Azure PowerShell
@@ -198,7 +198,7 @@ Get-AzStreamAnalyticsQuota -Location "Central US"
 
 Este comando PowerShell devolve informações sobre a quota e utilização de unidades de streaming na região central dos EUA.
 
-### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformação Get-AzStreamAnalyticsTransformação
+### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation Get-AzStreamAnalyticsTransformation
 Obtém informações sobre uma transformação específica definida num trabalho de Stream Analytics.
 
 **Exemplo 1**
@@ -362,7 +362,7 @@ New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 Este comando PowerShell substitui a definição de "saída" no trabalho StreamingJob.
 
-### <a name="new-azurestreamanalyticstransformation--new-azstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation Nova AzStreamAnalyticsTransformação
+### <a name="new-azurestreamanalyticstransformation--new-azstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation New-AzStreamAnalyticsTransformation
 Cria uma nova transformação dentro de um trabalho stream Analytics, ou atualiza a transformação existente.
 
 O nome da transformação pode ser especificado no ficheiro .json ou na linha de comando. Se ambos forem especificados, o nome na linha de comando deve ser o mesmo que o do ficheiro.
@@ -503,7 +503,7 @@ Stop-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 
 Este comando PowerShell para o trabalho streamingJob.  
 
-### <a name="test-azurestreamanalyticsinput--test-azstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput Teste-AzStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput Test-AzStreamAnalyticsInput
 Testa a capacidade do Stream Analytics de ligar a uma entrada especificada.
 
 **Exemplo 1**

@@ -12,10 +12,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 889168782acabaafa4200a8ebd097e431a68ede3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764575"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configure a monitorização do acesso a aplicações em tempo real com a Microsoft Cloud App Security e o Azure Ative Directory
@@ -30,7 +30,7 @@ Aqui estão alguns exemplos dos tipos de políticas que pode criar com o MCAS:
 
 Para obter mais informações, consulte [as aplicações Protect com o Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Licença:
 

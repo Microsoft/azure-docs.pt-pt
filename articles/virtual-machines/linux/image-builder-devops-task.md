@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068276"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
@@ -139,12 +139,12 @@ Selecione o botão **'Construir Caminho'** para escolher a pasta de construção
 
 O exemplo a seguir explica como isto funciona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Uma estrutura de diretório mostrando hierarquia.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selecionar adicione um artefacto no gasoduto de libertação.":::
 
 
 * Windows - Os ficheiros existem em `C:\` . Um diretório nomeado `buildArtifacts` é criado que inclui o `webapp` diretório.
 
-* Linux - Os ficheiros existem em `/tmp` . O `webapp` diretório é criado que inclui todos os ficheiros e diretórios. Tens de tirar os ficheiros deste diretório. Caso contrário, serão suprimidas, uma vez que se encontra no diretório temporário.
+* Linux - Os ficheiros existem em  `/tmp` . O `webapp` diretório é criado que inclui todos os ficheiros e diretórios. Tens de tirar os ficheiros deste diretório. Caso contrário, serão suprimidas, uma vez que se encontra no diretório temporário.
 
 #### <a name="inline-customization-script"></a>Roteiro de personalização inline
 
@@ -306,7 +306,7 @@ Atualmente, não neste momento.
 
 ### <a name="can-i-specify-the-image-template-name"></a>Posso especificar o nome do modelo de imagem?
 
-Não. Um nome de modelo único é usado e, em seguida, apagado.
+N.º Um nome de modelo único é usado e, em seguida, apagado.
 
 ### <a name="the-image-builder-failed-how-can-i-troubleshoot"></a>O construtor de imagens falhou. Como posso resolver problemas?
 
@@ -314,7 +314,7 @@ Se houver uma falha de construção, a tarefa DevOps não elimina o grupo de rec
 
 Verá um erro no registo de DevOps para a tarefa VM Image Builder e verá a localização personalização.log. Por exemplo:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo DevOps erro de tarefa que mostra uma falha.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selecionar adicione um artefacto no gasoduto de libertação.":::
 
 Para obter mais informações sobre a resolução de problemas, consulte [o Serviço de Construtores de Imagem Azure .](image-builder-troubleshoot.md) 
 

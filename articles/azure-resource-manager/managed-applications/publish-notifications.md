@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054530"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure geriu aplicações com notificações
@@ -70,12 +70,12 @@ A tabela a seguir descreve todas as combinações possíveis de EventType e Prov
 EventType | Estado de Provisionamento | Gatilho para notificação
 ---|---|---
 PUT | Aceite | O grupo de recursos geridos foi criado e projetado com sucesso após a aplicação PUT (antes da implantação dentro do grupo de recursos gerido ser iniciada).
-PUT | Bem-sucedido | O fornecimento integral do pedido gerido foi bem sucedido após um PUT.
-PUT | Falhou | Falha no fornecimento de instância de aplicação em qualquer ponto.
-PATCH | Bem-sucedido | Depois de um PATCH bem sucedido na aplicação gerida para atualizar tags, política de acesso JIT ou identidade gerida.
+PUT | Com êxito | O fornecimento integral do pedido gerido foi bem sucedido após um PUT.
+PUT | Com falhas | Falha no fornecimento de instância de aplicação em qualquer ponto.
+PATCH | Com êxito | Depois de um PATCH bem sucedido na aplicação gerida para atualizar tags, política de acesso JIT ou identidade gerida.
 DELETE | Eliminar | Assim que o utilizador iniciar um DELETE de uma aplicação gerida.
 DELETE | Eliminado | Após a supressão completa e bem sucedida da aplicação gerida.
-DELETE | Falhou | Após qualquer erro durante o processo de desprovisionamento que bloqueia a eliminação.
+DELETE | Com falhas | Após qualquer erro durante o processo de desprovisionamento que bloqueia a eliminação.
 ## <a name="notification-schema"></a>Esquema de notificação
 Quando girar o seu ponto final webhook para lidar com notificações, terá de analisar a carga útil para obter propriedades importantes para, em seguida, agir após a notificação. O catálogo de serviços e as notificações de aplicações geridas pelo Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças estão descritas na tabela que segue as amostras.
 

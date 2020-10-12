@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797909"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
@@ -53,7 +53,7 @@ Certifique-se de desinstalar qualquer versão mais antiga do PowerShell do Diret
    ```
    
 ## <a name="create-settings-at-the-directory-level"></a>Criar definições ao nível do diretório
-Estes passos criam configurações ao nível do diretório, que se aplicam a todos os grupos Microsoft 365 no diretório. O cmdlet Get-AzureADDirectorySettingTemplate está disponível apenas no [módulo de pré-visualização Azure AD PowerShell para gráfico](https://www.powershellgallery.com/packages/AzureADPreview).
+Estes passos criam configurações ao nível do diretório, que se aplicam a todos os grupos Microsoft 365 no diretório. O Get-AzureADDirectorySettingTemplate cmdlet só está disponível no [módulo de pré-visualização Azure AD PowerShell para gráfico](https://www.powershellgallery.com/packages/AzureADPreview).
 
 1. Nos cmdlets de definições de diretórios, deve especificar o ID do SetsTemplate que pretende utilizar. Se não conhece este ID, este cmdlet devolve a lista de todos os modelos de definições:
   

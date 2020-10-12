@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513043"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utilize o UI Web para administrar o seu StorSimple Virtual Array
@@ -109,6 +109,6 @@ Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. 
    
     Enquanto o recomeço estiver em curso, perderá a ligação com a UI. Pode monitorizar o reinício, refrescando periodicamente a UI. Em alternativa, pode monitorizar o estado de reinício do dispositivo através do Hyper-V Manager.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [utilizar o serviço StorSimple Manager para gerir o seu dispositivo.](storsimple-virtual-array-manager-service-administration.md)
 

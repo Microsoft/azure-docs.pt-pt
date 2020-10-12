@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764541"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD
@@ -47,9 +47,9 @@ Configurar o SharePoint com o Application Proxy requer dois URLs:
 > - No sistema de nome de domínio corporativo (DNS), crie um anfitrião (A) para apontar para o SharePoint WFE (ou balanceador de carga), e não um pseudónimo (CName).
 
 Este artigo utiliza os seguintes valores:
-- URL interno:`https://sharepoint`
-- URL externo:`https://spsites-demo1984.msappproxy.net/`
-- Conta de conjunto de aplicações para a aplicação web SharePoint:`Contoso\spapppool`
+- URL interno: `https://sharepoint`
+- URL externo: `https://spsites-demo1984.msappproxy.net/`
+- Conta de conjunto de aplicações para a aplicação web SharePoint: `Contoso\spapppool`
 
 ## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Passo 1: Configurar uma aplicação em Azure AD que usa Proxy de aplicação
 
@@ -200,7 +200,7 @@ Está agora pronto para iniciar seduca no SharePoint usando o URL externo e aute
 
 Se o login no site não estiver a funcionar, pode obter mais informações sobre o problema nos registos do Conector: A partir da máquina que executa o conector, abra o espectador do evento, vá às **Aplicações e Serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**, e inspecione o registo **de Admin.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Trabalhar com domínios personalizados em Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

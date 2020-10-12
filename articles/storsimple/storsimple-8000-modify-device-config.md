@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514670"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilize o serviço StorSimple Device Manager para modificar a configuração do seu dispositivo StorSimple
@@ -44,7 +44,7 @@ Pode utilizar o portal Azure para alterar o nome do dispositivo e atribuir-lhe u
 
 É atribuído um nome padrão a um dispositivo StorSimple que esteja ligado ao serviço StorSimple Device Manager. O nome padrão normalmente reflete o número de série do dispositivo. Por exemplo, um nome de dispositivo padrão com 15 caracteres, como 8600-SHX0991003G44HT, indica o seguinte:
 
-* **8600** - Indica o modelo do dispositivo.
+* **8600**  - Indica o modelo do dispositivo.
 * **SHX** – Indica o local de fabrico.
 * **0991003** - Indica um produto específico.
 * **G44HT**- Os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.
@@ -165,7 +165,7 @@ Execute os seguintes passos para trocar ou reatribuir os VIPs para qualquer uma 
 1. Limpe o endereço IP para ambas as interfaces.
 2. Após a apuração dos endereços IP, atribua os novos endereços IP às respetivas interfaces.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [configurar o MPIO para o seu dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

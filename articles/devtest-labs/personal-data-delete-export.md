@@ -4,10 +4,10 @@ description: Saiba como apagar e exportar dados pessoais do serviço Azure DevLa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483521"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar dados pessoais da Azure DevTest Labs
@@ -160,7 +160,7 @@ O **virtualmachines.csv** contém as seguintes colunas de dados:
 | ResourceGroupName | Nome do grupo de recursos que contém o VM | 
 | ResourceId | ID de recursos totalmente qualificado para o VM. |
 | ResourceUId | GUID para o VM |
-| Name | Nome da máquina virtual. |
+| Nome | Nome da máquina virtual. |
 | CreatedTime | A data-data em que o VM foi criado. |
 | DeletedDate | A data-data em que o VM foi apagado. Se está vazio, a eliminação ainda não ocorreu. |
 | ResourceOwner | Dono do VM. Se o valor estiver vazio, então ou é um VM reclamado ou criado por um diretor de serviço. |
@@ -188,7 +188,7 @@ As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
 | ResourceId | ID de recursos totalmente qualificado para o VM. |
 | ResourceUId | GUID para o VM |
- |Name | O nome do disco anexo |
+ |Nome | O nome do disco anexo |
 | CreatedTime |A data e a hora em que o disco de dados foi criado. |
 | DeletedDate | A data e a hora em que o disco de dados foi eliminado. |
 | Estatísticas de Recursos | Estado do recurso. Ativo, se o recurso existir. Inativo, quando apagado. |
@@ -203,7 +203,7 @@ As colunas de dados contidas na **disks.csv** estão listadas abaixo:
 
 Os dados exportados podem ser manipulados e visualizados utilizando ferramentas, como SQL Server, Power BI, etc. Esta funcionalidade é especialmente útil quando pretende reportar o uso do seu laboratório à sua equipa de gestão que pode não estar a utilizar a mesma subscrição do Azure que o faz.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Definir políticas para um laboratório](devtest-lab-set-lab-policy.md)

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605421"
 ---
-# <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detetar ameaças fora da caixa
+# <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detetar ameaças com modelos prontos a utilizar
 
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Estão disponíveis os seguintes tipos de modelos:
 
 1. Para utilizar um modelo incorporado, clique no nome do modelo e, em seguida, clique no botão **'Criar regra'** no painel de detalhes para criar uma nova regra ativa baseada nesse modelo. Cada modelo tem uma lista de fontes de dados necessárias. Quando abre o modelo, as fontes de dados são automaticamente verificadas para obter disponibilidade. Se houver um problema de disponibilidade, o botão **de regra Criar** pode ser desativado, ou poderá ver um aviso nesse sentido.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Painel de pré-visualização de regras de deteção":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Use deteções incorporadas para encontrar ameaças com Azure Sentinel":::
  
 1. Clicar no botão **'Criar'** abre o assistente de criação de regras com base no modelo selecionado. Todos os detalhes são preenchidos automaticamente, e com os modelos de segurança **Agendados** ou **Microsoft,** pode personalizar a lógica e outras definições de regras para melhor atender às suas necessidades específicas. Pode repetir este processo para criar regras adicionais baseadas no modelo incorporado. Depois de seguir os passos no assistente de criação de regras até ao fim, terá terminado de criar uma regra baseada no modelo. As novas regras aparecerão no separador **regras Ative.**
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042146"
 ---
 # <a name="configure-runbook-input-parameters"></a>Configurar parâmetros de entrada do runbook
@@ -26,8 +26,8 @@ Os livros de fluxo de trabalho PowerShell e PowerShell em Azure Automation supor
 
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
-| Tipo |Necessário. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
-| Name |Necessário. O nome do parâmetro. Este nome deve ser único dentro do livro de bordo, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
+| Tipo |Obrigatório. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
+| Nome |Obrigatório. O nome do parâmetro. Este nome deve ser único dentro do livro de bordo, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
 | Obrigatório |Opcional. Valor booleano especificando se o parâmetro requer um valor. Se o definir para True, deve ser fornecido um valor quando o livro de bordo for iniciado. Se definir isto para Falso, um valor é opcional. Se não especificar um valor para a propriedade, o `Mandatory` PowerShell considera o parâmetro de entrada opcional por padrão. |
 | Valor predefinido |Opcional. Um valor que é utilizado para o parâmetro se não for transmitido qualquer valor de entrada quando o livro de execução começar. O livro de execução pode definir um valor predefinido para qualquer parâmetro. |
 
@@ -201,7 +201,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
     }
    ```
 
-   Para iniciar este método, crie um dicionário para armazenar os parâmetros do livro de bordo `VMName` `resourceGroupName` e os seus valores. Em seguida, começar o livro de corridas. Abaixo está o corte de código C# para chamar o método que está definido acima.
+   Para iniciar este método, crie um dicionário para armazenar os parâmetros do livro de bordo `VMName`  `resourceGroupName` e os seus valores. Em seguida, começar o livro de corridas. Abaixo está o corte de código C# para chamar o método que está definido acima.
 
    ```csharp
    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
@@ -216,7 +216,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Inicie um livro de execução utilizando a API REST e atribua parâmetros
 
-Pode criar e iniciar um trabalho de runbook com a API AZure Automation REST, utilizando o `PUT` método com o seguinte pedido URI:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+Pode criar e iniciar um trabalho de runbook com a API AZure Automation REST, utilizando o `PUT` método com o seguinte pedido URI: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 No pedido URI, substitua os seguintes parâmetros:
 
@@ -324,7 +324,7 @@ Agora pode ligar para o livro de recortes da sua máquina local utilizando o Azu
     >[!NOTE]
     >Para os livros powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount` . Note que estes pseudónimos não estão disponíveis para livros gráficos. Um livro gráfico só pode `Connect-AzAccount` usar-se sozinho.
 
-1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath`indica o caminho onde guardou o ficheiro JSON.
+1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath` indica o caminho onde guardou o ficheiro JSON.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

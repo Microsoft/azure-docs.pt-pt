@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529590"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados da SAP HANA utilizando a Azure Data Factory
@@ -150,7 +150,7 @@ Para copiar dados da SAP HANA, suportam-se as seguintes propriedades:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SapHanaTable** | Sim |
 | esquema | Nome do esquema na base de dados SAP HANA. | Não (se for especificada "consulta" na fonte de atividade) |
-| tabela | Nome da tabela na base de dados SAP HANA. | Não (se for especificada "consulta" na fonte de atividade) |
+| table | Nome da tabela na base de dados SAP HANA. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo:**
 
@@ -189,10 +189,10 @@ Para copiar dados da SAP HANA, as seguintes propriedades são suportadas na sec�
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SapHanaSource** | Sim |
 | consulta | Especifica a consulta SQL para ler dados a partir da instância SAP HANA. | Sim |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para ingerir dados da SAP HANA. Saiba mais a partir [da secção SAP HANA.](#parallel-copy-from-sap-hana)<br>Os valores de permitir são: **Nenhum**   (padrão), **PhysicalPartitionsOfTable,** **SapHanaDynamicRange**. Saiba mais a partir [da secção SAP HANA.](#parallel-copy-from-sap-hana) `PhysicalPartitionsOfTable`só podem ser utilizados ao copiar dados de uma tabela, mas não consultar. <br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente os dados do SAP HANA é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Falso |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para ingerir dados da SAP HANA. Saiba mais a partir [da secção SAP HANA.](#parallel-copy-from-sap-hana)<br>Os valores de permitir são: **Nenhum**   (padrão), **PhysicalPartitionsOfTable,** **SapHanaDynamicRange**. Saiba mais a partir [da secção SAP HANA.](#parallel-copy-from-sap-hana) `PhysicalPartitionsOfTable` só podem ser utilizados ao copiar dados de uma tabela, mas não consultar. <br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente os dados do SAP HANA é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Falso |
 | divisóriasSas | Especificar o grupo das definições para a partilha de dados.<br>Aplicar quando a opção de partição for `SapHanaDynamicRange` . | Falso |
 | partitionColumnName | Especificar o nome da coluna de origem que será utilizada por partição para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for  `SapHanaDynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfHanaDynamicRangePartitionCondition` ligue-se à cláusula WHERE. Veja o exemplo na cópia paralela da secção [SAP HANA.](#parallel-copy-from-sap-hana) | Sim, quando se usa `SapHanaDynamicRange` a partição. |
-| pacoteSize | Especifica o tamanho do pacote de rede (em Kilobytes) para dividir dados em vários blocos. Se tiver uma grande quantidade de dados para copiar, o aumento do tamanho do pacote pode aumentar a velocidade de leitura do SAP HANA na maioria dos casos. Recomenda-se o teste de desempenho ao ajustar o tamanho do pacote. | Não.<br>O valor predefinido é de 2048 (2MB). |
+| pacoteSize | Especifica o tamanho do pacote de rede (em Kilobytes) para dividir dados em vários blocos. Se tiver uma grande quantidade de dados para copiar, o aumento do tamanho do pacote pode aumentar a velocidade de leitura do SAP HANA na maioria dos casos. Recomenda-se o teste de desempenho ao ajustar o tamanho do pacote. | N.º<br>O valor predefinido é de 2048 (2MB). |
 
 **Exemplo:**
 
@@ -271,31 +271,31 @@ Ao copiar dados da SAP HANA, os seguintes mapeamentos são utilizados desde os t
 
 | Tipo de dados SAP HANA | Tipo de dados provisórios da fábrica de dados |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | Cadeia                         |
 | BIGINT             | Int64                          |
 | BINÁRIO             | Byte[]                         |
-| BINTEXT            | String                         |
+| BINTEXT            | Cadeia                         |
 | BLOB               | Byte[]                         |
 | RIO BOOL               | Byte                           |
-| CLOB               | String                         |
-| DATA               | DateTime                       |
+| CLOB               | Cadeia                         |
+| DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DUPLO             | Double (Duplo)                         |
 | FLUTUAR              | Double (Duplo)                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | Cadeia                         |
+| NVARCHAR           | Cadeia                         |
 | REAL               | Único                         |
 | SEGUNDADATA         | DateTime                       |
-| CURTOTEXTO          | String                         |
+| CURTOTEXTO          | Cadeia                         |
 | PEQUENODECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | ESTRIASMETRIA     | Byte[]                         |
 | ESTADÓTIPO        | Byte[]                         |
-| TEXT               | String                         |
-| HORA               | TimeSpan                       |
+| TEXT               | Cadeia                         |
+| TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| RIO VARCHAR            | String                         |
+| RIO VARCHAR            | Cadeia                         |
 | TIMETAMP          | DateTime                       |
 | VARBINÁRIA          | Byte[]                         |
 
