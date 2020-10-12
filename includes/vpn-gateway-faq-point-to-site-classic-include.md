@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3c1e34bb418f9be2e26afc117343f1fa50bd8566
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76309074"
 ---
 Este FAQ aplica-se às ligações P2S que utilizam o modelo clássico de implementação.
@@ -31,7 +31,7 @@ São suportados os seguintes sistemas operativos cliente:
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Posso usar qualquer cliente VPN de software que suporte SSTP para Ponto a Local?
 
-Não. O suporte está limitado apenas às versões listadas do sistema operativo Windows.
+N.º O suporte está limitado apenas às versões listadas do sistema operativo Windows.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quantos pontos finais de cliente VPN podem existir na minha configuração Ponto-a-Local?
 
@@ -52,7 +52,7 @@ Por predefinição, o computador cliente não restabelecerá automaticamente a l
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>O Point-to-Site suporta a reconexão automática e o DDNS nos clientes VPN?
 
-Não. A religação automática e o DDNS não são atualmente suportados em VPNs ponto-a-local.
+N.º A religação automática e o DDNS não são atualmente suportados em VPNs ponto-a-local.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Posso ter configurações site-to-site e ponto-a-local para a mesma rede virtual?
 

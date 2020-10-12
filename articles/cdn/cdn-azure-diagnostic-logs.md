@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191274"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure
@@ -52,7 +52,7 @@ Siga estes passos para ativar o seu ponto final Azure CDN:
 
 3. Selecione **registos de diagnóstico** na secção **de Monitorização:**
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione registos de diagnóstico." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione o ponto final do CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Ativar o registo com o armazenamento Azure
 
@@ -69,7 +69,7 @@ Para utilizar uma conta de armazenamento para armazenar os registos, siga estes 
 
 4. Selecione a conta de subscrição e armazenamento para os registos.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Registos de diagnóstico - Armazenamento." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selecione o ponto final do CDN." border="true":::
 
 3. Selecione **Guardar**.
 
@@ -86,7 +86,7 @@ Para utilizar o Log Analytics para os registos, siga estes passos:
 
 3. Selecione a subscrição e log Analytics espaço de trabalho para os registos.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Registos de diagnóstico - Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selecione o ponto final do CDN." border="true":::
 
 4. Selecione **Guardar**.
 
@@ -103,7 +103,7 @@ Para utilizar um centro de eventos para os registos, siga estes passos:
 
 3. Selecione o espaço de nome de subscrição e de centro de eventos para os registos.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Registos de diagnóstico - Centro de eventos." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selecione o ponto final do CDN." border="true":::
 
 4. Selecione **Guardar**.
 
@@ -207,11 +207,11 @@ Os registos de análise do núcleo são gerados a cada hora e os dados são reco
 |Valor|Descrição|
 |-------|---------|
 |ID da subscrição    |ID da subscrição Azure em formato Guid.|
-|Nome do grupo de recursos |Nome do grupo de recursos a que pertencem os recursos da CDN.|
+|Nome do Grupo de Recursos |Nome do grupo de recursos a que pertencem os recursos da CDN.|
 |Profile Name (Nome do Perfil) |Nome do Perfil CDN|
 |Nome do ponto final |Nome do ponto final do CDN|
-|Ano|  Representação de quatro dígitos do ano, por exemplo, 2017|
-|Mês| Representação de dois dígitos do número do mês. 01=Janeiro ... 12=Dezembro|
+|Anual|  Representação de quatro dígitos do ano, por exemplo, 2017|
+|Mensal| Representação de dois dígitos do número do mês. 01=Janeiro ... 12=Dezembro|
 |Dia|   Representação de dois dígitos do dia do mês|
 |PT1H.jsem| Arquivo JSON real onde os dados de análise são armazenados|
 
@@ -265,7 +265,7 @@ Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais
 | PedidoCountCacheHit | Contagem de todos os pedidos que resultaram num ataque cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
 | PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e foi recuperado da origem. | Sim | Sim | Não |
 | PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que seja impedido de ser em cache devido a uma configuração do utilizador na borda. | Sim | Sim | Não |
-| PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expires do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expira do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Sim | Não  |
 | EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de estado 2xx HTTP em GB. | Sim | Sim | Não  |
@@ -276,7 +276,7 @@ Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais
 | EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente a partir da cache CDN nos POPs/Edges do CDN. | Sim | Sim | Não |
 | EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo, e recuperadas do servidor de origem. | Sim | Sim | Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de ser em cache devido a uma configuração do utilizador no limite. | Sim | Sim | Não |
-| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser cacheed pelo Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser em cache pelos Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
 
 *Transferência de dados de saída refere-se ao tráfego entregue dos servidores CDN POP ao cliente.

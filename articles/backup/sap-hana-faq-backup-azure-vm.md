@@ -4,10 +4,10 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86513511"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
@@ -22,7 +22,7 @@ Apoiamos apenas um reforço completo por dia. Não podes ter apoio diferencial e
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -77,7 +77,7 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 
 Atualmente, o Azure Backup não tem a capacidade de entender uma configuração HSR. Isto significa que os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. Primeiro terá de configurar o nó primário. Quando uma falha acontece, a cópia de segurança deve ser configurada no nó secundário (que agora se torna o nó primário). Não há falha automática de apoio ao outro nó.
 
-Para fazer o armazenamento de dados do nó ativo (primário) em qualquer ponto do tempo, pode mudar a **proteção** para o nó secundário, que agora se tornou o principal após o ressalimbamento.
+Para fazer o armazenamento de dados do nó ativo (primário) em qualquer ponto do tempo, pode mudar a **proteção**  para o nó secundário, que agora se tornou o principal após o ressalimbamento.
 
 Para efetuar esta **proteção do interruptor,** siga estes passos:
 
@@ -125,6 +125,6 @@ Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148
 
 Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dados HANA em funcionamento no SLES para restaurar para um sistema RHEL HANA e vice-versa. Ou seja, a restauração do sistema operativo transversal é possível utilizando cópias de segurança de streaming. No entanto, terá de garantir que o sistema HANA a que pretende restaurar, e o sistema HANA utilizado para restauro, são ambos compatíveis para restauro de acordo com o SAP. Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais os tipos de restauro compatíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer o back bases de dados SAP HANA](./backup-azure-sap-hana-database.md) em funcionamento em VMs Azure.

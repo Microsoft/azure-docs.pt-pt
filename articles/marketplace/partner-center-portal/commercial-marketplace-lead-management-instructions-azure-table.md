@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
 ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030802"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
@@ -38,7 +38,7 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for supor
 
 1. Na página **inicial** do portal Azure, selecione **Ver todos os seus recursos** para aceder à sua conta de armazenamento. Também pode selecionar **todos os recursos** da barra de menu esquerda do portal Azure.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Aceda à sua conta de armazenamento Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Passos para criar uma conta de armazenamento Azure.":::
 
 1. A partir do painel de conta de armazenamento, selecione **as teclas de acesso** e copie o valor da cadeia De **ligação** para a tecla. Guarde este valor porque é o valor de cadeia de **ligação de conta** de armazenamento que terá de fornecer no portal de publicação para receber leads para a sua oferta Azure Marketplace.
 
@@ -48,7 +48,7 @@ Se o seu sistema de gestão de relacionamento com o cliente (CRM) não for supor
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chave de armazenamento Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Passos para criar uma conta de armazenamento Azure.":::
 
 
 1. A partir do painel de conta de armazenamento, selecione **Tabelas**e selecione **+ Tabela** para criar uma tabela. Insira um nome para a sua mesa e selecione **OK**. Guarde este valor porque vai precisar dele se quiser configurar um fluxo para receber notificações por e-mail quando os leads são recebidos.
@@ -185,7 +185,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 1. Na secção **de comandos do Cliente,** selecione **Connect**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Ligações ao cliente":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Passos para criar uma conta de armazenamento Azure.":::
 
 1. Na janela pop-up **de detalhes da Ligação,** selecione **Azure Table** para o destino **Chumbo**. 
      ![Gestão de chumbo, detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

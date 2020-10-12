@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189888"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para usar o Cofre-Chave
@@ -33,7 +33,7 @@ As sugestões ao controlar o acesso ao seu cofre são as seguintes:
 
 A nossa recomendação é utilizar um cofre por aplicação por ambiente (Desenvolvimento, Pré-Produção e Produção). Isto ajuda-o a não partilhar segredos em ambientes e também reduz a ameaça em caso de violação.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 Certifique-se de que faz back ups regulares do seu cofre em atualização/exclusão/criação de objetos dentro de um Cofre.
 

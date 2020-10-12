@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021862"
 ---
 # <a name="azure-sql-database-security-features"></a>Funcionalidades de segurança da Base de Dados Azure SQL    
@@ -40,14 +40,14 @@ A firewall gateway pode limitar endereços, o que permite aos clientes o control
 Os clientes podem alcançar a configuração de firewall utilizando um portal de gestão ou programáticamente utilizando a API de Gestão de Bases de Dados Azure SQL. A firewall de gateway de porta de dados Azure SQL por predefinição impede todo o acesso do cliente TDS à Base de Dados Azure SQL. Os clientes devem configurar o acesso utilizando listas de controlo de acesso (ACLs) para permitir ligações da Base de Dados Azure SQL através de endereços de internet de origem e destino, protocolos e números de porta.
 
 ### <a name="dosguard"></a>DoSGuard
-Os ataques de negação de serviço (DoS) são reduzidos por um serviço de gateway sql database chamado DoSGuard. O DoSGuard rastreia ativamente os logins falhados a partir de endereços IP. Se houver vários logins falhados a partir de um endereço IP específico dentro de um período de tempo, o endereço IP é bloqueado de aceder a quaisquer recursos no serviço por um período de tempo pré-definido.
+Os ataques DoS (Denial of Service) são reduzidos por um serviço de gateway da Base de Dados SQL denominado DoSGuard. O DoSGuard monitoriza ativamente inícios de sessão sem êxito a partir dos endereços IP. Se houver vários logins falhados a partir de um endereço IP específico dentro de um período de tempo, o endereço IP é bloqueado de aceder a quaisquer recursos no serviço por um período de tempo pré-definido.
 
 Além disso, o gateway Azure SQL Database realiza:
 
 - Assegurar as negociações de capacidade do canal para implementar ligações encriptadas validadas TDS FIPS 140-2 quando se conecta aos servidores da base de dados.
 - Inspeção de pacotes Stateful TDS enquanto aceita ligações de clientes. O gateway valida a informação de ligação e transmite os pacotes TDS para o servidor físico apropriado com base no nome da base de dados especificado na cadeia de ligação.
 
-O princípio geral para a segurança da rede da oferta de Base de Dados Azure SQL é permitir apenas a ligação e comunicação necessárias para permitir o funcionamento do serviço. Todas as outras portas, protocolos e ligações estão bloqueadas por defeito. As redes de áreas locais virtuais (VLANs) e ACLs são usadas para restringir as comunicações de rede por redes de origem e destino, protocolos e números de porta.
+O princípio abrangente de segurança de rede da oferta Base de Dados SQL do Azure é permitir apenas a ligação e comunicação necessária para permitir a operação do serviço. Todos os restantes protocolos, portas e ligações são bloqueados por predefinição. As redes de áreas locais virtuais (VLANs) e ACLs são usadas para restringir as comunicações de rede por redes de origem e destino, protocolos e números de porta.
 
 Os mecanismos aprovados para implementar ACLs baseados em rede incluem ACLs em routers e equilibradores de carga. Estes mecanismos são geridos pela rede Azure, firewall VM de hóspedes e regras de firewall de gateway de gateway Azure SQL, que são configuradas pelo cliente.
 
@@ -92,7 +92,7 @@ As mudanças são monitorizadas para o sucesso. Num cenário de falha, a mudanç
 
 Da mesma forma, as alterações de hardware e de rede estabeleceram medidas de validação para avaliar a sua adesão aos requisitos de construção. As versões são revistas e autorizadas através de um conselho consultivo de mudança coordenada (CAB) dos respetivos grupos em toda a pilha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

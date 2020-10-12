@@ -9,10 +9,10 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184161"
 ---
 Um centro contém o portal. Depois de criar o hub, vai ser cobrado pelo hub, mesmo que não anexe quaisquer sites. Leva 30 minutos para criar o centro e a porta de entrada.
@@ -22,7 +22,7 @@ Um centro contém o portal. Depois de criar o hub, vai ser cobrado pelo hub, mes
 3. Na página **do hub virtual Create,** complete os seguintes campos:
 
    * Localização
-   * Name
+   * Nome
    * Espaço de endereços privados do Hub
 
 Clique em **Confirmar** para criar o hub. Clique em **Refresh** para ver o hub na página **Hubs.**

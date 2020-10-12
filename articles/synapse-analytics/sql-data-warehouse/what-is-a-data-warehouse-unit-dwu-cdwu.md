@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461991"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Armazém de Dados (DWUs)
@@ -213,6 +213,6 @@ Quando inicia uma operação em escala, o sistema primeiro elimina todas as sess
 - Para uma operação de escala, o sistema destaca todos os nós computacional, prevê os nós de computação adicionais e, em seguida, reata à camada de armazenamento.
 - Para uma operação de escala para baixo, o sistema destaca todos os nós computacional e, em seguida, reacagre apenas os nós necessários para a camada de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a gestão do desempenho, consulte [as aulas de Recursos para gestão da carga de trabalho](resource-classes-for-workload-management.md) e memória e [limites de concordância.](memory-concurrency-limits.md)

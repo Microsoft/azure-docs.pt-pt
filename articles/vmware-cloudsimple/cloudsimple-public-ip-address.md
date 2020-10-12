@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024981"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Visão geral do endereço IP público CloudSimple
@@ -31,6 +31,6 @@ A utilização de um endereço IP público para comunicar a entrada fornece:
 * Monitorização do tráfego sempre ligado e mitigação em tempo real de ataques comuns ao nível da rede. Estas defesas são as mesmas defesas usadas pelos serviços online da Microsoft.
 * Toda a escala da rede global Azure. A rede pode ser usada para distribuir e mitigar o tráfego de ataques em todas as regiões.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [alocar um endereço IP público](public-ips.md)

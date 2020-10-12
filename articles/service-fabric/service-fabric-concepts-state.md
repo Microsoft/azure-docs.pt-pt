@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9acd3031d1071d1822791b333976aaf76161600f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614575"
 ---
 # <a name="service-state"></a>Estado do serviço
@@ -26,7 +26,7 @@ O Estado pode ser externalizado ou co-localizado com o código que está a manip
 
 O Estado também pode ser co-localizado com o código que manipula o estado. Os serviços estatais em Service Fabric são normalmente construídos usando este modelo. A Service Fabric fornece a infraestrutura para garantir que este estado está altamente disponível, consistente e durável, e que os serviços construídos desta forma podem facilmente escalar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os conceitos de Tecido de Serviço, consulte os seguintes artigos:
 
 * [Disponibilidade de serviços de tecido de serviço](service-fabric-availability-services.md)

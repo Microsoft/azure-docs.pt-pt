@@ -12,10 +12,10 @@ ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
 ms.openlocfilehash: 7d58cd26b6e4ca77da98f8c2f82dbdb481ccbb50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88585757"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Mova um cofre chave Azure através de regiões
@@ -24,7 +24,7 @@ O Azure Key Vault não suporta uma operação de movimento de recursos que permi
 
 Para mover um cofre chave para outra região, você cria um cofre chave nessa outra região e, em seguida, copia manualmente cada segredo individual do seu cofre chave existente para o novo cofre chave. Pode fazê-lo utilizando qualquer uma das duas opções seguintes.
 
-## <a name="design-considerations"></a>Considerações de design
+## <a name="design-considerations"></a>Considerações de conceção
 
 Antes de começar, lembre-se dos seguintes conceitos:
 

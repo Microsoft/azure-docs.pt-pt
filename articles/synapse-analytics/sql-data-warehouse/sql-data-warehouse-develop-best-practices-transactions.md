@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461210"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Otimização de transações em Synapse SQL
@@ -417,6 +417,6 @@ O melhor cenário é deixar as transações de modificação de dados de voo con
 * Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Parta a operação em pedaços; operando num subconjunto das linhas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [as Transações em Synapse SQL](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras boas práticas, consulte [as Melhores Práticas Azure Synapse Analytics.](sql-data-warehouse-best-practices.md)

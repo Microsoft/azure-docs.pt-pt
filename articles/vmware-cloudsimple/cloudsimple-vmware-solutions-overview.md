@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024879"
 ---
 # <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>O que é Azure VMware Solution by CloudSimple
@@ -47,7 +47,7 @@ ms.locfileid: "77024879"
     * Processos
 * **Sem requalificação.** A compatibilidade da plataforma VMware permite-lhe utilizar as competências e conhecimentos existentes.
 * **Agilidade da infraestrutura.** Já não é preciso prever todas as suas necessidades de capacidade e depois acabar com capacidade desperdiçada ou falta de infraestruturas. CloudSimple é entregue como um serviço de nuvem, e pode adicionar ou reduzir a capacidade a qualquer momento
-* **A segurança.** O acesso ao ambiente CloudSimple através do Azure proporciona proteção e monitorização de segurança incorporadas.
+* **Segurança**. O acesso ao ambiente CloudSimple através do Azure proporciona proteção e monitorização de segurança incorporadas.
 * **Custo mais baixo.** A plataforma CloudSimple é altamente projetada, e fornece altos níveis de automação, eficiência operacional e economias de escala. Além disso, a CloudSimple publica arquiteturas de soluções que aproveitam a presença de VMware numa nuvem pública para reduzir custos. Exemplos incluem Azure AD, backup para armazenamento Azure, gateway de aplicação, balanceador de carga, e outros.
 * **Uma nova plataforma híbrida.** O serviço permite o acesso de alta velocidade e baixa latência ao resto do Azure. Além disso, a gestão CloudSimple permite uma gestão unificada de máquinas virtuais VMware e o resto do Azure usando a mesma UI e API. As suas equipas de desenvolvimento podem tirar partido de plataformas públicas e privadas de forma integrada e consistente.
 * **Monitorização de infraestruturas, resolução de problemas e apoio.** A CloudSimple opera a sua infraestrutura subjacente como um serviço. O hardware de falha é substituído automaticamente. Pode focar-se no consumo enquanto o CloudSimple garante que o ambiente funciona sem problemas.
@@ -63,7 +63,7 @@ ms.locfileid: "77024879"
 
 ![Cenários](media/cloudsimple-scenarios.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar serviço CloudSimple](quickstart-create-cloudsimple-service.md)
 * [Criar Nuvem Privada](quickstart-create-private-cloud.md)

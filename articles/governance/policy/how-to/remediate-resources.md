@@ -4,10 +4,10 @@ description: Este guia acompanha-o através da reparação de recursos que não 
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269850"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
@@ -129,11 +129,11 @@ Para criar uma **tarefa de remediação,** siga estes passos:
 
 1. Lançar o serviço Azure Policy no portal Azure selecionando **todos os serviços,** procurando e selecionando **a Política**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 1. Selecione **Remediação** no lado esquerdo da página Política Azure.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Screenshot do nó de remediação na página 'Política'." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 1. Todos os **implantadosIfNotExists** e **modificam** atribuições de políticas com recursos não conformes estão incluídos nas **Políticas para remediar** o separador e a tabela de dados. Selecione uma política com recursos que não sejam compatíveis. Abre a nova página **de tarefas de remediação.**
 
@@ -142,17 +142,17 @@ Para criar uma **tarefa de remediação,** siga estes passos:
 
 1. Na nova página de **tarefas de remediação,** filtrar os recursos para remediar utilizando as elipses **scope** para escolher recursos infantis de onde a política é atribuída (incluindo até os objetos de recursos individuais). Além disso, utilize as **localizações** para filtrar ainda mais os recursos. Apenas os recursos listados na tabela serão remediados.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot do nó Remediate e da rede de recursos para remediar." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 1. Inicie a tarefa de remediação uma vez filtrados os recursos selecionando **Remediate**. A página de conformidade da política abre-se ao **separador tarefas de Remediação** para mostrar o estado das tarefas a progredir. As implementações criadas pela tarefa de reparação começam imediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot do separador de tarefas de remediação e progresso das tarefas de reparação existentes." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 1. Selecione sobre a tarefa de **remediação** na página de conformidade da política para obter detalhes sobre o progresso. A filtragem utilizada para a tarefa é mostrada juntamente com uma lista dos recursos que estão a ser remediados.
 
 1. A partir da página **de tarefas de Remediação,** clique com o botão direito num recurso para visualizar a implementação da tarefa de remediação ou o recurso. No final da linha, selecione em **eventos relacionados** para ver detalhes como uma mensagem de erro.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Screenshot do menu de contexto para um recurso no separador tarefa Remediate." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 Os recursos utilizados através de uma **tarefa de reparação** são adicionados ao separador **Recursos Implantados** na página de conformidade da política.
 

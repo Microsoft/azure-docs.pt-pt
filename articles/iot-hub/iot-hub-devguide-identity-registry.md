@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90029839"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
@@ -112,7 +112,7 @@ Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$
 
 Mensagem de notificação para o dispositivo:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 |$content tipo | application/json |
 |$iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -148,7 +148,7 @@ Corpo: Esta secção está no formato JSON e representa o gémeo da identidade d
 ```
 Mensagem de notificação para módulo:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 $content tipo | application/json |
 $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -244,7 +244,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o registo de identidade do IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

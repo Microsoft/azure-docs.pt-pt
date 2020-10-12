@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558560"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Problemas relacionados com o armazenamento de blob da caixa de dados Azure
@@ -26,7 +26,7 @@ Esta secção detalha alguns dos problemas enfrentados ao utilizar o Azure Stora
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |Incapaz de recuperar recursos infantis. O valor de um dos cabeçalhos HTTP não está no formato correto.|No menu **Editar,** selecione **ApIs target Azure Stack**. <br>Reinicie o Explorador de Armazenamento Azure.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts`no Windows, ou </li><li> `/etc/hosts`em Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões neste caminho: <li>`C:\Windows\System32\drivers\etc\hosts` no Windows, ou </li><li> `/etc/hosts` em Linux.</li>|
 |Incapaz de recuperar recursos infantis. <br>Detalhes: certificado auto-assinado |Importe o certificado TLS/SSL para o seu dispositivo no Azure Storage Explorer: <li>Faça o download do certificado do portal Azure. Para mais informações, aceda ao [Download do certificado.](data-box-deploy-copy-data-via-rest.md#download-certificate)</li><li>No menu **Editar,** selecione **Certificados SSL** e, em seguida, selecione **Certificados de Importação**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Erros vistos no AzCopy para Windows
@@ -35,7 +35,7 @@ Esta secção detalha alguns dos problemas enfrentados ao utilizar o AzCopy para
 
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
-|O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro: <br>Falhou em enumerar o diretório https://... O nome remoto não podia ser resolvido.`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `C:\Windows\System32\drivers\etc\hosts` .|
+|O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro: <br>Falhou em enumerar o diretório https://... O nome remoto não podia ser resolvido. `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `C:\Windows\System32\drivers\etc\hosts` .|
 |O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro: <br>Localização da fonte de análise de erro. A ligação subjacente foi encerrada: Não foi possível estabelecer uma relação de confiança para o canal seguro SSL/TLS.|Importe o certificado TLS/SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, aceda ao [Download do certificado.](data-box-deploy-copy-data-via-rest.md#download-certificate)|
 
 
@@ -66,6 +66,6 @@ Estes erros não são específicos de qualquer aplicação.
 |---------|---------|
 |A ligação está fora. |Inscreva-se no dispositivo Data Box e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica bloqueado até alguém entrar.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os requisitos do [sistema de armazenamento de caixa de dados.](data-box-system-requirements-rest.md)

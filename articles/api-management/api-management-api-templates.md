@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851719"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na Gestão API da Azure
@@ -46,7 +46,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a>Lista de API  
+## <a name="api-list"></a><a name="APIList"></a> Lista de API  
  O modelo **de lista API** permite-lhe personalizar o corpo da página da lista API no portal do desenvolvedor.  
   
  ![Lista de API do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API de modelos de modelos de desenvolvedores da APIM")  
@@ -114,7 +114,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>Operação  
+## <a name="operation"></a><a name="Product"></a> Operação  
  O modelo **de Operação** permite-lhe personalizar o corpo da página de operação no portal do desenvolvedor.  
   
  ![Página de Operação do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos de modelos do portal do desenvolvedor da APIM")  
@@ -644,7 +644,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a>Amostras de código  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Amostras de código  
  Os seguintes modelos permitem personalizar o corpo das amostras de código individuais na página de operação.  
   
  ![Amostras de código do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Amostras de código do portal do desenvolvedor da APIM")  
@@ -665,7 +665,7 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Caracóis  
+### <a name="curl"></a><a name="Curl"></a> Caracóis  
  O modelo **DocumentationSamplesCurl** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -718,7 +718,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>C #  
+### <a name="c"></a><a name="CSharp"></a> C #  
  O modelo **DocumentaçãoSAsSamplesCsharp** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -897,7 +897,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="java"></a><a name="Stub"></a>Rio Java  
+### <a name="java"></a><a name="Stub"></a> Rio Java  
  O modelo **DocumentationSamplesJava** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -993,7 +993,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a> JavaScript  
  O modelo **DocumentationSamplesJs** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -1082,7 +1082,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="objective-c"></a><a name="ObjectiveC"></a>Objetivo C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Objetivo C  
  O modelo **DocumentaçãoSAmplesObjc** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -1194,7 +1194,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>PHP  
+### <a name="php"></a><a name="PHP"></a> PHP  
  O modelo **DocumentaçãoSAmplesPhp** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -1284,7 +1284,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="python"></a><a name="Python"></a>Pitão  
+### <a name="python"></a><a name="Python"></a> Pitão  
  O modelo **DocumentationSamplesPython** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  
@@ -1402,7 +1402,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>Rio Ruby  
+### <a name="ruby"></a><a name="Ruby"></a> Rio Ruby  
  O modelo **DocumentationSamplesRuby** permite-lhe personalizar essa amostra de código na secção de amostras de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo de padrão  

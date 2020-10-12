@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368154"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores openshift 3.11 em Azure
@@ -276,14 +276,14 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 | `keyVaultName` | O nome do Cofre-Chave que criaste |  |  |
 | `enableAzure` | Ativar o Fornecedor de Nuvem Azure | true <br> false | true |
 | `aadClientId` | ID do cliente do Azure Ative Directory também conhecido como ID de aplicação para diretor de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a utilizar (se aplicável). Definido para "nenhum" se não implementar cluster totalmente privado |  | nenhum |
+| `domainName` | Nome do nome de domínio personalizado a utilizar (se aplicável). Definido para "nenhum" se não implementar cluster totalmente privado |  | nenhuma |
 | `masterClusterDnsType` | Tipo de domínio para consola web OpenShift. 'predefinição' utilizará a etiqueta DNS do IP principal infra público. 'costume' permite-lhe definir o seu próprio nome | predefinição <br> personalizadas | predefinição |
-| `masterClusterDns` | O nome DNS personalizado para usar para aceder à consola web OpenShift se selecionou 'custom' para`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDns` | O nome DNS personalizado para usar para aceder à consola web OpenShift se selecionou 'custom' para `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se estiver definido para 'nipio', `routingSubDomain` utilizará nip.io.  Use 'personalizado' se tiver o seu próprio domínio que pretende usar para encaminhamento | nipio <br> personalizadas | nipio |
-| `routingSubDomain` | O nome DNS wildcard que pretende usar para encaminhamento se tiver selecionado 'custom' para`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | O nome DNS wildcard que pretende usar para encaminhamento se tiver selecionado 'custom' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se usa uma Rede Virtual existente ou cria uma nova Rede Virtual | existente <br> novo | novo |
-| `virtualNetworkResourceGroupName` | Nome do Grupo de Recursos para a nova Rede Virtual se selecionar 'novo' para`virtualNetworkNewOrExisting` |  | grupo de recursos().nome |
-| `virtualNetworkName` | O nome da nova Rede Virtual para criar se selecionar 'novo' para`virtualNetworkNewOrExisting` |  | turnos de turno aberto |
+| `virtualNetworkResourceGroupName` | Nome do Grupo de Recursos para a nova Rede Virtual se selecionar 'novo' para `virtualNetworkNewOrExisting` |  | grupo de recursos().nome |
+| `virtualNetworkName` | O nome da nova Rede Virtual para criar se selecionar 'novo' para `virtualNetworkNewOrExisting` |  | turnos de turno aberto |
 | `addressPrefixes` | Prefixo de endereço da nova rede virtual |  | 10.0.0.0/14 |
 | `masterSubnetName` | O nome da sub-rede principal |  | mastersubnet |
 | `masterSubnetPrefix` | CIDR usado para a sub-rede principal - precisa ser um subconjunto do endereçoPrefix |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para os nós infra. Não é necessário se criar novo vNet / Subnet |  |  |
 | `existingCnsSubnetReference` | Referência completa à sub-rede existente para nós DE SNC. Não é necessário se criar novo vNet / Subnet |  |  |
 | `existingNodeSubnetReference` | Referência completa à sub-rede existente para nós computacional. Não é necessário se criar novo vNet / Subnet |  |  |
-| `masterClusterType` | Especificar se o cluster utiliza nós de mestres privados ou públicos. Se forem escolhidos em privado, os nós principais não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`masterPrivateClusterIp` | public <br> privado | public |
+| `masterClusterType` | Especificar se o cluster utiliza nós de mestres privados ou públicos. Se forem escolhidos em privado, os nós principais não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no `masterPrivateClusterIp` | público <br> privado | público |
 | `masterPrivateClusterIp` | Se forem selecionados nós-mestre privados, um endereço IP privado deve ser especificado para utilização pelo equilibrador de carga interno para os nós principais. Este IP estático deve estar dentro do bloco CIDR para a sub-rede principal e ainda não está a ser utilizado. Se os nosdes de mestre público forem selecionados, este valor não será usado, mas ainda deve ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especificar se o cluster utiliza nóns de infravermelhos privados ou públicos. Se forem escolhidos em privado, os nós de infravermelhos não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`routerPrivateClusterIp` | public <br> privado | public |
+| `routerClusterType` | Especificar se o cluster utiliza nóns de infravermelhos privados ou públicos. Se forem escolhidos em privado, os nós de infravermelhos não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no `routerPrivateClusterIp` | público <br> privado | público |
 | `routerPrivateClusterIp` | Se forem selecionados os nós de infravermelhos privados, deve então ser especificado um endereço IP privado para utilização pelo balançador interno de carga para os nós infra. Este IP estático deve estar dentro do bloco CIDR para a sub-rede e ainda não está a ser utilizado. Se os nosmos de infravermelhos públicos forem selecionados, este valor não será usado, mas ainda deve ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Use certificado personalizado para o domínio de encaminhamento ou o certificado auto-assinado por defeito - siga as instruções na secção **de Certificados Personalizados** | auto-assinado <br> personalizadas | auto-assinado |
 | `masterCertType` | Use certificado personalizado para domínio principal ou o certificado auto-assinado por defeito - siga as instruções na secção **de Certificados Personalizados** | auto-assinado <br> personalizadas | auto-assinado |

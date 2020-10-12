@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: wolfma
 ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77168164"
 ---
-| Geografia | Região | Identificador de região |
+| Geografia | Region | Identificador da região |
 | ----- | ----- | ----- |
 | Américas | E.U.A. Central | `centralus` |
 | Américas | E.U.A. Leste | `eastus` |
@@ -20,17 +20,17 @@ ms.locfileid: "77168164"
 | Américas | E.U.A. Centro-Sul | `southcentralus` |
 | Américas | E.U.A. Centro-Oeste | `westcentralus` |
 | Américas | E.U.A. Oeste | `westus` |
-| Américas | E.U.A.Oeste 2 | `westus2` |
+| Américas | E.U.A. Oeste 2 | `westus2` |
 | Américas | Canadá Central | `canadacentral` |
 | Américas | Sul do Brasil | `brazilsouth` |
 | Ásia-Pacífico | Ásia Leste | `eastasia` |
-| Ásia-Pacífico | Ásia Sudeste | `southeastasia` |
+| Ásia-Pacífico | Sudeste Asiático | `southeastasia` |
 | Ásia-Pacífico | Leste da Austrália | `australiaeast` |
 | Ásia-Pacífico | Índia Central | `centralindia` |
 | Ásia-Pacífico | Leste do Japão | `japaneast` |
 | Ásia-Pacífico | Oeste do Japão | `japanwest` |
 | Ásia-Pacífico | Coreia do Sul Central | `koreacentral` |
 | Europa | Europa do Norte | `northeurope` |
-| Europa | Europa ocidental | `westeurope` |
+| Europa | Europa Ocidental | `westeurope` |
 | Europa | França Central | `francecentral` |
 | Europa | Sul do Reino Unido | `uksouth` |

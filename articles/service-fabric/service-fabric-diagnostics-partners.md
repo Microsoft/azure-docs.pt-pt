@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75645723"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitorização de tecidos de serviço Azure
@@ -40,7 +40,7 @@ A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Lo
 
 Humio é um serviço de recolha de registos que pode recolher registos das suas aplicações e eventos a partir de Service Fabric na nuvem ou no local em tempo real. Além da observabilidade ao vivo, Humio oferece capacidades de análise e visualização de última geração para visualizar e recolher informações a partir dos seus diagnósticos. Humio tem planos de preços eficazes e é construído à escala, mantendo a sua velocidade de iluminação rápida. Integra-se diretamente com eventos da plataforma Service Fabric e telemetria de aplicação. Pode ler mais sobre a integração do Humio and Service Fabric [aqui.](https://github.com/humio/service-fabric-humio)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha uma [visão geral da monitorização e diagnósticos](service-fabric-diagnostics-overview.md) em Tecido de Serviço
 * Saiba como [diagnosticar cenários comuns](service-fabric-diagnostics-common-scenarios.md) com as nossas primeiras ferramentas partidárias

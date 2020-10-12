@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201417"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de Insights de Aplicação numa política personalizada Azure AD B2C
@@ -32,7 +32,7 @@ O Azure Ative Directory B2C (Azure AD B2C) suporta o envio de dados de eventos d
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **handler** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo que é utilizado pela Azure AD B2C para insights de aplicação:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **handler** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo que é utilizado pela Azure AD B2C para insights de aplicação: `Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 O exemplo a seguir mostra o perfil técnico comum de Insights de Aplicação. Outros perfis técnicos de Insights de Aplicação incluem o AzureInsights-Common para alavancar a sua configuração.  
 
@@ -80,7 +80,7 @@ O elemento CryptographicKeys não é utilizado.
 |Desativação DeTelemetria |Não |Um Booleano que indique se a telemetria deve ser ativada ou não. Valores possíveis: `true` ou `false` (predefinição).| 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um recurso do Application Insights](../azure-monitor/app/create-new-resource.md)
 - Saiba como rastrear o [comportamento do utilizador no Azure Ative Directory B2C usando Insights de Aplicação](analytics-with-application-insights.md)

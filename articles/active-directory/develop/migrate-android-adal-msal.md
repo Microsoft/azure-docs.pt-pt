@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084052"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração ADAL para MSAL para Android
@@ -46,8 +46,8 @@ A API pública MSAL introduz mudanças importantes, incluindo:
   - As autoridades já não são validadas a tempo de fuga. Em vez disso, o desenvolvedor declara uma lista de "autoridades conhecidas" durante o desenvolvimento.
 - Alterações da API token:
   - Em ADAL, `AcquireToken()` primeiro faz um pedido silencioso. Se não o fizer, faz um pedido interativo. Este comportamento resultou em alguns desenvolvedores que se basearam apenas em `AcquireToken` , o que levou o utilizador a ser inesperadamente solicitado para credenciais em alguns momentos. A MSAL exige que os desenvolvedores sejam intencionais sobre quando o utilizador recebe uma solicitação de UI.
-    - `AcquireTokenSilent`resulta sempre num pedido silencioso que ou sucede ou falha.
-    - `AcquireToken`resulta sempre num pedido que solicita ao utilizador via UI.
+    - `AcquireTokenSilent` resulta sempre num pedido silencioso que ou sucede ou falha.
+    - `AcquireToken` resulta sempre num pedido que solicita ao utilizador via UI.
 - O MSAL suporta o sômin de um navegador predefinido ou de uma vista web incorporada:
   - Por predefinição, o navegador predefinido do dispositivo é utilizado. Isto permite à MSAL utilizar o estado de autenticação (cookies) que já podem estar presentes para uma ou mais contas assinadas. Se não existir nenhum estado de autenticação, a autenticação durante a autorização via MSAL resulta na criação do estado de autenticação (cookies) em benefício de outras aplicações web que serão utilizadas no mesmo navegador.
 - Novo modelo de exceção:
@@ -150,7 +150,7 @@ Quando a plataforma de identidade da Microsoft difere de uma instituição finan
 
 Sam trabalha para Contoso.com mas gere máquinas virtuais Azure que pertencem a Fabrikam.com. Para o Sam gerir as máquinas virtuais do Fabrikam, tem de ser autorizado a aceder-lhes. Este acesso pode ser concedido adicionando a conta de Sam a Fabrikam.com, e concedendo à sua conta um papel que lhe permite trabalhar com as máquinas virtuais. Isto seria feito com o portal Azure.
 
-Adicionar a conta de Contoso.com de Sam como membro da Fabrikam.com resultaria na criação de um novo recorde no Azure Ative Directory de Fabrikam.com para Sam. O registo de Sam no Azure Ative Directory é conhecido como um objeto de utilizador. Neste caso, esse objeto do utilizador apontaria para o objeto do utilizador do Sam em Contoso.com. O objeto de utilizador de Sam Fabrikam é a representação local de Sam, e seria usado para armazenar informações sobre a conta associada a Sam no contexto de Fabrikam.com. Em Contoso.com, o título de Sam é Consultor Sénior de DevOps. Em Fabrikam, o título de Sam é Contractor-Virtual Machines. Em Contoso.com, a Sam não é responsável, nem autorizado, para gerir máquinas virtuais. Em Fabrikam.com, é a sua única função de trabalho. No entanto, Sam ainda só tem um conjunto de credenciais para acompanhar, que são as credenciais emitidas pela Contoso.com.
+Adicionar a conta de Contoso.com de Sam como membro da Fabrikam.com resultaria na criação de um novo recorde no Azure Ative Directory de Fabrikam.com para Sam. O registo de Sam no Azure Ative Directory é conhecido como um objeto de utilizador. Neste caso, esse objeto do utilizador apontaria para o objeto do utilizador do Sam em Contoso.com. O objeto de utilizador de Sam Fabrikam é a representação local de Sam, e seria usado para armazenar informações sobre a conta associada a Sam no contexto de Fabrikam.com. Em Contoso.com, o título de Sam é Consultor Sénior de DevOps. Em Fabrikam, o título de Sam é Contractor-Virtual Máquinas. Em Contoso.com, a Sam não é responsável, nem autorizado, para gerir máquinas virtuais. Em Fabrikam.com, é a sua única função de trabalho. No entanto, Sam ainda só tem um conjunto de credenciais para acompanhar, que são as credenciais emitidas pela Contoso.com.
 
 Uma vez feita uma chamada bem `acquireToken` sucedida, você verá uma referência a um `IAccount` objeto que pode ser usado em `acquireTokenSilent` pedidos posteriores.
 

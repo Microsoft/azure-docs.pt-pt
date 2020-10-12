@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75464712"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
@@ -20,7 +20,7 @@ As métricas devem ser recolhidas para entender o desempenho do seu cluster, bem
 
 Para as máquinas do seu cluster, considere recolher os seguintes contadores de desempenho para entender melhor a carga em cada máquina e tomar as decisões adequadas de dimensionamento do cluster.
 
-| Categoria de Contador | Contra-nome |
+| Categoria de Contador | Nome do Contador |
 | --- | --- |
 | Disco lógico | Espaço livre de disco lógico |
 | PhysicalDisk(por Disco) | Avg. Disco ler comprimento da fila |
@@ -31,7 +31,7 @@ Para as máquinas do seu cluster, considere recolher os seguintes contadores de 
 | PhysicalDisk(por Disco) | Discos ler Bytes/seg |
 | PhysicalDisk(por Disco) | Escritas/seg de disco |
 | PhysicalDisk(por Disco) | Discos De Escrita Bytes/seg |
-| Memória | MBytes disponíveis |
+| Memória | MBytes Disponíveis |
 | PagingFile | % Utilização |
 | Processador (Total) | % de Tempo do Processador |
 | Processo (por serviço) | % de Tempo do Processador |
@@ -54,7 +54,7 @@ Para as máquinas do seu cluster, considere recolher os seguintes contadores de 
 
 Recolha os seguintes contadores se estiver a implantar serviços .NET no seu cluster. 
 
-| Categoria de Contador | Contra-nome |
+| Categoria de Contador | Nome do Contador |
 | --- | --- |
 | .NET MEMÓRIA CLR (por serviço) | ID de Processo |
 | .NET MEMÓRIA CLR (por serviço) | Total comprometido Bytes |
@@ -78,7 +78,7 @@ Se utilizar serviços fiáveis ou remoting de serviços, `Service Fabric Service
 Se utilizar Coleções Fiáveis, recomendamos adicionar `Avg. Transaction ms/Commit` o do para recolher a `Service Fabric Transactional Replicator` latência média de efetivo por métrica de transação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
 * Recolher métricas de desempenho através do [agente Log Analytics](service-fabric-diagnostics-oms-agent.md)

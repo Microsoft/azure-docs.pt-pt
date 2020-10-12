@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969587"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configure o controlo de acesso baseado em funções no acelerador de solução de monitorização remota
@@ -28,20 +28,20 @@ Qualquer utilizador na função **Administração** tem acesso total à soluçã
 
 | Permissão            | Administrador | Só de Leitura |
 |----------------       |-------|-----------|
-| Ver Solução         | Yes   | Yes       |
-| Atualizar alarmes         | Yes   | No        |
-| Apagar alarmes         | Yes   | No        |
-| Criar dispositivos        | Yes   | No        |
-| Atualizar dispositivos        | Yes   | No        |
-| Eliminar dispositivos        | Yes   | No        |
-| Criar grupos de dispositivos  | Yes   | No        |
-| Atualizar grupos de dispositivos  | Yes   | No        |
-| Eliminar grupos de dispositivos  | Yes   | No        |
-| Criar regras          | Yes   | No        |
-| Atualizar regras          | Yes   | No        |
-| Excluir regras          | Yes   | No        |
-| Criar tarefas           | Yes   | No        |
-| Atualizar a gestão do SIM | Yes   | No        |
+| Ver Solução         | Sim   | Sim       |
+| Atualizar alarmes         | Sim   | Não        |
+| Apagar alarmes         | Sim   | Não        |
+| Criar dispositivos        | Sim   | Não        |
+| Atualizar dispositivos        | Sim   | Não        |
+| Eliminar dispositivos        | Sim   | Não        |
+| Criar grupos de dispositivos  | Sim   | Não        |
+| Atualizar grupos de dispositivos  | Sim   | Não        |
+| Eliminar grupos de dispositivos  | Sim   | Não        |
+| Criar regras          | Sim   | Não        |
+| Atualizar regras          | Sim   | Não        |
+| Excluir regras          | Sim   | Não        |
+| Criar tarefas           | Sim   | Não        |
+| Atualizar a gestão do SIM | Sim   | Não        |
 
 Por predefinição, o utilizador que implementou a solução é automaticamente atribuído à função **de Administrador** e é proprietário de uma aplicação Azure Ative Directory. Como proprietário de aplicações, pode atribuir funções a outros utilizadores através do portal Azure. Se pretender que outro utilizador atribua funções na solução, também deve ser definido como proprietário de uma aplicação no portal Azure.
 
@@ -92,7 +92,7 @@ Os seguintes passos descrevem como adicionar uma função a uma aplicação no A
 
 1. Encontre o **registo da App** para a sua solução no portal Azure. O nome da aplicação é o nome da sua solução de Monitorização Remota. Na imagem seguinte, os nomes de visualização da solução e aplicação são **contoso-rm4**.
 
-    ![Registo de aplicações](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
+    ![Registo da aplicação](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selecione a sua aplicação e, em seguida, clique em **Manifesto**. Pode ver as duas funções de [aplicação existentes definidas](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) para a aplicação:
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970081"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Use o editor do Índice de Vídeo para criar projetos
@@ -55,7 +55,7 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
 
     Pode filtrar ainda mais os seus resultados selecionando **os resultados do Filtro.** Pode filtrar para mostrar vídeos que tenham uma determinada pessoa ou especificar que só pretende ver resultados de vídeo que são de uma determinada língua ou têm um proprietário específico. <br/> Também pode especificar o âmbito da sua consulta. Por exemplo, se pretender pesquisar "GitHub" no OCR, selecione **Texto Visual**.
 
-    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtrar](./media/video-indexer-view-edit/visual-text.png)
 
     Pode colocar vários filtros em camadas na sua consulta. Utilize os **+** / **-** botões para adicionar/remover filtros. Utilize **filtros limpos** para remover todos os filtros.
 1. Para adicionar vídeos, selecione-os e, em seguida, **selecione Adicionar**.
@@ -130,7 +130,7 @@ Pode criar um novo projeto diretamente a partir de um vídeo na sua conta.
 
     Isto leva-o à mesma página que usou para criar um novo projeto. Ao contrário do novo projeto, vê-se os segmentos de insights com tempos do vídeo, que tinha começado a editar anteriormente.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 

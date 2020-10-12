@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75477671"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Pedido Erro de Segurança Na Política com a política de recursos da Azure
@@ -53,10 +53,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Solução
 
-Para segurança ou conformidade, os seus administradores de subscrição podem atribuir políticas que limitam a forma como os recursos são implantados. Por exemplo, a sua subscrição pode ter uma política que impede a criação de endereços IP públicos, grupos de segurança de rede, rotas definidas pelo utilizador ou tabelas de rotas. A mensagem de erro na secção **Sintomas** mostra o nome da apólice.
+Para segurança ou conformidade, os seus administradores de subscrição podem atribuir políticas que limitam a forma como os recursos são implantados. Por exemplo, a sua subscrição pode ter uma política que impede a criação de endereços IP públicos, grupos de segurança de rede, User-Defined Rotas ou tabelas de rotas. A mensagem de erro na secção **Sintomas** mostra o nome da apólice.
 Para resolver este problema, reveja as políticas de recursos e determine como implementar recursos que cumpram essas políticas.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [O que é o Azure Policy?](../../governance/policy/overview.md)
 - [Criar e gerir políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md)

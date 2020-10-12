@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069277"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal Azure
@@ -96,8 +96,8 @@ Agora, configure o peering entre as duas VNets.
 3. Selecione **Adicionar**.
 4. Digite **Peer-HubSpoke** para o **nome do espreitamento de VN-Hub a VN-Spoke**.
 5. Selecione **VN-Spoke** para a rede virtual.
-6. Digite **Peer-SpokeHub** para **o nome de espreitar de VN-Spoke to VN-Hub**.
-7. Para **permitir o tráfego reencaminhado de VN-Spoke para VN-Hub** select **Enabled**.
+6. Digite **Peer-SpokeHub** para **o nome de espreitar de VN-Spoke a VN-Hub**.
+7. Para **permitir o tráfego reencaminhado de VN-Spoke para VN-Hub** **selecionar Ativado**.
 8. Selecione **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
@@ -117,7 +117,7 @@ Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Work
 1. Selecione **Seguinte: Discos**.
 
 **Discos**
-1. Selecione **Seguinte: Networking**.
+1. Selecione **Seguinte: Rede**.
 
 **Redes**
 

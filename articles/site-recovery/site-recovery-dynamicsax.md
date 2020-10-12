@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133813"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastres para uma aplicação AX dynamics multitier   
@@ -181,5 +181,5 @@ Para obter mais informações sobre a falha, consulte [VMs Failback VMware de Az
 ## <a name="summary"></a>Resumo
 Ao utilizar a Recuperação do Site, pode criar um plano completo de recuperação de desastres automatizado para a sua aplicação Dynamics AX. Em caso de interrupção, pode iniciar a falha em segundos a partir de qualquer lugar e pôr a aplicação a funcionar em minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como proteger as cargas de trabalho da empresa com a Recuperação do Local, veja [que cargas de trabalho posso proteger?](site-recovery-workload.md)

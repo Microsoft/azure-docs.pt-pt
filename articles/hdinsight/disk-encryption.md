@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290842"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Encriptação dupla Azure HDInsight para dados em repouso
@@ -403,7 +403,7 @@ Uma vez que apenas as teclas ativadas "Soft Delete" são suportadas, se as tecla
 
 **Se um cluster for dimensionado, os novos nós suportam as chaves geridas pelo cliente sem problemas?**
 
-Yes. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
+Sim. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
 
 **As chaves geridas pelo cliente estão disponíveis na minha localização?**
 
@@ -457,7 +457,7 @@ New-AzHDInsightCluster `
     -EncryptionAtHost $true `
 ```
 
-### <a name="enable-using-azure-cli"></a>Ativar a utilização do CLI Azure
+### <a name="enable-using-azure-cli"></a>Ativar através do CLI do Azure
 
 O seguinte corte de código mostra como pode criar um novo cluster Azure HDInsight que tem encriptação no anfitrião ativada, utilizando o Azure CLI. Utiliza o parâmetro `--encryption-at-host true` para ativar a funcionalidade.
 
@@ -467,7 +467,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Cofre da Chave Azure, consulte [o cofre da chave Azure](../key-vault/general/overview.md).
 * [Visão geral da segurança da empresa em Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

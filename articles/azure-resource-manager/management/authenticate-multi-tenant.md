@@ -4,10 +4,10 @@ description: Descreve como o Azure Resource Manager lida com pedidos de autentic
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75478828"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticar pedidos entre inquilinos
@@ -33,7 +33,7 @@ Quando a sua aplicação envia um pedido ao Gestor de Recursos, o pedido é exec
 
 Quando o pedido refere um recurso de um inquilino diferente, o Gestor de Recursos verifica os tokens auxiliares para determinar se o pedido pode ser processado. Todas as fichas auxiliares do cabeçalho devem ser válidas e não úmpidas. Se algum token estiver expirado, o Gestor de Recursos devolve um código de resposta 401. A resposta inclui a identificação do cliente e a identificação do inquilino do token que não é válido. Se o cabeçalho auxiliar contiver um símbolo válido para o inquilino, o pedido de inquilino cruzado é processado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre pedidos de autenticação, consulte [fluxos de autenticação e cenários de aplicação](../../active-directory/develop/authentication-flows-app-scenarios.md).
 * Para obter mais informações sobre fichas, consulte [os tokens de acesso do Azure Ative Directory](../../active-directory/develop/access-tokens.md).

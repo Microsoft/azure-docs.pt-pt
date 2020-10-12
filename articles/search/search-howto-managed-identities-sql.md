@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971523"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida
@@ -174,7 +174,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](./search-indexer-troubleshooting.md)do indexante .
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Saiba mais sobre o indexante Azure SQL:
 * [Indexador do Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

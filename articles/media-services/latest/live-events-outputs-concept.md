@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291471"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
@@ -124,7 +124,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
     Utilize as seguintes APIs para ativar o URL da Vaidade e desaperte o token de acesso a um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Linguagem|Ativar URL de vaidade|Definir o token de acesso|
+    |Idioma|Ativar URL de vaidade|Definir o token de acesso|
     |---|---|---|
     |REST|[propriedades.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vaidade-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
@@ -189,6 +189,6 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

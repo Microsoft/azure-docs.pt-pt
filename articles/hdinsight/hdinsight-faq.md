@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022219"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
@@ -190,7 +190,7 @@ Para os requisitos de auditoria, a Microsoft recomenda que os registos do Monito
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Posso desativar `Clamscan` o meu aglomerado?
 
-`Clamscan`é o software antivírus que funciona no cluster HDInsight e é usado pela segurança Azure (azsecd) para proteger os seus clusters de ataques de vírus. A Microsoft recomenda vivamente que os utilizadores se abstenham de esmundo em fazer quaisquer alterações à `Clamscan` configuração padrão.
+`Clamscan` é o software antivírus que funciona no cluster HDInsight e é usado pela segurança Azure (azsecd) para proteger os seus clusters de ataques de vírus. A Microsoft recomenda vivamente que os utilizadores se abstenham de esmundo em fazer quaisquer alterações à `Clamscan` configuração padrão.
 
 Este processo não interfere nem retira quaisquer ciclos de outros processos. Sempre se renderá a outros processos. Os picos de CPU `Clamscan` só devem ser vistos quando o sistema está inativo.  
 
@@ -262,7 +262,7 @@ Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus uti
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>Posso aumentar o armazenamento de HDFS num cluster sem aumentar o tamanho do disco dos nós dos trabalhadores?
 
-Não. Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
+N.º Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
 
 ## <a name="edge-nodes"></a>Nós periféricos
 

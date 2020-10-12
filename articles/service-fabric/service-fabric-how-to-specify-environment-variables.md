@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614320"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Como especificar variáveis ambientais para serviços em Tecido de Serviço
@@ -55,7 +55,7 @@ environment:
   - "hostname:${hostname}"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre alguns dos conceitos fundamentais que são discutidos neste artigo, consulte as [aplicações Manage para vários artigos de ambientes.](service-fabric-manage-multiple-environment-app-configuration.md)
 
 Para obter informações sobre outras capacidades de gestão de aplicações que estão disponíveis no Visual Studio, consulte [Gerir as aplicações de Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).

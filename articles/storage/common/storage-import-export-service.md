@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185388"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço Azure Import/Export?
@@ -120,7 +120,7 @@ O serviço Azure Import/Export suporta a cópia de dados de e para todas as cont
 
 |País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
-|E.U.A. Leste    | Europa do Norte        | Central India        |US Gov - Iowa         |
+|E.U.A. Leste    | Europa do Norte        | Índia Central        |US Gov - Iowa         |
 |E.U.A. Oeste     |Europa Ocidental         | Sul da Índia        | US DoD - Leste        |
 |E.U.A. Leste 2    | Ásia Leste        |  Oeste da Índia        | US DoD Centro        |
 |E.U.A. Oeste 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |

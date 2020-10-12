@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461243"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Crie uma cache Azure para Redis usando um modelo de gestor de recursos
@@ -59,7 +59,7 @@ Para verificar os modelos mais recentes, consulte [os Modelos Azure Quickstart](
     * **Grupo de recursos**: selecione **Criar novos** para criar um novo grupo de recursos ou selecionar um grupo de recursos existente.
     * **Localização**: selecione uma localização para o grupo de recursos. A conta de armazenamento e a cache Redis devem estar na mesma região. Por predefinição, a cache Redis utiliza a mesma localização que o grupo de recursos. Então, especifique o mesmo local que a conta de armazenamento.
     * **Nome redis Cache**: insira um nome para a cache Redis.
-    * **Conta de Armazenamento de Diagnósticos Existente:** introduza o ID de recurso de uma conta de armazenamento. A sintaxe é **/subscrições/ &lt; SUBSCRIÇÃO ID>/resourceGroups/ &lt; RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/ &lt; STORAGE NAME>**.
+    * **Conta de Armazenamento de Diagnósticos Existente:** introduza o ID de recurso de uma conta de armazenamento. A sintaxe é **/subscrições/ &lt; SUBSCRIÇÃO ID>/resourceGroups/ &lt; RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/ STORAGE NAME &lt;>**.
 
     Utilize o valor predefinido para o resto das definições.
 1. selecionar **Concordo com os termos e condições acima indicados,** e com a **aquisição**selecionada .
@@ -79,6 +79,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar um modelo de Gestor de Recursos Azure que implementa uma Cache Azure para Redis. Para aprender a criar um modelo de Gestor de Recursos Azure que implementa uma App Azure Web com Cache Azure para Redis, consulte [Criar uma Web App plus Azure Cache para Redis usando um modelo](./cache-web-app-arm-with-redis-cache-provision.md).

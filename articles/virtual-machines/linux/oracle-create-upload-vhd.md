@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: guybo
 ms.openlocfilehash: 97fd61614eff05ddc542dbe17cf199663ab4cf1b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371911"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Prepare uma máquina virtual Oracle Linux para o Azure
@@ -137,7 +137,7 @@ Preparar uma máquina virtual Oracle Linux 7 para Azure é muito semelhante ao O
 * GRUB2 é agora usado como o bootloader padrão, por isso o procedimento de edição dos parâmetros do núcleo mudou (ver abaixo).
 * XFS é agora o sistema de ficheiros predefinido. O sistema de ficheiros ext4 ainda pode ser utilizado se desejar.
 
-**Passos de configuração**
+**Etapas de configuração**
 
 1. No Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Connect** para abrir uma janela de consola para a máquina virtual.
