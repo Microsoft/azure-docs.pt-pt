@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
 ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83849217"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Spark na Azure Data Factory
@@ -24,7 +24,7 @@ ms.locfileid: "83849217"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade Spark num [oleoduto](concepts-pipelines-activities.md) data factory executa um programa Spark por [conta própria](compute-linked-services.md#azure-hdinsight-linked-service) ou a pedido [do](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster HDInsight. Este artigo baseia-se no artigo de atividades de [transformação](transform-data.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas. Quando utiliza um serviço ligado a pedido do Spark, a Data Factory cria automaticamente um cluster Spark para que você processe os dados a tempo e, em seguida, elimina o cluster uma vez que o processamento esteja concluído. 
+A atividade Spark num [oleoduto](concepts-pipelines-activities.md) data factory executa um programa Spark por [conta própria](compute-linked-services.md#azure-hdinsight-linked-service) ou a pedido [do](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  cluster HDInsight. Este artigo baseia-se no artigo de atividades de [transformação](transform-data.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas. Quando utiliza um serviço ligado a pedido do Spark, a Data Factory cria automaticamente um cluster Spark para que você processe os dados a tempo e, em seguida, elimina o cluster uma vez que o processamento esteja concluído. 
 
 
 ## <a name="spark-activity-properties"></a>Propriedades de atividade de faísca
@@ -59,7 +59,7 @@ Aqui está a definição JSON de uma atividade de faísca:
 
 A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
-| Propriedade              | Descrição                              | Necessário |
+| Propriedade              | Descrição                              | Obrigatório |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | O nome da atividade no oleoduto.    | Sim      |
 | descrição           | Texto descrevendo o que a atividade faz.  | Não       |
@@ -81,8 +81,8 @@ Crie a seguinte estrutura de pasta no armazenamento Azure Blob referenciado pelo
 
 | Caminho                  | Descrição                              | Necessário | Tipo   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(raiz)            | O caminho fundamental do trabalho de faísca no serviço ligado ao armazenamento | Sim      | Pasta |
-| &lt;utilizador definido&gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca | Sim      | Ficheiro   |
+| `.` (raiz)            | O caminho fundamental do trabalho de faísca no serviço ligado ao armazenamento | Sim      | Pasta |
+| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca | Sim      | Ficheiro   |
 | ./frascos                | Todos os ficheiros desta pasta são carregados e colocados no classe java do cluster | Não       | Pasta |
 | ./pyFiles             | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster | Não       | Pasta |
 | ./ficheiros               | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor | Não       | Pasta |
@@ -109,7 +109,7 @@ SparkJob2
         script2.py
     logs
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

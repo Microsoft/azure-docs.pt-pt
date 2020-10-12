@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909327"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar utilizadores internos para a colaboração B2B
@@ -51,7 +51,7 @@ Pode utilizar o PowerShell ou o convite da API para enviar um convite B2B ao uti
 Por padrão, o convite enviará ao utilizador um e-mail informando-os de que foram convidados, mas você pode suprimir este e-mail e enviar o seu próprio.
 
 > [!NOTE]
-> Para enviar o seu próprio e-mail ou outra comunicação, pode utilizar a New-AzureADMSInvitation com -SendInvitationMessage:$false para convidar os utilizadores em silêncio e, em seguida, enviar a sua própria mensagem de e-mail para o utilizador convertido. Consulte [a Azure AD B2B colaboração API e personalização.](customize-invitation-api.md)
+> Para enviar o seu próprio e-mail ou outra comunicação, pode utilizar New-AzureADMSInvitation com -SendInvitationMessage:$false para convidar os utilizadores em silêncio e, em seguida, enviar a sua própria mensagem de e-mail para o utilizador convertido. Consulte [a Azure AD B2B colaboração API e personalização.](customize-invitation-api.md)
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>Use o PowerShell para enviar um convite B2B
 

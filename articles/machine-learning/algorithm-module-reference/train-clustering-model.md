@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898180"
 ---
 # <a name="train-clustering-model"></a>Train Clustering Model (Preparar Modelo de Clustering)
@@ -45,7 +45,7 @@ O módulo requer um modelo de clustering não treinado que já configurado utili
 
 7. Envie o pipeline ou clique no módulo **Modelo de Agrupamento de Comboios** e selecione Run **Selected**.  
   
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 Após o treino ter terminado:
 

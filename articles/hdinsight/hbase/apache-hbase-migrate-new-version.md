@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89503997"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
@@ -32,16 +32,16 @@ Aqui está uma matriz de compatibilidade de versão exemplo. Y indica compatibil
 
 | Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
-| Compatibilidade do fio do servidor cliente | N | Y | Y |
-| Compatibilidade do Servidor do Servidor | N | Y | Y |
-| Compatibilidade do formato de ficheiro | N | Y | Y |
-| Compatibilidade da API do Cliente | N | Y | Y |
+| Compatibilidade de fios Client-Server | N | Y | S |
+| Compatibilidade Server-Server | N | Y | S |
+| Compatibilidade do formato de ficheiro | N | Y | S |
+| Compatibilidade da API do Cliente | N | Y | S |
 | Compatibilidade binária do cliente | N | N | Y |
 | **Compatibilidade limitada do lado do servidor** |  |  |  |
-| Estável | N | Y | Y |
+| Estável | N | Y | S |
 | Evoluindo | N | N | Y |
 | Instável | N | N | N |
-| Compatibilidade da dependência | N | Y | Y |
+| Compatibilidade da dependência | N | Y | S |
 | Compatibilidade operacional | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Upgrade com a mesma versão principal Apache HBase
@@ -213,7 +213,7 @@ Para atualizar o seu cluster Apache HBase no Azure HDInsight, complete os seguin
 
 1. Se o novo cluster for satisfatório, elimine o cluster original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre [o Apache HBase](https://hbase.apache.org/) e a atualização dos clusters HDInsight, consulte os seguintes artigos:
 

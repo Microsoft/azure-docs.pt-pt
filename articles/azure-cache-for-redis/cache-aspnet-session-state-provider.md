@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213299"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache do Azure para Redis
@@ -125,7 +125,7 @@ Uma vez executadas estas etapas, a sua aplicação é configurada para utilizar 
 * Sql Server Session State Provider - Este fornecedor armazena o Estado de Sessão no Sql Server. Utilize este fornecedor se pretender armazenar o estado de Sessão em armazenamento persistente. Pode escalar a sua Web App, mas usar o Sql Server for Session tem um impacto de desempenho na sua Web App. Também pode utilizar este fornecedor com uma [configuração OLTP in-memory](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) para ajudar a melhorar o desempenho.
 * Fornecedor de Estado distribuído em sessão de memória, como Azure Cache para Redis Session State Provider - Este fornecedor dá-lhe o melhor de ambos os mundos. A sua Web App pode ter um fornecedor de estado de sessão simples, rápido e escalável. Como este fornecedor armazena o estado de Sessão num Cache, a sua aplicação tem de ter em conta todas as características associadas ao falar com uma Cache Distribuída na Memória, como falhas de rede transitórias. Para obter as melhores práticas sobre a utilização da Cache, consulte a orientação de [Caching](../best-practices-caching.md) da Microsoft Patterns & Practices [Azure Cloud Application Design e Orientação de Implementação](https://github.com/mspnp/azure-guidance).
 
-Para obter mais informações sobre o estado da sessão e outras boas práticas, consulte [as Melhores Práticas de Desenvolvimento Web (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Para obter mais informações sobre o estado da sessão e outras boas práticas, consulte [as Melhores Práticas de Desenvolvimento Web (Building Real-World Cloud Apps com Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="third-party-session-state-providers"></a>Fornecedores estatais de sessão de terceiros
 

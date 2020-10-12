@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934859"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter sintaxe na pesquisa cognitiva de Azure
@@ -75,7 +75,7 @@ Os tipos de expressões booleanas incluem:
 
 Se escrever uma expressão de filtro sem parênteses em torno das suas subexpressões, a Azure Cognitive Search irá avaliá-la de acordo com um conjunto de regras de precedência do operador. Estas regras baseiam-se nas quais os operadores são utilizados para combinar subexpressões. O quadro que se segue enumera grupos de operadores para, de forma mais elevada e mais baixa:
 
-| Agrupar | Operador(s) |
+| Group | Operador(s) |
 | --- | --- |
 | Operadores lógicos | `not` |
 | Operadores de comparação | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

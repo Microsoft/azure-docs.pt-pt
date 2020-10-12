@@ -6,10 +6,10 @@ ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
 ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318080"
 ---
 # <a name="laying-out-files-for-conversion"></a>Preparação de ficheiros para conversão

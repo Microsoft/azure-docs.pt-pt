@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
 ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107823"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ligue à Base de Dados Azure para o MySQL com a reorientação
+# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ligar à Base de Dados do Azure para MySQL com redirecionamento
 
 Este tópico explica como ligar uma aplicação a sua Base de Dados Azure para o servidor MySQL com o modo de reorientação. A reorientação visa reduzir a latência da rede entre aplicações de clientes e servidores MySQL, permitindo que as aplicações se conectem diretamente aos nós do servidor de backend.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para o servidor MySQL com a versão 5.6, 5.7 ou 8.0 do motor. 
 
 Para mais detalhes, consulte como criar uma Base de Dados Azure para servidor MySQL utilizando o [portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
@@ -161,5 +161,5 @@ $db_name = 'testdb';
 ?>
  ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre as cordas de [ligação,](howto-connection-string.md)consulte as Cordas de Ligação .

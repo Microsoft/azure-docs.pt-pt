@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936508"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações Web com o Application Insights
@@ -256,7 +256,7 @@ Substitua o atributo HandleError pelo seu novo atributo nos seus controladores.
     ...
 ```
 
-[Sample](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registe-se `AiHandleErrorAttribute` como filtro global em Global.asax.cs:
@@ -271,7 +271,7 @@ Registe-se `AiHandleErrorAttribute` como filtro global em Global.asax.cs:
      ...
 ```
 
-[Sample](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Amostra](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registe-se AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
@@ -287,7 +287,7 @@ Registe-se AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
     }
 ```
 
-[Sample](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Amostra](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>API Web
 Começando com a versão 2.6 da Web SDK da Aplicação Insights Web SDK (beta3 e posteriormente), a Application Insights recolhe exceções não manipuladas lançadas nos métodos do controlador automaticamente para o WebAPI 2+. Se tiver adicionado previamente um manipulador personalizado para rastrear tais exceções (como descrito nos exemplos seguintes), pode removê-lo para evitar o duplo rastreio de exceções.
@@ -355,7 +355,7 @@ Pode adicionar este atributo overridden a controladores específicos ou adicion�
     }
 ```
 
-[Sample](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Web API 2.x
 Adicione uma implementação do IExceptionLogger:
@@ -410,7 +410,7 @@ Adicione isto aos serviços na WebApiConfig:
      }
 ```
 
-[Sample](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Como alternativas, poderia:
 
@@ -480,7 +480,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
 Se [tiver instalado o Application Insights Agent](./monitor-performance-live-website-now.md) no seu servidor, pode obter um gráfico da taxa de exceções, medido por .NET. Isto inclui exceções manuseadas e não manipuladas .NET.

@@ -10,17 +10,17 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280152"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
 Uma conta de armazenamento Azure contém todos os seus objetos de dados de armazenamento Azure: bolhas, ficheiros, filas, tabelas e discos. A conta de armazenamento fornece um espaço de nome único para os seus dados de Armazenamento Azure que estão acessíveis a partir de qualquer parte do mundo em HTTP ou HTTPS. Os dados na sua conta de armazenamento Azure são duráveis e altamente disponíveis, seguros e massivamente escaláveis.
 
-Para aprender a criar uma conta de armazenamento Azure, consulte [Criar uma conta de armazenamento](storage-account-create.md).
+Para saber como criar uma conta de armazenamento do Azure, veja [Criar uma conta de armazenamento](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 

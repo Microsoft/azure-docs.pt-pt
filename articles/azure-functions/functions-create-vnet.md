@@ -4,10 +4,10 @@ description: Um tutorial passo a passo que mostra como ligar uma função a uma 
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387528"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar Funções com uma rede virtual do Azure
@@ -105,7 +105,7 @@ Com um site WordPress a funcionar num VM numa rede virtual, pode agora ligar a s
 
 1. Na página **de Integração VNET,** selecione **Add VNet**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicione a pré-visualização da Integração VNet":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Escolha o networking na aplicação de função":::
 
 1. No **Estado da Funcionalidade de Rede,** utilize as definições na tabela abaixo da imagem:
 
@@ -115,7 +115,7 @@ Com um site WordPress a funcionar num VM numa rede virtual, pode agora ligar a s
     | ------------ | ---------------- | ---------------- |
     | **Rede Virtual** | MyResourceGroup-vnet | Esta rede virtual foi a que criou anteriormente. |
     | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para a sua aplicação de função utilizar. A integração VNet deve ser configurada para utilizar uma sub-rede vazia. Não importa que as suas funções utilizem uma sub-rede diferente da sua VM. A rede virtual liga automaticamente o tráfego entre as duas sub-redes. |
-    | **Nome da sub-rede** | Função-Net | Nome da nova sub-rede. |
+    | **Nome da sub-rede** | Function-Net | Nome da nova sub-rede. |
     | **Bloco de endereço de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereços utilizado pelo site WordPress. Deve ter apenas um bloco de endereços definido. |
     | **Intervalo de endereços** | 10.10.2.0/24   | O tamanho da sub-rede restringe o número total de casos que a sua aplicação de função de plano Premium pode escalar para. Este exemplo utiliza uma `/24` sub-rede com 254 endereços de anfitrião disponíveis. Esta sub-rede é excessivamente a provisionada, mas fácil de calcular. |
 
@@ -127,9 +127,9 @@ A aplicação de função pode agora aceder à rede virtual onde o site WordPres
 
 Com a Integração VNet ativada, pode criar um proxy na sua app de função para encaminhar pedidos para o VM em execução na rede virtual.
 
-1. Na sua aplicação de função, selecione **Proxies** a partir do menu esquerdo e, em seguida, **selecione Adicionar**. Utilize as definições de procuração na tabela abaixo da imagem:
+1. Na sua aplicação de função, selecione  **Proxies** a partir do menu esquerdo e, em seguida, **selecione Adicionar**. Utilize as definições de procuração na tabela abaixo da imagem:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as definições de procuração":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Escolha o networking na aplicação de função":::
 
     | Definição  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
@@ -151,7 +151,7 @@ A sua aplicação de função está ligada tanto à internet como à sua rede vi
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, o site WordPress serve como uma API que é chamada através da utilização de um proxy na aplicação de função. Este cenário faz um bom tutorial porque é fácil de configurar e visualizar. Pode utilizar qualquer outra API implantada numa rede virtual. Também poderia ter criado uma função com código que chama APIs implantados dentro da rede virtual. Um cenário mais realista é uma função que utiliza APIs do cliente de dados para chamar uma instância do SQL Server implementada na rede virtual.
 

@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3bb42886c653afbdf8975b532bd2e1e1c3c63ce9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186542"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações de DSC na Configuração do Estado da Automação Azure
@@ -47,7 +47,7 @@ Pode utilizar [start-AzAutomationDscCompilationJob](/powershell/module/az.automa
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzAutomationDscCompilationJob`retorna um objeto de trabalho de compilação que pode usar para rastrear o estado do trabalho. Em seguida, pode utilizar este objeto de trabalho de compilação com [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) para determinar o estado do trabalho de compilação, e [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) para visualizar os seus fluxos (saída). A amostra que se segue inicia a compilação da configuração SampleConfig, aguarda até estar concluída e, em seguida, exibe os seus fluxos.
+`Start-AzAutomationDscCompilationJob` retorna um objeto de trabalho de compilação que pode usar para rastrear o estado do trabalho. Em seguida, pode utilizar este objeto de trabalho de compilação com [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) para determinar o estado do trabalho de compilação, e [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) para visualizar os seus fluxos (saída). A amostra que se segue inicia a compilação da configuração SampleConfig, aguarda até estar concluída e, em seguida, exibe os seus fluxos.
 
 ```powershell
 $CompilationJob = Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -127,7 +127,7 @@ A funcionalidade **Recursos Compostos** permite-lhe utilizar configurações DSC
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Gerir ConfigurationData ao compilar configurações na Azure Automation
 
-`ConfigurationData`é um parâmetro DSC incorporado que permite separar a configuração estrutural de qualquer configuração específica do ambiente enquanto utiliza o DSC PowerShell. Para obter mais informações, consulte [a separação de "O quê" de "Onde" no PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData` é um parâmetro DSC incorporado que permite separar a configuração estrutural de qualquer configuração específica do ambiente enquanto utiliza o DSC PowerShell. Para obter mais informações, consulte [a separação de "O quê" de "Onde" no PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
 > Ao compilar na Configuração do Estado da Automação Azure, pode utilizar `ConfigurationData` no Azure PowerShell, mas não no portal Azure.

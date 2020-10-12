@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072782"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - motivação e benefícios
@@ -101,7 +101,7 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |Configuração do nó mestre|m/y, cpu, disco, etc.|
 |Configuração de nó de dados|m/y, cpu, disco, etc.|
 |Configuração de nó de borda|m/y, cpu, disco, etc.|
-|Encriptação HDFS?|Yes|
+|Encriptação HDFS?|Sim|
 |Elevada Disponibilidade|HDFS HA, Metasteiros HA|
 |Recuperação de desastres / Backup|Aglomerado de reserva?|  
 |Sistemas dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -111,7 +111,7 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |Autenticação de agrupamento & autorização|Diretório Ativo, Ambari, Gestor Cloudera, Sem autenticação|
 |Controlo de Acesso HDFS|  Utilizadores manuais e ssh|
 |Autorização de autenticação & de colmeia|Sentry, LDAP, AD com Kerberos, Ranger|
-|Auditing (Auditoria)|Ambari, Cloudera Navigator, Ranger|
+|Auditoria|Ambari, Cloudera Navigator, Ranger|
 |Monitorização|Grafite, colecionada, estatísticas, Telegraf, InfluxDB|
 |Alertas|Kapacitor, Prometeu, Datadog|
 |Duração da retenção de dados| 3 anos, 5 anos|
@@ -167,35 +167,35 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |---|---|---|
 |**Tópico**: **Infraestrutura** |||
 | Região Preferida|E.U.A Leste||
-|VNet preferido?|Yes||
-|HA / DR Necessário?|Yes||
+|VNet preferido?|Sim||
+|HA / DR Necessário?|Sim||
 |Integração com outros serviços em nuvem?|ADF||
-|**Tópico**: **Movimento de Dados**  |||
+|**Tópico**:   **Movimento de Dados**  |||
 |Preferência inicial de carga|DistCp, Caixa de Dados, ADF, WANDisco||
 |Delta de transferência de dados|DistCp||
 |Transferência contínua de dados incrementais|DistCp||
-|**Tópico**: **Alerta de & de monitorização** |||
+|**Tópico**:   **Alerta de & de monitorização** |||
 |Utilize & de monitorização do Azure alertando vs Integrar monitorização de terceiros|Utilizar alerta de & de monitorização Azure||
-|**Tópico**: **Preferências de segurança** |||
-|Oleoduto de dados privado e protegido?|Yes||
-|Cluster de domínios unidos (ESP)?|     Yes||
-|Sincronização de anúncios no local para cloud?|     Yes||
+|**Tópico**:   **Preferências de segurança** |||
+|Oleoduto de dados privado e protegido?|Sim||
+|Cluster de domínios unidos (ESP)?|     Sim||
+|Sincronização de anúncios no local para cloud?|     Sim||
 |Número de utilizadores de AD para sincronizar?|          100||
-|Ok para sincronizar senhas para a nuvem?|    Yes||
-|Cloud apenas Utilizadores?|                 Yes||
-|MFA necessária?|                       No|| 
-|Requisitos de autorização de dados?|  Yes||
-|Controlo de Acesso baseado em funções?|        Yes||
-|Auditoria necessária?|                  Yes||
-|Encriptação de dados em repouso?|          Yes||
-|Encriptação de dados em trânsito?|       Yes||
-|**Tópico**: **Preferências de re-arquitetura** |||
+|Ok para sincronizar senhas para a nuvem?|    Sim||
+|Cloud apenas Utilizadores?|                 Sim||
+|MFA necessária?|                       Não|| 
+|Requisitos de autorização de dados?|  Sim||
+|Role-Based Controlo de Acesso?|        Sim||
+|Auditoria necessária?|                  Sim||
+|Encriptação de dados em repouso?|          Sim||
+|Encriptação de dados em trânsito?|       Sim||
+|**Tópico**:   **Preferências de re-arquitetura** |||
 |Cluster único vs Tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento cotado vs armazenamento remoto?|Armazenamento remoto||
 |O tamanho do cluster menor à medida que os dados são armazenados remotamente?|Tamanho menor do cluster||
 |Utilizar múltiplos aglomerados menores em vez de um único aglomerado grande?|Use vários aglomerados menores||
-|Usar uma metásta remota?|Yes||
-|Partilhar metas-lojas entre diferentes clusters?|Yes||
+|Usar uma metásta remota?|Sim||
+|Partilhar metas-lojas entre diferentes clusters?|Sim||
 |Desconstruir cargas de trabalho?|Substitua os empregos de Colmeia por empregos de faíscas||
 |Utilizar a ADF para orquestração de dados?|Não||
 

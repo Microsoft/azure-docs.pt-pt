@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006301"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual Array - Configurar como servidor de ficheiros através do portal Azure
@@ -90,7 +90,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    
    Na página **de procuração** da Web:
    
-   1. Forneça o **URL de procuração web** neste formato: http:// endereço DE * &lt; ANFITRIÃO-IP ou &gt; número de :Port da FQDN*. Note que os URLs HTTPS não são suportados.
+   1. Forneça o **URL de procuração web** neste formato: http:// endereço DE * &lt; ANFITRIÃO-IP ou &gt; número de :P ort da FQDN*. Note que os URLs HTTPS não são suportados.
    2. Especificar **a autenticação** como **Base** ou **Nenhuma**.
    3. Se utilizar a autenticação, também terá de fornecer um nome de **utilizador** e **uma palavra-passe.**
    4. Clique em **Aplicar**. Isto validará e aplicará as definições configuradas de procuração web.
@@ -124,7 +124,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 Execute os seguintes passos no [portal Azure](https://portal.azure.com/) para completar a configuração do dispositivo necessária.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Para configurar o dispositivo como servidor de ficheiros
-1. Vá ao seu serviço StorSimple Device Manager e, em seguida, vá a **Dispositivos de > de Gestão**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
+1. Vá ao seu serviço StorSimple Device Manager e, em seguida, vá a  **Dispositivos de > de Gestão**. Na lâmina **dispositivos,** selecione o dispositivo que acabou de criar. Este dispositivo apareceria como **Pronto para configurar**.
    
    ![Configure um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Clique no dispositivo e verá uma mensagem de banner indicando que o dispositivo está pronto para ser configurado.

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538726"
 ---
 # <a name="iterative-app-design-for-luis"></a>Design de aplicativo iterativo para LUIS
@@ -157,6 +157,6 @@ Saiba mais sobre a autoria de contribuições de [colaboradores.](luis-how-to-co
 
 Quando terminar com um ciclo de iteração, pode repetir o processo. Comece com [a revisão das declarações de ponto final de previsão](luis-how-to-review-endpoint-utterances.md) LUIS marcadas com pouca confiança. Verifique estas declarações para obter a intenção correta e a entidade correta e completa extraída. Depois de rever e aceitar alterações, a lista de revisão deve estar vazia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda conceitos sobre [colaboração.](luis-how-to-azure-subscription.md)

@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84791916"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Lista Azure nega atribuições usando a API REST
@@ -109,8 +109,8 @@ Para obter informações sobre uma missão de negação, você deve ter:
 
 1. Remova o acesso elevado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreenda que Azure nega atribuições](deny-assignments.md)
 - [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md) (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
-- [Referência AZURE REST API](/rest/api/azure/)
+- [Referência à API REST do Azure](/rest/api/azure/)

@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807997"
 ---
 # <a name="add-health-probes-to-your-service"></a>Adicione sondas de saúde ao seu serviço
 Por predefinição, o controlador Ingress irá providenciar uma sonda HTTP GET para as cápsulas expostas.
 As propriedades da sonda podem ser personalizadas adicionando uma [Sonda de Prontidão ou Liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) às suas `deployment` / `pod` especificações.
 
-## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou`livenessProbe`
+## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou `livenessProbe`
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -50,11 +50,11 @@ Referência API da Kubernetes:
 * [ação httpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`e `livenessProbe` são suportados quando configurados com `httpGet` .
+> * `readinessProbe` e `livenessProbe` são suportados quando configurados com `httpGet` .
 > * A sondagem numa porta que não a que está exposta na cápsula não é suportada atualmente.
 > * `HttpHeaders`Não `InitialDelaySeconds` `SuccessThreshold` são apoiados.
 
-##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou`livenessProbe`
+##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou `livenessProbe`
 Se as sondas acima não forem fornecidas, então o Controlador ingress assume que o serviço é alcançável em `Path` `backend-path-prefix` especificação para anotação ou o `path` especificado na `ingress` definição para o serviço.
 
 ## <a name="default-values-for-health-probe"></a>Valores padrão para sonda de saúde

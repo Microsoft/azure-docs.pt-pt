@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002284"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
@@ -42,7 +42,7 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 
-## <a name="azure-security-best-practices"></a>Melhores práticas de segurança Azure
+## <a name="azure-security-best-practices"></a>Melhores práticas de segurança do Azure
 
 Windows Virtual Desktop é um serviço sob Azure. Para maximizar a segurança da sua implementação virtual do Windows Desktop, deve certificar-se de que também protege a infraestrutura e o plano de gestão Azure circundantes. Para garantir a sua infraestrutura, considere como o Windows Virtual Desktop se encaixa no seu ecossistema Azure maior. Para saber mais sobre o ecossistema Azure, consulte as [melhores práticas e padrões](../security/fundamentals/best-practices-and-patterns.md)de segurança da Azure.
 
@@ -80,7 +80,7 @@ Ativar [o Acesso Condicional](../active-directory/conditional-access/best-practi
 
 Ativar a recolha de registos de auditoria permite-lhe visualizar a atividade de utilizador e administração relacionada com o Windows Virtual Desktop. Alguns exemplos de registos de auditoria chave são:
 
--   [Registo de Atividades do Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Registo de atividades Azure](../azure-monitor/platform/activity-log-collect.md)
 -   [Registo de atividade do diretório ativo Azure](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Anfitriões de sessão](../azure-monitor/platform/agent-windows.md)

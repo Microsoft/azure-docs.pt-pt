@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092546"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Atualizar modelos Azure Machine Learning Studio (clássico) utilizando a atividade de Update Resource
@@ -61,13 +61,13 @@ O seguinte snippet JSON define uma atividade de execução de lote Azure Machine
 
 | Propriedade                      | Descrição                              | Obrigatório |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nome da atividade no oleoduto     | Yes      |
-| descrição                   | Texto descrevendo o que a atividade faz.  | No       |
-| tipo                          | Para a atividade do Azure Machine Learning Studio (clássico) Update Resource, o tipo de atividade é **AzureMLUpdateResource**. | Yes      |
-| linkedServiceName             | Serviço ligado Azure Machine Learning Studio (clássico) que contém atualização Propriedade ResourceEndpoint. | Yes      |
-| me de Modelo treinado              | Nome do módulo Modelo Treinado na experiência do Serviço Web a ser atualizado | Yes      |
-| treinadoModelLinkedServiceName | Nome do serviço ligado ao Azure Storage que mantém o ficheiro ilearner que é carregado pela operação de atualização | Yes      |
-| treinadoModelFilePath          | O caminho relativo do ficheiro no TreinadoModelLinkedService para representar o ficheiro ilearner que é carregado pela operação de atualização | Yes      |
+| name                          | Nome da atividade no oleoduto     | Sim      |
+| descrição                   | Texto descrevendo o que a atividade faz.  | Não       |
+| tipo                          | Para a atividade do Azure Machine Learning Studio (clássico) Update Resource, o tipo de atividade é  **AzureMLUpdateResource**. | Sim      |
+| linkedServiceName             | Serviço ligado Azure Machine Learning Studio (clássico) que contém atualização Propriedade ResourceEndpoint. | Sim      |
+| me de Modelo treinado              | Nome do módulo Modelo Treinado na experiência do Serviço Web a ser atualizado | Sim      |
+| treinadoModelLinkedServiceName | Nome do serviço ligado ao Azure Storage que mantém o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
+| treinadoModelFilePath          | O caminho relativo do ficheiro no TreinadoModelLinkedService para representar o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 

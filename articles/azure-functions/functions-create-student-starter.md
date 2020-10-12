@@ -5,10 +5,10 @@ Customer intent: As a student, I want to be able to create an HTTP triggered Fun
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386967"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando Azure para iniciação de estudantes
@@ -95,7 +95,7 @@ No Azure for Students Starter, você tem acesso à maioria das funcionalidades d
 * Apenas a [versão 2.x e posterior](functions-versions.md) do tempo de execução de Funções é suportada.
 * Todas as ferramentas do desenvolvedor são suportadas para funções de edição e publicação. Isto inclui O Código VS, O Estúdio Visual, o CLI Azure e o portal Azure. Se quiser utilizar outra coisa que não o portal, terá primeiro de criar uma aplicação no portal e, em seguida, escolher essa aplicação como alvo de implementação na sua ferramenta preferida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Já terminou de criar uma aplicação de função com uma função de gatilho HTTP simples. Em seguida, você pode explorar ferramentas locais, mais idiomas, monitorização e integrações.
 
