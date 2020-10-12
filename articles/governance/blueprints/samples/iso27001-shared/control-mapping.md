@@ -4,10 +4,10 @@ description: Controlo do mapeamento da amostra de projeto iso 27001 dos Serviço
 ms.date: 07/13/2020
 ms.topic: sample
 ms.openlocfilehash: e0e5aa7bbfb8178b2527e65f7e6371d815b0cccd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541208"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto iso 27001 dos serviços partilhados
@@ -193,7 +193,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo do projeto iso 27001 Shared Services, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 

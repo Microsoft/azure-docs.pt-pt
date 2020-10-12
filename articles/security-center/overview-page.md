@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f7298ec7bba82eaddc4a002723f44bc5da68433
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447676"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945350"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página geral do Centro de Segurança Azure
 
@@ -40,7 +40,7 @@ No centro da página encontram-se **quatro azulejos centrais,** cada um ligado a
 - **Pontuação segura** - O Security Center avalia continuamente os seus recursos, subscrições e organização para questões de segurança. Em seguida, agrega todas as conclusões numa única pontuação para que possa dizer, num ápice, a sua situação de segurança atual: quanto maior for a pontuação, menor o nível de risco identificado. [Saiba mais](secure-score-security-controls.md).
 - **Compliance** - O Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. [Saiba mais.](security-center-compliance-dashboard.md)
 - **Azure Defender** - Esta é a plataforma de proteção da carga de trabalho em nuvem (CWPP) integrada no Centro de Segurança para cargas avançadas, inteligentes, de proteção das suas cargas de trabalho Azure e híbridas. O azulejo mostra a cobertura dos seus recursos conectados (para as subscrições atualmente selecionadas) e os alertas recentes, codificados por cores por severidade. [Saiba mais](azure-defender.md).
-- **Inventário** - O azulejo mostra o número de VMs não monitorizados e um simples barómetro dos seus recursos monitorizados pelo Security CenterBen . [Saiba mais](asset-inventory.md).
+- **Inventário** - O azulejo mostra o número de VMs não monitorizados e um simples barómetro dos seus recursos monitorizados pelo Centro de Segurança. [Saiba mais](asset-inventory.md).
 
 
 O **painel Insights** oferece itens personalizados para o seu ambiente, incluindo:
@@ -49,7 +49,7 @@ O **painel Insights** oferece itens personalizados para o seu ambiente, incluind
 - As recomendações ativas com mais recursos impactados
 - Publicações recentes de blogs por especialistas do Azure Security Center
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta página introduziu a página geral do Centro de Segurança. Para obter informações relacionadas, consulte:
 

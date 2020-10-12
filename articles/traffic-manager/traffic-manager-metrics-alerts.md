@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
 ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392855"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas e alertas do Gestor de Tráfego
@@ -63,6 +63,6 @@ Pode consumir estas métricas através do portal do [serviço Azure Monitor,](..
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertas sobre métricas do Gestor de Tráfego
 Além do processamento e exibição de métricas do Traffic Manager, o Azure Monitor permite aos clientes configurar e receber alertas associados a estas métricas. Pode escolher quais as condições que devem ser satisfeitas nestas métricas para que ocorra um alerta, quantas vezes essas condições precisam de ser monitorizadas e como os alertas devem ser enviados para si. Para obter mais informações, consulte [a documentação do Azure Monitor.](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o serviço Azure Monitor](../azure-monitor/platform/metrics-supported.md)
 - Saiba como [criar um gráfico usando o Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

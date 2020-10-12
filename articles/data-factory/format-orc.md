@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404735"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945792"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC na Azure Data Factory
 
@@ -59,7 +59,7 @@ Abaixo está um exemplo do conjunto de dados ORC no Armazenamento Azure Blob:
 
 Tenha em atenção os seguintes pontos:
 
-* Os tipos de dados complexos não são suportados (STRUCT, MAP, LIST, UNION).
+* Os tipos de dados complexos (por exemplo, MAP, LIST, STRUCT) são atualmente suportados apenas em Fluxos de Dados, e não em Atividade de Cópia. Para utilizar tipos complexos nos fluxos de dados, não importe o esquema de ficheiros no conjunto de dados, deixando o esquema em branco no conjunto de dados. Depois, na transformação da Fonte, importa a projeção.
 * O espaço branco no nome da coluna não é suportado.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -107,7 +107,7 @@ Ao utilizar o conjunto de dados inline, verá definições de ficheiros adiciona
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser `orc` | sim | `orc` | formato |
+| Formatar | Formato deve ser `orc` | sim | `orc` | formato |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
 | Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
@@ -135,7 +135,7 @@ Ao utilizar o conjunto de dados inline, verá definições de ficheiros adiciona
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser `orc` | sim | `orc` | formato |
+| Formatar | Formato deve ser `orc` | sim | `orc` | formato |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato `part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
@@ -172,7 +172,7 @@ Para a cópia em execução em IR auto-hospedado com serialização/deserializa�
 
 Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A bandeira `Xms` especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que jVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de quantidade de `Xmx` memória. Por predefinição, a ADF utiliza min 64 MB e máx 1G.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)

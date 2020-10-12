@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b8979691d03746634b6282b23b05723c35854e1f
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 565decb90a4d41024e94cb5225e58842763e75f4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91841531"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946043"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -313,7 +313,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Embora neste arranque rápido, tenha feito a atualização de temperatura manualmente, é comum na Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Isto permite-lhe construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente, e usar consultas para obter informações sobre o que está a acontecer no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Isto irá desligar a ligação à aplicação ADT Explorer no navegador, e deixará de ser capaz de ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 
@@ -323,7 +323,7 @@ Se planeia continuar com os tutoriais do Azure Digital Twins, a instância usada
 
 Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local_**(Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_samples).**_ Pode ter de eliminar as versões com fecho e desapertado.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 Em seguida, continue para os tutoriais Azure Digital Twins para construir o seu próprio cenário Azure Digital Twins e ferramentas de interação.
 

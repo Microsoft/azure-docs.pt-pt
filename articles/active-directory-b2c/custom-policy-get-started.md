@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163191"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
@@ -92,7 +92,7 @@ Em seguida, expor a API adicionando um âmbito:
 1. Introduza os seguintes valores para criar um âmbito que permita a execução de políticas personalizadas no seu inquilino Azure AD B2C:
     * **Nome do âmbito:**`user_impersonation`
     * **Nome do exposição de consentimento de administração:**`Access IdentityExperienceFramework`
-    * **Descrição do consentimento da administração**:`Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+    * **Descrição do consentimento da administração**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
 1. Selecione **adicionar âmbito**
 
 * * *

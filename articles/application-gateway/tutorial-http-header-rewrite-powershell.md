@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595908"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crie um gateway de aplicação e reescreva os cabeçalhos HTTP
@@ -157,7 +157,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Utilize o Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicações. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
+Utilize Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicações. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
@@ -171,6 +171,6 @@ Primeiro explore os recursos que foram criados com o gateway de aplicação. Dep
 
 `Remove-AzResourceGroup -Name $rg`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-powershell.md)

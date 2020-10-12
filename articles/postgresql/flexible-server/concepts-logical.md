@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707868"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicação lógica e descodagem lógica na Base de Dados Azure para PostgreSQL - Servidor Flexível
@@ -178,7 +178,7 @@ SELECT * FROM pg_replication_slots;
 * **Leia réplicas** - Azure Database for PostgreSQL read replicas não são atualmente suportadas para servidores flexíveis.
 * **Slots e falha ha -** As ranhuras de replicação lógica no servidor primário não estão disponíveis no servidor de espera no seu AZ secundário. Isto aplica-se a si se o seu servidor utilizar a opção de alta disponibilidade redundante. Em caso de falha no servidor de espera, não estarão disponíveis slots de replicação lógicas no standby.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [opções de networking](concepts-networking.md)
 * Saiba mais [sobre as extensões](concepts-extensions.md) disponíveis no servidor flexível
 * Saiba mais sobre [alta disponibilidade](concepts-high-availability.md)

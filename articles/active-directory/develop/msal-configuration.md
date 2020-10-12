@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854905"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Ficheiro de configuração da Biblioteca de Autenticação do Microsoft Android
@@ -32,12 +32,12 @@ Este artigo irá ajudá-lo a compreender as várias definições no ficheiro de 
 
 | Propriedade | Tipo de Dados | Necessário | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | Cadeia | Yes | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Cadeia | Yes | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Lista\<Authority> | No | A lista de autoridades que a sua app precisa |
-| `authorization_user_agent` | AutorizaçãoAgent (enum) | No | Valores possíveis: `DEFAULT` `BROWSER` , `WEBVIEW` |
-| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` e `read_timeout` |
-| `logging` | Configuação de Registos | No | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
+| `client_id` | Cadeia | Sim | ID do cliente da sua aplicação a partir da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Cadeia | Sim | A sua aplicação redireciona o URI da página de registo da [Aplicação](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Lista\<Authority> | Não | A lista de autoridades que a sua app precisa |
+| `authorization_user_agent` | AutorizaçãoAgent (enum) | Não | Valores possíveis: `DEFAULT` `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | Não | Configure `HttpUrlConnection` `connect_timeout` e `read_timeout` |
+| `logging` | Configuação de Registos | Não | Especifica o nível de registo de detalhes. As configurações opcionais incluem: `pii_enabled` , que tem um valor boolean, e , que leva , , ou `log_level` `ERROR` `WARNING` `INFO` `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -103,17 +103,17 @@ A lista de autoridades que são conhecidas e confiadas por si. Além das autorid
 
 | Propriedade | Tipo de dados  | Necessário | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadeia | Yes | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` , `B2C` |
-| `audience` | Objeto | No | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
-| `authority_url` | Cadeia | Yes | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
-| `default` | boolean | Yes | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
+| `type` | Cadeia | Sim | Espelha o público ou o tipo de conta os seus alvos de aplicação. Valores possíveis: `AAD` , `B2C` |
+| `audience` | Objeto | Não | Só se aplica quando o tipo= `AAD` . Especifica a identidade dos alvos da sua aplicação. Utilize o valor do registo da sua aplicação |
+| `authority_url` | Cadeia | Sim | Requerido apenas quando o tipo= `B2C` . Especifica o URL de autoridade ou a política que a sua aplicação deve usar  |
+| `default` | boolean | Sim | É necessário um único `"default":true` caso de especificação de uma ou mais autoridades. |
 
 #### <a name="audience-properties"></a>Propriedades do Público
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadeia | Yes | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
-| `tenant_id` | Cadeia | Yes | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
+| `type` | Cadeia | Sim | Especifica o público que a sua aplicação quer atingir. Valores possíveis: `AzureADandPersonalMicrosoftAccount` `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
+| `tenant_id` | Cadeia | Sim | Só é necessário quando `"type":"AzureADMyOrg"` . . Opcional para outros `type` valores. Este pode ser um domínio de inquilino, `contoso.com` como, ou um ID de inquilino `72f988bf-86f1-41af-91ab-2d7cd011db46` como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -140,8 +140,8 @@ Configure as definições globais para intervalos http, tais como:
 
 | Propriedade | Tipo de dados | Necessário | Notas |
 | ---------|-----------|------------|--------|
-| `connect_timeout` | int | No | Tempo em milissegundos |
-| `read_timeout` | int | No | Tempo em milissegundos |
+| `connect_timeout` | int | Não | Tempo em milissegundos |
+| `read_timeout` | int | Não | Tempo em milissegundos |
 
 ### <a name="logging"></a>registos
 
@@ -149,9 +149,9 @@ As seguintes configurações globais são para a exploração madeireira:
 
 | Propriedade | Tipo de Dados  | Necessário | Notas |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | No | Se emitir dados pessoais |
+| `pii_enabled`  | boolean | Não | Se emitir dados pessoais |
 | `log_level`   | cadeia (de carateres) | No | Que registar mensagens para a saída. Os níveis de registo suportados `ERROR` `WARNING` incluem, `INFO` `VERBOSE` e. |
-| `logcat_enabled` | boolean | No | Se a saída para registar o gato, além da interface de registo |
+| `logcat_enabled` | boolean | Não | Se a saída para registar o gato, além da interface de registo |
 
 ### <a name="account_mode"></a>account_mode
 

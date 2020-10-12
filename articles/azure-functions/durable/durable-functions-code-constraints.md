@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081870"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições do código de função do orquestrador
@@ -35,7 +35,7 @@ A tabela que se segue mostra exemplos de APIs que deve evitar porque *não* são
 | Números aleatórios | As APIs que devolvem números aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize uma função de atividade para devolver números aleatórios a uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para a repetição. |
 | Enlaces | As ligações de entrada e saída normalmente fazem E/S e não são desdeterminísticas. Uma função orquestradora não deve utilizar diretamente nem mesmo as ligações do [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [da entidade](durable-functions-bindings.md#entity-client) cliente. | Utilize encadernações de entrada e saída dentro das funções de cliente ou de atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são desdeterminais. | Utilize funções de atividade para escamar chamadas de rede. Se necessitar de fazer uma chamada HTTP da função do seu orquestrador, também pode utilizar as [APIS HTTP duráveis.](durable-functions-http-features.md#consuming-http-apis) |
-| APIs de bloqueio | Bloquear APIs como `Thread.Sleep` em .NET e APIs semelhantes pode causar problemas de desempenho e escala para funções de orquestrador e deve ser evitado. No plano de consumo de funções Azure, podem mesmo resultar em taxas de execução desnecessárias. | Use alternativas para bloquear APIs quando estiverem disponíveis. Por exemplo, use `CreateTimer` para introduzir atrasos na execução da orquestração. [Atrasos temporais duradouros](durable-functions-timers.md) não contam para o tempo de execução de uma função orquestradora. |
+| APIs de bloqueio | Bloquear APIs como `Thread.Sleep` em .NET e APIs semelhantes pode causar problemas de desempenho e escala para funções de orquestrador e deve ser evitado. No plano de consumo de funções Azure, podem mesmo resultar em taxas de execução desnecessárias. | Use alternativas para bloquear APIs quando estiverem disponíveis. Por exemplo, use  `CreateTimer` para introduzir atrasos na execução da orquestração. [Atrasos temporais duradouros](durable-functions-timers.md) não contam para o tempo de execução de uma função orquestradora. |
 | Async APIs | O código do orquestrador nunca deve iniciar qualquer operação de assíduo, exceto utilizando a `IDurableOrchestrationContext` API ou a `context.df` API do objeto. Por exemplo, não é possível utilizar `Task.Run` `Task.Delay` , e em `HttpClient.SendAsync` .NET ou em `setTimeout` `setInterval` JavaScript. O Quadro de Tarefas Duráveis executa o código do orquestrador num único fio. Não pode interagir com outros fios que possam ser chamados por outras APIs async. | Uma função orquestradora deve fazer apenas chamadas de async duráveis. As funções de atividade devem escama para qualquer outra chamada de API de apimento. |
 | Funções Async JavaScript | Não é possível declarar funções de orquestrador JavaScript como `async` porque o tempo de execução node.js não garante que as funções assíncronas sejam determinísticas. | Declare funções de orquestrador JavaScript como funções de gerador sincronizado. |
 | APIs de roscar | O Quadro de Tarefas Duráveis executa código de orquestrador num único fio e não pode interagir com outros fios. Introduzir novos fios na execução de uma orquestração pode resultar em execuções não deterministas ou impasses. | As funções do orquestrador quase nunca devem utilizar APIs de roscar. Por exemplo, em .NET, evite a `ConfigureAwait(continueOnCapturedContext: false)` utilização; isto garante que as continuações de tarefas são executadas no original da função orquestradora `SynchronizationContext` . Se tais APIs forem necessárias, limite a sua utilização apenas a funções de atividade. |

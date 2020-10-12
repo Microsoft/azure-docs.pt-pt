@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774465"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Falhe no seu StorSimple Cloud Appliance

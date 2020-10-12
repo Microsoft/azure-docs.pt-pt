@@ -8,10 +8,10 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255167"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142388"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço de nuvem
@@ -48,7 +48,7 @@ Três funcionalidades de serviço em nuvem requerem configurações especiais an
 
 Para criar um serviço em nuvem com implementações de funções web ou funções de trabalhador, tem de [criar o pacote de serviços](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Se ainda não instalou o Azure SDK, clique em **Instalar Azure SDK** para abrir a [página Azure Downloads](https://azure.microsoft.com/downloads/)e, em seguida, descarregue o SDK para o idioma em que prefere desenvolver o seu código. (Terá a oportunidade de fazer isto mais tarde.)
 * Se alguma instância de papel necessitar de um certificado, crie os certificados. Os serviços em nuvem requerem um ficheiro .pfx com uma chave privada. Pode fazer o upload dos certificados para Azure à medida que criar e implementar o serviço de cloud.
 
@@ -86,7 +86,7 @@ Se o seu pacote de implantação foi [configurado para utilizar certificados,](c
 
 [TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)
 * [Gerencie o seu serviço na nuvem](cloud-services-how-to-manage-portal.md).

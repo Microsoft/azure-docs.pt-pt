@@ -8,10 +8,10 @@ ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 24c9e5137e59fbd14a489b4d41709f39aa448ed8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231355"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de segurança Azure para Azure Firewall

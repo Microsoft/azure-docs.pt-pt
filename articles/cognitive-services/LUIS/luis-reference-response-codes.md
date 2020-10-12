@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 03/04/2019
 ms.openlocfilehash: 46a7fff86d3a8c4539b77a0f271179d68e7a26d2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541684"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta comuns da API e o seu significado
@@ -38,6 +38,6 @@ A tabela a seguir enumera alguns dos códigos de estado de resposta HTTP mais co
 |414|Ponto final|consulta excede limite máximo de caracteres|
 |429|Autoria, Endpoint|Limite de taxa é ultrapassado (pedidos/segundo)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Documentação [de autoria](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) e [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) REST API

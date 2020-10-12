@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88535867"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Diretório Ativo Azure com o LockPath Keylight
 
@@ -133,15 +133,15 @@ Para configurar o Azure AD com a chave de chaves LockPath, execute os seguintes 
 
     b. No menu em cima, clique em **Pessoa**e selecione **Keylight Setup**.
 
-    ![Configurar Sign-On Individuais](./media/keylight-tutorial/401.png)
+    ![Screenshot que mostra o ícone "Pessoa" selecionado e "Keylight Setup" selecionado a partir do drop-down.](./media/keylight-tutorial/401.png)
 
     c. Na visão da árvore à esquerda, clique em **SAML**.
 
-    ![Configurar Sign-On Individuais](./media/keylight-tutorial/402.png)
+    ![Screenshot que mostra "S A M L" selecionado na vista da árvore.](./media/keylight-tutorial/402.png)
 
     d. No diálogo **de Definições SAML,** clique em **Editar**.
 
-    ![Configurar Sign-On Individuais](./media/keylight-tutorial/404.png)
+    ![Screenshot que mostra a janela "S A M L Settings" com o botão "Editar" selecionado.](./media/keylight-tutorial/404.png)
 
 1. Na página de diálogo **de configurações de Edição SAML,** execute os seguintes passos:
 

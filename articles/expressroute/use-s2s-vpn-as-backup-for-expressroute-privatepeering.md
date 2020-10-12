@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: duau
 ms.openlocfilehash: 0ab74a14c16b7ea1d587cfcc82eea689e2f98c83
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393025"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como uma cópia de segurança para o espreitamento privado ExpressRoute
@@ -302,7 +302,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 Para confirmar que o tráfego é recíproca para ExpressRoute, repita o percurso e certifique-se de que está a passar pelo espreitamento privado ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O ExpressRoute foi concebido para uma elevada disponibilidade sem um único ponto de falha dentro da rede microsoft. Ainda um circuito ExpressRoute está confinado a uma única região geográfica e a um prestador de serviços. A S2S VPN pode ser uma boa solução de backup passiva de recuperação de desastres para um circuito ExpressRoute. Para uma solução de ligação de backup passiva fiável, a manutenção regular da configuração passiva e a validação periódica da ligação são importantes. É essencial não deixar que a configuração VPN fique velha e, periodicamente (digamos, cada trimestre) repita os passos de teste de validação e failover descritos neste artigo durante a janela de manutenção.
 

@@ -1,14 +1,14 @@
 ---
-title: Base de dados de reserva Azure para PostgreSQL
+title: Cópia de Segurança da Base de Dados do Azure para PostgreSQL
 description: Saiba mais sobre a Base de Dados Azure para cópia de segurança pós-SQL com retenção a longo prazo (pré-visualização)
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
 ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997315"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)

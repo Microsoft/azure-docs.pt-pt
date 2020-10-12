@@ -6,10 +6,10 @@ documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843316"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
@@ -45,7 +45,7 @@ Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máqui
 
 Para obter mais informações, leia [os tipos de nó de nó de tecido de serviço e conjuntos de balança de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com * &lt; nome &gt; de cluster,* o nome DNS, * &lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
 
 Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: * &lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS * &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS * &lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.

@@ -11,10 +11,10 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541718"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
@@ -326,7 +326,7 @@ rl_estimator = ReinforcementLearningEstimator(
 
 O [script de entrada](https://aka.ms/azure-rl-pong-script) treina uma rede neural utilizando o ambiente `pong_rllib.py` [openai gym](https://github.com/openai/gym/) `PongNoFrameSkip-v4` . OpenAI Gyms são interfaces padronizadas para testar algoritmos de aprendizagem de reforço em jogos clássicos da Atari.
 
-Este exemplo usa um algoritmo de formação conhecido como [IMPALA](https://arxiv.org/abs/1802.01561) (Import importance Weighted Actor-Learner Architecture). O IMPALA paraliza cada ator de aprendizagem individual para escalar em muitos nós computacional sem sacrificar a velocidade ou a estabilidade.
+Este exemplo usa um algoritmo de formação conhecido como [IMPALA](https://arxiv.org/abs/1802.01561) (Importância Ponderada Actor-Learner Arquitetura). O IMPALA paraliza cada ator de aprendizagem individual para escalar em muitos nós computacional sem sacrificar a velocidade ou a estabilidade.
 
 [Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) orquestra as tarefas dos trabalhadores do IMPALA.
 
@@ -431,6 +431,6 @@ Se navegar em registos da execução da criança, pode ver os resultados da aval
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
 ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511182"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Backup Azure para O Servidor SQL em execução em Azure VM
@@ -85,7 +85,7 @@ O JSON seguinte mostra o esquema para a extensão WorkloadBackup.
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-Name | Valor/exemplo | Tipo de dados
+Nome | Valor/exemplo | Tipo de dados
  --- | --- | ---
 região | pt-pt  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
@@ -100,7 +100,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 Recomendamos que a adição da extensão AzureBackupWindowsWorkload a uma máquina virtual seja ativada através da cópia de segurança do SQL Server na máquina virtual. Isto pode ser alcançado através do [modelo de Gestor de Recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) projetado para automatizar backup em um SQL Server VM.
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 É necessário 'registar' o Azure VM que contém a aplicação SQL com um cofre de serviços de Recuperação. Durante o registo, a extensão AzureBackupWindowsWorkload é instalada no VM. Utilize [o Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) cmdlet para registar o VM.
 
@@ -111,7 +111,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 
 O comando devolverá um contentor de **reserva** deste recurso e o estado será **registado**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](../../backup/backup-sql-server-azure-troubleshoot.md) sobre as diretrizes de resolução de problemas de backup do Azure SQL Server VM
 - [Perguntas comuns](../../backup/faq-backup-sql-server.md) sobre o backup das bases de dados do SQL Server que funcionam em máquinas virtuais Azure (VMs) e que utilizam o serviço de Backup Azure.

@@ -6,10 +6,10 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843214"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestão do Estado com Tecido de Serviço

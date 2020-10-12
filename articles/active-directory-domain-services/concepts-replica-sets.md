@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: iainfou
 ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505734"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Réplica define conceitos e funcionalidades para Azure Ative Directory Domain Services (pré-visualização)
@@ -68,7 +68,7 @@ Os conjuntos de réplicas são uma funcionalidade de pré-visualização públic
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>Posso criar uma réplica definida em subscrição diferente do meu domínio gerido?
 
-Não. Os conjuntos de réplicas devem estar na mesma subscrição que o domínio gerido.
+N.º Os conjuntos de réplicas devem estar na mesma subscrição que o domínio gerido.
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Quantos conjuntos de réplicas posso criar?
 

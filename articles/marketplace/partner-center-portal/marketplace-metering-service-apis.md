@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319988"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de faturação medido no mercado
@@ -65,7 +65,7 @@ Apenas um evento de utilização pode ser emitido por cada hora de um dia de cal
 ```
 
 >[!NOTE]
->`resourceId`tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
+>`resourceId` tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
 
 Para os planos de aplicações geridas por aplicações Azure, `resourceId` o encontra-se `resourceUsageId` sob o objeto de `billingDetails` metadados da Aplicação Gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
@@ -95,7 +95,7 @@ Código: 400 <br>
 Mau pedido.
 
 * Dados de pedidos em falta ou inválidos fornecidos.
-* `effectiveStartTime`é mais de 24 horas no passado. O evento expirou.
+* `effectiveStartTime` é mais de 24 horas no passado. O evento expirou.
 * A subscrição do SaaS não está no estado de Subscrição.
 
 Exemplo de carga útil de resposta: 
@@ -189,7 +189,7 @@ O evento de utilização do lote API permite-lhe emitir eventos de utilização 
 ```
 
 >[!NOTE]
->`resourceId`tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
+>`resourceId` tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
 
 Para os planos de aplicações geridas por aplicações Azure, `resourceId` o encontra-se `resourceUsageId` sob o objeto de `billingDetails` metadados da Aplicação Gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 

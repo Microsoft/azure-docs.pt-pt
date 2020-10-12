@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760129"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no motor standard para Azure CDN
@@ -63,9 +63,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
 
 ### <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -75,9 +75,9 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | Cadeia
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
 
@@ -89,7 +89,7 @@ Campo | Descrição
 ------|------------
 Tipo | Selecione o tipo de resposta para voltar ao solicitador: Encontrado (302), Movido (301), Redirecionamento Temporário (307) e Redirecionamento Permanente (308).
 Protocolo | PEDIDO DE CORRESPONDÊNCIA, HTTP, HTTPS.
-Nome de anfitrião | Selecione o nome de anfitrião para o quais pretende que o pedido seja redirecionado. Deixe em branco para preservar o hospedeiro que está a chegar.
+Hostname (Nome do anfitrião) | Selecione o nome de anfitrião para o quais pretende que o pedido seja redirecionado. Deixe em branco para preservar o hospedeiro que está a chegar.
 Caminho | Defina o caminho a utilizar no redirecionamento. Deixe em branco para preservar o caminho de entrada.  
 Cadeias de consulta | Defina a cadeia de consulta utilizada no redirecionamento. Deixe em branco para preservar a cadeia de consulta de entrada. 
 Fragment | Defina o fragmento para utilizar no redirecionamento. Deixe em branco para preservar o fragmento de entrada. 

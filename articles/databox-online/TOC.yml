@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: 8 - Configurar computação
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: '9A - Adicionar, ligar para partilhar'
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: '9B - Adicionar, ligar às contas de armazenamento'
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Conceitos
       items:
         - name: Rever requisitos
@@ -87,6 +83,8 @@
               items:
                 - name: Aplicação sem estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Desenvolver um módulo C#
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: Através do Azure Arc (Pré-visualização)
               items:
                 - name: Ativar o Arc no cluster do Kubernetes
@@ -123,12 +121,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Resolver problemas de erros de certificado
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: Desenvolver um módulo C#
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Gerir a computação edge
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gerir o gateway de armazenamento
           items:
+            - name: 'Adicionar, ligar para partilhar'
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: 'Adicionar, ligar às contas de armazenamento'
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Partilhas
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Utilizadores
@@ -149,13 +149,17 @@
               href: azure-stack-edge-return-device.md
             - name: Substituir dispositivo
               href: azure-stack-edge-replace-device.md
+            - name: Preparar para a falha do dispositivo
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Recuperar da falha do dispositivo
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Monitorizar
           items:
             - name: Utilizar gráficos de métricas
               href: azure-stack-edge-monitor.md
             - name: Utilizar o dashboard do Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
-        - name: Resolver Problemas
+        - name: Resolução de problemas
           items:
             - name: Problemas de dispositivo
               href: azure-stack-edge-gpu-troubleshoot.md

@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541191"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Ver e atribuir funções de administrador no Azure Active Directory
@@ -77,7 +77,7 @@ Para descarregar todas as atribuições para uma função específica, na págin
 
     ![lista de permissões para um papel de administrador](./media/directory-manage-roles-portal/directory-role-select-role.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](directory-assign-admin-roles.md).

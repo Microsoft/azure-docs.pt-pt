@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
 ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707936"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Servidor Único
@@ -77,7 +77,7 @@ Eis alguns cenários de falha que exigem que a ação do utilizador recupere:
 
 A Azure Database for PostgreSQL fornece uma capacidade de reinício rápido dos servidores de base de dados, armazenamento redundante e encaminhamento eficiente a partir do Gateway. Para uma proteção adicional de dados, pode configurar cópias de segurança para serem geo-replicadas, e também implementar uma ou mais réplicas de leitura noutras regiões. Com capacidades inerentes de elevada disponibilidade, a Azure Database for PostgreSQL protege as suas bases de dados das interrupções mais comuns, e oferece uma indústria líder, apoiada por financiamento, [99,99% do SLA de uptime.](https://azure.microsoft.com/support/legal/sla/postgresql) Todas estas capacidades de disponibilidade e fiabilidade permitem ao Azure ser a plataforma ideal para executar as suas aplicações críticas de missão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Conheça as [regiões de Azure](../availability-zones/az-overview.md)
 - Saiba como [lidar com erros de conectividade transitórios](concepts-connectivity.md)
 - Saiba como [replicar os seus dados com réplicas lidas](howto-read-replicas-portal.md)

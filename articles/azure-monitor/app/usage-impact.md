@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323711"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com Insights de Aplicação
@@ -84,7 +84,7 @@ A forma como o Impacto é calculado varia em termos de base no facto de estarmos
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Fluxos do Utilizador](usage-flows.md)
+    - [Fluxos de Utilizador](usage-flows.md)
     - [Livros](../platform/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

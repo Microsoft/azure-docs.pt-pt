@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326461"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
@@ -27,13 +27,13 @@ Pode utilizar tags de serviço para definir controlos de acesso à rede em [grup
 
 | Etiqueta de serviço | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Grelha de Eventos Azure. | Ambos | No | No |
+| AzureEventGrid | Grelha de Eventos Azure. | Ambos | Não | Não |
 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
 A Azure Event Grid suporta controlos de acesso baseados em IP para publicação de tópicos e domínios. Com controlos baseados em IP, pode limitar os editores a um tópico ou domínio a apenas um conjunto de máquinas e serviços de nuvem aprovados. Esta funcionalidade complementa os [mecanismos de autenticação suportados](security-authentication.md) pela Grade de Eventos.
 
-Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
+Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
 
 Para obter instruções passo a passo para configurar firewall IP para tópicos e domínios, consulte [a firewall IP configurar](configure-firewall.md).
 
@@ -83,10 +83,10 @@ A tabela que se segue descreve os vários estados da ligação privada ao ponto 
 
 | Estado de Ligação   |  Publicar com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Yes                            |
-| Rejeitado           | No                             |
-| Pendente            | No                             |
-| Desligado       | No                             |
+| Aprovado           | Sim                            |
+| Rejeitado           | Não                             |
+| Pendente            | Não                             |
+| Desligado       | Não                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de ponto final privado deve ser **aprovado**. Se uma ligação for rejeitada, não pode ser aprovada usando o portal Azure. A única possibilidade é apagar a ligação e criar uma nova.
 

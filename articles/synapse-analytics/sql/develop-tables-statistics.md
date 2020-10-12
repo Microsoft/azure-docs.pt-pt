@@ -12,10 +12,10 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288669"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
@@ -443,7 +443,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo | Description |
+| Vista de catálogo | Descrição |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada coluna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada objeto na base de dados. |
@@ -457,7 +457,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema | Description |
+| Função do sistema | Descrição |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Data em que o objeto estatístico foi atualizado pela última vez. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Nível de resumo e informação detalhada sobre a distribuição de valores conforme entendido pelo objeto estatístico. |
@@ -549,7 +549,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 `DBCC SHOW_STATISTICS()` é mais rigorosamente implementado na piscina SQL em comparação com o SQL Server:
 
 - As funcionalidades não documentadas não são suportadas.
-- Não posso usáStats_stream.
+- Não posso usá Stats_stream.
 - Não se pode juntar resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER junte-se DENSITY_VETOR.
 - NO_INFOMSGS não pode ser preparado para a supressão de mensagens.
 - Os parênteses quadrados em torno das estatísticas não podem ser usados.

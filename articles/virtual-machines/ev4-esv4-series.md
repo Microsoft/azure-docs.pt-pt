@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2c6540513c46307e4bd51b163dd77984395006c5
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649512"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945435"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
-A série Ev4 e Esv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504GiB de RAM. Apresenta uma velocidade do relógio Turbo de 3,4 GHz.
+A série Ev4 e Esv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504GiB de RAM. Apresenta toda a velocidade do relógio Turbo core de 3,4 GHz.
 
 > [!NOTE]
 > Para perguntas frequentes, consulte os  [tamanhos Azure VM sem disco temporário local](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Série Ev4
 
-Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (Lago cascade). As instâncias da série Ev4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Ev4 apresentam tecnologia de &reg; hiper rosca Intel.
+Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (Lago cascade). As instâncias da série Ev4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Ev4 apresentam Tecnologia &reg; intel Hyper-Threading.
 
 O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais. Para utilizar discos de armazenamento premium, utilize os tamanhos Esv4. Os preços e os contadores de faturação para tamanhos Esv4 são os mesmos que a série Ev4.
 
@@ -51,7 +51,7 @@ O armazenamento remoto do disco de dados é faturado separadamente das máquinas
 
 ## <a name="esv4-series"></a>Série Esv4
 
-Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (Lago cascata). As instâncias da série Esv4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Evs4 apresentam tecnologia de &reg; hiper rosca Intel. O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais.
+Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (Lago cascata). As instâncias da série Esv4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Evs4 apresentam Tecnologia &reg; intel Hyper-Threading. O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais.
 
 [ACU](acu.md): 195-210<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>
@@ -90,6 +90,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

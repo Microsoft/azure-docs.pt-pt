@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
 ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595026"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
@@ -72,7 +72,7 @@ Depois de ter preparado o seu serviço de armazenamento ir e Azure Blob auto-hos
 
 1. Na secção **Definições Avançadas,** faça o seguinte:
 
-   1. Selecione o **Tempo de Execução de Integração Auto-hospedada como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS.** 
+   1. Selecione o **Prazo de execução de integração Self-Hosted configuração como um proxy para a sua caixa de verificação de tempo de execução de integração Azure-SSIS.** 
 
    1. Na lista de drop-down de **integração auto-hospedada,** selecione o seu IR auto-hospedado existente como um representante para o Azure-SSIS IR.
 
@@ -80,7 +80,7 @@ Depois de ter preparado o seu serviço de armazenamento ir e Azure Blob auto-hos
 
    1. Na caixa de **caminho de staging,** especifique um recipiente blob na sua conta de armazenamento Azure Blob selecionada ou deixe-a vazia para utilizar uma padrão para a encenação.
 
-   1. **Selecione Continuar**.
+   1. Selecione **Continuar**.
 
    ![Configurações avançadas com um IR auto-hospedado](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -179,6 +179,6 @@ Se precisar de utilizar uma encriptação forte/protocolo de rede mais seguro (T
 - Apenas os serviços ligados ao armazenamento Azure Blob que estão configurados com *a chave conta,* *a Assinatura de Acesso Partilhado (SAS) URI*ou a autenticação *principal do serviço* são atualmente suportados.
 - *O modo de aplicação de parâmetros* na Fonte OLEDB não é atualmente suportado. Como solução alternativa, utilize o *Comando SQL from Variable* como o *AccessMode* e use *a Expressão* para inserir as suas variáveis/parâmetros num comando SQL. Como ilustração, consulte o pacote *ParameterMappingSample.dtsx* que pode ser encontrado na pasta *SelfHostedIRProxy/Limitations* do nosso recipiente de pré-visualização pública. Utilizando o Azure Storage Explorer, pode ligar-se ao nosso recipiente de pré-visualização público introduzindo o SAS URI acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o seu IR auto-hospedado como um representante para o seu Azure-SSIS IR, pode implementar e executar os seus pacotes para aceder aos dados no local como executar atividades do Pacote SSIS em pipelines data Factory. Para saber como, consulte [os pacotes Run SSIS como executar atividades de pacote SSIS em pipelines data factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

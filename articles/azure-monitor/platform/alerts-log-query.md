@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7f03858b2427b2a2069ebe2c9d06425e7a741e2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294364"
 ---
 # <a name="optimizing-log-alert-queries"></a>Otimização de consultas de alerta de registo

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707919"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versões principais pós-SQL suportadas
@@ -41,5 +41,5 @@ As atualizações automáticas para as principais versões não são suportadas.
 ### <a name="version-syntax"></a>Sintaxe da versão
 Antes da versão 10 do PostgreSQL, a [política de versão PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma _atualização de versão importante_ como um aumento no primeiro _ou_ segundo número. Por exemplo, 9.5 a 9.6 foi considerado uma _grande_ atualização de versão. A partir da versão 10, apenas uma alteração no primeiro número é considerada uma grande atualização de versão. Por exemplo, 10.0 a 10.1 é uma _pequena_ atualização de lançamento. A versão 10 a 11 é uma _grande_ atualização de versão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre extensões postgresQL suportadas, consulte [o documento de extensões](concepts-extensions.md).
