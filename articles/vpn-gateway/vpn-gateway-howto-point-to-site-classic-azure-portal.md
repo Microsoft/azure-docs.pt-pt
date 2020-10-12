@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984782"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configure uma ligação ponto-a-local utilizando a autenticação de certificado (clássico)
@@ -81,7 +81,7 @@ Antes de começar, verifique se tem uma assinatura Azure. Se ainda não tiver um
 
 Se ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para criar uma VNet com o portal do Azure, siga os passos abaixo:
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**. A **New** nova página abre.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**. A **New** nova página abre.
 
 2. No campo **'Pesquisar no mercado',** insira *a rede virtual* e selecione a rede **Virtual** a partir da lista de devoluções. A página **de rede Virtual** abre.
 
@@ -138,7 +138,7 @@ Neste passo, você cria uma sub-rede de gateway e um gateway de encaminhamento d
  
 ## <a name="create-certificates"></a><a name="generatecerts"></a>Criar certificados
 
-O Azure utiliza certificados para autenticar clientes VPN para VPNs ponto-a-local. Carrega as informações da chave pública do certificado de raiz para o Azure. A chave pública é então considerada *de confiança.* Os certificados de cliente devem ser gerados a partir do certificado raiz fidedigno e depois instalados em cada computador cliente na loja de certificados Desemis-Correntes do Utilizador\Personal\Certificates. O certificado é utilizado para autenticar o cliente quando este se liga ao VNet. 
+O Azure utiliza certificados para autenticar clientes VPN para VPNs ponto-a-local. Carrega as informações da chave pública do certificado de raiz para o Azure. A chave pública é então considerada *de confiança.* Os certificados de cliente devem ser gerados a partir do certificado raiz fidedigno e depois instalados em cada computador cliente na loja Certificates-Current de certificados user\Personal\Certificates. O certificado é utilizado para autenticar o cliente quando este se liga ao VNet. 
 
 Se utilizar certificados auto-assinados, devem ser criados utilizando parâmetros específicos. Pode criar um certificado auto-assinado utilizando as instruções [para PowerShell e Windows 10](vpn-gateway-certificates-point-to-site.md), ou [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). É importante seguir os passos nestas instruções quando utiliza certificados de raiz auto-assinados e gera certificados de cliente a partir do certificado raiz auto-assinado. Caso contrário, os certificados que criar não serão compatíveis com ligações P2S e receberá um erro de ligação.
 
@@ -280,7 +280,7 @@ Depois de concluída a atualização, o certificado já não pode ser utilizado 
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois da sua ligação estar concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). 
 

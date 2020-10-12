@@ -4,7 +4,7 @@
   items:
     - name: Sobre a Rede Virtual
       href: virtual-networks-overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar rede virtual - Portal
       href: quick-create-portal.md

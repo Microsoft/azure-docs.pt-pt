@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87030305"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementar e gerir os centros de notificação utilizando o PowerShell
@@ -46,7 +46,7 @@ O Managing Notifications Hubs não é suportado diretamente pelos cmdlets inclu�
 
 A gestão dos hubs de notificação do Azure ainda não está incluída com os cmdlets PowerShell em Azure PowerShell. Para fornecer centros de notificação, pode utilizar o cliente .NET fornecido no [pacote NuGet do Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Em primeiro lugar, certifique-se de que o seu script pode localizar o conjunto **Microsoft.Azure.NotificationHubs.dll,** que está instalado como um pacote NuGet num projeto do Visual Studio. Para ser flexível, o script executa estes passos:
+Em primeiro lugar, certifique-se de que o seu script pode localizar o conjunto **Microsoft.Azure.NotificationHubs.dll, ** que está instalado como um pacote NuGet num projeto do Visual Studio. Para ser flexível, o script executa estes passos:
 
 1. Determina o caminho em que foi invocado.
 2. Percorre o caminho até encontrar uma pasta chamada `packages` . Esta pasta é criada quando instala pacotes NuGet para projetos de Estúdio Visual.
@@ -78,7 +78,7 @@ catch [System.Exception]
 
 Para providenciar Centros de Notificação, crie uma instância da classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) a partir do SDK.
 
-Pode utilizar o [cmdlet Get-AzureSBAuthorizationRule] incluído com a Azure PowerShell para recuperar uma regra de autorização que é usada para fornecer uma cadeia de ligação. Uma referência ao `NamespaceManager` caso é armazenada na `$NamespaceManager` variável. `$NamespaceManager`é utilizado para a provisionar um centro de notificação.
+Pode utilizar o [cmdlet Get-AzureSBAuthorizationRule] incluído com a Azure PowerShell para recuperar uma regra de autorização que é usada para fornecer uma cadeia de ligação. Uma referência ao `NamespaceManager` caso é armazenada na `$NamespaceManager` variável. `$NamespaceManager` é utilizado para a provisionar um centro de notificação.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace

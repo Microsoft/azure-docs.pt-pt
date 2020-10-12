@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921406"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft
@@ -62,9 +62,9 @@ Na API do Gráfico da Microsoft, as identidades locais e federadas são armazena
 
 | Propriedade   | Tipo |Descrição|
 |:---------------|:--------|:----------|
-|signInType|string| Especifica os tipos de inscrição do utilizador no seu diretório. Para a conta local: `emailAddress` , , , , ou qualquer outro tipo que você `emailAddress1` `emailAddress2` `emailAddress3` `userName` goste. A conta social deve ser definida para `federated` .|
-|issuer|string|Especifica o emitente da identidade. Para contas locais (onde **o signInType** não `federated` está), esta propriedade é o nome de domínio padrão do inquilino B2C local, por `contoso.onmicrosoft.com` exemplo. Para a identidade social (onde **o signInType** `federated` é) o valor é o nome do emitente, por exemplo`facebook.com`|
-|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando **o signInType** está definido para `emailAddress` `userName` ou, representa o nome de inscrição para o utilizador.<br>Quando **o signInType** estiver definido para: <ul><li>`emailAddress`(ou começa com `emailAddress` como `emailAddress1` ) **emitenteAssignedId** deve ser um endereço de e-mail válido</li><li>`userName`(ou qualquer outro valor), **emitenteAssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
+|signInType|string| Especifica os tipos de inscrição do utilizador no seu diretório. Para a conta local:  `emailAddress` , , , , ou qualquer outro tipo que você `emailAddress1` `emailAddress2` `emailAddress3`  `userName` goste. A conta social deve ser definida para  `federated` .|
+|issuer|string|Especifica o emitente da identidade. Para contas locais (onde **o signInType** não `federated` está), esta propriedade é o nome de domínio padrão do inquilino B2C local, por `contoso.onmicrosoft.com` exemplo. Para a identidade social (onde **o signInType**  `federated` é) o valor é o nome do emitente, por exemplo `facebook.com`|
+|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando **o signInType** está definido para `emailAddress` `userName` ou, representa o nome de inscrição para o utilizador.<br>Quando **o signInType** estiver definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1` ) **emitenteAssignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), **emitenteAssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
 
 A seguinte **propriedade identidades,** com uma identidade de conta local com nome de inscrição, um endereço de e-mail como s-in, e com uma identidade social. 
 

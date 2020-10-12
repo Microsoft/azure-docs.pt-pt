@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078622"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerir aplicativos lógicos no portal Azure
@@ -59,7 +59,7 @@ Para encontrar e abrir a sua aplicação lógica, siga estes passos:
    * **Grupo de recursos**
    * **Localização**
    * **Tipo** 
-   * **Nome da Subscrição**
+   * **Nome da assinatura**
    * **ID da Subscrição**
    * **Ponto final de acesso**
    * **Endereços IP de saída de tempo de execução**

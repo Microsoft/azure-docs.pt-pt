@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935889"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
@@ -68,7 +68,7 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 ## <a name="language-analyzer-list"></a>Lista de analisadores de idiomas 
  Abaixo está a lista de línguas suportadas juntamente com nomes de analisadores lucene e Microsoft.  
 
-|Linguagem|Nome do analisador da Microsoft|Nome do analisador lucene|  
+|Idioma|Nome do analisador da Microsoft|Nome do analisador lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Arménio||hy.lucene|  
@@ -82,7 +82,7 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Em inglês|en.microsoft|en.lucene|  
+|Inglês|en.microsoft|en.lucene|  
 |Estónio|et.microsoft||  
 |Finlandês|fi.microsoft|fi.lucene|  
 |Francês|fr.microsoft|fr.lucene|  
@@ -129,7 +129,7 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
 + [Criar índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
 

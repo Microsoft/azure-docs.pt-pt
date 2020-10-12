@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985536"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de Núcleos da Verizon
@@ -100,7 +100,7 @@ Para reduzir os acessos de cache expirados, desacerte os de um ativo `max-age` p
 * TCP_MISS: Este estado indica que uma versão em cache do ativo solicitado não foi encontrada no POP mais próximo do cliente. O ativo é solicitado a partir de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor do escudo de origem devolverem um ativo, este é servido ao cliente e em cache tanto no cliente como no servidor edge. Caso contrário, é devolvido um código de estado não-200 (por exemplo, 403 Proibido ou 404 Não Encontrados).
 * TCP_EXPIRED_HIT: Este estado é reportado quando um pedido que visa um ativo com um TTL caducado foi servido diretamente do POP para o cliente. Por exemplo, quando a idade máxima do ativo tiver expirado. 
   
-   Um pedido expirado normalmente resulta num pedido de revalidação para o servidor de origem. Para que um estado TCP_EXPIRED_HIT ocorra, o servidor de origem deve indicar que não existe uma versão mais recente do ativo. Esta situação normalmente resulta numa atualização dos cabeçalhos Cache-Control e Expires do ativo.
+   Um pedido expirado normalmente resulta num pedido de revalidação para o servidor de origem. Para que um estado TCP_EXPIRED_HIT ocorra, o servidor de origem deve indicar que não existe uma versão mais recente do ativo. Esta situação normalmente resulta numa atualização dos cabeçalhos Cache-Control e Expira do ativo.
 * TCP_EXPIRED_MISS: Este estado é relatado quando uma versão mais recente de um ativo em cache expirado é servida do POP para o cliente. Este estado ocorre quando o TTL de um ativo em cache é expirado (por exemplo, a idade máxima expirada) e o servidor de origem devolve uma versão mais recente desse ativo. Esta nova versão do ativo é servida ao cliente em vez da versão em cache. Além disso, está em cache no servidor de borda e no cliente.
 * CONFIG_NOCACHE: Este estado indica que uma configuração específica do cliente a borda POP impediu que o ativo fosse em cache.
 * NENHUM - Este estado indica que não foi efetuada uma verificação de frescura de conteúdo de cache.

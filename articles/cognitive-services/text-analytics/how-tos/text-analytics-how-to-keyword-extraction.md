@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704383"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando a Análise de Texto
@@ -168,12 +168,12 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para a extração de frases
 + O pedido POST refere-se a um ponto final `/keyphrases` com recurso a uma [chave de acesso personalizada e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste em palavras-chave e frases para cada ID do documento, pode ser transmitida a qualquer aplicação que aceite o JSON, incluindo o Microsoft Office Excel e o Power BI, para citar alguns.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
  [Visão geral do Text Analytics](../overview.md) Perguntas [frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
 ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614092"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configure Cinode para o fornecimento automático de utilizadores
@@ -120,7 +120,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |externalId|String|
    |active|Booleano|
    |título|String|
-   |endereços[tipo eq "work"].localidade|String|
+   |endereços[tipo eq "work"].localidade|Cadeia|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Cinode**.
 

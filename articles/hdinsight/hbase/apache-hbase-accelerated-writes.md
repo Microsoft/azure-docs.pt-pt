@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654859"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escritas Aceleradas do Azure HDInsight para o Apache HBase
@@ -32,7 +32,7 @@ Se um **RegiãoServer** falhar ou ficar indisponível antes da MemStore ser lava
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funcionalidade de Escritas Aceleradas em Azure HDInsight para Apache HBase
 
-A funcionalidade Writes Acelerada resolve o problema das mais altas latências de escrita causadas pela utilização de Write Ahead Logs que estão no armazenamento em nuvem.  A funcionalidade De Escritas Aceleradas para clusters HDInsight Apache HBase, anexa discos geridos por SSD premium a todos os RegionServer (nó de trabalhador). Os Registos Antecipados são então escritos para o Sistema de Ficheiros Hadoop (HDFS) montado nestes discos geridos premium em vez de armazenamento em nuvem.  Os discos geridos premium utilizam discos de estado sólido (SSDs) e oferecem um excelente desempenho de I/S com tolerância a falhas.  Ao contrário dos discos não geridos, se uma unidade de armazenamento cair, não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos geridos proporcionam baixa latência de escrita e melhor resiliência para as suas aplicações. Para saber mais sobre discos geridos pelo Azure, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md).
+A funcionalidade Writes Acelerada resolve o problema das mais altas latências de escrita causadas pela utilização de Write Ahead Logs que estão no armazenamento em nuvem.  A funcionalidade De Escritas Aceleradas para clusters HDInsight Apache HBase, anexa discos geridos por SSD premium a todos os RegionServer (nó de trabalhador). Os Registos Antecipados são então escritos para o Sistema de Ficheiros Hadoop (HDFS) montado nestes discos geridos premium em vez de armazenamento em nuvem.  Os discos geridos premium utilizam Solid-State Discos (SSDs) e oferecem um excelente desempenho de I/S com tolerância à falha.  Ao contrário dos discos não geridos, se uma unidade de armazenamento cair, não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos geridos proporcionam baixa latência de escrita e melhor resiliência para as suas aplicações. Para saber mais sobre discos geridos pelo Azure, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como ativar writes acelerados para HBase em HDInsight
 

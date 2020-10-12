@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral dos componentes e arquitetura 
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87422662"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre de servidores físicos para o Azure
@@ -40,7 +40,7 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -92,6 +92,6 @@ Após a configuração da replicação, pode executar um exercício de recupera�
 
 ![Reativação pós-falha](./media/physical-azure-architecture/enhanced-failback.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar a recuperação de desastres para servidores físicos para Azure, consulte o [guia de como fazer.](physical-azure-disaster-recovery.md)

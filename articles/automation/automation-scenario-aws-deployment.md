@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185947"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Implementar um VM de Serviços Web da Amazon com um livro de bordo
@@ -92,7 +92,7 @@ Uma vez implantado o Módulo AWS PowerShell, pode agora ser autoriado um livro d
 Certifique-se de que o módulo AWS PowerShell foi importado para a Azure Automation.  
 3. Na Azure Automation, estabeleça **registos verbosos de Log** e faça login opcionalmente **registos de progresso** no âmbito da operação **runbook Logging e tracing** to **On**.<br><br> ![Registo e rastreio de runbook ](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png) .  
 4. Clique **em Iniciar** o arranque do livro de execuções e, em seguida, clique em **OK** quando o painel start runbook abrir.
-5. No painel Start Runbook, forneça um nome VM. Aceite os valores predefinidos para os outros parâmetros que pré-configurado no script. Clique **em OK** para iniciar o trabalho de runbook.<br><br> ![Inicie o livro de execução New-AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+5. No painel Start Runbook, forneça um nome VM. Aceite os valores predefinidos para os outros parâmetros que pré-configurado no script. Clique **em OK** para iniciar o trabalho de runbook.<br><br> ![Comece New-AwsVM runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 6. Abre-se um painel job para o trabalho de runbook que criou. Feche este painel.
 7. Pode visualizar o progresso do trabalho e visualizar os fluxos de saída selecionando **Todos os Registos** no painel de trabalho do runbook.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 8. Para confirmar que o VM está a ser a provisionado, inicie sessão na Consola de Gestão AWS se não estiver a fazer login.<br><br> ![Consola AWS implantada VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)

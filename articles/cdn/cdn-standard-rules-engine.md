@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887539"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurar o motor de regras Standard para Azure CDN
@@ -71,7 +71,7 @@ Pode utilizar o motor de regras Standard para a Azure CDN para personalizar a fo
    >
    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do Motor de regras standard](cdn-standard-rules-engine-reference.md)

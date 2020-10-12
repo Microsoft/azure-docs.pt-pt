@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 26234039c77601bc1d29beeebd3fcb8461d6d6c9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432694"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em Funções Duradouras (Funções Azure)
@@ -167,7 +167,7 @@ Para obter mais informações sobre as diferenças entre as versões de extensã
 > [!NOTE]
 > O nome é o que diferencia um centro de tarefas de outro quando existem múltiplos centros de tarefas numa conta de armazenamento partilhada. Se tiver várias aplicações de funções que partilhem uma conta de armazenamento partilhada, tem de configurar explicitamente diferentes nomes para cada centro de tarefas no *host.jsem* ficheiros. Caso contrário, as aplicações de múltiplas funções competirão entre si por mensagens, o que pode resultar em comportamentos indefinidos, incluindo orquestrações ficando inesperadamente "presas" no `Pending` `Running` ou no estado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com a versão de orquestração](durable-functions-versioning.md)
