@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037567"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Trabalhos de Streaming de Autoscale Analytics utilizando a Azure Automation
@@ -29,11 +29,11 @@ Antes de começar a configurar autoscaling para o seu trabalho, complete os segu
 ### <a name="configure-variables"></a>Configure variáveis
 Adicione as seguintes variáveis dentro da conta Azure Automation. Estas variáveis serão usadas nos livros que são descritos nos próximos passos.
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | --- | --- | --- |
-| **trabalhoName** | String | Nome do seu trabalho stream Analytics que pretende fazer uma escala automática. |
-| **resourceGroupName** | String | Nome do grupo de recursos em que o seu trabalho está presente. |
-| **subId** | String | ID de assinatura no qual o seu trabalho está presente. |
+| **trabalhoName** | Cadeia | Nome do seu trabalho stream Analytics que pretende fazer uma escala automática. |
+| **nome do Grupo de Recursos** | Cadeia | Nome do grupo de recursos em que o seu trabalho está presente. |
+| **subId** | Cadeia | ID de assinatura no qual o seu trabalho está presente. |
 | **aumento da SU** | Número inteiro | O valor de SU mais elevado que quer que o seu trabalho seja dimensionado num horário. Este valor deve ser uma das opções de SU válidas que vê nas definições de **Escala** do seu trabalho enquanto está em execução. |
 | **diminuição da SU** | Número inteiro | O valor su menor que você quer que o seu trabalho escalone em um horário. Este valor deve ser uma das opções de SU válidas que vê nas definições de **Escala** do seu trabalho enquanto está em execução. |
 | **maxSU** | Número inteiro | O valor máximo de SU que deseja que o seu trabalho escale em etapas ao autoscalar por carga. Este valor deve ser uma das opções de SU válidas que vê nas definições de **Escala** do seu trabalho enquanto está em execução. |
@@ -43,7 +43,7 @@ Adicione as seguintes variáveis dentro da conta Azure Automation. Estas variáv
 
 ### <a name="create-runbooks"></a>Criar runbooks
 O próximo passo é criar dois livros powerShell. Um para escalar e o outro para operações de escala para baixo.
-1. Na sua conta Azure Automation, vá a **Runbooks** em **Automação de Processos** e selecione **Create Runbook**.
+1. Na sua conta Azure Automation, vá a **Runbooks** em **Automação de Processos**  e selecione **Create Runbook**.
 2. Nomeie o primeiro livro de execução *ScaleUpRunbook* com o tipo definido para PowerShell. Utilize o [script PowerShell scaleUpRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) disponível no GitHub. Salve e publique.
 3. Crie outro livro de recortes chamado *ScaleDownRunbook* com o tipo PowerShell. Utilize o [script PowerShell do ScaleDownRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) disponível no GitHub. Salve e publique.
 
@@ -79,6 +79,6 @@ Pode haver casos em que não se pode prever a carga de entrada. Nestes casos, é
 
 É uma boa prática fazer testes à escala antes de executar o seu trabalho na produção. Ao testar o seu trabalho contra cargas de entrada variadas, você tem uma noção de quantas SUs o seu trabalho precisa para diferentes entradas. Isto pode informar as condições que define nas suas regras de alerta que desencadeiam a escala e reduzem as operações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)

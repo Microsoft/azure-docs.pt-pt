@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853117"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
@@ -143,7 +143,7 @@ Precisa do seguinte software da SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP **Product**SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > Sistema de Alta Disponibilidade > instância ASCS/SCS > primeiro nó de cluster.  
+1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP **Product**SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > High-Availability Sistema > instância ASCS/SCS > primeiro nó de cluster.  
 
 2. Selecione **o Cluster de Partilha de Ficheiros** como a Configuração de partilha de cluster em SWPM.  
 3. Quando solicitado no passo OS Parâmetros de Cluster do Sistema SAP , **insira**o nome de anfitrião para a partilha de ficheiros Azure NetApp que já criou como **Nome do Anfitrião da Partilha de Ficheiros**.  Neste exemplo, o nome de anfitrião da SMB é **anfsmb-9562**. 
@@ -158,7 +158,7 @@ Precisa do seguinte software da SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no segundo nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para **o produto**  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > Sistema de Alta Disponibilidade > instância ASCS/SCS > nó adicional de cluster.  
+1. Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para **o produto**  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) sistema > High-Availability > instância ASCS/SCS > nó adicional de cluster.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instale uma instância DBMS e servidores de aplicações SAP
 

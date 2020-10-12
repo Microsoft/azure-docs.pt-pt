@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056344"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
@@ -32,14 +32,14 @@ Os seguintes parâmetros podem ser especificados com **RepairExport:**
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|**/r:<RepairFile\>**|Necessário. Caminho para o ficheiro de reparação, que acompanha o progresso da reparação, e permite-lhe retomar uma reparação interrompida. Cada unidade deve ter um e único ficheiro de reparação. Quando se inicia uma reparação para uma determinada unidade, passa-se o caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação interrompida, deverá passar em nome de um ficheiro de reparação existente. Especifique sempre o ficheiro de reparação correspondente à unidade do alvo.|  
+|**/r:<RepairFile\>**|Obrigatório. Caminho para o ficheiro de reparação, que acompanha o progresso da reparação, e permite-lhe retomar uma reparação interrompida. Cada unidade deve ter um e único ficheiro de reparação. Quando se inicia uma reparação para uma determinada unidade, passa-se o caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação interrompida, deverá passar em nome de um ficheiro de reparação existente. Especifique sempre o ficheiro de reparação correspondente à unidade do alvo.|  
 |**/logdir:<LogDirectory\>**|Opcional. O diretório de registos. Os ficheiros de registo verbose serão escritos a este diretório. Se não for especificado nenhum diretório de registo, o diretório atual será utilizado como diretório de registo.|  
-|**/d:<TargetDirectory\>**|Necessário. O diretório para validar e reparar. Este diretório é geralmente o diretório principal da unidade de exportação, mas também pode ser uma partilha de ficheiros de rede contendo uma cópia dos ficheiros exportados.|  
+|**/d:<TargetDirectory\>**|Obrigatório. O diretório para validar e reparar. Este diretório é geralmente o diretório principal da unidade de exportação, mas também pode ser uma partilha de ficheiros de rede contendo uma cópia dos ficheiros exportados.|  
 |**/bk:<BitLockerKey\>**|Opcional. Especifique a tecla BitLocker se pretender que a ferramenta desbloqueie um ficheiro encriptado onde os ficheiros exportados são armazenados.|  
-|**/sn:<StorageAccountName\>**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
+|**/sn:<StorageAccountName\>**|Obrigatório. O nome do armazém é responsável pelo trabalho de exportação.|  
 |**/sk:<StorageAccountKey\>**|**Obrigatório** se e somente se um contentor SAS não for especificado. A conta-chave para o armazenamento é a conta do trabalho de exportação.|  
 |**/csas:<ContainerSas\>**|**Necessário** se e somente se a chave da conta de armazenamento não for especificada. O contentor SAS para acesso às bolhas associadas ao trabalho de exportação.|  
-|**/CopyLogFile:<DriveCopyLogFile\>**|Necessário. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço De importação/Exportação do Windows Azure e pode ser descarregado a partir do armazenamento de bolhas associado ao trabalho. O ficheiro de registo de cópias contém informações sobre bolhas ou ficheiros falhados que devem ser reparados.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|Obrigatório. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço De importação/Exportação do Windows Azure e pode ser descarregado a partir do armazenamento de bolhas associado ao trabalho. O ficheiro de registo de cópias contém informações sobre bolhas ou ficheiros falhados que devem ser reparados.|  
 |**/ManifestFile:<DriveManifestFile\>**|Opcional. O caminho para o ficheiro manifesto do disco de exportação. Este ficheiro é gerado pelo serviço De importação/Exportação do Windows Azure e armazenado na unidade de exportação. Opcionalmente, numa bolha na conta de armazenamento associada ao trabalho.<br /><br /> O conteúdo dos ficheiros sobre a unidade de exportação será verificado com os hashes MD5 contidos neste ficheiro. Quaisquer ficheiros corrompidos serão descarregados e reescritos para os directórios-alvo.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilizar o modo RepairExport para corrigir as exportações falhadas  
@@ -150,7 +150,7 @@ G:\pictures\wild\canyon.jpg.properties
 
 Qualquer componente que falhe a verificação será descarregado pela ferramenta e reescrito para o mesmo ficheiro na unidade.  
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

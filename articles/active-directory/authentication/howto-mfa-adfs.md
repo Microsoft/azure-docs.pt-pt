@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531246"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
@@ -97,4 +97,4 @@ Agora que as afirmações estão implementadas, podemos configurar os IPs fidedi
 4. Na página Definições de Serviço, em **IPs Fidedignos**, selecione **Ignorar autenticação multifator para pedidos de utilizadores federados na minha intranet**.  
 5. Clique **em guardar**.
 
-Já está! Neste momento, os utilizadores federados da Microsoft 365 só devem utilizar MFA quando uma reclamação é originária de fora da intranet corporativa.
+Já está. Neste momento, os utilizadores federados da Microsoft 365 só devem utilizar MFA quando uma reclamação é originária de fora da intranet corporativa.

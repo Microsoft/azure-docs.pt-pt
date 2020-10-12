@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397254"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados inativa do Azure
@@ -107,7 +107,7 @@ Todos os discos geridos, instantâneos e imagens são encriptados utilizando enc
 
 #### <a name="custom-encryption-at-rest"></a>Encriptação personalizada em repouso
 
-Recomenda-se que, sempre que possível, as aplicações da IaaS aproveitem as opções de Encriptação e Encriptação do Disco Azure fornecidas por quaisquer serviços Azure consumidos. Em alguns casos, como requisitos de encriptação irregulares ou armazenamento não-Azure, um desenvolvedor de uma aplicação IaaS pode precisar implementar encriptação em repouso. Os desenvolvedores de soluções IaaS podem integrar-se melhor com a gestão da Azure e as expectativas dos clientes, alavancando certos componentes Azure. Especificamente, os desenvolvedores devem usar o serviço Azure Key Vault para fornecer armazenamento de chaves seguros, bem como fornecer aos seus clientes opções de gestão de chaves consistentes com a maioria dos serviços da plataforma Azure. Além disso, as soluções personalizadas devem usar identidades de serviço geridas pelo Azure para permitir que as contas de serviço tenham acesso a chaves de encriptação. Para obter informações sobre o Azure Key Vault e as Identidades de Serviço Gerido, consulte os respetivos SDKs.
+Recomenda-se que, sempre que possível, as aplicações da IaaS aproveitem as opções de Encriptação e Encriptação do Disco Azure fornecidas por quaisquer serviços Azure consumidos. Em alguns casos, como requisitos de encriptação irregulares ou armazenamento não-Azure, um desenvolvedor de uma aplicação IaaS pode precisar implementar encriptação em repouso. Os desenvolvedores de soluções IaaS podem integrar-se melhor com a gestão da Azure e as expectativas dos clientes, alavancando certos componentes Azure. Especificamente, os desenvolvedores devem usar o serviço Azure Key Vault para fornecer armazenamento de chaves seguros, bem como fornecer aos seus clientes opções de gestão de chaves consistentes com a maioria dos serviços da plataforma Azure. Além disso, as soluções personalizadas devem usar Azure-Managed Identidades de Serviço para permitir que as contas de serviço tenham acesso a chaves de encriptação. Para obter informações sobre o Azure Key Vault e as Identidades de Serviço Gerido, consulte os respetivos SDKs.
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Suporte ao modelo de encriptação de fornecedores de recursos Azure
 

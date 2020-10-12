@@ -8,10 +8,10 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 94b5b3d2ab1f576f87ead23b389252ec96a20f11
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397356"
 ---
 # <a name="how-does-azure-cosmos-db-globally-scale-the-provisioned-throughput"></a>Como é que a Azure Cosmos DB escala globalmente a produção a provisionada?
