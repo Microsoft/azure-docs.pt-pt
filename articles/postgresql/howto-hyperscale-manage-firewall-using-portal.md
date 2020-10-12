@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
 ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275426"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerir regras de firewall para Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -30,18 +30,18 @@ Para passar por este guia, precisa:
 
 1. Na página do grupo do servidor PostgreSQL, no título de Segurança, clique em **Networking** para abrir as regras de Firewall.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portal Azure - clique em Networking":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Portal Azure - separador de rede":::
 
 2. Clique **em Adicionar o endereço IP do cliente atual** para criar uma regra de firewall com o endereço IP público do seu computador, conforme percebido pelo sistema Azure.
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portal Azure - clique em Adicionar IP ao cliente":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portal Azure - separador de rede":::
 
 Em alternativa, clicar **em +Adicionar 0.0.0.0 - 255.255.255.255** (à direita da opção B) permite não só o seu IP, mas toda a internet para aceder à porta 5432 do nó coordenador. Nesta situação, os clientes ainda devem iniciar sessão com o nome de utilizador e palavra-passe corretos para utilizar o cluster. No entanto, recomendamos que se possa permitir o acesso a nível mundial por apenas curtos períodos de tempo e apenas para bases de dados não produtivos.
 
 3. Verifique o seu endereço IP antes de guardar a configuração. Em algumas situações, o endereço IP observado pelo portal Azure difere do endereço IP utilizado no acesso aos servidores da Internet e do Azure. Portanto, pode ser necessário alterar o IP de início e o IP final para fazer a regra funcionar como esperado.
    Utilize um motor de busca ou outra ferramenta on-line para verificar o seu próprio endereço IP. Por exemplo, procure "qual é o meu IP".
 
-   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing pesquisa por Qual é o meu IP":::
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Portal Azure - separador de rede":::
 
 4. Adicione intervalos de endereços adicionais. Nas regras de firewall, pode especificar um único endereço IP ou uma gama de endereços. Se pretender limitar a regra a um único endereço IP, digite o mesmo endereço no campo para Iniciar IP e IP final. A abertura da firewall permite aos administradores, utilizadores e aplicações aceder ao nó coordenador na porta 5432.
 

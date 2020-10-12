@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264135"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento
@@ -47,7 +47,7 @@ Os Serviços de Comunicação Depende de uma chave de armazenamento que lhe seja
 ## <a name="steps-to-rotate-storage-keys"></a>Passos para rodar chaves de armazenamento 
  
  1. Alterar a conta de armazenamento Chave principal através do cmdlet de powershell ou do portal [Azure.](https://portal.azure.com/)
- 2. Ligue para o Sync-AzMediaServiceStorageKeys cmdlet com params apropriados para forçar a conta dos meios de comunicação a recolher as chaves da conta de armazenamento
+ 2. Ligue Sync-AzMediaServiceStorageKeys cmdlet com params apropriados para forçar conta de mídia a recolher chaves de conta de armazenamento
  
     O exemplo a seguir mostra como sincronizar as chaves das contas de armazenamento.
   
@@ -55,7 +55,7 @@ Os Serviços de Comunicação Depende de uma chave de armazenamento que lhe seja
   
  3. Espere uma hora mais ou menos. Verifique se os cenários de streaming estão a funcionar.
  4. Alterar a chave secundária da conta de armazenamento através do cmdlet powershell ou do portal Azure.
- 5. Ligue para o Sync-AzMediaServiceStorageKeys com os parames apropriados para forçar a conta dos meios de comunicação a recolher novas chaves de conta de armazenamento. 
+ 5. Ligue Sync-AzMediaServiceStorageKeys powershell com params apropriados para forçar a conta dos meios de comunicação a recolher novas chaves de conta de armazenamento. 
  6. Espere uma hora mais ou menos. Verifique se os cenários de streaming estão a funcionar.
  
 ### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet de concha de poder 
