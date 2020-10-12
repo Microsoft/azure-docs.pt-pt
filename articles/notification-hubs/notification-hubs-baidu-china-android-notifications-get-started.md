@@ -16,10 +16,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.custom: devx-track-java, devx-track-csharp
 ms.openlocfilehash: 13b05c17cc621660576913c08a1fdbc389365a53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003971"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação utilizando o Baidu

@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f8f3a0d0ec79624fb709bb80b8392e2ad8d6f7ce
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613870"
 ---
 # <a name="materials"></a>Materiais
@@ -93,7 +93,7 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 * [Classe PbrMaterial C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
 * [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais PBR](../overview/features/pbr-materials.md)
 * [Materiais de cor](../overview/features/color-materials.md)

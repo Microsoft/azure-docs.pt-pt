@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88508809"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenha imagens de drones de parceiros de drones
@@ -22,7 +22,7 @@ Atualmente, os seguintes parceiros de imagem são apoiados.
 
 A integração de dados de imagens de drones com o Azure FarmBeats ajuda-o a obter dados ortomososicos dos voos de drones que realiza na sua quinta no datahub. Depois de os dados estiverem disponíveis, pode vê-lo no Acelerador FarmBeats. Os dados podem ser usados para a fusão de dados e inteligência artificial e construção de modelos de machine learning.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
   - Certifique-se de que instalou a Azure FarmBeats. Para obter informações sobre como instalar o FarmBeats, consulte [instalar a Azure FarmBeats](install-azure-farmbeats.md).
   - Certifique-se de que tem a quinta para a qual pretende imagens de drones definidas no seu sistema FarmBeats.

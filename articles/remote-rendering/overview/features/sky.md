@@ -7,10 +7,10 @@ ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613761"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
@@ -141,9 +141,9 @@ A renderização remota Azure fornece alguns mapas ambientais incorporados que e
 * [C# RemoteManager.SkyReflectionSettings propriedade](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
 * [C++ RemoteManager::SkyReflectionSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Luzes](../../overview/features/lights.md)
+* [Lights](../../overview/features/lights.md)
 * [Materiais](../../concepts/materials.md)
 * [Texturas](../../concepts/textures.md)
 * [A ferramenta de linha de comando TexConv](../../resources/tools/tex-conv.md)

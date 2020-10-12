@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87133896"
 ---
 Os Serviços Cognitivos fornecem dois serviços naturais de processamento de linguagem, [Compreensão linguística](../luis/what-is-luis.md) e [QnA Maker,](../qnamaker/overview/overview.md)cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente.
@@ -33,7 +33,7 @@ Se o seu chat bot receber o `How do I get to the Human Resources building on the
 |Serviço|A aplicação do cliente determina|
 |--|--|
 |LUIS|**Determina a intenção do utilizador** de enviar texto - o serviço não devolve a resposta à pergunta. Por exemplo, este texto é classificado como correspondendo à `FindLocation` intenção.<br>|
-|Criador de FAQ|**Devolve a resposta à pergunta a** partir de uma base de conhecimento personalizado. Por exemplo, este texto é determinado como uma pergunta com a resposta estática de texto de `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|**Devolve a resposta à pergunta a** partir de uma base de conhecimento personalizado. Por exemplo, este texto é determinado como uma pergunta com a resposta estática de texto de  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]
@@ -82,7 +82,7 @@ Implementar as melhores práticas para cada serviço:
 * [Boas](../luis/luis-concept-best-practices.md) práticas do LUIS
 * [QnA Maker](../qnamaker/concepts/best-practices.md) as melhores práticas
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Compreensão de Idiomas (LUIS)](../luis/what-is-luis.md)
 * [Criador de FAQ](../qnamaker/overview/overview.md)

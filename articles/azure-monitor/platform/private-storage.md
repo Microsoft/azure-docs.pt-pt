@@ -7,10 +7,10 @@ author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
 ms.openlocfilehash: 9d54e6eb84e3269eb95f8d314875474f78536652
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526430"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilização de contas de armazenamento geridas pelo cliente no Azure Monitor Log Analytics

@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80066925"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação do disco Azure para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Disk Encryption aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco nas [distribuições selecionadas do Azure Linux](https://aka.ms/adelinux).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos.
 
@@ -141,7 +141,7 @@ O esquema 0.1 requer `AADClientID` e qualquer um ou `AADClientSecret` `AADClient
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.Security | string |

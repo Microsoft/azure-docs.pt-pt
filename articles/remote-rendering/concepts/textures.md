@@ -7,10 +7,10 @@ ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dc38b53705c24cb12a001237a9a80ec66ec33e14
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613792"
 ---
 # <a name="textures"></a>Texturas
@@ -96,7 +96,7 @@ Dependendo do que a textura deve ser usada, pode haver restrições para o tipo 
 * [C++ RemoteManager::LoadTextureAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
 * [C++ RemoteManager::LoadTextureFromSASAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais](materials.md)
 * [Céu](../overview/features/sky.md)

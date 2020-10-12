@@ -4,10 +4,10 @@ description: Saiba como a Azure Policy utiliza o agente de Configuração de Con
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88756695"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
@@ -66,15 +66,15 @@ A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens 
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
-|Peering da Microsoft|Windows Server|2012 e mais tarde|
-|Peering da Microsoft|Cliente Windows|Windows 10|
+|Microsoft|Windows Server|2012 e mais tarde|
+|Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 e mais tarde|
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3-SP5|
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 
 As máquinas virtuais em Azure podem utilizar o adaptador de rede local ou um link privado para comunicar com o serviço de Configuração do Hóspede.
 

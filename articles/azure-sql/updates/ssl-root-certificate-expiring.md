@@ -8,10 +8,10 @@ ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
 ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346064"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Compreender as alterações na alteração root CA para Azure SQL Database & SQL Managed Instance
@@ -61,7 +61,7 @@ Não são necessárias ações relativas a esta alteração se não estiver a ut
 Se não atualizar o certificado de raiz antes de 30 de novembro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar à Base de Dados Azure SQL & SQL Gestd Instance e aplicação experimentarão problemas de conectividade na sua Base de Dados Azure SQL & SQL Managed Instance.
 
 ### <a name="do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>Preciso de planear uma paragem de manutenção para esta mudança?<BR>
-Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor, não há tempo de inatividade de manutenção aqui para esta mudança.
+N.º Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor, não há tempo de inatividade de manutenção aqui para esta mudança.
 
 ### <a name="what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020"></a>E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.

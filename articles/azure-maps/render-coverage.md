@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030933"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps render cobertura
@@ -247,7 +247,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Azerbaijão                | ✓ | Ø |
 | Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bósnia-Herzegovina        | ✓ | ✓ |
+| Bosnia-Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |

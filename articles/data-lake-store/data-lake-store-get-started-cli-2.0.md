@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85985794"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Começar com a Azure Data Lake Storage Gen1 usando o Azure CLI
@@ -59,7 +59,7 @@ Este artigo utiliza uma abordagem de autenticação mais simples com a Data Lake
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Criar uma conta Azure Data Lake Storage Gen1
 
-1. Crie um novo grupo de recursos. No seguinte comando, forneça os valores de parâmetros que pretende utilizar. Se o nome da localização contiver espaços, coloque-o entre aspas. Por exemplo, "E.U.A. Leste 2". 
+1. Criar um novo grupo de recursos. No seguinte comando, forneça os valores de parâmetros que pretende utilizar. Se o nome da localização contiver espaços, coloque-o entre aspas. Por exemplo, "E.U.A. Leste 2". 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
@@ -232,7 +232,7 @@ az dls account delete --account mydatalakestoragegen1
 
 Quando lhe for pedido, introduza **S** para eliminar a conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Use Azure Data Lake Storage Gen1 para grandes requisitos de dados](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics com data lake storage gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

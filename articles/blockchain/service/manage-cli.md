@@ -5,10 +5,10 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87170852"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerir o Serviço Azure Blockchain utilizando o Azure CLI
@@ -23,21 +23,21 @@ Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior dir
 
 Se preferir instalar e utilizar o CLI localmente, consulte [a instalação do Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Preparar o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
-1. Inicia sessão.
+1. Inicie sessão.
 
-    Inicie sessão utilizando o comando [de login az](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local do CLI.
+    Inicie sessão com o comando [az login](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local da CLI.
 
     ```azurecli
     az login
     ```
 
-    Siga os passos apresentados no seu terminal para completar o processo de autenticação.
+    Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
 1. Instale a extensão da CLI do Azure.
 
-    Ao trabalhar com referências de extensão para o Azure CLI, deve primeiro instalar a extensão.  As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que ainda não foram enviados como parte do núcleo CLI.  Para saber mais sobre extensões, incluindo atualização e desinstalação, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    Para trabalhar com referências de extensão da CLI do Azure, terá primeiro de instalar a extensão.  As extensões da CLI do Azure dão-lhe acesso a comandos experimentais e de pré-lançamento que ainda não foram enviados como parte do núcleo da CLI.  Para saber mais sobre as extensões, incluindo a atualização e a desinstalação, veja [Utilizar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
     Instale a [extensão para o Serviço Azure Blockchain](/cli/azure/ext/blockchain/blockchain) executando o seguinte comando:
 
@@ -64,7 +64,7 @@ az blockchain member create \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde são criados os recursos do Serviço Azure Blockchain. |
-| **name** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`. |
+| **nome** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`. |
 | **localização** | Região de Azure onde o membro blockchain é criado. Por exemplo, `eastus`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. As funcionalidades podem não estar disponíveis em algumas regiões. |
 | **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação padrão do membro blockchain. A palavra-passe deve satisfazer três dos quatro requisitos seguintes: o comprimento deve estar entre 12 & 72 caracteres, 1 caracteres maiúsculos, 1 caracteres maiúsculos, 1 número e 1 caracteres especiais que não seja sinal de número (#), por cento(,), vírgula(,), citação \` traseira(, citação dupla(, citação única('), traço(-) e semicolumn (;)|
 | **protocolo** | Protocolo blockchain. Atualmente, o protocolo *Qurum* é suportado. |
@@ -88,7 +88,7 @@ az blockchain member update \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde são criados os recursos do Serviço Azure Blockchain. |
-| **name** | Nome que identifica o seu membro do Serviço Azure Blockchain. |
+| **nome** | Nome que identifica o seu membro do Serviço Azure Blockchain. |
 | **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação padrão do membro blockchain. A palavra-passe deve satisfazer três dos quatro requisitos seguintes: o comprimento deve estar entre 12 & 72 caracteres, 1 caracteres maiúsculos, 1 caracteres maiúsculos, 1 número e 1 caracteres especiais que não seja sinal de número (#), por cento(,), vírgula(,), citação \` traseira(, citação dupla(, citação única('), traço(-) e semicolumn (;)|
 | **consórcio-gestão-palavra-passe-conta** | A senha da conta do consórcio também é conhecida como a palavra-passe da conta do membro. A palavra-passe da conta do membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utilize a conta de membro e a palavra-passe da conta do membro para a gestão do consórcio. |
 | **regras de firewall** | Início e fim endereço IP para lista de autorizações IP. |
@@ -111,7 +111,7 @@ az blockchain transaction-node create \
 | **localização** | Região azul do membro blockchain. |
 | **nome membro** | Nome que identifica o seu membro do Serviço Azure Blockchain. |
 | **palavra-passe** | A senha do nó de transação. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação. A palavra-passe deve satisfazer três dos quatro requisitos seguintes: o comprimento deve estar entre 12 & 72 caracteres, 1 caracteres maiúsculos, 1 caracteres maiúsculos, 1 número e 1 caracteres especiais que não seja sinal de número (#), por cento(,), vírgula(,), citação \` traseira(, citação dupla(, citação única('), traço(-) e semicolumn (;)|
-| **name** | Nome do nó de transação. |
+| **nome** | Nome do nó de transação. |
 
 ## <a name="change-transaction-node-password"></a>Alterar senha de nó de transação
 
@@ -130,7 +130,7 @@ az blockchain transaction-node update \
 | **grupo de recursos** | Nome do grupo de recursos onde existem recursos do Serviço Azure Blockchain. |
 | **nome membro** | Nome que identifica o seu membro do Serviço Azure Blockchain. |
 | **palavra-passe** | A senha do nó de transação. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação. A palavra-passe deve satisfazer três dos quatro requisitos seguintes: o comprimento deve estar entre 12 & 72 caracteres, 1 caracteres maiúsculos, 1 caracteres maiúsculos, 1 número e 1 caracteres especiais que não seja sinal de número (#), por cento(,), vírgula(,), citação \` traseira(, citação dupla(, citação única('), traço(-) e semicolumn (;)|
-| **name** | Nome do nó de transação. |
+| **nome** | Nome do nó de transação. |
 
 ## <a name="list-api-keys"></a>Listar chaves API
 
@@ -145,7 +145,7 @@ az blockchain member list-api-key \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde existem recursos do Serviço Azure Blockchain. |
-| **name** | Nome do membro blockchain do Serviço Azure Blockchain |
+| **nome** | Nome do membro blockchain do Serviço Azure Blockchain |
 
 ## <a name="regenerate-api-keys"></a>Chaves API regeneração
 
@@ -161,7 +161,7 @@ az blockchain member regenerate-api-key \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde existem recursos do Serviço Azure Blockchain. |
-| **name** | Nome do membro blockchain do Serviço Azure Blockchain. |
+| **nome** | Nome do membro blockchain do Serviço Azure Blockchain. |
 | **nome chave** | \<keyValue\>Substitua-a por uma das chaves1, key2 ou ambas. |
 
 ## <a name="delete-a-transaction-node"></a>Apagar um nó de transação
@@ -179,7 +179,7 @@ az blockchain transaction-node delete \
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde existem recursos do Serviço Azure Blockchain. |
 | **nome membro** | Nome do membro blockchain do Azure Blockchain Service que também inclui o nome do nó de transação a ser eliminado. |
-| **name** | Nome do nó de transação para apagar. |
+| **nome** | Nome do nó de transação para apagar. |
 
 ## <a name="delete-a-blockchain-member"></a>Excluir um membro blockchain
 
@@ -195,7 +195,7 @@ az blockchain member delete \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde existem recursos do Serviço Azure Blockchain. |
-| **name** | Nome do membro blockchain do Serviço Azure Blockchain a ser eliminado. |
+| **nome** | Nome do membro blockchain do Serviço Azure Blockchain a ser eliminado. |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -276,6 +276,6 @@ az role assignment delete \
 | **destinatário** | Identificação do utilizador AD Azure. Por exemplo, `user@contoso.com` |
 | **âmbito** | Âmbito da atribuição de papel. Pode ser um membro blockchain ou nó de transação. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [configurar os nós de transação do Serviço Azure Blockchain com o portal Azure](configure-transaction-nodes.md).
