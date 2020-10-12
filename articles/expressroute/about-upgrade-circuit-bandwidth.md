@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: duau
 ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397955"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Sobre a modernização da largura de banda do circuito ExpressRoute
@@ -41,7 +41,7 @@ Se o seu parceiro ExpressRoute não tiver capacidade disponível suficiente, tem
 
 Se o ExpressRoute Direct não tiver capacidade suficiente, pode eliminar circuitos associados ao recurso ExpressRoute Direct que já não são necessários, ou criar um novo recurso ExpressRoute Direct. Para obter orientações sobre a gestão do recurso ExpressRoute Direct, consulte [como configurar o ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e modificar um circuito](expressroute-howto-circuit-portal-resource-manager.md)
 * [Criar e modificar a configuração de peering](expressroute-howto-routing-portal-resource-manager.md)

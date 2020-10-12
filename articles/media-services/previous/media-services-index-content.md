@@ -17,10 +17,10 @@ ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256451"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexação de ficheiros de mídia com indexador de mídia Azure
@@ -246,16 +246,16 @@ Os mesmos resultados (como empregos bem sucedidos) são gerados. Pode consultar 
 ### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Predefinição de tarefa para Indexador de Meios Azure
 O processamento do Azure Media Indexer pode ser personalizado fornecendo uma predefinição de tarefa opcional ao lado da tarefa.  O seguinte descreve o formato desta configuração xml.
 
-| Name | Requerer | Descrição |
+| Nome | Requerer | Descrição |
 | --- | --- | --- |
 | **entrada** |false |Ficheiros de ativos que pretende indexar.</p><p>O Azure Media Indexer suporta os seguintes formatos de ficheiros de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Pode especificar o (s) nome do ficheiro (s) no **nome** ou atributo da **lista** do elemento de **entrada** (como mostrado abaixo). Se não especificar qual o ficheiro de ativos a indexar, o ficheiro principal é escolhido. Se não for definido nenhum ficheiro de ativo primário, o primeiro ficheiro do ativo de entrada é indexado.</p><p>Para especificar explicitamente o nome do ficheiro do ativo, faça:<br/>`<input name="TestFile.wmv">`<br/><br/>Também pode indexar vários ficheiros de ativos de uma só vez (até 10 ficheiros). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Crie um ficheiro de texto (ficheiro manifesto) e dê-lhe uma extensão .lst. </p></li><li><p>Adicione uma lista de todos os nomes de ficheiros do ativo no seu ativo de entrada a este ficheiro manifesto. </p></li><li><p>Adicione (carregar) o ficheiro manifesto ao ativo.  </p></li><li><p>Especifique o nome do ficheiro manifesto no atributo da lista de entradas.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: Se adicionar mais de 10 ficheiros ao ficheiro manifesto, a função de indexação falhará com o código de erro de 2006. |
 | **metadados** |false |Metadados para os ficheiros de ativos especificados utilizados para a Adaptação do Vocabulário.  Útil para preparar indexante para reconhecer palavras vocabulário não padrão, tais como substantivos apropriados.<br/>`<metadata key="..." value="..."/>` <br/><br/>Pode fornecer **valores** para **chaves**predefinidas . Atualmente são suportadas as seguintes teclas:<br/><br/>"título" e "descrição" - usado para adaptação de vocabulário para ajustar o modelo linguístico para o seu trabalho e melhorar a precisão do reconhecimento da fala.  Os valores pesquisam a Internet para encontrar documentos de texto contextualização relevantes, utilizando o conteúdo para aumentar o dicionário interno durante a duração da sua tarefa de Indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **características** <br/><br/> Adicionado na versão 1.2. Atualmente, a única característica suportada é o reconhecimento de voz ("ASR"). |false |A função de Reconhecimento de Voz tem as seguintes teclas de definições:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>A linguagem natural a ser reconhecida no ficheiro multimédia.</p></td><td><p>Inglês, Espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada de pontos de costura dos formatos de legenda de saída pretendidos (se houver)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>É verdade; Falso</p></td></tr><tr><td><p>Gerar Palavras-chave</p></td><td><p>Uma bandeira booleana especificando se é ou não necessário um ficheiro XML de palavra-chave.</p></td><td><p>É verdade; Falso, falso. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Uma bandeira booleana especificando se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é falso, caso em que as palavras e frases com um nível de confiança inferior a 50% são omitidas das saídas finais da legenda e substituídas por elipses ("...").  As elipses são úteis para o controlo de qualidade e auditoria da legenda.</p></td><td><p>É verdade; Falso, falso. </p></td></tr></table> |
+| **características** <br/><br/> Adicionado na versão 1.2. Atualmente, a única característica suportada é o reconhecimento de voz ("ASR"). |false |A função de Reconhecimento de Voz tem as seguintes teclas de definições:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>A linguagem natural a ser reconhecida no ficheiro multimédia.</p></td><td><p>Inglês, Espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada de pontos de costura dos formatos de legenda de saída pretendidos (se houver)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>É verdade; Falso</p></td></tr><tr><td><p>Gerar Palavras-chave</p></td><td><p>Uma bandeira booleana especificando se é ou não necessário um ficheiro XML de palavra-chave.</p></td><td><p>É verdade; Falso, falso. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Uma bandeira booleana especificando se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é falso, caso em que as palavras e frases com um nível de confiança inferior a 50% são omitidas das saídas finais da legenda e substituídas por elipses ("...").  As elipses são úteis para o controlo de qualidade e auditoria da legenda.</p></td><td><p>É verdade; Falso, falso. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>Códigos de erro
 Em caso de erro, o Azure Media Indexer deve reportar um dos seguintes códigos de erro:
 
-| Código | Name | Possíveis Razões |
+| Código | Nome | Possíveis Razões |
 | --- | --- | --- |
 | 2000 |Configuração inválida |Configuração inválida |
 | 2001 |Ativos de entrada inválidos |Falta de ativos de entrada ou ativo vazio. |

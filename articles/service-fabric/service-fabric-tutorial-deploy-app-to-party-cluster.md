@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
 ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441280"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
@@ -108,7 +108,7 @@ Uma vez implementada a aplicação, abra um browser e introduza o endereço de c
 ![Exemplo de votação do Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nesta parte do tutorial, ficou a saber como:
 
 > [!div class="checklist"]

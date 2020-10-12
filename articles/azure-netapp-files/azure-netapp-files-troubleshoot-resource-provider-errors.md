@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483470"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Resolver problemas de erros do Fornecedor de Recursos do Azure NetApp Files 
@@ -126,7 +126,7 @@ Pode substituir um sublinhado por um hífen ou utilizar a capitalização em vez
 Este erro ocorre quando se tenta mudar `FileSystemId` .  Mudar `FileSystemdId` não é uma operação apoiada. 
 
 * Causa:   
-O ID do sistema de ficheiros é definido quando o volume é criado. `FileSystemId`não pode ser alterado posteriormente.
+O ID do sistema de ficheiros é definido quando o volume é criado. `FileSystemId` não pode ser alterado posteriormente.
 * Solução:   
 Não inclua `FileSystemId` um pedido de patch e atualização (colocado).  Em alternativa, certifique-se de que `FileSystemId` é o mesmo no pedido.
 
@@ -439,7 +439,7 @@ Nenhum.  Veja a solução acima.
 
 ***O subnetId não pode ser alterado.***
 
-Este erro ocorre quando se tenta alterar o `subnetId` volume após a criação do volume.  `SubnetId`deve ser definido quando o volume é criado e não pode ser alterado mais tarde.
+Este erro ocorre quando se tenta alterar o `subnetId` volume após a criação do volume.  `SubnetId` deve ser definido quando o volume é criado e não pode ser alterado mais tarde.
 
 * Causa:   
 Está a tentar alterar o `subnetId` volume após a criação do volume, o que não é uma operação apoiada. 
@@ -679,6 +679,6 @@ Tenta-se criar um volume a partir de um instantâneo e o volume termina num esta
 Elimine o volume e, em seguida, redoça a operação de criação de volume a partir do instantâneo.
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolver para o Azure NetApp Files com a API REST](azure-netapp-files-develop-with-rest-api.md)

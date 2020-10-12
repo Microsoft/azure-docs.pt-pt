@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284171"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar uma aplicação com comandos simples
@@ -85,7 +85,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao uti
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | ConfirmaçãoResponse                  | Um nome que descreve o propósito da regra          |
     | **Condições** | Nenhum                                     | Condições que determinam quando a regra pode ser executada    |
-    | **Ações**    | Envie resposta de fala > editor simples > Primeira variação >`Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
+    | **Ações**    | Envie resposta de fala > editor simples > Primeira variação > `Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
     
 
 
@@ -127,7 +127,7 @@ Em seguida, edite as regras de conclusão **existentes:**
 | ---------- | ---------------------------------------- |
 | Nome  | ConfirmaçãoResponse                  |
 | Condições | Nenhum                                     |
-| Ações    | Envie resposta de fala > editor simples > Primeira variação >`Ok, setting temperature to 40 degrees` |
+| Ações    | Envie resposta de fala > editor simples > Primeira variação > `Ok, setting temperature to 40 degrees` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
 

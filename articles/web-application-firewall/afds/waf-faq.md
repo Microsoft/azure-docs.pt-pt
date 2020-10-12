@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
 ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82837639"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para firewall de aplicação web Azure no serviço de porta frontal Azure
@@ -74,7 +74,7 @@ Os pedidos do mesmo cliente chegam frequentemente ao mesmo servidor da Porta fro
 
 No entanto, é possível que os pedidos do mesmo cliente possam chegar a um servidor front door diferente que ainda não tenha atualizado o contador de limites de taxa. Por exemplo, o cliente pode abrir uma nova ligação para cada pedido e o limiar é baixo. Neste caso, o primeiro pedido para o novo servidor front door passaria a taxa de verificação limite. Um limiar de limite de taxa é geralmente definido alto para se defender contra ataques de negação de serviço de qualquer endereço IP do cliente. Para um limiar muito baixo, você pode ver pedidos adicionais acima do limiar passar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Azure Web Application Firewall](../overview.md).
 - Saiba mais sobre [a Porta frontal Azure.](../../frontdoor/front-door-overview.md)

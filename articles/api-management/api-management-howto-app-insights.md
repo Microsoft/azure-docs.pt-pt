@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254749"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar a Gestão de API do Azure com o Azure Application Insights
@@ -64,7 +64,7 @@ Antes de poder utilizar o Azure Application Insights, primeiro tem de criar uma 
 6. Verifique a caixa **Ativar.**
 7. Selecione o seu madeireiro anexado no **dropdown destino.**
 8. Inserir **100** como **Amostragem (%)** e marcar a caixa de verificação **de erros de registo Always.**
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 
 > [!WARNING]
 > Sobrepriming o valor **padrão 0** nos **primeiros bytes do** campo do corpo pode diminuir significativamente o desempenho das suas APIs.

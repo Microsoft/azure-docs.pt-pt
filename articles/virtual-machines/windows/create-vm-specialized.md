@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: bce702873fc4e66f283a9785bb408bbfa7fda83c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87266899"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Create a Windows VM from a specialized disk by using PowerShell (Utilizar o PowerShell para criar uma VM do Windows a partir de um disco especializado)
@@ -112,7 +112,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Para utilizar esta imagem para criar um VM que precisa de ser de alto desempenho, adicione o parâmetro `-AccountType Premium_LRS` ao comando New-AzSnapshotConfig. Este parâmetro cria o instantâneo de modo a que seja armazenado como um Disco Gerido Premium. Os Discos Geridos Premium são mais caros do que o Standard, por isso certifique-se de que vai precisar de Premium antes de usar este parâmetro.
+Para utilizar esta imagem para criar um VM que precisa de um desempenho elevado, adicione o parâmetro `-AccountType Premium_LRS` ao comando New-AzSnapshotConfig. Este parâmetro cria o instantâneo de modo a que seja armazenado como um Disco Gerido Premium. Os Discos Geridos Premium são mais caros do que o Standard, por isso certifique-se de que vai precisar de Premium antes de usar este parâmetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
 

@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015975"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator
@@ -186,12 +186,12 @@ Adicione a sua conta Amazon ligando a verificação de dois fatores e adicionand
 
 10. Na página de **método de verificação de cópia de segurança** no seu computador, digite o código de verificação de seis dígitos fornecido pelo método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione Verificar código e **continuar**.
 
-11. Na página **Quase pronto,** decida se faz do seu computador um dispositivo de confiança e, em seguida, selecione **Got it. Ligue a verificação em duas etapas.**
+11. Na página **Quase pronto,** decida se faz do seu computador um dispositivo de confiança e, em seguida, selecione **Got it. Ligue Two-Step Verificação**.
 
     Aparece a página **Definições avançadas** de segurança, mostrando os detalhes de verificação de dois fatores atualizados.
 
     >[!NOTE]
-    >Para obter mais informações sobre a verificação de dois fatores e a sua conta Amazon, consulte [Sobre a Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e [Inscreva-se com Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
+    >Para obter mais informações sobre a verificação de dois fatores e a sua conta Amazon, consulte [Sobre a Verificação Two-Step](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e Iniciar [sessão com Two-Step Verificação](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
 ## <a name="next-steps"></a>Passos seguintes
 

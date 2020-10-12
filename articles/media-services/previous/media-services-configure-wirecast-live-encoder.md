@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89258117"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Use o codificader Wirecast para enviar um único fluxo de bitrate ao vivo

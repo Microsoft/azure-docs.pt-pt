@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737500"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection (Gerir uma ligação de Ponto Final Privado)
@@ -28,7 +28,7 @@ A tabela abaixo mostra as várias ações do prestador de serviços e os estados
 
 |Ação do Prestador de Serviços   |Estado de Endpoint Privado de Consumidor de Serviço   |Descrição   |
 |---------|---------|---------|
-|Nenhuma    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
+|Nenhum    |    Pendente     |    A ligação é criada manualmente e está pendente para aprovação pelo proprietário do recurso Private Link.       |
 |Aprovar    |  Aprovado       |  A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.     |
 |Rejeitar     | Rejeitado        | A ligação foi rejeitada pelo proprietário de recursos de ligação privada.        |
 |Remover    |  Desligado       | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza.        |
@@ -86,6 +86,6 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
 
    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre os pontos finais privados](private-endpoint-overview.md)
  

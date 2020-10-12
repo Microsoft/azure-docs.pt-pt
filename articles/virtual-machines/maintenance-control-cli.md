@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
 ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528181"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Atualizações de controlo com o Controlo de Manutenção e o CLI Azure

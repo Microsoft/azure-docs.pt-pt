@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82792382"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes para acelerador de solução de fábrica conectada
@@ -68,7 +68,7 @@ Se implementou a solução a partir de www.azureiotsolutions.com, não pode entr
 1. O nome de utilizador a utilizar é: `docker` .
 1. A palavra-passe a utilizar depende da versão utilizada para implementar:
     * Para as soluções implementadas utilizando o script build.ps1 antes de 1 de junho de 2017, a palavra-passe é: `Passw0rd` .
-    * Para soluções implementadas usando o script build.ps1 após 1 de junho de 2017, pode encontrar a palavra-passe no `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada na definição **VmAdminPassword.** A palavra-passe é gerada aleatoriamente no tempo de implementação, a menos que especifique usando o `build.ps1` parâmetro do script`-VmAdminPassword`
+    * Para soluções implementadas usando o script build.ps1 após 1 de junho de 2017, pode encontrar a palavra-passe no `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada na definição **VmAdminPassword.** A palavra-passe é gerada aleatoriamente no tempo de implementação, a menos que especifique usando o `build.ps1` parâmetro do script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Como paro e insindo todos os processos de estivadores na simulação VM?
 
@@ -186,11 +186,11 @@ Para enviar dados de telemetria de dispositivos UA não OPC para a Fábrica Cone
     ]
     ```
 
-1. O formato `<timestamp>` de:`2017-12-08T19:24:51.886753Z`
+1. O formato `<timestamp>` de: `2017-12-08T19:24:51.886753Z`
 
 1. Reinicie o Serviço de Aplicações de Fábrica Conectada.
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 

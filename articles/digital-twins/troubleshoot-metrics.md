@@ -8,10 +8,10 @@ ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322636"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
@@ -34,12 +34,12 @@ As métricas são ativadas por padrão. Pode ver as métricas do Azure Digital T
     
 3. Pode optar por enviar os seus dados de métricas para um ponto final do Event Hubs ou uma conta de Armazenamento Azure selecionando **as definições** de Diagnóstico do menu e, em seguida, adicione a **definição**de diagnóstico .
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
 
     Para obter mais informações sobre este processo, consulte [*Resolução de Problemas: Configurar diagnósticos*](troubleshoot-diagnostics.md).
 
 4. Pode optar por configurar alertas para os dados das suas métricas selecionando **Alertas** do menu e, em seguida, **+ Nova regra de alerta**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot mostrando a página e botão alertas para adicionar":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
 
     Para obter mais informações sobre este processo, consulte [*Resolução de Problemas: Configurar alertas*](troubleshoot-alerts.md).
 
@@ -53,9 +53,9 @@ As tabelas a seguir descrevem as métricas rastreadas por cada instância Azure 
 
 Métricas que têm a ver com pedidos de API:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | Pedidos de API (Pré-visualização) | de palavras | Total | O número de Pedidos de API feitos para Gémeos Digitais lêem, escrevem, apagam e consultam as operações. |  Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado |
+| ApiRequests | Pedidos de API (Pré-visualização) | Contagem | Total | O número de Pedidos de API feitos para Gémeos Digitais lêem, escrevem, apagam e consultam as operações. |  Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado |
 | ApiRequestsFailureRate | Taxa de falha de pedidos de API (pré-visualização) | Percentagem | Média | A percentagem de pedidos da API que o serviço recebe, por exemplo, que dão um código de resposta de erro interno (500) para as Gémeas Digitais ler, escrever, excluir e consultar operações. | Autenticação, <br>Operação, <br>Protocolo, <br>Código de Estado, <br>Classe código de estado, <br>Texto de estado
 | ApiRequestsLatency | Pedidos de Latência da API (Pré-visualização) | Milissegundos | Média | O tempo de resposta para pedidos de API. Isto refere-se ao momento em que o pedido é recebido pela Azure Digital Twins até que o serviço envie um resultado de sucesso/falha para as operações de leitura, escrita, exclusão e consulta das Gémeas Digitais. | Autenticação, <br>Operação, <br>Protocolo |
 
@@ -66,19 +66,19 @@ Métricas que têm a ver com faturação:
 >[!NOTE]
 > Durante **a pré-visualização, a faturação é um custo zero**. Embora estas métricas ainda apareçam na lista selecionável, não se aplicam durante a pré-visualização e permanecerão em zero até que o serviço se mova para além da pré-visualização.
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperações | Operações de faturação da API (Pré-visualização) | de palavras | Total | Métrica de faturação para a contagem de todos os pedidos da API feitos contra o serviço Azure Digital Twins. | ID do medidor |
-| BillingMessagesProcessado | Mensagens de faturação processadas (pré-visualização) | de palavras | Total | Métrica de faturação para o número de mensagens enviadas da Azure Digital Twins para pontos finais externos.<br><br>Para ser considerada uma única mensagem para efeitos de faturação, uma carga útil não deve ser superior a 1 KB. As cargas superiores a esta serão contadas como mensagens adicionais em incrementos de 1 KB (assim, uma mensagem entre 1 e 2 KB será contada como 2 mensagens, entre 2 e 3 KB serão 3 mensagens, e assim por diante).<br>Esta restrição também se aplica às respostas, pelo que uma chamada que devolve 1.5KB no organismo de resposta, por exemplo, será faturada como 2 operações. | ID do medidor |
-| BillingQueryUnits | Unidades de consulta de faturação (pré-visualização) | de palavras | Total | O número de Unidades de Consulta, uma medida internamente calculada de utilização de recursos de serviço, consumido para executar consultas. Há também uma API auxiliar disponível para medir Unidades de Consulta: [Classe QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID do medidor |
+| BillingApiOperações | Operações de faturação da API (Pré-visualização) | Contagem | Total | Métrica de faturação para a contagem de todos os pedidos da API feitos contra o serviço Azure Digital Twins. | ID do medidor |
+| BillingMessagesProcessado | Mensagens de faturação processadas (pré-visualização) | Contagem | Total | Métrica de faturação para o número de mensagens enviadas da Azure Digital Twins para pontos finais externos.<br><br>Para ser considerada uma única mensagem para efeitos de faturação, uma carga útil não deve ser superior a 1 KB. As cargas superiores a esta serão contadas como mensagens adicionais em incrementos de 1 KB (assim, uma mensagem entre 1 e 2 KB será contada como 2 mensagens, entre 2 e 3 KB serão 3 mensagens, e assim por diante).<br>Esta restrição também se aplica às respostas, pelo que uma chamada que devolve 1.5KB no organismo de resposta, por exemplo, será faturada como 2 operações. | ID do medidor |
+| BillingQueryUnits | Unidades de consulta de faturação (pré-visualização) | Contagem | Total | O número de Unidades de Consulta, uma medida internamente calculada de utilização de recursos de serviço, consumido para executar consultas. Há também uma API auxiliar disponível para medir Unidades de Consulta: [Classe QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID do medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 
 Métricas que têm a ver com a entrada de dados:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| IngresssEvents | Eventos Ingress (Pré-visualização) | de palavras | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Resultado |
+| IngresssEvents | Eventos Ingress (Pré-visualização) | Contagem | Total | O número de eventos de telemetria a entrar em Azure Digital Twins. | Resultado |
 | IngressEventsFailureRate | Taxa de falha de eventos ingress (pré-visualização) | Percentagem | Média | A percentagem de eventos de telemetria de entrada para os quais o serviço devolve um código de resposta de erro interno (500). | Resultado |
 | IngresssEventsLatency | Ingress Events Latência (Pré-visualização) | Milissegundos | Média | O momento em que um evento chega até quando está pronto para ser evacuado pela Azure Digital Twins, altura em que o serviço envia um resultado de sucesso/falha. | Resultado |
 
@@ -86,9 +86,9 @@ Métricas que têm a ver com a entrada de dados:
 
 Métricas que têm a ver com o encaminhamento:
 
-| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| Mensagens Remadas | Mensagens encaminhadas (pré-visualização) | de palavras | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
+| Mensagens Remadas | Mensagens encaminhadas (pré-visualização) | Contagem | Total | O número de mensagens encaminhada para um serviço Azure de ponto final, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 | EncaminhamentoFailureRate | Taxa de falha de encaminhamento (pré-visualização) | Percentagem | Média | A percentagem de eventos que resultam num erro, uma vez que são encaminhados da Azure Digital Twins para um serviço Azure de ponta, como o Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 | Encaminhamento | Latência de encaminhamento (Pré-visualização) | Milissegundos | Média | O tempo decorreu entre um evento que foi encaminhado de Azure Digital Twins para quando é colocado no serviço endpoint Azure, como Event Hub, Service Bus ou Event Grid. | Tipo ponto final, <br>Resultado |
 

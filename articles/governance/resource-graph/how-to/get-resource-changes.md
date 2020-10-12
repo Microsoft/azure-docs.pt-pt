@@ -4,10 +4,10 @@ description: Entenda como encontrar quando um recurso foi alterado, obter uma li
 ms.date: 08/10/2020
 ms.topic: how-to
 ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056572"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso

@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050478"
 ---
 A Internet das Coisas (IoT) coloca desafios únicos de segurança, privacidade e conformidade para as empresas de todo o mundo. Ao contrário da tecnologia cibernética tradicional, onde estas questões giram em torno do software e da forma como é implementada, a IoT diz respeito ao que acontece quando os mundos cibernéticos e físicos convergem. Proteger as soluções IoT requer garantir o fornecimento seguro de dispositivos, garantir a conectividade segura entre estes dispositivos e a nuvem, e proteger a proteção de dados na nuvem durante o processamento e armazenamento. Trabalhando contra esta funcionalidade, no entanto, são dispositivos com recursos limitados, distribuição geográfica de implementações, e um grande número de dispositivos dentro de uma solução.

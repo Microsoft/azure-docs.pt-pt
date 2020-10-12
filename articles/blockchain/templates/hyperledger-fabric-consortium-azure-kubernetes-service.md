@@ -5,10 +5,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651561"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes

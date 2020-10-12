@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704527"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps
@@ -32,7 +32,7 @@ Aqui estão os tipos de política de relíndi:
 | **Predefinição** | Esta política envia até quatro retrações em intervalos *exponencialmente crescentes,* que escalam 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de um intervalo exponencialmente crescente antes de enviar o próximo pedido. |
 | **Intervalo fixo**  | Esta política aguarda o intervalo especificado antes de enviar o próximo pedido. |
-| **Nenhum**  | Não reensiem o pedido. |
+| **Nenhuma**  | Não reensiem o pedido. |
 |||
 
 Para obter informações sobre os limites de política de relícuro, consulte [os limites e configuração das Aplicações Lógicas](../logic-apps/logic-apps-limits-and-config.md#request-limits).
@@ -71,8 +71,8 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*retrip-política tipo*> | String | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou`exponential` |
-| <*retrip-intervalo*> | String | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
+| <*retrip-política tipo*> | Cadeia | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou `exponential` |
+| <*retrip-intervalo*> | Cadeia | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
 | <*recandiduções tentativas*> | Número inteiro | O número de tentativas de repetição, que devem ser entre 1 e 90 |
 ||||
 
@@ -80,8 +80,8 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervalo mínimo*> | Cadeia | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*intervalo máximo*> | Cadeia | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
 Aqui está mais informações sobre os diferentes tipos de política.
@@ -112,7 +112,7 @@ Embora não explicitamente definida na sua ação ou gatilho, eis como a políti
 }
 ```
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Para especificar que a ação ou o gatilho não recandidam os pedidos falhados, desaccione o <> *de política de retry para* `none` .
 
@@ -312,7 +312,7 @@ Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedid
 
 Aqui está uma passagem detalhada que descreve o que acontece neste exemplo:
 
-1. Para obter o resultado de todas as ações dentro de "My_Scope", a ação **Filter Array** utiliza esta expressão de filtro:`@result('My_Scope')`
+1. Para obter o resultado de todas as ações dentro de "My_Scope", a ação **Filter Array** utiliza esta expressão de filtro: `@result('My_Scope')`
 
 1. A condição de **Filter Array** é qualquer item que tenha um estado igual `@result()` a `Failed` . Esta condição filtra a matriz que tem todos os resultados de ação de "My_Scope" até um conjunto com apenas os resultados de ação falhados.
 
@@ -366,7 +366,7 @@ Os padrões anteriores são uma ótima maneira de lidar com erros e exceções d
 
 Para avaliar os estados de execução, pode monitorizar os registos e métricas ou publicá-los em qualquer ferramenta de monitorização que prefira. Uma opção potencial é transmitir todos os eventos através de Event Hubs para [a Azure Stream Analytics.](https://azure.microsoft.com/services/stream-analytics/) No Stream Analytics, pode escrever consultas ao vivo com base em quaisquer anomalias, médias ou falhas dos registos de diagnóstico. Pode utilizar o Stream Analytics para enviar informações para outras fontes de dados, tais como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Veja como um cliente constrói o tratamento de erros com apps Azure Logic](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Encontre mais exemplos e cenários de Apps Lógicas](../logic-apps/logic-apps-examples-and-scenarios.md)

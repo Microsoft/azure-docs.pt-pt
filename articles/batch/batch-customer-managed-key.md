@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
 ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89008884"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configure as chaves geridas pelo cliente para a sua conta Azure Batch com cofre de chave Azure e identidade gerida
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Atualize a versão chave gerida pelo cliente
 
-Quando criar uma nova versão de uma chave, atualize a conta Batch para utilizar a nova versão. Siga estes passos.
+Quando criar uma nova versão de uma chave, atualize a conta Batch para utilizar a nova versão. Siga estes passos:
 
 1. Navegue na sua conta Batch no portal Azure e apresente as definições de Encriptação.
 2. Introduza o URI para a nova versão chave. Em alternativa, pode selecionar o cofre da chave e a chave novamente para atualizar a versão.
@@ -141,7 +141,7 @@ az batch account set \
     --encryption_key_identifier {YourNewKeyIdentifier} 
 ```
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-  * **As chaves geridas pelo cliente são suportadas para as contas existentes do Batch?** Não. As chaves geridas pelo cliente só são suportadas para novas contas Batch.
+  * **As chaves geridas pelo cliente são suportadas para as contas existentes do Batch?** N.º As chaves geridas pelo cliente só são suportadas para novas contas Batch.
   * **Posso selecionar tamanhos de chave RSA maiores que 2048 bits?** Sim, os tamanhos e bits das chaves RSA `3072` `4096` também são suportados.
   * **Que operações estão disponíveis após a revogação de uma chave gerida pelo cliente?** A única operação permitida é a eliminação de conta se o Batch perder o acesso à chave gerida pelo cliente.
   * **Como devo restaurar o acesso à minha conta batch se eu acidentalmente apagar a chave key vault?** Uma vez que a proteção da purga e a eliminação suave estão ativadas, pode restaurar as teclas existentes. Para mais informações, consulte [Recuperar um Cofre de Chaves Azure](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
@@ -149,6 +149,6 @@ az batch account set \
   * **Como posso rodar as minhas chaves?** As chaves geridas pelo cliente não são automaticamente giradas. Para rodar a chave, atualize o identificador chave a que a conta está associada.
   * **Depois de restaurar o acesso, quanto tempo demorará a conta batch a funcionar novamente?** Pode levar até 10 minutos para que a conta volte a estar acessível uma vez que o acesso seja restaurado.
   * **Enquanto a Conta lote não está disponível o que acontece com os meus recursos?** Quaisquer piscinas que estejam em funcionamento quando o acesso do Batch às teclas geridas pelo cliente for perdida continuará a funcionar. No entanto, os nóleiros transitarãoão para um estado indisponível, e as tarefas deixarão de funcionar (e serão requeadas). Uma vez restaurado o acesso, os nós voltarão a estar disponíveis e as tarefas serão reiniciadas.
-  * **Este mecanismo de encriptação aplica-se aos discos VM numa piscina de Lote?** Não. Para piscinas de configuração de serviço de nuvem, não é aplicada nenhuma encriptação para o SISTEMA e disco temporário. Para piscinas de configuração de máquinas virtuais, o SISTEMA e quaisquer discos de dados especificados serão encriptados com uma chave gerida pela microsoft por padrão. Atualmente, não é possível especificar a sua própria chave para estes discos. Para encriptar o disco temporário de VMs para um pool de Lote com uma chave gerida pela plataforma Microsoft, tem de ativar a propriedade [diskEncrypationConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) no seu [Pool de Configuração de Máquina Virtual.](/rest/api/batchservice/pool/add#virtualmachineconfiguration) Para ambientes altamente sensíveis, recomendamos permitir a encriptação temporária do disco e evitar armazenar dados sensíveis em SISTEMA e discos de dados. Para obter mais informações, consulte [Criar um pool com encriptação de disco ativada](./disk-encryption.md)
-  * **A identidade gerida atribuída pelo sistema na conta Batch está disponível nos nós de computação?** Não. Esta identidade gerida é atualmente utilizada apenas para aceder ao Cofre chave Azure para a chave gerida pelo cliente.
+  * **Este mecanismo de encriptação aplica-se aos discos VM numa piscina de Lote?** N.º Para piscinas de configuração de serviço de nuvem, não é aplicada nenhuma encriptação para o SISTEMA e disco temporário. Para piscinas de configuração de máquinas virtuais, o SISTEMA e quaisquer discos de dados especificados serão encriptados com uma chave gerida pela microsoft por padrão. Atualmente, não é possível especificar a sua própria chave para estes discos. Para encriptar o disco temporário de VMs para um pool de Lote com uma chave gerida pela plataforma Microsoft, tem de ativar a propriedade [diskEncrypationConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) no seu [Pool de Configuração de Máquina Virtual.](/rest/api/batchservice/pool/add#virtualmachineconfiguration) Para ambientes altamente sensíveis, recomendamos permitir a encriptação temporária do disco e evitar armazenar dados sensíveis em SISTEMA e discos de dados. Para obter mais informações, consulte [Criar um pool com encriptação de disco ativada](./disk-encryption.md)
+  * **A identidade gerida atribuída pelo sistema na conta Batch está disponível nos nós de computação?** N.º Esta identidade gerida é atualmente utilizada apenas para aceder ao Cofre chave Azure para a chave gerida pelo cliente.
   

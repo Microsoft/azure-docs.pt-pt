@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015617"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligar com SSH aos nós de cluster do Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
@@ -17,7 +17,7 @@ Durante todo o ciclo de vida do seu cluster Azure Kubernetes Service (AKS), pode
 
 Este artigo mostra-lhe como criar uma ligação SSH com um nó AKS usando os seus endereços IP privados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

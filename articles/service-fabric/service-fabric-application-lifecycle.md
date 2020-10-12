@@ -4,10 +4,10 @@ description: Descreve o desenvolvimento, implementação, teste, upgrade, manute
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: 6a36c97c6f1be96dcb8353e886f2159929e8e794
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248315"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida da aplicação do Service Fabric
@@ -31,7 +31,7 @@ As funções do modelo de serviço são:
 
 Veja [começar com atores fiáveis](service-fabric-reliable-actors-get-started.md) e [começar com serviços fiáveis,](service-fabric-reliable-services-quick-start.md) por exemplo.
 
-## <a name="deploy"></a>Implementar
+## <a name="deploy"></a>Implementação
 1. Um *administrador de aplicação* adapta o tipo de aplicação a uma aplicação específica a ser implantada num cluster de Tecido de Serviço, especificando os parâmetros adequados do elemento **ApplicationType** no manifesto de aplicação.
 2. Um *operador* envia o pacote de aplicações para a loja de imagens de cluster utilizando o método [ **CopyApplicationPackage** ](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) ou o [ **cmdlet Copy-ServiceFabricApplicationPackage** ](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). O pacote de aplicações contém o manifesto de aplicação e a recolha de pacotes de serviço. O Service Fabric implementa aplicações a partir do pacote de aplicações armazenado na loja de imagens, que pode ser uma loja de blob Azure ou o serviço de sistema Service Fabric.
 3. Em seguida, o *operador* prevê o tipo de aplicação no cluster alvo do pacote de aplicações carregados utilizando o método [ **ProvisionApplicationAsync** ](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), o [ **Register-ServiceFabricApplicationType** cmdlet](/powershell/module/servicefabric/register-servicefabricapplicationtype), ou a [ **Provision a Application** REST operation](/rest/api/servicefabric/provision-an-application).

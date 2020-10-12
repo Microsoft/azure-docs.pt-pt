@@ -8,13 +8,13 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82838506"
 ---
-# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre conectividade da rede de serviços de análise
+# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre a conectividade de rede do Analysis Services
 
 Este artigo fornece respostas a questões comuns sobre a ligação a contas de armazenamento, fontes de dados, firewalls e endereços IP.
 
@@ -44,8 +44,8 @@ Este artigo fornece respostas a questões comuns sobre a ligação a contas de a
 **Resposta** - Os Serviços de Análise Azure não suportam Links Privados, VNETs ou Tags de Serviço. Existem algumas soluções de código aberto (por exemplo, https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) que detetam o endereço IP da aplicação do cliente e atualizam automaticamente e temporariamente as regras de firewall.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Instale e configuure um portal de dados no local](analysis-services-gateway-install.md)   
 [Ligação a fontes de dados no local com gateway de dados no local](analysis-services-gateway.md)   
-[Utilize o gateway para fontes de dados numa Rede Virtual Azure (VNet)](analysis-services-vnet-gateway.md)
+[Utilizar o gateway das origens de dados numa Rede Virtual do Azure (VNet)](analysis-services-vnet-gateway.md)

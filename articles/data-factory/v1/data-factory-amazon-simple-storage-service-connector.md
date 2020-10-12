@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711923"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
@@ -34,8 +34,8 @@ Pode copiar dados do Amazon S3 para qualquer loja de dados de lavatórios suport
 ## <a name="required-permissions"></a>Permissões obrigatórias
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
-* `s3:GetObject`e `s3:GetObjectVersion` para a Amazon S3 Object Operations.
-* `s3:ListBucket`para a Amazon S3 Bucket Operations. Se estiver a utilizar o Assistente de Cópia da Fábrica de Dados, `s3:ListAllMyBuckets` também é necessário.
+* `s3:GetObject` e `s3:GetObjectVersion` para a Amazon S3 Object Operations.
+* `s3:ListBucket` para a Amazon S3 Bucket Operations. Se estiver a utilizar o Assistente de Cópia da Fábrica de Dados, `s3:ListAllMyBuckets` também é necessário.
 
 Para obter mais informações sobre a lista completa das permissões do Amazon S3, consulte [especificar permissões numa Política.](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
 
@@ -93,10 +93,10 @@ Secções como estrutura, disponibilidade e política são semelhantes para todo
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| baldeName |O nome do balde S3. |String |Sim |
-| key |A chave do objeto S3. |String |Não |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |Não |
-| versão |A versão do objeto S3, se a versão S3 estiver ativada. |String |Não |
+| baldeName |O nome do balde S3. |Cadeia |Sim |
+| key |A chave do objeto S3. |Cadeia |Não |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |Cadeia |Não |
+| versão |A versão do objeto S3, se a versão S3 estiver ativada. |Cadeia |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |Não |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
 
@@ -359,7 +359,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 > Para mapear colunas de um conjunto de dados de origem para colunas de um conjunto de dados de sumidouro, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 * Para conhecer os factores-chave que impactam o desempenho do movimento de dados (atividade de cópia) na Data Factory, e várias formas de otimizá-lo, consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md)da atividade copy .

@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: iainfou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283151"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure Ative Directory Domain Services
@@ -77,7 +77,7 @@ Quando terminar, guarde e saia do ficheiro dos *anfitriões* utilizando `:wq` o 
 
 ## <a name="install-required-packages"></a>Instalar pacotes necessários
 
-O VM precisa de alguns pacotes adicionais para juntar o VM ao domínio gerido. Para instalar e configurar estes pacotes, atualizar e instalar as ferramentas de união de domínios utilizando`apt-get`
+O VM precisa de alguns pacotes adicionais para juntar o VM ao domínio gerido. Para instalar e configurar estes pacotes, atualizar e instalar as ferramentas de união de domínios utilizando `apt-get`
 
 Durante a instalação kerberos, o pacote *de utilizador krb5* solicita o nome do reino em TODOS OS MAI. Por exemplo, se o nome do seu domínio gerido for *aaddscontoso.com*, insira *AADDSCONTOSO.COM* como o reino. A instalação escreve as `[realm]` secções e `[domain_realm]` secções em */etc/krb5.conf* ficheiro de configuração. Certifique-se de que especifica o reino de um MAI:
 

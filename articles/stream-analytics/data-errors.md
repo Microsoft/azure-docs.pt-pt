@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
 ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88053155"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics

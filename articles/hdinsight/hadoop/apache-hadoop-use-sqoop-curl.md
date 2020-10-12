@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
 ms.openlocfilehash: 9104be9975568c52f6a96994a0afb782a406fe4e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076271"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Executar apaches sqoop empregos em HDInsight com Curl
@@ -77,7 +77,7 @@ A API de REST está protegida por [autenticação básica](https://en.wikipedia.
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-d** - Uma vez `-G` que não é utilizado, o pedido é desresposto ao método POST. `-d`especifica os valores de dados que são enviados com o pedido.
+   * **-d** - Uma vez `-G` que não é utilizado, o pedido é desresposto ao método POST. `-d` especifica os valores de dados que são enviados com o pedido.
 
        * **user.name** - O utilizador que está a executar o comando.
 
@@ -126,7 +126,7 @@ Como demonstrado neste documento, pode utilizar um pedido HTTP bruto para execut
 
 Para obter mais informações sobre a interface REST utilizada neste artigo, consulte o <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">guia apache Sqoop REST API</a>.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Use Apache Sqoop com Apache Hadoop em HDInsight](hdinsight-use-sqoop.md)
 

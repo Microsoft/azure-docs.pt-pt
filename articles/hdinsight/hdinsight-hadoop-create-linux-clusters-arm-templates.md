@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
 ms.openlocfilehash: 533fe0f391779a5bbe53bf7f2a136c3e9fb19017
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86080623"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Crie clusters Apache Hadoop em HDInsight utilizando modelos de Gestor de Recursos
@@ -71,9 +71,9 @@ Para uma introdução à utilização do Visual Studio com grupos de recursos, c
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, leia os artigos seguintes:
 
 * Para obter mais modelos relacionados com HDInsight, consulte [os modelos de arranque rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para um exemplo de implantação de recursos através da biblioteca de clientes .NET, consulte [recursos de implantação utilizando bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

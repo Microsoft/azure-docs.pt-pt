@@ -4,10 +4,10 @@ description: O Azure Monitor para contentores recolhe métricas e dados de regis
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254895"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
@@ -47,7 +47,7 @@ Os registos de contentores que são reencaminhados para o seu espaço de trabalh
 
 Muitas vezes é útil construir consultas que começam com um ou dois exemplos e depois modificá-las para se adequar às suas necessidades. Para ajudar a construir consultas mais avançadas, pode experimentar as seguintes consultas de amostra:
 
-| Consulta | Description | 
+| Consulta | Descrição | 
 |-------|-------------|
 | ContentorInventory<br> &#124; projeto Computador, Nome, Imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; mesa de renderização | Listar todas as informações do ciclo de vida de um contentor| 
 | KubeEvents_CL<br> &#124; em que não(isempty(Namespace_s))<br> &#124; tipo por Desc degenerado Tempo<br> &#124; mesa de renderização | Eventos de Kubernetes|

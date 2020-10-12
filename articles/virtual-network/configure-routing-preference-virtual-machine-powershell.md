@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707536"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configure a preferência de encaminhamento para um VM usando a Azure PowerShell
@@ -145,7 +145,7 @@ Agora pode criar o VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O 
 
 Antes de poder ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a sub-rede em que a interface de rede está, ou ambas. Pode ver as regras de segurança eficazes para uma interface de rede e a sua sub-rede utilizando o [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
@@ -153,7 +153,7 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
  Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md)
 * Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.

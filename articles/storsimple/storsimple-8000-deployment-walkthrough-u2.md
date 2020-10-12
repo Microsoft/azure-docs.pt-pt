@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707400"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementar o dispositivo StorSimple no local (Atualização 3 e posterior)
@@ -204,7 +204,7 @@ Considera-se que a extremidade da tomada estéreo é PIN 3 RX, o meio é PIN 2 T
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configure uma StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * [Utilize o serviço StorSimple Device Manager para gerir o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

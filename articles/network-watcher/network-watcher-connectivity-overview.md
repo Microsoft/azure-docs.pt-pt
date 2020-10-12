@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708948"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à resolução de problemas de conexão no Observador da Rede Azure
@@ -72,7 +72,7 @@ Segue-se um exemplo de um problema encontrado num salto.
 
 A resolução de problemas de ligação devolve tipos de falhas sobre a ligação. A tabela a seguir fornece uma lista dos tipos de avarias atuais devolvidos.
 
-|Tipo  |Description  |
+|Tipo  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização do CPU.       |
 |Memória     | Alta utilização de memória.       |
@@ -81,6 +81,6 @@ A resolução de problemas de ligação devolve tipos de falhas sobre a ligaçã
 |Regra de Segurança de Rede    | O tráfego é bloqueado por uma regra do NSG (Regra é devolvida)        |
 |UserDefinedRoute|O tráfego é desviado devido a uma rota definida pelo utilizador ou pelo sistema. |
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Saiba como resolver os problemas através do [portal Azure](network-watcher-connectivity-portal.md), [PowerShell,](network-watcher-connectivity-powershell.md) [Azure CLI](network-watcher-connectivity-cli.md)ou [REST API](network-watcher-connectivity-rest.md).

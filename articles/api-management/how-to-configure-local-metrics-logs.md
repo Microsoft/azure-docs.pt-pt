@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254508"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configure as métricas e registos locais para a Azure API Management porta de entrada auto-hospedada
@@ -153,7 +153,7 @@ Agora que tanto o StatsD como o Prometheus foram implementados, podemos atualiza
 | ------------- | ------------- | ------------- |
 | telemetria.metrics.local  | `none` | Permite o registo através de StatsD. O valor pode `none` `statsd` ser, . . |
 | telemetria.metrics.local.statsd.endpoint  | n/a | Especifica o ponto final statsd. |
-| telemetria.metrics.local.statsd.sampling  | n/a | Especifica a taxa de amostragem das métricas. O valor pode ser entre 0 e 1. por exemplo,`0.5`|
+| telemetria.metrics.local.statsd.sampling  | n/a | Especifica a taxa de amostragem das métricas. O valor pode ser entre 0 e 1. por exemplo, `0.5`|
 | telemetria.metrics.local.statsd.tag-format  | n/a | Formato [de marcação do](https://github.com/prometheus/statsd_exporter#tagging-extensions)exportador statsd . O valor pode `none` ser, `librato` , . `dogStatsD` . `influxDB` . |
 
 Aqui está uma configuração de amostra:
@@ -210,12 +210,12 @@ O gateway auto-hospedado também suporta uma série de protocolos, incluindo `lo
 
 | Campo  | Predefinição | Descrição |
 | ------------- | ------------- | ------------- |
-| telemetria.logs.std  | `text` | Permite fazer login em fluxos padrão. O valor pode `none` `text` ser,`json` |
-| telemetria.logs.local  | `none` | Permite a exploração madeireira local. O valor pode `none` ser, `auto` , `localsyslog` `rfc5424` ,`journal`  |
+| telemetria.logs.std  | `text` | Permite fazer login em fluxos padrão. O valor pode `none` `text` ser, `json` |
+| telemetria.logs.local  | `none` | Permite a exploração madeireira local. O valor pode `none` ser, `auto` , `localsyslog` `rfc5424` , `journal`  |
 | telemetria.logs.local.localsyslog.endpoint  | n/a | Especifica o ponto final do diálogo local.  |
-| telemetria.logs.local.localsyslog.facility  | n/a | Especifica o código de [instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog . por exemplo,`7` 
+| telemetria.logs.local.localsyslog.facility  | n/a | Especifica o código de [instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog . por exemplo, `7` 
 | telemetria.logs.local.rfc5424.endpoint  | n/a | Especifica o ponto final do rfc5424.  |
-| telemetria.logs.local.rfc5424.facility  | n/a | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo,`7`  |
+| telemetria.logs.local.rfc5424.facility  | n/a | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo, `7`  |
 | telemetria.logs.local.journal.endpoint  | n/a | Especifica o ponto final do diário.  |
 
 Aqui está uma configuração de amostra de registo local:

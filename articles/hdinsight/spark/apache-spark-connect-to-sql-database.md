@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86078821"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster HDInsight Spark para ler e escrever dados para a Base de Dados Azure SQL
@@ -263,7 +263,7 @@ Nesta secção, transmitimos dados para o `hvactable` que criou na secção ante
     SELECT COUNT(*) FROM hvactable
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use o cluster HDInsight Spark para analisar dados no armazenamento do Data Lake](apache-spark-use-with-data-lake-store.md)
 * [Carregue os dados e execute consultas num cluster Apache Spark em Azure HDInsight](apache-spark-load-data-run-query.md)

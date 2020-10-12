@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660306"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajuste a capacidade de um serviço de Pesquisa Cognitiva Azure
@@ -36,7 +36,7 @@ A capacidade é expressa em *unidades de busca* que podem ser atribuídas em com
 
 O diagrama seguinte mostra a relação entre réplicas, divisórias, fragmentos e unidades de busca. Mostra um exemplo de como um único índice é distribuído por quatro unidades de pesquisa num serviço com duas réplicas e duas divisórias. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de busca na coluna esquerda armazenam a primeira metade dos fragmentos, compreendendo a primeira divisória, enquanto as da coluna direita armazenam a segunda metade dos fragmentos, compreendendo a segunda divisória. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na primeira fila armazenam uma cópia, compreendendo a primeira réplica, enquanto as da linha inferior armazenam outra cópia, compreendendo a segunda réplica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentos através de divisórias.":::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentos através de divisórias.&quot;:::
 
 O diagrama acima é apenas um exemplo. Muitas combinações de divisórias e réplicas são possíveis, até um máximo de 36 unidades de pesquisa totais.
 
@@ -44,7 +44,7 @@ Na Pesquisa Cognitiva, a gestão de fragmentos é um detalhe de implementação 
 
 + Anomalias no ranking: As pontuações de pesquisa são calculadas primeiro no nível de fragmento e, em seguida, agregadas num único conjunto de resultados. Dependendo das características do conteúdo de fragmentos, os jogos de um fragmento podem ser classificados acima dos fósforos em outro. Se notar rankings não intuitivos nos resultados da pesquisa, é mais provável que seja devido aos efeitos do fragmento, especialmente se os índices forem pequenos. Pode evitar estas anomalias no ranking, optando por [calcular pontuações globais em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas fazê-lo incorrerá numa penalidade de desempenho.
 
-+ Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "micor" for introduzido, o motor de busca corresponderá à "Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
++ Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver &quot;Microsoft&quot; e um termo parcial de &quot;micor&quot; for introduzido, o motor de busca corresponderá à &quot;Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar os nódes
 
@@ -149,7 +149,7 @@ As aplicações de pesquisa que requerem uma atualização de dados em tempo rea
 
 Índices maiores demoram mais tempo a consultar. Como tal, pode descobrir que cada aumento incremental de divisórias requer um aumento menor, mas proporcional, de réplicas. A complexidade das suas consultas e volume de consultas terá em conta a rapidez com que a execução de consultas é virada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Escolha um nível de preços para Azure Cognitive Search](search-sku-tier.md)
