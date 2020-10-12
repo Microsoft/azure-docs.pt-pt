@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042544"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implementar Micro Focus Enterprise Server 5.0 a AKS
@@ -73,7 +73,7 @@ Uma vez iniciado o login, abra um pedido de comando e inicie os seguintes comand
 
 -   **acrmf50.azurecr.io de login do docker** – O formato correto aqui é o login * \<registry name\> do Docker *. Substitua o nome que usou quando criou o registo.
 
-    -   Necessitará do **nome de utilizador** e **palavra-passe** que copiou do portal Azure. Devia ver algo como a seguinte imagem.
+    -   Necessitará do **nome de utilizador** e **palavra-passe** que copiou do portal Azure. Deverá ver uma imagem semelhante à seguinte.
 
     ![Screenshot de um pedido de comando do administrador](media/deploy-image-2.png)
 

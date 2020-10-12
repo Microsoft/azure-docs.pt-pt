@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513286"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
@@ -79,7 +79,7 @@ Quando resolve o URL do ponto final de armazenamento de fora do VNet com o ponto
 
 Para o exemplo ilustrado acima, os registos de recursos DNS para a conta de armazenamento 'StorageAccountA', quando resolvidos fora do VNet que alberga o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -89,7 +89,7 @@ Como mencionado anteriormente, pode negar ou controlar o acesso a clientes fora 
 
 Os registos de recursos DNS para StorageAccountA, quando resolvidos por um cliente no VNet que hospeda o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
@@ -106,7 +106,7 @@ Os nomes recomendados da zona DNS para pontos finais privados para serviços de 
 | Serviço de armazenamento        | Nome da zona                            |
 | :--------------------- | :----------------------------------- |
 | Serviço Blob           | `privatelink.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
+| Armazenamento do Data Lake Ger2 | `privatelink.dfs.core.windows.net`   |
 | Serviço de arquivos           | `privatelink.file.core.windows.net`  |
 | Serviço de fila          | `privatelink.queue.core.windows.net` |
 | Serviço de mesa          | `privatelink.table.core.windows.net` |
@@ -139,7 +139,7 @@ Este constrangimento resulta das alterações ao DNS escamado quando a conta A2 
 
 Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../../virtual-network/security-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado são aplicadas apenas a outros pontos finais (por exemplo, NICs) do que o ponto final privado. Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Configure Firewalls de armazenamento Azure e redes virtuais](storage-network-security.md)
+- [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

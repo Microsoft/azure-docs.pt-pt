@@ -4,10 +4,10 @@ description: Saiba como ativar uma política de retenção no seu registo de con
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83683452"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Definir uma política de retenção para manifestos não marcados
@@ -97,7 +97,7 @@ Também pode definir a política de retenção de um registo no [portal Azure](h
 1. Navegue para o seu registo de contentores Azure. Em **Políticas**, selecione **Retenção** (Pré-visualização).
 1. Em **Status**, selecione **Disabled**. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre opções para [apagar imagens e repositórios](container-registry-delete.md) no Registo de Contentores do Azure
 

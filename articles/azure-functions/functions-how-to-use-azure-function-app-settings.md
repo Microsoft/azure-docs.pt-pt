@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122307"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
@@ -107,7 +107,7 @@ Ao desenvolver-se localmente, recomendamos a utilização das [Ferramentas Centr
 
 ![Configuure Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-As ferramentas avançadas para o Serviço de Aplicações (também conhecido como Kudu) fornecem acesso a funcionalidades administrativas avançadas da sua aplicação de função. A partir de Kudu, gere informações do sistema, configurações de aplicações, variáveis ambientais, extensões de site, cabeçalhos HTTP e variáveis de servidor. Também pode lançar **Kudu** navegando no ponto final SCM para a sua aplicação de função, como`https://<myfunctionapp>.scm.azurewebsites.net/` 
+As ferramentas avançadas para o Serviço de Aplicações (também conhecido como Kudu) fornecem acesso a funcionalidades administrativas avançadas da sua aplicação de função. A partir de Kudu, gere informações do sistema, configurações de aplicações, variáveis ambientais, extensões de site, cabeçalhos HTTP e variáveis de servidor. Também pode lançar **Kudu** navegando no ponto final SCM para a sua aplicação de função, como `https://<myfunctionapp>.scm.azurewebsites.net/` 
 
 
 ### <a name="deployment-center"></a><a name="deployment"></a>Centro de Implementação
@@ -143,7 +143,7 @@ Utilize o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionap
 Quando as funções utilizarem um gatilho HTTP, pode exigir que as chamadas sejam autenticadas primeiro. O App Service suporta a autenticação e o sômposições do Azure Ative Directory com fornecedores sociais, como facebook, Microsoft e Twitter. Para obter detalhes sobre a configuração de fornecedores de autenticação específica, consulte [a visão geral da autenticação do Azure App Service](../app-service/overview-authentication-authorization.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Configurações de serviço de aplicações Azure configurações](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888577"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud
@@ -35,7 +35,7 @@ Para configurar uma identidade gerida no [portal Azure](https://portal.azure.com
 1. Crie uma aplicação no portal como normalmente faria. Navegue até ele no portal.
 2. Desloque-se até ao grupo **Definições** no painel de navegação esquerdo.
 3. Selecione **identidade**.
-4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Save** (Guardar).
+4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Guardar**.
 
  ![Identidade gerida no portal](./media/spring-cloud-managed-identity/identity-1.png)
 

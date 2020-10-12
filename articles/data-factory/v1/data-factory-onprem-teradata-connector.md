@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707315"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados da Teradata usando a Azure Data Factory
@@ -61,12 +61,12 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela a seguir fornece descrição para elementos JSON específicos do serviço ligado à Teradata.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesTeradata** |Sim |
 | servidor |Nome do servidor Teradata. |Sim |
 | authenticationType |Tipo de autenticação usada para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Teradata no local. |Sim |
 
@@ -284,25 +284,25 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 
 | Tipo de Base de Dados Teradata | .NET Tipo de quadro |
 | --- | --- |
-| Char |String |
-| Clob |String |
-| Gráfico |String |
-| Rio VarChar |String |
-| VarGraphic |String |
-| Blobs |Byte[] |
+| Char |Cadeia |
+| Clob |Cadeia |
+| Gráfico |Cadeia |
+| Rio VarChar |Cadeia |
+| VarGraphic |Cadeia |
+| Blob |Byte[] |
 | Byte |Byte[] |
 | Rio VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| Double |Double |
+| Double (Duplo) |Double (Duplo) |
 | Número inteiro |Int32 |
-| Número |Double |
+| Número |Double (Duplo) |
 | PequenoInt |Int16 |
-| Data |DateTime |
+| Date |Data e Hora |
 | Hora |TimeSpan |
-| Tempo com fuso horário |String |
-| Carimbo de data/hora |DateTime |
+| Tempo com fuso horário |Cadeia |
+| Timestamp |DateTime |
 | Relógio com fuso horário |Início de execução de tempo de data |
 | Dia do Intervalo |TimeSpan |
 | Intervalo dia a hora |TimeSpan |
@@ -314,15 +314,15 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 | Minuto de Intervalo |TimeSpan |
 | Minuto de intervalo para segundo |TimeSpan |
 | Intervalo Segundo |TimeSpan |
-| Ano de Intervalo |String |
-| Intervalo ano a mês |String |
-| Mês de Intervalo |String |
-| Período (Data) |String |
-| Período (Tempo) |String |
-| Período (Tempo com Fuso Horário) |String |
-| Period (Timetamp) |String |
-| Periodtamp with Time zone) |String |
-| Xml |String |
+| Ano de Intervalo |Cadeia |
+| Intervalo ano a mês |Cadeia |
+| Mês de Intervalo |Cadeia |
+| Período (Data) |Cadeia |
+| Período (Tempo) |Cadeia |
+| Período (Tempo com Fuso Horário) |Cadeia |
+| Period (Timetamp) |Cadeia |
+| Periodtamp with Time zone) |Cadeia |
+| Xml |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para obter informações sobre as colunas de mapeamento em conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

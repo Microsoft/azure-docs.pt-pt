@@ -4,10 +4,10 @@ description: Aprenda a usar funcionalidades de segurança no Azure Backup para t
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271550"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
@@ -172,7 +172,7 @@ O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de 
 
 ### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso eliminar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
 
-Não. Não é possível forçar a eliminação dos itens apagados. São apagados automaticamente após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados com apoio de eliminações acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no artigo.  Os itens apagados não serão carregados.  Se precisar de reprotegir os itens marcados para eliminar suavemente no prazo de 14 dias num novo cofre, contacte o suporte da Microsoft.
+N.º Não é possível forçar a eliminação dos itens apagados. São apagados automaticamente após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados com apoio de eliminações acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no artigo.  Os itens apagados não serão carregados.  Se precisar de reprotegir os itens marcados para eliminar suavemente no prazo de 14 dias num novo cofre, contacte o suporte da Microsoft.
 
 ### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser executadas em PowerShell ou CLI?
 

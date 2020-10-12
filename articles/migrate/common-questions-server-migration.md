@@ -4,10 +4,10 @@ description: Obtenha respostas para perguntas comuns sobre a utilização da mig
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275545"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: Questões comuns
@@ -29,14 +29,14 @@ Azure Migrate: A ferramenta de migração do servidor migra máquinas baseadas e
 
 | **Sistemas operativos suportados para máquinas baseadas na UEFI** | **VMware sem agente para Azure**                                                                                                             | **Hyper-V sem agente para Azure** | **VMware baseado em agente, nuvens físicas e outras para Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
-| Windows 10 Pro, Empresa Windows 10                   | Y                                                                                                                                         | Y                              | Y                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_   | Y                              | Y                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_ | Y                              | Y                                                          |
-| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+| Windows Server 2019, 2016, 2012 R2, 201                 | S                                                                                                                                         | S                              | S                                                          |
+| Windows 10 Pro, Empresa Windows 10                   | S                                                                                                                                         | S                              | S                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | S                                                                                                                                         | S                              | S                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | S                                                                                                                                         | S                              | S                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | S                                                                                                                                         | S                              | S                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | S<br>                 _RHEL 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_   | S                              | S                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | S<br>_Cent OS 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_ | S                              | S                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  S                                                                                                                                        | S                              | S                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Posso usar o cofre de serviços de recuperação criado por Azure Migrate para cenários de recuperação de desastres?
 Não recomendamos a utilização do cofre de serviços de recuperação criado pela Azure Migrate para cenários de recuperação de desastres. Fazê-lo pode resultar em falhas de replicação de início em Azure Migrate. 
@@ -135,7 +135,7 @@ Pode acelerar usando a NetQosPolicy. Por exemplo:
 
 O AppNamePrefix para usar na NetQosPolicy é "GatewayWindowsService.exe". Pode criar uma política sobre o aparelho Azure Migrate para acelerar o tráfego de replicação do aparelho, criando uma política como esta:
 
-New-NetQosPolicy -Nome "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1 MB
+New-NetQosPolicy -Nome "ThrottleReplication" -AppPathNameMatchCondição "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSegd 1 MB
 
 ## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Como é transmitidos os dados do ambiente on-prem para o Azure? Está encriptado antes da transmissão?
 

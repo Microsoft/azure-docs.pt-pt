@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 7886691559a63e6d54ea748582f641f33cecf995
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Azure AD SAML Toolkit
@@ -100,7 +100,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -124,7 +124,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     ![Configuração SAML de kit de ferramentas Azure Ad SAML](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
     ![Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     1. Clique **em Escolher Ficheiro** e faça o upload do ficheiro Certificado **(Raw)** que descarregou a partir do portal Azure.
 
-    1. Clique em **Create** (Criar).
+    1. Clique em **Criar**.
 
     1. Copiar valores de URL, IDENTIFIER e URL ACS na página de configuração SSO do SAML Toolkit e colar em caixas de texto respeitadas na **secção de Configuração BÁSICA SAML** no portal Azure.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90008030"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso Condicional: Acesso programático
@@ -56,13 +56,13 @@ Este exemplo modela práticas de implementação mais seguras com fluxos de trab
 
 - [Promover políticas de acesso condicional a partir de ambientes de teste](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/02-test)
 
-## <a name="deploy"></a>Implementar
+## <a name="deploy"></a>Implementação
 
 Este exemplo fornece um mecanismo para executar uma implementação faseada políticas de acesso condicional gradualmente à população utilizadora, permitindo-lhe gerir precocemente problemas de impacto e spot de suporte.
 
 - [Implementar políticas de acesso condicional a ambientes de produção com fluxos de trabalho de aprovação](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorizar
 
 Este exemplo fornece um mecanismo para monitorizar as mudanças na política de acesso condicional ao longo do tempo e pode desencadear alertas quando as políticas-chave são alteradas.
 
@@ -92,7 +92,7 @@ As coisas nem sempre funcionam como queremos, quando isso acontece, precisamos d
 
 Estas amostras estão disponíveis no nosso [repositório GitHub.](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) Temos o prazer de apoiar as contribuições comunitárias minuciosas gitHub questões e pedidos de pull.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição Geral do Microsoft Graph](/graph/overview)
 

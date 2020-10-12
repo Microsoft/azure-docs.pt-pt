@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480138"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Add network interfaces to or remove network interfaces from virtual machines (Adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais)
@@ -28,7 +28,7 @@ Saiba como adicionar uma interface de rede existente quando criar uma máquina v
 
 Se precisar de adicionar, alterar ou remover endereços IP para uma interface de rede, consulte [gerir endereços IP de interface de rede](virtual-network-network-interface-addresses.md). Para criar, alterar ou eliminar interfaces de rede, consulte [Gerir interfaces de rede](virtual-network-network-interface.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -153,7 +153,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 - Alcançar o desempenho ideal documentado requer uma rede acelerada. Em alguns casos, deve ativar explicitamente a rede acelerada para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux.](create-vm-accelerated-networking-cli.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar um VM com múltiplas interfaces de rede ou endereços IP, consulte:
 

@@ -11,11 +11,11 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5ac32c41bd6b30c3edce68d67adc376e066d0bf5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797603"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação na piscina Sinaapse SQL
@@ -142,9 +142,6 @@ GROUP BY
 ,       t.[name]
 ;
 ```
-
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 Agora que criou a vista, faça esta consulta para identificar tabelas com grupos de linha com menos de 100 mil linhas. Claro que pode querer aumentar o limiar de 100 mil se estiver à procura de uma qualidade de segmento mais ótima.
 

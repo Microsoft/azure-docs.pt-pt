@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514940"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utilize a lâmina de resumo de serviço para o dispositivo da série StorSimple 8000
@@ -85,7 +85,7 @@ A área essencial captura algumas das propriedades importantes, tais como, o gru
 Para visualizar as várias operações realizadas dentro do seu Gestor de Dispositivos StorSimple, clique no link **de registos** de atividade no lado esquerdo da sua lâmina de resumo de serviço StorSimple. Isto leva-o à lâmina de **registos de atividade,** onde pode ver um resumo das operações recentes realizadas.
 
 ![Registos de Atividade](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

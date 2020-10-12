@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084647"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster Apache Spark em HDInsight
@@ -67,13 +67,13 @@ E nenhum registo de motorista está escrito.
 3. Atualize a localização do registo de faíscas usando Ambari para ser um diretório com 777 permissões.  
 4. Executar spark-submit como sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>O conector Spark-Phoenix não é suportado
+## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix conector não é suportado
 
 Os clusters HDInsight Spark não suportam o conector Spark-Phoenix.
 
 **Mitigação:**
 
-Em vez disso, tem de utilizar o conector Spark-HBase. Para obter as instruções, consulte [como utilizar o conector Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Em vez disso, deve utilizar o conector Spark-HBase. Para obter as instruções, consulte [como utilizar Spark-HBase conector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Questões relacionadas com cadernos Jupyter
 
@@ -119,7 +119,7 @@ Quando o cluster Spark estiver sem recursos, os kernels Spark e PySpark no cader
 
 2. Reinicie o caderno que estava a tentar ligar. Recursos suficientes devem estar disponíveis para que crie uma sessão agora.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

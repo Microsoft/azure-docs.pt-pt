@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081201"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
@@ -33,20 +33,20 @@ Este documento fornece um guia para migrar da Tempestade Apache para o Streaming
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Comparação entre Tempestade Apache e Streaming de Faíscas, Streaming Estruturado de Faíscas
 
-O Apache Storm pode fornecer diferentes níveis de processamento garantido de mensagens. Por exemplo, uma aplicação básica storm pode garantir pelo menos uma vez o processamento, e [trident pode](https://storm.apache.org/releases/current/Trident-API-Overview.html) garantir exatamente uma vez o processamento. O Streaming spark e o streaming estruturado de faíscas garantem que qualquer evento de entrada é processado exatamente uma vez, mesmo que ocorra uma falha no nó. Storm tem um modelo que processa cada evento, e você também pode usar o modelo Micro Batch com Trident. O streaming de faíscas e o streaming estruturado de faíscas fornecem um modelo de processamento de Micro-Batch.
+O Apache Storm pode fornecer diferentes níveis de processamento garantido de mensagens. Por exemplo, uma aplicação básica storm pode garantir pelo menos uma vez o processamento, e [trident pode](https://storm.apache.org/releases/current/Trident-API-Overview.html) garantir exatamente uma vez o processamento. O Streaming spark e o streaming estruturado de faíscas garantem que qualquer evento de entrada é processado exatamente uma vez, mesmo que ocorra uma falha no nó. Storm tem um modelo que processa cada evento, e você também pode usar o modelo Micro Batch com Trident. O streaming de faíscas e o streaming estruturado de faíscas fornecem Micro-Batch modelo de processamento.
 
 |  |Storm |Transmissão em fluxo do Spark | Fluxo estruturado de faísca|
 |---|---|---|---|
 |**Garantia de processamento de eventos**|Pelo menos uma vez. <br> Exatamente uma vez (Tridente) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de processamento**|Em tempo real <br> Micro Lote (Tridente) |Micro Lote |Micro Lote |
 |**Suporte de tempo do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Idiomas**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
+|**Linguagens**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming de faísca vs Spark streaming estruturado
 
 O Streaming Estruturado de Faísca está a substituir o Streaming spark (DStreams). O Streaming Estruturado continuará a receber melhorias e manutenção, enquanto o DStreams estará apenas em modo de manutenção. **Nota: precisa de ligações para enfatizar este ponto.** O Streaming Estruturado não tem tantas funcionalidades como o DStreams para as fontes e pias que suporta fora da caixa, por isso avalie os seus requisitos para escolher a opção de processamento de fluxo spark apropriado.
 
-## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Processamento de streaming (evento único) vs Processamento de Micro-Lot
+## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Processamento de streaming (evento único) vs processamento Micro-Batch
 
 A tempestade fornece um modelo que processa cada evento. Isto significa que todos os registos de entrada serão processados assim que chegarem. As aplicações spark streaming devem esperar uma fração de segundo para recolher cada micro-lote de eventos antes de enviar esse lote para processamento. Em contraste, uma aplicação orientada para o evento processa cada evento imediatamente. A latência do streaming de faíscas é normalmente em poucos segundos. Os benefícios da abordagem do micro-lote são o processamento de dados mais eficiente e cálculos agregados mais simples.
 
@@ -69,7 +69,7 @@ A tempestade consiste nos seguintes três daemons, que mantêm o aglomerado de t
 
 |Rio Daemon |Descrição |
 |---|---|
-|Rio Nimbus|Semelhante ao Hadoop JobTracker, é responsável por distribuir código em torno do cluster e atribuir tarefas a máquinas e monitorização de falhas.|
+|Nimbus|Semelhante ao Hadoop JobTracker, é responsável por distribuir código em torno do cluster e atribuir tarefas a máquinas e monitorização de falhas.|
 |Zookeeper|Usado para coordenação de agrupamentos.|
 |Supervisor|Ouve o trabalho atribuído à sua máquina e inicia e para os processos dos trabalhadores com base em diretivas da Nimbus. Cada processo de trabalho executa um subconjunto de uma topologia. A lógica de aplicação do utilizador (Bicos e Parafusos) é executada aqui.|
 
@@ -147,7 +147,7 @@ Para migrar a sua aplicação de Storm para uma das APIs de streaming spark, fa�
     > [!div class="mx-imgBorder"]
     > ![remover clusters HDInsight antigos, conforme necessário](./media/migrate-storm-to-spark/remove-old-clusters1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre Storm, Spark Streaming e Spark Structured Streaming, consulte os seguintes documentos:
 

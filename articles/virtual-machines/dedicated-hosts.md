@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91373127"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
@@ -172,7 +172,7 @@ Os tamanhos e os tipos de hardware variam por região. Consulte a [página de pr
 
 Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado da Saúde   | Description       |
+| Estado da Saúde   | Descrição       |
 |----------|----------------|
 | Anfitrião Disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos procurando. Este é um estado transitório necessário para que a Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser afetadas. |

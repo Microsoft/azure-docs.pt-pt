@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 139c8cdb1a227595d728d2acc0b09cf1eb210715
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006385"
 ---
 # <a name="chart-visualizations"></a>Visualizações de gráficos
@@ -225,7 +225,7 @@ O separador de definição da série permite ajustar as etiquetas e cores mostra
 
 ![Screenshot das definições da série.](./media/workbooks-chart-visualizations/series-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como criar um azulejo em livros de [trabalho.](workbooks-tile-visualizations.md)
 - Saiba como criar [livros interativos.](workbooks-interactive.md)

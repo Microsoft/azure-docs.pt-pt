@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a preparar o seu ambiente para proteger e faz
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975527"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
@@ -210,7 +210,7 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
    >
    >
 
-    ![Opt-In da Atualização da Microsoft](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Reveja o *Resumo das Definições* e selecione **Instalar.**
 
     ![Resumo das definições](./media/backup-azure-microsoft-azure-backup/summary-screen.png)

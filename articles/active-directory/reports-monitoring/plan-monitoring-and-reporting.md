@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331204"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Description |
+|Área |Descrição |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |

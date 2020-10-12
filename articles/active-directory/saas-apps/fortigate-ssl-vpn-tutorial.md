@@ -16,10 +16,10 @@ ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331121"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Azure Ative Directory integração única (SSO) com FortiGate SSL VPN
@@ -77,11 +77,11 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **FortiGate SSL VPN,** na secção **Gerir,** selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de um único registo com** a página SAML, selecione o botão de lápis para **configuração SAML básica** para editar as definições:
+1. Na **configuração de Sign-On única com** a página SAML, selecione o botão de lápis para **configuração SAML Básica** para editar as definições:
 
    ![Screenshot que mostra o botão de lápis para editar a configuração básica do SAML.](common/edit-urls.png)
 
-1. Na **configuração de 'S-On' único com** a página SAML, insira os seguintes valores:
+1. Na **configuração single Sign-On com página SAML,** insira os seguintes valores:
 
     a. Na placa na caixa **URL,** introduza um URL no padrão `https://<FQDN>/remote/login` .
 
@@ -100,7 +100,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 1. As duas reclamações adicionais exigidas pela FortiGate SSL VPN são apresentadas no quadro seguinte. Os nomes destas reclamações devem corresponder aos nomes utilizados na secção de configuração da **linha de comando Perform FortiGate** deste tutorial. 
 
-   | Name |  Atributo de origem|
+   | Nome |  Atributo de origem|
    | ------------ | --------- |
    | nome de utilizador | user.userprincipalname |
    | group | utilizador.grupos |
@@ -118,7 +118,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
    1. Para **nome,** insira **o grupo**.
    1. Selecione **Guardar**.   
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o link de **descarregamento** ao lado **do Certificado (Base64)** para descarregar o certificado e guardá-lo no seu computador:
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o link **de descarregamento** ao lado **do Certificado (Base64)** para descarregar o certificado e guardá-lo no seu computador:
 
     ![Screenshot que mostra o link de descarregamento do certificado.](common/certificatebase64.png)
 

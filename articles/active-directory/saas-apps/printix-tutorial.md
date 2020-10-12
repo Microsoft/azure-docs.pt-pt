@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integração do Diretório Ativo Azure com a Printix
@@ -98,50 +98,50 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
 
 1. No portal Azure, na página de integração da aplicação **Printix,** clique **em 'SÚM'.**
 
-    ![Configurar um único sign-on][4]
+    ![Configurar Sign-On Individuais][4]
 
 1. No diálogo **de assinatura único,** selecione **Mode** como **Sign-on baseado em SAML** para ativar um único sinal de súplica.
  
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. Na secção **Domínio printix e URLs,** execute os seguintes passos:
 
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_url.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_url.png)
 
     Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.printix.net`
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente Printix](mailto:support@printix.net) para obter o valor. 
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte do Cliente Printix](mailto:support@printix.net) para obter o valor. 
  
 1. Na secção **Certificado de Assinatura SAML,** clique em **Metadata XML** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. Clique no botão **Guardar.**
 
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_general_400.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Inscreva-se no seu inquilino printix como administrador.
 
 1. No menu em cima, clique no ícone no canto superior direito e selecione "**Autenticação**".
    
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_06.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. No **separador Configuração,** selecione **Ativar a autenticação Azure/Office 365**
    
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. No **separador Azure,** introduza o URL de metadados da federação para a caixa de texto do " documento de**metadados da Federação**". 
 
     Anexe o ficheiro xml de metadados que descarregou da equipa de suporte AZure AD para [a equipa de suporte printix](mailto:support@printix.net). Depois carregam o ficheiro XML e fornecem um URL de metadados da federação.
    
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_08.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Clique no botão "**Test**" e clique no botão "**OK**" se o teste tiver sido bem sucedido.
    
      A página de diretório ativo Azure mostrará depois de clicar no botão **de teste.** "O teste foi bem sucedido" aqui significa que depois de introduzir as credenciais da sua conta de teste Azure, aparecerá uma mensagem "Definições testadas OK". Em seguida, clique no botão **OK.**
    
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_09.png)
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Clique no botão **Guardar** na página "**Autenticação".**
 
@@ -205,7 +205,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 1. Na lista de candidaturas, selecione **Printix**.
 
-    ![Configurar um único sign-on](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. No menu à esquerda, clique em **Utilizadores e grupos**.
 
