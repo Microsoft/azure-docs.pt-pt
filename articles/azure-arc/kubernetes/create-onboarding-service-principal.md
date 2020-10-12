@@ -9,10 +9,10 @@ ms.author: mlearned
 description: 'Criar um diretor de serviço de bordo ativado pelo Arco Azure '
 keywords: Kubernetes, Arc, Azure, contentores
 ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050073"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
@@ -54,7 +54,7 @@ As permissões podem ser ainda mais limitadas ao passar o argumento adequado `--
 | Recurso  | Argumento `scope`| Efeito |
 | ------------- | ------------- | ------------- |
 | Subscrição | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | O diretor de serviço pode registar qualquer cluster num Grupo de Recursos existente na subscrição dada |
-| Grupo de Recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | O diretor de serviço __só__ pode registar clusters no Grupo de Recursos`myGroup` |
+| Grupo de Recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | O diretor de serviço __só__ pode registar clusters no Grupo de Recursos `myGroup` |
 
 ```console
 az role assignment create \

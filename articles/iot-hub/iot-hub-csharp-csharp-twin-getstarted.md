@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89013763"
 ---
 # <a name="get-started-with-device-twins-net"></a>Começar com os gémeos do dispositivo (.NET)
@@ -39,7 +39,7 @@ Neste tutorial, cria-se estas aplicações de consola .NET:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -65,7 +65,7 @@ Nesta secção, cria-se uma aplicação de consola .NET, utilizando C#, que adic
 
 1. No Solution Explorer, clique com o botão direito no projeto **AddTagsAndQuery** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. **Selecione Procurar** e procurar e selecione **Dispositivos Microsoft.Azure..** Selecione **Install** (Instalar).
+1. **Selecione Procurar** e procurar e selecione **Dispositivos Microsoft.Azure..** Selecione **Instalar**.
 
     ![Janela Gestor de Pacote NuGet](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
@@ -145,7 +145,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
 1. No Solution Explorer, clique com o botão direito no projeto **ReportConnectivity** e, em seguida, **selecione Gerir Pacotes NuGet**.
 
-1. **Selecione Procurar** e procurar e escolher **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
+1. **Selecione Procurar** e procurar e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 

@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050454"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir o Azure Analysis Services com o PowerShell
@@ -33,11 +33,11 @@ Para operações de servidor utilizando cmdlets Azure PowerShell, a sua conta ou
 Módulo de instalação - [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
 Documentação - [Referência Az.AnalysisServices](/powershell/module/az.analysisservices)
 
-## <a name="database-operations"></a>Operações de base de dados
+## <a name="database-operations"></a>Operações da base de dados
 
 As operações de base de dados dos Serviços de Análise Azure utilizam o mesmo módulo SqlServer que os SqL Server Analysis Services. No entanto, nem todos os cmdlets são suportados para os Serviços de Análise Azure. 
 
-O módulo SqlServer fornece cmdlets de gestão de bases de dados específicos de tarefas, bem como o cmdlet Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os cmdlets seguintes no módulo SqlServer são suportados para serviços de análise Azure.
+O módulo SqlServer fornece cmdlets de gestão de bases de dados específicos de tarefas, bem como o cmdlet de Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de script de modelo tabular (TMSL). Os cmdlets seguintes no módulo SqlServer são suportados para serviços de análise Azure.
 
 Módulo de instalação - [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
 Documentação - [Referência SqlServer](/powershell/module/sqlserver)

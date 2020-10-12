@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c4d8b0a33763a967550453d8a205258f7583084
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015267"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerações especiais para casos
@@ -67,5 +67,5 @@ Os seguintes passos de configuração manual são utilizados para garantir que o
 3. Inicie o regedit e altere a chave de registo `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` para o valor `4` .
 4. Volte para o assistente de instalação Azure AD Connect, aceite o EULA e continue. Durante a instalação, certifique-se de que utiliza o caminho de instalação de **configuração personalizada** (e não a instalação Do Expresso), e continue a instalação como de costume.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708792"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gerir a recuperação de desastres utilizando a replicação entre regiões 
@@ -99,9 +99,9 @@ Depois de concluída a operação de ressígnia do destino para a fonte, é nece
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* [Replicação inter-região](cross-region-replication-introduction.md)
+* [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Mostrar estado de saúde da relação de replicação](cross-region-replication-display-health-status.md)
+* [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Resolução de problemas replicação transversal](troubleshoot-cross-region-replication.md)
+* [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 

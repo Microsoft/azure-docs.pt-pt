@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
 ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376441"
 ---
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
@@ -40,7 +40,7 @@ Estas definições são suportadas quando executam projetos localmente:
 
 | Definições      | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando esta definição está definida para `true` , todos os valores são encriptados com uma chave de máquina local. Usado com `func settings` comandos. O valor predefinido é `false` . É possível que pretenda encriptar as local.settings.jsno ficheiro do computador local quando este contiver segredos, tais como cadeias de ligação de serviço. O anfitrião desencripta automaticamente as definições quando funciona. Utilize o `func settings decrypt` comando antes de tentar ler as definições encriptadas localmente. |
+| **`IsEncrypted`** | Quando esta definição está definida para `true` , todos os valores são encriptados com uma chave de máquina local. Usado com `func settings` comandos. O valor predefinido é `false`. É possível que pretenda encriptar as local.settings.jsno ficheiro do computador local quando este contiver segredos, tais como cadeias de ligação de serviço. O anfitrião desencripta automaticamente as definições quando funciona. Utilize o `func settings decrypt` comando antes de tentar ler as definições encriptadas localmente. |
 | **`Values`** | Conjunto de configurações de aplicações e cordas de conexão usadas quando um projeto está em execução local. Estes pares de valor-chave (string-string) correspondem às definições de aplicação na sua aplicação de função em Azure, como [`AzureWebJobsStorage`] . Muitos gatilhos e encadernações têm uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, como `Connection` para o gatilho de armazenamento [Blob](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para estas propriedades, você precisa de uma definição de aplicação definida na `Values` matriz. Consulte a tabela seguinte para obter uma lista de configurações comumente utilizadas. <br/>Os valores devem ser cordas e não objetos ou matrizes JSON. Definir nomes não pode incluir um cólon `:` () ou um duplo sublinhado `__` (). Os caracteres de duplo sublinhado são reservados pelo tempo de execução, e o cólon é reservado para apoiar a [injeção de dependência](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | As definições nesta secção personalizam o processo de anfitrião de Funções quando executar projetos localmente. Estas definições são separadas do host.jsnas definições, que também se aplicam quando executam projetos em Azure. |
 | **`LocalHttpPort`** | Define a porta predefinida utilizada quando executa o hospedeiro local de funções `func host start` (e `func run` . A `--port` opção de linha de comando tem precedência sobre esta definição. |

@@ -8,10 +8,10 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 06/27/2018
 ms.openlocfilehash: 954068e2fc60321f8594aa7fdd8f4cf9a3327ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88607173"
 ---
 # <a name="preferred-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluções preferenciais no Microsoft AppSource e Azure Marketplace

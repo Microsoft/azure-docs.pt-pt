@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313625"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect sync: Understanding Declarative Provisioning
@@ -53,7 +53,7 @@ O âmbito desta imagem deve ser lido como (departamento = IT AND country = Dinam
 
 O módulo de âmbito suporta as seguintes operações.
 
-| Operação | Description |
+| Operação | Descrição |
 | --- | --- |
 | IGUAL, NOTAQUAL |Uma cadeia compara que avalia se o valor é igual ao valor no atributo. Para obter atributos multi-valorizados, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Uma cadeia compara que avalia se o valor é inferior ao valor no atributo. |

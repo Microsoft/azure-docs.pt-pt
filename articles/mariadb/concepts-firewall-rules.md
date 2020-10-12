@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
 ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047617"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Base de dados Azure para regras de firewall de servidor mariaDB
@@ -70,7 +70,7 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 
 * **Não é possível ligar a partir do recurso Azure com IP permitido:** Verifique se o ponto final do serviço **Microsoft.Sql** está ativado para a sub-rede a que está a ligar. Se **o Microsoft.Sql** estiver ativado, indica que só pretende utilizar [as regras do ponto final de serviço VNet](concepts-data-access-security-vnet.md) nessa sub-rede.
 
-   Por exemplo, poderá ver o seguinte erro se estiver a ligar a partir de um Azure VM numa sub-rede que tenha **o Microsoft.Sql** ativado mas não tem nenhuma regra VNet correspondente:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+   Por exemplo, poderá ver o seguinte erro se estiver a ligar a partir de um Azure VM numa sub-rede que tenha **o Microsoft.Sql** ativado mas não tem nenhuma regra VNet correspondente:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 
 ## <a name="next-steps"></a>Passos seguintes

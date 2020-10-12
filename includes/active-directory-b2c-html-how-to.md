@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377414"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
@@ -46,7 +46,7 @@ Em vez de criar o conteúdo da sua página personalizada do zero, pode personali
 
 A tabela que se segue lista o conteúdo da página predefinida fornecido pelo Azure AD B2C. Descarregue os ficheiros e use-os como ponto de partida para criar as suas próprias páginas personalizadas.
 
-| Página padrão | Description | ID de definição de conteúdo<br/>(apenas política personalizada) |
+| Página padrão | Descrição | ID de definição de conteúdo<br/>(apenas política personalizada) |
 |:-----------------------|:--------|-------------|
 | [exception.htm](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Esta página é apresentada quando se encontra uma exceção ou um erro. | *api.erro* |
 | [selfasserted.htm](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página auto-assertada.** Utilize este ficheiro como conteúdo de página personalizada para uma página de inscrição de conta social, uma página de inscrição de conta local, uma página de inscrição de conta local, redefinição de senha e muito mais. O formulário pode conter vários controlos de entrada, tais como: uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de rádio, caixas de entrega de uma única seleção e caixas de verificação multi-selecionadas. | *api.localaccountsignin,* *api.localaccountsignup,* *api.localaccountpasswordreset,* *api.selfasserted* |

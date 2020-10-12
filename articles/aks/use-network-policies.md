@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050478"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Tráfego seguro entre cápsulas utilizando políticas de rede no Serviço Azure Kubernetes (AKS)
@@ -18,7 +18,7 @@ Quando você corre aplicações modernas baseadas em microserviços em Kubernete
 
 Este artigo mostra-lhe como instalar o motor de política de rede e criar políticas de rede Kubernetes para controlar o fluxo de tráfego entre cápsulas em AKS. A política de rede só deve ser utilizada para nós e cápsulas baseados em Linux em AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -50,7 +50,7 @@ Ambas as implementações utilizam *IPTables* Linux para impor as políticas esp
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e as suas capacidades
 
-| Capacidade                               | Azure                      | Calico                      |
+| Funcionalidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas suportadas                      | Linux                      | Linux                       |
 | Opções de networking suportadas             | Azure CNI                  | Azure CNI e kubenet       |
@@ -451,7 +451,7 @@ Saia da sessão do terminal anexa. A cápsula de teste é automaticamente elimin
 exit
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, criámos dois espaços de nome e aplicámos uma política de rede. Para limpar estes recursos, utilize o [comando de eliminação de kubectl][kubectl-delete] e especifique os nomes dos recursos:
 

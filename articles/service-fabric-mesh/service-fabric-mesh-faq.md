@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260115"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas de malha de tecido de serviço comumente
@@ -42,7 +42,7 @@ Sim. As quotas para cada subscrição são:
 
 Atualmente, limitámos a vida útil de uma candidatura a dois dias. Isto é para maximizar a utilização dos núcleos gratuitos atribuídos à pré-visualização. Como resultado, só é permitido executar uma determinada implantação continuamente durante 48 horas, após o qual será desligado.
 
-Se vir isto acontecer, pode validar que o sistema o desliga, executando o `az mesh app show` comando no Azure CLI. Verifique se devolve`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Se vir isto acontecer, pode validar que o sistema o desliga, executando o `az mesh app show` comando no Azure CLI. Verifique se devolve `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Por exemplo: 
 
@@ -127,7 +127,7 @@ Para outros problemas conhecidos do DNS com a execução de um cluster de desenv
 
 O ServiceFabric network NAT pode desaparecer durante a utilização da sua aplicação na sua máquina local. Para diagnosticar se isto aconteceu, executar o seguinte a partir de um pedido de comando:
 
-`docker network ls`e note se `servicefabric_nat` está listado.  Caso contrário, executará o seguinte comando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls` e note se `servicefabric_nat` está listado.  Caso contrário, executará o seguinte comando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Isto abordará o problema mesmo que a app já esteja implementada localmente e em estado pouco saudável.
 
@@ -135,7 +135,7 @@ Isto abordará o problema mesmo que a app já esteja implementada localmente e e
 
 Poderá encontrar disponibilidade de CPU e limites a serem fixados em todas as aplicações. Para mitigar:
 - Criar um aglomerado de cinco nós.
-- Reduza o uso do CPU em serviços em toda a aplicação que é implementada. Por exemplo, no ficheiro serviço.yaml do seu serviço, mude `cpu: 1.0` para`cpu: 0.5`
+- Reduza o uso do CPU em serviços em toda a aplicação que é implementada. Por exemplo, no ficheiro serviço.yaml do seu serviço, mude `cpu: 1.0` para `cpu: 0.5`
 
 Várias aplicações não podem ser implantadas num aglomerado de um nó. Para mitigar:
 - Use um cluster de cinco nós ao implementar várias aplicações para um cluster local.

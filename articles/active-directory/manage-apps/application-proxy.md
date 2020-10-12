@@ -12,13 +12,13 @@ ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707412"
 ---
-# <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicações no local através do Azure AD Application Proxy
+# <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicações no local através de um Proxy de Aplicações do Azure AD
 
 O Proxy de Aplicação do Azure Ative Directory fornece acesso remoto seguro a aplicações web no local. Após um único s-on para Azure AD, os utilizadores podem aceder a aplicações tanto em nuvem como no local através de um URL externo ou de um portal de aplicações internas. Por exemplo, o Application Proxy pode fornecer acesso remoto e um único acesso às aplicações Remote Desktop, SharePoint, Teams, Tableau, Qlik e linha de negócios (LOB).
 

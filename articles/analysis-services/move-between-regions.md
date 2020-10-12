@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050368"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
@@ -199,7 +199,7 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
-6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js**no** ficheiro que exportou e modificou.
+6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js** no** ficheiro que exportou e modificou.
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o seu novo servidor-alvo.
 
@@ -278,9 +278,9 @@ Opcional: Depois de restaurar a base de dados do modelo, processe o modelo e as 
 
 Opcional: [O ALM Toolkit](http://alm-toolkit.com/) é uma ferramenta *de código aberto* para comparar e gerir bases de dados de dados *e* serviços de análise de power bi. Utilize o conjunto de ferramentas para ligar as bases de dados de servidores de origem e alvo e comparar. Se a migração da sua base de dados for bem sucedida, os objetos-modelo terão a mesma definição. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obter SAS":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de verificar as aplicações do cliente pode ligar-se ao novo servidor e quaisquer scripts de automatização estão a ser executados corretamente, elimine o seu servidor de origem. 
 

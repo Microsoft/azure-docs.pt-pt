@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
 ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88611182"
 ---
 # <a name="azure-firewall-faq"></a>FAQ do Azure Firewall
@@ -62,7 +62,7 @@ O Firewall de Aplicações Web (WAF) é uma funcionalidade do Application Gatewa
 
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Qual é a diferença entre grupos de segurança de rede (NSGs) e Azure Firewall?
 
-O serviço Azure Firewall complementa a funcionalidade do grupo de segurança de rede. Juntos, proporcionam uma melhor segurança na rede "defesa-em-profundidade". Os grupos de segurança da rede fornecem filtragem de tráfego de camadas de rede distribuídas para limitar o tráfego a recursos dentro de redes virtuais em cada subscrição. O Azure Firewall é uma firewall de rede totalmente imponente e centralizada como serviço, que fornece proteção ao nível da rede e aplicação em diferentes subscrições e redes virtuais.
+O serviço Azure Firewall complementa a funcionalidade do grupo de segurança de rede. Juntos, proporcionam uma melhor segurança na rede "defesa-em-profundidade". Os grupos de segurança de rede fornecem a filtragem do tráfego da camada de rede distribuído para limitar o tráfego a recursos nas redes virtuais em cada subscrição. O Azure Firewall é uma firewall de rede totalmente imponente e centralizada como serviço, que fornece proteção ao nível da rede e aplicação em diferentes subscrições e redes virtuais.
 
 ## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Os Grupos de Segurança da Rede (NSGs) são suportados na AzureFirewallSubnet?
 
@@ -115,7 +115,7 @@ Sim, pode utilizar o Azure Firewall numa rede virtual do hub para encaminhar e f
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais?
 
-Yes. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
+Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>A Azure Firewall sai do SNAT entre redes privadas?
 
@@ -131,11 +131,11 @@ Se a sua configuração necessitar de um túnel forçado para uma rede no local 
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Yes. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Sim. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de Internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
-Não. As regras da NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
+N.º As regras da NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
@@ -156,7 +156,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de caracteres para um nome de firewall?
 
-Yes. Há um limite de 50 caracteres para um nome de firewall.
+Sim. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -164,7 +164,7 @@ O Azure Firewall deve providenciar mais casos de máquinas virtuais à medida qu
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da sub-rede de firewall precisa de ser alterado à medida que a balança de serviço é alterada?
 
-Não. A Azure Firewall não precisa de uma sub-rede maior que /26.
+N.º A Azure Firewall não precisa de uma sub-rede maior que /26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha produção de firewall?
 
@@ -178,7 +178,7 @@ Ao testar o desempenho, certifique-se de testar durante pelo menos 10 a 15 minut
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Azure Firewall permite o acesso ao Ative Directory por defeito?
 
-Não. Azure Firewall bloqueia o acesso ao Ative Directory por predefinição. Para permitir o acesso, configurar a etiqueta de serviço AzureActiveDirectory. Para obter mais informações, consulte [as etiquetas de serviço Azure Firewall](service-tags.md).
+N.º Azure Firewall bloqueia o acesso ao Ative Directory por predefinição. Para permitir o acesso, configurar a etiqueta de serviço AzureActiveDirectory. Para obter mais informações, consulte [as etiquetas de serviço Azure Firewall](service-tags.md).
 
 ## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Posso excluir um FQDN ou um endereço IP da filtragem baseada em ameaças de firewall Azure?
 
@@ -209,7 +209,7 @@ Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o rep
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Yes. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Sim. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um Grupo IP para outro grupo de recursos?
 

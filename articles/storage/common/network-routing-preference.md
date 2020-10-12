@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514201"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configure a preferência de encaminhamento de rede para armazenamento Azure (pré-visualização)
@@ -46,7 +46,7 @@ Por exemplo, a publicação de um ponto final específico da rota da Internet pa
 | Serviço de armazenamento        | Ponto final específico da rota                                  |
 | :--------------------- | :------------------------------------------------------- |
 | Serviço Blob           | `StorageAccountA-internetrouting.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
+| Armazenamento do Data Lake Ger2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
 | Serviço de arquivos           | `StorageAccountA-internetrouting.file.core.windows.net`  |
 | Websites estáticos        | `StorageAccountA-internetrouting.web.core.windows.net`   |
 
@@ -55,7 +55,7 @@ Se tiver uma conta de armazenamento geo-redundante de acesso de leitura (RA-GRS)
 | Serviço de armazenamento        | Ponto final secundário específico da rota                        |
 | :--------------------- | :----------------------------------------------------------------- |
 | Serviço Blob           | `StorageAccountA-internetrouting-secondary.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
+| Armazenamento do Data Lake Ger2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
 | Serviço de arquivos           | `StorageAccountA-internetrouting-secondary.file.core.windows.net`  |
 | Websites estáticos        | `StorageAccountA-internetrouting-secondary.web.core.windows.net`   |
 
@@ -77,8 +77,8 @@ Os seguintes problemas conhecidos afetam a pré-visualização da preferência d
 
 Para obter detalhes sobre preços e faturação, consulte a secção **de preços** em Qual é a preferência [de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md#pricing)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a preferência de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md)
-- [Configure Firewalls de armazenamento Azure e redes virtuais](storage-network-security.md)
+- [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

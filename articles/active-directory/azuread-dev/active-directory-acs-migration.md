@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706256"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
@@ -181,7 +181,7 @@ A Azure AD também não suporta necessariamente os mesmos protocolos de autentic
 
 No entanto, a Azure AD oferece várias vantagens potenciais para os clientes do Access Control. Suporta de forma nativa o trabalho da Microsoft ou as contas escolares hospedadas na nuvem, que são comumente usadas pelos clientes do Access Control. 
 
-Um inquilino Azure AD também pode ser federado para um ou mais casos de Ative Directory no local via AD FS. Desta forma, a sua aplicação pode autenticar utilizadores e utilizadores baseados na nuvem que estão hospedados no local. Também apoia o protocolo WS-Federation, o que torna relativamente simples a integração com uma aplicação web utilizando o WIF.
+Um inquilino Azure AD também pode ser federado para um ou mais casos de Ative Directory no local via AD FS. Desta forma, a sua aplicação pode autenticar utilizadores e utilizadores baseados na nuvem que estão hospedados no local. Também apoia o protocolo WS-Federation, o que torna relativamente simples integrar-se com uma aplicação web utilizando WIF.
 
 A tabela seguinte compara as funcionalidades do Controlo de Acesso que são relevantes para as aplicações web com as funcionalidades que estão disponíveis no Azure AD. 
 
@@ -214,7 +214,7 @@ A um nível elevado, *o Azure Ative Directory é provavelmente a melhor escolha 
 
 Se decidir que o Azure AD é o melhor caminho de migração para as suas aplicações e serviços, deve estar ciente de duas formas de integrar a sua app com a Azure AD.
 
-Para utilizar a WS-Federação ou WIF para integrar com a Azure AD, recomendamos seguir a abordagem descrita em [Configure federado único sinal para uma aplicação não-galeria](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). O artigo refere-se à configuração do Azure AD para um único sign-on baseado em SAML, mas também funciona para configurar a WS-Federation. Seguindo esta abordagem requer uma licença Azure AD Premium. Esta abordagem tem duas vantagens:
+Para utilizar WS-Federation ou WIF para integrar com a Azure AD, recomendamos seguir a abordagem descrita em [Configure federado único sinal para uma aplicação não-galeria](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). O artigo refere-se à configuração do Azure AD para um único sign-on baseado em SAML, mas também funciona para configurar a WS-Federation. Seguindo esta abordagem requer uma licença Azure AD Premium. Esta abordagem tem duas vantagens:
 
 - Obtém-se a flexibilidade total da personalização do Azure AD. Pode personalizar as reclamações emitidas pela Azure AD para corresponder às reclamações emitidas pelo Access Control. Isto inclui especialmente a reclamação do ID do utilizador ou do identificador de nomes. Para continuar a receber IDentifiers de utilizador consistentes para os seus utilizadores depois de alterar as tecnologias, certifique-se de que os IDs do utilizador emitidos pela Azure AD correspondem aos emitidos pelo Access Control.
 - Você pode configurar um certificado de assinatura simbólica específico para a sua aplicação, e com uma vida inteira que você controla.
@@ -243,7 +243,7 @@ A tabela seguinte compara as funcionalidades do Controlo de Acesso que são rele
 | **Tipos de contas** | | |
 | Trabalho da Microsoft ou contas escolares | Suportado | Suportado através de políticas personalizadas  |
 | Contas do Windows Server Ative Directy e AD FS | Apoiado através de federação direta com AD FS | Apoiado através da federação SAML através de políticas personalizadas |
-| Contas de outros sistemas de gestão de identidade da empresa | Apoiado através de federação direta através da WS-Federação | Apoiado através da federação SAML através de políticas personalizadas |
+| Contas de outros sistemas de gestão de identidade da empresa | Apoiado através de federação direta através de WS-Federation | Apoiado através da federação SAML através de políticas personalizadas |
 | Microsoft contabiliza uso pessoal | Suportado | Suportado | 
 | Contas facebook, Google, Yahoo | Suportado | Facebook e Google suportados nativamente, Yahoo suportado via OpenID Connect federação usando políticas personalizadas |
 | **Protocolos e compatibilidade da SDK** | | |
@@ -266,15 +266,15 @@ A tabela seguinte compara as funcionalidades do Controlo de Acesso que são rele
 Se decidir que o Azure AD B2C é o melhor caminho de migração para as suas aplicações e serviços, comece pelos seguintes recursos:
 
 - [Documentação Azure AD B2C](../../active-directory-b2c/overview.md)
-- [Políticas personalizadas Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
+- [Políticas personalizadas do Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Preços Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar para a Identidade do Ping ou Auth0
 
 Em alguns casos, poderá descobrir que a Azure AD e a Azure AD B2C não são suficientes para substituir o Controlo de Acesso nas suas aplicações web sem fazer grandes alterações de código. Alguns exemplos comuns podem incluir:
 
-- Aplicações web que usam WIF ou WS-Federation para iniciar sismo com fornecedores de identidade social, como Google ou Facebook.
-- Aplicações web que executam federação direta a um fornecedor de identidade empresarial sobre o protocolo WS-Federation.
+- As aplicações web que usam WIF ou WS-Federation para iniciar sismo com fornecedores de identidade social, como google ou Facebook.
+- Aplicações web que executam federação direta a um fornecedor de identidade empresarial ao longo do protocolo WS-Federation.
 - Aplicações web que requerem o token de acesso emitido por um fornecedor de identidade social (como Google ou Facebook) como uma reivindicação nos tokens emitidos pelo Access Control.
 - Aplicações web com regras complexas de transformação de símbolos que Azure AD ou Azure AD B2C não podem reproduzir.
 - Aplicações web multi-arrendatários que usam ACS para gerir centralmente a federação a muitos fornecedores de identidade diferentes

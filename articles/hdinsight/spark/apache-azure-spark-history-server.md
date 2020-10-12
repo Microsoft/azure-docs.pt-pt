@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079297"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utilize as funcionalidades estendidas do Servidor histórico de faíscas Apache para depurar e diagnosticar aplicações Spark
@@ -26,7 +26,7 @@ O Spark History Server é o UI web para aplicações Spark concluídas e executa
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Abra a web UI do Spark History Server a partir do portal Azure
 
 1. A partir do [portal Azure,](https://portal.azure.com/)abra o aglomerado de faíscas. Para obter mais informações, consulte [List e mostrar clusters.](../hdinsight-administer-use-portal-linux.md#showClusters)
-2. A partir **de dashboards cluster**, selecione **Spark history server**. Quando solicitado, insira as credenciais de administração para o cluster Spark.
+2. A partir **de dashboards cluster**, selecione  **Spark history server**. Quando solicitado, insira as credenciais de administração para o cluster Spark.
 
     ![Lance o Spark History Server a partir do portal Azure.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Servidor histórico de faíscas")
 
@@ -97,13 +97,13 @@ Selecione o ID do trabalho e, em seguida, selecione **Dados** no menu da ferrame
    ![O mapa de calor na página spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |Cor |Descrição |
+    |Color |Descrição |
     |---|---|
-    |Verde|O trabalho terminou com sucesso.|
+    |Green|O trabalho terminou com sucesso.|
     |Laranja|A tarefa falhou, mas isso não afeta o resultado final do trabalho. Estas tarefas duplicaram ou relembrou casos que podem ter sucesso mais tarde.|
-    |Azul|A tarefa está a decorrer.|
+    |Blue|A tarefa está a decorrer.|
     |Branco|A tarefa está à espera de ser executada, ou o palco saltou.|
-    |Vermelho|A tarefa falhou.|
+    |Red|A tarefa falhou.|
 
      ![Executar uma tarefa na página De & Gráfico de Trabalho da Aplicação Spark.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
@@ -310,7 +310,7 @@ Se quiser atualizar com um hotfix, utilize o seguinte script, que irá atualizar
     |Propriedade |Valor |
     |---|---|
     |Tipo de script|- Personalizado|
-    |Name|UpgradeJar|
+    |Nome|UpgradeJar|
     |URI de guião de bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Tipo de nó(s)|Cabeça, Trabalhador|
     |Parâmetros|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
@@ -323,7 +323,7 @@ Se quiser atualizar com um hotfix, utilize o seguinte script, que irá atualizar
 
 + Os dados de entrada e saída que utilizem RDD não serão apresentados no separador **Dados.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Gerir recursos para um cluster Apache Spark em HDInsight](apache-spark-resource-manager.md)
 + [Configurar as definições do Apache Spark](apache-spark-settings.md)

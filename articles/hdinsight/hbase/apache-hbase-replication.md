@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085617"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação do cluster Apache HBase em redes virtuais Azure
@@ -78,14 +78,14 @@ Alguns dos valores codificados no modelo:
 | Nome gateway | vnet1gw |
 | Tipo de gateway | Vpn |
 | Tipo gateway VPN | RouteBased |
-| Gateway SKU | Básica |
+| Gateway SKU | Básico |
 | Gateway IP | vnet1gwip |
 
 **VNet 2**
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Nome VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo do espaço do endereço | 10.2.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |
@@ -95,7 +95,7 @@ Alguns dos valores codificados no modelo:
 | Nome gateway | vnet2gw |
 | Tipo de gateway | Vpn |
 | Tipo gateway VPN | RouteBased |
-| Gateway SKU | Básica |
+| Gateway SKU | Básico |
 | Gateway IP | vnet1gwip |
 
 ## <a name="setup-dns"></a>Configurar DNS
@@ -104,7 +104,7 @@ Na última secção, o modelo cria uma máquina virtual Ubuntu em cada uma das d
 
 Para instalar o Bind, o yon precisa de encontrar o endereço IP público das duas máquinas virtuais DNS.
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 2. Abra a máquina virtual DNS selecionando **grupos de Recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que se cria no último procedimento. Os nomes de máquinas virtuais DNS predefinidos são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
 4. Anota o **endereço IP público**e verifique também o endereço IP **privado**.  O endereço IP privado deve ser **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
@@ -309,7 +309,7 @@ Os seguintes passos descrevem como chamar o script de ação do script do portal
 
 Argumentos necessários:
 
-|Name|Descrição|
+|Nome|Descrição|
 |----|-----------|
 |-s, --src-cluster | Especifica o nome DNS do cluster HBase de origem. Por exemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica o nome DNS do cluster HBase de destino (réplica). Por exemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -318,7 +318,7 @@ Argumentos necessários:
 
 Argumentos opcionais:
 
-|Name|Descrição|
+|Nome|Descrição|
 |----|-----------|
 |-su, --src-ambari-user | Especifica o nome de utilizador administrativo para Ambari no cluster HBase de origem. O valor predefinido é **administrador.** |
 |-du, --dst-ambari-user | Especifica o nome de utilizador administrativo para Ambari no cluster HBase de destino. O valor predefinido é **administrador.** |
@@ -406,7 +406,7 @@ A `print_usage()` secção do [guião](https://raw.githubusercontent.com/Azure/h
 > Se pretende eliminar o cluster de destino, certifique-se de que o remove da lista de pares do cluster de origem. Isto pode ser feito executando o comando remove_peer '1' na casca da base h no cluster de origem. Se não o conseguir, o cluster de fontes pode não funcionar corretamente.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar a replicação Apache HBase dentro de uma rede virtual, ou entre duas redes virtuais. Para saber mais sobre HDInsight e Apache HBase, consulte estes artigos:
 

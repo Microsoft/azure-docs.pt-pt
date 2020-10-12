@@ -4,10 +4,10 @@ description: Use o Visual Studio para criar um projeto de grupo de recursos Azur
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372651"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
@@ -41,7 +41,7 @@ Nesta secção, você cria um projeto do Grupo de Recursos Azure com um modelo *
 
     Uma vez que escolheu o modelo de aplicação Web, vê os seguintes ficheiros:
 
-   | Nome de ficheiro | Description |
+   | Nome de ficheiro | Descrição |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio utiliza este script PowerShell para implementar o seu modelo. |
    | WebSite.jsem |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |

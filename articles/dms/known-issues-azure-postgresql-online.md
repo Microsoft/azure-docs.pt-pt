@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330320"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Questões conhecidas/limitações de migração com migrações on-line de PostgreSQL a Azure DB para PostgreSQL
@@ -44,7 +44,7 @@ Questões e limitações conhecidas associadas às migrações online de Postgre
 
 - O utilizador deve ter a função REPLICAÇÃO no servidor que hospeda a base de dados de origem.
 - Os esquemas de base de dados de origem e alvo devem coincidir.
-- O esquema na base de dados Azure alvo para o servidor PostgreSQL-Single não deve ter chaves estrangeiras. Utilize a seguinte consulta para deixar cair as teclas estrangeiras:
+- O esquema na base de dados Azure alvo para PostgreSQL-Single servidor não deve ter chaves estrangeiras. Utilize a seguinte consulta para deixar cair as teclas estrangeiras:
 
     ```
                                 SELECT Queries.tablename
@@ -75,7 +75,7 @@ Questões e limitações conhecidas associadas às migrações online de Postgre
 
     Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
-- O esquema na base de dados target Azure para o servidor PostgreSQL-Single não deve ter nenhum gatilho. Utilize o seguinte para desativar os gatilhos na base de dados-alvo:
+- O esquema na Base de Dados Azure alvo para PostgreSQL-Single servidor não deve ter nenhum gatilho. Utilize o seguinte para desativar os gatilhos na base de dados-alvo:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

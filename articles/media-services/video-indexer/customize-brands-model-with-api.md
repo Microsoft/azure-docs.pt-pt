@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
 ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047283"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalize um modelo de Marcas com a API indexante de vídeo
@@ -94,7 +94,7 @@ A resposta fornece informações sobre a marca que procurou (utilizando o ID da 
 ```
 
 > [!NOTE]
-> `enabled`ser definido para `true` significar que a marca está na lista de *Incluir* para Indexer de Vídeo para detetar, e ser falso significa que a marca está na lista `enabled` De *excluir,* para que o Video Indexer não a detete.
+> `enabled` ser definido para `true` significar que a marca está na lista de *Incluir* para Indexer de Vídeo para detetar, e ser falso significa que a marca está na lista `enabled` De *excluir,* para que o Video Indexer não a detete.
 
 ## <a name="update-a-specific-brand"></a>Atualizar uma marca específica
 
@@ -178,7 +178,7 @@ A resposta mostra se as marcas Bing estão habilitadas seguindo o formato do exe
 ```
 
 > [!NOTE]
-> `useBuiltIn`ser definido para verdadeiro representa que as marcas Bing estão habilitadas. Se `useBuiltin` for falso, as marcas Bing são desativadas. O `state` valor pode ser ignorado porque foi depreciado.
+> `useBuiltIn` ser definido para verdadeiro representa que as marcas Bing estão habilitadas. Se `useBuiltin` for falso, as marcas Bing são desativadas. O `state` valor pode ser ignorado porque foi depreciado.
 
 ## <a name="update-brands-model-settings"></a>Atualizar configurações de modelos de Marcas
 

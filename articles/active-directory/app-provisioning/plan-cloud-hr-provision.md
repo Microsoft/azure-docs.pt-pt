@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706354"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
@@ -52,7 +52,7 @@ A integração de aplicativos hr em nuvem com o fornecimento de utilizadores AZu
 - Exija que os utilizadores se juntem, se movam e que os utilizadores sejam sincronizados com uma ou mais florestas, domínios e OUs do Ative Directory, com base apenas em informações de alteração detetadas na aplicação cloud HR.
 - Utilize o Microsoft 365 para e-mail.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O fornecimento de utilizadores cria uma base para a governação da identidade em curso. Melhora a qualidade dos processos de negócio que dependem de dados de identidade autoritários.
 
@@ -255,7 +255,7 @@ Também pode [personalizar os mapeamentos de atributos predefinidos,](../app-pro
 
 Por predefinição, a aplicação de conector de provisionamento mapeia o estado do perfil do utilizador HR para o estado da conta de utilizador em Ative Directory ou Azure AD para determinar se permite ou desativa a conta do utilizador.
 
-Quando iniciar o processo Joiners-Leavers, reúna os seguintes requisitos.
+Quando iniciar o processo de Joiners-Leavers, reúna os seguintes requisitos.
 
 | Processo | Requisitos |
 | - | - |

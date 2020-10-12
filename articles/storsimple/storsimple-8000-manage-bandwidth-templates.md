@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514014"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utilize o serviço StorSimple Device Manager para gerir modelos de largura de banda StorSimple
@@ -169,7 +169,7 @@ Siga estas boas práticas para o seu dispositivo StorSimple:
 * Configure os modelos de largura de banda no seu dispositivo para permitir o estrangulamento variável da produção da rede pelo dispositivo em diferentes horas do dia. Estes modelos de largura de banda quando usados com horários de backup podem efetivamente alavancar largura de banda adicional para operações na nuvem durante as horas de ponta.
 * Calcular a largura de banda real necessária para uma determinada implantação com base no tamanho da implantação e no objetivo de tempo de recuperação necessário (RTO).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

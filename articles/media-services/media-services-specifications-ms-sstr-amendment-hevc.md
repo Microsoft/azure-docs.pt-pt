@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053057"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Alteração do Protocolo de Streaming Suave (MS-SSTR) para o HEVC 
@@ -40,11 +40,11 @@ Os seguintes termos são definidos em *[MS-GLOS]*:
 
 Os seguintes termos são específicos deste documento:
 
->  **Tempo de composição:** O momento em que uma amostra é apresentada no cliente, tal como definido em [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **Tempo de composição:** O momento em que uma amostra é apresentada no cliente, tal como definido em   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Encriptação Comum, tal como definida na Segunda Edição [ISO/IEC 23001-7].
 > 
->   **descodificar o tempo:** É necessário o tempo de descodificado no cliente, tal como definido na [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>   **descodificar o tempo:** É necessário o tempo de descodificado no cliente, tal como definido na   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragmento:** Uma unidade de meios de **comunicação** que compreende uma ou mais **amostras.**
 
@@ -54,9 +54,9 @@ Os seguintes termos são específicos deste documento:
 > 
 >   **apresentação:** O conjunto de todos os streams e metadados **relacionados** precisava para reproduzir um único filme. **Pedido:** Uma mensagem HTTP enviada do cliente para o servidor, conforme definido na **resposta** [[RFC2616]:](https://go.microsoft.com/fwlink/?LinkId=90372) Uma mensagem HTTP enviada do servidor para o cliente, conforme definido em [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
->   **amostra:** A unidade fundamental mais pequena (como uma moldura) na qual os meios de **comunicação** são armazenados e processados.
+>   **amostra:** A unidade fundamental mais pequena (como uma moldura) na qual os meios de   **comunicação** são armazenados e processados.
 > 
->   **PODE, DEVE, NÃO DEVE, NÃO DEVE, NÃO DEVE:** Estes termos (em todas as tampas) são usados como descrito em [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) Todas as declarações de uso opcional do comportamento, quer MAIO, SHOULD, OU NÃO.
+>   **PODE, DEVE, NÃO DEVE, NÃO DEVE, NÃO DEVE:** Estes termos (em todas as tampas) são usados como descrito em   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) Todas as declarações de uso opcional do comportamento, quer MAIO, SHOULD, OU NÃO.
 
 ## <a name="12-references"></a>1.2 Referências
 
@@ -72,23 +72,23 @@ Os seguintes termos são específicos deste documento:
 >   [ISO/IEC 14496-15] Organização Internacional para a Normalização, "Tecnologia de Informação -- Codificação de objetos audiovisuais -- Parte 15: Transporte de unidade NAL vídeo estruturado no formato iso base media file", ISO 14496-15:2015, Edição 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
->   [ISO/IEC 23008-2] Tecnologia da informação -- Codificação de alta eficiência e entrega de meios em ambientes heterogéneos -- Parte 2: Codificação de vídeo de alta eficiência: 2013 ou edição mais recente<https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Tecnologia da informação -- Codificação de alta eficiência e entrega de meios em ambientes heterogéneos -- Parte 2: Codificação de vídeo de alta eficiência: 2013 ou edição mais recente   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 > 
->   [ISO/IEC 23001-7] Tecnologias de informação — tecnologias de sistemas MPEG — Parte 7: Encriptação comum em ficheiros de ficheiros de ficheiros de base ISO, CENC Edition 2:2015<https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   [ISO/IEC 23001-7] Tecnologias de informação — tecnologias de sistemas MPEG — Parte 7: Encriptação comum em ficheiros de ficheiros de ficheiros de base ISO, CENC Edition 2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 > 
->   [RFC-6381] IETF RFC-6381, "Os parâmetros 'Codecs' e 'Profiles' para tipos de mídia "Balde"<https://tools.ietf.org/html/rfc6381>
+>   [RFC-6381] IETF RFC-6381, "Os parâmetros 'Codecs' e 'Profiles' para tipos de mídia "Balde" <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] A Autoridade de Registo MP4, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] A Autoridade de Registo MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   [RFC2119] Bradner, S., "Palavras-chave para uso em RFCs para indicar níveis de requisito", BCP 14, RFC 2119, março de 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "Palavras-chave para uso em RFCs para indicar níveis de requisito", BCP 14, RFC 2119, março de 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Referências Informativas 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 > 
->   [RFC3548] Josefsson, S., Ed., "A Base16, Base32 e Base64 Data Encodings", RFC 3548, julho de 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "A Base16, Base32 e Base64 Data Encodings", RFC 3548, julho de 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., Ed., e Overell, P., "BNF aumentado para especificações de sintaxe: ABNF", STD 68, RFC 5234, janeiro de 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., e Overell, P., "BNF aumentado para especificações de sintaxe: ABNF", STD 68, RFC 5234, janeiro de 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Visão geral 
@@ -211,11 +211,11 @@ O ProtectionElement estará presente quando a Encriptação Comum (CENC) tiver s
 > 
 >   **SampleCompositionTimeOffset (4 bytes):** A compensação do tempo de composição da amostra de cada amostra ajustada de modo a que o tempo de apresentação da primeira amostra apresentada no fragmento seja igual ao tempo de descodificar da primeira amostra descodificada. Devem ser utilizadas compensações negativas da composição da amostra de vídeo,
 > 
->   tal como definido [em [ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   tal como definido   [em [ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
 >   Nota: Isto evita um erro de sincronização de vídeo causado pelo vídeo que atrasa o áudio igual ao maior atraso de remoção de tampão descodificado e mantém o tempo de apresentação entre fragmentos alternativos que podem ter diferentes atrasos de remoção.
 > 
->   A sintaxe dos campos definidos nesta secção, especificada na ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) permanece a mesma, exceto as seguintes:
+>   A sintaxe dos campos definidos nesta secção, especificada na ABNF   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) permanece a mesma, exceto as seguintes:
 > 
 >   SampleCompositionTimeOffset = SIGNED_INT32
 
@@ -240,7 +240,7 @@ O ProtectionElement estará presente quando a Encriptação Comum (CENC) tiver s
 >   **Marcas compatíveis (variável):** Especifica as marcas suportadas de MPEG-4.
 >   DEVE incluir "ccff" e "iso8".
 > 
->   A sintaxe dos campos definidos nesta secção, especificada no ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) é a seguinte:
+>   A sintaxe dos campos definidos nesta secção, especificada no ABNF   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) é a seguinte:
 
 ```properties
 FileType = MajorBrand MinorVersion CompatibleBrands
@@ -324,7 +324,7 @@ TimeScale = 90000
 
 ##### <a name="3113-fragment-reference-description"></a>3.1.1.3 Descrição do fragmento 
 
-###### <a name="31131-track-specific-fragment-reference-description"></a>3.1.1.3.1 Descrição da referência específica do fragmento à faixa 
+###### <a name="31131-track-specific-fragment-reference-description"></a>3.1.1.3.1 Track-Specific Descrição de referência de fragmento 
 
 #### <a name="3112-fragment-description"></a>3.1.1.2 Descrição do fragmento 
 
@@ -334,7 +334,7 @@ TimeScale = 90000
 
 ### <a name="313-initialization"></a>3.1.3 Inicialização 
 
-### <a name="314-higher-layer-triggered-events"></a>3.1.4 Eventos desencadeados de camada superior 
+### <a name="314-higher-layer-triggered-events"></a>3.1.4 Higher-Layer Eventos Desencadeados 
 
 #### <a name="3141-open-presentation"></a>3.1.4.1 Apresentação aberta 
 

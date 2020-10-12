@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395775"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral da gestão e monitorização da segurança da Azure
@@ -27,12 +27,12 @@ Este artigo fornece uma visão geral das funcionalidades e serviços de seguran�
 
 ## <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
 
-O Controlo de Acesso Baseado em Função (RBAC) fornece uma gestão detalhada do acesso aos recursos da Azure. Ao utilizar o RBAC, pode conceder às pessoas apenas a quantidade de acesso que precisam para desempenharem os seus trabalhos. O RBAC também pode ajudá-lo a garantir que quando as pessoas deixam a organização, perdem o acesso aos recursos na nuvem.
+Role-Based Access Control (RBAC) fornece uma gestão detalhada do acesso aos recursos da Azure. Ao utilizar o RBAC, pode conceder às pessoas apenas a quantidade de acesso que precisam para desempenharem os seus trabalhos. O RBAC também pode ajudá-lo a garantir que quando as pessoas deixam a organização, perdem o acesso aos recursos na nuvem.
 
 Saiba mais:
 
 * [Blog de equipe de diretório ativo no RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
 

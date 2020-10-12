@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511802"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover and disaster recovery for your StorSimple 8000 series devices (Ativação pós-falha e recuperação após desastre para dispositivos da série StorSimple 8000)
@@ -55,7 +55,7 @@ Suponha que existam duas políticas de backup, *defaultPol* e *customPol:*
 
 Neste caso, a StorSimple prioriza-se para a consistência do crash e utiliza *a customPol* uma vez que tem mais volumes. O mais recente backup desta política é usado para restaurar os dados. Para obter mais informações sobre como criar e gerir políticas de backup, vá ao [Serviço StorSimple Device Manager para gerir as políticas de backup](storsimple-8000-manage-backup-policies-u2.md).
 
-## <a name="common-considerations-for-device-failover"></a>Considerações comuns para a falha do dispositivo
+## <a name="common-considerations-for-device-failover"></a>Considerações comuns sobre a ativação pós-falha do dispositivo
 
 Antes de falhar sobre um dispositivo, reveja as seguintes informações:
 
@@ -104,23 +104,23 @@ Após a conclusão de uma falha, a StorSimple executa as seguintes ações:
 
 Se estiver a planear falhas de teste ou falhas de teste, recomendamos que teste recipientes de volume com menos dados (Gbs). Normalmente, pode iniciar o failback 24 horas após a falha estar completa.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 P. **O que acontece se o DR falhar ou tiver sucesso parcial?**
 
-R. Se o DR falhar, recomendamos que tente de novo. O segundo dispositivo de falha no trabalho está ciente do progresso do primeiro emprego e começa a partir daí.
+A. Se o DR falhar, recomendamos que tente de novo. O segundo dispositivo de falha no trabalho está ciente do progresso do primeiro emprego e começa a partir daí.
 
 P. **Posso eliminar um dispositivo enquanto o dispositivo está em curso?**
 
-R. Não é possível eliminar um dispositivo enquanto um DR estiver em curso. Só pode apagar o seu dispositivo depois de o DR estar completo. Pode monitorizar o progresso do trabalho falhado no trabalho da lâmina **Jobs.**
+A. Não é possível eliminar um dispositivo enquanto um DR estiver em curso. Só pode apagar o seu dispositivo depois de o DR estar completo. Pode monitorizar o progresso do trabalho falhado no trabalho da lâmina **Jobs.**
 
 P. **Quando é que a recolha de lixo começa no dispositivo de origem para que os dados locais sobre o dispositivo de origem seja eliminado?**
 
-R. A recolha de lixo só é ativada no dispositivo de origem depois de o dispositivo estar completamente limpo. A limpeza inclui a limpeza de objetos que tenham falhado no dispositivo de origem, tais como volumes, objetos de backup (não dados), recipientes de volume e políticas.
+A. A recolha de lixo só é ativada no dispositivo de origem depois de o dispositivo estar completamente limpo. A limpeza inclui a limpeza de objetos que tenham falhado no dispositivo de origem, tais como volumes, objetos de backup (não dados), recipientes de volume e políticas.
 
 P. **O que acontece se o trabalho de eliminação associado aos recipientes de volume no dispositivo de origem falhar?**
 
-R.  Se o trabalho de eliminação falhar, pode apagar manualmente os recipientes de volume. Na lâmina **dispositivos,** selecione o seu dispositivo de origem e clique em **recipientes de volume**. Selecione os recipientes de volume que falhou por cima e na parte inferior da lâmina, clique em **Eliminar**. Depois de ter apagado todos os recipientes de volume falhados no dispositivo de origem, pode iniciar a falha. Para obter mais informações, [aceda](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)a Eliminar um recipiente de volume .
+A.  Se o trabalho de eliminação falhar, pode apagar manualmente os recipientes de volume. Na lâmina **dispositivos,** selecione o seu dispositivo de origem e clique em **recipientes de volume**. Selecione os recipientes de volume que falhou por cima e na parte inferior da lâmina, clique em **Eliminar**. Depois de ter apagado todos os recipientes de volume falhados no dispositivo de origem, pode iniciar a falha. Para obter mais informações, [aceda](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)a Eliminar um recipiente de volume .
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Recuperação de desastres de continuidade do negócio (BCDR)
 
@@ -128,7 +128,7 @@ Um cenário de recuperação de desastres de continuidade do negócio (BCDR) oco
 
 Se um dispositivo StorSimple foi registado pouco antes de ocorrer um desastre, então este dispositivo poderá ter de ser submetido a um reset de fábrica. Após o desastre, o dispositivo StorSimple aparece no portal Azure como offline. Este dispositivo deve ser eliminado do portal. Repôs o dispositivo às falhas de fábrica e registe-o novamente com o serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se estiver pronto para executar um dispositivo de falha, escolha um dos seguintes cenários para instruções detalhadas:
 
