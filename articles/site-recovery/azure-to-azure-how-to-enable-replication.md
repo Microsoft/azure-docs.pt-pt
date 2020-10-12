@@ -6,13 +6,13 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
 ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135774"
 ---
-# <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs Azure para outra região do Azure
+# <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
 
 Este artigo descreve como permitir a replicação de VMs Azure, de uma região de Azure para outra.
@@ -121,6 +121,6 @@ Pode modificar as definições de alvo predefinidos utilizadas pela Recuperaçã
 > - Durante a replicação inicial, o estado pode demorar algum tempo a refrescar-se, sem progressos. Clique no botão **Refresh,** para obter o estado mais recente.
 > - Se um ponto de recuperação não tiver sido gerado nos últimos 60 minutos, a saúde de replicação da máquina virtual tornar-se-á crítica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre a execução de um teste falhado.

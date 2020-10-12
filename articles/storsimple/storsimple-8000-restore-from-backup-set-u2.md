@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527834"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume StorSimple a partir de um conjunto de cópias de segurança
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial descreve a operação de restauro realizada num dispositivo da série StorSimple 8000 utilizando um conjunto de backup existente. Utilize a lâmina **do catálogo Backup** para restaurar um volume a partir de uma cópia de segurança local ou na nuvem. A lâmina **do catálogo de cópias de segurança** exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manuais ou automatizadas. A operação de restauro a partir de um conjunto de backup traz o volume on-line imediatamente enquanto os dados são descarregados em segundo plano.
 
@@ -59,9 +59,9 @@ Aplicam-se as seguintes ressalvas às restaurações baseadas em mapas térmicos
 
 No Update 4, os cmdlets Windows PowerShell podem ser usados para consultar trabalhos de reidratação, cancelar um trabalho de reidratação e obter o estado do trabalho de reidratação.
 
-* `Get-HcsRehydrationJob`- Este cmdlet obtém o estado do trabalho de reidratação. Um único trabalho de reidratação é acionado para um volume.
+* `Get-HcsRehydrationJob` - Este cmdlet obtém o estado do trabalho de reidratação. Um único trabalho de reidratação é acionado para um volume.
 
-* `Set-HcsRehydrationJob`- Este cmdlet permite-lhe parar, parar, retomar o trabalho de reidratação, quando a reidratação estiver em curso.
+* `Set-HcsRehydrationJob` - Este cmdlet permite-lhe parar, parar, retomar o trabalho de reidratação, quando a reidratação estiver em curso.
 
 Para obter mais informações sobre os cmdlets de reidratação, consulte a [referência cmdlet do Windows PowerShell para storSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -134,7 +134,7 @@ Receberá um alerta se a operação de restauro falhar por qualquer motivo. Se i
 
 Para completar a operação de restauro, desative o volume do hospedeiro e redoça a operação de restauro. Note que quaisquer modificações nos dados de volume que foram realizados durante o processo de restauração serão perdidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [gerir os volumes StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -10,10 +10,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2bd3140ad8e0c8502c8760a5d9bdf426c828470c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072407"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrar recursos IaaS do clássico para o Azure Resource Manager usando o PowerShell
@@ -55,7 +55,7 @@ Para obter instruções de instalação, consulte [como instalar e configurar a 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Passo 3: Certifique-se de que é administrador da subscrição
 Para realizar esta migração, tem de ser adicionado como coadministrator para a subscrição no [portal Azure](https://portal.azure.com).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu **Hub,** **selecione Subscrição**. Se não o vir, selecione **Todos os serviços**.
 3. Encontre a entrada de subscrição adequada e, em seguida, olhe para o campo **MY ROLE.** Para um coadministrador, o valor deve ser _a administração da conta._
 

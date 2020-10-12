@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311313"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma forma a um mapa usando Azure Maps Android SDK

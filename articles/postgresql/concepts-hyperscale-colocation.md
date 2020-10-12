@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884425"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de mesa na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
@@ -47,7 +47,7 @@ CREATE TABLE page (
 
 Agora queremos responder a consultas que podem ser emitidas por um dashboard virado para o cliente. Um exemplo de consulta é "Devolver o número de visitas na semana passada para todas as páginas começando com '/blog' no inquilino seis."
 
-Se os nossos dados estivessem na opção de implementação do Servidor Único, poderíamos facilmente expressar a nossa consulta utilizando o rico conjunto de operações relacionais oferecidas pela SQL:
+Se os nossos dados estivessem na opção de implementação Single-Server, poderíamos facilmente expressar a nossa consulta utilizando o rico conjunto de operações relacionais oferecidas pela SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -96,7 +96,7 @@ Posteriormente, os resultados dos dois passos devem ser combinados pela aplicaç
 
 Executar as consultas deve consultar dados em fragmentos espalhados por nós.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Consultas ineficientes":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Fragmentos":::
 
 Neste caso, a distribuição de dados cria inconvenientes substanciais:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Devido ao filtro e a aderir a tenant_id, a Hyperscale (Citus) sabe que toda a consulta pode ser respondida utilizando o conjunto de fragmentos com posições que contêm os dados para esse inquilino em particular. Um único nó PostgreSQL pode responder à consulta num único passo.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Melhor consulta":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Fragmentos":::
 
 Em alguns casos, as consultas e esquemas de mesa devem ser alterados para incluir o ID do inquilino em constrangimentos únicos e condições de união. Esta mudança é geralmente simples.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082564"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar mapeamento de rede para recuperação de desastres Hiper-V VM para Azure
@@ -55,7 +55,7 @@ Aqui está um exemplo para ilustrar este mecanismo. Vamos a uma organização co
 
 **Localização** | **Servidor VMM** | **Redes VM** | **Mapeado para**
 ---|---|---|---
-Nova Iorque | VMM-Nova Iorque| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
+Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Não mapeado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
  | | VMNetwork2-Chicago | Não mapeado
@@ -63,7 +63,7 @@ Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
 Neste exemplo:
 
 - Quando uma réplica VM é criada para qualquer VM que esteja ligado à VMNetwork1-NewYork, será ligado à VMNetwork1-Chicago.
-- Quando uma réplica VM for criada para VMNetwork2-NewYork ou VMNetwork2-Chicago, não será ligada a nenhuma rede.
+- Quando uma réplica VM é criada para VMNetwork2-NewYork ou VMNetwork2-Chicago, não estará ligada a nenhuma rede.
 
 Eis como as nuvens de VMM são criadas na nossa organização de exemplo, e as redes lógicas associadas às nuvens.
 
@@ -73,15 +73,15 @@ Eis como as nuvens de VMM são criadas na nossa organização de exemplo, e as r
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>ND</p><p></p> | <p>Rede Lógica1-Nova Iorque</p><p>Rede Lógica1-Chicago</p>
-SilverCloud2 | <p>ND</p><p></p> | <p>Rede Lógica1-Nova Iorque</p><p>Rede Lógica1-Chicago</p>
+GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Definições de rede lógica e VM
 
 **Localização** | **Rede lógica** | **Rede VM associada**
 ---|---|---
-Nova Iorque | Rede Lógica1-Nova Iorque | VMNetwork1-NewYork
-Chicago | Rede Lógica1-Chicago | VMNetwork1-Chicago
+Nova Iorque | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | Rede Lógica2Chicago | VMNetwork2-Chicago
 
 ### <a name="target-network-settings"></a>Definições de rede de alvo
@@ -101,12 +101,12 @@ Se a rede alvo tiver várias sub-redes e uma dessas sub-redes tiver o mesmo nome
 
 ### <a name="failback-behavior"></a>Comportamento de falha
 
-Para ver o que acontece no caso de failback (replicação inversa), vamos assumir que vMNetwork1-NewYork está mapeado para VMNetwork1-Chicago, com as seguintes definições.
+Para ver o que acontece no caso de failback (replicação inversa), vamos supor que VMNetwork1-NewYork está mapeada para VMNetwork1-Chicago, com as seguintes definições.
 
 
 **VM** | **Ligado à rede VM**
 ---|---
-VM1 | Rede VMNetwork1
+VM1 | VMNetwork1-Network
 VM2 (réplica de VM1) | VMNetwork1-Chicago
 
 Com estas definições, vamos rever o que acontece em alguns cenários possíveis.
@@ -115,12 +115,12 @@ Com estas definições, vamos rever o que acontece em alguns cenários possívei
 ---|---
 Não há alteração nas propriedades da rede de VM-2 após a falha. | O VM-1 continua ligado à rede de origem.
 As propriedades da rede de VM-2 são alteradas após a falha e são desligadas. | O VM-1 está desligado.
-As propriedades da rede de VM-2 são alteradas após a falha e estão ligadas à VMNetwork2-Chicago. | Se a VMNetwork2-Chicago não estiver mapeada, a VM-1 será desligada.
+As propriedades da rede de VM-2 são alteradas após a falha e estão ligadas à VMNetwork2-Chicago. | Se VMNetwork2-Chicago não estiver mapeada, o VM-1 será desligado.
 O mapeamento da rede de VMNetwork1-Chicago é alterado. | O VM-1 será ligado à rede agora mapeada para vMNetwork1-Chicago.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](hyper-v-vmm-networking.md) Endereço IP após falha para um site de VMM secundário.
 - [Saiba mais](concepts-on-premises-to-azure-networking.md) Endereço IP após falha na Azure.

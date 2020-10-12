@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462654"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (anteriormente SQL DW) Perguntas frequentes
@@ -85,7 +85,7 @@ A. Muitas funcionalidades são suportadas. Funcionalidades que não são suporta
 
 P. A piscina Synapse SQL suporta AS APIs de REST?
 
-A. Yes. A maioria das funcionalidades REST que podem ser usadas com base de dados SQL também está disponível com piscina Sinaapse SQL. Pode encontrar informações da API nas páginas de documentação DO REST ou [bases de dados.](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+A. Sim. A maioria das funcionalidades REST que podem ser usadas com base de dados SQL também está disponível com piscina Sinaapse SQL. Pode encontrar informações da API nas páginas de documentação DO REST ou [bases de dados.](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="loading"></a>Carregamento
 
@@ -109,6 +109,6 @@ P: Posso ligar-me ao HDI?
 
 R: O HDI pode utilizar a ADLS ou a WASB como camada HDFS. Se tiver como camada HDFS, pode carregar esses dados numa piscina Sinapse SQL. No entanto, não é possível gerar cálculo de pushdown para a instância HDI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a Azure Synapse como um todo, consulte a nossa página [geral.](sql-data-warehouse-overview-faq.md)

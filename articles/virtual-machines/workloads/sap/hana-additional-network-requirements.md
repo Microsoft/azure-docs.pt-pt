@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 66bbd8b462ac35756be0fae6eba940ba0aba6c4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77614568"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Requisitos adicionais de rede para grandes instâncias
@@ -66,6 +66,6 @@ Para garantir que remove tudo, elimine a ligação ExpressRoute, o gateway de re
 
 Para remover um HANA SAP adicional em Azure (grandes instâncias) Circuito ExpressRoute, abra um pedido de suporte Azure com SAP HANA na Microsoft Service Management. Solicito que o circuito seja apagado. Dentro da subscrição Azure, pode eliminar ou manter a rede virtual, se necessário. No entanto, deve eliminar a ligação entre o circuito ExpressRoute de grandes instâncias HANA e o gateway de rede virtual ligado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como instalar e configurar o SAP HANA (instâncias grandes) no Azure](hana-installation.md)

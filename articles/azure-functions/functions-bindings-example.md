@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205973"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de acionadores e de enlaces das Funções do Azure

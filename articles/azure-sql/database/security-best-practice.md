@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885171"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
@@ -461,7 +461,7 @@ Ao utilizar o CLE:
 
 - Proteja as teclas simétricas com chaves/certificados assimétricos (não palavras-passe) para evitar a utilização de 3DES.
 
-- Tenha cuidado ao migrar uma base de dados utilizando encriptação de nível celular através de exportação/importação (ficheiros bacpac).
+- Tenha cuidado ao migrar uma base de dados utilizando Cell-Level Encriptação através da exportação/importação (ficheiros bacpac).
   - Consulte o artigo, [Recomendações para a utilização da Encriptação de Nível celular na Base de Dados Azure SQL](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar perder chaves ao migrar dados, e para outras orientações de boas práticas.
 
 Tenha em mente que a Always Encrypted foi concebida principalmente para proteger dados sensíveis na utilização de utilizadores de alto privilégio da Base de Dados Azure SQL (operadores de nuvem, DBAs) - consulte [Proteger dados sensíveis na utilização de utilizadores altamente privilegiados e não autorizados.](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users) Esteja atento aos seguintes desafios ao utilizar o Always Encrypted para proteger os dados dos utilizadores da aplicação:

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670292"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrevendo consultas avançadas no Azure Monitor
@@ -69,7 +69,7 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print`devolverá uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isto é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para encontrar a hora atual em PST e adicionar uma coluna com EST:
+`print` devolverá uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isto é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para encontrar a hora atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -77,7 +77,7 @@ print nowPst = now()-8h
 ```
 
 ## <a name="datatable"></a>Datatable
-`datatable`permite definir um conjunto de dados. Fornece-se um esquema e um conjunto de valores e, em seguida, encacha a mesa em quaisquer outros elementos de consulta. Por exemplo, criar uma tabela de utilização de RAM e calcular o seu valor médio por hora:
+`datatable` permite definir um conjunto de dados. Fornece-se um esquema e um conjunto de valores e, em seguida, encacha a mesa em quaisquer outros elementos de consulta. Por exemplo, criar uma tabela de utilização de RAM e calcular o seu valor médio por hora:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -122,7 +122,7 @@ SecurityEvent
 | project TimeGenerated, Account, AccountType, Computer, EventType
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a [linguagem de consulta kusto](/azure/kusto/query/) com dados de registo do Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)

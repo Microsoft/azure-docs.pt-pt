@@ -12,10 +12,10 @@ ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84169989"
 ---
 # <a name="search-for-gif-images"></a>Pesquisa de imagens GIF 
@@ -50,7 +50,7 @@ Para obter mais informações sobre parâmetros e opções de consulta, consulte
 
 ## <a name="example-search-for-animated-gif-using-java"></a>Pesquisa de exemplo para gif animado usando Java
 
-As seguintes pesquisas de URL para imagens animadas .gif:`q=interesting`
+As seguintes pesquisas de URL para imagens animadas .gif: `q=interesting`
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
@@ -170,7 +170,7 @@ class SearchResults{
 
 ```
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 O código obtém os seguintes resultados como objetos JSON:
 
 ```json
@@ -207,6 +207,6 @@ O código obtém os seguintes resultados como objetos JSON:
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Início rápido do C#](quickstarts/csharp.md)
 - [Pedido de pesquisa de imagem tutorial de uma página](tutorial-bing-image-search-single-page-app.md)

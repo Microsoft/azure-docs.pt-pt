@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 4c3a141525f650d6e254f79ce9e3396f2c35a95f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84051886"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientação geral para trabalhar com os bilhetes wingtip amostra aplicativos SaaS
@@ -115,7 +115,7 @@ A imagem abaixo demonstra o login para a *Base de Dados por* padrão de inquilin
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Implementar a aplicação de ingressos saas de ponta saas](../../sql-database/saas-standaloneapp-get-started-deploy.md)
 - [Implementar a Base de Dados saaS de Ingressos de Ponta de Asa por pedido de Inquilino](../../sql-database/saas-dbpertenant-get-started-deploy.md)
 - [Implementar a aplicação de base de dados de multi-inquilinos Wingtip SaaS](../../sql-database/saas-multitenantdb-get-started-deploy.md)

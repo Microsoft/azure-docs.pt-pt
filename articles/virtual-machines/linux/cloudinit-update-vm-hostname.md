@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 85d2772596224a3c4252d950ca6ca8d6af02991b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373662"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Use cloud-init para definir o nome de anfitrião para um Linux VM em Azure

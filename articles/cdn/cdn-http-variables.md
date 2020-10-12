@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
 ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192669"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para motor de regras Azure CDN
@@ -34,7 +34,7 @@ As variáveis HTTP fornecem os meios através dos quais pode recuperar metadados
 A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é devolvido quando os metadados GEO (por exemplo, código postal) não estão disponíveis para um pedido específico.
 
 
-| Name | Variável | Descrição | Valor da amostra |
+| Nome | Variável | Descrição | Valor da amostra |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Solicitador) | %{geo_asnum} | Indica o número de AS do solicitador. <br /><br />**Precado:** %{virt_dst_asnum}. <br />Esta variável foi depreciada a favor de %{geo_asnum}. Embora uma regra que usa esta variável prevadida continue a funcionar, você deve atualizá-la para usar a nova variável. | AS15133 |
 | Cidade (Solicitador) | %{geo_city} | Indica a cidade do solicitador. | Los Angeles |
@@ -69,7 +69,7 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 A tabela seguinte descreve a sintaxe adequada para especificar uma variável HTTP.
 
 
-| Sintaxe | Exemplo | Descrição |
+| Syntax | Exemplo | Descrição |
 | ------ | -------- | ---------- |
 | %{ &lt; HTTPVariable &gt; } | %{anfitrião} | Utilize esta sintaxe para obter o valor total correspondente ao &lt; HTTPVariable &gt; especificado. |
 | %{ &lt; HTTPVariableDelimiter &gt; } | %{anfitrião,} | Utilize esta sintaxe para definir a caixa para o valor total correspondente ao  &lt; httpvariableDelimiter especificado &gt; . |
@@ -125,7 +125,7 @@ Um valor predefinido pode ser atribuído a um cabeçalho quando satisfaz qualque
 
 A tabela seguinte descreve como definir um valor padrão.
 
-| Condição | Sintaxe | Exemplo | Descrição |
+| Condição | Syntax | Exemplo | Descrição |
 | --------- | ------ | --------| ----------- |
 | Desafine um cabeçalho para um valor predefinido quando satisfaça qualquer uma das seguintes condições: <br /><br />- Cabeçalho desaparecido <br /><br />- O valor do cabeçalho está definido para NU.| %{Variável:=Valor} | %{http_referrer:=não especificado} | O cabeçalho do remetente só será definido para *não especificado* quando estiver em falta ou definido para NU. Não haverá ação se tiver sido definida. |
 | Desa parte para um valor predefinido quando estiver em falta. | %{Variável=Valor} | %{http_referrer=não especificado} | O cabeçalho do remetente só será definido para *não especificado* quando estiver em falta. Não haverá ação se tiver sido definida. |
@@ -174,7 +174,7 @@ https: \/ /www.mydomain.com/mobile/marketing/proposal.htm
 ### <a name="pattern-removal"></a>Remoção de padrão
 O texto que corresponde a um padrão específico pode ser removido do início ou do fim do valor de uma variável.
 
-| Sintaxe | Ação |
+| Syntax | Ação |
 | ------ | ------ |
 | %{Variável#Padrão} | Remova o texto quando o padrão especificado for encontrado no início do valor de uma variável. |
 | %{Variável%padrão} | Remova o texto quando o padrão especificado for encontrado no final do valor de uma variável. |
@@ -187,7 +187,7 @@ Neste cenário de amostra, a variável *request_uri* é definida para:
 
 A tabela a seguir demonstra como funciona esta sintaxe.
 
-| Sintaxe da amostra | Resultados | Descrição |
+| Sintaxe da amostra | Results | Descrição |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Como a variável começa com o padrão, foi substituída. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Como a variável não termina com o padrão, não houve mudança.|
@@ -195,7 +195,7 @@ A tabela a seguir demonstra como funciona esta sintaxe.
 ### <a name="find-and-replace"></a>Encontrar e substituir
 A sintaxe de encontrar e substituir é descrita na tabela seguinte.
 
-| Sintaxe | Ação |
+| Syntax | Ação |
 | ------ | ------ |
 | %{Variável/Localizar/Substituir} | Encontre e substitua a primeira ocorrência do padrão especificado. |
 | %{Variável//Localizar/Substituir} | Encontre e substitua todas as ocorrências do padrão especificado. |
@@ -207,7 +207,7 @@ A sintaxe de encontrar e substituir é descrita na tabela seguinte.
 ### <a name="find-and-rewrite"></a>Encontrar e reescrever
 Para obter uma variação do achado e substituir, utilize o texto que corresponda ao padrão especificado ao reescrevê-lo. A sintaxe de encontrar e reescrever é descrita na tabela seguinte.
 
-| Sintaxe | Ação |
+| Syntax | Ação |
 | ------ | ------ |
 | %{Variável/=Localizar/Reescrever} | Encontre, copie e reescreva todas as ocorrências do padrão especificado. |
 | %{Variável/^Localizar/Reescrever} | Encontre, copie e reescreva o padrão especificado quando ocorre no início da variável. |

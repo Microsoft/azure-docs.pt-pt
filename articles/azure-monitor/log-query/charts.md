@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670326"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criação de gráficos e diagramas a partir de consultas de registo do Azure Monitor
@@ -85,7 +85,7 @@ Pode alternar entre selecionando o dropdown com o nome da coluna.
 
 ![Gráfico de gráfico de gráficos De Contas](media/charts/charts-and-diagrams-multiDimension2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a [linguagem de consulta kusto](/azure/kusto/query/) com dados de registo do Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)

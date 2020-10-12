@@ -15,17 +15,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86530037"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para dispositivos específicos do iOS usando hubs de notificação Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial mostra-lhe como usar os Hubs de Notificação Azure para transmitir notificações de notícias de última hora para uma aplicação iOS. Quando estiver concluído, pode inscrever-se para as categorias de notícias de última hora em que está interessado, e receber apenas notificações push para essas categorias. Este é um cenário com um padrão comum para muitas aplicações em que as notificações têm de ser enviadas para grupos de utilizadores que mostraram anteriormente interesse nas mesmas, por exemplo, leitor de RSS, aplicações para fãs de música, etc.
 
@@ -145,7 +145,7 @@ O primeiro passo é adicionar os elementos de UI ao seu storyboard existente que
     ```
 
 8. No `didFinishLaunchingWithOptions` método em `AppDelegate.m` , adicione o código para inicializar a instância de notificações no início do método.  
-    `HUBNAME`e `HUBLISTENACCESS` (definido em `hubinfo.h` ) já deve ter os espaços e espaços `<hub name>` `<connection string with listen access>` reservados substituídos pelo nome do seu hub de notificação e a cadeia de conexão para *DefaultListdAccessSignature* que obteve anteriormente
+    `HUBNAME` e `HUBLISTENACCESS` (definido em `hubinfo.h` ) já deve ter os espaços e espaços `<hub name>` `<connection string with listen access>` reservados substituídos pelo nome do seu hub de notificação e a cadeia de conexão para *DefaultListdAccessSignature* que obteve anteriormente
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -349,7 +349,7 @@ Normalmente, as notificações seriam enviadas por um serviço de backend, mas, 
 
 3. Cada dispositivo subscrito a notícias de última hora recebe as notificações de última hora que acabou de enviar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, enviou notificações de transmissão a dispositivos iOS específicos que se registaram para as categorias. Para aprender a empurrar notificações localizadas, avance para o seguinte tutorial:
 

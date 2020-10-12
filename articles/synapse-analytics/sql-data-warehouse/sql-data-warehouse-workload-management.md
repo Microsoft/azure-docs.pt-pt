@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: e54e0ed1a3292cee400774d02f61514f54370151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85208540"
 ---
 # <a name="what-is-workload-management"></a>O que é a gestão da carga de trabalho?
@@ -50,7 +50,7 @@ A importância da carga de trabalho influencia a ordem em que um pedido obtém a
 
 O isolamento da carga de trabalho reserva recursos para um grupo de carga de trabalho.  Os recursos reservados num grupo de carga de trabalho são detidos exclusivamente para que esse grupo de carga de trabalho garanta a execução.  Os grupos de carga de trabalho também permitem definir a quantidade de recursos que são atribuídos por pedido, tal como as classes de recursos fazem.  Os grupos de carga de trabalho dão-lhe a capacidade de reservar ou limitar a quantidade de recursos que um conjunto de pedidos pode consumir.  Por último, os grupos de trabalho são um mecanismo para aplicar regras, como o tempo limite de consulta, aos pedidos.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a classificação da carga de trabalho, consulte [a Classificação da Carga de Trabalho.](sql-data-warehouse-workload-classification.md)  
 - Para obter mais informações sobre o isolamento da carga de trabalho, consulte [o Isolamento da Carga de Trabalho.](sql-data-warehouse-workload-isolation.md)  

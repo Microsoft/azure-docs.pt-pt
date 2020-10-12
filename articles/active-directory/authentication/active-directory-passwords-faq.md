@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052392"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
@@ -263,7 +263,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
 * **P: Para que tipo de contas funciona a gravação de passwords?**
 
-  > **A:** O writeback de palavra-passe funciona para contas de utilizador sincronizadas desde o Ative Directy para Azure AD, incluindo utilizadores federados, de hash de palavra-passe sincronizados e utilizadores de autenticação pass-through.
+  > **A:** O writeback de palavra-passe funciona para contas de utilizador sincronizadas desde o Ative Directy para Azure AD, incluindo federados, hash de palavra-passe sincronizados e Pass-Through Utilizadores de Autenticação.
   >
   >
 * **P: A writeback de palavra-passe aplica as políticas de senha do meu domínio?**
@@ -277,7 +277,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
   >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)

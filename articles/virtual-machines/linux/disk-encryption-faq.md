@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374048"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Encriptação do disco Azure para máquinas virtuais Linux FAQ
@@ -101,7 +101,7 @@ Existem pré-requisitos para encriptação do disco Azure. Consulte a Criação 
 Existem pré-requisitos para encriptação do disco Azure. Consulte a Encriptação do Disco Azure com o conteúdo [Azure AD](disk-encryption-linux-aad.md) para criar uma aplicação Azure Ative Directory, criar um novo cofre de chaves ou configurar um cofre-chave existente para acesso à encriptação do disco para permitir a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os principais cenários de suporte à chave de encriptação, consulte [criar e configurar um cofre-chave para encriptação de disco Azure com Azure AD](disk-encryption-key-vault-aad.md).
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>A Encriptação do Disco Azure está a utilizar uma aplicação AD AZure (versão anterior) ainda suportada?
-Yes. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
+Sim. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Posso migrar VMs que foram encriptados com uma aplicação AD AD Azure para encriptação sem uma aplicação AD AZure?
   Atualmente, não existe um caminho de migração direta para máquinas que foram encriptadas com uma aplicação AD AD Azure para encriptar sem uma aplicação AD AZure. Além disso, não existe um caminho direto desde a encriptação sem uma aplicação AD AZure até encriptação com uma aplicação AD. 

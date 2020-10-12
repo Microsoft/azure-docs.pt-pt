@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78250183"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Teste a interface do portal para aplicações geridas azure
@@ -102,6 +102,6 @@ Se o portal estiver pendurado no ecrã do resumo, pode haver um erro na secção
 
 Agora que verificou que a interface do portal está a funcionar como esperado, é hora de validar que o seu ficheiro createUiDefinition está devidamente integrado com o seu mainTemplate.jsem arquivo. Pode executar um teste de script de validação para testar o conteúdo dos seus ficheiros de solução, incluindo o ficheiro createUiDefinition. O script valida a sintaxe JSON, verifica as expressões regex nos campos de texto e garante que os valores de saída da interface do portal correspondem aos parâmetros do seu modelo. Para obter informações sobre a execução deste script, consulte [Executar verificações de validação estática para modelos](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de validar a interface do portal, saiba como disponibilizar a sua [aplicação gerida pelo Azure no Mercado.](publish-marketplace-app.md)

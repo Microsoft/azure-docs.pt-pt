@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78184253"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operações do Microsoft Graph disponíveis para Azure AD B2C
@@ -63,7 +63,7 @@ As seguintes operações permitem-lhe gerir as suas políticas Azure AD B2C Trus
 - [Atualizar ou criar uma política de enquadramento de confiança.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
 - [Eliminar uma política-quadro de confiança existente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
 
-## <a name="policy-keys"></a>Chaves de política
+## <a name="policy-keys"></a>Chaves da política
 
 O Quadro de Experiência de Identidade armazena os segredos referenciados numa política personalizada para estabelecer confiança entre componentes. Estes segredos podem ser chaves/valores simétricos ou assimétricos. No portal Azure, estas entidades são mostradas como **chaves de Política**.
 

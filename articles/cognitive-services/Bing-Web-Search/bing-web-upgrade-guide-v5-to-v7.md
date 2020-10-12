@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609457"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade de Bing Web Search API v5 para v7
@@ -39,7 +39,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|SubCódes|Description
+|Código|SubCódes|Descrição
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições de subcodições. A resposta incluirá estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.

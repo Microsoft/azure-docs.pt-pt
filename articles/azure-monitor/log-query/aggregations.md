@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670309"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de log do Monitor de Azure
@@ -22,7 +22,7 @@ ms.locfileid: "77670309"
 
 Este artigo descreve funções de agregação em consultas de registo do Azure Monitor que oferecem formas úteis de analisar os seus dados. Todas estas funções funcionam com o `summarize` operador que produz uma tabela com resultados agregados da tabela de entrada.
 
-## <a name="counts"></a>Contagem
+## <a name="counts"></a>Contagens
 
 ### <a name="count"></a>count
 Conte o número de linhas no conjunto de resultados após a aplicação de filtros. O exemplo a seguir devolve o número total de linhas na tabela _Perf_ dos últimos 30 minutos. O resultado é devolvido numa coluna chamada *count_* a menos que lhe atribua um nome específico:
@@ -121,7 +121,7 @@ Perf
 
 Isto pode mostrar que alguns CPUs de computador têm valores medianos semelhantes, mas enquanto alguns são estáveis em torno da mediana, outros computadores relataram valores de CPU muito mais baixos e mais elevados, o que significa que experimentaram picos.
 
-### <a name="variance"></a>Desvio
+### <a name="variance"></a>Variância
 Para avaliar diretamente a variação de um valor, utilize os métodos de desvio e variação padrão:
 
 ```Kusto

@@ -1,7 +1,7 @@
 ---
-title: Transcrição de Conversa (Pré-visualização) - Serviço de fala
+title: Transcrição de Conversação (Pré-visualização) - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A Transcrição de Conversas é uma solução para reuniões, que combina reconhecimento, ID do orador e diarização para fornecer transcrição de qualquer conversa.
+description: A Transcrição de Conversação é uma solução para reuniões, que combina reconhecimento, identificação de altifalantes e diarização para fornecer transcrição de qualquer conversa.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,71 +11,71 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81402517"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é a Transcrição da Conversa em reuniões (Pré-visualização)?
+# <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é Transcrição de Conversa nas reuniões (Pré-visualização)?
 
-A Transcrição de Conversas é uma solução [de discurso a texto](speech-to-text.md) que combina reconhecimento de voz, identificação de altifalantes e atribuição de frases a cada orador (também conhecido como _diarização)_ para fornecer transcrição em tempo real e/ou assíncrono de qualquer conversa. A Transcrição de Conversas distingue os oradores numa conversa para determinar quem disse o quê e quando, e facilita que os desenvolvedores adicionem o discurso ao texto às suas aplicações que realizam a diarização multi-colunas.
+A Transcrição [de](speech-to-text.md) Conversação é uma solução de discurso a texto que combina reconhecimento de voz, identificação de altifalantes e atribuição de frases a cada orador (também conhecido como _diarização)_ para fornecer transcrição em tempo real e/ou assíncronia de qualquer conversa. A Transcrição de Conversação distingue os oradores numa conversa para determinar quem disse o quê e quando, e facilita que os desenvolvedores adicionem discurso a texto às suas aplicações que realizam a diarização de vários altifalantes.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-- **Carimbos** temporais - cada expressão de orador tem um carimbo temporal, para que você possa facilmente encontrar quando uma frase foi dita.
+- **Timetamps** - cada expressão de orador tem uma hora de tempo, para que você possa facilmente encontrar quando uma frase foi dita.
 - **Transcrições legíveis** - as transcrições têm formatação e pontuação adicionadas automaticamente para garantir que o texto corresponde de perto ao que estava a ser dito.
-- **Perfis** de utilizador - os perfis do utilizador são gerados através da recolha de amostras de voz do utilizador e enviando-as para a geração de assinaturas.
-- **Identificação do altifalante** - os altifalantes são identificados utilizando perfis de utilizador e um _identificador_ de altifalante sou atribuído a cada um.
-- **Diarização multi-altifalante** - determine quem disse o quê sintetizando o fluxo de áudio com cada identificador de altifalante.
-- **Transcrição em tempo real** – forneça transcrições em direto de quem está a dizer o quê e quando a conversa está a acontecer.
-- **transcrição assíncrona** – fornecer transcrições com maior precisão utilizando um fluxo de áudio multicanal.
+- **Perfis do utilizador** - os perfis do utilizador são gerados recolhendo amostras de voz do utilizador e enviando-as para a geração de assinaturas.
+- **Identificação do altifalante** - os altifalantes são identificados utilizando perfis de utilizador e um _identificador de altifalantes_ é atribuído a cada um.
+- **Diarização multi-altifalante** - determine quem disse o quê sintetizando o fluxo de áudio com cada identificador de altifalantes.
+- **Transcrição em tempo** real – forneça transcrições ao vivo de quem está a dizer o quê e quando a conversa está a acontecer.
+- **transcrição assíncronia** – forneça transcrições com maior precisão utilizando um fluxo de áudio multicanal.
 
 > [!NOTE]
-> Embora a Transcrição de Conversas não imponha um limite no número de altifalantes na sala, está otimizada para 2-10 altifalantes por sessão.
+> Embora a Transcrição de Conversação não limite o número de altifalantes na sala, está otimizada para 2-10 altifalantes por sessão.
 
 ## <a name="use-cases"></a>Casos de utilização
 
 ### <a name="inclusive-meetings"></a>Reuniões inclusivas
 
-Para tornar as reuniões inclusivas para todos, como os participantes que são surdos e difíceis de ouvir, é importante ter transcrição em tempo real. A Transcrição da Conversação em modo em tempo real requer áudio de encontro e determina quem está a dizer o quê, permitindo que todos os participantes do encontro sigam a transcrição e participem na reunião sem demora.
+Para tornar as reuniões inclusivas para todos, como os participantes surdos e com dificuldade de audição, é importante ter transcrição em tempo real. A transcrição da conversa em tempo real requer o áudio do encontro e determina quem está a dizer o quê, permitindo que todos os participantes do encontro sigam a transcrição e participem na reunião sem demora.
 
-### <a name="improved-efficiency"></a>Melhor eficiência
+### <a name="improved-efficiency"></a>Melhoria da eficiência
 
-Os participantes do encontro podem concentrar-se na reunião e deixar nota-tomando nota para a Transcrição de Conversas. Os participantes podem envolver-se ativamente na reunião e acompanhar rapidamente os próximos passos, utilizando a transcrição em vez de tomar notas e potencialmente faltar algo durante a reunião.
+Os participantes do encontro podem focar-se na reunião e deixar notas para a Transcrição de Conversação. Os participantes podem participar ativamente na reunião e acompanhar rapidamente os próximos passos, usando a transcrição em vez de tomar notas e potencialmente perder algo durante a reunião.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Esta é uma visão geral de alto nível de como a Transcrição de Conversação funciona.
+Esta é uma visão geral de alto nível de como a Transcrição de Conversa funciona.
 
-![O Diagrama de Transcrição da Conversa de Importação](media/scenarios/conversation-transcription-service.png)
+![O diagrama de transcrição da conversa de importação](media/scenarios/conversation-transcription-service.png)
 
-## <a name="expected-inputs"></a>Inputs esperados
+## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Fluxo de áudio multicanal** – Para obter especificações e detalhes de design, consulte o [microfone SDK do Microsoft Speech Device](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, consulte O Dispositivo de [Discurso da Microsoft SDK](https://aka.ms/cts/getsdk).
-- **Amostras de voz** do utilizador – A Transcrição de Conversas necessita de perfis do utilizador antes da conversação. Terá de recolher gravações áudio de cada utilizador e, em seguida, enviar as gravações para o [Signature Generation Service](https://aka.ms/cts/signaturegenservice) para validar o áudio e gerar perfis de utilizador.
+- **Fluxo de áudio multicanal** - Para obter detalhes de especificação e design, consulte [o microfone SDK do Dispositivo de Fala do Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, consulte [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+- **Amostras de voz do utilizador** – A Transcrição de Conversação necessita de perfis de utilizador antes da conversação. Terá de recolher gravações áudio de cada utilizador e, em seguida, enviar as gravações para o [Serviço de Geração de Assinaturas](https://aka.ms/cts/signaturegenservice) para validar o áudio e gerar perfis de utilizador.
 
-## <a name="real-time-vs-asynchronous"></a>Tempo real vs. assíncrono
+## <a name="real-time-vs-asynchronous"></a>Em tempo real vs. assíncronos
 
-A Transcrição de Conversas oferece três modos de transcrição:
+A Transcrição de Conversação oferece três modos de transcrição:
 
-### <a name="real-time"></a>Tempo real
+### <a name="real-time"></a>Em tempo real
 
-Os dados áudio são processados ao vivo para devolver o identificador de altifalantes + transcrição. Selecione este modo se o seu requisito de solução de transcrição for fornecer aos participantes da conversação uma visão de transcrição ao vivo da sua conversa ção em curso. Por exemplo, a construção de uma aplicação para tornar as reuniões mais acessíveis aos surdos e aos participantes de audição difícil é um caso de utilização ideal para a transcrição em tempo real.
+Os dados áudio são processados em direto para devolver o identificador de altifalante + transcrição. Selecione este modo se o requisito da sua solução de transcrição for fornecer aos participantes da conversa uma visão ao vivo da sua conversa contínua. Por exemplo, a construção de uma aplicação para tornar as reuniões mais acessíveis aos surdos e aos participantes de audição é um caso de uso ideal para a transcrição em tempo real.
 
 ### <a name="asynchronous"></a>Assíncrono
 
-Os dados de áudio são processados para devolver o identificador e transcrição do altifalante. Selecione este modo se o seu requisito de solução de transcrição for para fornecer maior precisão sem vista de transcrição ao vivo. Por exemplo, se quiser construir uma aplicação para permitir que os participantes do encontro acompanhem facilmente as reuniões perdidas, use o modo de transcrição assíncrono para obter resultados de transcrição de alta precisão.
+Os dados áudio são processados para devolver o identificador de altifalantes e a transcrição. Selecione este modo se o seu requisito de solução de transcrição for fornecer maior precisão sem visualização da transcrição ao vivo. Por exemplo, se quiser construir uma aplicação que permita aos participantes da reunião acompanhar facilmente as reuniões perdidas, use o modo de transcrição assíncronos para obter resultados de transcrição de alta precisão.
 
-### <a name="real-time-plus-asynchronous"></a>Tempo real mais assíncrono
+### <a name="real-time-plus-asynchronous"></a>Em tempo real mais assíncronos
 
-Os dados áudio são processados ao vivo para devolver o identificador de altifalantes + transcrição, e, além disso, é criado um pedido para obter também uma transcrição de alta precisão através de um processamento assíncrono. Selecione este modo se a sua aplicação tiver necessidade de transcrição em tempo real, mas também requer uma transcrição de maior precisão para utilização após a conversa ou reunião.
+Os dados áudio são processados ao vivo para devolver o identificador de altifalante + transcrição, e, além disso, é criado um pedido para obter também uma transcrição de alta precisão através do processamento assíncrona. Selecione este modo se a sua aplicação tiver necessidade de transcrição em tempo real, mas também requer uma transcrição de maior precisão para ser usada após a conversação ou reunião ocorrer.
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-Atualmente, a Transcription Conversation apoia "en-US" e "zh-CN" nas seguintes regiões: *centrale*  *eastasia*. Se necessitar de apoio local adicional, contacte a [Equipa de Recursos de Transcrição](mailto:CTSFeatureCrew@microsoft.com)de Conversas .
+Atualmente, a Conversation Transcription apoia "en-US" e "zh-CN" nas seguintes regiões: *central* e *leste.* Se necessitar de apoio local adicional, contacte a Equipa de [Recurso de Transcrição de Conversação](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Transcrever conversas em tempo real](how-to-use-conversation-transcription-service.md)
+> [Transcreva conversas em tempo real](how-to-use-conversation-transcription-service.md)

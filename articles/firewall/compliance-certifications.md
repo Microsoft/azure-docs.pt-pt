@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602725"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações Azure Firewall
@@ -34,7 +34,7 @@ As seguintes certificações Azure Firewall são para a Azure global:
 - CFTC 1.31
 - Atestado CSA STAR
 - Certificação CSA STAR
-- Autoavaliação da Estrela CSA
+- CSA STAR Self-Assessment
 - Leis de Privacidade do Canadá
 - DPP (Reino Unido)
 - EU ENISA IAF
@@ -117,7 +117,7 @@ O ICSA Labs é um fornecedor líder em testes e certificação de produtos de TI
 Azure Firewall é o primeiro serviço de firewall em nuvem a atingir a Certificação de Firewall Corporativa ICSA Labs. Para o relatório de certificação Azure Firewall, consulte o [Relatório de Certificação e Auditoria da ICSA Labs.](https://aka.ms/ICSALabsCertification) Para mais informações, consulte a página do Programa de Certificação firewall do [ICSA Labs.](https://www.icsalabs.com/technology-program/firewalls)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a conformidade da Microsoft, consulte as seguintes informações.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088857"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Extensão do Agente Linux
@@ -148,7 +148,7 @@ Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma refe
 ```
 
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão virtual da máquina virtual Stackify Retrace Agent para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de haxixe PowerShell.
 

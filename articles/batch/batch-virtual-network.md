@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86142772"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
@@ -25,7 +25,7 @@ Para permitir que os nós computacional se comuniquem de forma segura com outras
 
 - **Autenticação.** Para utilizar uma VNet do Azure, a API do cliente do Batch tem de utilizar a autenticação do Azure Active Directory. O suporte do Azure Batch para o Azure AD está documentado em [Autenticar soluções de serviço do Batch com o Active Directory](batch-aad-auth.md).
 
-- **Um Azure VNet.** Consulte a seguinte secção para os requisitos e configuração do VNet. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface da Linha de Comando Azure (CLI) ou outros métodos.
+- **Um Azure VNet.** Consulte a seguinte secção para os requisitos e configuração do VNet. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface Azure Command-Line (CLI) ou outros métodos.
   - Para criar um VNet baseado em Recursos Azure, consulte [criar uma rede virtual.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) Um VNet baseado em Gestor de Recursos é recomendado para novas implementações, e é suportado apenas em piscinas que usam configuração de máquina virtual.
   - Para criar um VNet clássico, consulte [Criar uma rede virtual (clássica) com várias sub-redes.](/previous-versions/azure/virtual-network/create-virtual-network-classic) Um VNet clássico é suportado apenas em piscinas que usam configuração de serviços cloud.
 

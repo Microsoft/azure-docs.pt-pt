@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: c86b06ff46f1ddc8d22d2ab7ec4bc8620a8c862f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933176"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analise os vídeos em quase tempo real
@@ -232,7 +232,7 @@ Para começar com esta amostra, faça o seguinte:
 
 1. Crie uma [conta do Azure](https://azure.microsoft.com/free/cognitive-services/). Se já tem um, pode saltar para o próximo passo.
 2. Crie recursos para Visão de Computador e Rosto no portal Azure para obter a sua chave e ponto final. Certifique-se de que seleciona o nível livre (F0) durante a configuração.
-   - [Visão computacional](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Imagem Digitalizada](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Rosto](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Depois de os recursos serem implantados, clique em **Ir ao recurso** para recolher a sua chave e ponto final para cada recurso. 
 3. Clone o [repo Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 4. Abra a amostra no Visual Studio 2015 ou mais tarde e, em seguida, construa e execute as aplicações da amostra:

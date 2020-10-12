@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
 ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088670"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Erro do Gestor de Boot do Windows de resolução de problemas - 0xC000225 "Estado não encontrado"

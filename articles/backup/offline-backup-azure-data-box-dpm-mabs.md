@@ -4,10 +4,10 @@ description: Pode utilizar a Caixa de Dados Azure para semear dados de backup in
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271499"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
@@ -48,7 +48,7 @@ São suportados os seguintes SKUs da Caixa de Dados:
 > [!IMPORTANT]
 > Os dados de cópia de segurança iniciais de uma única fonte de dados devem ser contidos num único disco Azure Data Box ou Azure Data Box, e não podem ser partilhados entre vários dispositivos dos mesmos SKUs ou diferentes. No entanto, uma Caixa de Dados Azure pode conter cópias de segurança iniciais de várias fontes de dados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 O agente MARS em execução no DPM/MABS deve ser atualizado para a [versão mais recente](https://aka.ms/azurebackup_agent) (2.0.9171.0 ou mais tarde).
 

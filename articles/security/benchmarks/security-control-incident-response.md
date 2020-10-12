@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408422"
 ---
 # <a name="security-control-incident-response"></a>Controlo de Segurança: Resposta a incidentes
@@ -44,7 +44,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 - [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Use etiquetas para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 ## <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 

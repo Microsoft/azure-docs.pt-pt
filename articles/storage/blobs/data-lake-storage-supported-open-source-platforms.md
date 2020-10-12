@@ -9,10 +9,10 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78196030"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Plataformas open source que suportam Azure Data Lake Storage Gen2
@@ -34,7 +34,7 @@ Esta tabela lista as plataformas open source que suportam data lake storage gen2
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versões databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Obras hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados em nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)

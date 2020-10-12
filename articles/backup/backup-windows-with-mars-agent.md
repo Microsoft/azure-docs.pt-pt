@@ -4,10 +4,10 @@ description: Utilize o agente Microsoft Azure Recovery Services (MARS) para faze
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052227"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
@@ -30,13 +30,13 @@ Neste artigo, aprenderá a:
 * [Verifique](install-mars-agent.md#verify-internet-access) o acesso à Internet nas máquinas que pretende fazer.
 * Se o agente MARS não estiver instalado, aprenda a instalá-lo [aqui.](install-mars-agent.md)
 
-## <a name="create-a-backup-policy"></a>Criar uma política de backup
+## <a name="create-a-backup-policy"></a>Criar uma política de cópias de segurança
 
 A política de backup especifica quando tirar instantâneos dos dados para criar pontos de recuperação. Também especifica quanto tempo para manter os pontos de recuperação. Usas o agente MARS para configurar uma política de reserva.
 
 O Azure Backup não leva automaticamente em conta o horário de verão (DST). Este padrão pode causar alguma discrepância entre o tempo real e o tempo de backup programado.
 
-Para criar uma política de backup:
+Para criar uma política de cópias de segurança:
 
 1. Depois de descarregar e registar o agente MARS, abra a consola do agente. Pode encontrá-lo ao pesquisar na máquina por **Cópia de Segurança do Microsoft Azure**.  
 
@@ -127,7 +127,7 @@ Para permitir o estrangulamento da rede:
     ![Configurar estrangulamento de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
 1. Especifique a largura de banda permitida durante o horário de trabalho e horas não laborais. Os valores de largura de banda começam nos 512 Kbps e sobem para 1.023 Mbps. Em seguida, selecione **OK**.
 
-## <a name="run-an-on-demand-backup"></a>Faça uma cópia de segurança a pedido
+## <a name="run-an-on-demand-backup"></a>Executar uma cópia de segurança a pedido
 
 1. No agente MARS, selecione **Back Up Now**.
 
@@ -155,7 +155,7 @@ Após o acabamento inicial da cópia de segurança, o estado **preenchido do Job
 
 Para obter mais informações, consulte [Criar uma política de backup](#create-a-backup-policy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
 * Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

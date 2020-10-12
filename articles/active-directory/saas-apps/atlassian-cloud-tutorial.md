@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: b342731b953f7b68f8fcd9e55c49c907e5e8cc5d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973495"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
@@ -114,7 +114,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![saml em azul](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
-1. Na **configuração de um único sign-on com página SAML,** desloque-se para baixo para **configurar nuvem atlassiana**
+1. Na **configuração single Sign-On com página SAML,** desloque-se para baixo para **configurar nuvem atlassiana**
    
    a. Clique em **URLs de configuração**
 
@@ -128,7 +128,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![id entidade e ss](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
    ![Certificado de assinatura](./media/atlassian-cloud-tutorial/certificate.png)
 
@@ -136,7 +136,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. **Adicionar/Guardar** a configuração SAML em Atlassian
 
-1. Se desejar configurar a aplicação no modo iniciado pelo **IDP,** edite a secção de **Configuração SAML Básica** do **set up Single Sign-On com** a página SAML em Azure e abra a página de assinatura única DO **SAML no** Portal atlassiano de administração
+1. Se desejar configurar a aplicação no modo iniciado pelo **IDP,** edite a secção de **Configuração SAML Básica** do **Sign-On Único configurado com** a página SAML em Azure e abra a **página de assinatura única SAML no** Portal atlassiano de administração
 
    a. Copiar valor **de ID da Entidade SP** da Atlassian, cole-o na caixa de **Identificador (Entity ID)** em Azure e desafine-o como padrão
    
@@ -150,7 +150,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![imagem de urls](./media/atlassian-cloud-tutorial/urls.png)
    
-1. Se desejar configurar a aplicação **no** modo iniciado sp, edite a secção **de Configuração SAML Básica** da **Configuração Única configuração com** página SAML em Azure. Copie o url de **exemplo** (do passo 1) e cole-o na caixa **de URL sign on** em Azure
+1. Se desejar configurar a aplicação **no** modo iniciado sp, edite a secção **de Configuração SAML Básica** do Single Sign-On configurado com a página **SAML** em Azure. Copie o url de **exemplo** (do passo 1) e cole-o na caixa **de URL sign on** em Azure
 
    ![botão de edição em urls](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -198,7 +198,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

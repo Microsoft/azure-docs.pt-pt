@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
 ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84170059"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas a uma máquina virtual com o portal Azure
@@ -73,7 +73,7 @@ Os comandos descritos neste artigo permitem-lhe fazer fluir rapidamente o tráfe
 
 Para aplicações web altamente disponíveis, considere colocar os seus VMs atrás de um equilibrador de carga Azure. O equilibrador de carga distribui o tráfego para VMs, com um grupo de segurança de rede que fornece filtragem de tráfego. Para obter mais informações, consulte [load balance Windows virtual machines in Azure para criar uma aplicação altamente disponível.](tutorial-load-balancer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um grupo de segurança de rede, criou uma regra de entrada que permite o tráfego HTTP na porta 80, e depois associou essa regra a uma sub-rede. 
 
 Pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:

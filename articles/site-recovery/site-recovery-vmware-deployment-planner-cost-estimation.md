@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528966"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Rever estimativas de custos no VMware Deployment Planner 
@@ -150,7 +150,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Azure Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Name|Moeda|Name|Moeda|Name|
+|Moeda|Nome|Moeda|Nome|Moeda|Nome|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso Argentino ($)|AUD|Dólar Australiano ($)|BRL|Real Brasileiro (R$)|
 |CAD|Dólar Canadiano ($)|CHF|Franco Suíço (chf)|DKK|Coroa Dinamarquesa (kr)|
@@ -161,5 +161,5 @@ O Planeador de Implementações do Azure Site Recovery pode gerar o relatório d
 |SAR|Rial Saudita (SR)|SEK|Coroa Sueca (kr)|TWD|Dólar de Taiwan (NT$)|
 |TRY|Lira Turca (TL)|USD| Dólar Norte-Americano ($)|ZAR|Rand da África do Sul (R)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como proteger [VMs de VMware para o Azure com o Azure Site Recovery](./vmware-azure-tutorial.md).

@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588063"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure

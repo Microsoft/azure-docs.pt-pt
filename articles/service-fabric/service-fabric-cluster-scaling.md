@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610205"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Aglomerados de tecido de serviço de escala Azure
@@ -74,7 +74,7 @@ Implementar um novo tipo de nó primário com VM SKU atualizado e, em seguida, d
 
 Se isso não for possível, pode criar um novo cluster e restaurar o estado de [aplicação](service-fabric-reliable-services-backup-restore.md) (se aplicável) a partir do seu antigo cluster. Não precisa de restaurar nenhum estado de serviço do sistema, são recriados quando implementa as suas aplicações no seu novo cluster. Se estavas a executar aplicações apátridas no teu cluster, então tudo o que fazes é implantar as tuas aplicações no novo cluster, não tens nada para restaurar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
 * [Escalar um aglomerado Azure dentro ou fora](service-fabric-tutorial-scale-cluster.md).
 * [Dimensione um cluster Azure programáticamente](service-fabric-cluster-programmatic-scaling.md) usando o fluente Azure compute SDK.

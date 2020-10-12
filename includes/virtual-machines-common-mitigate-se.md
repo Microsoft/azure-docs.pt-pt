@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73935895"
 ---
 **Última atualização do documento**: 12 de novembro de 2019 10:00 PST.
@@ -156,7 +156,7 @@ Se estiver a executar um VM hiper roscado, [contacte o Suporte Azure](https://ak
 
 Quando um VM hiper roscado é criado, Azure atribui 2 fios por núcleo - estes são chamados vCPUs. Quando a hiper rosca é desativada, o Azure remove um fio e coloca as superfícies em núcleos roscados únicos (núcleos físicos). A razão de vCPU para CPU é de 2:1, pelo que uma vez que o hiper-rosco é desativado, a contagem de CPU no VM parece ter diminuído para metade. Por exemplo, um VM D8_v3 é um VM hiper roscado que funciona em 8 vCPUs (2 fios por núcleo x 4 núcleos).  Quando a hiper rosca é desativada, os CPUs descerão para 4 núcleos físicos com 1 fio por núcleo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo fornece orientações para os ataques de canal laterais de execução abaixo que afetam muitos processadores modernos:
 

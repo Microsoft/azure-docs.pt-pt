@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088568"
 ---
-# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Troubleshoot authentication errors when you use RDP to connect to Azure VM (Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure)
+# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure
 
 Este artigo pode ajudá-lo a resolver erros de autenticação que ocorrem quando utiliza a ligação remote desktop Protocol (RDP) para ligar a uma máquina virtual Azure (VM).
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Obtenha a versão X.x do SSH/TLS dos Registos de Os Hóspedes nos erros do SCHANNEL.
 
-#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a>Verifique as ligações de algoritmos compatíveis com os FIPs
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> Verifique as ligações de algoritmos compatíveis com os FIPs
 
 O ambiente de trabalho remoto pode ser aplicado para utilizar apenas ligações de algoritmos compatíveis com FIPs. Isto pode ser definido utilizando uma chave de registo. Para isso, abra uma janela de pedido de comando elevada e, em seguida, consultar as seguintes teclas:
 

@@ -4,10 +4,10 @@ description: Implemente o pacote ZIP da sua aplicação com aatólidade. Melhore
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77920727"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Execute a sua aplicação no Azure App Service diretamente a partir de um pacote ZIP
@@ -37,7 +37,7 @@ A `WEBSITE_RUN_FROM_PACKAGE` definição da aplicação permite correr a partir 
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"`permite executar a sua aplicação de um pacote local para a sua aplicação. Também pode [correr a partir de um pacote remoto.](#run-from-external-url-instead)
+`WEBSITE_RUN_FROM_PACKAGE="1"` permite executar a sua aplicação de um pacote local para a sua aplicação. Também pode [correr a partir de um pacote remoto.](#run-from-external-url-instead)
 
 ## <a name="run-the-package"></a>Executar o pacote
 
@@ -47,7 +47,7 @@ A maneira mais fácil de executar um pacote no seu Serviço de Aplicações é c
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Como a definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação está definida, este comando não extrai o conteúdo do pacote para o *diretório D:\home\site\wwwroot* da sua aplicação. Em vez disso, carrega o ficheiro ZIP como é para *D:\home\data\SitePackages*, e cria uma *packagename.txt* no mesmo diretório, que contém o nome do pacote ZIP para carregar em tempo de execução. Se carregar o seu pacote ZIP de uma forma diferente (como [FTP),](deploy-ftp.md)tem de criar o diretório *D:\home\data\SitePackages* e o *ficheiropackagename.txt* manualmente.
+Como a definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação está definida, este comando não extrai o conteúdo do pacote para o *diretório D:\home\site\wwwroot* da sua aplicação. Em vez disso, carrega o ficheiro ZIP como é para *D:\home\data\SitePackages*, e cria uma *packagename.txt* no mesmo diretório, que contém o nome do pacote ZIP para carregar em tempo de execução. Se carregar o seu pacote ZIP de uma forma diferente (como [FTP),](deploy-ftp.md)tem de criar o diretório *D:\home\data\SitePackages* e o * ficheiropackagename.txt* manualmente.
 
 O comando também reinicia a aplicação. Porque `WEBSITE_RUN_FROM_PACKAGE` está definido, o Serviço de Aplicações monta o pacote carregado como o diretório *de wwwroot* apenas de leitura e executa a aplicação diretamente a partir desse diretório montado.
 

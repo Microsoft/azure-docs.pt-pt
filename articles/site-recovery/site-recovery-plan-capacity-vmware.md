@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135459"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Capacidade do plano e escala para recuperação de desastres VMware para Azure
@@ -79,8 +79,8 @@ Depois de utilizar [o Planificador de Implementação de Recuperação](site-rec
 
 * **Largura de banda de aceleração**: O tráfego de VMware que se replica para Azure passa por um servidor de processo específico. Pode acelerar a largura de banda nas máquinas que estão a funcionar como servidores de processo.
 * **Influência largura de banda**: Pode influenciar a largura de banda que é usada para a replicação usando um par de chaves de registo:
-  * O **valor do registo HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica o número de fios que são utilizados para transferência de dados (replicação inicial ou delta) de um disco. Um valor mais elevado aumenta a largura de banda da rede que é usada para a replicação.
-  * O **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** o valor do registo especifica o número de linhas que são utilizadas para transferência de dados durante a falha.
+  * O valor de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica o número de fios que são utilizados para transferência de dados (replicação inicial ou delta) de um disco. Um valor mais elevado aumenta a largura de banda da rede que é usada para a replicação.
+  * O ** valor de ** registoHKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVMespecifica o número de fios que são utilizados para transferência de dados durante o failback.
 
 ### <a name="throttle-bandwidth"></a>Limitar largura de banda
 
@@ -104,7 +104,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Altere a largura de banda da rede para um VM
 
-1. No registo do VM, vá a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replicação**.
+1. No registo do VM, vá a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication. **
    * Para alterar o tráfego de largura de banda num disco de replicação, modifique o valor do **UploadThreadsPerVM**. Crie a chave se não existir.
    * Para alterar a largura de banda para tráfego de recuo da Azure, modifique o valor do **DownloadThreadsPerVM**.
 2. O valor predefinido para cada tecla é **4**. Numa rede “sobreaprovisionada”, os valores predefinidos destas chaves de registo devem ser alterados. O valor máximo que pode utilizar é **de 32**. Monitorize o tráfego para otimizar o valor.
@@ -170,6 +170,6 @@ Quando o registo termina com sucesso, o servidor é listado no portal Azure nos 
  > [!NOTE]
  > Descarregue a versão mais recente do [ficheiro de configuração unificado](https://aka.ms/latestmobsvc)do servidor alvo principal para o Windows .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Descarregue e execute [o Planejador de Implementação de Recuperação de Sítios](https://aka.ms/asr-deployment-planner).

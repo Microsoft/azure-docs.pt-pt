@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77658511"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para ver azulejos do designer no Azure Monitor
@@ -43,11 +43,11 @@ O **azulejo Número** exibe tanto a contagem de registos de uma consulta de regi
 
 ![Azulejo de número](media/view-designer-tiles/tile-number.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
-| **Azulejo** | |
+| **Mosaico** | |
 | Legenda |O texto que é mostrado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | **Avançado** |**> verificação do fluxo de dados** |
@@ -61,9 +61,9 @@ Este azulejo apresenta a contagem de registos de duas consultas de log diferente
 
 ![Dois números azulejos](media/view-designer-tiles/tile-two-numbers.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Primeiro azulejo** | |
 | Legenda |O texto que é mostrado sob o valor. |
@@ -82,13 +82,13 @@ O **azulejo Donut** apresenta um único número que resume uma coluna de valor n
 
 ![Azulejo de donut](media/view-designer-tiles/tile-donut.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Anel** | |
 | Consulta |A consulta que é executada para o donut. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. |
-| **Anel** |**Centro>** |
+| **Anel** |** Centro>** |
 | Texto |O texto que é mostrado sob o valor dentro do donut. |
 | Operação |A operação que é realizada na propriedade de valor para resumi-la como um único valor.<ul><li>Soma: Adicione os valores de todos os registos com o valor da propriedade.</li><li>Percentagem: Percentagem dos valores somados dos registos com o valor patrimonial face aos valores somados de todos os registos.</li></ul> |
 | Valores de resultados utilizados na operação central |Opcionalmente, selecione o sinal de mais (+) para adicionar um ou mais valores. Os resultados da consulta estão limitados a registos com os valores de propriedade que especifica. Se não forem adicionados valores, todos os registos estão incluídos na consulta. |
@@ -106,9 +106,9 @@ Este azulejo é um gráfico de linha que exibe várias séries a partir de uma c
 
 ![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
@@ -127,9 +127,9 @@ Este azulejo tem tanto um gráfico de linha que exibe várias séries a partir d
 
 ![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
@@ -152,18 +152,18 @@ O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de r
 
 ![Duas linhas do tempo azulejo](media/view-designer-tiles/tile-two-timelines.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido no topo do azulejo. |
+| Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob a chamada para a primeira série. |
-| Cor |A cor que é usada para as colunas da primeira série. |
+| Color |A cor que é usada para as colunas da primeira série. |
 | Consulta de gráfico |A consulta que é executada para a primeira série. A contagem dos registos ao longo de cada intervalo de tempo é representada pelas colunas de gráficos. |
 | Operação |A operação que é realizada na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li></ul> |
 | **Segundo gráfico** | |
 | Legenda |O texto que é exibido sob a chamada para a segunda série. |
-| Cor |A cor que é usada para as colunas da segunda série. |
+| Color |A cor que é usada para as colunas da segunda série. |
 | Consulta de gráficos |A consulta que é executada para a segunda série. A contagem dos registos ao longo de cada intervalo de tempo é representada pelas colunas de gráficos. |
 | Operação |A operação que é realizada na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela. |
 | **Avançado** |**> verificação do fluxo de dados** |
@@ -172,6 +172,6 @@ O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de r
 | Mensagem |A mensagem que é apresentada se a consulta de verificação do fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado *de avaliação* de desempenho. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de log](../log-query/log-query-overview.md) para apoiar as consultas em azulejos.
 * Adicione [peças de visualização](view-designer-parts.md) à sua vista personalizada.

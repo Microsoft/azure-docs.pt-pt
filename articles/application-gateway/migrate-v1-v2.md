@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311602"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar gateway de aplicações Azure e Firewall de aplicação web de v1 para v2
@@ -57,7 +57,7 @@ Existem duas opções para si, dependendo da configuração e preferências do a
 
 Para determinar se tem os módulos Azure Az instalados, corra `Get-InstalledModule -Name az` . Se não vir nenhum módulo Az instalado, então pode usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instale utilizando o método instalar-script
+### <a name="install-using-the-install-script-method"></a>Instale usando o método Install-Script
 
 Para utilizar esta opção, não deve ter os módulos Azure Az instalados no seu computador. Se estiverem instalados, o seguinte comando apresenta um erro. Pode desinstalar os módulos Azure Az, ou utilizar a outra opção para descarregar o script manualmente e executá-lo.
   
@@ -182,7 +182,7 @@ Sim.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>O script Azure PowerShell também muda o tráfego da minha porta de entrada V1 para o recém-criado gateway V2?
 
-Não. O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
+N.º O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>O novo gateway V2 é criado pelo script Azure PowerShell de tamanho adequado para lidar com todo o tráfego que é atualmente servido pelo meu gateway v1?
 
@@ -190,11 +190,11 @@ O script Azure PowerShell cria um novo gateway V2 com um tamanho adequado para l
 
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Configurei o meu portal V1 para enviar registos para o armazém do Azure. O script também replica esta configuração para v2?
 
-Não. O script não replica esta configuração para v2. Deve adicionar a configuração do registo separadamente ao gateway v2 migrado.
+N.º O script não replica esta configuração para v2. Deve adicionar a configuração do registo separadamente ao gateway v2 migrado.
 
 ### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>Este script suporta certificados enviados para Azure KeyVault?
 
-Não. Atualmente o script não suporta certificados em KeyVault. No entanto, isto está a ser considerado para uma versão futura.
+N.º Atualmente o script não suporta certificados em KeyVault. No entanto, isto está a ser considerado para uma versão futura.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Dei conta de alguns problemas com a utilização deste guião. Como posso conseguir ajuda?
   

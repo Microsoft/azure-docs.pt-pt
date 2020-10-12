@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 797577ce976f71f41ece0d103bd0145775d48b56
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885580"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Desenvolver e depurar Azure Stream Analytics empregos localmente

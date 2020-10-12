@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1626d6f86dcfefd094f325f1f10296d01d4bad93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73523573"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN do Resource Manager ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.

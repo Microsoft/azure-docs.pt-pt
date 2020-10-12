@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: b4d6b20e63c42616aad0f8776fae159a0f2aa455
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088381"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos Common PowerShell para Redes Virtuais Azure
@@ -29,8 +29,8 @@ Algumas variáveis podem ser úteis para si se executar mais do que um dos coman
 
 | Tarefa | Comando |
 | ---- | ------- |
-| Criar configurações de sub-rede |$subnet1 = [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX. X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX. X.X.X/XX<BR><BR>Uma rede típica pode ter uma sub-rede para um [equilibrador de carga virado para a internet](../../load-balancer/load-balancer-overview.md) e uma sub-rede separada para um [equilibrador de carga interno](../../load-balancer/load-balancer-overview.md). |
-| Criar uma rede virtual |$vnet = [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) -Nome "myVNet" -ResourceGroupName $myResourceGroup -Localização $location -AddressPrefix XX. X.X.X/XX -Subnet $subnet1, $subnet2 |
+| Criar configurações de sub-rede |$subnet 1 = [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX. X.X.X/XX<BR>$subnet 2 = New-AzVirtualNetworkSubnetConfig -Nome "mySubnet2" -AddressPrefix XX. X.X.X/XX<BR><BR>Uma rede típica pode ter uma sub-rede para um [equilibrador de carga virado para a internet](../../load-balancer/load-balancer-overview.md) e uma sub-rede separada para um [equilibrador de carga interno](../../load-balancer/load-balancer-overview.md). |
+| Criar uma rede virtual |$vnet = [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) -Nome "myVNet" -ResourceGroupName $myResourceGroup -Localização $location -AddressPrefix XX. X.X.X/XX -Subnet $subnet 1, $subnet 2 |
 | Teste para um nome de domínio único |[Test-AzDnsAvailability](/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Localização $location<BR><BR>Pode especificar um nome de domínio DNS para um [recurso IP público,](../../virtual-network/public-ip-addresses.md)que cria um mapeamento para domainname.location.cloudapp.azure.com para o endereço IP público nos servidores DNS geridos pelo Azure. O nome só pode conter letras, números e hífenes. O primeiro e último caracteres devem ser uma letra ou número e o nome de domínio deve ser único dentro da sua localização Azure. Se **true** for devolvido, o seu nome proposto é globalmente único. |
 | Crie um endereço IP público |$pip = [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) -Nome "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Localização $location -AllocationMethod Dynamic<BR><BR>O endereço IP público utiliza o nome de domínio que testou anteriormente e é utilizado pela configuração frontal do balançador de carga. |
 | Criar uma configuração IP frontend |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Nome "myFrontendIP" - PublicIpAddress $pip<BR><BR>A configuração frontend inclui o endereço IP público que criou anteriormente para o tráfego de rede de entrada. |
@@ -39,20 +39,20 @@ Algumas variáveis podem ser úteis para si se executar mais do que um dos coman
 | Criar uma regra de equilíbrio de carga |$lbRule = [New-AzLoadBalanceruleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Sonda $healthProbe -Protocolo Tcp -FrontendPort 80 -BackendPort 80<BR><BR>Contém regras que atribuem uma porta pública no balançador de carga a uma porta na piscina de endereços de backend. |
 | Criar uma regra NAT de entrada |$inboundNATRule = [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) -Name "myInboundRule1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>Contém regras que mapeam uma porta pública no equilibrador de carga para uma porta para uma máquina virtual específica na piscina de endereços de backend. |
 | Criar um balanceador de carga |$loadBalancer = [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) -ResourceGroupName $myResourceGroup -Name "myLoadBalancer" -Localização $location -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule -LoadBalancingRule $lbRule -BackendAddressPool $beAddressPool -Sonda $healthProbe |
-| Criar uma interface de rede |$nic1= [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) -ResourceGroupName $myResourceGroup -Nome "myNIC" -Localização $location -PrivateIpAddress XX. X.X.X -Sub-rede $subnet2 -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>Crie uma interface de rede utilizando o endereço IP público e a sub-rede de rede virtual que criou anteriormente. |
+| Criar uma interface de rede |$nic 1= [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) -ResourceGroupName $myResourceGroup -Nome "myNIC" -Localização $location -PrivateIpAddress XX. X.X.X -Sub-rede $subnet 2 -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>Crie uma interface de rede utilizando o endereço IP público e a sub-rede de rede virtual que criou anteriormente. |
 
 ## <a name="get-information-about-network-resources"></a>Obtenha informações sobre recursos de rede
 
 | Tarefa | Comando |
 | ---- | ------- |
 | Listar redes virtuais |[Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Lista todas as redes virtuais do grupo de recursos. |
-| Obtenha informações sobre uma rede virtual |Get-AzVirtualNetwork -Nome "myVNet" -ResourceGroupName $myResourceGroup |
+| Obtenha informações sobre uma rede virtual |Get-AzVirtualNetwork -Nome "myVNet" - Nome do Grupo de Recursos $myResourceGroup |
 | Listar sub-redes numa rede virtual |Get-AzVirtualNetwork -Nome "myVNet" -ResourceGroupName $myResourceGroup &#124; Selecione Sub-redes |
 | Obtenha informações sobre uma sub-rede |[Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) -Nome "mySubnet1" - VirtualNetwork $vnet<BR><BR>Obtém informações sobre a sub-rede na rede virtual especificada. O valor $vnet representa o objeto devolvido pela Get-AzVirtualNetwork. |
 | Lista de endereços IP |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) -ResourceGroupName $myResourceGroup<BR><BR>Lista os endereços IP públicos no grupo de recursos. |
 | Listar equilibradores de carga |[Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) -ResourceGroupName $myResourceGroup<BR><BR>Lista todos os equilibradores de carga do grupo de recursos. |
 | Listar interfaces de rede |[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) -ResourceGroupName $myResourceGroup<BR><BR>Lista todas as interfaces de rede do grupo de recursos. |
-| Obtenha informações sobre uma interface de rede |Get-AzNetworkInterface -Nome "myNIC" -ResourceGroupName $myResourceGroup<BR><BR>Obtém informações sobre uma interface de rede específica. |
+| Obtenha informações sobre uma interface de rede |Get-AzNetworkInterface -Nome "myNIC" - ResourceGroupName $myResourceGroup<BR><BR>Obtém informações sobre uma interface de rede específica. |
 | Obtenha a configuração IP de uma interface de rede |[Get-AzNetworkInterfaceIPConfig](/powershell/module/az.network/get-aznetworkinterfaceipconfig) -Nome "myNICIP" -NetworkInterface $nic<BR><BR>Obtém informações sobre a configuração IP da interface de rede especificada. O valor $nic representa o objeto devolvido pela Get-AzNetworkInterface. |
 
 ## <a name="manage-network-resources"></a>Gerir recursos de rede

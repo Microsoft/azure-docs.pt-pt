@@ -14,10 +14,10 @@ ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
 ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295330"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros do Ponto Final de Transmissão em Fluxo (Origem)
@@ -198,12 +198,12 @@ O servidor não consegue receber pedidos. Este erro pode ser causado por excesso
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Encoding error codes](/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
 - [Conceitos de Azure Media Services](concepts-overview.md)
 - [Quotas e limites](limits-quotas-constraints.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Exemplo: acesso ErrorCode e Mensagem da ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

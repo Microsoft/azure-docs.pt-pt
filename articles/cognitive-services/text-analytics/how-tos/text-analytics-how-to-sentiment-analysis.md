@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 08/25/2020
 ms.author: aahi
 ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933023"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
@@ -287,7 +287,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 + O pedido do POST é para um `/sentiment` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer app que aceite o JSON. Por exemplo, Excel e Power BI.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
 ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78250003"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Obter registos de contentor e eventos no Azure Container Instances
@@ -148,7 +148,7 @@ A saída inclui as propriedades centrais do seu recipiente, juntamente com event
   ...
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [resolver problemas de resolução de recipientes comuns e problemas de implantação](container-instances-troubleshooting.md) para instâncias de contentores Azure.
 
 Saiba como enviar dados de registo e evento para grupos de contentores para [registos do Monitor Azure](container-instances-log-analytics.md).

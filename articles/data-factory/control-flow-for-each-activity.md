@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417186"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade forEach na Azure Data Factory
@@ -72,12 +72,12 @@ As propriedades são descritas mais tarde neste artigo. A propriedade dos itens 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade para cada atividade. | String | Yes
-tipo | Deve ser definido para **ForEach** | String | Yes
-isSequential | Especifica se o laço deve ser executado sequencialmente ou em paralelo.  No máximo 20 iterações em loop podem ser executadas ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade ForEach a iterar sobre uma atividade de cópia com 10 conjuntos de dados de origem e pia diferentes com conjuntos de dados **isSequential** para Falso, todas as cópias são executadas de uma só vez. O padrão é falso. <br/><br/> Se "isSequential" estiver definido para Falso, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser usada com cuidado para evitar conflitos de escrita incorrendo. Para mais informações, consulte a secção [execução paralela.](#parallel-execution) | Booleano | Não. O padrão é falso.
-lotCount | Contagem de lotes a utilizar para controlar o número de execuções paralelas (quando o isequential é definido como falso). Este é o limite superior de concência, mas a atividade para cada atividade nem sempre será executada neste número | Inteiro (máximo 50) | Não. O padrão é 20.
-Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Yes
-Atividades | As atividades a executar. | Lista de Actividades | Yes
+name | Nome da atividade para cada atividade. | String | Sim
+tipo | Deve ser definido para **ForEach** | String | Sim
+isSequential | Especifica se o laço deve ser executado sequencialmente ou em paralelo.  No máximo 20 iterações em loop podem ser executadas ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade ForEach a iterar sobre uma atividade de cópia com 10 conjuntos de dados de origem e pia diferentes com conjuntos de dados **isSequential** para Falso, todas as cópias são executadas de uma só vez. O padrão é falso. <br/><br/> Se "isSequential" estiver definido para Falso, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser usada com cuidado para evitar conflitos de escrita incorrendo. Para mais informações, consulte a secção [execução paralela.](#parallel-execution) | Booleano | N.º O padrão é falso.
+lotCount | Contagem de lotes a utilizar para controlar o número de execuções paralelas (quando o isequential é definido como falso). Este é o limite superior de concência, mas a atividade para cada atividade nem sempre será executada neste número | Inteiro (máximo 50) | N.º O padrão é 20.
+Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Sim
+Atividades | As atividades a executar. | Lista de Actividades | Sim
 
 ## <a name="parallel-execution"></a>Execução paralela
 Se **o isequential** for definido como falso, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta regulação deve ser utilizada com cuidado. Se as iterações simultâneas estiverem a escrever para a mesma pasta, mas para diferentes ficheiros, esta abordagem está bem. Se as iterações simultâneas estiverem a escrever simultaneamente para o mesmo ficheiro, esta abordagem provavelmente causa um erro. 

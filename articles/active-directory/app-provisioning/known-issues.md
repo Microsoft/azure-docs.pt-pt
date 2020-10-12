@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.reviewer: arvinh
 ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052393"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
@@ -87,5 +87,5 @@ Ao definir o provisionamento `enabled = off` , ou bater no batente, o ciclo de p
 Quando um grupo estiver no âmbito e um membro estiver fora de alcance, o grupo será provisionado. O utilizador fora de alcance não será a provisionado. Se o membro voltar ao alcance, o serviço não detetará imediatamente a alteração. O reinício do provisionamento abordará a questão. Recomendamos reiniciar periodicamente o serviço para garantir que todos os utilizadores estão devidamente abastados.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Como funciona o aprovisionamento](how-provisioning-works.md)

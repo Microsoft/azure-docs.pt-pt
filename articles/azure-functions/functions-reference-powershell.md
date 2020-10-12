@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071164"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
@@ -128,7 +128,7 @@ Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -145,7 +145,7 @@ São também suportados os seguintes parâmetros comuns:
 
 Para mais informações, consulte [Os CommonParameters.](https://go.microsoft.com/fwlink/?LinkID=113216)
 
-#### <a name="push-outputbinding-example-http-responses"></a>Push-OutputDing exemplo: respostas HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding exemplo: RESPOSTAS HTTP
 
 Um gatilho HTTP devolve uma resposta utilizando uma ligação de saída denominada `response` . No exemplo seguinte, a vinculação de saída `response` tem o valor de "#1 de produção":
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputQuading exemplo: Ligação de saída de fila
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding exemplo: Encadernação de saída de fila
 
 `Push-OutputBinding` é utilizado para enviar dados para encadernações de saída, como uma [ligação de saída de armazenamento da Fila Azure](functions-bindings-storage-queue-output.md). No exemplo seguinte, a mensagem escrita para a fila tem um valor de "output #1":
 

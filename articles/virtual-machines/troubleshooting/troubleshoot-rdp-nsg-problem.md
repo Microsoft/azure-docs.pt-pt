@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77918177"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível ligar-se remotamente a um VM porque a porta RDP não está ativada no NSG
@@ -53,7 +53,7 @@ Para obter mais informações sobre os NSGs, consulte o [grupo de segurança da 
 > [!NOTE]
 > A porta RDP 3389 está exposta à Internet. Por isso, recomendamos que utilize esta porta apenas para ser recomendado para testes. Para ambientes de produção, recomendamos que utilize uma ligação VPN ou privada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se a porta RDP já estiver ativada no NSG, consulte [Troubleshoot um erro geral de RDP em Azure VM](./troubleshoot-rdp-general-error.md).
 

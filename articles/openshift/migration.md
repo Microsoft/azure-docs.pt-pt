@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migração, aro, openshift, chapéu vermelho
 ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469750"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrar do Azure Red Hat OpenShift 3.11 para Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ Neste artigo, vamos demonstrar como migrar de um aglomerado Azure Red Hat OpenSh
 > [!NOTE]
 > As ferramentas de migração OpenShift do chapéu vermelho, tais como a Ferramenta de Assistência à Migração do Plano de Controlo e a Ferramenta de Migração da Aplicação de Cluster (CAM) não podem ser utilizadas com clusters Azure Red Hat OpenShift 3.11.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster Azure Red Hat OpenShift 3.11.
 
@@ -77,7 +77,7 @@ Para que os utilizadores interajam com o Azure Red Hat OpenShift, devem primeiro
 
 Quando um cluster Azure Red Hat OpenShift 4 é criado, é criado um utilizador administrativo temporário. [Conecte-se ao seu cluster,](tutorial-connect-cluster.md)adicione utilizadores e grupos e [configufique as permissões apropriadas](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) para ambos.
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 
 O Azure Red Hat OpenShift 4 utiliza alguns operadores diferentes para configurar a rede no seu cluster: [Cluster Network Operator,](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator) [DNS Operator](https://docs.openshift.com/aro/4/networking/dns-operator.html), e o Operador de [Entrada](https://docs.openshift.com/aro/4/networking/ingress-operator.html). Para obter mais informações sobre a criação de redes num cluster Azure Red Hat OpenShift 4, consulte o [Diagrama de Rede](concepts-networking.md) e [a Rede de Compreensão](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
@@ -126,5 +126,5 @@ az openshift delete --name $CLUSTER_NAME
                     [--subscription]
                     [--yes]
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Confira [aqui](https://docs.openshift.com/aro/4/welcome/index.html)a documentação Azure Red Hat OpenShift fornecida pela Red Hat .

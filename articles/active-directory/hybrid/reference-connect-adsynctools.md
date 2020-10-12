@@ -12,10 +12,10 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070688"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell Reference
@@ -212,7 +212,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="export-adsynctoolsconsistencyguidmigration"></a>Exportação-ADSyncToolsConsistencyGuidMigration
+## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Relatório de coerência de exportação
@@ -225,7 +225,7 @@ Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipal
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Gera um relatório Da ConsistênciaGuid baseado num ficheiro CSV de importação da Import-ADSyncToolsImmutableIdMigration
+Gera um relatório Da ConsistênciaGuid baseado num ficheiro CSV de importação de Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -554,7 +554,7 @@ Consultas de função AAD Connect Run History e exporta todos os utilizadores qu
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "Insira o seu caminho de ficheiro de registo com o nome do ficheiro" \<Source_Path\> #" "$outputPath = Read-Host -Prompt "Insira o seu caminho de ficheiro com nome de ficheiro" \<Out_Path\> #"
+$sourcePath = Read-Host -Prompt "Insira o seu caminho de ficheiro de registo com o nome do ficheiro" \<Source_Path\> #" $outputPath = Read-Host -Prompt "Insira o seu caminho de ficheiro com nome de ficheiro" \<Out_Path\> #"
  
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
@@ -599,7 +599,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="import-adsynctoolsimmutableidmigration"></a>Importação-ADSyncToolsImmutableIdMigration
+## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Import ImutávelID da AAD
@@ -663,7 +663,7 @@ Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable,
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
 
-## <a name="invoke-adsyncdatabasequery"></a>Invocar adSyncDatabaseQuery
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>SINOPSE
 {{Preencha a sinopse}}
@@ -754,7 +754,7 @@ Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Users,OU=Corp,DC=Contoso,DC=
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 
-Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computador -BackupOnly $false
+Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
 
 ### <a name="parameters"></a>PARÂMETROS
 
@@ -807,7 +807,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Reparação-ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SINOPSE
 Breve descrição
@@ -873,7 +873,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="restore-adsynctoolsexpiredcertificates"></a>Restauração-ADSyncToolsExpiredCertificates
+## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SINOPSE
 (A FAZER) Restaura atributo AD UserCertificate de um ficheiro de certificado
@@ -1233,7 +1233,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Atualização-ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Atualiza os utilizadores com o novo ConsistencyGuid (ImmutableId)

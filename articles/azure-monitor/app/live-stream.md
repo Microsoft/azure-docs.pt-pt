@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973590"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
@@ -180,7 +180,7 @@ No ficheiro applicationinsights.config, adicione o AuthenticationApiKey ao Quick
 </Add>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>Núcleo de ASP.NET
 
 Para ASP.NET aplicações [Core,](./asp-net-core.md) siga as instruções abaixo.
 
@@ -238,7 +238,7 @@ No entanto, se reconhecer e confiar em todos os servidores conectados, pode expe
 
 ## <a name="supported-features-table"></a>Tabela de funcionalidades suportadas
 
-| Linguagem                         | Métricas Básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de amostra    | CPU dividido por processo |
+| Idioma                         | Métricas Básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de amostra    | CPU dividido por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET Framework                   | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+)  |
 | .NET Core (target=.NET Framework)| Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+)  |

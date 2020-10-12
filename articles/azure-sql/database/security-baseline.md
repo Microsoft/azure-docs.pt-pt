@@ -8,10 +8,10 @@ ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885203"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Linha de base de segurança Azure para Azure SQL Base de dados & SQL Caso gerido

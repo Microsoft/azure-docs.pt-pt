@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617082"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
@@ -93,10 +93,10 @@ Consulte a [resolução de problemas DA SAP HANA:](https://help.sap.com/saphelp_
 Consulte a [SAP Note #2081065 – Resolução de problemas da Rede SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e execute os passos de resolução de problemas da rede nesta Nota SAP.
 
 1. Analisando o tempo de ida e volta entre o servidor e o cliente.
-  R. Executar o script SQL [_HANA \_ Network \_ Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Executar o script SQL [_HANA \_ Network \_ Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analise a comunicação internade.
-  R. Executar serviços de rede [_HANA \_ script \_ SQL_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Executar serviços de rede [_HANA \_ script \_ SQL_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Executar o comando Linux **seconfig** (a saída mostra se estão a ocorrer perdas de pacotes).
 4. Executar **tcpdump**comando Linux .

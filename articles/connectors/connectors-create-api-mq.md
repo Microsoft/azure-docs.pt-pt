@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
 ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609508"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ligar a um servidor IBM MQ a partir do Azure Logic Apps
@@ -112,10 +112,10 @@ Quando a sua aplicação lógica tentar ligar-se ao servidor MQ no local, poder�
 
    | Propriedade | Descrição |
    |----------|-------------|
-   | **Filas** | Se diferente da fila especificada na ligação, especifique essa fila. |
+   | **Fila** | Se diferente da fila especificada na ligação, especifique essa fila. |
    | **MessageId**, **CorrelationId,** **GroupId,** e outras propriedades | Navegue por uma mensagem baseada nas diferentes propriedades de mensagens MQ |
    | **IncluirInfo** | Para incluir informações adicionais de mensagens na saída, selecione **true**. Para omitir informações adicionais de mensagens na saída, selecione **falso**. |
-   | **Tempo Limite** | Insira um valor para determinar quanto tempo esperar que uma mensagem chegue numa fila vazia. Se nada for introduzido, a primeira mensagem na fila é recuperada, e não há tempo gasto à espera que uma mensagem apareça. |
+   | **Intervalo de tempo** | Insira um valor para determinar quanto tempo esperar que uma mensagem chegue numa fila vazia. Se nada for introduzido, a primeira mensagem na fila é recuperada, e não há tempo gasto à espera que uma mensagem apareça. |
    |||
 
    Por exemplo:
@@ -187,6 +187,6 @@ A ação **'Receber mensagens'** tem as mesmas entradas e saídas que a ação d
 
 Para obter detalhes técnicos sobre ações e limites, descritos pela descrição do Conector Swagger, consulte a página de [referência](/connectors/mq/)do conector .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77594316"
 ---
 # <a name="about-service-meshes"></a>Sobre malhas de serviço
@@ -92,7 +92,7 @@ Considere as seguintes áreas e quais delas estão mais alinhadas com as suas ne
 - **Segurança** - auth, identidade, gestão e rotação de certificados, CA externo pluggable
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A documentação que se segue fornece mais informações sobre malhas de serviço que pode experimentar no Serviço Azure Kubernetes (AKS):
 

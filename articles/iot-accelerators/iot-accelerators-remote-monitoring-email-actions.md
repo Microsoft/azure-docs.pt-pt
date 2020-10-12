@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168362"
 ---
 # <a name="add-an-email-action"></a>Adicione uma ação de e-mail
@@ -81,7 +81,7 @@ Siga estes passos para adicionar uma ação de e-mail quando criar uma nova regr
 
 A sua regra com uma ação por e-mail está agora ativada. Cada vez que a ação é desencadeada, um novo e-mail é enviado aos destinatários.
 
-## <a name="sign-in-to-outlook"></a>Inscreva-se no Outlook<a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Inscreva-se no Outlook <a name="outlook"></a>
 
 A primeira vez que ativar uma ação de e-mail no seu acelerador de solução, tem de assinar no Outlook. Esta ação configura a conta de e-mail que envia as notificações por e-mail.
 
@@ -138,7 +138,7 @@ Os seguintes passos ajudam-no a iniciar sômsid e configurar ações de e-mail:
 
    ![Sucesso do outlook em](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## <a name="customize-the-email-html"></a>Personalize o e-mail HTML<a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Personalize o e-mail HTML <a name="htmledit"></a>
 
 Fora da caixa, o acelerador de solução de monitorização remota fornece um modelo html básico para e-mails de ação. O modelo de e-mail utiliza valores a partir das definições de ação de e-mail. Aqui está um e-mail de exemplo:
 
@@ -156,9 +156,9 @@ Os passos a seguir mostram-lhe como editar o modelo de e-mail HTML. Por exemplo,
 
 1. Pode adicionar ou remover quaisquer parâmetros neste modelo para personalizar a mensagem. Também pode adicionar, remover ou substituir chamadas conforme necessário:
 
-    Por exemplo, no código .NET:`emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
+    Por exemplo, no código .NET:  `emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
 
-    Por exemplo, no código Java:`this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
+    Por exemplo, no código Java:  `this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
 1. Os parâmetros do modelo assumem a forma de `${...}` . Para eliminar um parâmetro, elimine a linha necessária. Para adicionar um parâmetro, adicione uma linha com o valor a inserir.
 
@@ -170,7 +170,7 @@ O acelerador de solução de monitorização remota utiliza o Outlook para envia
 
 ![Cálculo médio](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este guia mostrou-lhe como adicionar uma ação de e-mail a uma regra nova ou existente dentro de uma solução de Monitorização Remota. O guia também mostrou e como editar o HTML que define o formato de mensagem.
 

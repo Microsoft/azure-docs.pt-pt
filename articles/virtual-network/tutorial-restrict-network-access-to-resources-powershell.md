@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 92a5ce539cdd61feb57722756ec8722916f346de
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072388"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restringir o acesso à rede aos recursos PaaS com pontos finais de serviço de rede virtual usando o PowerShell
@@ -205,7 +205,7 @@ $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 
 Crie uma partilha de ficheiros com [o New-AzStorageShare:](/powershell/module/az.storage/new-azstorageshare)
 
-$share = New-AzStorageParte my-file-share -Context $storageContext
+$share = New-AzStorageShare minha partilha de ficheiros -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Negar todo o acesso à rede a uma conta de armazenamento
 

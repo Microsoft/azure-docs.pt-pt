@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,19 +9,19 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72168391"
 ---
 >[!NOTE]
->Ao trabalhar com as políticas padrão, Azure pode agir como iniciador e responder durante uma configuração do túnel IPsec. Não há apoio para o Azure apenas como resposta.
+>Ao trabalhar com as políticas padrão, o Azure pode agir como iniciador e responder durante uma configuração do túnel IPsec. Não há apoio para o Azure como um único socorrista.
 >
 
 ### <a name="initiator"></a>Iniciador
 
-As seguintes secções listam as combinações políticas apoiadas quando Azure é o iniciador do túnel.
+As secções seguintes listam as combinações políticas apoiadas quando Azure é o iniciador do túnel.
 
 **Fase-1**
 
@@ -30,16 +30,16 @@ As seguintes secções listam as combinações políticas apoiadas quando Azure 
 * AES_128, SHA1, DH_GROUP_2
 * AES_128, SHA_256, DH_GROUP_2
 
-**Fase 2**
+**Fase-2**
 
 * GCM_AES_256, GCM_AES_256, PFS_NONE
 * AES_256, SHA_1, PFS_NONE
 * AES_256, SHA_256, PFS_NONE
 * AES_128, SHA_1, PFS_NONE
 
-### <a name="responder"></a>Resposta
+### <a name="responder"></a>Responder
 
-As seguintes secções listam as combinações políticas apoiadas quando Azure é o socorrista do túnel.
+As secções seguintes listam as combinações de políticas apoiadas quando Azure é o socorrista do túnel.
 
 **Fase-1**
 
@@ -48,7 +48,7 @@ As seguintes secções listam as combinações políticas apoiadas quando Azure 
 * AES_128, SHA1, DH_GROUP_2
 * AES_128, SHA_256, DH_GROUP_2
 
-**Fase 2**
+**Fase-2**
 
 * GCM_AES_256, GCM_AES_256, PFS_NONE
 * AES_256, SHA_1, PFS_NONE

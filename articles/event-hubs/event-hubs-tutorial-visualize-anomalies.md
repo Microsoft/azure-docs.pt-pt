@@ -4,10 +4,10 @@ description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real e
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934060"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
@@ -16,7 +16,7 @@ Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para ver
 
 Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, você leu o fluxo de dados em tempo real com a Azure Stream Analytics, que separa as transações válidas das transações inválidas, e depois usa o Power BI para identificar visualmente as transações que são marcadas como inválidas.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Criar um hub de eventos

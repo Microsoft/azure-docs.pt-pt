@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973100"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
@@ -36,15 +36,15 @@ A sua nova aplicação de função está pronta a ser utilizada. Em seguida, cri
 
 1. Na sua aplicação de funções, selecione **Funções**e, em seguida, selecione **+ Adicionar** 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Adicione uma função no portal Azure." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 1. Selecione o modelo **de gatilho do temporizador.** 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Selecione o gatilho do temporizador no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 1. Configure o novo gatilho com as definições especificadas na tabela abaixo da imagem e, em seguida, selecione **Criar Função**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="A screenshot mostra a página Nova Função com o modelo de gatilho do temporizador selecionado." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
     
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
@@ -55,11 +55,11 @@ A sua nova aplicação de função está pronta a ser utilizada. Em seguida, cri
 
 1. Na sua função, selecione **Código + Teste** e expanda os registos.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Teste o gatilho do temporizador no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 1. Verifique a execução visualizando as informações escritas nos registos.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Veja o gatilho do temporizador no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 Agora, altere a agenda da função, para que seja executada a cada hora, em vez de cada minuto.
 
@@ -69,11 +69,11 @@ Agora, altere a agenda da função, para que seja executada a cada hora, em vez 
 
 1. Selecione **Timer (myTimer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Atualize o horário no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 1. Atualize o valor **da Agenda** para `0 0 */1 * * *` , e, em seguida, selecione **Guardar**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Agenda de temporizador atualizado de funções no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Aplicação Function App criada com êxito." border="true":::
 
 Agora tem uma função que funciona uma vez a cada hora, à hora.
 

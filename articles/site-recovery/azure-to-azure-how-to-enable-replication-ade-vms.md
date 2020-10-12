@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135786"
 ---
-# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais ativadas por encriptação do disco Azure para outra região do Azure
+# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais com o Azure Disk Encryption ativado para outra região do Azure
 
 Este artigo descreve como replicar VMs Azure com Encriptação do Disco Azure (ADE) ativada, de uma região de Azure para outra.
 
@@ -22,7 +22,7 @@ Este artigo descreve como replicar VMs Azure com Encriptação do Disco Azure (A
 > A Recuperação do Site suporta atualmente o ADE, com e sem Diretório Ativo Azure (AAD) para VMs que executam sistemas operativos Windows. Para os sistemas operativos Linux, só suportamos ADE sem AAD. Além disso, para as máquinas que executam ADE 1.1 (sem AAD), os VMs devem estar a utilizar discos geridos. VMs com discos não geridos não são suportados. Se mudar de ADE 0.1 (com AAD) para 1.1, tem de desativar a replicação e ativar a replicação para um VM depois de ativar 1.1.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Permissões necessárias do utilizador
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Permissões necessárias do utilizador
 A Recuperação do Site requer que o utilizador tenha permissões para criar o cofre chave na região alvo e copiar chaves do cofre chave da região de origem para o cofre chave da região alvo.
 
 Para permitir a replicação de VMs ativados por encriptação de disco a partir do portal Azure, o utilizador precisa das seguintes permissões tanto na **região de origem** como nos cofres-chave da região alvo.
@@ -122,7 +122,7 @@ Siga estes passos para modificar as definições de alvo padrão de recuperaçã
 4. Depois de os VMs estarem ativados para replicação, pode verificar o estado de saúde dos VMs em **itens replicados**.
 
 >[!NOTE]
->Durante a replicação inicial, o estado pode demorar algum tempo a refrescar-se, sem progressos aparentes. Clique **em Refresh** para obter o estado mais recente.
+>Durante a replicação inicial, o estado pode demorar algum tempo a refrescar-se, sem progressos aparentes. Clique **em Refresh**  para obter o estado mais recente.
 
 ## <a name="update-target-vm-encryption-settings"></a>Atualizar as definições de encriptação VM alvo
 Nos seguintes cenários, será necessário atualizar as definições de encriptação VM alvo:
@@ -155,6 +155,6 @@ Permissão necessária no [cofre da chave alvo](#required-user-permissions)
 
 **Como corrigir:** Vá a **casa**  >  **Keyvaults**  >  **ContosotargetKeyvault**As políticas de  >  **acesso** e adicione as permissões apropriadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre a execução de um teste falhado.

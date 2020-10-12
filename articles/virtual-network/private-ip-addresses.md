@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172376"
 ---
-# <a name="private-ip-addresses"></a>Endereços IP Privados
+# <a name="private-ip-addresses"></a>Endereços IP privados
 Os IPs privados permitem a comunicação entre os recursos em Azure. 
 
 Os recursos podem ser:
@@ -98,12 +98,12 @@ Os possíveis métodos de atribuição que podem ser utilizados também são apr
 | Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
-| Load balancer |Configuração de front-end |Sim |Sim |
+| Balanceador de carga |Configuração de front-end |Sim |Sim |
 | Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
 ## <a name="limits"></a>Limites
 Os limites para a endereçamento de IP encontram-se no conjunto completo de [limites para a ligação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) em rede em Azure. Os limites são por região e por subscrição. [Suporte de contato](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites de incumprimento até aos limites máximos baseados nas necessidades do seu negócio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais [sobre endereços IP públicos em Azure](public-ip-addresses.md)
 * [Deploy a VM with a static private IP address using the Azure portal (Implementar uma VM com um endereço IP privado estático através do portal do Azure)](virtual-networks-static-private-ip-arm-pportal.md)
